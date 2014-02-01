@@ -6,7 +6,7 @@ import MB = Modelica.Mechanics.MultiBody;
 
   annotation (
   preferredView="info",
-  version="1.2",
+  version="1.2.0",
   versionDate="2014-01-30",
   uses(Modelica(version="3.2"), Actuator(version="0.3.0")),
                                  Documentation( revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
