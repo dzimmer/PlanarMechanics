@@ -18,7 +18,7 @@ import MB = Modelica.Mechanics.MultiBody;
 <li><a href=\"modelica://PlanarMechanics.Examples\">PlanarMechanics.Examples</a> contains examples that demonstrate the usage of the library.</li>
 </ul></p>
 <p><h4>Licensed by DLR e.V under the Modelica License 2</h4></p>
-<p>Copyright &copy; 2010-2014, Deutsches Zentrum f�r Luft- und Raumfahrt e.V. </p>
+<p>Copyright &copy; 2010-2014, Deutsches Zentrum fuer Luft- und Raumfahrt e.V. </p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i> </p>
 </html>"),
     Icon(coordinateSystem(extent={{-120,-100},{80,100}}),
