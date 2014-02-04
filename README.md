@@ -17,7 +17,11 @@ The PlanarMechanics library is an open-source Modelica library for the modelling
 
 ## Current release
 
+<<<<<<< HEAD
 Download  [PlanarMechanics Library 1.2.0 (2014-02-01)](../../archive/release.zip)
+=======
+Download  [PlanarMechanics Library 1.2.0 (2014-02-03)](../../archive/v1.2.0.zip)
+>>>>>>> f8da87c2a6e99e183c326605ada0ebecdebb95ed
 
 ## License
 
