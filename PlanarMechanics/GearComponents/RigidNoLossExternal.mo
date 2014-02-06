@@ -118,8 +118,9 @@ protected
 
   constant SI.Acceleration unitAcceleration=1;
   constant SI.Force unitForce=1;
-  SI.Angle phi_c_start;
-
+  parameter SI.Angle phi_c_start(fixed=false);
+initial equation
+  phi_c_start = phi_gear;
 equation
   lossPower = 0;
 
@@ -133,9 +134,6 @@ equation
   Tooth_b = integer(Tooth_a/r_a*r_b);
 // ********* General set up **************
 // set up the total traveled angle
-  when initial() then
-    phi_c_start = phi_gear;
-  end when;
   phi_c_total = phi_gear - phi_c_start;
 
 // Derivatives
