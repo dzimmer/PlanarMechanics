@@ -6,13 +6,13 @@ A free Modelica library for planar mechanical multi-body systems
 
 ## Library description
 
-The PlanarMechanics library is an open-source Modelica library for the modelling of planar mechanical mulitbody systems. Its main components are:
-- parts such as mass, rigid rods, fixation.
+The PlanarMechanics library is an open-source Modelica library for the modelling of planar mechanical multi-body systems. Its main components are:
+- parts such as mass, rigid rods, fixation
 - joints such as prismatic joints or revolute joints
 - force elements such as spring and dampers
 - sensors and sources
 - components for vehicles: wheel models
-- componntents for gearboxes
+- components for gearboxes
 - many examples
 
 ## Current release
