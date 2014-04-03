@@ -1,5 +1,7 @@
 within PlanarMechanics;
 package VehicleComponents 
+extends Modelica.Icons.Package;
+
 
 
 annotation (Documentation(info="<html>

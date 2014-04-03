@@ -71,12 +71,12 @@ equation
           lineColor={0,0,0},
           textString="r"),
         Text(
-          visible = (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve),
+          visible=  (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve),
           extent={{15,-67},{146,-92}},
           lineColor={95,95,95},
           textString="resolve"),
         Line(
-          visible = (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve),
+          visible=  (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve),
           points={{0,-96},{0,-96},{0,-70},{0,-70}},
           color={0,0,0},
           smooth=Smooth.None,

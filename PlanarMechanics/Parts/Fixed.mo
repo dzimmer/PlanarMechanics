@@ -1,5 +1,6 @@
 within PlanarMechanics.Parts;
 model Fixed "FixedPosition"
+
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
         iconTransformation(extent={{-120,-20},{-80,20}})));

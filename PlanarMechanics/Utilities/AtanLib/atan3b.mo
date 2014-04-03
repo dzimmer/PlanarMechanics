@@ -85,7 +85,7 @@ algorithm
           smooth=Smooth.None)}),
     Documentation(revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
-</html>",                                                                                                    info="<HTML>
+</html>",                                                                                                  info="<HTML>
 <p>
 This function returns y = <b>atan3</b>(u1,u2,y0) such that
 <b>tan</b>(y) = u1/u2 and
