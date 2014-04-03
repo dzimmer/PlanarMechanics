@@ -52,8 +52,8 @@ protected
     specularCoefficient=specularCoefficient,
     R=MB.Frames.planarRotation({0, 0, 1},phi,der(phi)),
     r={frame_b.x,frame_b.y,zPosition},
-    r_tail=f_in_m,
-    r_head=-f_in_m) if planarWorld.enableAnimation and animation;
+    r_tail=-f_in_m,
+    r_head=f_in_m) if planarWorld.enableAnimation and animation;
 
  PlanarMechanics.Visualizers.Advanced.DoubleArrow doubleArrow(
     diameter=diameter,
