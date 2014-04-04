@@ -91,7 +91,7 @@ equation
           extent={{-124,-76},{2,-104}},
           lineColor={0,0,0},
           textString="r_out")}),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>
 The input vector \"Real r_in[3]\" is assumed to be a relative kinematic quantity
 between frame_a and frame_b

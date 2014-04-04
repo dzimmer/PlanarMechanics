@@ -99,6 +99,6 @@ equation
     Documentation(info="<html>
 <p>The differential gear is a 1D-rotational component. It is a variant of a planetary gear and can be used to distribute the torque equally among the wheels on one axis.</p>
 </html>", revisions="<html>
-<p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
 </html>"));
 end DifferentialGear;

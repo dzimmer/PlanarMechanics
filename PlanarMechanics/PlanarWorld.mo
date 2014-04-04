@@ -76,6 +76,12 @@ model PlanarWorld
   parameter Real defaultSpecularCoefficient(min=0) = 0.7
     "Default reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Defaults"));
+  parameter Real defaultN_to_m(unit="N/m", min=0) = 1000
+    "Default scaling of force arrows (length = force/defaultN_to_m)"
+    annotation (Dialog(tab="Defaults"));
+  parameter Real defaultNm_to_m(unit="N.m/m", min=0) = 1000
+    "Default scaling of torque arrows (length = torque/defaultNm_to_m)"
+    annotation (Dialog(tab="Defaults"));
 protected
   parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
   parameter Integer ndim2=if enableAnimation and animateWorld and
@@ -274,7 +280,9 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions=
+          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",
+                                                                                                    info="<html>
 <p>Model <b>PlanarWorld</b> defines all possible general parameters to make parameterization of models much more conveniant. It has the following functionalites.</p>
 <p><ol>
 <li>It defines the global coordinate system fixed in ground and show x, y, z axises in animation if wanted. </li>

@@ -122,7 +122,7 @@ equation
           color={95,95,95},
           smooth=Smooth.None,
           pattern=LinePattern.Dot)}),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>The absolute acceleration vector of the origin of frame_a is determined and provided at the output signal connector <b>a</b>. </p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the velocity vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>

@@ -29,7 +29,7 @@ equation
     "Connector frame_b of cut-force/-torque sensor object is not connected");
 
   annotation (
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="
 <HTML>
 <p>
 This is a base class for 3-dim. mechanical components with two frames

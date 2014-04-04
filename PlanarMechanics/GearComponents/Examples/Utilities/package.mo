@@ -2,7 +2,6 @@ within PlanarMechanics.GearComponents.Examples;
 package Utilities "Package with example models"
 
 
-
 annotation (Icon(graphics={              Rectangle(
           extent={{-80,100},{100,-80}},
           lineColor={0,0,0},

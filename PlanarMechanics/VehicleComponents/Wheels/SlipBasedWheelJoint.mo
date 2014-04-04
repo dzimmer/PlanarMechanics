@@ -199,6 +199,6 @@ equation
 <p>In addition there is an input for a dynamic component of the normal load.</p>
 <p>For examples of usage see the local Examples package.</p>
 </html>", revisions="<html>
-<p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
 </html>"));
 end SlipBasedWheelJoint;

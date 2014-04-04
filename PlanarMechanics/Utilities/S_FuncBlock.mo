@@ -28,6 +28,6 @@ equation
               {-2,22},{10,40},{22,52},{32,60},{42,64},{56,68},{70,68}},
                                                       color={0,0,0})}),
       Documentation(revisions="<html>
-<p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
 </html>"));
 end S_FuncBlock;

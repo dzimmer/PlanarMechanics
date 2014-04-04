@@ -73,7 +73,7 @@ equation
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
-  annotation (Diagram(graphics), Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+  annotation (Diagram(graphics), Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p><h4><font color=\"#008000\">This is an ideal wheel. </font></h4></p>
 <p>It introduces one non-holonomic constraint. Difficult for index-reduction.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_1.png\"/></p>
