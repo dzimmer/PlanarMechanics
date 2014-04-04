@@ -280,8 +280,9 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
-</html>",                                                                                                    info="<html>
+    Documentation(revisions=
+          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",
+                                                                                                    info="<html>
 <p>Model <b>PlanarWorld</b> defines all possible general parameters to make parameterization of models much more conveniant. It has the following functionalites.</p>
 <p><ol>
 <li>It defines the global coordinate system fixed in ground and show x, y, z axises in animation if wanted. </li>

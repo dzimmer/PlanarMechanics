@@ -57,7 +57,7 @@ equation
   annotation (Diagram(graphics),
     experiment(StopTime=4.5),
     __Dymola_experimentSetupOutput,
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p><h4><font color=\"#008000\">A pendulum mounted on an ideal rolling wheel.</font></h4></p>
 <p>This model contains non-holonomic constriants.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/WheelBasedCranCrab_1.png\"/></p>

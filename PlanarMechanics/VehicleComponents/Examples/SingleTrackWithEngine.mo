@@ -102,7 +102,7 @@ equation
                       graphics),
     experiment(StopTime=6),
     __Dymola_experimentSetupOutput,
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>An ideal rolling single track model.</p>
 <p><br/>There is dynamic state selection applied. It might be avoided by picking Rear.v_long as state.</p>
 <p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_1.png\"/></p>

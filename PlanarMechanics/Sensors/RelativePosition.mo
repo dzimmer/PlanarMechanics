@@ -71,7 +71,7 @@ equation
           extent={{18,-80},{102,-110}},
           lineColor={0,0,0},
           textString="r_rel")}),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>The relative position and angle vector<b> [x,y,phi]</b> between the origins of frame_a and frame_b are determined and provided at the output signal connector <b>r_rel</b>. </p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the position vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>

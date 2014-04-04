@@ -94,7 +94,7 @@ equation
           textString="%name",
           lineColor={0,0,0})}),
               Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>The <b>3</b> signals of the <b>force</b> connector contain force and torque. The first and second signal are interpreted as the x- and y-coordinates of a <b>force</b> and the third is torque, acting between two frame connectors to which frame_a and frame_b are attached respectively. Note that torque is a scalar quantity, which is exerted perpendicular to the x-y plane.</p>
 <p>Parameter <code><b>resolveInFrame</b> defines in which frame the input force shall be resolved.</code></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>

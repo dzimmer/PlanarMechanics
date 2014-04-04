@@ -96,7 +96,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   annotation (Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p><h4><font color=\"#008000\">A Piston Engine</font></h4></p>
 <p>This example contains an algebraic loop. A non-linear system must be solved for initialization and at simulation.</p>
 <p>In this version, the state are manually selected.</p>

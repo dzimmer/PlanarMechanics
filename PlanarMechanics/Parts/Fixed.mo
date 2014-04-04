@@ -40,7 +40,7 @@ equation
           points={{0,-40},{80,-80}},
           color={0,0,0},
           smooth=Smooth.None)}), Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>This component defines the x, y-position and angle of the frame connectors, to which this component is attached to.</p>
 </html>"));
 end Fixed;
