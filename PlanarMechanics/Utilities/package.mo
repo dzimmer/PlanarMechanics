@@ -3,10 +3,6 @@ package Utilities
   extends Modelica.Icons.UtilitiesPackage;
 
 
-
-
-
-
   annotation (Icon(graphics),   Documentation(info="<html>
 <p>This package contains auxiliary functions and blocks for internal usage.</p>
 </html>", revisions="<html>

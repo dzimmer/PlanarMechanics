@@ -3,7 +3,6 @@ package VehicleComponents
 extends Modelica.Icons.Package;
 
 
-
 annotation (Documentation(info="<html>
 <p>This package contains elements useful for modeling vehicles that roll on the xy-plane.</p>
 <p>Essentially these are different wheel models and a differential gear.</p>

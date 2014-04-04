@@ -3,26 +3,15 @@ package PlanarMechanics "A planar mechanical library for didactical purposes"
 import SI = Modelica.SIunits;
 import MB = Modelica.Mechanics.MultiBody;
 
+
 extends Modelica.Icons.Package;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   annotation (
   preferredView="info",
   version="1.2.0",
   versionDate="2014-01-30",
-  uses(Modelica(version="3.2")), Documentation( revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
+  uses(Modelica(version="3.2")), Documentation( revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
 </html>", info="<html>
 <p>Library <b>PlanarMechanics</b> is a <b>free</b> Modelica package providing 2-dimentional mechanical components to model mechanical systems, such as robots, mechanisms, vehicles, where MultiBody library is unneccesarily complex.</p>
 <p>In order to know how the library works, first have a look at:</p>

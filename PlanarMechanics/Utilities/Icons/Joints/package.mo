@@ -2,6 +2,7 @@ within PlanarMechanics.Utilities.Icons;
 package Joints 
 extends Modelica.Icons.Package;
 
+
   annotation (Icon(graphics={
         Ellipse(
           extent={{-4,10},{42,-36}},

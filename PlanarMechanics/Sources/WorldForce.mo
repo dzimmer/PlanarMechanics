@@ -7,7 +7,7 @@ model WorldForce
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB
     resolveInFrame=
   Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b
-    "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+    "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_b, 3: frame_resolve)";
  parameter Boolean animation=true "= true, if animation shall be enabled";
 
    parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
@@ -97,5 +97,6 @@ equation
 <p>The <b>3</b> signals of the <b>force</b> connector contain force and torque. The first and second signal are interpreted as the x- and y-coordinates of a <b>force</b> and the third is torque, acting at the frame connector to which <b>frame_b</b> of this component is attached. Note that torque is a scalar quantity, which is exerted perpendicular to the x-y plane.</p>
 <p>An example of this model is given in the following figure:</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/WorldForce.png\"/></p>
+<p>The parameter ResolveinFrame defines in which frame the input force shall be resolved. </p>
 </html>"));
 end WorldForce;
