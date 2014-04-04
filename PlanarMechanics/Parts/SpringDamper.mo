@@ -205,7 +205,7 @@ equation
   frame_a.fy = -f_y;
   frame_b.fy = f_y;
   annotation (
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>A <i>linear translational spring-damper</i>. x- and y direction stiffness and damping can be parameterized.</p>
 </html>"),
     Icon(coordinateSystem(

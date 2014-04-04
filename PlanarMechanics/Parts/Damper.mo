@@ -128,7 +128,7 @@ annotation(Dialog(group="Animation"),
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid)}),
                                       Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>This component is a <b>linear damper</b>, which acts as a line force between frame_a and frame_b. A <b>force f</b> is exerted on the origin of frame_b and with opposite sign on the origin of frame_a along the line from the origin of frame_a to the origin of frame_b according to the equation: </p>
 <p><code>f = d*<b>der</b>(s);</code> </p>
 <p>where &QUOT;d&QUOT; is the damping constant, &QUOT;s&QUOT; is the distance between the origin of frame_a and origin of frame_b, and &QUOT;der(s)&QUOT; is the time derivative of &QUOT;s&QUOT;.</p>

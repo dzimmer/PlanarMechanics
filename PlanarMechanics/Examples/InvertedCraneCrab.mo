@@ -108,7 +108,7 @@ equation
       smooth=Smooth.None));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}),
-                      graphics), Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+                      graphics), Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p><h4><font color=\"#008000\">An inverted model of a pendulum. </font></h4></p>
 <p><br/>The trajectory is stipulated, the force is being measured.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/InvertedCraneCrab_1.png\"/></p>

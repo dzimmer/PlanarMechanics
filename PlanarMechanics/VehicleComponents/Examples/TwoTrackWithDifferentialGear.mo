@@ -295,7 +295,7 @@ equation
                       graphics),
     experiment(StopTime=10),
     __Dymola_experimentSetupOutput,
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>Two track model of a car.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_2.png\"/></p>
