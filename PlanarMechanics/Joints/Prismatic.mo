@@ -17,14 +17,14 @@ model Prismatic "A prismatic joint"
   final parameter SI.Length l = sqrt(r*r) "lengt of r";
   final parameter SI.Distance e[2]= r/l "normalized r";
   SI.Position s(final stateSelect = stateSelect, start = 0)
-    "Elongation of the joint";
+    "Elongation of the joint" annotation(Dialog(group="Initialization", showStartAttribute=true));
   Real e0[2] "direction of the prismatic rod resolved wrt.inertial frame";
   SI.Position r0[2]
     "translation vector of the prismatic rod resolved wrt.inertial frame";
   Real R[2,2] "Rotation Matrix";
   SI.Velocity v(final stateSelect = stateSelect, start = 0)
-    "velocity of elongation";
-  SI.Acceleration a(start = 0) "acceleration of elongation"                          annotation(Dialog(group="Initialization", showStartAttribute=true));
+    "velocity of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Acceleration a(start = 0) "acceleration of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Force f "force in direction of elongation";
 
   Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a(f = f, s = s) if useFlange
