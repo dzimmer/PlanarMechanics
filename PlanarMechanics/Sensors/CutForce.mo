@@ -16,10 +16,10 @@ model CutForce "Measure cut force vector"
     "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
 
   input Real N_to_m(unit="N/m") = 1000
-    " Force arrow scaling (length = force/N_to_m)"
+    "Force arrow scaling (length = force/N_to_m)"
     annotation (Dialog(group="if animation = true", enable=animation));
   input SI.Diameter forceDiameter=planarWorld.defaultArrowDiameter
-    " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
+    "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
   input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
       ForceColor " Color of force arrow"
     annotation (Dialog(group="if animation = true", enable=animation));
@@ -30,6 +30,7 @@ model CutForce "Measure cut force vector"
   extends Internal.PartialCutForceSensor;
 
 protected
+ inner Modelica.Mechanics.MultiBody.World world;
   SI.Position f_in_m[3]={frame_a.fx, frame_a.fy, 0}*(if positiveSign then +1 else -1)/N_to_m
     "Force mapped from N to m for animation";
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(

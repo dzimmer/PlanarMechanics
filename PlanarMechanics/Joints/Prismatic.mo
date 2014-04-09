@@ -13,13 +13,13 @@ model Prismatic "A prismatic joint"
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use acceleration as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
-  parameter SI.Distance r[2] "direction of the rod wrt. body system at phi=0";
+  parameter SI.Position r[2] "direction of the rod wrt. body system at phi=0";
   final parameter SI.Length l = sqrt(r*r) "lengt of r";
   final parameter SI.Distance e[2]= r/l "normalized r";
-  SI.Distance s(final stateSelect = stateSelect, start = 0)
+  SI.Position s(final stateSelect = stateSelect, start = 0)
     "Elongation of the joint";
   Real e0[2] "direction of the prismatic rod resolved wrt.inertial frame";
-  SI.Distance r0[2]
+  SI.Position r0[2]
     "translation vector of the prismatic rod resolved wrt.inertial frame";
   Real R[2,2] "Rotation Matrix";
   SI.Velocity v(final stateSelect = stateSelect, start = 0)
@@ -41,7 +41,7 @@ model Prismatic "A prismatic joint"
       group="if animation = true",
       enable=animate));
   parameter SI.Distance boxWidth=l/planarWorld.defaultWidthFraction
-    " Width of prismatic joint box"
+    "Width of prismatic joint box"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
   input Types.Color boxColor=Types.Defaults.JointColor
     "Color of prismatic joint box"

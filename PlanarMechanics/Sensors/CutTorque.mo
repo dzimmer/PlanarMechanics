@@ -28,6 +28,7 @@ model CutTorque "Measure cut torque vector"
     annotation (Dialog(group="if animation = true", enable=animation));
 
 protected
+ inner Modelica.Mechanics.MultiBody.World world;
   SI.Position t_in_m[3]={0,0,frame_a.t}*(if positiveSign then +1 else -1)/Nm_to_m
     "Torque mapped from Nm to m for animation";
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow torqueArrow(

@@ -49,7 +49,7 @@ public
     annotation (Placement(transformation(extent={{80,-20},{120,20}})));
 
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0) if resolveInFrameB == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
-    "Coordinate system in which vector is optionally resolved, if useExtraFrame is true "
+    "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
                                                                                             annotation (
       Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
           extent={{-40,-40},{-20,-20}})));
