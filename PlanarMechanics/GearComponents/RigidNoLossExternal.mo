@@ -4,7 +4,7 @@ model RigidNoLossExternal "External rigid gear gonnection model"
   extends
     PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.TwoPlanarConnectorsHeat;
 
-      parameter SI.Distance r_a=1 "radius of Gear A";
+  parameter SI.Distance r_a=1 "radius of Gear A";
   parameter SI.Distance r_b=1 "radius of Gear B";
 
   parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true);

@@ -28,14 +28,14 @@ outer PlanarWorld planarWorld "planar world model";
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "z position of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
-  parameter SI.Distance length_a = planarWorld.defaultForceLength
-    " Length of cylinder at frame_a side"
+  parameter SI.Length length_a = planarWorld.defaultForceLength
+    "Length of cylinder at frame_a side"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input SI.Diameter diameter_a = planarWorld.defaultForceWidth
-    " Diameter of cylinder at frame_a side"
+    "Diameter of cylinder at frame_a side"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input SI.Diameter diameter_b = 0.6*diameter_a
-    " Diameter of cylinder at frame_b side"
+    "Diameter of cylinder at frame_b side"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input Types.Color color_a = {100,100,100} " Color at frame_a"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector));

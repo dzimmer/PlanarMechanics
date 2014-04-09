@@ -14,10 +14,10 @@ model PlanarWorld
   parameter SI.Acceleration[2] g={0,-9.81}
     "Constant gravity acceleration vector resolved in world frame";
 
-  parameter SI.Distance axisLength=nominalLength/2
+  parameter SI.Length axisLength=nominalLength/2
     "Length of world axes arrows"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter SI.Distance axisDiameter=axisLength/defaultFrameDiameterFraction
+  parameter SI.Diameter axisDiameter=axisLength/defaultFrameDiameterFraction
     "Diameter of world axes arrows"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Boolean axisShowLabels=true "= true, if labels shall be shown"
@@ -55,13 +55,13 @@ model PlanarWorld
   parameter SI.Length defaultJointWidth=nominalLength/10
     "Default for the fixed width of a shape representing a joint"
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultBodyDiameter=nominalLength/9
+  parameter SI.Diameter defaultBodyDiameter=nominalLength/9
     "Default for diameter of sphere representing the center of mass of a body"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultWidthFraction=20
     "Default for shape width as a fraction of shape length (e.g., for Parts.FixedTranslation)"
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultArrowDiameter=nominalLength/40
+  parameter SI.Diameter defaultArrowDiameter=nominalLength/40
     "Default for arrow diameter (e.g., of forces, torques, sensors)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultForceLength=nominalLength/10

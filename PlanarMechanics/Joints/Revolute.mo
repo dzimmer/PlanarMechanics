@@ -1,5 +1,5 @@
 within PlanarMechanics.Joints;
-model Revolute "A revolute joint "
+model Revolute "A revolute joint"
 
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),

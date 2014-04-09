@@ -45,33 +45,33 @@ model SpringDamper "Linear 2D translational spring damper model"
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "z position of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
-  parameter Integer numberOfWindings = 5 " Number of spring windings"
+  parameter Integer numberOfWindings = 5 "Number of spring windings"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input SI.Distance width = planarWorld.defaultForceWidth " Width of spring"
+  input SI.Length width = planarWorld.defaultForceWidth "Width of spring"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input SI.Distance coilWidth = width/10 " Width of spring coil"
+  input SI.Length coilWidth = width/10 "Width of spring coil"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Types.Color color = Types.Defaults.SpringColor " Color of spring"
+  input Types.Color color = Types.Defaults.SpringColor "Color of spring"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  parameter SI.Distance length_a = planarWorld.defaultForceLength
-    " Length of cylinder at frame_a side"
+  parameter SI.Length length_a = planarWorld.defaultForceLength
+    "Length of cylinder at frame_a side"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input SI.Diameter diameter_a = planarWorld.defaultForceWidth
-    " Diameter of cylinder at frame_a side"
+    "Diameter of cylinder at frame_a side"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input SI.Diameter diameter_b = 0.6*diameter_a
-    " Diameter of cylinder at frame_b side"
+    "Diameter of cylinder at frame_b side"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Types.Color color_a = {100,100,100} " Color at frame_a"
+  input Types.Color color_a = {100,100,100} "Color at frame_a"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector));
-  input Types.Color color_b = {155,155,155} " Color at frame_b"
+  input Types.Color color_b = {155,155,155} "Color at frame_b"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector));
 
-  SI.Distance length
+  SI.Length length
     "Distance between the origin of frame_a and the origin of frame_b";
   SI.Position r_rel_0[3]
     "Position vector from frame_a to frame_b resolved in world frame";

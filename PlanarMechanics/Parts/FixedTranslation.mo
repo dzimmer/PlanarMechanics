@@ -10,7 +10,7 @@ model FixedTranslation "A fixed translation between two components (rigid rod)"
   parameter SI.Length r[2] = {1,0}
     "length of the rod resolved w.r.t to body frame at phi = 0";
   final parameter SI.Length l = sqrt(r*r);
-  SI.Distance r0[2] "length of the rod resolved w.r.t to inertal frame";
+  SI.Position r0[2] "length of the rod resolved w.r.t to inertal frame";
   Real R[2,2] "Rotation matrix";
   parameter Boolean animate = true "= true, if animation shall be enabled"
                                            annotation(Dialog(group="Animation"));
@@ -18,7 +18,7 @@ model FixedTranslation "A fixed translation between two components (rigid rod)"
     "z position of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
   parameter SI.Distance width=l/planarWorld.defaultWidthFraction
-    " Width of shape"
+    "Width of shape"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient

@@ -35,7 +35,7 @@ outer PlanarWorld planarWorld "planar world model";
   SI.Angle phi "rotation angle of the additional frame_c";
 
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
-    "Coordinate system in which vector is optionally resolved, if useExtraFrame is true "
+    "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
                                                                                             annotation (
       Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
           extent={{-40,-40},{-20,-20}})));

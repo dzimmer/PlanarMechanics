@@ -10,10 +10,10 @@ model FixedRotation "A fixed translation between two components (rigid rod)"
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Distance cylinderLength=planarWorld.defaultJointLength
+  parameter SI.Length cylinderLength=planarWorld.defaultJointLength
     "Length of cylinder representing the fixed rotation"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  parameter SI.Distance cylinderDiameter=planarWorld.defaultJointWidth
+  parameter SI.Length cylinderDiameter=planarWorld.defaultJointWidth
     "Diameter of cylinder representing the fixed rotation"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input Modelica.Mechanics.MultiBody.Types.Color cylinderColor={155,155,155}

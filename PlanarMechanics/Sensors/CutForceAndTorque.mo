@@ -44,6 +44,7 @@ model CutForceAndTorque "Measure cut force and cut torque vector"
   extends Internal.PartialCutForceSensor;
 
 protected
+ inner Modelica.Mechanics.MultiBody.World world;
   parameter Integer csign=if positiveSign then +1 else -1;
   SI.Position f_in_m[3]={frame_a.fx, frame_a.fy, 0}*csign/N_to_m
     "Force mapped from N to m for animation";

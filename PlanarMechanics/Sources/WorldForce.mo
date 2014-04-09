@@ -38,7 +38,7 @@ model WorldForce
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
-    "Coordinate system in which vector is optionally resolved, if useExtraFrame is true "
+    "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
                                                                                             annotation (
       Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
           extent={{-40,-40},{-20,-20}})));
