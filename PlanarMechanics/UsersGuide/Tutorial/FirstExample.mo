@@ -4,7 +4,7 @@ class FirstExample "A first example"
   annotation (Documentation(revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",
                                                                                                     info="<html>
-<p>Here seveal steps will be listed to demonstrate how to build up, simulate and animate a <b>simple pendulum</b>, which consists of a fixed point, a planar world model, a revolute joint, a fixed translation and a body.</p>
+<p>Here seveal steps will be listed to demonstrate how to build up, simulate and animate a <b>simple pendulum</b>, which consists of a fixed point, a planar wolld model, a revolute joint, a fixed translation and a body.</p>
 <p><ul>
 <li><b>Building up Modelica composition diagram</b>.</li>
 </ul></p>
@@ -15,7 +15,7 @@ class FirstExample "A first example"
 <p><ul>
 <li><h4>Setting up initial values and parameters.</h4></li>
 </ul></p>
-<p>In this step, we only need to double click the relevant component and write initial values and parameters in the blanks. Default gravity force in is {0,-9.81}. In this example, phi.start in revolute component is set to be 50m and I in Body are respectively 1 and 0.1; all other settings remain default.</p>
+<p>In this step, we only need to double click the relevant component and write initial values and parameters in the blanks. Default gravity force in is {0,-9.81}. In this example, phi.start in revolute component is set to be 50&deg;, m and I in Body are respectively 1kg and 0.1kgm<sup>2</sup>; all other settings remain default.</p>
 <p><ul>
 <li><h4>Translating and simulating the simple pendulum model.</h4></li>
 </ul></p>
