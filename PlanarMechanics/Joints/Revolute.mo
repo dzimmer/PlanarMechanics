@@ -17,9 +17,6 @@ model Revolute "A revolute joint"
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a(phi = phi, tau = t) if useFlange annotation (
       Placement(transformation(extent={{-10,90},{10,110}}),iconTransformation(
           extent={{-10,90},{10,110}})));
-  parameter Boolean animate = true "= true, if animation shall be enabled"
-                                           annotation(Dialog(group="Animation"));
-
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "z position of cylinder representing the joint axis" annotation (Dialog(
       tab="Animation",
@@ -43,7 +40,8 @@ model Revolute "A revolute joint"
   SI.AngularVelocity w(final stateSelect = stateSelect, start = 0)
     "Angular velocity"
                       annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.AngularAcceleration z(start = 0) "Angular acceleration"                          annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.AngularAcceleration z(start = 0) "Angular acceleration" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Dialog(group="Animation"));
   SI.Torque t "Torque";
   //Visualization
   MB.Visualizers.Advanced.Shape cylinder(
