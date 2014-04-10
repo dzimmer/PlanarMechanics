@@ -15,7 +15,7 @@ class FirstExample "A first example"
 <p><ul>
 <li><h4>Setting up initial values and parameters.</h4></li>
 </ul></p>
-<p>In this step, we only need to double click the relevant component and write initial values and parameters in the blanks. Default gravity force in is {0,-9.81}. In this example, phi.start in revolute component is set to be 50m and I in Body are respectively 1 and 0.1; all other settings remain default.</p>
+<p>In this step, we only need to double click the relevant component and write initial values and parameters in the blanks. Default gravity force in is {0,-9.81}. In this example, phi.start in revolute component is set to be 50&deg;, m and I in Body are respectively 1kg and 0.1kgm<sup>2</sup>; all other settings remain default.</p>
 <p><ul>
 <li><h4>Translating and simulating the simple pendulum model.</h4></li>
 </ul></p>
