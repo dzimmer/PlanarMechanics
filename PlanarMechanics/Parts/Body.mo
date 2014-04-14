@@ -80,6 +80,6 @@ equation
           fillColor={85,170,255},
           textString="%name")}), Diagram(graphics),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p>Model <b>Body</b> is a ideal unlimited small point with mass and inertia. </p>
+<p>Model <b>Body</b> is an ideal unlimited small point with mass and inertia. </p>
 </html>"));
 end Body;

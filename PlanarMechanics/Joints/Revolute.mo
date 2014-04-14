@@ -104,6 +104,6 @@ equation
 <p>Joint where frame_b rotates around axis n which is fixed in frame_a. The two frames coincide when the rotation angle &QUOT;phi = 0&QUOT;. </p>
 <p>By setting <b>useFlange</b> as true, the flange for a torque input will be activated. In the &QUOT;Initialization&QUOT; block, angular position <b>phi</b>, angular velocity <b>w</b> as well as angular acceleration <b>z</b> can be initialized.</p>
 <p>It can be defined via parameter (in &QUOT;advanced&QUOT; tab) <b>stateSelect</b> that the relative distance &QUOT;s&QUOT; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
-<p>In &QUOT;Animation&QUOT; Tab, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by a outer PlanarWorld model.</p>
+<p>In &QUOT;Animation&QUOT; Tab, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
 </html>"));
 end Revolute;
