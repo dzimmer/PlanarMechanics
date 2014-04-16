@@ -4,7 +4,6 @@ model InvertedCraneCrab
 
   Parts.Body body(
     I=0.1,
-    g={0,-9.81},
     m=0.5) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -20,8 +19,7 @@ model InvertedCraneCrab
         origin={-60,30})));
   Parts.Body body1(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{0,20},{20,40}})));
   Modelica.Mechanics.Translational.Sources.Force force(useSupport=false)
     annotation (Placement(transformation(extent={{0,60},{-20,80}})));

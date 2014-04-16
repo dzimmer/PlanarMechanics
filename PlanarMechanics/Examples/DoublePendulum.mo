@@ -4,8 +4,7 @@ model DoublePendulum
 
   Parts.Body body(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{20,60},{40,80}})));
   Parts.FixedTranslation fixedTranslation(r={1,0})
     annotation (Placement(transformation(extent={{-20,60},{0,80}})));
@@ -14,7 +13,6 @@ model DoublePendulum
         rotation=180,
         origin={-90,70})));
   Parts.Body body1(
-    g={0,-9.81},
     m=0.2,
     I=0.01)
     annotation (Placement(transformation(extent={{60,20},{80,40}})));

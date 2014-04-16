@@ -4,8 +4,7 @@ model MeasureDemo
 
   Parts.Body body(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{20,10},{40,30}})));
   Parts.FixedTranslation fixedTranslation(r={1,0})
     annotation (Placement(transformation(extent={{-24,10},{-4,30}})));
@@ -14,7 +13,6 @@ model MeasureDemo
         rotation=180,
         origin={-90,20})));
   Parts.Body body1(
-    g={0,-9.81},
     m=0.4,
     I=0.02)
     annotation (Placement(transformation(extent={{60,-30},{80,-10}})));

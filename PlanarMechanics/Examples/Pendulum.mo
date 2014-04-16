@@ -4,8 +4,7 @@ model Pendulum "A free swinging pendulum"
 
   Parts.Body body(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Joints.Revolute revolute(
     useFlange=false,
