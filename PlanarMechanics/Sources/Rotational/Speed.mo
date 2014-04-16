@@ -5,7 +5,7 @@ model Speed
 
   parameter Boolean useSupport = false
     "= true, if support flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
 
   parameter Boolean exact=false
     "true/false exact treatment/filtering the input signal";

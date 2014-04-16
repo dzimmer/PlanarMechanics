@@ -9,7 +9,7 @@ model Revolute "A revolute joint"
   outer PlanarWorld planarWorld "planar world model";
   parameter Boolean useFlange=false
     "= true, if force flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   //parameter Boolean initialize = false "Initialize Position and Velocity";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));

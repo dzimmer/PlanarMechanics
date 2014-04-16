@@ -124,6 +124,5 @@ equation
 <p>The library was creates and is owned by Dr. Dirk Zimmer. </p>
 <p>dirk.zimmer@dlr.de</p>
 </html>"),
-    experiment(StopTime=3),
-    __Dymola_experimentSetupOutput);
+    experiment(StopTime=3));
 end InvertedCraneCrab;

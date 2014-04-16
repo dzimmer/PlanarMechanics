@@ -5,7 +5,7 @@ model Accelerate
 
   parameter Boolean useSupport = false
     "= true, if support flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
 
   SI.Angle phi(start=0, fixed=true, stateSelect=StateSelect.prefer)
     "Rotation angle of flange with respect to support";

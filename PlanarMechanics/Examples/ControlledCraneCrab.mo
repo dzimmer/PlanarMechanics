@@ -96,7 +96,6 @@ equation
       smooth=Smooth.None));
   annotation (Diagram(graphics),
     experiment(StopTime=3),
-    __Dymola_experimentSetupOutput,
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p><h4><font color=\"#008000\">A controlled crane crab. </font></h4></p>
 <p>A simple PID (actually PD) controlles the pendulum into upright position.</p>

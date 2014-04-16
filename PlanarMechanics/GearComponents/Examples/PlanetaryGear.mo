@@ -40,6 +40,5 @@ equation
 <p><br>In this example only one of 3 planets is modelled. This reduction can be done because of the symmetry of the gears. For more advanced topics like load sharing between gears, more advanced models should be used.</p>
 </html>", revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>"),
-    experiment(StopTime=10),
-    __Dymola_experimentSetupOutput);
+    experiment(StopTime=10));
 end PlanetaryGear;

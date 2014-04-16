@@ -96,7 +96,6 @@ equation
             -100},{100,100}}),
                       graphics),
     experiment(StopTime=6),
-    __Dymola_experimentSetupOutput,
     Documentation(info="<html>
 <p><h4><font color=\"#008000\">Power/Distance Demo</font></h4></p>
 <p>This example shows how to use sensors for power and distance. The crane crab is used as an example.</p>

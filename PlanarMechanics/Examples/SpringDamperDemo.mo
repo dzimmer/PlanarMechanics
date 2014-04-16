@@ -54,7 +54,6 @@ equation
       StopTime=5,
       __Dymola_fixedstepsize=0.0001,
       __Dymola_Algorithm="Euler"),
-    __Dymola_experimentSetupOutput,
     Documentation(info="<html>
 <p><h4><font color=\"#008000\">Spring Demo</font></h4></p>
 <p>This example shows how to use a spring and a damper in combination. The motion of the body is not constrained.</p>

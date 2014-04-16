@@ -5,10 +5,10 @@ model Position
 
   parameter Boolean useSupport = false
     "= true, if support flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter Boolean exact=false
     "true/false exact treatment/filtering the input signal"
-    annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+    annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
 
   parameter SI.Frequency f_crit=50
     "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));

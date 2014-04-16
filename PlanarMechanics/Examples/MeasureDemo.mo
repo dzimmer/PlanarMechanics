@@ -132,7 +132,6 @@ equation
             -100},{100,100}}),
                       graphics),
     experiment(StopTime=10),
-    __Dymola_experimentSetupOutput,
     Documentation(info="<html>
 <p><h4><font color=\"#008000\">Measure Demo</font></h4></p>
 <p>This example shows how to use absolute and relative sensors for position, velocity and acceleration. For demonstration purposes a double pendulum is used.</p>
