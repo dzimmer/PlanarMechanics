@@ -3,7 +3,6 @@ model PowerDistanceDemo
     extends Modelica.Icons.Example;
   Parts.Body body(
     I=0.1,
-    g={0,-9.81},
     m=0.5) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -19,8 +18,7 @@ model PowerDistanceDemo
         origin={-70,30})));
   Parts.Body body1(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{0,20},{20,40}})));
   inner PlanarWorld planarWorld
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));

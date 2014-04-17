@@ -3,7 +3,6 @@ model CounterSpin
   extends Modelica.Icons.Example;
 
   Parts.Body body(
-    g={0,-9.81},
     m=0.01,
     I=0.0005,
     animate=false,

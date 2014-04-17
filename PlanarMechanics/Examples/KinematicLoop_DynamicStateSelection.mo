@@ -35,8 +35,7 @@ model KinematicLoop_DynamicStateSelection
         origin={10,-50})));
   Parts.Body body(
     m=1,
-    I=0.1,
-    g={0,-9.81}) annotation (Placement(transformation(
+    I=0.1) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=0,
         origin={50,-50})));

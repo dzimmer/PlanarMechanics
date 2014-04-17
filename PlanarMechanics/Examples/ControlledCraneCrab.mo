@@ -3,7 +3,6 @@ model ControlledCraneCrab
   extends Modelica.Icons.Example;
 
   Parts.Body body(
-    g={0,-9.81},
     m=70,
     I=0)   annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

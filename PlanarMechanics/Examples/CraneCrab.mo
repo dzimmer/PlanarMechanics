@@ -4,7 +4,6 @@ model CraneCrab
 
   Parts.Body body(
     I=0.1,
-    g={0,-9.81},
     m=0.5) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -20,8 +19,7 @@ model CraneCrab
         origin={-70,50})));
   Parts.Body body1(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{0,40},{20,60}})));
   inner PlanarWorld planarWorld
     annotation (Placement(transformation(extent={{-80,0},{-60,20}})));

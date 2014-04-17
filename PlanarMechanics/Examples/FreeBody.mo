@@ -2,9 +2,7 @@ within PlanarMechanics.Examples;
 model FreeBody "AcceleratingBody"
   extends Modelica.Icons.Example;
 
-  inner PlanarWorld planarWorld(g={0,-9.81},
-    animateGravity=true,
-    enableAnimation=true)
+  inner PlanarWorld planarWorld
     annotation (Placement(transformation(extent={{-28,-10},{-8,10}})));
   Parts.Body body(m=1, I=0.1,
     animate=true,

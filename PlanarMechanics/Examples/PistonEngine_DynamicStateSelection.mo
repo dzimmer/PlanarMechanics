@@ -4,8 +4,7 @@ model PistonEngine_DynamicStateSelection "A Piston Engine"
 
   Parts.Body bodyDrive(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-62,20})));
@@ -33,7 +32,6 @@ model PistonEngine_DynamicStateSelection "A Piston Engine"
         origin={0,0})));
   Parts.Body bodyPiston(
     I=0.1,
-    g={0,-9.81},
     m=3)
     annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
   Joints.Revolute revolutePiston

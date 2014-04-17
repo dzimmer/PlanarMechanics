@@ -25,7 +25,6 @@ model WheelBasedCranCrab
         rotation=270,
         origin={-20,-20})));
   Parts.Body body1(
-    g={0,-9.81},
     m=2,
     I=0.2)       annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
