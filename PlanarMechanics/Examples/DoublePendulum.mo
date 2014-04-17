@@ -62,7 +62,6 @@ equation
           preserveAspectRatio=true),
                       graphics),
     experiment(StopTime=10),
-    __Dymola_experimentSetupOutput,
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p><h4><font color=\"#008000\">A double pendulum.</font></h4></p>
 <p><br/>Beware this is a chaotic system. However, the chatoic part should start after 10s.</p>

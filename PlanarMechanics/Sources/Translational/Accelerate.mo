@@ -4,7 +4,7 @@ model Accelerate
 
   parameter Boolean useSupport = false
     "= true, if support flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
 
   SI.Velocity v(start=0, fixed=true, stateSelect=StateSelect.prefer)
     "Absolute velocity of flange_b";

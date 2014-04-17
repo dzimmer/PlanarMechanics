@@ -12,7 +12,7 @@ model RigidNoLossPlanetary "planetary gearbox"
   parameter SI.Inertia J_c(start=1e-3) "inertia of the carrier";
   parameter SI.Inertia J_r(start=1e-3) "inertia of the ring gear";
 
-  parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+  parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
 
   parameter Integer Tooth_a(min=1) = 20 "Number of Tooth" annotation (Dialog(
       tab="Animation",
