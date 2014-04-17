@@ -9,7 +9,7 @@ LibraryInfoMenuCommand(
   version="1.2.0",
   isModel=true,
   description="Planar Mechanics Library 1.2.0 for Modelica",
-  ModelicaVersion="3.2",
+  ModelicaVersion="3.2.1",
   pos=1130)
 
 // LibraryInfoPreload(reference="Modelica_LinearSystems2")
