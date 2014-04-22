@@ -47,8 +47,7 @@ The acceleration \"a(t)\" can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Source.
 </p>
 
-</HTML>
-"), Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={

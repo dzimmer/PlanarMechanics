@@ -1,5 +1,5 @@
 within PlanarMechanics.Utilities.Icons;
-package GearConnections 
+package GearConnections
   extends Modelica.Icons.Package;
 
 

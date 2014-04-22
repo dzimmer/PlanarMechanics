@@ -1,5 +1,5 @@
 within PlanarMechanics.Visualizers;
-package Advanced 
+package Advanced
    extends Modelica.Icons.Package;
 
 end Advanced;
