@@ -44,6 +44,5 @@ extends Modelica.Icons.Package;
         Line(
           points={{-64,-50},{-36,0},{24,-42}},
           color={0,0,0},
-          smooth=Smooth.None)}),
-  Diagram(coordinateSystem(extent={{-100,-100},{100,100}})));
+          smooth=Smooth.None)}));
 end PlanarMechanics;

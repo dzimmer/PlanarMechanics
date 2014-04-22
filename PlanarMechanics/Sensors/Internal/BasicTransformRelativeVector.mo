@@ -66,7 +66,5 @@ equation
         Line(
           points={{0,100},{0,70}},
           color={0,0,127},
-          smooth=Smooth.None)}), Diagram(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
-        graphics));
+          smooth=Smooth.None)}));
 end BasicTransformRelativeVector;

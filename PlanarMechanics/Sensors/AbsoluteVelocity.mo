@@ -85,8 +85,7 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot,
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}),                                              graphics), Icon(coordinateSystem(
+  annotation (Icon(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(
           points={{70,0},{100,0}},

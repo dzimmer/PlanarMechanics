@@ -69,8 +69,7 @@ equation
           66},{1.11022e-15,66},{1.11022e-15,120}},
       color={0,0,127},
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics), Icon(coordinateSystem(
+  annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
         graphics={
         Line(

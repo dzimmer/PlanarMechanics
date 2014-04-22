@@ -276,10 +276,6 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
     Documentation(revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",
                                                                                                     info="<html>

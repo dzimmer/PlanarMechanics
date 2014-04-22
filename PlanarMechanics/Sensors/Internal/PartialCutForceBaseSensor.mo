@@ -71,9 +71,5 @@ with the blocks of package Modelica.Blocks.
         Line(
           points={{80,0},{80,-100}},
           color={95,95,95},
-          pattern=LinePattern.Dot)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics));
+          pattern=LinePattern.Dot)}));
 end PartialCutForceBaseSensor;

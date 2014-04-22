@@ -11,10 +11,6 @@ public
     annotation (Placement(transformation(extent={{90,-10},{110,10}}),
         iconTransformation(extent={{80,-20},{120,20}})));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}),
-            graphics),
-    Icon(graphics),
     Documentation(info="<html>
 <p>The gear interface partial model is a model that has all the interfaces of each planar gear connection. Each planar gear model should be extended from this base level model.</p>
 </html>", revisions="<html>

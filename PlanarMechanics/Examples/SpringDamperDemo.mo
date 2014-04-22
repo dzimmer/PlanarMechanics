@@ -49,8 +49,7 @@ equation
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
-  annotation (Diagram(graphics),
-    experiment(
+  annotation (experiment(
       StopTime=5,
       __Dymola_fixedstepsize=0.0001,
       __Dymola_Algorithm="Euler"),

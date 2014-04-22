@@ -151,8 +151,7 @@ equation
           lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
-          textString="%name")}),      Diagram(graphics),
-    Documentation(info="<html>
+          textString="%name")}),    Documentation(info="<html>
 <p><h4><font color=\"#008000\">Ideal wheel joint</font></h4></p>
 <p>The ideal wheel joint enforces the constraints of ideal rolling on the x,y-plane. </p>
 <p>The constraint is that the velocity of the virtual point of contact shall be zero. This constrains is split into two components:</p>

@@ -23,8 +23,6 @@ zeros(2) = {frame_a.fx, frame_a.fy} + {frame_b.fx, frame_b.fy};
 power = {frame_a.fx, frame_a.fy} * der({frame_a.x, frame_a.y})
       + frame_a.t * der(frame_a.phi);
 annotation (
-  Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-          100,100}}), graphics),
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
           100}}), graphics={
       Line(points={{-70,0},{-101,0}}, color={0,0,0}),

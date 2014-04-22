@@ -54,9 +54,5 @@ with the blocks of package Modelica.Blocks.
         Text(
           extent={{83,55},{119,30}},
           lineColor={128,128,128},
-          textString="b")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics));
+          textString="b")}));
 end PartialCutTorqueSensor;

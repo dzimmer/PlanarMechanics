@@ -121,9 +121,5 @@ blocks of the block library Modelica.Blocks.Sources.
         Text(
           extent={{146,-64},{30,-98}},
           lineColor={0,0,0},
-          textString="%exact")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics));
+          textString="%exact")}));
 end Position;

@@ -184,8 +184,7 @@ equation
           lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
-          textString="%name")}),      Diagram(graphics),
-    Documentation(info="<html>
+          textString="%name")}),    Documentation(info="<html>
 <p><h4><font color=\"#008000\">Slip-Friction based wheel joint</font></h4></p>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has slip-dependent friction characteristics. This is an approximation for wheels with a rim and a rupper tire. </p>
 <p>The force depends with friction characteristics on the <b>slip</b> . The <b>slip</b> is split into two components:</p>

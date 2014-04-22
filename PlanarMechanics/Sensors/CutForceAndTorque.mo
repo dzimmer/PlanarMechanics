@@ -125,9 +125,6 @@ equation
           extent={{-56,-70},{60,-96}},
           lineColor={0,0,0},
           textString="torque")}),
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-            100,100}}),
-            graphics),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<HTML>
 <p>
 The cut-force and cut-torque acting between the two frames to which this

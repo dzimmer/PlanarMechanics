@@ -74,9 +74,5 @@ blocks of the block library Modelica.Blocks.Source.
         Text(
           extent={{150,60},{-150,100}},
           textString="%name",
-          lineColor={0,0,255})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics));
+          lineColor={0,0,255})}));
 end Accelerate;

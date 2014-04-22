@@ -90,10 +90,7 @@ equation
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                      graphics),
-    experiment(StopTime=6),
+  annotation (experiment(StopTime=6),
     Documentation(info="<html>
 <p><h4><font color=\"#008000\">Power/Distance Demo</font></h4></p>
 <p>This example shows how to use sensors for power and distance. The crane crab is used as an example.</p>
