@@ -1,7 +1,7 @@
 within PlanarMechanics.Utilities.Icons;
 model PlanarGearContactInternalL1
 
-  annotation (Diagram(graphics), Icon(graphics={
+  annotation (Icon(graphics={
         Line(
           points={{38,0},{98,0}},
           color={0,0,0},

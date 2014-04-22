@@ -113,9 +113,5 @@ equation
           points={{95,0},{95,0},{70,0},{70,0}},
           color={0,0,0},
           smooth=Smooth.None,
-          pattern=LinePattern.Dot)}),
-                                 Diagram(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
-        grid={1,1}),
-        graphics));
+          pattern=LinePattern.Dot)}));
 end BasicTransformAbsoluteVector;

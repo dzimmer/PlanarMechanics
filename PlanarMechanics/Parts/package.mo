@@ -1,5 +1,5 @@
 within PlanarMechanics;
-package Parts 
+package Parts
   extends PlanarMechanics.Utilities.Icons.Parts;
 
 

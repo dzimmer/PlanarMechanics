@@ -28,10 +28,7 @@ equation
    frame_resolve.fx = 0;
    frame_resolve.fy = 0;
    frame_resolve.t = 0;
-  annotation (Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics), Icon(coordinateSystem(preserveAspectRatio=true,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=true,
           extent={{-100,-100},{100,100}}), graphics={
         Text(
           extent={{-108,43},{-72,18}},

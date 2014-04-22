@@ -9,5 +9,5 @@ partial model PartialTwoFlanges "Partial model with 2 flanges"
         iconTransformation(extent={{80,-20},{120,20}})));
   annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>This is a partial model with 2 planar flanges. it can be inherited to build up models with 2 planar flanges.</p>
-</html>"), Icon(graphics));
+</html>"));
 end PartialTwoFlanges;

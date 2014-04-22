@@ -171,8 +171,7 @@ equation
           lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
-          textString="%name")}),      Diagram(graphics),
-    Documentation(info="<html>
+          textString="%name")}),    Documentation(info="<html>
 <p><h4><font color=\"#008000\">Dry-Friction based wheel joint</font></h4></p>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has dry-friction characteristics. This is an approximation for stiff wheels without a tire. </p>
 <p>The force depends with dry-friction characteristics on the slip velocity. The slip velocity is split into two components:</p>

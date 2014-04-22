@@ -290,10 +290,7 @@ equation
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                      graphics),
-    experiment(StopTime=10),
+  annotation (experiment(StopTime=10),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>Two track model of a car.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_1.png\"/></p>

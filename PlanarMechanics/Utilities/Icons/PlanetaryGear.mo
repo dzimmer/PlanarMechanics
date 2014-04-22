@@ -1,7 +1,6 @@
 within PlanarMechanics.Utilities.Icons;
 model PlanetaryGear "Icon for planetary gears"
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics), Icon(coordinateSystem(
+  annotation (Icon(coordinateSystem(
           preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
         Rectangle(
           extent={{-100,100},{80,-100}},

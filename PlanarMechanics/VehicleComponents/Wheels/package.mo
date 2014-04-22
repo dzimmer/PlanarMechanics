@@ -1,5 +1,5 @@
 within PlanarMechanics.VehicleComponents;
-package Wheels 
+package Wheels
 annotation (Documentation(info="<html>
 <p>This package contains wheel models that roll on the x,y plane. The wheel models are hereby represented as a mass-free element similar to a joint component.</p>
 </html>", revisions="<html>

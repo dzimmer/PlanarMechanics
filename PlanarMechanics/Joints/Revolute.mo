@@ -99,8 +99,7 @@ equation
           visible=useFlange,
           points={{0,80},{0,20}},
           color={0,0,0},
-          smooth=Smooth.None)}),      Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+          smooth=Smooth.None)}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>Joint where frame_b rotates around axis n which is fixed in frame_a. The two frames coincide when the rotation angle &QUOT;phi = 0&QUOT;. </p>
 <p>By setting <b>useFlange</b> as true, the flange for a torque input will be activated. In the &QUOT;Initialization&QUOT; block, angular position <b>phi</b>, angular velocity <b>w</b> as well as angular acceleration <b>z</b> can be initialized.</p>
 <p>It can be defined via parameter (in &QUOT;advanced&QUOT; tab) <b>stateSelect</b> that the relative distance &QUOT;s&QUOT; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>

@@ -100,6 +100,5 @@ shall be returned:
 <img src=\"modelica://Modelica/Resources/Images/Math/atan3.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
 end atan3b;

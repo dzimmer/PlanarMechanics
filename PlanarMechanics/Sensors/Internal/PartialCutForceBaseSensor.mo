@@ -38,8 +38,7 @@ equation
   frame_resolve.fy = 0;
   frame_resolve.t = 0;
   annotation (
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="
-<HTML>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>
 This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure the cut-force and/or
@@ -47,8 +46,7 @@ cut-torque acting between the two frames and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</HTML>
-"), Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
@@ -73,9 +71,5 @@ with the blocks of package Modelica.Blocks.
         Line(
           points={{80,0},{80,-100}},
           color={95,95,95},
-          pattern=LinePattern.Dot)}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics));
+          pattern=LinePattern.Dot)}));
 end PartialCutForceBaseSensor;

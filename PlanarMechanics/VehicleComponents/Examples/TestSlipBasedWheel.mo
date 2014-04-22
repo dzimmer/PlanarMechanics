@@ -82,8 +82,7 @@ equation
       points={{-39,32},{-10,32}},
       color={0,0,127},
       smooth=Smooth.None));
-  annotation (Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p><h4><font color=\"#008000\">A Slip-Based Wheel</font></h4></p>
 <p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_2.png\"/></p>

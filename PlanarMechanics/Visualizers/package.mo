@@ -1,4 +1,4 @@
 within PlanarMechanics;
-package Visualizers 
+package Visualizers
   extends Modelica.Icons.Package;
 end Visualizers;

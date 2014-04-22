@@ -126,10 +126,7 @@ equation
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                      graphics),
-    experiment(StopTime=10),
+  annotation (experiment(StopTime=10),
     Documentation(info="<html>
 <p><h4><font color=\"#008000\">Measure Demo</font></h4></p>
 <p>This example shows how to use absolute and relative sensors for position, velocity and acceleration. For demonstration purposes a double pendulum is used.</p>

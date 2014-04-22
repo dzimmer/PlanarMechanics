@@ -1,5 +1,5 @@
 within PlanarMechanics.Utilities.Icons;
-package Parts 
+package Parts
 extends Modelica.Icons.Package;
 
 

@@ -1,5 +1,5 @@
 within PlanarMechanics.VehicleComponents;
-package Examples 
+package Examples
     extends Modelica.Icons.ExamplesPackage;
 
 

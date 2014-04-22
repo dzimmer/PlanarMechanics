@@ -32,9 +32,7 @@ equation
       points={{-30,30},{-10,30},{-10,16},{0,16}},
       color={0,0,0},
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                      graphics), Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>Example of a rigid planetary gearbox. </p>
 <p>The ring gear is driven using a 1Nm load, the velocity of the sun is fixed to 1 rad/s. The model shows the possibilities of the gear connection models.</p>
 <p><br>In this example only one of 3 planets is modelled. This reduction can be done because of the symmetry of the gears. For more advanced topics like load sharing between gears, more advanced models should be used.</p>
