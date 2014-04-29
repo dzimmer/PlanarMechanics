@@ -152,17 +152,17 @@ equation
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name")}),    Documentation(info="<html>
-<p><h4><font color=\"#008000\">Ideal wheel joint</font></h4></p>
-<p>The ideal wheel joint enforces the constraints of ideal rolling on the x,y-plane. </p>
+<h4><font color=\"#008000\">Ideal wheel joint</font></h4>
+<p>The ideal wheel joint enforces the constraints of ideal rolling on the x,y-plane.</p>
 <p>The constraint is that the velocity of the virtual point of contact shall be zero. This constrains is split into two components:</p>
-<p><ul>
+<ul>
 <li>no lateral velocity</li>
 <li>the longitudinal velocity has to equal the rolling velocity times the radius.</li>
-</ul></p>
+</ul>
 <p><br/>The radius of the wheel can be specified by the parameter <b>radius</b>. The driving direction (for phi=0) can be specified by the parameter <b>r</b>.</p>
-<p>The wheel contains a 2D frame connector for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D flange connector. </p>
+<p>The wheel contains a 2D frame connector for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D flange connector.</p>
 <p>For examples of usage see the local Examples package.</p>
 </html>", revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end IdealWheelJoint;

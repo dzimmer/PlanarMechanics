@@ -94,8 +94,8 @@ equation
       color={0,0,0},
       smooth=Smooth.None));
   annotation (experiment(StopTime=3),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">A controlled crane crab. </font></h4></p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">A controlled crane crab.</font></h4>
 <p>A simple PID (actually PD) controlles the pendulum into upright position.</p>
 <p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/ControlledCraneCrab_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/ControlledCraneCrab_2.png\"/></p>

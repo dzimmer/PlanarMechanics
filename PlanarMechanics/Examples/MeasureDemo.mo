@@ -128,7 +128,7 @@ equation
       smooth=Smooth.None));
   annotation (experiment(StopTime=10),
     Documentation(info="<html>
-<p><h4><font color=\"#008000\">Measure Demo</font></h4></p>
+<h4><font color=\"#008000\">Measure Demo</font></h4>
 <p>This example shows how to use absolute and relative sensors for position, velocity and acceleration. For demonstration purposes a double pendulum is used.</p>
 </html>"));
 end MeasureDemo;

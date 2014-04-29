@@ -92,7 +92,7 @@ equation
       smooth=Smooth.None));
   annotation (experiment(StopTime=6),
     Documentation(info="<html>
-<p><h4><font color=\"#008000\">Power/Distance Demo</font></h4></p>
+<h4><font color=\"#008000\">Power/Distance Demo</font></h4>
 <p>This example shows how to use sensors for power and distance. The crane crab is used as an example.</p>
 </html>"));
 end PowerDistanceDemo;

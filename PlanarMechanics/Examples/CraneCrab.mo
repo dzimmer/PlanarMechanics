@@ -77,8 +77,8 @@ equation
       color={0,127,0},
       smooth=Smooth.None));
   annotation (experiment(StopTime=10),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">A damped crane crab </font></h4></p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">A damped crane crab </font></h4>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/CraneCrab_1.png\"/></p>
 <p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/CraneCrab_2.png\"/></p>
 <p><br/>SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>

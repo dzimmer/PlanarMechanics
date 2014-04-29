@@ -104,8 +104,8 @@ equation
       points={{-20,70},{-28,70},{-28,39}},
       color={0,127,0},
       smooth=Smooth.None));
-  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">An inverted model of a pendulum. </font></h4></p>
+  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">An inverted model of a pendulum.</font></h4>
 <p><br/>The trajectory is stipulated, the force is being measured.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/InvertedCraneCrab_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/InvertedCraneCrab_2.png\"/></p>

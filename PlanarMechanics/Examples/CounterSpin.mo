@@ -32,8 +32,8 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   annotation (experiment(StopTime=3),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">Wheel with counter-spin and dry-friction law.</font></h4></p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">Wheel with counter-spin and dry-friction law.</font></h4>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/CounterSpin_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/CounterSpin_2.png\"/></p>
 <p><br/><br/>The model contains a large local stiffness before 2s</p>

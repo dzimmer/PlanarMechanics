@@ -120,8 +120,8 @@ equation
       color={0,127,0},
       smooth=Smooth.None));
   annotation (experiment(StopTime=6),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">An example of a kinematic loop.</font></h4></p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">An example of a kinematic loop.</font></h4>
 <p>In this version, the states are not manually set but might be dynamically selected by the simulation environment.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/KinematicLoop_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/KinematicLoop_2.png\"/></p>

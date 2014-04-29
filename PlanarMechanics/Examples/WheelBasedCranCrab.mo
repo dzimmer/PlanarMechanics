@@ -54,8 +54,8 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   annotation (experiment(StopTime=4.5),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">A pendulum mounted on an ideal rolling wheel.</font></h4></p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">A pendulum mounted on an ideal rolling wheel.</font></h4>
 <p>This model contains non-holonomic constriants.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/WheelBasedCranCrab_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/WheelBasedCranCrab_2.png\"/></p>
