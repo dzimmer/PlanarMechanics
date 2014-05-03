@@ -19,8 +19,7 @@ model Accelerate
 
   Modelica.Blocks.Interfaces.RealInput a_ref
     "Absolute acceleration of flange as input signal"
-     annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-          rotation=0)));
+     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
   Modelica.SIunits.Length s(start=0, fixed=true, stateSelect=StateSelect.prefer)
     "Distance between flange and support (= flange.s - support.s)";
 protected

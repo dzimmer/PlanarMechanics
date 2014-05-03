@@ -5,7 +5,7 @@ model PartialAbsoluteBaseSensor
 
   Interfaces.Frame_a frame_a
     "Coordinate system from which kinematic quantities are measured"            annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+        transformation(extent={{-116,-16},{-84,16}})));
 
   Interfaces.Frame_resolve frame_resolve
     "Coordinate system in which vector is optionally resolved"

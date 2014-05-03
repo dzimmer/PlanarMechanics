@@ -76,7 +76,6 @@ public
         0,0,-tau_nominal])                   annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-64,0})));
 
   Utilities.SquaretimesSign square(blockSize=3) annotation (Placement(

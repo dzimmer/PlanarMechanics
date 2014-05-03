@@ -40,7 +40,6 @@ model RigidNoLossPlanetary "planetary gearbox"
     I=1e-3,
     phi(fixed=false))            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={82,40})));
   PlanarMechanics.Parts.FixedTranslation carrierPart(r={r_s + r_p,0})
     annotation (Placement(transformation(extent={{-8,-50},{12,-30}})));

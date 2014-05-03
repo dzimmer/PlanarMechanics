@@ -8,8 +8,7 @@ model TestDryFrictionWheel
     v(fixed=true))
                 annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={0,0})));
+        rotation=90)));
   Joints.Revolute revolute(phi(fixed=true), w(fixed=true))
                            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

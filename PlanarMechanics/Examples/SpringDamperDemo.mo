@@ -12,8 +12,7 @@ model SpringDamperDemo
     c_phi=0)
            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Parts.Body body(
     I=0.1,
     m=0.5,

@@ -23,8 +23,7 @@ model Accelerate
 
   Modelica.Blocks.Interfaces.RealInput a_ref
     "Absolute angular acceleration of flange with respect to support as input signal"
-    annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-          rotation=0)));
+    annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 protected
   Modelica.SIunits.Angle phi_support "Absolute angle of support flange";
 

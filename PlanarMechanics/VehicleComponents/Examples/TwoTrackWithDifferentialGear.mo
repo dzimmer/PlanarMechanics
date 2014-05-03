@@ -52,26 +52,22 @@ model TwoTrackWithDifferentialGear "AcceleratingBody"
   Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque1(
       tau_constant=25)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-50,-80})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia(
     phi(fixed=true, start=0),
     w(fixed=true, start=0),
     J=1)                    annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
-        rotation=0,
         origin={-90,70})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia1(
     phi(fixed=true, start=0),
     w(fixed=true, start=0),
     J=1)                    annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
-        rotation=0,
         origin={-92,-40})));
   Parts.FixedTranslation fixedTranslation2(r={0.75,0})   annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-20,-40})));
   Parts.FixedTranslation fixedTranslation3(r={-0.75,0})  annotation (
       Placement(transformation(
@@ -88,7 +84,6 @@ model TwoTrackWithDifferentialGear "AcceleratingBody"
     N=1500)
            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={62,-40})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia2(
     J=1,
@@ -100,7 +95,6 @@ model TwoTrackWithDifferentialGear "AcceleratingBody"
   Parts.FixedTranslation fixedTranslation4(r={0.75,0})   annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-20,20})));
   Parts.FixedTranslation fixedTranslation5(r={-0.75,0})  annotation (
       Placement(transformation(
@@ -117,7 +111,6 @@ model TwoTrackWithDifferentialGear "AcceleratingBody"
     N=1000)
           annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={60,70})));
   Modelica.Mechanics.Rotational.Components.Inertia inertia3(
     phi(fixed=true, start=0),

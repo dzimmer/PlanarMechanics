@@ -7,7 +7,6 @@ model AbsoluteAcceleration
     "Absolute velocity vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={110,0})));
 
   Interfaces.Frame_resolve frame_resolve if
@@ -29,7 +28,6 @@ protected
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Modelica.Blocks.Continuous.Der der1[3]                           annotation (Placement(transformation(
         extent={{-20,-20},{0,0}},
-        rotation=0,
         origin={-6,10})));
   TransformAbsoluteVector transformAbsoluteVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
       frame_r_out=resolveInFrame) annotation (Placement(transformation(
@@ -44,7 +42,6 @@ protected
     annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
   Modelica.Blocks.Continuous.Der der2[3]                           annotation (Placement(transformation(
         extent={{-20,-20},{0,0}},
-        rotation=0,
         origin={68,10})));
 equation
   connect(position.r, der1.u) annotation (Line(

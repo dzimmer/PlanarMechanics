@@ -6,7 +6,6 @@ model AbsolutePosition
     "Absolute position vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={110,0})));
 
   Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
