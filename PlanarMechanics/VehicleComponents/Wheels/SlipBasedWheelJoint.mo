@@ -185,19 +185,19 @@ equation
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name")}),    Documentation(info="<html>
-<p><h4><font color=\"#008000\">Slip-Friction based wheel joint</font></h4></p>
-<p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has slip-dependent friction characteristics. This is an approximation for wheels with a rim and a rupper tire. </p>
-<p>The force depends with friction characteristics on the <b>slip</b> . The <b>slip</b> is split into two components:</p>
-<p><ul>
+<h4><font color=\"#008000\">Slip-Friction based wheel joint</font></h4>
+<p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has slip-dependent friction characteristics. This is an approximation for wheels with a rim and a rupper tire.</p>
+<p>The force depends with friction characteristics on the <b>slip</b>. The <b>slip</b> is split into two components:</p>
+<ul>
 <li>lateral slip: the lateral velocity divided by the rolling velocity.</li>
-<li>longitudinal slip: the longitduinal slip velocity divided by the rollign velocity.</li>
-</ul></p>
+<li>longitudinal slip: the longitudinal slip velocity divided by the rolling velocity.</li>
+</ul>
 <p><br/>For low rolling velocity this definitions become ill-conditioned. Hence a dry-friction model is used for low rolling velocities.</p>
 <p>The radius of the wheel can be specified by the parameter <b>radius</b>. The driving direction (for phi=0) can be specified by the parameter <b>r</b>. The normal load is set by <b>N</b>.</p>
-<p>The wheel contains a 2D connector <b>frame_a</b> for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D  connector <b>flange_a</b>. </p>
+<p>The wheel contains a 2D connector <b>frame_a</b> for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D  connector <b>flange_a</b>.</p>
 <p>In addition there is an input for a dynamic component of the normal load.</p>
 <p>For examples of usage see the local Examples package.</p>
 </html>", revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end SlipBasedWheelJoint;

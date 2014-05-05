@@ -106,8 +106,8 @@ equation
           color={95,95,95},
           smooth=Smooth.None,
           pattern=LinePattern.Dot)}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p>The absolute velocity vector of the origin of frame_a is determined and provided at the output signal connector <b>v</b>. </p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<p>The absolute velocity vector of the origin of frame_a is determined and provided at the output signal connector <b>v</b>.</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the velocity vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td><p align=\"center\"><h4>resolveInFrame =</h4></p><p align=\"center\">Types.ResolveInFrameA.</p></td>
@@ -126,7 +126,7 @@ equation
 <td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
 </tr>
 </table>
-<p>If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector &QUOT;frame_resolve&QUOT; is enabled and v is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected. </p>
+<p>If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector &quot;frame_resolve&quot; is enabled and v is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>Example: If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the output vector is computed as: </p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-x2brh9fX.png\" alt=\"
 v0 = der([x,y,phi])\"/></p>

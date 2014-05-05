@@ -107,12 +107,12 @@ equation
           extent={{18,-80},{102,-110}},
           lineColor={0,0,0},
           textString="v_rel")}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p>The relative acceleration vector between the origins of frame_a and of frame_b are determined and provided at the output signal connector <b>a_rel</b>. </p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<p>The relative acceleration vector between the origins of frame_a and of frame_b are determined and provided at the output signal connector <b>a_rel</b>.</p>
 <p><code>Via parameter <b>resolveInFrame</b> it is defined, in which frame the velocity vector is resolved: </code></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td><p align=\"center\"><code><b>resolveInFrame =</b>Types.ResolveInFrameAB.</code></p></td>
-<td><p><h4>Meaning</h4></p></td>
+<td><h4>Meaning</h4></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>world</p></td>
@@ -131,9 +131,9 @@ equation
 <td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
 </tr>
 </table>
-<p><br/>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &QUOT;frame_resolve&QUOT; is enabled and a_rel is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected. Example: If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output vector is computed as: <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-LZbFgA50.png\" alt=\"r_rel = transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi), 0; sin(frame_resolve.phi),cos(frame_resolve.phi), 0;0,0,1]) * [frame_b.x - frame_a.x;frame_b.y - frame_a.y;frame_b.phi - frame_a.phi]\"/> </p>
+<p><br/>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &quot;frame_resolve&quot; is enabled and a_rel is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected. Example: If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output vector is computed as: <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-LZbFgA50.png\" alt=\"r_rel = transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi), 0; sin(frame_resolve.phi),cos(frame_resolve.phi), 0;0,0,1]) * [frame_b.x - frame_a.x;frame_b.y - frame_a.y;frame_b.phi - frame_a.phi]\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-b53N2SsO.png\" alt=\"v_rela = der(r_rel)\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-PGBmAMb7.png\" alt=\"v_rel = transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi),0;sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1]) * [cos(frame_a.phi),-sin(frame_a.phi), 0;sin(frame_a.phi), cos(frame_a.phi),0;0,0,1] * r_rela\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-NK9IGjAY.png\" alt=\"a_rel = der(v_rel)\"/> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-NK9IGjAY.png\" alt=\"a_rel = der(v_rel)\"/></p>
 </html>"));
 end RelativeAcceleration;

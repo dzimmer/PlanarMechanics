@@ -16,6 +16,6 @@ partial model PlanetaryGearInterface
       Placement(transformation(extent={{90,-10},{110,10}}),iconTransformation(
           extent={{90,-10},{110,10}})));
   annotation (Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanicmodelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end PlanetaryGearInterface;

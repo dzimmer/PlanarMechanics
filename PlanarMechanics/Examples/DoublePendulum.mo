@@ -59,8 +59,8 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   annotation (experiment(StopTime=10),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">A double pendulum.</font></h4></p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">A double pendulum.</font></h4>
 <p><br/>Beware this is a chaotic system. However, the chatoic part should start after 10s.</p>
 <p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_2.png\"/></p>

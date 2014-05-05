@@ -82,8 +82,8 @@ equation
           lineColor={0,0,0},
           textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
               127})}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p>The cut-force acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-force is provided (= frame_b.f). </p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<p>The cut-force acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-force is provided (= frame_b.f).</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the force vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td><p align=\"center\"><h4>resolveInFrame =</h4></p><p align=\"center\">Types.ResolveInFrameAB.</p></td>
@@ -106,8 +106,8 @@ equation
 <td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
 </tr>
 </table>
-<p><br/><br/><br/>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &QUOT;frame_resolve&QUOT; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected. </p>
+<p><br/><br/><br/>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &quot;frame_resolve&quot; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>In the following figure the modeling and animation of a CutForce sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CutForce2.png\"/>                                                                <img src=\"modelica://PlanarMechanics/Resources/Images/CutForce.png\"/> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/CutForce2.png\"/>                                                                <img src=\"modelica://PlanarMechanics/Resources/Images/CutForce.png\"/></p>
 </html>"));
 end CutForce;

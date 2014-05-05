@@ -70,8 +70,8 @@ equation
           extent={{18,-80},{102,-110}},
           lineColor={0,0,0},
           textString="r_rel")}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p>The relative position and angle vector<b> [x,y,phi]</b> between the origins of frame_a and frame_b are determined and provided at the output signal connector <b>r_rel</b>. </p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<p>The relative position and angle vector<b> [x,y,phi]</b> between the origins of frame_a and frame_b are determined and provided at the output signal connector <b>r_rel</b>.</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the position vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td><p align=\"center\"><h4>resolveInFrame =</h4></p><p align=\"center\">Types.ResolveInFrameAB.</p></td>
@@ -94,7 +94,7 @@ equation
 <td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
 </tr>
 </table>
-<p>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &QUOT;frame_resolve&QUOT; is enabled and r_rel is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected. </p>
+<p>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &quot;frame_resolve&quot; is enabled and r_rel is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>Example: If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output vector is computed as: </p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-LrRs4SXG.png\" alt=\"r_rel = transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi), 0; sin(frame_resolve.phi),cos(frame_resolve.phi), 0;0,0,1]) * [frame_b.x - frame_a.x;frame_b.y - frame_a.y;frame_b.phi - frame_a.phi]\"/></p>
 </html>"));

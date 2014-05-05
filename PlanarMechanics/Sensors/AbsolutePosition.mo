@@ -79,7 +79,7 @@ equation
           color={0,0,0},
           smooth=Smooth.None,
           pattern=LinePattern.Dot)}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The absolute position and angle vector<b> [x,y,phi]</b> of the origin of frame_a is determined and provided at the output signal connector <b>r</b>.</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the position and angle vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
@@ -99,7 +99,7 @@ equation
 <td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
 </tr>
 </table>
-<p>If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector &QUOT;frame_resolve&QUOT; is enabled and r is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected. </p>
+<p>If resolveInFrame = Types.ResolveInFrameA.frame_resolve, the conditional connector &quot;frame_resolve&quot; is enabled and r is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>Example: If resolveInFrame = Types.ResolveInFrameA.<code>frame_resolve</code>, the output vector is computed as: </p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-dcUlfcwL.png\" alt=\"r =transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi), 0; sin(frame_resolve.phi),cos(frame_resolve.phi), 0;0, 0, 1]) * [frame_a.x;frame_a.y;frame_a.phi] - [0;0;frame_resolve.phi]\"/></p>
 </html>"));

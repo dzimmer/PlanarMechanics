@@ -74,7 +74,7 @@ equation
       smooth=Smooth.None));
   annotation (experiment(StopTime=5),
     Documentation(info="<html>
-<p><h4><font color=\"#008000\">Spring Demo</font></h4></p>
+<h4><font color=\"#008000\">Spring Demo</font></h4>
 <p>This example shows how to use a spring and a damper separately. The motion is constrained by a prismatic joint. The spring passes a point of zero lenght.</p>
 </html>"));
 end SpringDemo;
