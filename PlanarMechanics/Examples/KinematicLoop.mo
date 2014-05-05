@@ -33,13 +33,11 @@ model KinematicLoop
   Parts.FixedTranslation fixedTranslation3(r={0, -0.6}) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={10,-50})));
   Parts.Body body(
     m=1,
     I=0.1) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={50,-50})));
   Parts.Fixed fixed annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

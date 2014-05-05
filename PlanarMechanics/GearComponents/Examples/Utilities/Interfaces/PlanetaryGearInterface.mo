@@ -5,12 +5,11 @@ partial model PlanetaryGearInterface
 
   Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_Ring
     "Flange of shaft"
-    annotation (Placement(transformation(extent={{-110,50},{-90,70}},rotation=0),
+    annotation (Placement(transformation(extent={{-110,50},{-90,70}}),
         iconTransformation(extent={{-110,50},{-90,70}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_Sun
     "Flange of shaft"
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
-                                                                     rotation=0),
+    annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
         iconTransformation(extent={{-110,-10},{-90,10}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_Carrier
                                                              annotation (

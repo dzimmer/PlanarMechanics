@@ -4,7 +4,7 @@ model TransformAbsoluteVector "Transform absolute vector in to another frame"
 
   Interfaces.Frame_a frame_a
     "Coordinate system from which absolute kinematic quantities are measured"            annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+        transformation(extent={{-116,-16},{-84,16}})));
 
   Interfaces.Frame_resolve frame_resolve if
    (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) or

@@ -20,7 +20,6 @@ model PistonEngine_DynamicStateSelection "A Piston Engine"
     annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
   Parts.Fixed fixed1   annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={70,-50})));
   Joints.Revolute revoluteDisc(phi(fixed=false, start=0))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
@@ -28,8 +27,7 @@ model PistonEngine_DynamicStateSelection "A Piston Engine"
         origin={0,30})));
   Parts.FixedTranslation pistonRod(r={0.8,0})
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Parts.Body bodyPiston(
     I=0.1,
     m=3)

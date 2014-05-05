@@ -27,8 +27,7 @@ model Position
 
   Modelica.Blocks.Interfaces.RealInput phi_ref(final quantity="Angle", final unit="rad", displayUnit="deg")
     "Reference angle of flange with respect to support as input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-          rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 protected
   Modelica.SIunits.Angle phi_support "Absolute angle of support flange";
   parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit

@@ -24,7 +24,6 @@ model MeasureDemo
     annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   Sensors.AbsolutePosition absolutePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={-10,-90})));
   Sensors.RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.world)
     annotation (Placement(transformation(extent={{40,82},{60,102}})));
@@ -36,7 +35,6 @@ model MeasureDemo
     annotation (Placement(transformation(extent={{20,62},{40,82}})));
   Sensors.AbsoluteAcceleration absoluteAcceleration(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
-        rotation=0,
         origin={30,-50})));
   Sensors.RelativeAcceleration relativeAcceleration(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
     annotation (Placement(transformation(extent={{0,42},{20,62}})));

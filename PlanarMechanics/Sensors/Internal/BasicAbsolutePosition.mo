@@ -8,8 +8,7 @@ model BasicAbsolutePosition
     "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={110,0},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+        extent={{-10,-10},{10,10}})));
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
     resolveInFrame=

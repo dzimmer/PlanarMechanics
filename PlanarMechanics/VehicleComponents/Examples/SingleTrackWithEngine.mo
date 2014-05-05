@@ -7,7 +7,6 @@ model SingleTrackWithEngine "AcceleratingBody"
     m=2,
     g={0,0})
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={40,50})));
   VehicleComponents.Wheels.IdealWheelJoint idealWheelFront(
     r={0,1},

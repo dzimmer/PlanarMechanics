@@ -4,9 +4,9 @@ partial model PartialRelativeSensor
   extends Modelica.Icons.RotationalSensor;
 
   Interfaces.Frame_a frame_a "Coordinate system a"                              annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+        transformation(extent={{-116,-16},{-84,16}})));
   Interfaces.Frame_b frame_b "Coordinate system b"                              annotation (Placement(
-        transformation(extent={{84,-16},{116,16}}, rotation=0)));
+        transformation(extent={{84,-16},{116,16}})));
 
 equation
    assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");

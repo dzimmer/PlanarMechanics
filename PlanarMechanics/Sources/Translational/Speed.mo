@@ -23,7 +23,7 @@ model Speed "Forced movement of a flange according to a reference speed"
 
   Modelica.Blocks.Interfaces.RealInput v_ref
     "Reference speed of flange as input signal" annotation (Placement(
-        transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+        transformation(extent={{-140,-20},{-100,20}})));
   Modelica.SIunits.Length s(start=0, fixed=true, stateSelect=StateSelect.prefer)
     "Distance between flange and support (= flange.s - support.s)";
 

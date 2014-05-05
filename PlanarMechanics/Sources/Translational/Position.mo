@@ -22,7 +22,7 @@ model Position "Forced movement of a flange according to a reference position"
     annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
   Modelica.Blocks.Interfaces.RealInput s_ref
     "Reference position of flange as input signal" annotation (Placement(
-        transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+        transformation(extent={{-140,-20},{-100,20}})));
   Modelica.SIunits.Length s(stateSelect=if exact then StateSelect.default else StateSelect.prefer)
     "Distance between flange and support (= flange.s - support.s)";
 

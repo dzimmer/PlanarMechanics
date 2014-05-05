@@ -22,8 +22,7 @@ model SpringDemo
     enableAssert=false)
                        annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Parts.Damper damper(d=1)  annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,

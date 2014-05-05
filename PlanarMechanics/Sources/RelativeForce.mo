@@ -28,7 +28,6 @@ outer PlanarWorld planarWorld "planar world model";
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Animation",group="if animation = true",enable=animation));
   Modelica.Blocks.Interfaces.RealInput force[3] annotation (Placement(transformation(extent={{-20,-20},{20,20}},
-        rotation=0,
         origin={0,50})));
 
   Real R[2,2] "Rotation matrix";
