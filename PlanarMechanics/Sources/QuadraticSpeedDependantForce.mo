@@ -87,39 +87,31 @@ equation
   connect(worldForce.frame_b, frame_b) annotation (Line(
       points={{42,0},{100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(absoluteVelocity.frame_a, frame_b) annotation (Line(
       points={{38,40},{60,40},{60,0},{100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(worldForce.frame_resolve, frame_resolve) annotation (Line(
       points={{29,-3},{29,-50},{10,-50}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(absoluteVelocity.frame_resolve, frame_resolve) annotation (Line(
       points={{28,30},{28,20},{10,20},{10,-50}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(absoluteVelocity.v, normalizeSpeeds.u) annotation (Line(
       points={{17,40},{-18,40}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(square.u, normalizeSpeeds.y) annotation (Line(
       points={{-54,40},{-41,40}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(square.y, scaleForces.u) annotation (Line(
       points={{-77,40},{-82,40},{-82,0},{-76,0}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(scaleForces.y, worldForce.force) annotation (Line(
       points={{-53,0},{20,0}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation (Icon(graphics={
         Polygon(
           points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},

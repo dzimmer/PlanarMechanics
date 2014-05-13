@@ -89,12 +89,10 @@ equation
           textString="r_in"),
         Line(
           points={{0,100},{0,70}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Line(
           points={{0,-70},{0,-100}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Text(
           extent={{58,47},{189,22}},
           lineColor={95,95,95},
@@ -105,11 +103,9 @@ equation
           textString="a"),
         Line(
           points={{-70,0},{-96,0},{-96,0}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          color={0,0,0}),
         Line(
           points={{95,0},{95,0},{70,0},{70,0}},
           color={0,0,0},
-          smooth=Smooth.None,
           pattern=LinePattern.Dot)}));
 end BasicTransformAbsoluteVector;

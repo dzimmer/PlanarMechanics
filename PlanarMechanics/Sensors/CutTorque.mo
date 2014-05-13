@@ -50,28 +50,25 @@ equation
       points={{-62,5.88418e-16},{-71.5,5.88418e-16},{-71.5,9.21485e-16},{-81,
           9.21485e-16},{-81,3.33067e-16},{-100,3.33067e-16}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(cutTorque.frame_b, frame_b) annotation (Line(
       points={{-42,5.88418e-16},{-6.5,5.88418e-16},{-6.5,9.21485e-16},{29,
           9.21485e-16},{29,3.33067e-16},{100,3.33067e-16}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(cutTorque.torque, torque) annotation (Line(
       points={{-60,-11},{-60,-80},{-80,-80},{-80,-110}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
 //   connect(cutTorque.frame_resolve, frame_resolve) annotation (Line(
 //       points={{-44,-10},{-44,-74},{80,-74},{80,-100}},
 //       color={95,95,95},
 //       pattern=LinePattern.Dot,
-//       smooth=Smooth.None));
+//       ));
 //  connect(zeroPosition.frame_resolve, cutTorque.frame_resolve) annotation (Line(
 //       points={{-20,-30},{-44,-30},{-44,-10}},
 //       color={95,95,95},
 //       pattern=LinePattern.Dot,
-//       smooth=Smooth.None));
+//       ));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
             100}}), graphics={Text(

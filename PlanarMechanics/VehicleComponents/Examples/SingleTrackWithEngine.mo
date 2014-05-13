@@ -63,39 +63,32 @@ equation
                                                  annotation (Line(
       points={{4.8,50},{30,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(chassis.frame_a, idealWheelRear.frame_a)             annotation (
       Line(
       points={{20,-50},{20,-80},{4.8,-80}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(bodyRear.frame_a, chassis.frame_a)        annotation (Line(
       points={{30,-80},{20,-80},{20,-50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.frame_a, chassis.frame_b)           annotation (Line(
       points={{20,-10},{20,-30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(engineTorque.flange, idealWheelRear.flange_a)      annotation (
       Line(
       points={{-20,-80},{-10,-80}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(trail.frame_a, revolute.frame_b) annotation (Line(
       points={{20,20},{20,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(trail.frame_b, idealWheelFront.frame_a) annotation (Line(
       points={{20,40},{20,50},{4.8,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(StopTime=6),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>An ideal rolling single track model.</p>

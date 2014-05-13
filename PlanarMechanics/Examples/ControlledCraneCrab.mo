@@ -53,46 +53,37 @@ equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{-10,-40},{-10,-45},{-10,-45},{-10,-50},{-10,-60},{-10,-60}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(force.f, PID.y) annotation (Line(
       points={{-30,72},{-30,80},{19,80}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(angleSensor.phi, PID.u) annotation (Line(
       points={{41,6.10623e-16},{70,6.10623e-16},{70,80},{42,80}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
 
   connect(fixed.frame_a, prismatic.frame_a) annotation (Line(
       points={{-60,30},{-40,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic.frame_b, body1.frame_a) annotation (Line(
       points={{-20,30},{-5.55112e-16,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic.flange_a, force.flange) annotation (Line(
       points={{-30,39},{-30,50}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   connect(prismatic.frame_b, revolute.frame_a) annotation (Line(
       points={{-20,30},{-10,30},{-10,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-10,-10},{-10,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.flange_a, angleSensor.flange) annotation (Line(
       points={{5.55112e-16,-1.33731e-15},{10,-1.33731e-15},{10,6.10623e-16},{20,
           6.10623e-16}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <h4><font color=\"#008000\">A controlled crane crab.</font></h4>

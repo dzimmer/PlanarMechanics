@@ -48,31 +48,25 @@ equation
       points={{1.50184e-016,23.2},{1.50184e-016,26.6},{1.05639e-015,26.6},{
           1.05639e-015,8}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic.frame_a, revolute.frame_b) annotation (Line(
       points={{-1.68214e-016,-12},{1.05639e-015,-12},{1.05639e-015,-22}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.frame_a, fixed.frame_a) annotation (Line(
       points={{-1.68214e-016,-42},{2.50304e-015,-42},{2.50304e-015,-52}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(engineTorque.flange, inertia.flange_a) annotation (Line(
       points={{-12,68},{2.33651e-015,68}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(inertia.flange_b, idealWheelJoint.flange_a) annotation (Line(
       points={{-1.33731e-015,48},{0,40},{1.1119e-015,38}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(body.frame_a, prismatic.frame_b) annotation (Line(
       points={{20,8},{1.05639e-015,8}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <h4><font color=\"#008000\">This is an ideal wheel.</font></h4>
 <p>It introduces one non-holonomic constraint. Difficult for index-reduction.</p>

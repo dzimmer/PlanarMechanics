@@ -52,29 +52,24 @@ equation
       points={{-50,5.88418e-16},{-62.5,5.88418e-16},{-62.5,9.21485e-16},{-75,
           9.21485e-16},{-75,3.33067e-16},{-100,3.33067e-16}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(cutForce.frame_b, frame_b)      annotation (Line(
       points={{-30,5.88418e-16},{2.5,5.88418e-16},{2.5,9.21485e-16},{35,
           9.21485e-16},{35,3.33067e-16},{100,3.33067e-16}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(cutForce.frame_resolve, frame_resolve)      annotation (Line(
       points={{-32,-10},{-32,-60},{80,-60},{80,-100}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(cutForce.force, force)      annotation (Line(
       points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(zeroPosition.frame_resolve, cutForce.frame_resolve)      annotation (
       Line(
       points={{-5.55112e-16,-30},{-32,-30},{-32,-10}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(

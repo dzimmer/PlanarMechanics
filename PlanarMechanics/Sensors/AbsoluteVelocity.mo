@@ -44,51 +44,42 @@ equation
   connect(position.r, der1.u) annotation (Line(
       points={{-39,6.10623e-16},{-32.25,6.10623e-16},{-32.25,1.27676e-15},{
           -25.5,1.27676e-15},{-25.5,6.66134e-16},{-12,6.66134e-16}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(position.frame_a, frame_a) annotation (Line(
       points={{-60,5.88418e-16},{-70,5.88418e-16},{-70,9.21485e-16},{-80,
           9.21485e-16},{-80,3.33067e-16},{-100,3.33067e-16}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(der1.y, transformAbsoluteVector.r_in) annotation (Line(
       points={{11,6.10623e-16},{19.5,6.10623e-16},{19.5,1.17885e-15},{38,
           1.17885e-15}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(transformAbsoluteVector.r_out, v) annotation (Line(
       points={{61,-1.73933e-16},{71.5,-1.73933e-16},{71.5,5.55112e-16},{110,
           5.55112e-16}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
       points={{-60,-50},{-50,-50},{-50,-10}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_a, frame_a) annotation (Line(
       points={{50,10},{50,20},{-70,20},{-70,3.33067e-16},{-100,3.33067e-16}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
     annotation (Line(
       points={{49.9,-10},{50,-10},{50,-50},{60,-50}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
       points={{49.9,-10},{50,-10},{50,-50},{3.33067e-16,-50},{3.33067e-16,-100}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(
           points={{70,0},{100,0}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Text(
           extent={{-130,72},{131,120}},
           textString="%name",
@@ -104,7 +95,6 @@ equation
         Line(
           points={{0,-70},{0,-95}},
           color={95,95,95},
-          smooth=Smooth.None,
           pattern=LinePattern.Dot)}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The absolute velocity vector of the origin of frame_a is determined and provided at the output signal connector <b>v</b>.</p>

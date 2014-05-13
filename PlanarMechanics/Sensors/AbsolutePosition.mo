@@ -35,31 +35,26 @@ equation
       points={{5.88418e-16,-10},{5.88418e-16,-32.5},{9.21485e-16,-32.5},{
           9.21485e-16,-55},{3.33067e-16,-55},{3.33067e-16,-100}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, position.frame_resolve)
     annotation (Line(
       points={{20,-30},{5.88418e-16,-30},{5.88418e-16,-10}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(position.r, r) annotation (Line(
       points={{11,6.10623e-16},{35.75,6.10623e-16},{35.75,1.16573e-15},{60.5,
           1.16573e-15},{60.5,5.55112e-16},{110,5.55112e-16}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(position.frame_a, frame_a) annotation (Line(
       points={{-10,5.88418e-16},{-32.5,5.88418e-16},{-32.5,9.21485e-16},{-55,
           9.21485e-16},{-55,3.33067e-16},{-100,3.33067e-16}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(
           points={{70,0},{100,0}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Text(
           extent={{-127,95},{134,143}},
           textString="%name",
@@ -77,7 +72,6 @@ equation
           visible = (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve),
           points={{0,-96},{0,-96},{0,-70},{0,-70}},
           color={0,0,0},
-          smooth=Smooth.None,
           pattern=LinePattern.Dot)}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The absolute position and angle vector<b> [x,y,phi]</b> of the origin of frame_a is determined and provided at the output signal connector <b>r</b>.</p>

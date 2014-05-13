@@ -16,7 +16,6 @@ annotation (Icon(graphics={              Rectangle(
             -28},{-70,-36},{-4,-36},{14,-54},{34,-54},{54,-34},{26,-34},{18,-28},
             {18,-16},{26,-10},{52,-10}},
           lineThickness=0.5,
-          smooth=Smooth.None,
           fillColor={95,95,95},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None,

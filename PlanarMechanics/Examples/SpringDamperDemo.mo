@@ -36,18 +36,15 @@ equation
   connect(fixed.frame_a,fixedTranslation. frame_a) annotation (Line(
       points={{-60,40},{-40,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, springDamper.frame_a) annotation (Line(
       points={{-20,40},{0,40},{0,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(springDamper.frame_b, body.frame_a) annotation (Line(
       points={{0,-10},{0,-24}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(
       StopTime=5,
       __Dymola_fixedstepsize=0.0001,

@@ -43,45 +43,37 @@ equation
       points={{-10,5.88418e-16},{-32.5,5.88418e-16},{-32.5,9.21485e-16},{-55,9.21485e-16},
           {-55,3.33067e-16},{-100,3.33067e-16}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(basicTransformVector.frame_b, frame_b) annotation (Line(
       points={{10,5.88418e-16},{32.5,5.88418e-16},{32.5,9.21485e-16},{55,9.21485e-16},
           {55,3.33067e-16},{100,3.33067e-16}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(basicTransformVector.frame_resolve, frame_resolve) annotation (Line(
       points={{10,8.1},{20,8.1},{20,8},{32,8},{32,80},{100,80}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, basicTransformVector.frame_resolve)
     annotation (Line(
       points={{48,20},{32,20},{32,8.1},{10,8.1}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(basicTransformVector.r_out, r_out) annotation (Line(
       points={{6.10623e-16,-11},{6.10623e-16,-35.75},{1.16573e-15,-35.75},{1.16573e-15,
           -60.5},{5.55112e-16,-60.5},{5.55112e-16,-110}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(basicTransformVector.r_in, r_in) annotation (Line(
       points={{6.66134e-16,12},{6.66134e-16,39},{1.77636e-15,39},{1.77636e-15,
           66},{1.11022e-15,66},{1.11022e-15,120}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(
           points={{0,-70},{0,-100}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Line(
           points={{0,100},{0,70}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Text(
           extent={{-104,124},{-18,96}},
           lineColor={0,0,0},

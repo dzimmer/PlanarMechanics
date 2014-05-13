@@ -163,126 +163,101 @@ model TwoTrackWithDifferentialGear "AcceleratingBody"
 equation
   connect(WheelJoint2.flange_a, inertia1.flange_b) annotation (Line(
       points={{-70,-40},{-82,-40}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(inertia.flange_b, WheelJoint1.flange_a) annotation (Line(
       points={{-80,70},{-72,70}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(fixedTranslation2.frame_b, fixedTranslation1.frame_a) annotation (
      Line(
       points={{-10,-40},{0,-40},{0,-12},{-1.68214e-16,-12}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation2.frame_a, WheelJoint2.frame_a) annotation (Line(
       points={{-30,-40},{-55.2,-40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation3.frame_b, fixedTranslation1.frame_a) annotation (
      Line(
       points={{10,-40},{-1.68214e-16,-40},{-1.68214e-16,-12}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(WheelJoint3.frame_a, fixedTranslation3.frame_a) annotation (Line(
       points={{57.2,-40},{30,-40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(inertia2.flange_b, WheelJoint3.flange_a) annotation (Line(
       points={{80,-40},{72,-40}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(body1.frame_a, fixedTranslation1.frame_a) annotation (Line(
       points={{12,-20},{-1.68214e-16,-20},{-1.68214e-16,-12}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation1.frame_b, fixedTranslation4.frame_b) annotation (
      Line(
       points={{1.05639e-15,8},{0,8},{0,20},{-10,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation1.frame_b, fixedTranslation5.frame_b) annotation (
      Line(
       points={{1.05639e-15,8},{0,8},{0,20},{10,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(inertia3.flange_b, WheelJoint4.flange_a) annotation (Line(
       points={{80,70},{70,70}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(pulse.y, torque.tau) annotation (Line(
       points={{-1,80},{-8,80}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(differentialGear.flange_right, WheelJoint3.flange_a) annotation (
       Line(
       points={{10,-62},{78,-62},{78,-40},{72,-40}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(differentialGear.flange_left, WheelJoint2.flange_a) annotation (
       Line(
       points={{-10,-62},{-70,-62},{-70,-40}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(constantTorque1.flange, differentialGear.flange_b) annotation (
       Line(
       points={{-40,-80},{6.10623e-16,-72}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(body.frame_a, leftTrail.frame_b) annotation (Line(
       points={{-40,80},{-40,74}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(leftTrail.frame_b, WheelJoint1.frame_a) annotation (Line(
       points={{-40,74},{-52,74},{-52,70},{-57.2,70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(body2.frame_a, rightTrail.frame_b) annotation (Line(
       points={{40,80},{40,74}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(WheelJoint4.frame_a, rightTrail.frame_b) annotation (Line(
       points={{55.2,70},{44,70},{44,74},{40,74}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(leftTrail.frame_a, revolute2.frame_a) annotation (Line(
       points={{-40,54},{-40,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute2.frame_b, fixedTranslation4.frame_a) annotation (Line(
       points={{-40,30},{-40,20},{-30,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(torque.flange, revolute2.flange_a) annotation (Line(
       points={{-30,80},{-30,40}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(revolute.flange_a, revolute2.flange_a) annotation (Line(
       points={{30,40},{-30,40}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      color={0,0,0}));
   connect(revolute.frame_a, rightTrail.frame_a) annotation (Line(
       points={{40,50},{40,54}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.frame_b, fixedTranslation5.frame_a) annotation (Line(
       points={{40,30},{40,20},{30,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(StopTime=10),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Two track model of a car.</p>

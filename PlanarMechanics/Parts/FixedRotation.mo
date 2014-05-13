@@ -53,7 +53,6 @@ equation
         Polygon(
           points={{4,48},{92,8},{92,-12},{0,32},{-92,-10},{-92,8},{-6,48},{4,48}},
           lineColor={0,0,0},
-          smooth=Smooth.None,
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Ellipse(

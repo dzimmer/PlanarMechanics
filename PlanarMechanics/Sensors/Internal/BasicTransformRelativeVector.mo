@@ -65,6 +65,5 @@ equation
           textString="r_in"),
         Line(
           points={{0,100},{0,70}},
-          color={0,0,127},
-          smooth=Smooth.None)}));
+          color={0,0,127})}));
 end BasicTransformRelativeVector;

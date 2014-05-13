@@ -65,61 +65,49 @@ equation
   connect(fixedTranslation1.frame_a, revolute.frame_b) annotation (Line(
       points={{-20,30},{-20,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation2.frame_a, revolute1.frame_b) annotation (Line(
       points={{80,30},{80,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute2.frame_a, fixedTranslation1.frame_b) annotation (Line(
       points={{10,6.66134e-16},{-20,6.66134e-16},{-20,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute2.frame_b, fixedTranslation2.frame_b) annotation (Line(
       points={{30,6.66134e-16},{80,6.66134e-16},{80,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation3.frame_a, revolute3.frame_b) annotation (Line(
       points={{-5.55112e-16,-50},{-20,-50},{-20,-40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.frame_a, fixed.frame_a) annotation (Line(
       points={{-20,60},{-20,70},{-40,70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixed1.flange, springDamper.flange_a) annotation (Line(
       points={{-46,90},{-5.55112e-16,90}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   connect(revolute3.frame_a, fixedTranslation1.frame_b) annotation (Line(
       points={{-20,-20},{-20,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(body.frame_a, fixedTranslation3.frame_b) annotation (Line(
       points={{40,-50},{20,-50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic1.frame_a, fixed.frame_a) annotation (Line(
       points={{18,70},{-40,70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(springDamper.flange_b, prismatic1.flange_a) annotation (Line(
       points={{20,90},{28,90},{28,79}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   connect(prismatic1.frame_b, revolute1.frame_a) annotation (Line(
       points={{38,70},{80,70},{80,60}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(StopTime=6),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <h4><font color=\"#008000\">An example of a kinematic loop.</font></h4>
