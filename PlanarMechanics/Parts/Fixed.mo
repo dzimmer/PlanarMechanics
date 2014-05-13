@@ -12,7 +12,6 @@ equation
   annotation (Icon(graphics={
         Text(
           extent={{-100,-80},{100,-120}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),

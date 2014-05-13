@@ -76,11 +76,9 @@ equation
           color={0,0,127}),
         Text(
           extent={{-104,124},{-18,96}},
-          lineColor={0,0,0},
           textString="r_in"),
         Text(
           extent={{-124,-76},{2,-104}},
-          lineColor={0,0,0},
           textString="r_out")}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>

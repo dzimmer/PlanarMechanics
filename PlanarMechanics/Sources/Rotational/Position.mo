@@ -91,7 +91,6 @@ blocks of the block library Modelica.Blocks.Sources.
         grid={2,2}), graphics={
         Rectangle(
           extent={{-100,20},{100,-20}},
-          lineColor={0,0,0},
           filuseSupportlPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
         Line(points={{-30,-32},{30,-32}}),
@@ -107,7 +106,6 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{-20,-32},{-30,-42}}),
         Text(
           extent={{-56,-56},{-172,-90}},
-          lineColor={0,0,0},
           textString="phi_ref"),
         Text(
           extent={{150,60},{-150,100}},
@@ -115,10 +113,8 @@ blocks of the block library Modelica.Blocks.Sources.
           lineColor={0,0,255}),
         Text(
           extent={{146,-28},{30,-62}},
-          lineColor={0,0,0},
           textString="exact="),
         Text(
           extent={{146,-64},{30,-98}},
-          lineColor={0,0,0},
           textString="%exact")}));
 end Position;

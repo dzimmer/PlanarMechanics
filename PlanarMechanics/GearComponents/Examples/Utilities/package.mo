@@ -4,11 +4,9 @@ package Utilities "Package with example models"
 
 annotation (Icon(graphics={              Rectangle(
           extent={{-80,100},{100,-80}},
-          lineColor={0,0,0},
           fillColor={215,230,240},
           fillPattern=FillPattern.Solid), Rectangle(
           extent={{-100,80},{80,-100}},
-          lineColor={0,0,0},
           fillColor={240,240,240},
           fillPattern=FillPattern.Solid),
                               Polygon(
@@ -18,6 +16,5 @@ annotation (Icon(graphics={              Rectangle(
           lineThickness=0.5,
           fillColor={95,95,95},
           fillPattern=FillPattern.Solid,
-          pattern=LinePattern.None,
-          lineColor={0,0,0})}));
+          pattern=LinePattern.None)}));
 end Utilities;

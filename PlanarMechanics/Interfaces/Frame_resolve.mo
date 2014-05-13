@@ -23,7 +23,6 @@ coordinate system a vector is resolved (non-filled rectangular icon)"
           grid={1,1},
           initialScale=0.16), graphics={Text(
             extent={{-140,-50},{140,-88}},
-            lineColor={0,0,0},
             textString="%name"), Rectangle(
             extent={{-12,40},{12,-40}},
             lineColor={95,95,95},

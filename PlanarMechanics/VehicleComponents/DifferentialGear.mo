@@ -30,20 +30,17 @@ equation
           extent={{-48,40},{40,-40}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
-          pattern=LinePattern.None,
-          lineColor={0,0,0}),
+          pattern=LinePattern.None),
         Polygon(
           points={{40,-60},{60,-80},{60,80},{40,60},{40,-60}},
           pattern=LinePattern.None,
           fillColor={175,175,175},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,0}),
+          fillPattern=FillPattern.Solid),
         Polygon(
           points={{20,-60},{40,-80},{-40,-80},{-20,-60},{20,-60}},
           pattern=LinePattern.None,
           fillColor={175,175,175},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,0}),
+          fillPattern=FillPattern.Solid),
         Polygon(
           points={{14,10},{34,-10},{-34,-10},{-14,10},{14,10}},
           pattern=LinePattern.None,

@@ -85,7 +85,6 @@ blocks of the block library Modelica.Blocks.Sources.
         grid={2,2}), graphics={
         Text(
           extent={{-54,-36},{-174,-68}},
-          lineColor={0,0,0},
           textString="v_ref"),
         Line(points={{-30,-32},{30,-32}}),
         Line(visible=useSupport,points={{0,-32},{0,-100}}),
@@ -109,10 +108,8 @@ blocks of the block library Modelica.Blocks.Sources.
           lineColor={0,0,255}),
         Text(
           extent={{146,-38},{32,-64}},
-          lineColor={0,0,0},
           textString="exact="),
         Text(
           extent={{140,-76},{22,-102}},
-          lineColor={0,0,0},
           textString="%exact")}));
 end Speed;

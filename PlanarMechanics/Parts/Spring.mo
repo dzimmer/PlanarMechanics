@@ -144,8 +144,7 @@ for this situation:
         grid={2,2}), graphics={
         Text(
           extent={{140,-100},{-142,-142}},
-          textString="%name",
-          lineColor={0,0,0}),
+          textString="%name"),
         Line(
           points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,
               0}},

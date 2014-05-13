@@ -76,7 +76,6 @@ equation
   annotation (Icon(graphics={
         Text(
           extent={{-100,-80},{100,-120}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),
@@ -84,14 +83,12 @@ equation
           extent={{-80,80},{80,-80}},
           pattern=LinePattern.None,
           fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,0}),
+          fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-70,70},{70,-70}},
           pattern=LinePattern.None,
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,0}),
+          fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-20,20},{20,-20}},
           fillColor={255,255,255},

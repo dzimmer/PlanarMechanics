@@ -88,7 +88,6 @@ blocks of the block library Modelica.Blocks.Sources.
         grid={2,2}), graphics={
         Text(
           extent={{-56,-36},{-178,-66}},
-          lineColor={0,0,0},
           textString="s_ref"),
         Rectangle(
           extent={{-100,20},{100,-20}},
@@ -112,10 +111,8 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{-20,-32},{-30,-42}}),
         Text(
           extent={{144,-30},{30,-60}},
-          lineColor={0,0,0},
           textString="exact="),
         Text(
           extent={{134,-68},{22,-96}},
-          lineColor={0,0,0},
           textString="%exact")}));
 end Position;

@@ -77,22 +77,18 @@ equation
   annotation (Icon(graphics={
         Text(
           extent={{-100,-80},{100,-120}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"), Rectangle(
           extent={{-20,20},{20,-20}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175}),
                                Rectangle(
           extent={{-100,60},{-20,-62}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175}),
                                Rectangle(
           extent={{20,60},{100,-60}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175}),
         Line(

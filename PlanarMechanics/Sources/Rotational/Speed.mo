@@ -88,7 +88,6 @@ blocks of the block library Modelica.Blocks.Sources.
         grid={2,2}), graphics={
         Rectangle(
           extent={{-100,20},{100,-20}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
         Line(points={{-30,-32},{30,-32}}),
@@ -104,7 +103,6 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{30,-42},{20,-52}}),
         Text(
           extent={{-54,-44},{-158,-78}},
-          lineColor={0,0,0},
           textString="w_ref"),
         Text(
           extent={{0,120},{0,60}},
@@ -112,10 +110,8 @@ blocks of the block library Modelica.Blocks.Sources.
           lineColor={0,0,255}),
         Text(
           extent={{146,-26},{30,-60}},
-          lineColor={0,0,0},
           textString="exact="),
         Text(
           extent={{146,-62},{30,-96}},
-          lineColor={0,0,0},
           textString="%exact")}));
 end Speed;

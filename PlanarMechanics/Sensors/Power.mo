@@ -30,7 +30,6 @@ annotation (
       Line(points={{-80,0},{-80,-100}}, color={0,0,127}),
       Text(
         extent={{-60,-92},{16,-114}},
-        lineColor={0,0,0},
         textString="power"),
       Text(
         extent={{-128,126},{126,68}},

@@ -52,7 +52,6 @@ blocks of the block library Modelica.Blocks.Source.
         grid={2,2}), graphics={
         Text(
           extent={{-56,-40},{-166,-68}},
-          lineColor={0,0,0},
           textString="a_ref"),
         Line(points={{-30,-32},{30,-32}}),
         Line(visible=useSupport,points={{0,-32},{0,-100}}),

@@ -86,7 +86,6 @@ equation
           lineColor={0,0,255}),
         Text(
           extent={{58,48},{142,18}},
-          lineColor={0,0,0},
           textString="v"),
         Text(
           extent={{15,-67},{146,-92}},

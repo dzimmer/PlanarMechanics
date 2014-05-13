@@ -57,11 +57,9 @@ equation
             -100},{100,100}}), graphics={
         Text(
           extent={{-128,-92},{-2,-120}},
-          lineColor={0,0,0},
           textString="r_out"),
         Text(
           extent={{-108,144},{-22,116}},
-          lineColor={0,0,0},
           textString="r_in"),
         Line(
           points={{0,100},{0,70}},

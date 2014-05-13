@@ -56,7 +56,6 @@ blocks of the block library Modelica.Blocks.Sources.
         grid={2,2}), graphics={
         Rectangle(
           extent={{-100,20},{100,-20}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
         Line(points={{-30,-32},{30,-32}}),
@@ -72,7 +71,6 @@ blocks of the block library Modelica.Blocks.Sources.
         Line(points={{-20,-32},{-30,-42}}),
         Text(
           extent={{-46,-50},{-144,-86}},
-          lineColor={0,0,0},
           textString="a_ref"),
         Text(
           extent={{-150,100},{150,60}},

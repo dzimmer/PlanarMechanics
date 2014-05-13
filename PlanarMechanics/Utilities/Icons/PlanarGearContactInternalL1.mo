@@ -114,7 +114,6 @@ model PlanarGearContactInternalL1
           thickness=1),
         Text(
           extent={{-140,-60},{140,-100}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name")}),

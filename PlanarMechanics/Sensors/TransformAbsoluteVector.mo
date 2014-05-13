@@ -75,11 +75,9 @@ equation
           color={0,0,127}),
         Text(
           extent={{-104,124},{-18,96}},
-          lineColor={0,0,0},
           textString="r_in"),
         Text(
           extent={{-124,-76},{2,-104}},
-          lineColor={0,0,0},
           textString="r_out"),
         Line(
           points={{95,0},{95,0},{70,0},{70,0}},

@@ -225,7 +225,6 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
         grid={2,2}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Line(
@@ -233,16 +232,12 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           thickness=0.5),
         Polygon(
           points={{-100,100},{-120,60},{-80,60},{-100,100},{-100,100}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Line(
           points={{-119,-100},{59,-100}},
           thickness=0.5),
         Polygon(
           points={{99,-100},{59,-80},{59,-120},{99,-100}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-150,145},{150,105}},
@@ -250,11 +245,9 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           lineColor={0,0,255}),
         Text(
           extent={{95,-113},{144,-162}},
-          lineColor={0,0,0},
           textString="%label1"),
         Text(
           extent={{-170,127},{-119,77}},
-          lineColor={0,0,0},
           textString="%label2"),
         Line(points={{-56,78},{-56,-26}}, color={0,0,255}),
         Polygon(

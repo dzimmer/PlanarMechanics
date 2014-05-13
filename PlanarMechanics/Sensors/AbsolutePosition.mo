@@ -61,7 +61,6 @@ equation
           lineColor={0,0,255}),
         Text(
           extent={{62,46},{146,16}},
-          lineColor={0,0,0},
           textString="r"),
         Text(
           visible = (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve),

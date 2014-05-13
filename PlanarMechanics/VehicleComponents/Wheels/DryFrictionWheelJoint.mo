@@ -153,12 +153,10 @@ equation
           color={95,95,95}),
         Rectangle(
           extent={{100,10},{40,-10}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={231,231,231}),
         Text(
           extent={{-100,-100},{100,-140}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name")}),    Documentation(info="<html>

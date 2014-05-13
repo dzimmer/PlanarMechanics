@@ -230,7 +230,6 @@ equation
           textString="phi_rel"),
         Rectangle(
           extent={{-50,-20},{40,-80}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Line(points={{-50,-80},{68,-80}}),
@@ -243,8 +242,7 @@ equation
         Line(points={{96,0},{80,0}}),
         Text(
           extent={{140,-100},{-142,-142}},
-          textString="%name",
-          lineColor={0,0,0})}),
+          textString="%name")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -267,7 +265,6 @@ equation
           textString="phi_rel"),
         Rectangle(
           extent={{-50,-20},{40,-80}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Line(points={{-50,-80},{68,-80}}),

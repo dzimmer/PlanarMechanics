@@ -81,11 +81,9 @@ equation
         grid={1,1}), graphics={
         Text(
           extent={{-128,-84},{-2,-112}},
-          lineColor={0,0,0},
           textString="r_out"),
         Text(
           extent={{-108,137},{-22,109}},
-          lineColor={0,0,0},
           textString="r_in"),
         Line(
           points={{0,100},{0,70}},

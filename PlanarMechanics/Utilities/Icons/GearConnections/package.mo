@@ -106,11 +106,9 @@ package GearConnections
               22.59},{-59.8875,19.9962},{-59.2592,17.6526},{-56.1521,17.8756},{
               -55.865,20.2849},{-54.8073,23.0581},{-54.0308,24.2359},{-51.75,
               24.0005},{-51.2305,22.6889},{-50.7618,19.758},{-50.973,17.3409}},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid,
           lineThickness=0.5,
-          pattern=LinePattern.None,
-          lineColor={0,0,0})}), Documentation(revisions="<html>
+          pattern=LinePattern.None)}), Documentation(revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end GearConnections;

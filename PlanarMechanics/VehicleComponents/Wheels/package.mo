@@ -7,16 +7,13 @@ annotation (Documentation(info="<html>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
           {100,100}}), graphics={        Rectangle(
           extent={{-80,100},{100,-80}},
-          lineColor={0,0,0},
           fillColor={215,230,240},
           fillPattern=FillPattern.Solid), Rectangle(
           extent={{-100,80},{80,-100}},
-          lineColor={0,0,0},
           fillColor={240,240,240},
           fillPattern=FillPattern.Solid),
       Ellipse(
         extent={{-80,62},{60,-78}},
-        lineColor={0,0,0},
         fillColor={215,215,215},
         fillPattern=FillPattern.Sphere),
       Ellipse(
@@ -27,6 +24,5 @@ annotation (Documentation(info="<html>
       Ellipse(
         extent={{-20,2},{0,-18}},
         lineColor={0,0,255},
-        fillPattern=FillPattern.Solid,
-        fillColor={0,0,0})}));
+        fillPattern=FillPattern.Solid)}));
 end Wheels;
