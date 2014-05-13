@@ -79,8 +79,7 @@ equation
       thickness=0.5));
   connect(engineTorque.flange, idealWheelRear.flange_a)      annotation (
       Line(
-      points={{-20,-80},{-10,-80}},
-      color={0,0,0}));
+      points={{-20,-80},{-10,-80}}));
   connect(trail.frame_a, revolute.frame_b) annotation (Line(
       points={{20,20},{20,10}},
       color={95,95,95},

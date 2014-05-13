@@ -268,11 +268,9 @@ equation
           pattern=LinePattern.None),
         Line(
           points={{-100,0},{-44,0}},
-          color={0,0,0},
           thickness=1),
         Line(
           points={{30,0},{100,0}},
-          color={0,0,0},
           thickness=1)}),    Documentation(revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
                                                                                                     info="<html>

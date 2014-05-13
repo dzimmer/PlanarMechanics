@@ -230,7 +230,6 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           fillPattern=FillPattern.Solid),
         Line(
           points={{-100,-118},{-100,61}},
-          color={0,0,0},
           thickness=0.5),
         Polygon(
           points={{-100,100},{-120,60},{-80,60},{-100,100},{-100,100}},
@@ -239,7 +238,6 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           fillPattern=FillPattern.Solid),
         Line(
           points={{-119,-100},{59,-100}},
-          color={0,0,0},
           thickness=0.5),
         Polygon(
           points={{99,-100},{59,-80},{59,-120},{99,-100}},

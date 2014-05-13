@@ -82,8 +82,7 @@ equation
       thickness=0.5));
   connect(revolute.flange_a, angleSensor.flange) annotation (Line(
       points={{5.55112e-16,-1.33731e-15},{10,-1.33731e-15},{10,6.10623e-16},{20,
-          6.10623e-16}},
-      color={0,0,0}));
+          6.10623e-16}}));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <h4><font color=\"#008000\">A controlled crane crab.</font></h4>

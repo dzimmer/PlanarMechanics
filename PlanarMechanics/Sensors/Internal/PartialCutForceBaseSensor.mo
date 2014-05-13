@@ -50,8 +50,8 @@ with the blocks of package Modelica.Blocks.
         preserveAspectRatio=false,
         extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
-        Line(points={{-70,0},{-101,0}}, color={0,0,0}),
-        Line(points={{70,0},{100,0}}, color={0,0,0}),
+        Line(points={{-70,0},{-101,0}}),
+        Line(points={{70,0},{100,0}}),
         Text(
           extent={{-132,76},{129,124}},
           textString="%name",

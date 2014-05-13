@@ -162,11 +162,9 @@ model TwoTrackWithDifferentialGear "AcceleratingBody"
         origin={40,40})));
 equation
   connect(WheelJoint2.flange_a, inertia1.flange_b) annotation (Line(
-      points={{-70,-40},{-82,-40}},
-      color={0,0,0}));
+      points={{-70,-40},{-82,-40}}));
   connect(inertia.flange_b, WheelJoint1.flange_a) annotation (Line(
-      points={{-80,70},{-72,70}},
-      color={0,0,0}));
+      points={{-80,70},{-72,70}}));
   connect(fixedTranslation2.frame_b, fixedTranslation1.frame_a) annotation (
      Line(
       points={{-10,-40},{0,-40},{0,-12},{-1.68214e-16,-12}},
@@ -186,8 +184,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(inertia2.flange_b, WheelJoint3.flange_a) annotation (Line(
-      points={{80,-40},{72,-40}},
-      color={0,0,0}));
+      points={{80,-40},{72,-40}}));
   connect(body1.frame_a, fixedTranslation1.frame_a) annotation (Line(
       points={{12,-20},{-1.68214e-16,-20},{-1.68214e-16,-12}},
       color={95,95,95},
@@ -203,23 +200,19 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(inertia3.flange_b, WheelJoint4.flange_a) annotation (Line(
-      points={{80,70},{70,70}},
-      color={0,0,0}));
+      points={{80,70},{70,70}}));
   connect(pulse.y, torque.tau) annotation (Line(
       points={{-1,80},{-8,80}},
       color={0,0,127}));
   connect(differentialGear.flange_right, WheelJoint3.flange_a) annotation (
       Line(
-      points={{10,-62},{78,-62},{78,-40},{72,-40}},
-      color={0,0,0}));
+      points={{10,-62},{78,-62},{78,-40},{72,-40}}));
   connect(differentialGear.flange_left, WheelJoint2.flange_a) annotation (
       Line(
-      points={{-10,-62},{-70,-62},{-70,-40}},
-      color={0,0,0}));
+      points={{-10,-62},{-70,-62},{-70,-40}}));
   connect(constantTorque1.flange, differentialGear.flange_b) annotation (
       Line(
-      points={{-40,-80},{6.10623e-16,-72}},
-      color={0,0,0}));
+      points={{-40,-80},{6.10623e-16,-72}}));
   connect(body.frame_a, leftTrail.frame_b) annotation (Line(
       points={{-40,80},{-40,74}},
       color={95,95,95},
@@ -245,11 +238,9 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(torque.flange, revolute2.flange_a) annotation (Line(
-      points={{-30,80},{-30,40}},
-      color={0,0,0}));
+      points={{-30,80},{-30,40}}));
   connect(revolute.flange_a, revolute2.flange_a) annotation (Line(
-      points={{30,40},{-30,40}},
-      color={0,0,0}));
+      points={{30,40},{-30,40}}));
   connect(revolute.frame_a, rightTrail.frame_a) annotation (Line(
       points={{40,50},{40,54}},
       color={95,95,95},

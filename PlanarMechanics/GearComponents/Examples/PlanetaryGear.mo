@@ -24,11 +24,9 @@ equation
       points={{-18,-56},{0,-56},{0,0}},
       color={191,0,0}));
   connect(planetary.flange_Sun,SunSpeed. flange) annotation (Line(
-      points={{0,10},{-12,10},{-12,0},{-30,0}},
-      color={0,0,0}));
+      points={{0,10},{-12,10},{-12,0},{-30,0}}));
   connect(RingTorque.flange, planetary.flange_Ring) annotation (Line(
-      points={{-30,30},{-10,30},{-10,16},{0,16}},
-      color={0,0,0}));
+      points={{-30,30},{-10,30},{-10,16},{0,16}}));
   annotation (Documentation(info="<html>
 <p>Example of a rigid planetary gearbox.</p>
 <p>The ring gear is driven using a 1Nm load, the velocity of the sun is fixed to 1 rad/s. The model shows the possibilities of the gear connection models.</p>

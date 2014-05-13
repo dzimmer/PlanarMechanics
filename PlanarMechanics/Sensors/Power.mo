@@ -25,8 +25,8 @@ power = {frame_a.fx, frame_a.fy} * der({frame_a.x, frame_a.y})
 annotation (
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
           100}}), graphics={
-      Line(points={{-70,0},{-101,0}}, color={0,0,0}),
-      Line(points={{70,0},{100,0}}, color={0,0,0}),
+      Line(points={{-70,0},{-101,0}}),
+      Line(points={{70,0},{100,0}}),
       Line(points={{-80,0},{-80,-100}}, color={0,0,127}),
       Text(
         extent={{-60,-92},{16,-114}},

@@ -55,8 +55,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(engineTorque.flange, inertia.flange_a) annotation (Line(
-      points={{-12,70},{2.33651e-015,70}},
-      color={0,0,0}));
+      points={{-12,70},{2.33651e-015,70}}));
   connect(body.frame_a, prismatic.frame_b) annotation (Line(
       points={{20,10},{1.05639e-015,10}},
       color={95,95,95},
@@ -69,8 +68,7 @@ equation
       thickness=0.5));
   connect(dryFrictionWheelJoint.flange_a, inertia.flange_b) annotation (
       Line(
-      points={{1.1119e-015,42},{-1.33731e-015,42},{-1.33731e-015,50}},
-      color={0,0,0}));
+      points={{1.1119e-015,42},{-1.33731e-015,42},{-1.33731e-015,50}}));
   annotation (experiment(StopTime=20),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <h4><font color=\"#008000\">DryFriction Wheel</font></h4>

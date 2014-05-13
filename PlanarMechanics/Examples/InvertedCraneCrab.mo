@@ -71,8 +71,7 @@ equation
 
   connect(revolute1.flange_a, angleSensor.flange) annotation (Line(
       points={{5.55112e-16,-1.33731e-15},{4,-1.33731e-15},{4,6.10623e-16},{8,
-          6.10623e-16}},
-      color={0,0,0}));
+          6.10623e-16}}));
   connect(revolute1.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-10,-10},{-10,-20}},
       color={95,95,95},

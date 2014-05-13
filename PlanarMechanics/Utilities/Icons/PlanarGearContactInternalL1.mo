@@ -4,7 +4,6 @@ model PlanarGearContactInternalL1
   annotation (Icon(graphics={
         Line(
           points={{38,0},{98,0}},
-          color={0,0,0},
           thickness=1),
         Polygon(
           points={{8.6901,40.9645},{9.3284,42.8041},{11.9096,46.8087},{14.5357,
@@ -112,7 +111,6 @@ model PlanarGearContactInternalL1
           pattern=LinePattern.None),
         Line(
           points={{-100,0},{-20,0}},
-          color={0,0,0},
           thickness=1),
         Text(
           extent={{-140,-60},{140,-100}},

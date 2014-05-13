@@ -14,15 +14,12 @@ model DifferentialGear "Simple Model of a differential gear"
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
 equation
   connect(flange_b,idealPlanetary. ring) annotation (Line(
-      points={{0,-100},{0,-62},{-1.83697e-015,-62}},
-      color={0,0,0}));
+      points={{0,-100},{0,-62},{-1.83697e-015,-62}}));
   connect(idealPlanetary.carrier, flange_right) annotation (Line(
       points={{4,-42},{4,0},{100,0}},
-      color={0,0,0},
       pattern=LinePattern.None));
   connect(idealPlanetary.sun, flange_left) annotation (Line(
-      points={{1.83697e-015,-42},{0,-42},{0,0},{-100,0}},
-      color={0,0,0}));
+      points={{1.83697e-015,-42},{0,-42},{0,0},{-100,0}}));
   annotation (Icon(graphics={
         Rectangle(
           extent={{-60,50},{40,-50}},

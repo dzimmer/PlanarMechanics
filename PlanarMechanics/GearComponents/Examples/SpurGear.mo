@@ -49,8 +49,7 @@ equation
       thickness=0.5));
   connect(constantSpeed.flange, gearA_Bearing.flange_a)
                                                  annotation (Line(
-      points={{-80,40},{-50,40},{-50,30}},
-      color={0,0,0}));
+      points={{-80,40},{-50,40},{-50,30}}));
   connect(fixed.frame_a, gearA_Bearing.frame_a) annotation (Line(
       points={{-74,-22},{-74,20},{-60,20}},
       color={95,95,95},
@@ -64,8 +63,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(constantTorque.flange, gearB_Bearing.flange_a) annotation (Line(
-      points={{-80,68},{46,68},{46,30}},
-      color={0,0,0}));
+      points={{-80,68},{46,68},{46,30}}));
   connect(gearwheelExternal.frame_a, gearA_Bearing.frame_b) annotation (Line(
       points={{-8,20},{-40,20}},
       color={95,95,95},

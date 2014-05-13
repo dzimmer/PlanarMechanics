@@ -58,11 +58,9 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(engineTorque.flange, inertia.flange_a) annotation (Line(
-      points={{-12,68},{2.33651e-015,68}},
-      color={0,0,0}));
+      points={{-12,68},{2.33651e-015,68}}));
   connect(inertia.flange_b, idealWheelJoint.flange_a) annotation (Line(
-      points={{-1.33731e-015,48},{0,40},{1.1119e-015,38}},
-      color={0,0,0}));
+      points={{-1.33731e-015,48},{0,40},{1.1119e-015,38}}));
   connect(body.frame_a, prismatic.frame_b) annotation (Line(
       points={{20,8},{1.05639e-015,8}},
       color={95,95,95},

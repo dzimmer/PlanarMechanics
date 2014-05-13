@@ -42,6 +42,5 @@ extends Modelica.Icons.Package;
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Line(
-          points={{-64,-50},{-36,0},{24,-42}},
-          color={0,0,0})}));
+          points={{-64,-50},{-36,0},{24,-42}})}));
 end PlanarMechanics;

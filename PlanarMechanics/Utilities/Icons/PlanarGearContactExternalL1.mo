@@ -100,11 +100,9 @@ model PlanarGearContactExternalL1
           pattern=LinePattern.None),
         Line(
           points={{-100,0},{-44,0}},
-          color={0,0,0},
           thickness=1),
         Line(
           points={{30,0},{100,0}},
-          color={0,0,0},
           thickness=1),
         Text(
           extent={{-140,-60},{140,-100}},

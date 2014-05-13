@@ -83,15 +83,13 @@ equation
           textString="r_out"),
         Line(
           points={{95,0},{95,0},{70,0},{70,0}},
-          color={0,0,0},
           pattern=LinePattern.Dot),
         Text(
           extent={{58,47},{189,22}},
           lineColor={95,95,95},
           textString="resolve"),
         Line(
-          points={{-70,0},{-96,0},{-96,0}},
-          color={0,0,0}),
+          points={{-70,0},{-96,0},{-96,0}}),
         Text(
           extent={{-116,45},{-80,20}},
           lineColor={95,95,95},
