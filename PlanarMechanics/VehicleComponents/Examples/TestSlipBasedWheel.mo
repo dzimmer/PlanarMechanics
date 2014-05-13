@@ -49,26 +49,26 @@ model TestSlipBasedWheel
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 equation
   connect(prismatic.frame_a, revolute.frame_b) annotation (Line(
-      points={{-1.68214e-016,-10},{1.05639e-015,-10},{1.05639e-015,-20}},
+      points={{0,-10},{0,-10},{0,-20}},
       color={95,95,95},
       thickness=0.5));
   connect(revolute.frame_a, fixed.frame_a) annotation (Line(
-      points={{-1.68214e-016,-40},{2.50304e-015,-40},{2.50304e-015,-50}},
+      points={{0,-40},{0,-40},{0,-50}},
       color={95,95,95},
       thickness=0.5));
   connect(engineTorque.flange, inertia.flange_a) annotation (Line(
-      points={{-12,70},{2.33651e-015,70}}));
+      points={{-12,70},{0,70}}));
   connect(body.frame_a, prismatic.frame_b) annotation (Line(
-      points={{20,10},{1.05639e-015,10}},
+      points={{20,10},{0,10}},
       color={95,95,95},
       thickness=0.5));
   connect(slipBasedWheelJoint.frame_a, prismatic.frame_b) annotation (Line(
-      points={{1.50184e-016,27.2},{1.50184e-016,18.6},{1.05639e-015,18.6},{
-          1.05639e-015,10}},
+      points={{0,27.2},{0,18.6},{0,18.6},{
+          0,10}},
       color={95,95,95},
       thickness=0.5));
   connect(slipBasedWheelJoint.flange_a, inertia.flange_b) annotation (Line(
-      points={{1.1119e-015,42},{-1.33731e-015,42},{-1.33731e-015,50}}));
+      points={{0,42},{0,42},{0,50}}));
   connect(const.y, slipBasedWheelJoint.dynamicLoad) annotation (Line(
       points={{-39,32},{-10,32}},
       color={0,0,127}));

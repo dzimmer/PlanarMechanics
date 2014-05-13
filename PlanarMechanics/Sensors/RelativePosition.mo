@@ -30,13 +30,13 @@ protected
 
 equation
   connect(relativePosition.frame_a, frame_a) annotation (Line(
-      points={{-10,5.88418e-16},{-32.5,5.88418e-16},{-32.5,9.21485e-16},{-55,
-          9.21485e-16},{-55,3.33067e-16},{-100,3.33067e-16}},
+      points={{-10,0},{-32.5,0},{-32.5,0},{-55,
+          0},{-55,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(relativePosition.frame_b, frame_b) annotation (Line(
-      points={{10,5.88418e-16},{32.5,5.88418e-16},{32.5,9.21485e-16},{55,
-          9.21485e-16},{55,3.33067e-16},{100,3.33067e-16}},
+      points={{10,0},{32.5,0},{32.5,0},{55,
+          0},{55,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(relativePosition.frame_resolve, frame_resolve) annotation (Line(
@@ -48,8 +48,8 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(relativePosition.r_rel, r_rel) annotation (Line(
-      points={{6.10623e-16,-11},{6.10623e-16,-35.75},{1.16573e-15,-35.75},{
-          1.16573e-15,-60.5},{5.55112e-16,-60.5},{5.55112e-16,-110}},
+      points={{0,-11},{0,-35.75},{0,-35.75},{
+          0,-60.5},{0,-60.5},{0,-110}},
       color={0,0,127}));
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={

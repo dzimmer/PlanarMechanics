@@ -47,13 +47,13 @@ protected
 //     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 equation
   connect(cutTorque.frame_a, frame_a) annotation (Line(
-      points={{-62,5.88418e-16},{-71.5,5.88418e-16},{-71.5,9.21485e-16},{-81,
-          9.21485e-16},{-81,3.33067e-16},{-100,3.33067e-16}},
+      points={{-62,0},{-71.5,0},{-71.5,0},{-81,
+          0},{-81,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutTorque.frame_b, frame_b) annotation (Line(
-      points={{-42,5.88418e-16},{-6.5,5.88418e-16},{-6.5,9.21485e-16},{29,
-          9.21485e-16},{29,3.33067e-16},{100,3.33067e-16}},
+      points={{-42,0},{-6.5,0},{-6.5,0},{29,
+          0},{29,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutTorque.torque, torque) annotation (Line(

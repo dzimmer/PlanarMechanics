@@ -32,22 +32,22 @@ protected
 
 equation
   connect(position.frame_resolve, frame_resolve)         annotation (Line(
-      points={{5.88418e-16,-10},{5.88418e-16,-32.5},{9.21485e-16,-32.5},{
-          9.21485e-16,-55},{3.33067e-16,-55},{3.33067e-16,-100}},
+      points={{0,-10},{0,-32.5},{0,-32.5},{
+          0,-55},{0,-55},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, position.frame_resolve)
     annotation (Line(
-      points={{20,-30},{5.88418e-16,-30},{5.88418e-16,-10}},
+      points={{20,-30},{0,-30},{0,-10}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(position.r, r) annotation (Line(
-      points={{11,6.10623e-16},{35.75,6.10623e-16},{35.75,1.16573e-15},{60.5,
-          1.16573e-15},{60.5,5.55112e-16},{110,5.55112e-16}},
+      points={{11,0},{35.75,0},{35.75,0},{60.5,
+          0},{60.5,0},{110,0}},
       color={0,0,127}));
   connect(position.frame_a, frame_a) annotation (Line(
-      points={{-10,5.88418e-16},{-32.5,5.88418e-16},{-32.5,9.21485e-16},{-55,
-          9.21485e-16},{-55,3.33067e-16},{-100,3.33067e-16}},
+      points={{-10,0},{-32.5,0},{-32.5,0},{-55,
+          0},{-55,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   annotation (Icon(coordinateSystem(

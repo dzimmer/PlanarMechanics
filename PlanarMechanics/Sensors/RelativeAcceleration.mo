@@ -41,25 +41,25 @@ protected
         origin={10,-87})));
 equation
   connect(relativePosition.frame_a, frame_a) annotation (Line(
-      points={{-10,30},{-32.5,30},{-32.5,9.21485e-16},{-55,9.21485e-16},{-55,
-          3.33067e-16},{-100,3.33067e-16}},
+      points={{-10,30},{-32.5,30},{-32.5,0},{-55,0},{-55,
+          0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(relativePosition.frame_b, frame_b) annotation (Line(
-      points={{10,30},{32.5,30},{32.5,9.21485e-16},{55,9.21485e-16},{55,
-          3.33067e-16},{100,3.33067e-16}},
+      points={{10,30},{32.5,30},{32.5,0},{55,0},{55,
+          0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(relativePosition.r_rel, der_r_rel.u)
                                           annotation (Line(
-      points={{6.10623e-16,19},{6.10623e-16,5},{4.64678e-15,5}},
+      points={{0,19},{0,5},{0,5}},
       color={0,0,127}));
   connect(transformRelativeVector.frame_a, frame_a) annotation (Line(
-      points={{-10,-43},{-70,-43},{-70,3.33067e-16},{-100,3.33067e-16}},
+      points={{-10,-43},{-70,-43},{-70,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(transformRelativeVector.frame_b, frame_b) annotation (Line(
-      points={{10,-43},{80,-43},{80,3.33067e-16},{100,3.33067e-16}},
+      points={{10,-43},{80,-43},{80,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(transformRelativeVector.frame_resolve, frame_resolve) annotation (Line(
@@ -72,15 +72,15 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(der_r_rel.y, transformRelativeVector.r_in) annotation (Line(
-      points={{3.66379e-16,-18},{6.66134e-16,-18},{6.66134e-16,-31}},
+      points={{0,-18},{0,-18},{0,-31}},
       color={0,0,127}));
   connect(transformRelativeVector.r_out, der_r_rel1.u) annotation (Line(
-      points={{6.10623e-16,-54},{6.10623e-16,-59.5},{4.64678e-15,-59.5},{
-          4.64678e-15,-65}},
+      points={{0,-54},{0,-59.5},{0,-59.5},{
+          0,-65}},
       color={0,0,127}));
   connect(der_r_rel1.y, a_rel) annotation (Line(
-      points={{3.66379e-16,-88},{3.66379e-16,-94.5},{5.55112e-16,-94.5},{
-          5.55112e-16,-110}},
+      points={{0,-88},{0,-94.5},{0,-94.5},{
+          0,-110}},
       color={0,0,127}));
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,  extent={{-100,-100},{100,100}},

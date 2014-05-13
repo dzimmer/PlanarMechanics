@@ -42,28 +42,28 @@ protected
     annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
 equation
   connect(position.r, der1.u) annotation (Line(
-      points={{-39,6.10623e-16},{-32.25,6.10623e-16},{-32.25,1.27676e-15},{
-          -25.5,1.27676e-15},{-25.5,6.66134e-16},{-12,6.66134e-16}},
+      points={{-39,0},{-32.25,0},{-32.25,0},{
+          -25.5,0},{-25.5,0},{-12,0}},
       color={0,0,127}));
   connect(position.frame_a, frame_a) annotation (Line(
-      points={{-60,5.88418e-16},{-70,5.88418e-16},{-70,9.21485e-16},{-80,
-          9.21485e-16},{-80,3.33067e-16},{-100,3.33067e-16}},
+      points={{-60,0},{-70,0},{-70,0},{-80,
+          0},{-80,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(der1.y, transformAbsoluteVector.r_in) annotation (Line(
-      points={{11,6.10623e-16},{19.5,6.10623e-16},{19.5,1.17885e-15},{38,
-          1.17885e-15}},
+      points={{11,0},{19.5,0},{19.5,0},{38,
+          0}},
       color={0,0,127}));
   connect(transformAbsoluteVector.r_out, v) annotation (Line(
-      points={{61,-1.73933e-16},{71.5,-1.73933e-16},{71.5,5.55112e-16},{110,
-          5.55112e-16}},
+      points={{61,0},{71.5,0},{71.5,0},{110,
+          0}},
       color={0,0,127}));
   connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
       points={{-60,-50},{-50,-50},{-50,-10}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_a, frame_a) annotation (Line(
-      points={{50,10},{50,20},{-70,20},{-70,3.33067e-16},{-100,3.33067e-16}},
+      points={{50,10},{50,20},{-70,20},{-70,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
@@ -72,7 +72,7 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
-      points={{49.9,-10},{50,-10},{50,-50},{3.33067e-16,-50},{3.33067e-16,-100}},
+      points={{49.9,-10},{50,-10},{50,-50},{0,-50},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   annotation (Icon(coordinateSystem(

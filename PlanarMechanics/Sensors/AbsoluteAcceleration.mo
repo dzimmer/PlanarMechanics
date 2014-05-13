@@ -45,12 +45,12 @@ protected
         origin={68,10})));
 equation
   connect(position.r, der1.u) annotation (Line(
-      points={{-39,6.10623e-16},{-32.25,6.10623e-16},{-32.25,1.27676e-15},{
-          -25.5,1.27676e-15},{-25.5,6.66134e-16},{-28,6.66134e-16}},
+      points={{-39,0},{-32.25,0},{-32.25,0},{
+          -25.5,0},{-25.5,0},{-28,0}},
       color={0,0,127}));
   connect(position.frame_a, frame_a) annotation (Line(
-      points={{-60,5.88418e-16},{-70,5.88418e-16},{-70,9.21485e-16},{-80,
-          9.21485e-16},{-80,3.33067e-16},{-100,3.33067e-16}},
+      points={{-60,0},{-70,0},{-70,0},{-80,
+          0},{-80,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
@@ -58,7 +58,7 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_a, frame_a) annotation (Line(
-      points={{20,10},{20,20},{-70,20},{-70,3.33067e-16},{-100,3.33067e-16}},
+      points={{20,10},{20,20},{-70,20},{-70,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
@@ -67,23 +67,23 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
-      points={{19.9,-10},{20,-10},{20,-50},{3.33067e-16,-50},{3.33067e-16,-100}},
+      points={{19.9,-10},{20,-10},{20,-50},{0,-50},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
 
   connect(der1.y, transformAbsoluteVector.r_in) annotation (Line(
-      points={{-5,6.10623e-16},{17.5,6.10623e-16},{17.5,1.17885e-15},{8,
-          1.17885e-15}},
+      points={{-5,0},{17.5,0},{17.5,0},{8,
+          0}},
       color={0,0,127}));
 
   connect(transformAbsoluteVector.r_out, der2.u) annotation (Line(
-      points={{31,-1.73933e-16},{38.5,-1.73933e-16},{38.5,6.66134e-16},{46,
-          6.66134e-16}},
+      points={{31,0},{38.5,0},{38.5,0},{46,
+          0}},
       color={0,0,127}));
 
   connect(der2.y, a) annotation (Line(
-      points={{69,6.10623e-16},{89.5,6.10623e-16},{89.5,5.55112e-16},{110,
-          5.55112e-16}},
+      points={{69,0},{89.5,0},{89.5,0},{110,
+          0}},
       color={0,0,127}));
 
   annotation (Icon(coordinateSystem(

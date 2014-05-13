@@ -45,7 +45,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(revolute1.frame_a,body1. frame_a) annotation (Line(
-      points={{-10,12},{-10,30},{-5.55112e-16,30}},
+      points={{-10,12},{-10,30},{0,30}},
       color={95,95,95},
       thickness=0.5));
   connect(revolute1.frame_b,fixedTranslation. frame_a) annotation (Line(
@@ -57,7 +57,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(prismatic1.frame_b,body1. frame_a) annotation (Line(
-      points={{-20,30},{-5.55112e-016,30}},
+      points={{-20,30},{0,30}},
       color={95,95,95},
       thickness=0.5));
   connect(damper.frame_b,prismatic1. frame_b) annotation (Line(

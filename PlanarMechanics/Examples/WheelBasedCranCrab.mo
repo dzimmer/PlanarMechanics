@@ -46,7 +46,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation.frame_a, revolute.frame_b) annotation (Line(
-      points={{-20,-10},{-20,1.22125e-015}},
+      points={{-20,-10},{-20,0}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=4.5),

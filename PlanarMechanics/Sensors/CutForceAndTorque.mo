@@ -76,26 +76,26 @@ protected
     annotation (Placement(transformation(extent={{60,30},{80,50}})));
 equation
   connect(cutForce.frame_a, frame_a) annotation (Line(
-      points={{-60,5.88418e-16},{-70,5.88418e-16},{-70,9.21485e-16},{-80,
-          9.21485e-16},{-80,3.33067e-16},{-100,3.33067e-16}},
+      points={{-60,0},{-70,0},{-70,0},{-80,
+          0},{-80,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutForce.frame_b, cutTorque.frame_a) annotation (Line(
-      points={{-40,5.88418e-16},{-30.5,5.88418e-16},{-30.5,1.17684e-15},{-21,
-          1.17684e-15},{-21,5.88418e-16},{-2,5.88418e-16}},
+      points={{-40,0},{-30.5,0},{-30.5,0},{-21,
+          0},{-21,0},{-2,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutTorque.frame_b, frame_b) annotation (Line(
-      points={{18,5.88418e-16},{38.5,5.88418e-16},{38.5,9.21485e-16},{59,
-          9.21485e-16},{59,3.33067e-16},{100,3.33067e-16}},
+      points={{18,0},{38.5,0},{38.5,0},{59,
+          0},{59,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutForce.force, force) annotation (Line(
       points={{-58,-11},{-58,-20},{-80,-20},{-80,-110}},
       color={0,0,127}));
   connect(cutTorque.torque, torque) annotation (Line(
-      points={{-4.44089e-16,-11},{-4.44089e-16,-35.75},{-9.99201e-16,-35.75},{
-          -9.99201e-16,-60.5},{-5.55112e-16,-60.5},{-5.55112e-16,-110}},
+      points={{0,-11},{0,-35.75},{0,-35.75},{
+          0,-60.5},{0,-60.5},{0,-110}},
       color={0,0,127}));
   connect(zeroPosition.frame_resolve, cutForce.frame_resolve) annotation (Line(
       points={{60,40},{-26,40},{-26,-20},{-42,-20},{-42,-10}},

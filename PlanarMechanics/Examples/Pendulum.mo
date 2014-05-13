@@ -21,17 +21,17 @@ model Pendulum "A free swinging pendulum"
     annotation (Placement(transformation(extent={{44,-10},{64,10}})));
 equation
   connect(fixed.frame_a, revolute.frame_a) annotation (Line(
-      points={{-50,-7.80517e-16},{-50,6.66134e-16},{-40,6.66134e-16}},
+      points={{-50,0},{-50,0},{-40,0}},
       color={95,95,95},
       thickness=0.5));
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
-      points={{-20,6.66134e-16},{-15,6.66134e-16},{-15,1.33227e-15},{-10,
-          1.33227e-15},{-10,6.66134e-16}},
+      points={{-20,0},{-15,0},{-15,0},{-10,
+          0},{-10,0}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
-      points={{16,6.66134e-16},{15,6.66134e-16},{15,-6.66134e-16},{20,
-          -6.66134e-16},{20,6.66134e-16}},
+      points={{16,0},{15,0},{15,0},{20,
+          0},{20,0}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=3),

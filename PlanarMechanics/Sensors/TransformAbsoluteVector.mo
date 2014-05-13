@@ -42,27 +42,27 @@ protected
 
 equation
   connect(basicTransformVector.frame_a, frame_a) annotation (Line(
-      points={{-10,5.88418e-16},{-32.5,5.88418e-16},{-32.5,9.21485e-16},{-55,9.21485e-16},
-          {-55,3.33067e-16},{-100,3.33067e-16}},
+      points={{-10,0},{-32.5,0},{-32.5,0},{-55,0},
+          {-55,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(basicTransformVector.frame_resolve, frame_resolve) annotation (Line(
-      points={{10,5.88418e-16},{32.5,5.88418e-16},{32.5,9.21485e-16},{55,9.21485e-16},
-          {55,3.33067e-16},{100,3.33067e-16}},
+      points={{10,0},{32.5,0},{32.5,0},{55,0},
+          {55,0},{100,0}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, basicTransformVector.frame_resolve)
     annotation (Line(
-      points={{40,28},{32,28},{32,5.88418e-16},{10,5.88418e-16}},
+      points={{40,28},{32,28},{32,0},{10,0}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(basicTransformVector.r_out, r_out) annotation (Line(
-      points={{6.10623e-16,-11},{6.10623e-16,-35.75},{1.16573e-15,-35.75},{1.16573e-15,
-          -60.5},{5.55112e-16,-60.5},{5.55112e-16,-110}},
+      points={{0,-11},{0,-35.75},{0,-35.75},{0,
+          -60.5},{0,-60.5},{0,-110}},
       color={0,0,127}));
   connect(basicTransformVector.r_in, r_in) annotation (Line(
-      points={{6.66134e-16,12},{6.66134e-16,39},{1.77636e-15,39},{1.77636e-15,
-          66},{1.11022e-15,66},{1.11022e-15,120}},
+      points={{0,12},{0,39},{0,39},{0,
+          66},{0,66},{0,120}},
       color={0,0,127}));
   annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),

@@ -28,7 +28,7 @@ model DoublePendulum
     annotation (Placement(transformation(extent={{-18,20},{2,40}})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
-      points={{5.55112e-16,70},{20,70}},
+      points={{0,70},{20,70}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation1.frame_b, body1.frame_a)
@@ -49,7 +49,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation.frame_b, revolute1.frame_a) annotation (Line(
-      points={{5.55112e-16,70},{5.55112e-16,50},{-36,50},{-36,30},{-18,30}},
+      points={{0,70},{0,50},{-36,50},{-36,30},{-18,30}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=10),

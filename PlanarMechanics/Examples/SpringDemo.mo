@@ -42,27 +42,27 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(spring1.frame_a, fixedTranslation.frame_b) annotation (Line(
-      points={{2.50304e-015,10},{0,10},{0,40},{-10,40}},
+      points={{0,10},{0,10},{0,40},{-10,40}},
       color={95,95,95},
       thickness=0.5));
   connect(spring1.frame_b, body.frame_a) annotation (Line(
-      points={{-1.17078e-015,-10},{2.50304e-015,-10},{2.50304e-015,-30}},
+      points={{0,-10},{0,-10},{0,-30}},
       color={95,95,95},
       thickness=0.5));
   connect(damper.frame_a, spring1.frame_a) annotation (Line(
-      points={{-30,10},{2.50304e-015,10}},
+      points={{-30,10},{0,10}},
       color={95,95,95},
       thickness=0.5));
   connect(damper.frame_b, spring1.frame_b) annotation (Line(
-      points={{-30,-10},{-1.17078e-015,-10}},
+      points={{-30,-10},{0,-10}},
       color={95,95,95},
       thickness=0.5));
   connect(spring1.frame_a, prismatic.frame_a) annotation (Line(
-      points={{2.50304e-015,10},{30,10}},
+      points={{0,10},{30,10}},
       color={95,95,95},
       thickness=0.5));
   connect(prismatic.frame_b, spring1.frame_b) annotation (Line(
-      points={{30,-10},{-1.17078e-015,-10}},
+      points={{30,-10},{0,-10}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=5),

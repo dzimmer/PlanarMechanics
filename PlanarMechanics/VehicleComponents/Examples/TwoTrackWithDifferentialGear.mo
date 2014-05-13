@@ -167,7 +167,7 @@ equation
       points={{-80,70},{-72,70}}));
   connect(fixedTranslation2.frame_b, fixedTranslation1.frame_a) annotation (
      Line(
-      points={{-10,-40},{0,-40},{0,-12},{-1.68214e-16,-12}},
+      points={{-10,-40},{0,-40},{0,-12},{0,-12}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation2.frame_a, WheelJoint2.frame_a) annotation (Line(
@@ -176,7 +176,7 @@ equation
       thickness=0.5));
   connect(fixedTranslation3.frame_b, fixedTranslation1.frame_a) annotation (
      Line(
-      points={{10,-40},{-1.68214e-16,-40},{-1.68214e-16,-12}},
+      points={{10,-40},{0,-40},{0,-12}},
       color={95,95,95},
       thickness=0.5));
   connect(WheelJoint3.frame_a, fixedTranslation3.frame_a) annotation (Line(
@@ -186,17 +186,17 @@ equation
   connect(inertia2.flange_b, WheelJoint3.flange_a) annotation (Line(
       points={{80,-40},{72,-40}}));
   connect(body1.frame_a, fixedTranslation1.frame_a) annotation (Line(
-      points={{12,-20},{-1.68214e-16,-20},{-1.68214e-16,-12}},
+      points={{12,-20},{0,-20},{0,-12}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation1.frame_b, fixedTranslation4.frame_b) annotation (
      Line(
-      points={{1.05639e-15,8},{0,8},{0,20},{-10,20}},
+      points={{0,8},{0,8},{0,20},{-10,20}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation1.frame_b, fixedTranslation5.frame_b) annotation (
      Line(
-      points={{1.05639e-15,8},{0,8},{0,20},{10,20}},
+      points={{0,8},{0,8},{0,20},{10,20}},
       color={95,95,95},
       thickness=0.5));
   connect(inertia3.flange_b, WheelJoint4.flange_a) annotation (Line(
@@ -212,7 +212,7 @@ equation
       points={{-10,-62},{-70,-62},{-70,-40}}));
   connect(constantTorque1.flange, differentialGear.flange_b) annotation (
       Line(
-      points={{-40,-80},{6.10623e-16,-72}}));
+      points={{-40,-80},{0,-72}}));
   connect(body.frame_a, leftTrail.frame_b) annotation (Line(
       points={{-40,80},{-40,74}},
       color={95,95,95},

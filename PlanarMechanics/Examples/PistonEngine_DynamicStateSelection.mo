@@ -55,7 +55,7 @@ equation
       thickness=0.5));
   connect(fixedTranslationDisc.frame_b, revoluteDisc.frame_a) annotation (
       Line(
-      points={{-20,50},{0,50},{0,40},{2.50304e-15,40}},
+      points={{-20,50},{0,50},{0,40},{0,40}},
       color={95,95,95},
       thickness=0.5));
   connect(bodyDrive.frame_a, revoluteDrive.frame_b) annotation (Line(
@@ -63,16 +63,16 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(revoluteDisc.frame_b, pistonRod.frame_a) annotation (Line(
-      points={{-1.17078e-15,20},{2.50304e-15,20},{2.50304e-15,10}},
+      points={{0,20},{0,20},{0,10}},
       color={95,95,95},
       thickness=0.5));
   connect(revolutePiston.frame_b, pistonRod.frame_b) annotation (Line(
-      points={{1.05639e-15,-20},{1.05639e-15,-12},{-1.17078e-15,-12},{
-          -1.17078e-15,-10}},
+      points={{0,-20},{0,-12},{0,-12},{
+          0,-10}},
       color={95,95,95},
       thickness=0.5));
   connect(prismatic.frame_a, revolutePiston.frame_a) annotation (Line(
-      points={{20,-50},{-1.68214e-16,-50},{-1.68214e-16,-40}},
+      points={{20,-50},{0,-50},{0,-40}},
       color={95,95,95},
       thickness=0.5));
   connect(prismatic.frame_a, bodyPiston.frame_a) annotation (Line(
