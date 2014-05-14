@@ -88,25 +88,20 @@ equation
   annotation (Icon(graphics={
         Text(
           extent={{-100,-60},{100,-100}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),
         Rectangle(
           extent={{-100,40},{-20,-40}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175}),
         Rectangle(
           extent={{-20,-20},{100,20}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175}),
         Line(
           visible=useFlange,
-          points={{0,80},{0,20}},
-          color={0,0,0},
-          smooth=Smooth.None)}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          points={{0,80},{0,20}})}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Direction of the Joint is determined by <b>r[2]</b>, which is a vector pointing from <b>frame_a</b> to <b>frame_b</b>.</p>
 <p>By setting <b>useFlange</b> as true, the flange for a force input will be activated. In the &quot;Initialization&quot; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
 <p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always.</p>

@@ -31,7 +31,6 @@ equation
             -100},{100,100}},
         grid={1,1}), graphics={Text(
           extent={{61,47},{145,17}},
-          lineColor={0,0,0},
           textString="r"), Text(
           extent={{-127,75},{134,123}},
           textString="%name",

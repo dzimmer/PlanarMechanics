@@ -103,52 +103,40 @@ equation
           fillColor={231,231,231}),
         Line(
           points={{-40,30},{40,30}},
-          color={95,95,95},
-          smooth=Smooth.None),
+          color={95,95,95}),
         Line(
           points={{-40,-30},{40,-30}},
-          color={95,95,95},
-          smooth=Smooth.None),
+          color={95,95,95}),
         Line(
           points={{-40,60},{40,60}},
-          color={95,95,95},
-          smooth=Smooth.None),
+          color={95,95,95}),
         Line(
           points={{-40,80},{40,80}},
-          color={95,95,95},
-          smooth=Smooth.None),
+          color={95,95,95}),
         Line(
           points={{-40,90},{40,90}},
-          color={95,95,95},
-          smooth=Smooth.None),
+          color={95,95,95}),
         Line(
           points={{-40,100},{40,100}},
-          color={95,95,95},
-          smooth=Smooth.None),
+          color={95,95,95}),
         Line(
           points={{-40,-80},{40,-80}},
-          color={95,95,95},
-          smooth=Smooth.None),
+          color={95,95,95}),
         Line(
           points={{-40,-90},{40,-90}},
-          color={95,95,95},
-          smooth=Smooth.None),
+          color={95,95,95}),
         Line(
           points={{-40,-100},{40,-100}},
-          color={95,95,95},
-          smooth=Smooth.None),
+          color={95,95,95}),
         Line(
           points={{-40,-60},{40,-60}},
-          color={95,95,95},
-          smooth=Smooth.None),
+          color={95,95,95}),
         Rectangle(
           extent={{100,10},{40,-10}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={231,231,231}),
         Text(
           extent={{-100,-100},{100,-140}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name")}),    Documentation(info="<html>

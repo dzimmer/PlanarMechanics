@@ -39,20 +39,13 @@ equation
           lineColor={128,128,128},
           textString="b"),
         Line(
-          points={{-70,0},{-96,0},{-96,0}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{-70,0},{-96,0},{-96,0}}),
         Line(
-          points={{96,0},{70,0},{70,0}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{96,0},{70,0},{70,0}}),
         Line(
           points={{0,-70},{0,-100}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Line(
           points={{60,36},{60,36},{60,80},{95,80}},
-          color={0,0,0},
-          smooth=Smooth.None,
           pattern=LinePattern.Dot)}));
 end PartialRelativeBaseSensor;

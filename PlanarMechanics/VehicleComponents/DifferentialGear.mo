@@ -14,18 +14,12 @@ model DifferentialGear "Simple Model of a differential gear"
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
 equation
   connect(flange_b,idealPlanetary. ring) annotation (Line(
-      points={{0,-100},{0,-62},{-1.83697e-015,-62}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{0,-100},{0,-62},{0,-62}}));
   connect(idealPlanetary.carrier, flange_right) annotation (Line(
       points={{4,-42},{4,0},{100,0}},
-      color={0,0,0},
-      pattern=LinePattern.None,
-      smooth=Smooth.None));
+      pattern=LinePattern.None));
   connect(idealPlanetary.sun, flange_left) annotation (Line(
-      points={{1.83697e-015,-42},{0,-42},{0,0},{-100,0}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{0,-42},{0,-42},{0,0},{-100,0}}));
   annotation (Icon(graphics={
         Rectangle(
           extent={{-60,50},{40,-50}},
@@ -36,26 +30,20 @@ equation
           extent={{-48,40},{40,-40}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
-          pattern=LinePattern.None,
-          lineColor={0,0,0}),
+          pattern=LinePattern.None),
         Polygon(
           points={{40,-60},{60,-80},{60,80},{40,60},{40,-60}},
           pattern=LinePattern.None,
-          smooth=Smooth.None,
           fillColor={175,175,175},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,0}),
+          fillPattern=FillPattern.Solid),
         Polygon(
           points={{20,-60},{40,-80},{-40,-80},{-20,-60},{20,-60}},
           pattern=LinePattern.None,
-          smooth=Smooth.None,
           fillColor={175,175,175},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,0}),
+          fillPattern=FillPattern.Solid),
         Polygon(
           points={{14,10},{34,-10},{-34,-10},{-14,10},{14,10}},
           pattern=LinePattern.None,
-          smooth=Smooth.None,
           fillColor={135,135,135},
           fillPattern=FillPattern.Solid,
           origin={-30,0},
@@ -63,7 +51,6 @@ equation
         Polygon(
           points={{14,10},{34,-10},{-32,-10},{-12,10},{14,10}},
           pattern=LinePattern.None,
-          smooth=Smooth.None,
           fillColor={135,135,135},
           fillPattern=FillPattern.Solid,
           origin={-4,-26},
@@ -71,7 +58,6 @@ equation
         Polygon(
           points={{16,10},{36,-10},{-32,-10},{-12,10},{16,10}},
           pattern=LinePattern.None,
-          smooth=Smooth.None,
           fillColor={135,135,135},
           fillPattern=FillPattern.Solid,
           origin={24,-2},

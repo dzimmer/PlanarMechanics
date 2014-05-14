@@ -43,51 +43,42 @@ equation
                                            annotation (Line(
       points={{-80,50},{-70,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revoluteDrive.frame_b, fixedTranslationDisc.frame_a)
                                                       annotation (Line(
       points={{-50,50},{-40,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixed1.frame_a, prismatic.frame_b) annotation (Line(
       points={{60,-50},{40,-50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslationDisc.frame_b, revoluteDisc.frame_a) annotation (
       Line(
-      points={{-20,50},{0,50},{0,40},{2.50304e-15,40}},
+      points={{-20,50},{0,50},{0,40},{0,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(bodyDrive.frame_a, revoluteDrive.frame_b) annotation (Line(
       points={{-52,20},{-44,20},{-44,50},{-50,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revoluteDisc.frame_b, pistonRod.frame_a) annotation (Line(
-      points={{-1.17078e-15,20},{2.50304e-15,20},{2.50304e-15,10}},
+      points={{0,20},{0,20},{0,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolutePiston.frame_b, pistonRod.frame_b) annotation (Line(
-      points={{1.05639e-15,-20},{1.05639e-15,-12},{-1.17078e-15,-12},{
-          -1.17078e-15,-10}},
+      points={{0,-20},{0,-12},{0,-12},{
+          0,-10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic.frame_a, revolutePiston.frame_a) annotation (Line(
-      points={{20,-50},{-1.68214e-16,-50},{-1.68214e-16,-40}},
+      points={{20,-50},{0,-50},{0,-40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic.frame_a, bodyPiston.frame_a) annotation (Line(
       points={{20,-50},{14,-50},{14,-20},{30,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <h4><font color=\"#008000\">A PistonEngine</font></h4>
 <p>This example contains an algebraic loop. A non-linear system must be solved for initialization and at simulation.</p>

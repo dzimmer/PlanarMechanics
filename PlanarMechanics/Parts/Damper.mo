@@ -114,17 +114,15 @@ annotation(Dialog(group="Animation"),
               Icon(graphics={
         Text(
           extent={{-100,-40},{100,-80}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),
-        Line(points={{-60,30},{60,30}}, color={0,0,0}),
-        Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
-        Line(points={{30,0},{100,0}}, color={0,0,0}),
-        Line(points={{-101,0},{-60,0}}, color={0,0,0}),
+        Line(points={{-60,30},{60,30}}),
+        Line(points={{-60,-30},{60,-30}}),
+        Line(points={{30,0},{100,0}}),
+        Line(points={{-101,0},{-60,0}}),
         Rectangle(
           extent={{-60,30},{30,-30}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid)}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>

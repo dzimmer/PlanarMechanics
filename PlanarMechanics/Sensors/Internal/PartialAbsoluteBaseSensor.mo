@@ -33,19 +33,14 @@ equation
           lineColor={95,95,95},
           textString="a"),
         Line(
-          points={{-70,0},{-96,0},{-96,0}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{-70,0},{-96,0},{-96,0}}),
         Line(
           points={{0,15},{0,-15}},
           color={0,0,127},
-          smooth=Smooth.None,
           origin={85,0},
           rotation=90),
         Line(
           points={{0,-95},{0,-95},{0,-70},{0,-70}},
-          color={0,0,0},
-          smooth=Smooth.None,
           pattern=LinePattern.Dot),
         Text(
           extent={{0,-75},{131,-100}},

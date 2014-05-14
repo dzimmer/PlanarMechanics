@@ -49,37 +49,31 @@ protected
     annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
 equation
   connect(cutForce.frame_a, frame_a)      annotation (Line(
-      points={{-50,5.88418e-16},{-62.5,5.88418e-16},{-62.5,9.21485e-16},{-75,
-          9.21485e-16},{-75,3.33067e-16},{-100,3.33067e-16}},
+      points={{-50,0},{-62.5,0},{-62.5,0},{-75,
+          0},{-75,0},{-100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(cutForce.frame_b, frame_b)      annotation (Line(
-      points={{-30,5.88418e-16},{2.5,5.88418e-16},{2.5,9.21485e-16},{35,
-          9.21485e-16},{35,3.33067e-16},{100,3.33067e-16}},
+      points={{-30,0},{2.5,0},{2.5,0},{35,
+          0},{35,0},{100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(cutForce.frame_resolve, frame_resolve)      annotation (Line(
       points={{-32,-10},{-32,-60},{80,-60},{80,-100}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(cutForce.force, force)      annotation (Line(
       points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(zeroPosition.frame_resolve, cutForce.frame_resolve)      annotation (
       Line(
-      points={{-5.55112e-16,-30},{-32,-30},{-32,-10}},
+      points={{0,-30},{-32,-30},{-32,-10}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(
           extent={{-190,-70},{-74,-96}},
-          lineColor={0,0,0},
           textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
               127})}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>

@@ -14,7 +14,5 @@ equation
           extent={{-108,43},{-72,18}},
           lineColor={128,128,128},
           textString="a"), Line(
-          points={{-70,0},{-96,0},{-96,0}},
-          color={0,0,0},
-          smooth=Smooth.None)}));
+          points={{-70,0},{-96,0},{-96,0}})}));
 end PartialAbsoluteSensor;

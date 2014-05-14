@@ -44,86 +44,70 @@ equation
   connect(fixedTranslation.frame_b,body. frame_a) annotation (Line(
       points={{-4,20},{20,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation1.frame_b,body1. frame_a)
                                                   annotation (Line(
       points={{40,-20},{60,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixed.frame_a, revolute1.frame_a) annotation (Line(
       points={{-80,20},{-56,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute1.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-36,20},{-24,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(absoluteAcceleration.frame_resolve, absoluteAcceleration.frame_a)
     annotation (Line(
       points={{30,-60},{30,-50},{40,-50}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(revolute2.frame_b, fixedTranslation1.frame_a) annotation (Line(
       points={{6,-20},{20,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute2.frame_a, fixedTranslation.frame_b) annotation (Line(
       points={{-14,-20},{-28,-20},{-28,0},{-4,0},{-4,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, relativeAcceleration.frame_a) annotation (
       Line(
       points={{-4,20},{-4,52},{0,52}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, relativeVelocity.frame_a) annotation (Line(
       points={{-4,20},{-4,72},{20,72}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, relativePosition.frame_a) annotation (Line(
       points={{-4,20},{-4,92},{40,92}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(relativeAcceleration.frame_b, body1.frame_a) annotation (Line(
       points={{20,52},{60,52},{60,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(relativeVelocity.frame_b, body1.frame_a) annotation (Line(
       points={{40,72},{60,72},{60,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(relativePosition.frame_b, body1.frame_a) annotation (Line(
       points={{60,92},{60,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(body1.frame_a, absoluteAcceleration.frame_a) annotation (Line(
       points={{60,-20},{60,-50},{40,-50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(body1.frame_a, absoluteVelocity.frame_a) annotation (Line(
       points={{60,-20},{60,-70},{20,-70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(body1.frame_a, absolutePosition.frame_a) annotation (Line(
       points={{60,-20},{60,-90},{0,-90}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(StopTime=10),
     Documentation(info="<html>
 <h4><font color=\"#008000\">Measure Demo</font></h4>

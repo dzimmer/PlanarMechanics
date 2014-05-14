@@ -43,53 +43,43 @@ equation
   connect(damper.frame_a,fixed. frame_a) annotation (Line(
       points={{-40,50},{-60,50},{-60,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute1.frame_a,body1. frame_a) annotation (Line(
-      points={{-10,12},{-10,30},{-5.55112e-16,30}},
+      points={{-10,12},{-10,30},{0,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute1.frame_b,fixedTranslation. frame_a) annotation (Line(
       points={{-10,-8},{-10,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixed.frame_a,prismatic1. frame_a) annotation (Line(
       points={{-60,30},{-40,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic1.frame_b,body1. frame_a) annotation (Line(
-      points={{-20,30},{-5.55112e-016,30}},
+      points={{-20,30},{0,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(damper.frame_b,prismatic1. frame_b) annotation (Line(
       points={{-20,50},{-10,50},{-10,30},{-20,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(body.frame_a, power.frame_b) annotation (Line(
       points={{-10,-80},{-10,-70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(distance.frame_a, fixed.frame_a) annotation (Line(
       points={{2,72},{-60,72},{-60,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(distance.frame_b, power.frame_b) annotation (Line(
       points={{22,72},{58,72},{58,-70},{-10,-70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, power.frame_a) annotation (Line(
       points={{-10,-40},{-10,-50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(StopTime=6),
     Documentation(info="<html>
 <h4><font color=\"#008000\">Power/Distance Demo</font></h4>

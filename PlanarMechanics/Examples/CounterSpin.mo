@@ -29,8 +29,7 @@ equation
   connect(body.frame_a, slipBasedRolling1.frame_a) annotation (Line(
       points={{0,0},{20,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <h4><font color=\"#008000\">Wheel with counter-spin and dry-friction law.</font></h4>

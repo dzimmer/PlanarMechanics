@@ -88,7 +88,6 @@ blocks of the block library Modelica.Blocks.Sources.
         grid={2,2}), graphics={
         Text(
           extent={{-56,-36},{-178,-66}},
-          lineColor={0,0,0},
           textString="s_ref"),
         Rectangle(
           extent={{-100,20},{100,-20}},
@@ -99,23 +98,21 @@ blocks of the block library Modelica.Blocks.Sources.
           extent={{150,60},{-150,100}},
           textString="%name",
           lineColor={0,0,255}),
-        Line(points={{0,52},{0,32}}, color={0,0,0}),
-        Line(points={{-29,32},{30,32}}, color={0,0,0}),
-        Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
-        Line(visible=useSupport,points={{0,-32},{0,-100}}, color={0,0,0}),
-        Line(points={{30,-42},{20,-52}}, color={0,0,0}),
-        Line(points={{30,-32},{10,-52}}, color={0,0,0}),
-        Line(points={{20,-32},{0,-52}}, color={0,0,0}),
-        Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
-        Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-        Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
-        Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+        Line(points={{0,52},{0,32}}),
+        Line(points={{-29,32},{30,32}}),
+        Line(points={{-30,-32},{30,-32}}),
+        Line(visible=useSupport,points={{0,-32},{0,-100}}),
+        Line(points={{30,-42},{20,-52}}),
+        Line(points={{30,-32},{10,-52}}),
+        Line(points={{20,-32},{0,-52}}),
+        Line(points={{10,-32},{-10,-52}}),
+        Line(points={{0,-32},{-20,-52}}),
+        Line(points={{-10,-32},{-30,-52}}),
+        Line(points={{-20,-32},{-30,-42}}),
         Text(
           extent={{144,-30},{30,-60}},
-          lineColor={0,0,0},
           textString="exact="),
         Text(
           extent={{134,-68},{22,-96}},
-          lineColor={0,0,0},
           textString="%exact")}));
 end Position;

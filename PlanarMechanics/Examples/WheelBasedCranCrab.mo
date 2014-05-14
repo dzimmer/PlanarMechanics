@@ -36,23 +36,19 @@ equation
   connect(revolute.frame_a, idealRolling.frame_a) annotation (Line(
       points={{-20,20},{-20,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(body.frame_a, idealRolling.frame_a) annotation (Line(
       points={{10,30},{-20,30},{-20,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(body1.frame_a, fixedTranslation.frame_b) annotation (Line(
       points={{-20,-40},{-20,-35},{-20,-35},{-20,-30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_a, revolute.frame_b) annotation (Line(
-      points={{-20,-10},{-20,1.22125e-015}},
+      points={{-20,-10},{-20,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(StopTime=4.5),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <h4><font color=\"#008000\">A pendulum mounted on an ideal rolling wheel.</font></h4>

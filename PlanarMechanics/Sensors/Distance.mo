@@ -54,16 +54,16 @@ equation
    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
            100}}), graphics={
        Line(points={{0,-60},{0,-100}}, color={0,0,255}),
-       Line(points={{-70,0},{-101,0}}, color={0,0,0}),
-       Line(points={{70,0},{100,0}}, color={0,0,0}),
+       Line(points={{-70,0},{-101,0}}),
+       Line(points={{70,0},{100,0}}),
        Text(
          extent={{-128,30},{133,78}},
          textString="%name",
          lineColor={0,0,255})}),
    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
            100,100}}), graphics={
-       Line(points={{-70,0},{-101,0}}, color={0,0,0}),
-       Line(points={{70,0},{100,0}}, color={0,0,0}),
+       Line(points={{-70,0},{-101,0}}),
+       Line(points={{70,0},{100,0}}),
        Line(points={{0,-60},{0,-100}}, color={0,0,255}),
        Text(
          extent={{-22,70},{20,46}},

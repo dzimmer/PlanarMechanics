@@ -41,53 +41,41 @@ equation
   connect(angle.frame_b, distance.frame_a)             annotation (Line(
       points={{-20,-10},{0,-10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(gearA_Bearing.frame_b, gearA.frame_a)
                                             annotation (Line(
       points={{-40,20},{-20,20},{-20,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(constantSpeed.flange, gearA_Bearing.flange_a)
                                                  annotation (Line(
-      points={{-80,40},{-50,40},{-50,30}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-80,40},{-50,40},{-50,30}}));
   connect(fixed.frame_a, gearA_Bearing.frame_a) annotation (Line(
       points={{-74,-22},{-74,20},{-60,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixed.frame_a, angle.frame_a) annotation (Line(
       points={{-74,-22},{-74,-10},{-40,-10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(gearB_Bearing.frame_b, distance.frame_b) annotation (Line(
       points={{56,20},{66,20},{66,-10},{20,-10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(constantTorque.flange, gearB_Bearing.flange_a) annotation (Line(
-      points={{-80,68},{46,68},{46,30}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-80,68},{46,68},{46,30}}));
   connect(gearwheelExternal.frame_a, gearA_Bearing.frame_b) annotation (Line(
       points={{-8,20},{-40,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(gearwheelExternal.frame_b, gearB_Bearing.frame_a) annotation (Line(
       points={{12,20},{36,20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(gearwheelExternal.frame_b, gearB.frame_a) annotation (Line(
       points={{12,20},{20,20},{20,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (Documentation(info="<html>
 <p>Simple example of a spur gear in a planar environment.</p>
 </html>", revisions=

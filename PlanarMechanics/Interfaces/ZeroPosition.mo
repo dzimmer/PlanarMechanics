@@ -11,6 +11,5 @@ equation
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={Text(
           extent={{-74,24},{80,-20}},
-          lineColor={0,0,0},
           textString="r = 0")}));
 end ZeroPosition;

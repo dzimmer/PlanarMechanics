@@ -81,20 +81,16 @@ equation
         grid={1,1}), graphics={
         Text(
           extent={{-128,-84},{-2,-112}},
-          lineColor={0,0,0},
           textString="r_out"),
         Text(
           extent={{-108,137},{-22,109}},
-          lineColor={0,0,0},
           textString="r_in"),
         Line(
           points={{0,100},{0,70}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Line(
           points={{0,-70},{0,-100}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Text(
           extent={{58,47},{189,22}},
           lineColor={95,95,95},
@@ -104,12 +100,8 @@ equation
           lineColor={95,95,95},
           textString="a"),
         Line(
-          points={{-70,0},{-96,0},{-96,0}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{-70,0},{-96,0},{-96,0}}),
         Line(
           points={{95,0},{95,0},{70,0},{70,0}},
-          color={0,0,0},
-          smooth=Smooth.None,
           pattern=LinePattern.Dot)}));
 end BasicTransformAbsoluteVector;

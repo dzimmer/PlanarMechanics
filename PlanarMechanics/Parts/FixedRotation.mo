@@ -46,19 +46,15 @@ equation
   annotation (Icon(graphics={
         Text(
           extent={{-100,-40},{100,-80}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),
         Polygon(
           points={{4,48},{92,8},{92,-12},{0,32},{-92,-10},{-92,8},{-6,48},{4,48}},
-          lineColor={0,0,0},
-          smooth=Smooth.None,
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-20,60},{20,20}},
-          lineColor={0,0,0},
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Ellipse(

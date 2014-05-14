@@ -28,21 +28,16 @@ extends Modelica.Icons.Package;
          graphics={
         Ellipse(
           extent={{-46,10},{-26,-8}},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Ellipse(
           extent={{-74,-42},{-54,-60}},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Ellipse(
           extent={{18,-34},{38,-52}},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Line(
-          points={{-64,-50},{-36,0},{24,-42}},
-          color={0,0,0},
-          smooth=Smooth.None)}));
+          points={{-64,-50},{-36,0},{24,-42}})}));
 end PlanarMechanics;

@@ -28,7 +28,6 @@ equation
   annotation (Icon(graphics={Line(
           points={{-18,0},{16,0}},
           color={95,95,95},
-          smooth=Smooth.None,
           thickness=0.5)}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component enables the connection between Planarmechanics and <a href=\"Modelica://Modelica.Mechanics.MultiBody\">MultiBody</a>.</p>
 </html>"));

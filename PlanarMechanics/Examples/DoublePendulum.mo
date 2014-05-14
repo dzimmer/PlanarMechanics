@@ -28,36 +28,30 @@ model DoublePendulum
     annotation (Placement(transformation(extent={{-18,20},{2,40}})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
-      points={{5.55112e-16,70},{20,70}},
+      points={{0,70},{20,70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation1.frame_b, body1.frame_a)
                                                   annotation (Line(
       points={{40,30},{60,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixed.frame_a, revolute.frame_a) annotation (Line(
       points={{-80,70},{-60,70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-40,70},{-20,70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute1.frame_b, fixedTranslation1.frame_a) annotation (Line(
       points={{2,30},{20,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, revolute1.frame_a) annotation (Line(
-      points={{5.55112e-16,70},{5.55112e-16,50},{-36,50},{-36,30},{-18,30}},
+      points={{0,70},{0,50},{-36,50},{-36,30},{-18,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(StopTime=10),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <h4><font color=\"#008000\">A double pendulum.</font></h4>
