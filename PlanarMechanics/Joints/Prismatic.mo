@@ -9,22 +9,22 @@ model Prismatic "A prismatic joint"
   outer PlanarWorld planarWorld "planar world model";
   parameter Boolean useFlange=false
     "= true, if force flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use acceleration as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
-  parameter SI.Distance r[2] "direction of the rod wrt. body system at phi=0";
+  parameter SI.Position r[2] "direction of the rod wrt. body system at phi=0";
   final parameter SI.Length l = sqrt(r*r) "lengt of r";
   final parameter SI.Distance e[2]= r/l "normalized r";
-  SI.Distance s(final stateSelect = stateSelect, start = 0)
-    "Elongation of the joint";
+  SI.Position s(final stateSelect = stateSelect, start = 0)
+    "Elongation of the joint" annotation(Dialog(group="Initialization", showStartAttribute=true));
   Real e0[2] "direction of the prismatic rod resolved wrt.inertial frame";
-  SI.Distance r0[2]
+  SI.Position r0[2]
     "translation vector of the prismatic rod resolved wrt.inertial frame";
   Real R[2,2] "Rotation Matrix";
   SI.Velocity v(final stateSelect = stateSelect, start = 0)
-    "velocity of elongation";
-  SI.Acceleration a(start = 0) "acceleration of elongation"                          annotation(Dialog(group="Initialization", showStartAttribute=true));
+    "velocity of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Acceleration a(start = 0) "acceleration of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Force f "force in direction of elongation";
 
   Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a(f = f, s = s) if useFlange
@@ -41,7 +41,7 @@ model Prismatic "A prismatic joint"
       group="if animation = true",
       enable=animate));
   parameter SI.Distance boxWidth=l/planarWorld.defaultWidthFraction
-    " Width of prismatic joint box"
+    "Width of prismatic joint box"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
   input Types.Color boxColor=Types.Defaults.JointColor
     "Color of prismatic joint box"
@@ -88,29 +88,23 @@ equation
   annotation (Icon(graphics={
         Text(
           extent={{-100,-60},{100,-100}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),
         Rectangle(
           extent={{-100,40},{-20,-40}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175}),
         Rectangle(
           extent={{-20,-20},{100,20}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175}),
         Line(
           visible=useFlange,
-          points={{0,80},{0,20}},
-          color={0,0,0},
-          smooth=Smooth.None)}),Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p>Direction of the Joint is determined by <b>r[2]</b>, which is a vector pointing from <b>frame_a</b> to <b>frame_b</b>. </p>
-<p>By setting <b>useFlange</b> as true, the flange for a force input will be activated. In the &QUOT;Initialization&QUOT; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
-<p>It can be defined via parameter (in &QUOT;advanced&QUOT; tab) <b>stateSelect</b> that the relative distance &QUOT;s&QUOT; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
-<p>In &QUOT;Animation&QUOT; Tab, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by a outer PlanarWorld model.</p>
+          points={{0,80},{0,20}})}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<p>Direction of the Joint is determined by <b>r[2]</b>, which is a vector pointing from <b>frame_a</b> to <b>frame_b</b>.</p>
+<p>By setting <b>useFlange</b> as true, the flange for a force input will be activated. In the &quot;Initialization&quot; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
+<p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always.</p>
+<p>In &quot;Animation&quot; Tab, animation parameters for this model can be set, where <b>zPosition</b> represents the model&#39;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
 </html>"));
 end Prismatic;

@@ -4,7 +4,7 @@ model TransformAbsoluteVector "Transform absolute vector in to another frame"
 
   Interfaces.Frame_a frame_a
     "Coordinate system from which absolute kinematic quantities are measured"            annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+        transformation(extent={{-116,-16},{-84,16}})));
 
   Interfaces.Frame_resolve frame_resolve if
    (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) or
@@ -42,71 +42,57 @@ protected
 
 equation
   connect(basicTransformVector.frame_a, frame_a) annotation (Line(
-      points={{-10,5.88418e-16},{-32.5,5.88418e-16},{-32.5,9.21485e-16},{-55,9.21485e-16},
-          {-55,3.33067e-16},{-100,3.33067e-16}},
+      points={{-10,0},{-32.5,0},{-32.5,0},{-55,0},
+          {-55,0},{-100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(basicTransformVector.frame_resolve, frame_resolve) annotation (Line(
-      points={{10,5.88418e-16},{32.5,5.88418e-16},{32.5,9.21485e-16},{55,9.21485e-16},
-          {55,3.33067e-16},{100,3.33067e-16}},
+      points={{10,0},{32.5,0},{32.5,0},{55,0},
+          {55,0},{100,0}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, basicTransformVector.frame_resolve)
     annotation (Line(
-      points={{40,28},{32,28},{32,5.88418e-16},{10,5.88418e-16}},
+      points={{40,28},{32,28},{32,0},{10,0}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(basicTransformVector.r_out, r_out) annotation (Line(
-      points={{6.10623e-16,-11},{6.10623e-16,-35.75},{1.16573e-15,-35.75},{1.16573e-15,
-          -60.5},{5.55112e-16,-60.5},{5.55112e-16,-110}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      points={{0,-11},{0,-35.75},{0,-35.75},{0,
+          -60.5},{0,-60.5},{0,-110}},
+      color={0,0,127}));
   connect(basicTransformVector.r_in, r_in) annotation (Line(
-      points={{6.66134e-16,12},{6.66134e-16,39},{1.77636e-15,39},{1.77636e-15,
-          66},{1.11022e-15,66},{1.11022e-15,120}},
-      color={0,0,127},
-      smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics), Icon(coordinateSystem(
+      points={{0,12},{0,39},{0,39},{0,
+          66},{0,66},{0,120}},
+      color={0,0,127}));
+  annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
         graphics={
         Line(
           points={{0,-70},{0,-100}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Line(
           points={{0,100},{0,70}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Text(
           extent={{-104,124},{-18,96}},
-          lineColor={0,0,0},
           textString="r_in"),
         Text(
           extent={{-124,-76},{2,-104}},
-          lineColor={0,0,0},
           textString="r_out"),
         Line(
           points={{95,0},{95,0},{70,0},{70,0}},
-          color={0,0,0},
-          smooth=Smooth.None,
           pattern=LinePattern.Dot),
         Text(
           extent={{58,47},{189,22}},
           lineColor={95,95,95},
           textString="resolve"),
         Line(
-          points={{-70,0},{-96,0},{-96,0}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{-70,0},{-96,0},{-96,0}}),
         Text(
           extent={{-116,45},{-80,20}},
           lineColor={95,95,95},
           textString="a")}),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>
 The input vector \"Real r_in[3]\" is assumed to be an absolute kinematic quantity
 of frame_a that is defined to be resolved in the frame defined

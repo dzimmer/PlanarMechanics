@@ -23,14 +23,13 @@ coordinate system a vector is resolved (non-filled rectangular icon)"
           grid={1,1},
           initialScale=0.16), graphics={Text(
             extent={{-140,-50},{140,-88}},
-            lineColor={0,0,0},
             textString="%name"), Rectangle(
             extent={{-12,40},{12,-40}},
             lineColor={95,95,95},
             pattern=LinePattern.Dot,
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>
 Basic definition of a coordinate system that is fixed to a mechanical
 component. In the origin of the coordinate system the cut-force

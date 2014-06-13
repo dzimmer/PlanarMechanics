@@ -14,10 +14,10 @@ model PlanarWorld
   parameter SI.Acceleration[2] g={0,-9.81}
     "Constant gravity acceleration vector resolved in world frame";
 
-  parameter SI.Distance axisLength=nominalLength/2
+  parameter SI.Length axisLength=nominalLength/2
     "Length of world axes arrows"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter SI.Distance axisDiameter=axisLength/defaultFrameDiameterFraction
+  parameter SI.Diameter axisDiameter=axisLength/defaultFrameDiameterFraction
     "Diameter of world axes arrows"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Boolean axisShowLabels=true "= true, if labels shall be shown"
@@ -55,13 +55,13 @@ model PlanarWorld
   parameter SI.Length defaultJointWidth=nominalLength/10
     "Default for the fixed width of a shape representing a joint"
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultBodyDiameter=nominalLength/9
+  parameter SI.Diameter defaultBodyDiameter=nominalLength/9
     "Default for diameter of sphere representing the center of mass of a body"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultWidthFraction=20
     "Default for shape width as a fraction of shape length (e.g., for Parts.FixedTranslation)"
     annotation (Dialog(tab="Defaults"));
-  parameter SI.Length defaultArrowDiameter=nominalLength/40
+  parameter SI.Diameter defaultArrowDiameter=nominalLength/40
     "Default for arrow diameter (e.g., of forces, torques, sensors)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultForceLength=nominalLength/10
@@ -75,6 +75,12 @@ model PlanarWorld
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultSpecularCoefficient(min=0) = 0.7
     "Default reflection of ambient light (= 0: light is completely absorbed)"
+    annotation (Dialog(tab="Defaults"));
+  parameter Real defaultN_to_m(unit="N/m", min=0) = 1000
+    "Default scaling of force arrows (length = force/defaultN_to_m)"
+    annotation (Dialog(tab="Defaults"));
+  parameter Real defaultNm_to_m(unit="N.m/m", min=0) = 1000
+    "Default scaling of torque arrows (length = torque/defaultNm_to_m)"
     annotation (Dialog(tab="Defaults"));
 protected
   parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
@@ -219,26 +225,19 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
         grid={2,2}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Line(
           points={{-100,-118},{-100,61}},
-          color={0,0,0},
           thickness=0.5),
         Polygon(
           points={{-100,100},{-120,60},{-80,60},{-100,100},{-100,100}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Line(
           points={{-119,-100},{59,-100}},
-          color={0,0,0},
           thickness=0.5),
         Polygon(
           points={{99,-100},{59,-80},{59,-120},{99,-100}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-150,145},{150,105}},
@@ -246,11 +245,9 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           lineColor={0,0,255}),
         Text(
           extent={{95,-113},{144,-162}},
-          lineColor={0,0,0},
           textString="%label1"),
         Text(
           extent={{-170,127},{-119,77}},
-          lineColor={0,0,0},
           textString="%label2"),
         Line(points={{-56,78},{-56,-26}}, color={0,0,255}),
         Polygon(
@@ -270,16 +267,14 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions=
+          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
+                                                                                                    info="<html>
 <p>Model <b>PlanarWorld</b> defines all possible general parameters to make parameterization of models much more conveniant. It has the following functionalites.</p>
-<p><ol>
-<li>It defines the global coordinate system fixed in ground and show x, y, z axises in animation if wanted. </li>
+<ol>
+<li>It defines the global coordinate system fixed in ground and show x, y, z axises in animation if wanted.</li>
 <li>It contains all default parameters for animation, e.g. axis diameter, default joint length etc, which can still be overwritten by setting parameters in these models.</li>
 <li>It provides the default gravity definition and its animation.</li>
-</ol></p>
+</ol>
 </html>"));
 end PlanarWorld;

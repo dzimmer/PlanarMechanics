@@ -36,20 +36,20 @@ model Spring "Linear 2D translational spring"
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "z position of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
-  parameter Integer numberOfWindings = 5 " Number of spring windings"
+  parameter Integer numberOfWindings = 5 "Number of spring windings"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input SI.Position width = planarWorld.defaultForceWidth " Width of spring"
+  input SI.Position width = planarWorld.defaultForceWidth "Width of spring"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input SI.Position coilWidth = width/10 " Width of spring coil"
+  input SI.Position coilWidth = width/10 "Width of spring coil"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Types.Color color = Types.Defaults.SpringColor " Color of spring"
+  input Types.Color color = Types.Defaults.SpringColor "Color of spring"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
 
-  SI.Distance length
+  SI.Length length
     "Distance between the origin of frame_a and the origin of frame_b";
   SI.Position r_rel_0[3]
     "Position vector from frame_a to frame_b resolved in world frame";
@@ -135,7 +135,7 @@ for this situation:
   frame_a.fy = -f_y;
   frame_b.fy = f_y;
   annotation (
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>A <i>linear translational spring</i>. x- and y direction stiffness can be parameterized.</p>
 </html>"),
     Icon(coordinateSystem(
@@ -144,12 +144,10 @@ for this situation:
         grid={2,2}), graphics={
         Text(
           extent={{140,-100},{-142,-142}},
-          textString="%name",
-          lineColor={0,0,0}),
+          textString="%name"),
         Line(
           points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,
               0}},
-          color={0,0,0},
           thickness=0.5),
         Line(points={{-68,0},{-68,65}},  color={128,128,128}),
         Line(points={{72,0},{72,65}},  color={128,128,128}),
@@ -170,7 +168,6 @@ for this situation:
         Line(
           points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,
               0}},
-          color={0,0,0},
           thickness=0.5),
         Line(points={{-68,0},{-68,65}},  color={128,128,128}),
         Line(points={{72,0},{72,65}},  color={128,128,128}),

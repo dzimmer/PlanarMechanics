@@ -1,11 +1,9 @@
 within PlanarMechanics.Utilities.Icons;
 model PlanarGearContactInternalL1
 
-  annotation (Diagram(graphics), Icon(graphics={
+  annotation (Icon(graphics={
         Line(
           points={{38,0},{98,0}},
-          color={0,0,0},
-          smooth=Smooth.None,
           thickness=1),
         Polygon(
           points={{8.6901,40.9645},{9.3284,42.8041},{11.9096,46.8087},{14.5357,
@@ -61,7 +59,6 @@ model PlanarGearContactInternalL1
               -8.8881,42.8976},{-8.1588,47.6059},{-5.4557,47.9909},{-3.441,
               43.6734},{-3.0579,41.7643},{-0.0168,41.8761},{0.2251,43.8082},{
               1.9173,48.2619},{4.6414,48.0765},{5.7144,43.4344},{5.6922,41.4874}},
-          smooth=Smooth.None,
           fillColor={255,0,0},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
@@ -108,23 +105,19 @@ model PlanarGearContactInternalL1
               28.59},{-21.8875,25.9962},{-21.2592,23.6526},{-18.1521,23.8756},{
               -17.865,26.2849},{-16.8073,29.0581},{-16.0308,30.2359},{-13.75,
               30.0005},{-13.2305,28.6889},{-12.7618,25.758},{-12.973,23.3409}},
-          smooth=Smooth.None,
           fillColor={255,160,160},
           fillPattern=FillPattern.Solid,
           lineThickness=0.5,
           pattern=LinePattern.None),
         Line(
           points={{-100,0},{-20,0}},
-          color={0,0,0},
-          smooth=Smooth.None,
           thickness=1),
         Text(
           extent={{-140,-60},{140,-100}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name")}),
     Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end PlanarGearContactInternalL1;

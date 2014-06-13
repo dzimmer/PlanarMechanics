@@ -1,4 +1,4 @@
 within PlanarMechanics.Sensors;
-package Internal 
+package Internal
 
 end Internal;
