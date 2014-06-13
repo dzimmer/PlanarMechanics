@@ -4,8 +4,7 @@ model DoublePendulum
 
   Parts.Body body(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{20,60},{40,80}})));
   Parts.FixedTranslation fixedTranslation(r={1,0})
     annotation (Placement(transformation(extent={{-20,60},{0,80}})));
@@ -14,7 +13,6 @@ model DoublePendulum
         rotation=180,
         origin={-90,70})));
   Parts.Body body1(
-    g={0,-9.81},
     m=0.2,
     I=0.01)
     annotation (Placement(transformation(extent={{60,20},{80,40}})));
@@ -30,43 +28,33 @@ model DoublePendulum
     annotation (Placement(transformation(extent={{-18,20},{2,40}})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
-      points={{5.55112e-16,70},{20,70}},
+      points={{0,70},{20,70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation1.frame_b, body1.frame_a)
                                                   annotation (Line(
       points={{40,30},{60,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixed.frame_a, revolute.frame_a) annotation (Line(
       points={{-80,70},{-60,70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-40,70},{-20,70}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute1.frame_b, fixedTranslation1.frame_a) annotation (Line(
       points={{2,30},{20,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, revolute1.frame_a) annotation (Line(
-      points={{5.55112e-16,70},{5.55112e-16,50},{-36,50},{-36,30},{-18,30}},
+      points={{0,70},{0,50},{-36,50},{-36,30},{-18,30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(extent={{-100,-100},{100,100}},
-          preserveAspectRatio=true),
-                      graphics),
-    experiment(StopTime=10),
-    __Dymola_experimentSetupOutput,
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">A double pendulum.</font></h4></p>
+      thickness=0.5));
+  annotation (experiment(StopTime=10),
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">A double pendulum.</font></h4>
 <p><br/>Beware this is a chaotic system. However, the chatoic part should start after 10s.</p>
 <p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_2.png\"/></p>
@@ -78,8 +66,7 @@ equation
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was creates and is owned by Dr. Dirk Zimmer. </p>
+<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
 <p>dirk.zimmer@dlr.de</p>
-</html>"),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}})));
+</html>"));
 end DoublePendulum;

@@ -10,7 +10,7 @@ model FixedTranslation "A fixed translation between two components (rigid rod)"
   parameter SI.Length r[2] = {1,0}
     "length of the rod resolved w.r.t to body frame at phi = 0";
   final parameter SI.Length l = sqrt(r*r);
-  SI.Distance r0[2] "length of the rod resolved w.r.t to inertal frame";
+  SI.Position r0[2] "length of the rod resolved w.r.t to inertal frame";
   Real R[2,2] "Rotation matrix";
   parameter Boolean animate = true "= true, if animation shall be enabled"
                                            annotation(Dialog(group="Animation"));
@@ -18,7 +18,7 @@ model FixedTranslation "A fixed translation between two components (rigid rod)"
     "z position of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
   parameter SI.Distance width=l/planarWorld.defaultWidthFraction
-    " Width of shape"
+    "Width of shape"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
@@ -55,15 +55,12 @@ equation
   annotation (Icon(graphics={
         Text(
           extent={{-100,-40},{100,-80}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"), Rectangle(
           extent={{-92,6},{92,-6}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Solid,
-          fillColor={175,175,175})}), Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+          fillColor={175,175,175})}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static position difference <b>r</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>
 </html>"));
 end FixedTranslation;

@@ -28,14 +28,14 @@ outer PlanarWorld planarWorld "planar world model";
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "z position of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
-  parameter SI.Distance length_a = planarWorld.defaultForceLength
-    " Length of cylinder at frame_a side"
+  parameter SI.Length length_a = planarWorld.defaultForceLength
+    "Length of cylinder at frame_a side"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input SI.Diameter diameter_a = planarWorld.defaultForceWidth
-    " Diameter of cylinder at frame_a side"
+    "Diameter of cylinder at frame_a side"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input SI.Diameter diameter_b = 0.6*diameter_a
-    " Diameter of cylinder at frame_b side"
+    "Diameter of cylinder at frame_b side"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input Types.Color color_a = {100,100,100} " Color at frame_a"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector));
@@ -114,24 +114,21 @@ annotation(Dialog(group="Animation"),
               Icon(graphics={
         Text(
           extent={{-100,-40},{100,-80}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),
-        Line(points={{-60,30},{60,30}}, color={0,0,0}),
-        Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
-        Line(points={{30,0},{100,0}}, color={0,0,0}),
-        Line(points={{-101,0},{-60,0}}, color={0,0,0}),
+        Line(points={{-60,30},{60,30}}),
+        Line(points={{-60,-30},{60,-30}}),
+        Line(points={{30,0},{100,0}}),
+        Line(points={{-101,0},{-60,0}}),
         Rectangle(
           extent={{-60,30},{30,-30}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid)}),
-                                      Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component is a <b>linear damper</b>, which acts as a line force between frame_a and frame_b. A <b>force f</b> is exerted on the origin of frame_b and with opposite sign on the origin of frame_a along the line from the origin of frame_a to the origin of frame_b according to the equation: </p>
-<p><code>f = d*<b>der</b>(s);</code> </p>
-<p>where &QUOT;d&QUOT; is the damping constant, &QUOT;s&QUOT; is the distance between the origin of frame_a and origin of frame_b, and &QUOT;der(s)&QUOT; is the time derivative of &QUOT;s&QUOT;.</p>
+<p><code>f = d*<b>der</b>(s);</code></p>
+<p>where &quot;d&quot; is the damping constant, &quot;s&quot; is the distance between the origin of frame_a and origin of frame_b, and &quot;der(s)&quot; is the time derivative of &quot;s&quot;.</p>
 <p>In the following figure a typical animation is shown where a mass is hanging on a damper.<img src=\"modelica://PlanarMechanics/Resources/Images/Damper.png\"/></p>
 </html>"));
 end Damper;

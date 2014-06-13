@@ -30,6 +30,7 @@ model Distance
     "Prevent zero-division if distance between frame_a and frame_b is zero"
    annotation (Dialog(tab="Advanced"));
 protected
+ inner Modelica.Mechanics.MultiBody.World world;
  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
    r={frame_a.x, frame_a.y, 0},
    r_head={frame_b.x, frame_b.y, 0} - {frame_a.x, frame_a.y, 0},
@@ -53,16 +54,16 @@ equation
    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
            100}}), graphics={
        Line(points={{0,-60},{0,-100}}, color={0,0,255}),
-       Line(points={{-70,0},{-101,0}}, color={0,0,0}),
-       Line(points={{70,0},{100,0}}, color={0,0,0}),
+       Line(points={{-70,0},{-101,0}}),
+       Line(points={{70,0},{100,0}}),
        Text(
          extent={{-128,30},{133,78}},
          textString="%name",
          lineColor={0,0,255})}),
    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
            100,100}}), graphics={
-       Line(points={{-70,0},{-101,0}}, color={0,0,0}),
-       Line(points={{70,0},{100,0}}, color={0,0,0}),
+       Line(points={{-70,0},{-101,0}}),
+       Line(points={{70,0},{100,0}}),
        Line(points={{0,-60},{0,-100}}, color={0,0,255}),
        Text(
          extent={{-22,70},{20,46}},
@@ -74,7 +75,7 @@ equation
          lineColor={0,0,255},
          fillColor={0,0,255},
          fillPattern=FillPattern.Solid)}),
-   Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<HTML>
+   Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<HTML>
 <p>
 The <b>distance</b> between the origins of frame_a
 and of frame_b are determined and provided at the

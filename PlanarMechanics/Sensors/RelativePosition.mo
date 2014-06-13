@@ -30,49 +30,41 @@ protected
 
 equation
   connect(relativePosition.frame_a, frame_a) annotation (Line(
-      points={{-10,5.88418e-16},{-32.5,5.88418e-16},{-32.5,9.21485e-16},{-55,
-          9.21485e-16},{-55,3.33067e-16},{-100,3.33067e-16}},
+      points={{-10,0},{-32.5,0},{-32.5,0},{-55,
+          0},{-55,0},{-100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(relativePosition.frame_b, frame_b) annotation (Line(
-      points={{10,5.88418e-16},{32.5,5.88418e-16},{32.5,9.21485e-16},{55,
-          9.21485e-16},{55,3.33067e-16},{100,3.33067e-16}},
+      points={{10,0},{32.5,0},{32.5,0},{55,
+          0},{55,0},{100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(relativePosition.frame_resolve, frame_resolve) annotation (Line(
       points={{10,8.1},{26,8.1},{26,8},{36,8},{36,80},{100,80}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, relativePosition.frame_resolve) annotation (Line(
       points={{52,30},{36,30},{36,8.1},{10,8.1}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(relativePosition.r_rel, r_rel) annotation (Line(
-      points={{6.10623e-16,-11},{6.10623e-16,-35.75},{1.16573e-15,-35.75},{
-          1.16573e-15,-60.5},{5.55112e-16,-60.5},{5.55112e-16,-110}},
-      color={0,0,127},
-      smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics), Icon(coordinateSystem(
+      points={{0,-11},{0,-35.75},{0,-35.75},{
+          0,-60.5},{0,-60.5},{0,-110}},
+      color={0,0,127}));
+  annotation (Icon(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
         Line(
           points={{0,-70},{0,-100}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Text(
           extent={{-127,95},{134,143}},
           textString="%name",
           lineColor={0,0,255}),
         Text(
           extent={{18,-80},{102,-110}},
-          lineColor={0,0,0},
           textString="r_rel")}),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p>The relative position and angle vector<b> [x,y,phi]</b> between the origins of frame_a and frame_b are determined and provided at the output signal connector <b>r_rel</b>. </p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<p>The relative position and angle vector<b> [x,y,phi]</b> between the origins of frame_a and frame_b are determined and provided at the output signal connector <b>r_rel</b>.</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the position vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td><p align=\"center\"><h4>resolveInFrame =</h4></p><p align=\"center\">Types.ResolveInFrameAB.</p></td>
@@ -95,7 +87,7 @@ equation
 <td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
 </tr>
 </table>
-<p>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &QUOT;frame_resolve&QUOT; is enabled and r_rel is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected. </p>
+<p>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &quot;frame_resolve&quot; is enabled and r_rel is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>Example: If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output vector is computed as: </p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-LrRs4SXG.png\" alt=\"r_rel = transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi), 0; sin(frame_resolve.phi),cos(frame_resolve.phi), 0;0,0,1]) * [frame_b.x - frame_a.x;frame_b.y - frame_a.y;frame_b.phi - frame_a.phi]\"/></p>
 </html>"));

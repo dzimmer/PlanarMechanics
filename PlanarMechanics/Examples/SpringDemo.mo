@@ -22,8 +22,7 @@ model SpringDemo
     enableAssert=false)
                        annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Parts.Damper damper(d=1)  annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -41,45 +40,34 @@ equation
   connect(fixed.frame_a, fixedTranslation.frame_a) annotation (Line(
       points={{-40,40},{-32,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(spring1.frame_a, fixedTranslation.frame_b) annotation (Line(
-      points={{2.50304e-015,10},{0,10},{0,40},{-10,40}},
+      points={{0,10},{0,10},{0,40},{-10,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(spring1.frame_b, body.frame_a) annotation (Line(
-      points={{-1.17078e-015,-10},{2.50304e-015,-10},{2.50304e-015,-30}},
+      points={{0,-10},{0,-10},{0,-30}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(damper.frame_a, spring1.frame_a) annotation (Line(
-      points={{-30,10},{2.50304e-015,10}},
+      points={{-30,10},{0,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(damper.frame_b, spring1.frame_b) annotation (Line(
-      points={{-30,-10},{-1.17078e-015,-10}},
+      points={{-30,-10},{0,-10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(spring1.frame_a, prismatic.frame_a) annotation (Line(
-      points={{2.50304e-015,10},{30,10}},
+      points={{0,10},{30,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic.frame_b, spring1.frame_b) annotation (Line(
-      points={{30,-10},{-1.17078e-015,-10}},
+      points={{30,-10},{0,-10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                      graphics),
-    experiment(StopTime=5),
-    __Dymola_experimentSetupOutput,
+      thickness=0.5));
+  annotation (experiment(StopTime=5),
     Documentation(info="<html>
-<p><h4><font color=\"#008000\">Spring Demo</font></h4></p>
+<h4><font color=\"#008000\">Spring Demo</font></h4>
 <p>This example shows how to use a spring and a damper separately. The motion is constrained by a prismatic joint. The spring passes a point of zero lenght.</p>
 </html>"));
 end SpringDemo;

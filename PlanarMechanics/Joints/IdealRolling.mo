@@ -76,7 +76,6 @@ equation
   annotation (Icon(graphics={
         Text(
           extent={{-100,-80},{100,-120}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),
@@ -84,14 +83,12 @@ equation
           extent={{-80,80},{80,-80}},
           pattern=LinePattern.None,
           fillColor={95,95,95},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,0}),
+          fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-70,70},{70,-70}},
           pattern=LinePattern.None,
           fillColor={255,255,255},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,0}),
+          fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-20,20},{20,-20}},
           fillColor={255,255,255},
@@ -99,9 +96,7 @@ equation
           lineColor={0,0,255}),
         Line(
           points={{-20,0},{-92,0}},
-          color={0,0,255},
-          smooth=Smooth.None)}),      Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"./Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+          color={0,0,255})}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Model IdealRolling contains only one connector frame_a lying at the center of the wheel, where it is assumed that no slip occurs between the wheel and ground.</p>
 <p>The ground is hereby represented by the x-axis.</p>
 </html>"));

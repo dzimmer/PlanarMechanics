@@ -15,15 +15,13 @@ model BasicTransformAbsoluteVector
 
   Interfaces.Frame_a frame_a
     "Coordinate system from which absolute kinematic quantities are measured"            annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+        transformation(extent={{-116,-16},{-84,16}})));
 
   Interfaces.Frame_resolve frame_resolve
     "Coordinate system in which vector is optionally resolved"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
-        rotation=0,
         origin={100,0}),
         iconTransformation(extent={{-16,-16},{16,16}},
-        rotation=0,
         origin={100,0})));
 
   Modelica.Blocks.Interfaces.RealInput r_in[3]
@@ -83,20 +81,16 @@ equation
         grid={1,1}), graphics={
         Text(
           extent={{-128,-84},{-2,-112}},
-          lineColor={0,0,0},
           textString="r_out"),
         Text(
           extent={{-108,137},{-22,109}},
-          lineColor={0,0,0},
           textString="r_in"),
         Line(
           points={{0,100},{0,70}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Line(
           points={{0,-70},{0,-100}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Text(
           extent={{58,47},{189,22}},
           lineColor={95,95,95},
@@ -106,16 +100,8 @@ equation
           lineColor={95,95,95},
           textString="a"),
         Line(
-          points={{-70,0},{-96,0},{-96,0}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{-70,0},{-96,0},{-96,0}}),
         Line(
           points={{95,0},{95,0},{70,0},{70,0}},
-          color={0,0,0},
-          smooth=Smooth.None,
-          pattern=LinePattern.Dot)}),
-                                 Diagram(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
-        grid={1,1}),
-        graphics));
+          pattern=LinePattern.Dot)}));
 end BasicTransformAbsoluteVector;

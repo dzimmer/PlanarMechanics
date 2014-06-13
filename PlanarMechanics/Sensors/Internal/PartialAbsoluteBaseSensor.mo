@@ -5,7 +5,7 @@ model PartialAbsoluteBaseSensor
 
   Interfaces.Frame_a frame_a
     "Coordinate system from which kinematic quantities are measured"            annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}}, rotation=0)));
+        transformation(extent={{-116,-16},{-84,16}})));
 
   Interfaces.Frame_resolve frame_resolve
     "Coordinate system in which vector is optionally resolved"
@@ -25,10 +25,7 @@ equation
    frame_resolve.fx = 0;
    frame_resolve.fy = 0;
    frame_resolve.t = 0;
-  annotation (Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics), Icon(coordinateSystem(preserveAspectRatio=true,
+  annotation (Icon(coordinateSystem(preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
         Text(
@@ -36,19 +33,14 @@ equation
           lineColor={95,95,95},
           textString="a"),
         Line(
-          points={{-70,0},{-96,0},{-96,0}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{-70,0},{-96,0},{-96,0}}),
         Line(
           points={{0,15},{0,-15}},
           color={0,0,127},
-          smooth=Smooth.None,
           origin={85,0},
           rotation=90),
         Line(
           points={{0,-95},{0,-95},{0,-70},{0,-70}},
-          color={0,0,0},
-          smooth=Smooth.None,
           pattern=LinePattern.Dot),
         Text(
           extent={{0,-75},{131,-100}},
