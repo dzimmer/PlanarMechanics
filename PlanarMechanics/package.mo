@@ -7,10 +7,22 @@ import MB = Modelica.Mechanics.MultiBody;
 extends Modelica.Icons.Package;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
   annotation (
   preferredView="info",
-  version="1.2.0",
-  versionDate="2014-01-30",
+  version="1.3.0",
+  versionDate="2014-06-13",
   uses(Modelica(version="3.2.1")), Documentation( revisions=
         "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
           info="<html>
