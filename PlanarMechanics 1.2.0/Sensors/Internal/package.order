@@ -1,0 +1,14 @@
+PartialAbsoluteSensor
+PartialRelativeSensor
+BasicAbsolutePosition
+BasicRelativePosition
+PartialAbsoluteBaseSensor
+PartialRelativeBaseSensor
+BasicTransformAbsoluteVector
+BasicTransformRelativeVector
+PartialCutForceSensor
+PartialCutTorqueSensor
+PartialCutForceBaseSensor
+PartialCutTorqueBaseSensor
+BasicCutForce
+BasicCutTorque
