@@ -23,7 +23,7 @@ model FixedTranslation "A fixed translation between two components (rigid rod)"
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    annotation (HideResult = true, Dialog(tab="Animation", group="if animation = true", enable=animation));
   //Visualization
   MB.Visualizers.Advanced.Shape cylinder(
     shapeType="cylinder",
