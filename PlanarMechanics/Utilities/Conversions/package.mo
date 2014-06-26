@@ -1,3 +1,3 @@
 within PlanarMechanics.Utilities;
-package Conversions 
+package Conversions
 end Conversions;

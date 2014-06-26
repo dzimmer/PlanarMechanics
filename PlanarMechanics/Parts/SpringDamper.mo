@@ -205,7 +205,7 @@ equation
   frame_a.fy = -f_y;
   frame_b.fy = f_y;
   annotation (
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>A <i>linear translational spring-damper</i>. x- and y direction stiffness and damping can be parameterized.</p>
 </html>"),
     Icon(coordinateSystem(
@@ -215,7 +215,6 @@ equation
         Line(
           points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},
               {80,32}},
-          color={0,0,0},
           thickness=0.5),
         Line(points={{-68,32},{-68,97}}, color={128,128,128}),
         Line(points={{72,32},{72,97}}, color={128,128,128}),
@@ -231,21 +230,19 @@ equation
           textString="phi_rel"),
         Rectangle(
           extent={{-50,-20},{40,-80}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Line(points={{-50,-80},{68,-80}}, color={0,0,0}),
-        Line(points={{-50,-20},{68,-20}}, color={0,0,0}),
-        Line(points={{40,-50},{80,-50}}, color={0,0,0}),
-        Line(points={{-80,-50},{-50,-50}}, color={0,0,0}),
-        Line(points={{-80,32},{-80,-50}}, color={0,0,0}),
-        Line(points={{80,32},{80,-50}}, color={0,0,0}),
-        Line(points={{-96,0},{-80,0}}, color={0,0,0}),
-        Line(points={{96,0},{80,0}}, color={0,0,0}),
+        Line(points={{-50,-80},{68,-80}}),
+        Line(points={{-50,-20},{68,-20}}),
+        Line(points={{40,-50},{80,-50}}),
+        Line(points={{-80,-50},{-50,-50}}),
+        Line(points={{-80,32},{-80,-50}}),
+        Line(points={{80,32},{80,-50}}),
+        Line(points={{-96,0},{-80,0}}),
+        Line(points={{96,0},{80,0}}),
         Text(
           extent={{140,-100},{-142,-142}},
-          textString="%name",
-          lineColor={0,0,0})}),
+          textString="%name")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -253,7 +250,6 @@ equation
         Line(
           points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},
               {80,32}},
-          color={0,0,0},
           thickness=0.5),
         Line(points={{-68,32},{-68,97}}, color={128,128,128}),
         Line(points={{72,32},{72,97}}, color={128,128,128}),
@@ -269,15 +265,14 @@ equation
           textString="phi_rel"),
         Rectangle(
           extent={{-50,-20},{40,-80}},
-          lineColor={0,0,0},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Line(points={{-50,-80},{68,-80}}, color={0,0,0}),
-        Line(points={{-50,-20},{68,-20}}, color={0,0,0}),
-        Line(points={{40,-50},{80,-50}}, color={0,0,0}),
-        Line(points={{-80,-50},{-50,-50}}, color={0,0,0}),
-        Line(points={{-80,32},{-80,-50}}, color={0,0,0}),
-        Line(points={{80,32},{80,-50}}, color={0,0,0}),
-        Line(points={{-96,0},{-80,0}}, color={0,0,0}),
-        Line(points={{96,0},{80,0}}, color={0,0,0})}));
+        Line(points={{-50,-80},{68,-80}}),
+        Line(points={{-50,-20},{68,-20}}),
+        Line(points={{40,-50},{80,-50}}),
+        Line(points={{-80,-50},{-50,-50}}),
+        Line(points={{-80,32},{-80,-50}}),
+        Line(points={{80,32},{80,-50}}),
+        Line(points={{-96,0},{-80,0}}),
+        Line(points={{96,0},{80,0}})}));
 end SpringDamper;

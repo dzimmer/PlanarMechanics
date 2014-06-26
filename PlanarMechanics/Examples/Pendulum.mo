@@ -4,8 +4,7 @@ model Pendulum "A free swinging pendulum"
 
   Parts.Body body(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Joints.Revolute revolute(
     useFlange=false,
@@ -22,29 +21,22 @@ model Pendulum "A free swinging pendulum"
     annotation (Placement(transformation(extent={{44,-10},{64,10}})));
 equation
   connect(fixed.frame_a, revolute.frame_a) annotation (Line(
-      points={{-50,-7.80517e-16},{-50,6.66134e-16},{-40,6.66134e-16}},
+      points={{-50,0},{-50,0},{-40,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
-      points={{-20,6.66134e-16},{-15,6.66134e-16},{-15,1.33227e-15},{-10,
-          1.33227e-15},{-10,6.66134e-16}},
+      points={{-20,0},{-15,0},{-15,0},{-10,
+          0},{-10,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
-      points={{16,6.66134e-16},{15,6.66134e-16},{15,-6.66134e-16},{20,
-          -6.66134e-16},{20,6.66134e-16}},
+      points={{16,0},{15,0},{15,0},{20,
+          0},{20,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                      graphics),
-    experiment(StopTime=3),
-    __Dymola_experimentSetupOutput,
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">A free swinging pendulum</font></h4></p>
+      thickness=0.5));
+  annotation (experiment(StopTime=3),
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">A free swinging pendulum</font></h4>
 <p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/Pendulum_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Pendulum_2.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Pendulum_3.png\"/></p>
@@ -54,7 +46,7 @@ equation
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was creates and is owned by Dr. Dirk Zimmer. </p>
+<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
 <p>dirk.zimmer@dlr.de</p>
 </html>"));
 end Pendulum;

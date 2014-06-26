@@ -3,7 +3,6 @@ model CounterSpin
   extends Modelica.Icons.Example;
 
   Parts.Body body(
-    g={0,-9.81},
     m=0.01,
     I=0.0005,
     animate=false,
@@ -30,13 +29,10 @@ equation
   connect(body.frame_a, slipBasedRolling1.frame_a) annotation (Line(
       points={{0,0},{20,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
-  annotation (Diagram(graphics),
-    experiment(StopTime=3),
-    __Dymola_experimentSetupOutput,
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">Wheel with counter-spin and dry-friction law.</font></h4></p>
+      thickness=0.5));
+  annotation (experiment(StopTime=3),
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">Wheel with counter-spin and dry-friction law.</font></h4>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/CounterSpin_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/CounterSpin_2.png\"/></p>
 <p><br/><br/>The model contains a large local stiffness before 2s</p>
@@ -50,7 +46,7 @@ equation
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was creates and is owned by Dr. Dirk Zimmer. </p>
+<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
 <p>dirk.zimmer@dlr.de</p>
 </html>"));
 end CounterSpin;

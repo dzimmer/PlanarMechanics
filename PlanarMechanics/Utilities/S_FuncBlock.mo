@@ -25,9 +25,8 @@ equation
       lineColor={192,192,192},
           textString="S"),
     Line(points={{-70,-70},{-62,-70},{-50,-66},{-40,-58},{-30,-40},{-18,-12},
-              {-2,22},{10,40},{22,52},{32,60},{42,64},{56,68},{70,68}},
-                                                      color={0,0,0})}),
+              {-2,22},{10,40},{22,52},{32,60},{42,64},{56,68},{70,68}})}),
       Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end S_FuncBlock;

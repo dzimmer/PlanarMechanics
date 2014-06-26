@@ -45,36 +45,28 @@ model TestIdealWheel
     annotation (Placement(transformation(extent={{-80,-12},{-60,8}})));
 equation
   connect(idealWheelJoint.frame_a, prismatic.frame_b) annotation (Line(
-      points={{1.50184e-016,23.2},{1.50184e-016,26.6},{1.05639e-015,26.6},{
-          1.05639e-015,8}},
+      points={{0,23.2},{0,26.6},{0,26.6},{
+          0,8}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic.frame_a, revolute.frame_b) annotation (Line(
-      points={{-1.68214e-016,-12},{1.05639e-015,-12},{1.05639e-015,-22}},
+      points={{0,-12},{0,-12},{0,-22}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.frame_a, fixed.frame_a) annotation (Line(
-      points={{-1.68214e-016,-42},{2.50304e-015,-42},{2.50304e-015,-52}},
+      points={{0,-42},{0,-42},{0,-52}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(engineTorque.flange, inertia.flange_a) annotation (Line(
-      points={{-12,68},{2.33651e-015,68}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-12,68},{0,68}}));
   connect(inertia.flange_b, idealWheelJoint.flange_a) annotation (Line(
-      points={{-1.33731e-015,48},{0,40},{1.1119e-015,38}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{0,48},{0,40},{0,38}}));
   connect(body.frame_a, prismatic.frame_b) annotation (Line(
-      points={{20,8},{1.05639e-015,8}},
+      points={{20,8},{0,8}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
-  annotation (Diagram(graphics), Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">This is an ideal wheel. </font></h4></p>
+      thickness=0.5));
+  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">This is an ideal wheel.</font></h4>
 <p>It introduces one non-holonomic constraint. Difficult for index-reduction.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_1.png\"/></p>
 <p><br/><br/><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_2.png\"/></p>
@@ -86,9 +78,8 @@ equation
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was creates and is owned by Dr. Dirk Zimmer. </p>
+<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
 <p>dirk.zimmer@dlr.de</p>
 </html>"),
-    experiment(StopTime=10),
-    __Dymola_experimentSetupOutput);
+    experiment(StopTime=10));
 end TestIdealWheel;

@@ -34,12 +34,8 @@ equation
             -100},{100,100}},
         grid={1,1}), graphics={Text(
           extent={{12,-76},{96,-106}},
-          lineColor={0,0,0},
           textString="r_rel"), Text(
           extent={{-127,95},{134,143}},
           textString="%name",
-          lineColor={0,0,255})}),Diagram(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
-        grid={1,1}),
-        graphics));
+          lineColor={0,0,255})}));
 end BasicRelativePosition;

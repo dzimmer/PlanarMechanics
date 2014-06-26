@@ -46,19 +46,15 @@ equation
   annotation (Icon(graphics={
         Text(
           extent={{-100,-40},{100,-80}},
-          lineColor={0,0,0},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),
         Polygon(
           points={{4,48},{92,8},{92,-12},{0,32},{-92,-10},{-92,8},{-6,48},{4,48}},
-          lineColor={0,0,0},
-          smooth=Smooth.None,
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Ellipse(
           extent={{-20,60},{20,20}},
-          lineColor={0,0,0},
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Ellipse(
@@ -66,8 +62,7 @@ equation
           lineColor={255,255,255},
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid,
-          lineThickness=0.5)}),       Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+          lineThickness=0.5)}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static angle difference <b>alpha</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>
 </html>"));
 end FixedRotation;

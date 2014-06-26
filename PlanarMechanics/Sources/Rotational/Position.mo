@@ -5,10 +5,10 @@ model Position
 
   parameter Boolean useSupport = false
     "= true, if support flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter Boolean exact=false
     "true/false exact treatment/filtering the input signal"
-    annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+    annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
 
   parameter SI.Frequency f_crit=50
     "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
@@ -27,8 +27,7 @@ model Position
 
   Modelica.Blocks.Interfaces.RealInput phi_ref(final quantity="Angle", final unit="rad", displayUnit="deg")
     "Reference angle of flange with respect to support as input signal"
-      annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-          rotation=0)));
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
 protected
   Modelica.SIunits.Angle phi_support "Absolute angle of support flange";
   parameter Modelica.SIunits.AngularFrequency w_crit=2*Modelica.Constants.pi*f_crit
@@ -57,7 +56,7 @@ equation
     a = ((phi_ref - flange.phi)*w_crit - af*w)*(w_crit/bf);
   end if;
   annotation (
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<HTML>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<HTML>
 <p>
 The input signal <b>phi_ref</b> defines the <b>reference
 angle</b> in [rad]. Flange <b>flange</b> is <b>forced</b>
@@ -86,30 +85,27 @@ The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</HTML>
-"), Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Rectangle(
           extent={{-100,20},{100,-20}},
-          lineColor={0,0,0},
           filuseSupportlPattern=FillPattern.HorizontalCylinder,
           fillColor={192,192,192}),
-        Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
-        Line(points={{0,52},{0,32}}, color={0,0,0}),
-        Line(points={{-29,32},{30,32}}, color={0,0,0}),
-        Line(visible=useSupport, points={{0,-32},{0,-100}}, color={0,0,0}),
-        Line(points={{30,-42},{20,-52}}, color={0,0,0}),
-        Line(points={{30,-32},{10,-52}}, color={0,0,0}),
-        Line(points={{20,-32},{0,-52}}, color={0,0,0}),
-        Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
-        Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-        Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
-        Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+        Line(points={{-30,-32},{30,-32}}),
+        Line(points={{0,52},{0,32}}),
+        Line(points={{-29,32},{30,32}}),
+        Line(visible=useSupport, points={{0,-32},{0,-100}}),
+        Line(points={{30,-42},{20,-52}}),
+        Line(points={{30,-32},{10,-52}}),
+        Line(points={{20,-32},{0,-52}}),
+        Line(points={{10,-32},{-10,-52}}),
+        Line(points={{0,-32},{-20,-52}}),
+        Line(points={{-10,-32},{-30,-52}}),
+        Line(points={{-20,-32},{-30,-42}}),
         Text(
           extent={{-56,-56},{-172,-90}},
-          lineColor={0,0,0},
           textString="phi_ref"),
         Text(
           extent={{150,60},{-150,100}},
@@ -117,14 +113,8 @@ blocks of the block library Modelica.Blocks.Sources.
           lineColor={0,0,255}),
         Text(
           extent={{146,-28},{30,-62}},
-          lineColor={0,0,0},
           textString="exact="),
         Text(
           extent={{146,-64},{30,-98}},
-          lineColor={0,0,0},
-          textString="%exact")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics));
+          textString="%exact")}));
 end Position;

@@ -89,14 +89,10 @@ equation
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-100,-40},{100,-80}},
-          textString="%name",
-          lineColor={0,0,0})}), Diagram(coordinateSystem(preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}),
-                                        graphics),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+          textString="%name")}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The <b>3</b> signals of the <b>force</b> connector contain force and torque. The first and second signal are interpreted as the x- and y-coordinates of a <b>force</b> and the third is torque, acting at the frame connector to which <b>frame_b</b> of this component is attached. Note that torque is a scalar quantity, which is exerted perpendicular to the x-y plane.</p>
 <p>An example of this model is given in the following figure:</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/WorldForce.png\"/></p>
-<p>The parameter ResolveinFrame defines in which frame the input force shall be resolved. </p>
+<p>The parameter ResolveinFrame defines in which frame the input force shall be resolved.</p>
 </html>"));
 end WorldForce;

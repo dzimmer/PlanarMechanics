@@ -22,23 +22,14 @@ model PlanetaryGear
 equation
   connect(heatCapacitor.port, planetary.heatPort) annotation (Line(
       points={{-18,-56},{0,-56},{0,0}},
-      color={191,0,0},
-      smooth=Smooth.None));
+      color={191,0,0}));
   connect(planetary.flange_Sun,SunSpeed. flange) annotation (Line(
-      points={{0,10},{-12,10},{-12,0},{-30,0}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{0,10},{-12,10},{-12,0},{-30,0}}));
   connect(RingTorque.flange, planetary.flange_Ring) annotation (Line(
-      points={{-30,30},{-10,30},{-10,16},{0,16}},
-      color={0,0,0},
-      smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                      graphics), Documentation(info="<html>
-<p>Example of a rigid planetary gearbox. </p>
+      points={{-30,30},{-10,30},{-10,16},{0,16}}));
+  annotation (Documentation(info="<html>
+<p>Example of a rigid planetary gearbox.</p>
 <p>The ring gear is driven using a 1Nm load, the velocity of the sun is fixed to 1 rad/s. The model shows the possibilities of the gear connection models.</p>
 <p><br>In this example only one of 3 planets is modelled. This reduction can be done because of the symmetry of the gears. For more advanced topics like load sharing between gears, more advanced models should be used.</p>
 </html>", revisions=
-          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>"),
-    experiment(StopTime=10));
-end PlanetaryGear;
+    experiment(StopTime=10));end PlanetaryGear;

@@ -8,8 +8,7 @@ model TestDryFrictionWheel
     v(fixed=true))
                 annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={0,0})));
+        rotation=90)));
   Joints.Revolute revolute(phi(fixed=true), w(fixed=true))
                            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -48,41 +47,31 @@ model TestDryFrictionWheel
     annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
 equation
   connect(prismatic.frame_a, revolute.frame_b) annotation (Line(
-      points={{-1.68214e-016,-10},{1.05639e-015,-10},{1.05639e-015,-20}},
+      points={{0,-10},{0,-10},{0,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute.frame_a, fixed.frame_a) annotation (Line(
-      points={{-1.68214e-016,-40},{2.50304e-015,-40},{2.50304e-015,-50}},
+      points={{0,-40},{0,-40},{0,-50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(engineTorque.flange, inertia.flange_a) annotation (Line(
-      points={{-12,70},{2.33651e-015,70}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-12,70},{0,70}}));
   connect(body.frame_a, prismatic.frame_b) annotation (Line(
-      points={{20,10},{1.05639e-015,10}},
+      points={{20,10},{0,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(dryFrictionWheelJoint.frame_a, prismatic.frame_b) annotation (
       Line(
-      points={{1.50184e-016,27.2},{1.50184e-016,18.6},{1.05639e-015,18.6},{
-          1.05639e-015,10}},
+      points={{0,27.2},{0,18.6},{0,18.6},{
+          0,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(dryFrictionWheelJoint.flange_a, inertia.flange_b) annotation (
       Line(
-      points={{1.1119e-015,42},{-1.33731e-015,42},{-1.33731e-015,50}},
-      color={0,0,0},
-      smooth=Smooth.None));
-  annotation (Diagram(graphics),
-    experiment(StopTime=20),
-    __Dymola_experimentSetupOutput,
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">DryFriction Wheel</font></h4></p>
+      points={{0,42},{0,42},{0,50}}));
+  annotation (experiment(StopTime=20),
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">DryFriction Wheel</font></h4>
 <p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/TestDryFrictionWheel_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestDryFrictionWheel_2.png\"/></p>
 <p>SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>
@@ -95,7 +84,7 @@ equation
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was creates and is owned by Dr. Dirk Zimmer. </p>
+<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
 <p>dirk.zimmer@dlr.de</p>
 </html>"));
 end TestDryFrictionWheel;

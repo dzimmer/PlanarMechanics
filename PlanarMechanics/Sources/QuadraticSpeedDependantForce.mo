@@ -76,7 +76,6 @@ public
         0,0,-tau_nominal])                   annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={-64,0})));
 
   Utilities.SquaretimesSign square(blockSize=3) annotation (Placement(
@@ -88,39 +87,31 @@ equation
   connect(worldForce.frame_b, frame_b) annotation (Line(
       points={{42,0},{100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(absoluteVelocity.frame_a, frame_b) annotation (Line(
       points={{38,40},{60,40},{60,0},{100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(worldForce.frame_resolve, frame_resolve) annotation (Line(
       points={{29,-3},{29,-50},{10,-50}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(absoluteVelocity.frame_resolve, frame_resolve) annotation (Line(
       points={{28,30},{28,20},{10,20},{10,-50}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(absoluteVelocity.v, normalizeSpeeds.u) annotation (Line(
       points={{17,40},{-18,40}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(square.u, normalizeSpeeds.y) annotation (Line(
       points={{-54,40},{-41,40}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(square.y, scaleForces.u) annotation (Line(
       points={{-77,40},{-82,40},{-82,0},{-76,0}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(scaleForces.y, worldForce.force) annotation (Line(
       points={{-53,0},{20,0}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation (Icon(graphics={
         Polygon(
           points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},
@@ -130,16 +121,12 @@ equation
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-100,-40},{100,-80}},
-          textString="%name",
-          lineColor={0,0,0}),
+          textString="%name"),
         Line(
           points={{-100,-100},{-80,-98},{-60,-92},{-40,-82},{-20,-68},{0,-50},{20,
               -28},{40,-2},{60,28},{80,62},{100,100}},
           color={0,0,127}, smooth=Smooth.Bezier)}),
-                                Diagram(coordinateSystem(preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}),
-                                        graphics),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Model of a force quadratic dependant on the velocity of the flange. The force can be resolved in a world frame, or a relative speed can be used by selecting resolve_frame to use the extra frame_resolve.</p>
 <p>This model is e.g. suitable to simulate aerodynamic drag forces.</p>
 </html>"));

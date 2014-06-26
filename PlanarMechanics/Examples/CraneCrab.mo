@@ -4,7 +4,6 @@ model CraneCrab
 
   Parts.Body body(
     I=0.1,
-    g={0,-9.81},
     m=0.5) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -20,8 +19,7 @@ model CraneCrab
         origin={-70,50})));
   Parts.Body body1(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{0,40},{20,60}})));
   inner PlanarWorld planarWorld
     annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
@@ -48,43 +46,32 @@ equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{-10,-20},{-10,-40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute1.frame_a, body1.frame_a) annotation (Line(
-      points={{-10,32},{-10,50},{-5.55112e-16,50}},
+      points={{-10,32},{-10,50},{0,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolute1.frame_b, fixedTranslation.frame_a) annotation (Line(
-      points={{-10,12},{-10,5.55112e-016}},
+      points={{-10,12},{-10,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixed.frame_a, prismatic1.frame_a) annotation (Line(
       points={{-60,50},{-40,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic1.frame_b, body1.frame_a) annotation (Line(
-      points={{-20,50},{-5.55112e-016,50}},
+      points={{-20,50},{0,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(damper1.flange_a, fixed1.flange) annotation (Line(
       points={{-50,80},{-66,80}},
-      color={0,127,0},
-      smooth=Smooth.None));
+      color={0,127,0}));
   connect(damper1.flange_b, prismatic1.flange_a) annotation (Line(
       points={{-30,80},{-30,59}},
-      color={0,127,0},
-      smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                      graphics),
-    experiment(StopTime=10),
-    __Dymola_experimentSetupOutput,
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">A damped crane crab </font></h4></p>
+      color={0,127,0}));
+  annotation (experiment(StopTime=10),
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">A damped crane crab </font></h4>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/CraneCrab_1.png\"/></p>
 <p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/CraneCrab_2.png\"/></p>
 <p><br/>SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>
@@ -95,7 +82,7 @@ equation
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was creates and is owned by Dr. Dirk Zimmer. </p>
+<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
 <p>dirk.zimmer@dlr.de</p>
 </html>"));
 end CraneCrab;

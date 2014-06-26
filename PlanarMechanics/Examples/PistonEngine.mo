@@ -4,8 +4,7 @@ model PistonEngine "A Piston Engine"
 
   Parts.Body bodyDrive(
     m=1,
-    I=0.1,
-    g={0,-9.81})
+    I=0.1)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-62,20})));
@@ -24,7 +23,6 @@ model PistonEngine "A Piston Engine"
     annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
   Parts.Fixed fixed1   annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=0,
         origin={70,-50})));
   Joints.Revolute revoluteDisc(phi(fixed=false, start=0))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
@@ -32,11 +30,9 @@ model PistonEngine "A Piston Engine"
         origin={0,30})));
   Parts.FixedTranslation pistonRod(r={0.8,0})
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={0,0})));
+        rotation=270)));
   Parts.Body bodyPiston(
     I=0.1,
-    g={0,-9.81},
     m=3)
     annotation (Placement(transformation(extent={{30,-30},{50,-10}})));
   Joints.Revolute revolutePiston
@@ -50,54 +46,44 @@ equation
                                            annotation (Line(
       points={{-80,50},{-70,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revoluteDrive.frame_b, fixedTranslationDisc.frame_a)
                                                       annotation (Line(
       points={{-50,50},{-40,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixed1.frame_a, prismatic.frame_b) annotation (Line(
       points={{60,-50},{40,-50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(fixedTranslationDisc.frame_b, revoluteDisc.frame_a) annotation (
       Line(
-      points={{-20,50},{0,50},{0,40},{2.50304e-15,40}},
+      points={{-20,50},{0,50},{0,40},{0,40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(bodyDrive.frame_a, revoluteDrive.frame_b) annotation (Line(
       points={{-52,20},{-44,20},{-44,50},{-50,50}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revoluteDisc.frame_b, pistonRod.frame_a) annotation (Line(
-      points={{-1.17078e-15,20},{2.50304e-15,20},{2.50304e-15,10}},
+      points={{0,20},{0,20},{0,10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(revolutePiston.frame_b, pistonRod.frame_b) annotation (Line(
-      points={{1.05639e-15,-20},{1.05639e-15,-12},{-1.17078e-15,-12},{
-          -1.17078e-15,-10}},
+      points={{0,-20},{0,-12},{0,-12},{
+          0,-10}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic.frame_a, revolutePiston.frame_a) annotation (Line(
-      points={{20,-50},{-1.68214e-16,-50},{-1.68214e-16,-40}},
+      points={{20,-50},{0,-50},{0,-40}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(prismatic.frame_a, bodyPiston.frame_a) annotation (Line(
       points={{20,-50},{14,-50},{14,-20},{30,-20}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
-  annotation (Diagram(graphics),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p><h4><font color=\"#008000\">A Piston Engine</font></h4></p>
+      thickness=0.5));
+  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<h4><font color=\"#008000\">A Piston Engine</font></h4>
 <p>This example contains an algebraic loop. A non-linear system must be solved for initialization and at simulation.</p>
 <p>In this version, the state are manually selected.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/PistonEngine_1.png\"/></p>
@@ -109,9 +95,8 @@ equation
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was creates and is owned by Dr. Dirk Zimmer. </p>
+<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
 <p>dirk.zimmer@dlr.de</p>
 </html>"),
-    experiment(StopTime=10),
-    __Dymola_experimentSetupOutput);
+    experiment(StopTime=10));
 end PistonEngine;

@@ -225,26 +225,19 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
         grid={2,2}), graphics={
         Rectangle(
           extent={{-100,100},{100,-100}},
-          lineColor={0,0,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
         Line(
           points={{-100,-118},{-100,61}},
-          color={0,0,0},
           thickness=0.5),
         Polygon(
           points={{-100,100},{-120,60},{-80,60},{-100,100},{-100,100}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Line(
           points={{-119,-100},{59,-100}},
-          color={0,0,0},
           thickness=0.5),
         Polygon(
           points={{99,-100},{59,-80},{59,-120},{99,-100}},
-          lineColor={0,0,0},
-          fillColor={0,0,0},
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-150,145},{150,105}},
@@ -252,11 +245,9 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           lineColor={0,0,255}),
         Text(
           extent={{95,-113},{144,-162}},
-          lineColor={0,0,0},
           textString="%label1"),
         Text(
           extent={{-170,127},{-119,77}},
-          lineColor={0,0,0},
           textString="%label2"),
         Line(points={{-56,78},{-56,-26}}, color={0,0,255}),
         Polygon(
@@ -276,18 +267,14 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
     Documentation(revisions=
-          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",
+          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
                                                                                                     info="<html>
 <p>Model <b>PlanarWorld</b> defines all possible general parameters to make parameterization of models much more conveniant. It has the following functionalites.</p>
-<p><ol>
-<li>It defines the global coordinate system fixed in ground and show x, y, z axises in animation if wanted. </li>
+<ol>
+<li>It defines the global coordinate system fixed in ground and show x, y, z axises in animation if wanted.</li>
 <li>It contains all default parameters for animation, e.g. axis diameter, default joint length etc, which can still be overwritten by setting parameters in these models.</li>
 <li>It provides the default gravity definition and its animation.</li>
-</ol></p>
+</ol>
 </html>"));
 end PlanarWorld;

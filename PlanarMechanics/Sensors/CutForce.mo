@@ -49,44 +49,35 @@ protected
     annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
 equation
   connect(cutForce.frame_a, frame_a)      annotation (Line(
-      points={{-50,5.88418e-16},{-62.5,5.88418e-16},{-62.5,9.21485e-16},{-75,
-          9.21485e-16},{-75,3.33067e-16},{-100,3.33067e-16}},
+      points={{-50,0},{-62.5,0},{-62.5,0},{-75,
+          0},{-75,0},{-100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(cutForce.frame_b, frame_b)      annotation (Line(
-      points={{-30,5.88418e-16},{2.5,5.88418e-16},{2.5,9.21485e-16},{35,
-          9.21485e-16},{35,3.33067e-16},{100,3.33067e-16}},
+      points={{-30,0},{2.5,0},{2.5,0},{35,
+          0},{35,0},{100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(cutForce.frame_resolve, frame_resolve)      annotation (Line(
       points={{-32,-10},{-32,-60},{80,-60},{80,-100}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(cutForce.force, force)      annotation (Line(
       points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   connect(zeroPosition.frame_resolve, cutForce.frame_resolve)      annotation (
       Line(
-      points={{-5.55112e-16,-30},{-32,-30},{-32,-10}},
+      points={{0,-30},{-32,-30},{-32,-10}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(
           extent={{-190,-70},{-74,-96}},
-          lineColor={0,0,0},
           textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
               127})}),
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-            100}}),
-            graphics),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p>The cut-force acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-force is provided (= frame_b.f). </p>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+<p>The cut-force acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-force is provided (= frame_b.f).</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the force vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td><p align=\"center\"><h4>resolveInFrame =</h4></p><p align=\"center\">Types.ResolveInFrameAB.</p></td>
@@ -109,8 +100,8 @@ equation
 <td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
 </tr>
 </table>
-<p><br/><br/><br/>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &QUOT;frame_resolve&QUOT; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected. </p>
+<p><br/><br/><br/>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &quot;frame_resolve&quot; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>In the following figure the modeling and animation of a CutForce sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CutForce2.png\"/>                                                                <img src=\"modelica://PlanarMechanics/Resources/Images/CutForce.png\"/> </p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/CutForce2.png\"/>                                                                <img src=\"modelica://PlanarMechanics/Resources/Images/CutForce.png\"/></p>
 </html>"));
 end CutForce;

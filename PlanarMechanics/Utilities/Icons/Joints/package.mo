@@ -1,5 +1,5 @@
 within PlanarMechanics.Utilities.Icons;
-package Joints 
+package Joints
 extends Modelica.Icons.Package;
 
 
@@ -13,12 +13,10 @@ extends Modelica.Icons.Package;
           points={{14,8},{36,0},{62,82},{40,88},{14,8}},
           lineColor={95,95,95},
           fillPattern=FillPattern.Sphere,
-          smooth=Smooth.None,
           fillColor={255,255,255}),
         Polygon(
           points={{-4,-16},{8,-34},{-62,-82},{-74,-64},{-4,-16}},
           lineColor={95,95,95},
           fillPattern=FillPattern.Sphere,
-          smooth=Smooth.None,
           fillColor={255,255,255})}));
 end Joints;

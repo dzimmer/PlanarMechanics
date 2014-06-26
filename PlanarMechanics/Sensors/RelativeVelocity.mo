@@ -37,71 +37,58 @@ protected
     annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
 equation
   connect(relativePosition.frame_a, frame_a) annotation (Line(
-      points={{-10,5.88418e-16},{-32.5,5.88418e-16},{-32.5,9.21485e-16},{-55,
-          9.21485e-16},{-55,3.33067e-16},{-100,3.33067e-16}},
+      points={{-10,0},{-32.5,0},{-32.5,0},{-55,
+          0},{-55,0},{-100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(relativePosition.frame_b, frame_b) annotation (Line(
-      points={{10,5.88418e-16},{32.5,5.88418e-16},{32.5,9.21485e-16},{55,
-          9.21485e-16},{55,3.33067e-16},{100,3.33067e-16}},
+      points={{10,0},{32.5,0},{32.5,0},{55,
+          0},{55,0},{100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(relativePosition.r_rel, der_r_rel.u)
                                           annotation (Line(
-      points={{6.10623e-16,-11},{6.10623e-16,-18},{4.64678e-15,-18}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      points={{0,-11},{0,-18},{0,-18}},
+      color={0,0,127}));
   connect(der_r_rel.y, transformRelativeVector.r_in) annotation (Line(
-      points={{3.66379e-16,-41},{3.66379e-16,-50},{6.66134e-16,-50},{
-          6.66134e-16,-58}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      points={{0,-41},{0,-50},{0,-50},{
+          0,-58}},
+      color={0,0,127}));
   connect(transformRelativeVector.r_out, v_rel) annotation (Line(
-      points={{6.10623e-16,-81},{6.10623e-16,-88.25},{1.16573e-15,-88.25},{
-          1.16573e-15,-95.5},{5.55112e-16,-95.5},{5.55112e-16,-110}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      points={{0,-81},{0,-88.25},{0,-88.25},{
+          0,-95.5},{0,-95.5},{0,-110}},
+      color={0,0,127}));
   connect(transformRelativeVector.frame_a, frame_a) annotation (Line(
-      points={{-10,-70},{-70,-70},{-70,3.33067e-16},{-100,3.33067e-16}},
+      points={{-10,-70},{-70,-70},{-70,0},{-100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(transformRelativeVector.frame_b, frame_b) annotation (Line(
-      points={{10,-70},{80,-70},{80,3.33067e-16},{100,3.33067e-16}},
+      points={{10,-70},{80,-70},{80,0},{100,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(transformRelativeVector.frame_resolve, frame_resolve) annotation (Line(
       points={{10,-61.9},{35,-61.9},{35,80},{100,80}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
+      pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, transformRelativeVector.frame_resolve)
     annotation (Line(
       points={{50,-50},{35,-50},{35,-61.9},{10,-61.9}},
       color={95,95,95},
-      pattern=LinePattern.Dot,
-      smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}},
-        grid={1,1}),           graphics), Icon(coordinateSystem(
+      pattern=LinePattern.Dot));
+  annotation (Icon(coordinateSystem(
           preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
         grid={1,1}), graphics={
         Line(
           points={{0,-70},{0,-100}},
-          color={0,0,127},
-          smooth=Smooth.None),
+          color={0,0,127}),
         Text(
           extent={{-127,95},{134,143}},
           textString="%name",
           lineColor={0,0,255}),
         Text(
           extent={{18,-80},{102,-110}},
-          lineColor={0,0,0},
           textString="v_rel")}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The relative velocity vector between the origins of frame_a and of frame_b are determined and provided at the output signal connector <b>v_rel</b>.</p>
 <p><code>Via parameter <b>resolveInFrame</b> it is defined, in which frame the velocity vector is resolved: </code></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
@@ -125,7 +112,7 @@ equation
 <td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
 </tr>
 </table>
-<p>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &QUOT;frame_resolve&QUOT; is enabled and v_rel is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected. Example: If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output vector is computed as: </p>
+<p>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &quot;frame_resolve&quot; is enabled and v_rel is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected. Example: If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the output vector is computed as: </p>
 <pre><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-LZbFgA50.png\" alt=\"r_rel = transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi), 0; sin(frame_resolve.phi),cos(frame_resolve.phi), 0;0,0,1]) * [frame_b.x - frame_a.x;frame_b.y - frame_a.y;frame_b.phi - frame_a.phi]\"/>
 <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-b53N2SsO.png\" alt=\"v_rela = der(r_rel)\"/></pre>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-PGBmAMb7.png\" alt=\"v_rel = transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi),0;sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1]) * [cos(frame_a.phi),-sin(frame_a.phi), 0;sin(frame_a.phi), cos(frame_a.phi),0;0,0,1] * r_rela\"/></p>

@@ -3,7 +3,7 @@ model Speed "Forced movement of a flange according to a reference speed"
 
   parameter Boolean useSupport = false
     "= true, if support flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
 
   parameter Boolean exact=false
     "true/false exact treatment/filtering the input signal";
@@ -23,7 +23,7 @@ model Speed "Forced movement of a flange according to a reference speed"
 
   Modelica.Blocks.Interfaces.RealInput v_ref
     "Reference speed of flange as input signal" annotation (Placement(
-        transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
+        transformation(extent={{-140,-20},{-100,20}})));
   Modelica.SIunits.Length s(start=0, fixed=true, stateSelect=StateSelect.prefer)
     "Distance between flange and support (= flange.s - support.s)";
 
@@ -50,7 +50,7 @@ equation
     a = (v_ref - v)*w_crit;
   end if;
   annotation (
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<HTML>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<HTML>
 <p>
 The input signal <b>v_ref</b> defines the <b>reference
 speed</b> in [m/s]. Flange <b>flange_b</b> is <b>forced</b>
@@ -79,45 +79,37 @@ The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</HTML>
-"), Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Text(
           extent={{-54,-36},{-174,-68}},
-          lineColor={0,0,0},
           textString="v_ref"),
-        Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
-        Line(visible=useSupport,points={{0,-32},{0,-100}}, color={0,0,0}),
-        Line(points={{30,-42},{20,-52}}, color={0,0,0}),
-        Line(points={{30,-32},{10,-52}}, color={0,0,0}),
-        Line(points={{20,-32},{0,-52}}, color={0,0,0}),
-        Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
-        Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-        Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
-        Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+        Line(points={{-30,-32},{30,-32}}),
+        Line(visible=useSupport,points={{0,-32},{0,-100}}),
+        Line(points={{30,-42},{20,-52}}),
+        Line(points={{30,-32},{10,-52}}),
+        Line(points={{20,-32},{0,-52}}),
+        Line(points={{10,-32},{-10,-52}}),
+        Line(points={{0,-32},{-20,-52}}),
+        Line(points={{-10,-32},{-30,-52}}),
+        Line(points={{-20,-32},{-30,-42}}),
         Rectangle(
           extent={{-100,20},{100,-20}},
           lineColor={0,127,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
-        Line(points={{-29,32},{30,32}}, color={0,0,0}),
-        Line(points={{0,52},{0,32}}, color={0,0,0}),
+        Line(points={{-29,32},{30,32}}),
+        Line(points={{0,52},{0,32}}),
         Text(
           extent={{150,60},{-150,100}},
           textString="%name",
           lineColor={0,0,255}),
         Text(
           extent={{146,-38},{32,-64}},
-          lineColor={0,0,0},
           textString="exact="),
         Text(
           extent={{140,-76},{22,-102}},
-          lineColor={0,0,0},
-          textString="%exact")}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics));
+          textString="%exact")}));
 end Speed;

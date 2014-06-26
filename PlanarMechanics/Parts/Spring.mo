@@ -135,7 +135,7 @@ for this situation:
   frame_a.fy = -f_y;
   frame_b.fy = f_y;
   annotation (
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>A <i>linear translational spring</i>. x- and y direction stiffness can be parameterized.</p>
 </html>"),
     Icon(coordinateSystem(
@@ -144,12 +144,10 @@ for this situation:
         grid={2,2}), graphics={
         Text(
           extent={{140,-100},{-142,-142}},
-          textString="%name",
-          lineColor={0,0,0}),
+          textString="%name"),
         Line(
           points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,
               0}},
-          color={0,0,0},
           thickness=0.5),
         Line(points={{-68,0},{-68,65}},  color={128,128,128}),
         Line(points={{72,0},{72,65}},  color={128,128,128}),
@@ -170,7 +168,6 @@ for this situation:
         Line(
           points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,
               0}},
-          color={0,0,0},
           thickness=0.5),
         Line(points={{-68,0},{-68,65}},  color={128,128,128}),
         Line(points={{72,0},{72,65}},  color={128,128,128}),

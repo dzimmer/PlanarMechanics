@@ -8,8 +8,7 @@ model BasicAbsolutePosition
     "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={110,0},
-        extent={{-10,-10},{10,10}},
-        rotation=0)));
+        extent={{-10,-10},{10,10}})));
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
     resolveInFrame=
@@ -32,12 +31,8 @@ equation
             -100},{100,100}},
         grid={1,1}), graphics={Text(
           extent={{61,47},{145,17}},
-          lineColor={0,0,0},
           textString="r"), Text(
           extent={{-127,75},{134,123}},
           textString="%name",
-          lineColor={0,0,255})}),Diagram(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
-        grid={1,1}),
-        graphics));
+          lineColor={0,0,255})}));
 end BasicAbsolutePosition;

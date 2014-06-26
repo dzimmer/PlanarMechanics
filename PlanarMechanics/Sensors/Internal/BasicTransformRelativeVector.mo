@@ -57,16 +57,11 @@ equation
             -100},{100,100}}), graphics={
         Text(
           extent={{-128,-92},{-2,-120}},
-          lineColor={0,0,0},
           textString="r_out"),
         Text(
           extent={{-108,144},{-22,116}},
-          lineColor={0,0,0},
           textString="r_in"),
         Line(
           points={{0,100},{0,70}},
-          color={0,0,127},
-          smooth=Smooth.None)}), Diagram(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
-        graphics));
+          color={0,0,127})}));
 end BasicTransformRelativeVector;

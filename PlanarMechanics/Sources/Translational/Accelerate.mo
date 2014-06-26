@@ -4,7 +4,7 @@ model Accelerate
 
   parameter Boolean useSupport = false
     "= true, if support flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
 
   SI.Velocity v(start=0, fixed=true, stateSelect=StateSelect.prefer)
     "Absolute velocity of flange_b";
@@ -19,8 +19,7 @@ model Accelerate
 
   Modelica.Blocks.Interfaces.RealInput a_ref
     "Absolute acceleration of flange as input signal"
-     annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
-          rotation=0)));
+     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
   Modelica.SIunits.Length s(start=0, fixed=true, stateSelect=StateSelect.prefer)
     "Distance between flange and support (= flange.s - support.s)";
 protected
@@ -34,7 +33,7 @@ equation
   a = der(v);
   a = a_ref;
   annotation (
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>
 The input signal <b>a</b> in [m/s2] moves the 1D translational flange
 connector flange_b with a predefined <i>acceleration</i>, i.e., the flange
@@ -47,37 +46,31 @@ The acceleration \"a(t)\" can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Source.
 </p>
 
-</HTML>
-"), Icon(coordinateSystem(
+</html>"), Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Text(
           extent={{-56,-40},{-166,-68}},
-          lineColor={0,0,0},
           textString="a_ref"),
-        Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
-        Line(visible=useSupport,points={{0,-32},{0,-100}}, color={0,0,0}),
-        Line(points={{30,-42},{20,-52}}, color={0,0,0}),
-        Line(points={{30,-32},{10,-52}}, color={0,0,0}),
-        Line(points={{20,-32},{0,-52}}, color={0,0,0}),
-        Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
-        Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-        Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
-        Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+        Line(points={{-30,-32},{30,-32}}),
+        Line(visible=useSupport,points={{0,-32},{0,-100}}),
+        Line(points={{30,-42},{20,-52}}),
+        Line(points={{30,-32},{10,-52}}),
+        Line(points={{20,-32},{0,-52}}),
+        Line(points={{10,-32},{-10,-52}}),
+        Line(points={{0,-32},{-20,-52}}),
+        Line(points={{-10,-32},{-30,-52}}),
+        Line(points={{-20,-32},{-30,-42}}),
         Rectangle(
           extent={{-100,20},{100,-20}},
           lineColor={0,127,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
-        Line(points={{-29,32},{30,32}}, color={0,0,0}),
-        Line(points={{0,52},{0,32}}, color={0,0,0}),
+        Line(points={{-29,32},{30,32}}),
+        Line(points={{0,52},{0,32}}),
         Text(
           extent={{150,60},{-150,100}},
           textString="%name",
-          lineColor={0,0,255})}),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics));
+          lineColor={0,0,255})}));
 end Accelerate;
