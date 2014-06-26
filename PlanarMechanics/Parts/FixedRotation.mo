@@ -18,11 +18,11 @@ model FixedRotation "A fixed translation between two components (rigid rod)"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input Modelica.Mechanics.MultiBody.Types.Color cylinderColor={155,155,155}
     "Color of cylinder representing the fixed rotation"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animation = true", enable=animate));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (HideResult = true, Dialog(tab="Animation", group="if animation = true", enable=animate));
   //Visualization
   MB.Visualizers.Advanced.Shape cylinder(
     shapeType="cylinder",

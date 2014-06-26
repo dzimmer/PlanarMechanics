@@ -9,32 +9,32 @@ extends
   parameter SI.Distance r_b=1 "radius of Gear B";
 
   parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true);
-  parameter SI.Angle StartAngle_a = 0 "Start Angle of gear B" annotation (Dialog(
-      HideResult=true,tab="Animation",
+  parameter SI.Angle StartAngle_a = 0 "Start Angle of gear B" annotation ( HideResult=true,Dialog(
+     tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Angle StartAngle_b = 0 "Start Angle of gear B" annotation (Dialog(
-      HideResult=true,tab="Animation",
+  parameter SI.Angle StartAngle_b = 0 "Start Angle of gear B" annotation (HideResult=true,Dialog(
+      tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter Integer Tooth_a(min=1) = 20 "Number of Tooth" annotation (Dialog(
-      HideResult=true,tab="Animation",
+  parameter Integer Tooth_a(min=1) = 20 "Number of Tooth" annotation ( HideResult=true,Dialog(
+     tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter Real RGB_a[3]={195,0,0} "Color (RGB values)" annotation (Dialog(
-      HideResult=true,
+  parameter Real RGB_a[3]={195,0,0} "Color (RGB values)" annotation ( HideResult=true,Dialog(
       colorSelector=true,
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter Real RGB_b[3]={0,0,195} "Color (RGB values)" annotation (Dialog(
-      HideResult=true,
+
+  parameter Real RGB_b[3]={0,0,195} "Color (RGB values)" annotation (HideResult=true,Dialog(
       colorSelector=true,
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Distance z_offset=0 "z-distane offset for simulation" annotation (Dialog(
-      HideResult=true,tab="Animation",
+
+  parameter SI.Distance z_offset=0 "z-distane offset for simulation" annotation ( HideResult=true,Dialog(
+     tab="Animation",
       group="if animation = true",
       enable=animate));
 
@@ -169,6 +169,8 @@ equation
   annotation (defaultComponentName="gear",Diagram(graphics={
         Line(
           points={{38,0},{98,0}},
+          color={0,0,0},
+          smooth=Smooth.None,
           thickness=1),
         Polygon(
           points={{8.6901,40.9645},{9.3284,42.8041},{11.9096,46.8087},{14.5357,
@@ -224,6 +226,7 @@ equation
               -8.8881,42.8976},{-8.1588,47.6059},{-5.4557,47.9909},{-3.441,
               43.6734},{-3.0579,41.7643},{-0.0168,41.8761},{0.2251,43.8082},{
               1.9173,48.2619},{4.6414,48.0765},{5.7144,43.4344},{5.6922,41.4874}},
+          smooth=Smooth.None,
           fillColor={255,0,0},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
@@ -270,25 +273,29 @@ equation
               28.59},{-21.8875,25.9962},{-21.2592,23.6526},{-18.1521,23.8756},{
               -17.865,26.2849},{-16.8073,29.0581},{-16.0308,30.2359},{-13.75,
               30.0005},{-13.2305,28.6889},{-12.7618,25.758},{-12.973,23.3409}},
+          smooth=Smooth.None,
           fillColor={255,160,160},
           fillPattern=FillPattern.Solid,
           lineThickness=0.5,
           pattern=LinePattern.None),
         Line(
           points={{-100,0},{-20,0}},
-          thickness=1)}),    Documentation(revisions=
-          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
+          color={0,0,0},
+          smooth=Smooth.None,
+          thickness=1)}),       Icon(graphics),
+    Documentation(revisions=
+          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",
                                                                                                     info="<html>
 <p>In this model an ideal gear connection is modelled. It is based on the paper from van der Linden , <a href=\"http://dx.doi.org/10.3384/ecp12076303\">Modelling of Elastic Gearboxes Using a Generalized Gear Contact Model</a>. However, no gear elasticity is modelled.</p>
 <p>The planar model of an internal gear wheel is used to build complex gear models. A <a href=\"http://dx.doi.org/10.3384/ecp12076681\">planar library</a> is used to create the constraints of the gearwheels. An example can be found in <a href=\"modelica://Actuator.Mechanical.Planar.Examples.SpurGear\">here</a>.</p>
-<p>Using different parts from the planar library, it is possible to build complex gear systems. However, especially since no elasticity is included, kinematic loops can lead to complications and should be handled with care.</p>
+<p>Using different parts from the planar library, it is possible to build complex gear systems. However, especially since no elasticity is included, kinematic loops can lead to complications and should be handled with care. </p>
 <p>This model is suitable for: </p>
-<p>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kinematic analysis of gear systems and gear-like systems.</p>
-<p>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Modelling of multiple gear stage models with clutches.</p>
-<p><b>Literature</b></p>
+<p>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Kinematic analysis of gear systems and gear-like systems. </p>
+<p>&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Modelling of multiple gear stage models with clutches. </p>
+<p><b>Literature</b> </p>
 <ol>
 <li>van der Linden, F., Modelling of Elastic Gearboxes Using a Generalized Gear Contact Model, <i>Proceedings of the 9th International MODELICA Conference, Linkoping University Electronic Press, </i><b>2012</b>, 303-310 </li>
 </ol>
-<p><br>The planar connectors are in progress of being standardized (work in progress at dlr).</p>
+<p><br>The planar connectors are in progress of beiing standardized (work in progress at dlr).</p>
 </html>"));
 end RigidNoLossInternal;

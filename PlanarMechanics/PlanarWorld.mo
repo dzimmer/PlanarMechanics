@@ -23,11 +23,11 @@ model PlanarWorld
   parameter Boolean axisShowLabels=true "= true, if labels shall be shown"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_x=Types.Defaults.FrameColor "Color of x-arrow"
-    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_y=axisColor_x "Coler of y-arrow"
-    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_z=axisColor_x "Color of z-arrow"
-    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Position gravityArrowTail[2]={0,0}
     "Position vector from origin of world frame to arrow tail, resolved in world frame"
@@ -42,7 +42,7 @@ model PlanarWorld
       defaultWidthFraction "Diameter of gravity arrow" annotation (Dialog(tab=
           "Animation", group="if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
-  input Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow";
+  input Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Length defaultZPosition=0
     "Default for z positions of all the elements"

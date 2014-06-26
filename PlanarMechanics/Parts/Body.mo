@@ -18,14 +18,14 @@ model Body "Body component with mass and inertia"
       group="if animation = true",
       enable=animate));
   parameter SI.Diameter sphereDiameter=planarWorld.defaultBodyDiameter
-    "Diameter of sphere" annotation (Dialog(
+    "Diameter of sphere" annotation (HideResult = true,Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (HideResult = true, Dialog(tab="Animation", group="if animation = true", enable=animate));
   SI.Force f[2] "force";
   SI.Position r[2](final stateSelect=stateSelect, start={0,0})
     "transl. position"                                                            annotation(Dialog(group="Initialization", showStartAttribute=true));
