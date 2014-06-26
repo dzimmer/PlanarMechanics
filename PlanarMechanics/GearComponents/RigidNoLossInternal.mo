@@ -10,27 +10,31 @@ extends
 
   parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true);
   parameter SI.Angle StartAngle_a = 0 "Start Angle of gear B" annotation (Dialog(
-      tab="Animation",
+      HideResult=true,tab="Animation",
       group="if animation = true",
       enable=animate));
   parameter SI.Angle StartAngle_b = 0 "Start Angle of gear B" annotation (Dialog(
-      tab="Animation",
+      HideResult=true,tab="Animation",
       group="if animation = true",
       enable=animate));
   parameter Integer Tooth_a(min=1) = 20 "Number of Tooth" annotation (Dialog(
-      tab="Animation",
+      HideResult=true,tab="Animation",
       group="if animation = true",
       enable=animate));
   parameter Real RGB_a[3]={195,0,0} "Color (RGB values)" annotation (Dialog(
+      HideResult=true,
+      colorSelector=true,
       tab="Animation",
       group="if animation = true",
       enable=animate));
   parameter Real RGB_b[3]={0,0,195} "Color (RGB values)" annotation (Dialog(
+      HideResult=true,
+      colorSelector=true,
       tab="Animation",
       group="if animation = true",
       enable=animate));
   parameter SI.Distance z_offset=0 "z-distane offset for simulation" annotation (Dialog(
-      tab="Animation",
+      HideResult=true,tab="Animation",
       group="if animation = true",
       enable=animate));
 

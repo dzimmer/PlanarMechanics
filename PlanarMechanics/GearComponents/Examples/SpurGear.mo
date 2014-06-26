@@ -76,8 +76,7 @@ equation
       points={{12,20},{20,20},{20,40}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Documentation(info="<html>
+  annotation (experiment(StopTime=10),Documentation(info="<html>
 <p>Simple example of a spur gear in a planar environment.</p>
 </html>", revisions=
-          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>"));
 end SpurGear;
