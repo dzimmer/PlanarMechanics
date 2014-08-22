@@ -42,10 +42,10 @@ model Prismatic "A prismatic joint"
       enable=animate));
   parameter SI.Distance boxWidth=l/planarWorld.defaultWidthFraction
     "Width of prismatic joint box"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input Types.Color boxColor=Types.Defaults.JointColor
     "Color of prismatic joint box"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
