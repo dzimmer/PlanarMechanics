@@ -10,7 +10,7 @@ outer PlanarWorld planarWorld "planar world model";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.TranslationalDampingConstant d=1;
-  SI.Length[2] r0(final stateSelect=stateSelect,start={0,0});
+  SI.Length[2] r0(each final stateSelect=stateSelect,start={0,0});
   Real[2] d0;
   SI.Velocity vx(start = 0);
   SI.Velocity vy(start = 0);

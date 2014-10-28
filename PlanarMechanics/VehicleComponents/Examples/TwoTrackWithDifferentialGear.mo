@@ -31,8 +31,8 @@ model TwoTrackWithDifferentialGear "AcceleratingBody"
     I=0.1,
     g={0,0},
     m=300,
-    r(fixed=true),
-    v(fixed=true),
+    r(each fixed=true),
+    v(each fixed=true),
     phi(fixed=true),
     w(fixed=true))
           annotation (Placement(transformation(extent={{12,-30},{32,-10}})));
