@@ -6,8 +6,8 @@ model CounterSpin
     m=0.01,
     I=0.0005,
     animate=false,
-    r(fixed=false),
-    v(fixed=false))
+    r(each fixed=false),
+    v(each fixed=false))
               annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,

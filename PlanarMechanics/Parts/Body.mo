@@ -27,9 +27,9 @@ model Body "Body component with mass and inertia"
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult = true, Dialog(tab="Animation", group="if animation = true", enable=animate));
   SI.Force f[2] "force";
-  SI.Position r[2](final stateSelect=stateSelect, start={0,0})
+  SI.Position r[2](each final stateSelect=stateSelect, start={0,0})
     "transl. position"                                                            annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.Velocity v[2](final stateSelect=stateSelect, start={0,0}) "velocity" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Velocity v[2](each final stateSelect=stateSelect, start={0,0}) "velocity" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Acceleration a[2](start={0,0}) "acceleration" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Angle phi(final stateSelect=stateSelect, start=0) "angle" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularVelocity w(final stateSelect=stateSelect, start = 0)

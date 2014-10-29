@@ -6,9 +6,9 @@ model FreeBody "AcceleratingBody"
     annotation (Placement(transformation(extent={{-28,-10},{-8,10}})));
   Parts.Body body(m=1, I=0.1,
     animate=true,
-    a(fixed=false),
-    r(fixed=true),
-    v(fixed=true),
+    a(each fixed=false),
+    r(each fixed=true),
+    v(each fixed=true),
     phi(fixed=true),
     w(fixed=true))
     annotation (Placement(transformation(extent={{10,-10},{30,10}})));

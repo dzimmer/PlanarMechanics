@@ -27,8 +27,8 @@ model SingleTrackWithEngine "AcceleratingBody"
     m=10,
     phi(fixed=true),
     w(fixed=true),
-    v(fixed=false),
-    r(fixed=true))
+    v(each fixed=false),
+    r(each fixed=true))
           annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
   VehicleComponents.Wheels.IdealWheelJoint idealWheelRear(
     r={0,1},

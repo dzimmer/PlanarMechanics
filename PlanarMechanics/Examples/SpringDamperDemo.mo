@@ -16,10 +16,10 @@ model SpringDamperDemo
   Parts.Body body(
     I=0.1,
     m=0.5,
-    v(fixed=true),
+    v(each fixed=true),
     phi(fixed=true),
     w(fixed=true),
-    r(fixed=true, start={1,1}))
+    r(each fixed=true, start={1,1}))
            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
