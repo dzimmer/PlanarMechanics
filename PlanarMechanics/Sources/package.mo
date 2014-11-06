@@ -1,5 +1,5 @@
 within PlanarMechanics;
-package Sources "Force models"
+package Sources "Sources to drive 2D mechanical components"
   extends Modelica.Icons.SourcesPackage;
 
 

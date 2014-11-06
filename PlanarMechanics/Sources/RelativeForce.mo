@@ -1,15 +1,15 @@
 within PlanarMechanics.Sources;
-model RelativeForce
-   extends PlanarMechanics.Interfaces.PartialTwoFlanges;
-outer PlanarWorld planarWorld "planar world model";
+model RelativeForce "Input signal acting as force and torque on two frames"
+  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
+  outer PlanarWorld planarWorld "Planar world model";
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
     resolveInFrame=
   Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
- parameter Boolean animation=true "= true, if animation shall be enabled";
+  parameter Boolean animation=true "= true, if animation shall be enabled";
 
-   parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
+  parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
     annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
   parameter Real Nm_to_m(unit="N.m/m") = planarWorld.defaultNm_to_m
@@ -19,7 +19,7 @@ outer PlanarWorld planarWorld "planar world model";
   input SI.Diameter diameter=planarWorld.defaultArrowDiameter
     "Diameter of force arrow" annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of cylinder representing the fixed translation" annotation (Dialog(
+    "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation",group="if animation = true", enable=animate));
   input Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
     "Color of arrow"
@@ -31,11 +31,11 @@ outer PlanarWorld planarWorld "planar world model";
         origin={0,50})));
 
   Real R[2,2] "Rotation matrix";
-  SI.Angle phi "rotation angle of the additional frame_c";
+  SI.Angle phi "Rotation angle of the additional frame_c";
 
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
-                                                                                            annotation (
+    annotation (
       Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
           extent={{-40,-40},{-20,-20}})));
 

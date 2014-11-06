@@ -6,16 +6,16 @@ model FixedTranslation "A fixed translation between two components (rigid rod)"
         iconTransformation(extent={{-120,-20},{-80,20}})));
   Interfaces.Frame_b frame_b annotation (Placement(transformation(extent={{90,-10},
             {110,10}}), iconTransformation(extent={{80,-20},{120,20}})));
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
   parameter SI.Length r[2] = {1,0}
-    "length of the rod resolved w.r.t to body frame at phi = 0";
-  final parameter SI.Length l = sqrt(r*r);
-  SI.Position r0[2] "length of the rod resolved w.r.t to inertal frame";
+    "Fixed x,y-length of the rod resolved w.r.t to body frame_a at phi = 0";
+  final parameter SI.Length l = sqrt(r*r) "Length of vector r";
+  SI.Position r0[2] "Length of the rod resolved w.r.t to inertal frame";
   Real R[2,2] "Rotation matrix";
   parameter Boolean animate = true "= true, if animation shall be enabled"
                                            annotation(Dialog(group="Animation"));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of cylinder representing the fixed translation" annotation (Dialog(
+    "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
   parameter SI.Distance width=l/planarWorld.defaultWidthFraction
     "Width of shape"

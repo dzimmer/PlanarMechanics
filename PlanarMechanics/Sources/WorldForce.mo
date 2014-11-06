@@ -2,7 +2,7 @@ within PlanarMechanics.Sources;
 model WorldForce
   "External force and torque acting at frame_b, defined by 3 input signals and resolved in world frame"
 
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB
     resolveInFrame=
@@ -20,7 +20,7 @@ model WorldForce
   input SI.Diameter diameter=planarWorld.defaultArrowDiameter
     "Diameter of force arrow" annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of cylinder representing the fixed translation" annotation (Dialog(
+    "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation",group="if animation = true", enable=animate));
   input Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
     "Color of arrow"
@@ -39,12 +39,12 @@ model WorldForce
 
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
-                                                                                            annotation (
+    annotation (
       Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
           extent={{-40,-40},{-20,-20}})));
 
   Real R[2,2] "Rotation matrix";
-  SI.Angle phi "rotation angle of the additional frame_c";
+  SI.Angle phi "Rotation angle of the additional frame_c";
 
 protected
   SI.Position f_in_m[3]={force[1],force[2],0}/N_to_m

@@ -34,7 +34,6 @@ Example:
      |      |  =  |            | * |      |
      | y[2] |     | 3.00  1.50 |   | u[2] |
 </pre>
-
 </html>"), Icon(coordinateSystem(
     preserveAspectRatio=true,
     extent={{-100,-100},{100,100}}), graphics={Text(

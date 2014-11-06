@@ -34,7 +34,7 @@ public
   input SI.Diameter diameter=planarWorld.defaultArrowDiameter
     "Diameter of force arrow" annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of cylinder representing the fixed translation" annotation (Dialog(
+    "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation",group="if animation = true", enable=animate));
   input Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
     "Color of arrow"
@@ -131,3 +131,4 @@ equation
 <p>This model is e.g. suitable to simulate aerodynamic drag forces.</p>
 </html>"));
 end QuadraticSpeedDependantForce;
+

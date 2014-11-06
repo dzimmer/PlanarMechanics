@@ -1,7 +1,5 @@
 within PlanarMechanics;
-package Examples
-
-
+package Examples "Collection of introductory examples"
   extends Modelica.Icons.ExamplesPackage;
 
 
@@ -11,5 +9,10 @@ package Examples
 <p>(c) Copyright by Dirk Zimmer</p>
 <p>The library was created and is owned by Dr. Dirk Zimmer.</p>
 <p>dirk.zimmer@dlr.de</p>
+</html>",
+    info="<html>
+<p>
+This package is a collection of simulatable examples which show the use of the library models and elements. 
+</p>
 </html>"));
 end Examples;

@@ -5,7 +5,7 @@ model IdealRolling "A joint representing a wheel ideally rolling on the x-axis"
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
         iconTransformation(extent={{-120,-20},{-80,20}})));
 
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
 
   parameter SI.Length R = 1.0 "Radius of the wheel";
   parameter Boolean initialize = false "Initialize Position";
@@ -14,9 +14,9 @@ model IdealRolling "A joint representing a wheel ideally rolling on the x-axis"
   parameter SI.Position x_start = 0;
   //parameter SI.Angle phi_start = 0;
   //parameter SI.AngularVelocity w_start = 0;
-  parameter Boolean animate = true "enable Animation"
+  parameter Boolean animate = true "Enable Animation"
                                                      annotation(Dialog(group="Animation"));
-  SI.Position x(stateSelect=stateSelect, start = 0) "horizontal position" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Position x(stateSelect=stateSelect, start = 0) "Horizontal position" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Angle phi(stateSelect=stateSelect,start = 0) "Angular position" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularVelocity w(stateSelect=stateSelect,start = 0) "Angular velocity" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularAcceleration z(start = 0) "Angular acceleration"                         annotation(Dialog(group="Initialization", showStartAttribute=true));

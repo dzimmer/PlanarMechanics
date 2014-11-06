@@ -1,5 +1,5 @@
 within PlanarMechanics.VehicleComponents.Examples;
-model SingleTrackWithEngine "AcceleratingBody"
+model SingleTrackWithEngine "Single track model"
   extends Modelica.Icons.Example;
 
   Parts.Body bodyFront(
@@ -57,7 +57,7 @@ model SingleTrackWithEngine "AcceleratingBody"
         rotation=90,
         origin={20,30})));
   inner PlanarWorld planarWorld(defaultWidthFraction=10, defaultZPosition=0)
-    annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
   connect(idealWheelFront.frame_a, bodyFront.frame_a)
                                                  annotation (Line(

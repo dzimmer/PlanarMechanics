@@ -3,7 +3,7 @@ model PlanarToMultiBody
   "This model enables to connect planar models to 3D Models"
 
   Frame_a frame_a "Frame connector in Planarmechanics"
-                                                      annotation (Placement(transformation(extent={{-46,-8},{-26,12}}),
+    annotation (Placement(transformation(extent={{-46,-8},{-26,12}}),
         iconTransformation(extent={{-48,-20},{-8,20}})));
   MB.Interfaces.Frame_b frame_b "Frame connector in MultiBody" annotation (Placement(transformation(extent={{6,
             -16},{38,16}}), iconTransformation(extent={{8,-16},{40,16}})));
@@ -25,6 +25,7 @@ equation
   frame_a.t + frame_b.t[3] = 0;
   //This element determines the orientation matrix fully, hence it is a "root-element"
   Connections.root(frame_b.R);
+
   annotation (Icon(graphics={Line(
           points={{-18,0},{16,0}},
           color={95,95,95},

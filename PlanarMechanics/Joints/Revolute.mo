@@ -6,10 +6,10 @@ model Revolute "A revolute joint"
         iconTransformation(extent={{-120,-20},{-80,20}})));
   Interfaces.Frame_b frame_b annotation (Placement(transformation(extent={{90,-10},
             {110,10}}), iconTransformation(extent={{80,-20},{120,20}})));
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
   parameter Boolean useFlange=false
     "= true, if force flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   //parameter Boolean initialize = false "Initialize Position and Velocity";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
@@ -18,7 +18,7 @@ model Revolute "A revolute joint"
       Placement(transformation(extent={{-10,90},{10,110}}),iconTransformation(
           extent={{-10,90},{10,110}})));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of cylinder representing the joint axis" annotation (Dialog(
+    "Position z of cylinder representing the joint axis" annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
@@ -36,10 +36,10 @@ model Revolute "A revolute joint"
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true,Dialog(tab="Animation", group="if animation = true", enable=animate));
   SI.Angle phi(final stateSelect = stateSelect, start = 0) "Angular position"
-                       annotation(Dialog(group="Initialization", showStartAttribute=true));
+    annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularVelocity w(final stateSelect = stateSelect, start = 0)
     "Angular velocity"
-                      annotation(Dialog(group="Initialization", showStartAttribute=true));
+    annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularAcceleration z(start = 0) "Angular acceleration" annotation(Dialog(group="Initialization", showStartAttribute=true));
   parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true, Dialog(group="Animation"));
   SI.Torque t "Torque";
@@ -97,7 +97,7 @@ equation
         Line(
           visible=useFlange,
           points={{0,80},{0,20}})}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
-<p>Joint where frame_b rotates around axis n which is fixed in frame_a. The two frames coincide when the rotation angle &quot;phi = 0&quot;. </p>
+<p>Joint where frame_b rotates around axis n which is fixed in frame_a. The two frames coincide when the rotation angle &quot;phi = 0&quot;.</p>
 <p>By setting <b>useFlange</b> as true, the flange for a torque input will be activated. In the &quot;Initialization&quot; block, angular position <b>phi</b>, angular velocity <b>w</b> as well as angular acceleration <b>z</b> can be initialized.</p>
 <p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
 <p>In &quot;Animation&quot; Tab, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>

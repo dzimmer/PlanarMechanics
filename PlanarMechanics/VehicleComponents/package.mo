@@ -1,6 +1,6 @@
 within PlanarMechanics;
-package VehicleComponents
-extends Modelica.Icons.Package;
+package VehicleComponents "Vehicle relevant 2-dim. components"
+  extends Modelica.Icons.Package;
 
 
 annotation (Documentation(info="<html>

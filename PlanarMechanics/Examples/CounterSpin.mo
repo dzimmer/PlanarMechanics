@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples;
-model CounterSpin
+model CounterSpin "Wheel with counter-spin and dry-friction law"
   extends Modelica.Icons.Example;
 
   Parts.Body body(
@@ -32,17 +32,17 @@ equation
       thickness=0.5));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<h4><font color=\"#008000\">Wheel with counter-spin and dry-friction law.</font></h4>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CounterSpin_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CounterSpin_2.png\"/></p>
-<p><br/><br/>The model contains a large local stiffness before 2s</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CounterSpin_3.png\"/></p>
-<p><br/>SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>
-<p>&nbsp;&nbsp;body.r[1]</p>
-<p>&nbsp;&nbsp;body.v[1]</p>
-<p>&nbsp;&nbsp;slipBasedRolling.phi</p>
-<p>&nbsp;&nbsp;slipBasedRolling.w</p>
-<p>&nbsp;</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/CounterSpin_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/CounterSpin_2.png\"></p>
+<p>The model contains a large local stiffness before 2s</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/CounterSpin_3.png\"></p>
+<p>Selected continuous time states</p>
+<ul>
+<li>body.r[1]</li>
+<li>body.v[1]</li>
+<li>slipBasedRolling.phi</li>
+<li>slipBasedRolling.w</li>
+</ul>
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>

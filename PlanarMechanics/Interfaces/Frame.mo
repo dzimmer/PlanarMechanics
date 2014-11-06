@@ -1,5 +1,5 @@
 within PlanarMechanics.Interfaces;
-connector Frame "General Connector for planar mechanical components"
+connector Frame "General connector for planar mechanical components"
   SI.Position x "x-position";
   SI.Position y "y-position";
   SI.Angle phi "angle (counter-clockwise)";

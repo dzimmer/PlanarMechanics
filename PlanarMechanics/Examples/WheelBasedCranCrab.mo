@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples;
-model WheelBasedCranCrab
+model WheelBasedCranCrab "A pendulum mounted on an ideal rolling wheel"
   extends Modelica.Icons.Example;
   Joints.IdealRolling idealRolling(R=0.3, initialize=true,
     x_start=0,
@@ -51,16 +51,17 @@ equation
       thickness=0.5));
   annotation (experiment(StopTime=4.5),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<h4><font color=\"#008000\">A pendulum mounted on an ideal rolling wheel.</font></h4>
 <p>This model contains non-holonomic constriants.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/WheelBasedCranCrab_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/WheelBasedCranCrab_2.png\"/></p>
-<p><br/>SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>
-<p>&nbsp;&nbsp;body1.frame_a.phi</p>
-<p>&nbsp;&nbsp;body1.r[1]</p>
-<p>&nbsp;&nbsp;body1.w</p>
-<p>&nbsp;&nbsp;revolute.phi</p>
-<p>&nbsp;&nbsp;revolute.w</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/WheelBasedCranCrab_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/WheelBasedCranCrab_2.png\"></p>
+<p>Selected continuous time states</p>
+<ul>
+<li>body1.frame_a.phi</li>
+<li>body1.r[1]</li>
+<li>body1.w</li>
+<li>revolute.phi</li>
+<li>revolute.w</li>
+</ul>
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>

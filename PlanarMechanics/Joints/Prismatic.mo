@@ -6,26 +6,26 @@ model Prismatic "A prismatic joint"
   Interfaces.Frame_b frame_b annotation (Placement(transformation(extent={{90,-10},
             {110,10}}), iconTransformation(extent={{80,-20},{120,20}})));
 
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
   parameter Boolean useFlange=false
     "= true, if force flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+    annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use acceleration as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
-  parameter SI.Position r[2] "direction of the rod wrt. body system at phi=0";
-  final parameter SI.Length l = sqrt(r*r) "lengt of r";
-  final parameter SI.Distance e[2]= r/l "normalized r";
+  parameter SI.Position r[2] "Direction of the rod wrt. body system at phi=0";
+  final parameter SI.Length l = sqrt(r*r) "Lengt of r";
+  final parameter SI.Distance e[2]= r/l "Normalized r";
   SI.Position s(final stateSelect = stateSelect, start = 0)
     "Elongation of the joint" annotation(Dialog(group="Initialization", showStartAttribute=true));
   Real e0[2] "direction of the prismatic rod resolved wrt.inertial frame";
   SI.Position r0[2]
-    "translation vector of the prismatic rod resolved wrt.inertial frame";
+    "Translation vector of the prismatic rod resolved wrt.inertial frame";
   Real R[2,2] "Rotation Matrix";
   SI.Velocity v(final stateSelect = stateSelect, start = 0)
-    "velocity of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.Acceleration a(start = 0) "acceleration of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.Force f "force in direction of elongation";
+    "Velocity of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Acceleration a(start = 0) "Acceleration of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Force f "Force in direction of elongation";
 
   Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a(f = f, s = s) if useFlange
    annotation (
@@ -33,10 +33,10 @@ model Prismatic "A prismatic joint"
           extent={{-10,80},{10,100}})));
 
   parameter Boolean animate = true "= true, if animation shall be enabled"
-                                           annotation(Dialog(group="Animation"));
+     annotation(Dialog(group="Animation"));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of the prismatic joint box" annotation (Dialog(
+    "Position z of the prismatic joint box" annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));

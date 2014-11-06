@@ -1,12 +1,12 @@
 within PlanarMechanics.Parts;
 model FixedRotation "A fixed translation between two components (rigid rod)"
   extends PlanarMechanics.Interfaces.PartialTwoFlanges;
-  outer PlanarWorld planarWorld "planar world model";
-  parameter SI.Angle alpha "fixed rotation angle";
+  outer PlanarWorld planarWorld "Planar world model";
+  parameter SI.Angle alpha "Fixed rotation angle";
   parameter Boolean animate = true "= true, if animation shall be enabled"
                                            annotation(Dialog(group="Animation"));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of z position of cylinder representing the fixed rotation" annotation (Dialog(
+    "Position z of cylinder representing the fixed rotation" annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));

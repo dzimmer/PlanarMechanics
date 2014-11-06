@@ -1,6 +1,9 @@
 within PlanarMechanics.VehicleComponents;
-package Wheels
-annotation (Documentation(info="<html>
+package Wheels "Wheel and tire models"
+  extends Modelica.Icons.Package;
+
+
+  annotation (Documentation(info="<html>
 <p>This package contains wheel models that roll on the x,y plane. The wheel models are hereby represented as a mass-free element similar to a joint component.</p>
 </html>", revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>

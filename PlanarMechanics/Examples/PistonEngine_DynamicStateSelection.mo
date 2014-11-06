@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples;
-model PistonEngine_DynamicStateSelection "A Piston Engine"
+model PistonEngine_DynamicStateSelection "A piston engine"
   extends Modelica.Icons.Example;
 
   Parts.Body bodyDrive(
@@ -11,13 +11,13 @@ model PistonEngine_DynamicStateSelection "A Piston Engine"
   Joints.Revolute revoluteDrive(phi(fixed=true, start=0), w(fixed=true, start=-2.5))
     annotation (Placement(transformation(extent={{-70,40},{-50,60}})));
   Parts.FixedTranslation fixedTranslationDisc(r={0.3,0})
-    annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
+    annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
   Parts.Fixed fixed annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-90,50})));
   Joints.Prismatic prismatic(r={1,0}, s(start=0, fixed=false))
-    annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
+    annotation (Placement(transformation(extent={{30,-60},{50,-40}})));
   Parts.Fixed fixed1   annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={70,-50})));
@@ -46,20 +46,20 @@ equation
       thickness=0.5));
   connect(revoluteDrive.frame_b, fixedTranslationDisc.frame_a)
                                                       annotation (Line(
-      points={{-50,50},{-40,50}},
+      points={{-50,50},{-42,50},{-30,50}},
       color={95,95,95},
       thickness=0.5));
   connect(fixed1.frame_a, prismatic.frame_b) annotation (Line(
-      points={{60,-50},{40,-50}},
+      points={{60,-50},{50,-50}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslationDisc.frame_b, revoluteDisc.frame_a) annotation (
       Line(
-      points={{-20,50},{0,50},{0,40},{0,40}},
+      points={{-10,50},{0,50},{0,40}},
       color={95,95,95},
       thickness=0.5));
   connect(bodyDrive.frame_a, revoluteDrive.frame_b) annotation (Line(
-      points={{-52,20},{-44,20},{-44,50},{-50,50}},
+      points={{-52,20},{-40,20},{-40,50},{-50,50}},
       color={95,95,95},
       thickness=0.5));
   connect(revoluteDisc.frame_b, pistonRod.frame_a) annotation (Line(
@@ -72,31 +72,36 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(prismatic.frame_a, revolutePiston.frame_a) annotation (Line(
-      points={{20,-50},{0,-50},{0,-40}},
+      points={{30,-50},{0,-50},{0,-40}},
       color={95,95,95},
       thickness=0.5));
   connect(prismatic.frame_a, bodyPiston.frame_a) annotation (Line(
-      points={{20,-50},{14,-50},{14,-20},{30,-20}},
+      points={{30,-50},{20,-50},{20,-20},{30,-20}},
       color={95,95,95},
       thickness=0.5));
   annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<h4><font color=\"#008000\">A PistonEngine</font></h4>
 <p>This example contains an algebraic loop. A non-linear system must be solved for initialization and at simulation.</p>
 <p>This version does not stipulate the state selection</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/PistonEngine_1.png\"/></p>
-<p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/PistonEngine_2.png\"/></p>
-<p><br/>SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>
-<p><br/>There&nbsp;are&nbsp;2&nbsp;sets&nbsp;of&nbsp;dynamic&nbsp;state&nbsp;selection.</p>
-<p>From&nbsp;set&nbsp;1&nbsp;there&nbsp;is&nbsp;1&nbsp;state&nbsp;to&nbsp;be&nbsp;selected&nbsp;from:</p>
-<p>&nbsp;&nbsp;prismatic.s</p>
-<p>&nbsp;&nbsp;revoluteDisc.phi</p>
-<p>&nbsp;&nbsp;revolutePiston.phi</p>
-<p>&nbsp;</p>
-<p>From&nbsp;set&nbsp;2&nbsp;there&nbsp;is&nbsp;1&nbsp;state&nbsp;to&nbsp;be&nbsp;selected&nbsp;from:</p>
-<p>&nbsp;&nbsp;prismatic.v</p>
-<p>&nbsp;&nbsp;revoluteDisc.w</p>
-<p>&nbsp;&nbsp;revoluteDrive.w</p>
-<p>&nbsp;</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/PistonEngine_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/PistonEngine_2.png\"></p>
+<p>Selected continuous time states</p>
+<ul>
+<li>There are 2&nbsp;sets of dynamic state selection.</li>
+<ul>
+<li>From set&nbsp;1 there is 1&nbsp;state to be selected from:</li>
+<ul>
+<li>prismatic.s</li>
+<li>revoluteDisc.phi</li>
+<li>revolutePiston.phi</li>
+</ul>
+<li>From set&nbsp;2 there is 1&nbsp;state to be selected from:</li>
+<ul>
+<li>prismatic.v</li>
+<li>revoluteDisc.w</li>
+<li>revoluteDrive.w</li>
+</ul>
+</ul>
+</ul>
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>
