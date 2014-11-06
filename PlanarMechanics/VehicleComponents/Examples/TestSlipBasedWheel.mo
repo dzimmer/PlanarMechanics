@@ -73,16 +73,17 @@ equation
       points={{-39,30},{-24,30},{-10,30}},
       color={0,0,127}));
   annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<h4><font color=\"#008000\">A Slip-Based Wheel</font></h4>
-<p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_2.png\"/></p>
-<p><br/>&nbsp;SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>
-<p>&nbsp;&nbsp;inertia.phi</p>
-<p>&nbsp;&nbsp;inertia.w</p>
-<p>&nbsp;&nbsp;prismatic.s</p>
-<p>&nbsp;&nbsp;prismatic.v</p>
-<p>&nbsp;&nbsp;revolute.phi</p>
-<p>&nbsp;&nbsp;revolute.w</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_2.png\"></p>
+<p>Selected continuous time states</p>
+<ul>
+<li>inertia.phi</li>
+<li>inertia.w</li>
+<li>prismatic.s</li>
+<li>prismatic.v</li>
+<li>revolute.phi</li>
+<li>revolute.w</li>
+</ul>
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>

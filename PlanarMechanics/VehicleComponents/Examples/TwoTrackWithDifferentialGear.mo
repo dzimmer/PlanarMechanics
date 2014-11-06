@@ -253,28 +253,30 @@ equation
       thickness=0.5));
   annotation (experiment(StopTime=10),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<p>Two track model of a car.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_2.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_3.png\"/></p>
-<p>&nbsp;&nbsp;</p>
-<p>SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>
-<p>&nbsp;&nbsp;actuatedRevolute.phi</p>
-<p>&nbsp;&nbsp;actuatedRevolute.w</p>
-<p>&nbsp;&nbsp;body.v[1]</p>
-<p>&nbsp;&nbsp;body1.frame_a.phi</p>
-<p>&nbsp;&nbsp;body1.r[1]</p>
-<p>&nbsp;&nbsp;body1.r[2]</p>
-<p>&nbsp;&nbsp;body1.w</p>
-<p>&nbsp;&nbsp;body2.v[2]</p>
-<p>&nbsp;&nbsp;inertia.phi</p>
-<p>&nbsp;&nbsp;inertia.w</p>
-<p>&nbsp;&nbsp;inertia1.phi</p>
-<p>&nbsp;&nbsp;inertia1.w</p>
-<p>&nbsp;&nbsp;inertia2.phi</p>
-<p>&nbsp;&nbsp;inertia2.w</p>
-<p>&nbsp;&nbsp;inertia3.phi</p>
-<p>&nbsp;&nbsp;inertia3.w</p>
+<p>A double track model of a car.</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_3.png\"></p>
+
+<p>Selected continuous time states</p>
+<ul>
+<li>actuatedRevolute.phi</li>
+<li>actuatedRevolute.w</li>
+<li>body.v[1]</li>
+<li>body1.frame_a.phi</li>
+<li>body1.r[1]</li>
+<li>body1.r[2]</li>
+<li>body1.w</li>
+<li>body2.v[2]</li>
+<li>inertia.phi</li>
+<li>inertia.w</li>
+<li>inertia1.phi</li>
+<li>inertia1.w</li>
+<li>inertia2.phi</li>
+<li>inertia2.w</li>
+<li>inertia3.phi</li>
+<li>inertia3.w</li>
+</ul>
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>

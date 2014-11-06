@@ -65,15 +65,16 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<h4><font color=\"#008000\">This is an ideal wheel.</font></h4>
 <p>It introduces one non-holonomic constraint. Difficult for index-reduction.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_1.png\"/></p>
-<p><br/><br/><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_2.png\"/></p>
-<p>SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>
-<p>&nbsp;&nbsp;inertia.phi</p>
-<p>&nbsp;&nbsp;prismatic.s</p>
-<p>&nbsp;&nbsp;revolute.phi</p>
-<p>&nbsp;&nbsp;revolute.w</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_2.png\"></p>
+<p>Selected continuous time states</p>
+<ul>
+<li>inertia.phi</li>
+<li>prismatic.s</li>
+<li>revolute.phi</li>
+<li>revolute.w</li>
+</ul>
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>
