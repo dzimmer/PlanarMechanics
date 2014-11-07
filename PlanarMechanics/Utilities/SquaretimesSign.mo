@@ -7,8 +7,8 @@ block SquaretimesSign
  //   "Gain matrix which is multiplied with the input";
 //  extends Modelica.Blocks.Interfaces.MIMO(final nin=size(K, 1), final nout=size(
 //         K, 1));
-parameter Integer blockSize;
-extends Modelica.Blocks.Interfaces.MIMO(final nin=blockSize, final nout=blockSize);
+  parameter Integer blockSize;
+  extends Modelica.Blocks.Interfaces.MIMO(final nin=blockSize, final nout=blockSize);
 equation
   for i in 1:size(u,1) loop
   y[i] = smooth(1,u[i]^2*sign(u[i]));
