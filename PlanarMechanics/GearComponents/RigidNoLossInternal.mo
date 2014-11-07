@@ -33,7 +33,7 @@ extends
       group="if animation = true",
       enable=animate));
 
-  parameter SI.Distance z_offset=0 "z-distane offset for simulation" annotation ( HideResult=true,Dialog(
+  parameter SI.Distance z_offset=0 "Offset of z-distance for simulation" annotation ( HideResult=true,Dialog(
      tab="Animation",
       group="if animation = true",
       enable=animate));
@@ -61,7 +61,6 @@ protected
 
  //Visualization
 
-  import MB = Modelica.Mechanics.MultiBody;
   MB.Visualizers.Advanced.Shape pointA(
     shapeType="cylinder",
     color={0,0,0},

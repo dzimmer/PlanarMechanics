@@ -18,6 +18,6 @@ partial model PlanetaryGearInterface "Planetary gear interface"
   annotation (Documentation(revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>", info="<html>
-<p>Common interfaces for a planetary gear model.</p>
+<p>This partial class contains common interfaces for a planetary gear model.</p>
 </html>"));
 end PlanetaryGearInterface;

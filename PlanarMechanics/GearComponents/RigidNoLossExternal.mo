@@ -33,7 +33,7 @@ model RigidNoLossExternal "External rigid gear gonnection model"
       group="if animation = true",
       enable=animate));
 
-  parameter SI.Distance z_offset=0 "z-distane offset for simulation" annotation ( HideResult=true,Dialog(
+  parameter SI.Distance z_offset=0 "Offset of z-distance for simulation" annotation ( HideResult=true,Dialog(
      tab="Animation",
       group="if animation = true",
       enable=animate));
@@ -60,7 +60,6 @@ protected
   Integer Tooth_b(min=1) "Number of Tooth";
  //Visualization
 
-  import MB = Modelica.Mechanics.MultiBody;
   MB.Visualizers.Advanced.Shape pointA(
     shapeType="cylinder",
     color={0,0,0},

@@ -56,7 +56,7 @@ public
 
 public
   Sensors.AbsoluteVelocity absoluteVelocity(resolveInFrame=resolveInFrame)
-    annotation (Placement(transformation(extent={{38,30},{18,50}})));
+    annotation (Placement(transformation(extent={{40,30},{20,50}})));
   WorldForce worldForce(
     animation=animation,
     N_to_m=N_to_m,
@@ -66,51 +66,51 @@ public
     color=color,
     specularCoefficient=specularCoefficient,
     resolveInFrame=resolveInFrameB)
-    annotation (Placement(transformation(extent={{22,-10},{42,10}})));
+    annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Modelica.Blocks.Math.MatrixGain normalizeSpeeds(K=[1/v_nominal,0,0; 0,1/
         v_nominal,0; 0,0,1/w_nominal]) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
-        origin={-30,40})));
+        origin={-10,40})));
   Modelica.Blocks.Math.MatrixGain scaleForces(K=[-F_nominal,0,0; 0,-F_nominal,0;
         0,0,-tau_nominal])                   annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
-        origin={-64,0})));
+        origin={-50,0})));
 
   Utilities.SquaretimesSign square(blockSize=3) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
-        origin={-66,40})));
+        origin={-50,40})));
 equation
   connect(worldForce.frame_b, frame_b) annotation (Line(
-      points={{42,0},{100,0}},
+      points={{40,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(absoluteVelocity.frame_a, frame_b) annotation (Line(
-      points={{38,40},{60,40},{60,0},{100,0}},
+      points={{40,40},{60,40},{60,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(worldForce.frame_resolve, frame_resolve) annotation (Line(
-      points={{29,-3},{29,-50},{10,-50}},
+      points={{27,-3},{27,-50},{10,-50}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(absoluteVelocity.frame_resolve, frame_resolve) annotation (Line(
-      points={{28,30},{28,20},{10,20},{10,-50}},
+      points={{30,30},{30,20},{10,20},{10,-50}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(absoluteVelocity.v, normalizeSpeeds.u) annotation (Line(
-      points={{17,40},{-18,40}},
+      points={{19,40},{2,40}},
       color={0,0,127}));
   connect(square.u, normalizeSpeeds.y) annotation (Line(
-      points={{-54,40},{-41,40}},
+      points={{-38,40},{-21,40}},
       color={0,0,127}));
   connect(square.y, scaleForces.u) annotation (Line(
-      points={{-77,40},{-82,40},{-82,0},{-76,0}},
+      points={{-61,40},{-80,40},{-80,0},{-62,0}},
       color={0,0,127}));
   connect(scaleForces.y, worldForce.force) annotation (Line(
-      points={{-53,0},{20,0}},
+      points={{-39,0},{18,0}},
       color={0,0,127}));
   annotation (Icon(graphics={
         Polygon(
@@ -129,6 +129,8 @@ equation
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Model of a force quadratic dependant on the velocity of the flange. The force can be resolved in a world frame, or a relative speed can be used by selecting resolve_frame to use the extra frame_resolve.</p>
 <p>This model is e.g. suitable to simulate aerodynamic drag forces.</p>
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics));
 end QuadraticSpeedDependantForce;
 

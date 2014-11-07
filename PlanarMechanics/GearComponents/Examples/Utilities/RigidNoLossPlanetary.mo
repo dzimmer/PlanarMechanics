@@ -78,7 +78,7 @@ model RigidNoLossPlanetary "Planetary gearbox"
         origin={10,40})));
   inner PlanarMechanics.PlanarWorld planarWorld(animateGravity=false,
       enableAnimation=animate)
-    annotation (Placement(transformation(extent={{34,70},{54,90}})));
+    annotation (Placement(transformation(extent={{40,60},{60,80}})));
   PlanarMechanics.Joints.Revolute bearing_Sun(useFlange=true)
     annotation (Placement(transformation(extent={{-70,-20},{-50,0}})));
   PlanarMechanics.Joints.Revolute bearing_Carrier(useFlange=true)
@@ -160,4 +160,3 @@ equation
 </html>", revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>"));
 end RigidNoLossPlanetary;
-
