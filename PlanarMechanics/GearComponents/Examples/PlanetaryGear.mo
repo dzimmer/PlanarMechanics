@@ -2,7 +2,7 @@ within PlanarMechanics.GearComponents.Examples;
 model PlanetaryGear "Rigid planetary gearbox"
   extends Modelica.Icons.Example;
 
-  Utilities.RigidNoLossPlanetary                            planetary(
+  Utilities.RigidNoLossPlanetary planetary(
       useHeatPort=true,
     r_s=1,
     r_p=1,
@@ -16,8 +16,7 @@ model PlanetaryGear "Rigid planetary gearbox"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,-30})));
-  Modelica.Mechanics.Rotational.Sources.ConstantSpeed
-                                              SunSpeed(w_fixed=1)
+  Modelica.Mechanics.Rotational.Sources.ConstantSpeed SunSpeed(w_fixed=1)
     annotation (Placement(transformation(extent={{-50,0},{-30,20}})));
   Modelica.Mechanics.Rotational.Sources.ConstantTorque RingTorque(tau_constant=
         1) annotation (Placement(transformation(extent={{-50,30},{-30,50}})));

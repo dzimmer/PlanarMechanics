@@ -39,8 +39,8 @@ equation
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Pendulum_3.png\"/></p>
 <p>Selected continuous time states</p>
 <ul>
-<li>&nbsp;&nbsp;revolute.phi</li>
-<li>&nbsp;&nbsp;revolute.w</li>
+<li>revolute.phi</li>
+<li>revolute.w</li>
 </ul>
 </html>",
       revisions="<html>

@@ -23,5 +23,4 @@ algorithm
           extent={{100,-56},{0,-102}},
           lineColor={0,0,0},
           textString="B")}));
-
 end fromFrameAtoFrameB;

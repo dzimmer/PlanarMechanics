@@ -57,7 +57,7 @@ model RigidNoLossExternal "External rigid gear gonnection model"
 protected
   SI.Angle phi_gear_zero "Previous gear angle";
   Modelica.Blocks.Continuous.FirstOrder firstOrder(T=1e-4);
-  Integer Tooth_b(min=1) "Number of Tooth";
+  Integer Tooth_b(min=1) "Number of teeth";
  //Visualization
 
   MB.Visualizers.Advanced.Shape pointA(

@@ -14,12 +14,11 @@ model IdealRolling "A joint representing a wheel ideally rolling on the x-axis"
   parameter SI.Position x_start = 0;
   //parameter SI.Angle phi_start = 0;
   //parameter SI.AngularVelocity w_start = 0;
-  parameter Boolean animate = true "Enable Animation"
-                                                     annotation(Dialog(group="Animation"));
+  parameter Boolean animate = true "Enable animation" annotation(Dialog(group="Animation"));
   SI.Position x(stateSelect=stateSelect, start = 0) "Horizontal position" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Angle phi(stateSelect=stateSelect,start = 0) "Angular position" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularVelocity w(stateSelect=stateSelect,start = 0) "Angular velocity" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.AngularAcceleration z(start = 0) "Angular acceleration"                         annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.AngularAcceleration z(start = 0) "Angular acceleration" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Velocity vx(start = 0) "Velocity in x-direction" annotation(Dialog(group="Initialization", showStartAttribute=true));
   //Visualization
   MB.Visualizers.Advanced.Shape cylinder(
@@ -73,6 +72,7 @@ equation
   vx = -w*R;
   //balance forces
   frame_a.fx*R = frame_a.t;
+
   annotation (Icon(graphics={
         Text(
           extent={{-100,-80},{100,-120}},

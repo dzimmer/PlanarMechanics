@@ -2,14 +2,15 @@ within PlanarMechanics.GearComponents.Examples;
 model SpurGear "Rigid spur gear"
   extends Modelica.Icons.Example;
 
-  PlanarMechanics.Joints.Revolute         gearA_Bearing(   useFlange=true,
+  PlanarMechanics.Joints.Revolute gearA_Bearing(
+    useFlange=true,
     w(fixed=false),
     phi(fixed=true))
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(w_fixed=1)
     annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
   PlanarMechanics.Parts.Body gearA(m=1, I=1e-3)
-                                 annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,30})));
@@ -17,25 +18,25 @@ model SpurGear "Rigid spur gear"
     annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
   PlanarMechanics.Parts.FixedRotation angle(alpha=0)
     annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
-  PlanarMechanics.Parts.Fixed
-              fixed  annotation (Placement(transformation(
+  PlanarMechanics.Parts.Fixed fixed  annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-70,-52})));
   PlanarMechanics.Parts.Body gearB(m=1, I=1e-3)
-                                 annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={20,30})));
-  PlanarMechanics.Joints.Revolute         gearB_Bearing(useFlange=true, phi(
-        fixed=false))
+  PlanarMechanics.Joints.Revolute gearB_Bearing(
+    useFlange=true,
+    phi(fixed=false))
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(
-      tau_constant=10)
+    tau_constant=10)
     annotation (Placement(transformation(extent={{-100,38},{-80,58}})));
   inner PlanarMechanics.PlanarWorld planarWorld
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
-  RigidNoLossExternal                                                       gearwheelExternal
+  RigidNoLossExternal gearwheelExternal
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 equation
   connect(angle.frame_b, distance.frame_a)             annotation (Line(

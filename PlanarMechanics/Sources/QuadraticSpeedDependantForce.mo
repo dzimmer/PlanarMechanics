@@ -2,7 +2,7 @@ within PlanarMechanics.Sources;
 model QuadraticSpeedDependantForce
   "External force and torque acting at frame_b, defined by 3 input signals and resolved in world frame"
 
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
     resolveInFrame=
@@ -10,7 +10,7 @@ model QuadraticSpeedDependantForce
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
 protected
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB  resolveInFrameB= PlanarMechanics.Utilities.Conversions.fromFrameAtoFrameB(resolveInFrame)
-    "conversion from frame A to B";
+    "Conversion from frame A to B";
 
 public
   parameter Modelica.SIunits.Force F_nominal
@@ -22,7 +22,7 @@ public
   parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps)
     "Nominal speed";
 
- parameter Boolean animation=true "= true, if animation shall be enabled";
+  parameter Boolean animation=true "= true, if animation shall be enabled";
 
    parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
@@ -43,14 +43,15 @@ public
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Animation",group="if animation = true",enable=animation));
 
-    SI.Force force[3] = worldForce.force;
+  SI.Force force[3] = worldForce.force;
+
   Interfaces.Frame_b frame_b
     "Coordinate system fixed to the component with one cut-force and cut-torque"
     annotation (Placement(transformation(extent={{80,-20},{120,20}})));
 
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0) if resolveInFrameB == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
-                                                                                            annotation (
+    annotation (
       Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
           extent={{-40,-40},{-20,-20}})));
 

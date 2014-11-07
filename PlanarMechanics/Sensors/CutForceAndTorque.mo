@@ -116,7 +116,7 @@ equation
         Text(
           extent={{-56,-70},{60,-96}},
           textString="torque")}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<HTML>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>
 The cut-force and cut-torque acting between the two frames to which this
 model is connected, are determined and provided at the output signal connectors
@@ -146,7 +146,7 @@ the two vectors are resolved:
 </table>
 
 <p>
-If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector
+If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector
 \"frame_resolve\" is enabled and the output vectors force and torque are resolved in the frame, to
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
@@ -160,6 +160,6 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutForceAndTorque.png\">
-</HTML>"));
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutForceAndTorque.png\">
+</html>"));
 end CutForceAndTorque;

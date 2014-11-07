@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples;
-model PowerDistanceDemo "Power/Distance demo"
+model PowerDistanceDemo "Power and distance sensor demo"
     extends Modelica.Icons.Example;
   Parts.Body body(
     I=0.1,

@@ -1,7 +1,7 @@
 within PlanarMechanics.GearComponents.Examples.Utilities.Interfaces;
 partial model PlanetaryGearInterface "Planetary gear interface"
- extends PlanarMechanics.Utilities.Icons.PlanetaryGear;
- extends Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort;
+  extends PlanarMechanics.Utilities.Icons.PlanetaryGear;
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort;
 
   Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_Ring
     "Flange of shaft"
