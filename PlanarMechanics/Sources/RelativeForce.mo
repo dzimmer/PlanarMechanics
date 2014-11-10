@@ -1,7 +1,6 @@
 within PlanarMechanics.Sources;
 model RelativeForce "Input signal acting as force and torque on two frames"
   extends PlanarMechanics.Interfaces.PartialTwoFlanges;
-  outer PlanarWorld planarWorld "Planar world model";
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
     resolveInFrame=

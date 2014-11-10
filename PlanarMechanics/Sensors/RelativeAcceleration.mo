@@ -41,13 +41,11 @@ protected
         origin={10,-87})));
 equation
   connect(relativePosition.frame_a, frame_a) annotation (Line(
-      points={{-10,30},{-32.5,30},{-32.5,0},{-55,0},{-55,
-          0},{-100,0}},
+      points={{-10,30},{-30.5,30},{-30.5,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(relativePosition.frame_b, frame_b) annotation (Line(
-      points={{10,30},{32.5,30},{32.5,0},{55,0},{55,
-          0},{100,0}},
+      points={{10,30},{30.5,30},{30.5,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(relativePosition.r_rel, der_r_rel.u)
@@ -75,8 +73,7 @@ equation
       points={{0,-18},{0,-18},{0,-31}},
       color={0,0,127}));
   connect(transformRelativeVector.r_out, der_r_rel1.u) annotation (Line(
-      points={{0,-54},{0,-59.5},{0,-59.5},{
-          0,-65}},
+      points={{0,-54},{0,-59.5},{0,-65}},
       color={0,0,127}));
   connect(der_r_rel1.y, a_rel) annotation (Line(
       points={{0,-88},{0,-94.5},{0,-94.5},{

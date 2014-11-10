@@ -41,23 +41,21 @@ protected
     //R=Modelica.Mechanics.MultiBody.Frames.planarRotation({0,0,1},frame_b.phi,0),
   Internal.BasicCutTorque cutTorque(positiveSign=
        positiveSign)
-    annotation (Placement(transformation(extent={{-62,-10},{-42,10}})));
+    annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
 //   Interfaces.ZeroPosition zeroPosition if
 //     not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
 //     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 equation
   connect(cutTorque.frame_a, frame_a) annotation (Line(
-      points={{-62,0},{-71.5,0},{-71.5,0},{-81,
-          0},{-81,0},{-100,0}},
+      points={{-50,0},{-71.5,0},{-81,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutTorque.frame_b, frame_b) annotation (Line(
-      points={{-42,0},{-6.5,0},{-6.5,0},{29,
-          0},{29,0},{100,0}},
+      points={{-30,0},{-6.5,0},{29,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutTorque.torque, torque) annotation (Line(
-      points={{-60,-11},{-60,-80},{-80,-80},{-80,-110}},
+      points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}},
       color={0,0,127}));
 //   connect(cutTorque.frame_resolve, frame_resolve) annotation (Line(
 //       points={{-44,-10},{-44,-74},{80,-74},{80,-100}},

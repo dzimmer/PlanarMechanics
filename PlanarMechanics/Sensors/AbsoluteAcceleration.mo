@@ -63,7 +63,7 @@ equation
       thickness=0.5));
   connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
     annotation (Line(
-      points={{19.9,-10},{32,-10},{32,-50},{60,-50}},
+      points={{19.9,-10},{20,-10},{20,-50},{60,-50}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(

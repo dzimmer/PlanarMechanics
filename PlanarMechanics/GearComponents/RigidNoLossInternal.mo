@@ -1,8 +1,7 @@
 within PlanarMechanics.GearComponents;
 model RigidNoLossInternal "Internal rigid gear gonnection model"
   extends PlanarMechanics.Utilities.Icons.PlanarGearContactInternalL1;
-
-extends
+  extends
     PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.TwoPlanarConnectorsHeat;
 
   parameter SI.Distance r_a=1 "Radius of gear A";

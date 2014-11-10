@@ -1,8 +1,8 @@
 within PlanarMechanics.VehicleComponents.Wheels;
 model SlipBasedWheelJoint "Slip-Friction based wheel joint"
 
-  Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-48,0},
-            {-28,20}}), iconTransformation(extent={{-68,-20},{-28,20}})));
+  Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-56,-16},
+            {-24,16}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a annotation (
       Placement(transformation(extent={{90,-8},{110,12}}), iconTransformation(
           extent={{90,-10},{110,10}})));
@@ -186,6 +186,8 @@ equation
 <p>For examples of usage see the local Examples package.</p>
 </html>", revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics));
 end SlipBasedWheelJoint;
 

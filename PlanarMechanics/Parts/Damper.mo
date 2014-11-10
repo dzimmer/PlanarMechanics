@@ -1,12 +1,7 @@
 within PlanarMechanics.Parts;
 model Damper "Linear (velocity dependent) damper"
+  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
 
-  outer PlanarWorld planarWorld "Planar world model";
-  Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
-        iconTransformation(extent={{-120,-20},{-80,20}})));
-  Interfaces.Frame_b frame_b annotation (Placement(transformation(extent={{90,-10},
-            {110,10}}), iconTransformation(extent={{80,-20},{120,20}})));
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.TranslationalDampingConstant d=1 "Damping constant";

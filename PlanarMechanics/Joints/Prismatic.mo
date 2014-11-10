@@ -1,12 +1,7 @@
 within PlanarMechanics.Joints;
 model Prismatic "A prismatic joint"
+  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
 
-  Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
-            iconTransformation(extent={{-120,-20},{-80,20}})));
-  Interfaces.Frame_b frame_b annotation (Placement(transformation(extent={{90,-10},
-            {110,10}}), iconTransformation(extent={{80,-20},{120,20}})));
-
-  outer PlanarWorld planarWorld "Planar world model";
   parameter Boolean useFlange=false
     "= true, if force flange enabled, otherwise implicitly grounded"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
