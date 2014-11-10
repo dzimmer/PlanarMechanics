@@ -16,40 +16,39 @@ model Prismatic "A prismatic joint"
   parameter SI.Position r[2] "Direction of the rod wrt. body system at phi=0";
   final parameter SI.Length l = sqrt(r*r) "Lengt of r";
   final parameter SI.Distance e[2]= r/l "Normalized r";
+
+  Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a(f = f, s = s) if useFlange
+   annotation (
+      Placement(transformation(extent={{-10,80},{10,100}})));
+
+  parameter Boolean animate = true "= true, if animation shall be enabled"
+     annotation(Dialog(group="Animation"));
+  parameter SI.Length zPosition = planarWorld.defaultZPosition
+    "Position z of the prismatic joint box" annotation (Dialog(
+      group="Animation",
+      enable=animate));
+  parameter SI.Distance boxWidth=l/planarWorld.defaultWidthFraction
+    "Width of prismatic joint box"
+    annotation (Dialog(group="Animation", enable=animate));
+  input Types.Color boxColor=Types.Defaults.JointColor
+    "Color of prismatic joint box"
+    annotation (HideResult=true, Dialog(group="Animation", enable=animate));
+  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+    specularCoefficient = planarWorld.defaultSpecularCoefficient
+    "Reflection of ambient light (= 0: light is completely absorbed)"
+    annotation (HideResult=true, Dialog(group="Animation", enable=animate));
+
   SI.Position s(final stateSelect = stateSelect, start = 0)
     "Elongation of the joint" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  Real e0[2] "direction of the prismatic rod resolved wrt.inertial frame";
-  SI.Position r0[2]
-    "Translation vector of the prismatic rod resolved wrt.inertial frame";
-  Real R[2,2] "Rotation Matrix";
   SI.Velocity v(final stateSelect = stateSelect, start = 0)
     "Velocity of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Acceleration a(start = 0) "Acceleration of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Force f "Force in direction of elongation";
+  Real e0[2] "Direction of the prismatic rod resolved wrt. inertial frame";
+  SI.Position r0[2]
+    "Translation vector of the prismatic rod resolved wrt. inertial frame";
+  Real R[2,2] "Rotation Matrix";
 
-  Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a(f = f, s = s) if useFlange
-   annotation (
-      Placement(transformation(extent={{-8,80},{12,100}}), iconTransformation(
-          extent={{-10,80},{10,100}})));
-
-  parameter Boolean animate = true "= true, if animation shall be enabled"
-     annotation(Dialog(group="Animation"));
-
-  parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "Position z of the prismatic joint box" annotation (Dialog(
-      tab="Animation",
-      group="if animation = true",
-      enable=animate));
-  parameter SI.Distance boxWidth=l/planarWorld.defaultWidthFraction
-    "Width of prismatic joint box"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Types.Color boxColor=Types.Defaults.JointColor
-    "Color of prismatic joint box"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
-    specularCoefficient = planarWorld.defaultSpecularCoefficient
-    "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   //Visualization
   MB.Visualizers.Advanced.Shape box(
     shapeType="box",
@@ -85,6 +84,7 @@ equation
   frame_a.fy + frame_b.fy = 0;
   frame_a.t  + frame_b.t + r0*{frame_b.fy,-frame_b.fx} = 0;
   {frame_a.fx,frame_a.fy}*e0 = f;
+
   annotation (Icon(graphics={
         Text(
           extent={{-100,-60},{100,-100}},
@@ -104,13 +104,23 @@ equation
           fillColor={175,175,175}),
         Line(
           visible=useFlange,
-          points={{0,80},{0,20}},
+          points={{0,90},{0,20}},
           color={0,0,0},
-          smooth=Smooth.None)}),Diagram(graphics),
+          smooth=Smooth.None),
+        Text(
+          extent={{-140,-22},{-104,-47}},
+          lineColor={128,128,128},
+          textString="a"),
+        Text(
+          extent={{104,-22},{140,-47}},
+          lineColor={128,128,128},
+          textString="b")}),    Diagram(coordinateSystem(preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}),
+                                        graphics),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>Direction of the Joint is determined by <b>r[2]</b>, which is a vector pointing from <b>frame_a</b> to <b>frame_b</b>. </p>
-<p>By setting <b>useFlange</b> as true, the flange for a force input will be activated. In the &quot;Initialization&quot; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
+<p>By setting <b>useFlange</b> as true, the flange for a 1-dim. translational input will be activated. In the &quot;Initialization&quot; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
 <p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
-<p>In &quot;Animation&quot; Tab, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
+<p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
 </html>"));
 end Prismatic;
