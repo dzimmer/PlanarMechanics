@@ -2,13 +2,13 @@ within PlanarMechanics.Sources;
 model WorldForce
   "External force and torque acting at frame_b, defined by 3 input signals and resolved in world frame"
 
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB
     resolveInFrame=
   Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_b, 3: frame_resolve)";
- parameter Boolean animation=true "= true, if animation shall be enabled";
+  parameter Boolean animation=true "= true, if animation shall be enabled";
 
    parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
@@ -20,7 +20,7 @@ model WorldForce
   input SI.Diameter diameter=planarWorld.defaultArrowDiameter
     "Diameter of force arrow" annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of cylinder representing the fixed translation" annotation (Dialog(
+    "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation",group="if animation = true", enable=animate));
   input Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
     "Color of arrow"
@@ -39,12 +39,12 @@ model WorldForce
 
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
-                                                                                            annotation (
+    annotation (
       Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
           extent={{-40,-40},{-20,-20}})));
 
   Real R[2,2] "Rotation matrix";
-  SI.Angle phi "rotation angle of the additional frame_c";
+  SI.Angle phi "Rotation angle of the additional frame_c";
 
 protected
   SI.Position f_in_m[3]={force[1],force[2],0}/N_to_m
@@ -88,7 +88,7 @@ equation
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-100,-40},{100,-80}},
+          extent={{-150,-50},{150,-90}},
           textString="%name")}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The <b>3</b> signals of the <b>force</b> connector contain force and torque. The first and second signal are interpreted as the x- and y-coordinates of a <b>force</b> and the third is torque, acting at the frame connector to which <b>frame_b</b> of this component is attached. Note that torque is a scalar quantity, which is exerted perpendicular to the x-y plane.</p>
 <p>An example of this model is given in the following figure:</p>

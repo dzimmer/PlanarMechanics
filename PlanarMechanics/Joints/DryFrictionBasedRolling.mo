@@ -5,18 +5,18 @@ model DryFrictionBasedRolling
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
         iconTransformation(extent={{-120,-20},{-80,20}})));
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
 
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.Length R = 1.0 "Radius of the wheel";
-  parameter SI.Velocity vAdhesion "adhesion velocity";
-  parameter SI.Velocity vSlide "sliding velocity";
-  parameter Real mu_A "friction coefficient at adhesion";
-  parameter Real mu_S "friction coefficient at sliding";
+  parameter SI.Velocity vAdhesion "Adhesion velocity";
+  parameter SI.Velocity vSlide "Sliding velocity";
+  parameter Real mu_A "Friction coefficient at adhesion";
+  parameter Real mu_S "Friction coefficient at sliding";
   parameter Boolean initialize = false "Initialize Position and Velocity";
 
-  parameter Boolean animate = true "enable Animation"
+  parameter Boolean animate = true "Enable animation"
                                                      annotation(Dialog(group="Animation"));
   SI.Position x(stateSelect=stateSelect,start = 0) "Horizontal position" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Angle phi(stateSelect=stateSelect,start = 0) "Angular position" annotation(Dialog(group="Initialization", showStartAttribute=true));
@@ -24,8 +24,8 @@ model DryFrictionBasedRolling
   SI.AngularAcceleration z(start = 0) "Angular acceleration"
                            annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Velocity vx(stateSelect=stateSelect,start = 0) "Velocity in x-direction" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.Force N "normal force";
-  SI.Velocity v_slip "slip velocity";
+  SI.Force N "Normal force";
+  SI.Velocity v_slip "Slip velocity";
   //Visualization
   MB.Visualizers.Advanced.Shape cylinder(
     shapeType="cylinder",
@@ -108,3 +108,4 @@ equation
 <p>The ground is hereby represented by the x-axis.</p>
 </html>"));
 end DryFrictionBasedRolling;
+

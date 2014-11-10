@@ -1,5 +1,5 @@
 within PlanarMechanics.VehicleComponents.Examples;
-model SingleTrackWithEngine "AcceleratingBody"
+model SingleTrackWithEngine "Single track model"
   extends Modelica.Icons.Example;
 
   Parts.Body bodyFront(
@@ -57,7 +57,7 @@ model SingleTrackWithEngine "AcceleratingBody"
         rotation=90,
         origin={20,30})));
   inner PlanarWorld planarWorld(defaultWidthFraction=10, defaultZPosition=0)
-    annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
   connect(idealWheelFront.frame_a, bodyFront.frame_a)
                                                  annotation (Line(
@@ -90,10 +90,10 @@ equation
       thickness=0.5));
   annotation (experiment(StopTime=6),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<p>An ideal rolling single track model.</p>
-<p><br/>There is dynamic state selection applied. It might be avoided by picking Rear.v_long as state.</p>
-<p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_2.png\"/></p>
+<p>An ideal rolling single track model of a car.
+There is dynamic state selection applied. It might be avoided by picking Rear.v_long as state.</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_2.png\"></p>
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>

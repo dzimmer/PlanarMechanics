@@ -1,5 +1,5 @@
 within PlanarMechanics.Utilities.AtanLib;
-function atan3b_dder "second deviation of atan3"
+function atan3b_dder "Second deviation of atan3"
   import Modelica.Math;
   input Real u1;
   input Real u2;
@@ -11,6 +11,7 @@ function atan3b_dder "second deviation of atan3"
   output Modelica.SIunits.AngularAcceleration y_dder;
 algorithm
   y_dder := (2*u1*u2/((u1*u1+u2*u2)*(u1*u1+u2*u2)))*u2_der - (2*u1*u2/((u1*u1+u2*u2)*(u1*u1+u2*u2)))*u1_der;
+
   annotation (Documentation(revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));

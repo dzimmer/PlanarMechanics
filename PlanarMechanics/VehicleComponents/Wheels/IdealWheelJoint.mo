@@ -1,5 +1,5 @@
 within PlanarMechanics.VehicleComponents.Wheels;
-model IdealWheelJoint
+model IdealWheelJoint "Ideal wheel joint"
 
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-48,0},
             {-28,20}}), iconTransformation(extent={{-68,-20},{-28,20}})));
@@ -10,36 +10,36 @@ model IdealWheelJoint
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use acceleration as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
-  parameter SI.Length radius "radius of the wheel";
-  parameter SI.Length r[2] "driving direction of the wheel at angle phi = 0";
-  final parameter SI.Length l = sqrt(r*r);
-  final parameter Real e[2] =  r/l "normalized direction";
+  parameter SI.Length radius "Radius of the wheel";
+  parameter SI.Length r[2] "Driving direction of the wheel at angle phi = 0";
+  final parameter SI.Length l = sqrt(r*r) "Length of vector r";
+  final parameter Real e[2] =  r/l "Normalized direction";
   Real e0[2] "normalized direction w.r.t inertial system";
   Real R[2,2] "Rotation Matrix";
-  SI.Angle phi_roll(start=0) "roll angle of the wheel"                           annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Angle phi_roll(start=0) "roll angle of the wheel" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularVelocity w_roll(final stateSelect=stateSelect, start=0)
-    "roll velocity of wheel"                                                                      annotation(Dialog(group="Initialization", showStartAttribute=true));
+    "roll velocity of wheel"  annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Velocity v[2] "velocity";
   SI.Velocity v_long "driving velocity in (longitudinal) driving direction";
   SI.Acceleration a(stateSelect=stateSelect, start=0)
-    "acceleration of driving velocity"                                          annotation(Dialog(group="Initialization", showStartAttribute=true));
+    "acceleration of driving velocity" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Force f_long "longitudinal force";
     parameter Boolean animate = true "= true, if animation shall be enabled"
-                                           annotation(Dialog(group="Animation"));
-  parameter Boolean SimVis = false "perform animation with SimVis" annotation(Dialog(group="Animation"));
+    annotation(Dialog(group="Animation"));
+  parameter Boolean SimVis = false "Perform animation with SimVis" annotation(Dialog(group="Animation"));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of the body" annotation (Dialog(
+    "Position z of the body" annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Length diameter = 0.1 "diameter of the rims"
-                           annotation (Dialog(
+  parameter SI.Length diameter = 0.1 "Diameter of the rims"
+    annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Length width = diameter * 0.6 "width of the wheel"
-                         annotation (Dialog(
+  parameter SI.Length width = diameter * 0.6 "Width of the wheel"
+    annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
@@ -140,17 +140,17 @@ equation
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name")}),    Documentation(info="<html>
-<h4><font color=\"#008000\">Ideal wheel joint</font></h4>
 <p>The ideal wheel joint enforces the constraints of ideal rolling on the x,y-plane.</p>
 <p>The constraint is that the velocity of the virtual point of contact shall be zero. This constrains is split into two components:</p>
 <ul>
 <li>no lateral velocity</li>
 <li>the longitudinal velocity has to equal the rolling velocity times the radius.</li>
 </ul>
-<p><br/>The radius of the wheel can be specified by the parameter <b>radius</b>. The driving direction (for phi=0) can be specified by the parameter <b>r</b>.</p>
+<p>The radius of the wheel can be specified by the parameter <b>radius</b>. The driving direction (for phi=0) can be specified by the parameter <b>r</b>.</p>
 <p>The wheel contains a 2D frame connector for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D flange connector.</p>
 <p>For examples of usage see the local Examples package.</p>
 </html>", revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end IdealWheelJoint;
+

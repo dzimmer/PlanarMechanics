@@ -2,26 +2,26 @@ within PlanarMechanics.Parts;
 model Spring "Linear 2D translational spring"
   extends PlanarMechanics.Interfaces.PartialTwoFlanges;
 
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter Modelica.SIunits.TranslationalSpringConstant c_x(final min=0, start=1)
-    "spring constant in x dir";
+    "Spring constant in x dir";
   parameter Modelica.SIunits.TranslationalSpringConstant c_y(final min=0, start=1)
-    "spring constant in y dir";
+    "Spring constant in y dir";
   parameter Modelica.SIunits.RotationalSpringConstant c_phi(final min=0, start=1.0e5)
     "Spring constant";
-  parameter Modelica.SIunits.Position s_relx0=0 "unstretched spring length";
-  parameter Modelica.SIunits.Position s_rely0=0 "unstretched spring length";
+  parameter Modelica.SIunits.Position s_relx0=0 "Unstretched spring length";
+  parameter Modelica.SIunits.Position s_rely0=0 "Unstretched spring length";
   parameter Modelica.SIunits.Angle phi_rel0=0 "Unstretched spring angle";
 
   Modelica.SIunits.Position s_relx(final stateSelect=stateSelect, start = 0)
-    "spring length" annotation(Dialog(group="Initialization", showStartAttribute=true));
+    "Spring length" annotation(Dialog(group="Initialization", showStartAttribute=true));
   Modelica.SIunits.Position s_rely(final stateSelect=stateSelect, start = 0)
-    "spring length" annotation(Dialog(group="Initialization", showStartAttribute=true));
+    "Spring length" annotation(Dialog(group="Initialization", showStartAttribute=true));
 
   Modelica.SIunits.Angle phi_rel(final stateSelect=stateSelect, start = 0)
-    "spring angle" annotation(Dialog(group="Initialization", showStartAttribute=true));
+    "Spring angle" annotation(Dialog(group="Initialization", showStartAttribute=true));
   Modelica.SIunits.Force f_x "Force in x direction";
   Modelica.SIunits.Force f_y "Force in y direction";
 
@@ -34,7 +34,7 @@ model Spring "Linear 2D translational spring"
       tab="Advanced"));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of cylinder representing the fixed translation" annotation (Dialog(
+    "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
   parameter Integer numberOfWindings = 5 "Number of spring windings"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
@@ -58,7 +58,7 @@ model Spring "Linear 2D translational spring"
 
   //Visualization
   import MB = Modelica.Mechanics.MultiBody;
-  parameter Boolean animate = true "enable Animation"
+  parameter Boolean animate = true "Enable animation"
                                                      annotation(Dialog(group="Animation"));
   MB.Visualizers.Advanced.Shape contactA(
     shapeType="cylinder",
@@ -134,6 +134,7 @@ for this situation:
   frame_b.fx = f_x;
   frame_a.fy = -f_y;
   frame_b.fy = f_y;
+
   annotation (
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>A <i>linear translational spring</i>. x- and y direction stiffness can be parameterized.</p>
@@ -143,7 +144,7 @@ for this situation:
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Text(
-          extent={{140,-100},{-142,-142}},
+          extent={{150,-90},{-150,-50}},
           textString="%name"),
         Line(
           points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,
@@ -160,7 +161,15 @@ for this situation:
         Text(
           extent={{-20,40},{20,65}},
           lineColor={0,0,255},
-          textString="phi_rel")}),
+          textString="phi_rel"),
+        Text(
+          extent={{-140,-22},{-104,-47}},
+          lineColor={128,128,128},
+          textString="a"),
+        Text(
+          extent={{104,-22},{140,-47}},
+          lineColor={128,128,128},
+          textString="b")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -182,3 +191,4 @@ for this situation:
           lineColor={0,0,255},
           textString="phi_rel")}));
 end Spring;
+

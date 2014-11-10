@@ -1,5 +1,5 @@
 within PlanarMechanics.VehicleComponents.Wheels;
-model SlipBasedWheelJoint
+model SlipBasedWheelJoint "Slip-Friction based wheel joint"
 
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-48,0},
             {-28,20}}), iconTransformation(extent={{-68,-20},{-28,20}})));
@@ -16,52 +16,52 @@ model SlipBasedWheelJoint
   outer PlanarWorld planarWorld "planar world model";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use acceleration as states" annotation(HideResult=true,Dialog(tab="Advanced"));
-  parameter SI.Length radius "radius of the wheel";
-  parameter SI.Length r[2] "driving direction of the wheel at angle phi = 0";
-  parameter SI.Force N "base normal load";
-  parameter SI.Velocity vAdhesion_min "minimum adhesion velocity";
-  parameter SI.Velocity vSlide_min "minimum sliding velocity";
-  parameter Real sAdhesion "adhesion slippage";
-  parameter Real sSlide "sliding slippage";
-  parameter Real mu_A "friction coefficient at adhesion";
-  parameter Real mu_S "friction coefficient at sliding";
-  final parameter SI.Length l = sqrt(r*r);
-  final parameter Real e[2] =  r/l "normalized direction";
-  Real e0[2] "normalized direction w.r.t inertial system";
+  parameter SI.Length radius "Radius of the wheel";
+  parameter SI.Length r[2] "Driving direction of the wheel at angle phi = 0";
+  parameter SI.Force N "Base normal load";
+  parameter SI.Velocity vAdhesion_min "Minimum adhesion velocity";
+  parameter SI.Velocity vSlide_min "Minimum sliding velocity";
+  parameter Real sAdhesion "Adhesion slippage";
+  parameter Real sSlide "Sliding slippage";
+  parameter Real mu_A "Friction coefficient at adhesion";
+  parameter Real mu_S "Friction coefficient at sliding";
+  final parameter SI.Length l = sqrt(r*r) "Length of vector r";
+  final parameter Real e[2] =  r/l "Normalized direction";
+  Real e0[2] "Normalized direction w.r.t inertial system";
   Real R[2,2] "Rotation Matrix";
   SI.Angle phi_roll(stateSelect=stateSelect, start=0) "roll angle of the wheel"
                                                                                  annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularVelocity w_roll(final stateSelect=stateSelect, start=0)
-    "roll velocity of wheel" annotation(Dialog(group="Initialization", showStartAttribute=true));
+    "Roll velocity of wheel" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Velocity v[2] "velocity";
-  SI.Velocity v_lat(start=0) "driving in lateral direction"
+  SI.Velocity v_lat(start=0) "Driving in lateral direction"
                                    annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.Velocity v_long( start=0) "velocity in longitudinal direction"
+  SI.Velocity v_long( start=0) "Velocity in longitudinal direction"
                                          annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.Velocity v_slip_long(start=0) "slip velocity in longitudinal direction"
+  SI.Velocity v_slip_long(start=0) "Slip velocity in longitudinal direction"
                                               annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.Velocity v_slip_lat(start=0) "slip velocity in lateral direction"
+  SI.Velocity v_slip_lat(start=0) "Slip velocity in lateral direction"
                                          annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.Velocity v_slip "slip velocity";
-  SI.Force f "longitudinal force";
-  SI.Force f_lat "longitudinal force";
-  SI.Force f_long "longitudinal force";
-  SI.Force fN "base normal load";
-  SI.Velocity vAdhesion "adhesion velocity";
-  SI.Velocity vSlide "sliding velocity";
+  SI.Velocity v_slip "Slip velocity";
+  SI.Force f "Longitudinal force";
+  SI.Force f_lat "Longitudinal force";
+  SI.Force f_long "Longitudinal force";
+  SI.Force fN "Base normal load";
+  SI.Velocity vAdhesion "Adhesion velocity";
+  SI.Velocity vSlide "Sliding velocity";
   parameter Boolean animate = true "= true, if animation shall be enabled"
                                            annotation(Dialog(group="Animation"));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of the body" annotation (Dialog(
+    "Position z of the body" annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Length diameter = 0.1 "diameter of the rims"
+  parameter SI.Length diameter = 0.1 "Diameter of the rims"
                            annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Length width = diameter * 0.6 "width of the wheel"
+  parameter SI.Length width = diameter * 0.6 "Width of the wheel"
                          annotation (Dialog(
       tab="Animation",
       group="if animation = true",
@@ -173,14 +173,13 @@ equation
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name")}),    Documentation(info="<html>
-<h4><font color=\"#008000\">Slip-Friction based wheel joint</font></h4>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has slip-dependent friction characteristics. This is an approximation for wheels with a rim and a rupper tire.</p>
 <p>The force depends with friction characteristics on the <b>slip</b>. The <b>slip</b> is split into two components:</p>
 <ul>
 <li>lateral slip: the lateral velocity divided by the rolling velocity.</li>
 <li>longitudinal slip: the longitudinal slip velocity divided by the rolling velocity.</li>
 </ul>
-<p><br/>For low rolling velocity this definitions become ill-conditioned. Hence a dry-friction model is used for low rolling velocities.</p>
+<p>For low rolling velocity this definitions become ill-conditioned. Hence a dry-friction model is used for low rolling velocities.</p>
 <p>The radius of the wheel can be specified by the parameter <b>radius</b>. The driving direction (for phi=0) can be specified by the parameter <b>r</b>. The normal load is set by <b>N</b>.</p>
 <p>The wheel contains a 2D connector <b>frame_a</b> for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D  connector <b>flange_a</b>.</p>
 <p>In addition there is an input for a dynamic component of the normal load.</p>
@@ -189,3 +188,4 @@ equation
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end SlipBasedWheelJoint;
+

@@ -1,17 +1,19 @@
 within PlanarMechanics.Parts;
-model Fixed "FixedPosition"
+model Fixed
+  "Frame fixed in the planar world frame at a given position and orientation"
+
+  parameter SI.Position r[2] = {0,0} "Fixed x,y-position";
+  parameter SI.Angle phi = 0 "Fixed angle";
 
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
         iconTransformation(extent={{-120,-20},{-80,20}})));
-  parameter SI.Position r[2] = {0,0} "fixed x,y-position";
-  parameter SI.Angle phi = 0 "fixed angle";
 equation
   {frame_a.x,frame_a.y} = r;
   frame_a.phi = phi;
   annotation (Icon(graphics={
         Text(
-          extent={{-100,-80},{100,-120}},
+          extent={{-150,-80},{150,-120}},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),

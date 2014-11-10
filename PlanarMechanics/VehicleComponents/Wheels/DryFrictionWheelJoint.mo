@@ -1,5 +1,5 @@
 within PlanarMechanics.VehicleComponents.Wheels;
-model DryFrictionWheelJoint
+model DryFrictionWheelJoint "Dry-Friction based wheel joint"
 
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-48,0},
             {-28,20}}), iconTransformation(extent={{-68,-20},{-28,20}})));
@@ -10,15 +10,15 @@ model DryFrictionWheelJoint
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use acceleration as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
-  parameter SI.Length radius "radius of the wheel";
-  parameter SI.Length r[2] "driving direction of the wheel at angle phi = 0";
-  parameter SI.Force N "normal force";
-  parameter SI.Velocity vAdhesion "adhesion velocity";
-  parameter SI.Velocity vSlide "sliding velocity";
-  parameter Real mu_A "friction coefficient at adhesion";
-  parameter Real mu_S "friction coefficient at sliding";
-  final parameter SI.Length l = sqrt(r*r);
-  final parameter Real e[2] =  r/l "normalized direction";
+  parameter SI.Length radius "Radius of the wheel";
+  parameter SI.Length r[2] "Driving direction of the wheel at angle phi = 0";
+  parameter SI.Force N "Normal force";
+  parameter SI.Velocity vAdhesion "Adhesion velocity";
+  parameter SI.Velocity vSlide "Sliding velocity";
+  parameter Real mu_A "Friction coefficient at adhesion";
+  parameter Real mu_S "Friction coefficient at sliding";
+  final parameter SI.Length l = sqrt(r*r) "Length of vector r";
+  final parameter Real e[2] =  r/l "Normalized direction";
   Real e0[2] "normalized direction w.r.t inertial system";
   Real R[2,2] "Rotation Matrix";
   SI.Angle phi_roll(stateSelect=stateSelect, start=0) "roll angle of the wheel"
@@ -40,19 +40,19 @@ model DryFrictionWheelJoint
   SI.Force f_long "longitudinal force";
   parameter Boolean animate = true "= true, if animation shall be enabled"
                                            annotation(Dialog(group="Animation"));
-  parameter Boolean SimVis = false "perform animation with SimVis" annotation(Dialog(group="Animation"));
+  parameter Boolean SimVis = false "Perform animation with SimVis" annotation(Dialog(group="Animation"));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of the body" annotation (Dialog(
+    "Position z of the body" annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Length diameter = 0.1 "diameter of the rims"
+  parameter SI.Length diameter = 0.1 "Diameter of the rims"
                            annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Length width = diameter * 0.6 "width of the wheel"
+  parameter SI.Length width = diameter * 0.6 "Width of the wheel"
                          annotation (Dialog(
       tab="Animation",
       group="if animation = true",
@@ -160,7 +160,6 @@ equation
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name")}),    Documentation(info="<html>
-<h4><font color=\"#008000\">Dry-Friction based wheel joint</font></h4>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has dry-friction characteristics. This is an approximation for stiff wheels without a tire.</p>
 <p>The force depends with dry-friction characteristics on the slip velocity. The slip velocity is split into two components:</p>
 <ul>
@@ -174,3 +173,4 @@ equation
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end DryFrictionWheelJoint;
+

@@ -1,9 +1,9 @@
 within PlanarMechanics.Examples;
-model FreeBody "AcceleratingBody"
+model FreeBody "A simple free falling body"
   extends Modelica.Icons.Example;
 
   inner PlanarWorld planarWorld
-    annotation (Placement(transformation(extent={{-28,-10},{-8,10}})));
+    annotation (Placement(transformation(extent={{-30,-10},{-10,10}})));
   Parts.Body body(m=1, I=0.1,
     animate=true,
     a(each fixed=false),
@@ -17,10 +17,9 @@ model FreeBody "AcceleratingBody"
     Documentation(revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
                                                                                                     info="<html>
-<h4><font color=\"#008000\">A simple free falling body.</font></h4>
-<p><br/>The gravity is defined in the planarWorld component</p>
-<p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/FreeBody_1.png\"/></p>
-<p><br/>The&nbsp;DAE&nbsp;has&nbsp;73&nbsp;scalar&nbsp;unknowns&nbsp;and&nbsp;73&nbsp;scalar&nbsp;equations.</p>
+<p>The gravity is defined in the planarWorld component</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/FreeBody_1.png\"/></p>
+<p>The DAE has 73&nbsp;scalar unknowns and 73&nbsp;scalar equations.</p>
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>

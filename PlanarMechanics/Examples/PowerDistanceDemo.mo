@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples;
-model PowerDistanceDemo
+model PowerDistanceDemo "Power and distance sensor demo"
     extends Modelica.Icons.Example;
   Parts.Body body(
     I=0.1,
@@ -24,12 +24,13 @@ model PowerDistanceDemo
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   Parts.Damper damper(d=1)
     annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-  Joints.Revolute revolute1(w(fixed=true), phi(fixed=true, start=
-          2.6179938779915)) annotation (Placement(transformation(
+  Joints.Revolute revolute(w(fixed=true), phi(fixed=true, start=2.6179938779915))
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-10,2})));
-  Joints.Prismatic prismatic1(r={1,0},
+        origin={-10,0})));
+  Joints.Prismatic prismatic(
+    r={1,0},
     v(fixed=true),
     s(fixed=true, start=1.0))
     annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
@@ -44,23 +45,23 @@ equation
       points={{-40,50},{-60,50},{-60,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(revolute1.frame_a,body1. frame_a) annotation (Line(
-      points={{-10,12},{-10,30},{0,30}},
+  connect(revolute.frame_a, body1.frame_a) annotation (Line(
+      points={{-10,10},{-10,30},{0,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(revolute1.frame_b,fixedTranslation. frame_a) annotation (Line(
-      points={{-10,-8},{-10,-20}},
+  connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
+      points={{-10,-10},{-10,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed.frame_a,prismatic1. frame_a) annotation (Line(
+  connect(fixed.frame_a, prismatic.frame_a) annotation (Line(
       points={{-60,30},{-40,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(prismatic1.frame_b,body1. frame_a) annotation (Line(
+  connect(prismatic.frame_b, body1.frame_a) annotation (Line(
       points={{-20,30},{0,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(damper.frame_b,prismatic1. frame_b) annotation (Line(
+  connect(damper.frame_b, prismatic.frame_b) annotation (Line(
       points={{-20,50},{-10,50},{-10,30},{-20,30}},
       color={95,95,95},
       thickness=0.5));
@@ -82,7 +83,6 @@ equation
       thickness=0.5));
   annotation (experiment(StopTime=6),
     Documentation(info="<html>
-<h4><font color=\"#008000\">Power/Distance Demo</font></h4>
 <p>This example shows how to use sensors for power and distance. The crane crab is used as an example.</p>
 </html>"));
 end PowerDistanceDemo;

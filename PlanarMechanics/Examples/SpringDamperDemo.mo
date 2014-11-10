@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples;
-model SpringDamperDemo
+model SpringDamperDemo "Spring damper demo"
     extends Modelica.Icons.Example;
   Parts.SpringDamper springDamper(
     s_relx0=0,
@@ -23,7 +23,7 @@ model SpringDamperDemo
            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={0,-34})));
+        origin={0,-40})));
   Parts.Fixed fixed annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
@@ -42,7 +42,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(springDamper.frame_b, body.frame_a) annotation (Line(
-      points={{0,-10},{0,-24}},
+      points={{0,-10},{0,-18},{0,-30}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(
@@ -50,7 +50,6 @@ equation
       __Dymola_fixedstepsize=0.0001,
       __Dymola_Algorithm="Euler"),
     Documentation(info="<html>
-<h4><font color=\"#008000\">Spring Demo</font></h4>
 <p>This example shows how to use a spring and a damper in combination. The motion of the body is not constrained.</p>
 </html>"));
 end SpringDamperDemo;

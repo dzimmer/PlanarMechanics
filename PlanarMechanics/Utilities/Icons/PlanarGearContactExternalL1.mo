@@ -1,5 +1,5 @@
 within PlanarMechanics.Utilities.Icons;
-model PlanarGearContactExternalL1
+model PlanarGearContactExternalL1 "Icon for an external planar gear contact"
 
   annotation (Icon(graphics={
         Polygon(
@@ -110,5 +110,9 @@ model PlanarGearContactExternalL1
           fillColor={85,170,255},
           textString="%name")}), Documentation(revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
+</html>", info="<html>
+<p>
+This partial class is intended to design a <em>default icon for an external planar gear contact</em>.
+<p>
 </html>"));
 end PlanarGearContactExternalL1;

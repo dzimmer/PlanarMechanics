@@ -1,6 +1,6 @@
 within PlanarMechanics;
 model PlanarWorld
-  import SI = Modelica.SIunits;
+  "Planar world coordinate system + gravity field + default animation definition"
 
   parameter Boolean enableAnimation=true
     "= true, if animation of all components is enabled";

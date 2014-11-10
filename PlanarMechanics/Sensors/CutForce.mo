@@ -100,8 +100,9 @@ equation
 <td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
 </tr>
 </table>
-<p><br/><br/><br/>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connector &quot;frame_resolve&quot; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
+<p>If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>In the following figure the modeling and animation of a CutForce sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CutForce2.png\"/>                                                                <img src=\"modelica://PlanarMechanics/Resources/Images/CutForce.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/CutForce2.png\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/CutForce.png\"></p>
 </html>"));
 end CutForce;

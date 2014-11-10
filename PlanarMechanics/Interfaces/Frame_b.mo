@@ -1,5 +1,6 @@
 within PlanarMechanics.Interfaces;
 connector Frame_b
+  "Coordinate system (2-dim.) fixed to the component with one cut-force and cut-torque (blue icon)"
   extends Frame;
   annotation (Icon(graphics={
         Rectangle(

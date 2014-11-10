@@ -1,5 +1,5 @@
 within PlanarMechanics.VehicleComponents.Examples;
-model TestSlipBasedWheel
+model TestSlipBasedWheel "A slip-based wheel"
   extends Modelica.Icons.Example;
 
   Joints.Prismatic prismatic(r={0,1},
@@ -7,16 +7,17 @@ model TestSlipBasedWheel
     v(fixed=true))
                 annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=90)));
+        rotation=90,
+        origin={0,-10})));
   Joints.Revolute revolute(phi(fixed=true), w(fixed=true))
                            annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={0,-30})));
+        origin={0,-40})));
   Parts.Fixed fixed annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={0,-60})));
+        origin={0,-70})));
   Modelica.Mechanics.Rotational.Sources.ConstantTorque engineTorque(
       tau_constant=2)
     annotation (Placement(transformation(extent={{-32,60},{-12,80}})));
@@ -42,47 +43,47 @@ model TestSlipBasedWheel
               annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={0,32})));
+        origin={0,30})));
   Modelica.Blocks.Sources.Constant const(k=0)
-    annotation (Placement(transformation(extent={{-60,22},{-40,42}})));
+    annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
   inner PlanarWorld planarWorld(g={0,0})
-    annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
+    annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
   connect(prismatic.frame_a, revolute.frame_b) annotation (Line(
-      points={{0,-10},{0,-10},{0,-20}},
+      points={{0,-20},{0,-20},{0,-30}},
       color={95,95,95},
       thickness=0.5));
   connect(revolute.frame_a, fixed.frame_a) annotation (Line(
-      points={{0,-40},{0,-40},{0,-50}},
+      points={{0,-50},{0,-50},{0,-60}},
       color={95,95,95},
       thickness=0.5));
   connect(engineTorque.flange, inertia.flange_a) annotation (Line(
       points={{-12,70},{0,70}}));
   connect(body.frame_a, prismatic.frame_b) annotation (Line(
-      points={{20,10},{0,10}},
+      points={{20,10},{0,10},{0,0}},
       color={95,95,95},
       thickness=0.5));
   connect(slipBasedWheelJoint.frame_a, prismatic.frame_b) annotation (Line(
-      points={{0,27.2},{0,18.6},{0,18.6},{
-          0,10}},
+      points={{0,25.2},{0,25.2},{0,0}},
       color={95,95,95},
       thickness=0.5));
   connect(slipBasedWheelJoint.flange_a, inertia.flange_b) annotation (Line(
-      points={{0,42},{0,42},{0,50}}));
+      points={{0,40},{0,40},{0,50}}));
   connect(const.y, slipBasedWheelJoint.dynamicLoad) annotation (Line(
-      points={{-39,32},{-10,32}},
+      points={{-39,30},{-24,30},{-10,30}},
       color={0,0,127}));
   annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<h4><font color=\"#008000\">A Slip-Based Wheel</font></h4>
-<p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_2.png\"/></p>
-<p><br/>&nbsp;SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>
-<p>&nbsp;&nbsp;inertia.phi</p>
-<p>&nbsp;&nbsp;inertia.w</p>
-<p>&nbsp;&nbsp;prismatic.s</p>
-<p>&nbsp;&nbsp;prismatic.v</p>
-<p>&nbsp;&nbsp;revolute.phi</p>
-<p>&nbsp;&nbsp;revolute.w</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_2.png\"></p>
+<p>Selected continuous time states</p>
+<ul>
+<li>inertia.phi</li>
+<li>inertia.w</li>
+<li>prismatic.s</li>
+<li>prismatic.v</li>
+<li>revolute.phi</li>
+<li>revolute.w</li>
+</ul>
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>

@@ -1,35 +1,35 @@
 within PlanarMechanics.Parts;
 model SpringDamper "Linear 2D translational spring damper model"
   extends PlanarMechanics.Interfaces.PartialTwoFlanges;
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter Modelica.SIunits.TranslationalSpringConstant c_x(final min=0, start=1)
-    "spring constant in x dir";
+    "Spring constant in x dir";
   parameter Modelica.SIunits.TranslationalSpringConstant c_y(final min=0, start=1)
-    "spring constant in y dir";
+    "Spring constant in y dir";
   parameter Modelica.SIunits.RotationalSpringConstant c_phi(final min=0, start=1.0e5)
     "Spring constant";
   parameter Modelica.SIunits.TranslationalDampingConstant d_x(final min=0, start=1)
-    "spring constant in x dir";
+    "Spring constant in x dir";
   parameter Modelica.SIunits.TranslationalDampingConstant d_y(final min=0, start=1)
-    "spring constant in y dir";
+    "Spring constant in y dir";
   parameter Modelica.SIunits.RotationalDampingConstant d_phi(final min=0, start=1)
-    "spring constant in x dir";
-  parameter Modelica.SIunits.Position s_relx0=0 "unstretched spring length";
-  parameter Modelica.SIunits.Position s_rely0=0 "unstretched spring length";
+    "Spring constant in x dir";
+  parameter Modelica.SIunits.Position s_relx0=0 "Unstretched spring length";
+  parameter Modelica.SIunits.Position s_rely0=0 "Unstretched spring length";
   parameter Modelica.SIunits.Angle phi_rel0=0 "Unstretched spring angle";
 
   Real[2] d0;
-  Modelica.SIunits.Velocity v_relx "spring velocity";
-  Modelica.SIunits.Velocity v_rely "spring velocity";
-  Modelica.SIunits.AngularVelocity w_rel(start=0) "spring anglular velocity"                          annotation(Dialog(group="Initialization", showStartAttribute=true));
+  Modelica.SIunits.Velocity v_relx "Spring velocity";
+  Modelica.SIunits.Velocity v_rely "Spring velocity";
+  Modelica.SIunits.AngularVelocity w_rel(start=0) "Spring anglular velocity"                          annotation(Dialog(group="Initialization", showStartAttribute=true));
   Modelica.SIunits.Position s_relx(final stateSelect=stateSelect)
-    "spring length";
+    "Spring length";
   Modelica.SIunits.Position s_rely(final stateSelect=stateSelect)
-    "spring length";
+    "Spring length";
   Modelica.SIunits.Angle phi_rel(start=0, final stateSelect=stateSelect)
-    "spring angle"                                                                annotation(Dialog(group="Initialization", showStartAttribute=true));
+    "Spring angle"                                                                annotation(Dialog(group="Initialization", showStartAttribute=true));
   Modelica.SIunits.Force f_x "Force in x direction";
   Modelica.SIunits.Force f_y "Force in y direction";
   Modelica.SIunits.Torque tau "Torque between frames (= frame_b.f)";
@@ -43,7 +43,7 @@ model SpringDamper "Linear 2D translational spring damper model"
       tab="Advanced"));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of cylinder representing the fixed translation" annotation (Dialog(
+    "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
   parameter Integer numberOfWindings = 5 "Number of spring windings"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
@@ -80,7 +80,7 @@ model SpringDamper "Linear 2D translational spring damper model"
 
   //Visualization
   import MB = Modelica.Mechanics.MultiBody;
-  parameter Boolean animate = true "enable Animation"
+  parameter Boolean animate = true "Enable animation"
                                                      annotation(Dialog(group="Animation"));
 protected
   MB.Visualizers.Advanced.Shape contactA(
@@ -213,35 +213,36 @@ equation
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(
-          points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},
-              {80,32}},
+          points={{-80,40},{-58,40},{-43,10},{-13,70},{17,10},{47,70},{62,40},{
+              80,40}},
           thickness=0.5),
-        Line(points={{-68,32},{-68,97}}, color={128,128,128}),
-        Line(points={{72,32},{72,97}}, color={128,128,128}),
-        Line(points={{-68,92},{72,92}}, color={128,128,128}),
+        Line(points={{-68,40},{-68,105}},color={128,128,128}),
+        Line(points={{72,40},{72,105}},color={128,128,128}),
+        Line(points={{-68,100},{72,100}},
+                                        color={128,128,128}),
         Polygon(
-          points={{62,95},{72,92},{62,89},{62,95}},
+          points={{62,103},{72,100},{62,97},{62,103}},
           lineColor={128,128,128},
           fillColor={128,128,128},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-20,72},{20,97}},
+          extent={{-20,80},{20,105}},
           lineColor={0,0,255},
           textString="phi_rel"),
         Rectangle(
-          extent={{-50,-20},{40,-80}},
+          extent={{-50,-10},{40,-70}},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Line(points={{-50,-80},{68,-80}}),
-        Line(points={{-50,-20},{68,-20}}),
-        Line(points={{40,-50},{80,-50}}),
-        Line(points={{-80,-50},{-50,-50}}),
-        Line(points={{-80,32},{-80,-50}}),
-        Line(points={{80,32},{80,-50}}),
+        Line(points={{-50,-70},{68,-70}}),
+        Line(points={{-50,-10},{68,-10}}),
+        Line(points={{40,-40},{80,-40}}),
+        Line(points={{-80,-40},{-50,-40}}),
+        Line(points={{-80,40},{-80,-40}}),
+        Line(points={{80,40},{80,-40}}),
         Line(points={{-96,0},{-80,0}}),
         Line(points={{96,0},{80,0}}),
         Text(
-          extent={{140,-100},{-142,-142}},
+          extent={{150,-120},{-150,-80}},
           textString="%name")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -276,3 +277,4 @@ equation
         Line(points={{-96,0},{-80,0}}),
         Line(points={{96,0},{80,0}})}));
 end SpringDamper;
+

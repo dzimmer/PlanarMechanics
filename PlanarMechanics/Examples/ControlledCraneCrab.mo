@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples;
-model ControlledCraneCrab
+model ControlledCraneCrab "A controlled crane crab"
   extends Modelica.Icons.Example;
 
   Parts.Body body(
@@ -7,7 +7,7 @@ model ControlledCraneCrab
     I=0)   annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-10,-70})));
+        origin={-10,-60})));
   Parts.FixedTranslation fixedTranslation(r={0,2.5})
                                                     annotation (
       Placement(transformation(
@@ -28,14 +28,14 @@ model ControlledCraneCrab
   Modelica.Mechanics.Translational.Sources.Force force annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={-30,60})));
+        rotation=180,
+        origin={-10,70})));
   Modelica.Blocks.Continuous.PID PID(
     Td=0.2,
     k=-320*9.81*5,
     initType=Modelica.Blocks.Types.InitPID.InitialState,
     xi_start=0,
-    Ti=1e9) annotation (Placement(transformation(extent={{40,70},{20,90}})));
+    Ti=1e9) annotation (Placement(transformation(extent={{40,60},{20,80}})));
   inner PlanarWorld planarWorld
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   Joints.Prismatic prismatic(r={1,0}, useFlange=true,
@@ -51,14 +51,14 @@ model ControlledCraneCrab
         origin={-10,0})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
-      points={{-10,-40},{-10,-45},{-10,-45},{-10,-50},{-10,-60},{-10,-60}},
+      points={{-10,-40},{-10,-45},{-10,-50}},
       color={95,95,95},
       thickness=0.5));
   connect(force.f, PID.y) annotation (Line(
-      points={{-30,72},{-30,80},{19,80}},
+      points={{2,70},{2,70},{19,70}},
       color={0,0,127}));
   connect(angleSensor.phi, PID.u) annotation (Line(
-      points={{41,0},{70,0},{70,80},{42,80}},
+      points={{41,0},{70,0},{70,70},{42,70}},
       color={0,0,127}));
 
   connect(fixed.frame_a, prismatic.frame_a) annotation (Line(
@@ -70,7 +70,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(prismatic.flange_a, force.flange) annotation (Line(
-      points={{-30,39},{-30,50}},
+      points={{-30,39},{-30,50},{-30,70},{-20,70}},
       color={0,127,0}));
   connect(prismatic.frame_b, revolute.frame_a) annotation (Line(
       points={{-20,30},{-10,30},{-10,10}},
@@ -84,18 +84,18 @@ equation
       points={{0,0},{10,0},{10,0},{20,0}}));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<h4><font color=\"#008000\">A controlled crane crab.</font></h4>
 <p>A simple PID (actually PD) controlles the pendulum into upright position.</p>
-<p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/ControlledCraneCrab_1.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/ControlledCraneCrab_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/ControlledCraneCrab_2.png\"/></p>
-<p><br/>SELECTED&nbsp;CONTINUOUS&nbsp;TIME&nbsp;STATES</p>
-<p>&nbsp;&nbsp;actuatedPrismatic.s</p>
-<p>&nbsp;&nbsp;actuatedPrismatic.v</p>
-<p>&nbsp;&nbsp;actuatedRevolute.phi</p>
-<p>&nbsp;&nbsp;actuatedRevolute.w</p>
-<p>&nbsp;&nbsp;PID.D.x</p>
-<p>&nbsp;&nbsp;PID.I.y</p>
-<p>&nbsp;</p>
+<p>Selected continuous time states</p>
+<ul>
+<li>actuatedPrismatic.s</li>
+<li>actuatedPrismatic.v</li>
+<li>actuatedRevolute.phi</li>
+<li>actuatedRevolute.w</li>
+<li>PID.D.x</li>
+<li>PID.I.y</li>
+</ul>
 </html>",
       revisions="<html>
 <p>(c) Copyright by Dirk Zimmer</p>

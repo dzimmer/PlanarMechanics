@@ -1,20 +1,20 @@
 within PlanarMechanics.GearComponents.Examples.Utilities;
-model RigidNoLossPlanetary "planetary gearbox"
+model RigidNoLossPlanetary "Planetary gearbox"
   extends
     PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.PlanetaryGearInterface;
 
-  parameter SI.Distance r_s(start=1) "radius of sun gear";
-  parameter SI.Distance r_p(start=1) "radius of planet gear";
-  parameter SI.Distance r_r(start=3) "radius of ring gear";
+  parameter SI.Distance r_s(start=1) "Radius of sun gear";
+  parameter SI.Distance r_p(start=1) "Radius of planet gear";
+  parameter SI.Distance r_r(start=3) "Radius of ring gear";
 
-  parameter SI.Inertia J_s(start=1e-3) "inertia of the sun gear";
-  parameter SI.Inertia J_p(start=1e-3) "inertia of the planet gear";
-  parameter SI.Inertia J_c(start=1e-3) "inertia of the carrier";
-  parameter SI.Inertia J_r(start=1e-3) "inertia of the ring gear";
+  parameter SI.Inertia J_s(start=1e-3) "Inertia of the sun gear";
+  parameter SI.Inertia J_p(start=1e-3) "Inertia of the planet gear";
+  parameter SI.Inertia J_c(start=1e-3) "Inertia of the carrier";
+  parameter SI.Inertia J_r(start=1e-3) "Inertia of the ring gear";
 
   parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
 
-  parameter Integer Tooth_a(min=1) = 20 "Number of Tooth" annotation (Dialog(
+  parameter Integer Tooth_a(min=1) = 20 "Number of teeth" annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
@@ -30,7 +30,7 @@ model RigidNoLossPlanetary "planetary gearbox"
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Distance z_offset=0 "z-distane offset for simulation" annotation (Dialog(
+  parameter SI.Distance z_offset=0 "Offset of z-distance for simulation" annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
@@ -78,7 +78,7 @@ model RigidNoLossPlanetary "planetary gearbox"
         origin={10,40})));
   inner PlanarMechanics.PlanarWorld planarWorld(animateGravity=false,
       enableAnimation=animate)
-    annotation (Placement(transformation(extent={{34,70},{54,90}})));
+    annotation (Placement(transformation(extent={{40,60},{60,80}})));
   PlanarMechanics.Joints.Revolute bearing_Sun(useFlange=true)
     annotation (Placement(transformation(extent={{-70,-20},{-50,0}})));
   PlanarMechanics.Joints.Revolute bearing_Carrier(useFlange=true)

@@ -1,5 +1,5 @@
 within PlanarMechanics.Utilities.Icons;
-package GearConnections
+package GearConnections "Icon for a package class which contains gear connetion elements"
   extends Modelica.Icons.Package;
 
 
@@ -110,5 +110,9 @@ package GearConnections
           lineThickness=0.5,
           pattern=LinePattern.None)}), Documentation(revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
+</html>", info="<html>
+<p>
+This partial class is intended to design a <em>default icon for a package class</em> which contains different <em>gear connection models</em>.
+<p>
 </html>"));
 end GearConnections;

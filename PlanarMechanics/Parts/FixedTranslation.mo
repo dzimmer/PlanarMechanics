@@ -6,16 +6,16 @@ model FixedTranslation "A fixed translation between two components (rigid rod)"
         iconTransformation(extent={{-120,-20},{-80,20}})));
   Interfaces.Frame_b frame_b annotation (Placement(transformation(extent={{90,-10},
             {110,10}}), iconTransformation(extent={{80,-20},{120,20}})));
-  outer PlanarWorld planarWorld "planar world model";
+  outer PlanarWorld planarWorld "Planar world model";
   parameter SI.Length r[2] = {1,0}
-    "length of the rod resolved w.r.t to body frame at phi = 0";
-  final parameter SI.Length l = sqrt(r*r);
-  SI.Position r0[2] "length of the rod resolved w.r.t to inertal frame";
+    "Fixed x,y-length of the rod resolved w.r.t to body frame_a at phi = 0";
+  final parameter SI.Length l = sqrt(r*r) "Length of vector r";
+  SI.Position r0[2] "Length of the rod resolved w.r.t to inertal frame";
   Real R[2,2] "Rotation matrix";
   parameter Boolean animate = true "= true, if animation shall be enabled"
                                            annotation(Dialog(group="Animation"));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "z position of cylinder representing the fixed translation" annotation (Dialog(
+    "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
   parameter SI.Distance width=l/planarWorld.defaultWidthFraction
     "Width of shape"
@@ -54,13 +54,21 @@ equation
   frame_a.t  + frame_b.t + r0*{frame_b.fy,-frame_b.fx} = 0;
   annotation (Icon(graphics={
         Text(
-          extent={{-100,-40},{100,-80}},
+          extent={{-150,-50},{150,-90}},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"), Rectangle(
           extent={{-92,6},{92,-6}},
           fillPattern=FillPattern.Solid,
-          fillColor={175,175,175})}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          fillColor={175,175,175}),
+        Text(
+          extent={{-140,-22},{-104,-47}},
+          lineColor={128,128,128},
+          textString="a"),
+        Text(
+          extent={{104,-22},{140,-47}},
+          lineColor={128,128,128},
+          textString="b")}),             Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static position difference <b>r</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>
 </html>"));
 end FixedTranslation;

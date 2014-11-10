@@ -1,7 +1,7 @@
 within PlanarMechanics.GearComponents.Examples.Utilities.Interfaces;
-partial model PlanetaryGearInterface
- extends PlanarMechanics.Utilities.Icons.PlanetaryGear;
- extends Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort;
+partial model PlanetaryGearInterface "Planetary gear interface"
+  extends PlanarMechanics.Utilities.Icons.PlanetaryGear;
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort;
 
   Modelica.Mechanics.Rotational.Interfaces.Flange_b flange_Ring
     "Flange of shaft"
@@ -17,5 +17,7 @@ partial model PlanetaryGearInterface
           extent={{90,-10},{110,10}})));
   annotation (Documentation(revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
+</html>", info="<html>
+<p>This partial class contains common interfaces for a planetary gear model.</p>
 </html>"));
 end PlanetaryGearInterface;

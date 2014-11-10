@@ -1,5 +1,5 @@
 within PlanarMechanics.VehicleComponents;
-package Examples
+package Examples "Collection of simulatable models involving vehicle components"
     extends Modelica.Icons.ExamplesPackage;
 
 
