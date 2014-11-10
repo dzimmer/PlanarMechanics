@@ -64,7 +64,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(slipBasedWheelJoint.frame_a, prismatic.frame_b) annotation (Line(
-      points={{0,25.2},{0,25.2},{0,0}},
+      points={{0,26},{0,26},{0,0}},
       color={95,95,95},
       thickness=0.5));
   connect(slipBasedWheelJoint.flange_a, inertia.flange_b) annotation (Line(
@@ -72,7 +72,13 @@ equation
   connect(const.y, slipBasedWheelJoint.dynamicLoad) annotation (Line(
       points={{-39,30},{-24,30},{-10,30}},
       color={0,0,127}));
-  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+  annotation (Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
+<b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
+      info="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_2.png\"></p>
 <p>Selected continuous time states</p>
@@ -84,11 +90,6 @@ equation
 <li>revolute.phi</li>
 <li>revolute.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"),
     experiment(StopTime=20));
 end TestSlipBasedWheel;

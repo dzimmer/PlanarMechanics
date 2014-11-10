@@ -92,11 +92,6 @@ equation
 <li>revoluteDrive.phi</li>
 <li>revoluteDrive.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"),
     experiment(StopTime=10));
 end PistonEngine;

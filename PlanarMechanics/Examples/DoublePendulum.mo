@@ -54,7 +54,9 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=10),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
+</html>",                                                                                                  info="<html>
 <p>Beware this is a chaotic system. However, the chatoic part should start after 10s.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_2.png\"/></p>
@@ -65,10 +67,5 @@ equation
 <li>revolute1.phi</li>
 <li>revolute1.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end DoublePendulum;

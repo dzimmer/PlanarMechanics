@@ -43,10 +43,5 @@ equation
 <li>slipBasedRolling.phi</li>
 <li>slipBasedRolling.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end CounterSpin;

@@ -96,10 +96,5 @@ equation
 <li>PID.D.x</li>
 <li>PID.I.y</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end ControlledCraneCrab;

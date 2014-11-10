@@ -45,7 +45,7 @@ model TestIdealWheel "Test an ideal wheel"
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
   connect(idealWheelJoint.frame_a, prismatic.frame_b) annotation (Line(
-      points={{0,25.2},{0,0}},
+      points={{0,26},{0,0}},
       color={95,95,95},
       thickness=0.5));
   connect(prismatic.frame_a, revolute.frame_b) annotation (Line(
@@ -64,7 +64,13 @@ equation
       points={{20,10},{0,10},{0,0}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+  annotation (Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
+<b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
+      info="<html>
 <p>It introduces one non-holonomic constraint. Difficult for index-reduction.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_2.png\"></p>
@@ -75,11 +81,6 @@ equation
 <li>revolute.phi</li>
 <li>revolute.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"),
     experiment(StopTime=10));
 end TestIdealWheel;

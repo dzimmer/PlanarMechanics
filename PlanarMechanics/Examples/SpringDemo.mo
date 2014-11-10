@@ -68,5 +68,8 @@ equation
   annotation (experiment(StopTime=5),
     Documentation(info="<html>
 <p>This example shows how to use a spring and a damper separately. The motion is constrained by a prismatic joint. The spring passes a point of zero lenght.</p>
+</html>",
+        revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end SpringDemo;
