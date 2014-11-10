@@ -144,7 +144,7 @@ for this situation:
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Text(
-          extent={{140,-100},{-142,-142}},
+          extent={{150,-90},{-150,-50}},
           textString="%name"),
         Line(
           points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,
@@ -161,7 +161,15 @@ for this situation:
         Text(
           extent={{-20,40},{20,65}},
           lineColor={0,0,255},
-          textString="phi_rel")}),
+          textString="phi_rel"),
+        Text(
+          extent={{-140,-22},{-104,-47}},
+          lineColor={128,128,128},
+          textString="a"),
+        Text(
+          extent={{104,-22},{140,-47}},
+          lineColor={128,128,128},
+          textString="b")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

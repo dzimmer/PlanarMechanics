@@ -8,7 +8,7 @@ model WorldForce
     resolveInFrame=
   Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_b, 3: frame_resolve)";
- parameter Boolean animation=true "= true, if animation shall be enabled";
+  parameter Boolean animation=true "= true, if animation shall be enabled";
 
    parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
@@ -88,7 +88,7 @@ equation
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-100,-40},{100,-80}},
+          extent={{-150,-50},{150,-90}},
           textString="%name")}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The <b>3</b> signals of the <b>force</b> connector contain force and torque. The first and second signal are interpreted as the x- and y-coordinates of a <b>force</b> and the third is torque, acting at the frame connector to which <b>frame_b</b> of this component is attached. Note that torque is a scalar quantity, which is exerted perpendicular to the x-y plane.</p>
 <p>An example of this model is given in the following figure:</p>

@@ -94,7 +94,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(worldForce.frame_resolve, frame_resolve) annotation (Line(
-      points={{27,-3},{27,-50},{10,-50}},
+      points={{27,-3},{28,-3},{28,-4},{10,-4},{10,-4},{10,-50},{10,-50}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(absoluteVelocity.frame_resolve, frame_resolve) annotation (Line(
@@ -121,7 +121,7 @@ equation
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-100,-40},{100,-80}},
+          extent={{-150,-40},{150,-80}},
           textString="%name"),
         Line(
           points={{-100,-100},{-80,-98},{-60,-92},{-40,-82},{-20,-68},{0,-50},{20,

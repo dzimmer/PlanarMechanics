@@ -72,7 +72,7 @@ equation
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255}),
         Text(
-          extent={{-100,-80},{100,-120}},
+          extent={{-150,-80},{150,-120}},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name")}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>

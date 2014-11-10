@@ -13,7 +13,7 @@ equation
   frame_a.phi = phi;
   annotation (Icon(graphics={
         Text(
-          extent={{-100,-80},{100,-120}},
+          extent={{-150,-80},{150,-120}},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),

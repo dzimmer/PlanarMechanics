@@ -45,7 +45,7 @@ equation
   frame_a.t + frame_b.t = 0;
   annotation (Icon(graphics={
         Text(
-          extent={{-100,-40},{100,-80}},
+          extent={{-150,-50},{150,-90}},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"),
@@ -62,7 +62,15 @@ equation
           lineColor={255,255,255},
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid,
-          lineThickness=0.5)}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          lineThickness=0.5),
+        Text(
+          extent={{-140,-22},{-104,-47}},
+          lineColor={128,128,128},
+          textString="a"),
+        Text(
+          extent={{104,-22},{140,-47}},
+          lineColor={128,128,128},
+          textString="b")}),       Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static angle difference <b>alpha</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>
 </html>"));
 end FixedRotation;
