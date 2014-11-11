@@ -11,7 +11,7 @@ model Prismatic "A prismatic joint"
     "= true, if force flange enabled, otherwise implicitly grounded"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter StateSelect stateSelect=StateSelect.default
-    "Priority to use acceleration as states" annotation(HideResult=true,Dialog(tab="Advanced"));
+    "Priority to use s and v as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
   parameter SI.Position r[2] "Direction of the rod wrt. body system at phi=0";
   final parameter SI.Length l = sqrt(r*r) "Lengt of r";
