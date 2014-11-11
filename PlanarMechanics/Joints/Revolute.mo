@@ -70,7 +70,7 @@ public
     height=cylinderDiameter,
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
-    r_shape={0,0,-0.05},
+    r_shape={0,0,-cylinderLength/2},
     r={frame_a.x,frame_a.y,zPosition},
     R=MB.Frames.planarRotation({0,0,1}, phi, w),
     extra=extra) if planarWorld.enableAnimation and animate;
