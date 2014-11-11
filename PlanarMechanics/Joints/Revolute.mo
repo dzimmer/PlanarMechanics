@@ -53,7 +53,7 @@ model Revolute "A revolute joint"
     height=cylinderDiameter,
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
-    r_shape={0,0,-0.05},
+    r_shape={0,0,-cylinderLength/2},
     r={frame_a.x,frame_a.y,zPosition},
     R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
 
@@ -77,7 +77,6 @@ equation
   annotation (Icon(graphics={
         Text(
           extent={{-100,-80},{100,-120}},
-
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"), Rectangle(
@@ -86,12 +85,10 @@ equation
           fillColor={175,175,175}),
                                Rectangle(
           extent={{-100,60},{-20,-62}},
-
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175}),
                                Rectangle(
           extent={{20,60},{100,-60}},
-
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175}),
         Line(
