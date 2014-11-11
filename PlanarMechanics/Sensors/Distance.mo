@@ -1,56 +1,54 @@
 within PlanarMechanics.Sensors;
 model Distance
   "Measure the distance between the origins of two frame connectors"
+  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
+  extends Modelica.Icons.TranslationalSensor;
 
-  import SI = Modelica.SIunits;
   import Modelica.Mechanics.MultiBody.Frames;
   import Modelica.Mechanics.MultiBody.Types;
 
- extends Interfaces.PartialTwoFlanges;
- extends Modelica.Icons.TranslationalSensor;
- Modelica.Blocks.Interfaces.RealOutput distance
+  Modelica.Blocks.Interfaces.RealOutput distance
     "Distance between the origin of frame_a and the origin of frame_b"
-   annotation (Placement(transformation(
+    annotation (Placement(transformation(
        origin={0,-110},
        extent={{10,-10},{-10,10}},
        rotation=90)));
- outer PlanarWorld planarWorld "planar world model";
- parameter Boolean animation=true
+  parameter Boolean animation=true
     "= true, if animation shall be enabled (show arrow)";
- input SI.Diameter arrowDiameter=planarWorld.defaultArrowDiameter
+  input SI.Diameter arrowDiameter=planarWorld.defaultArrowDiameter
     "Diameter of relative arrow from frame_a to frame_b"
-   annotation (Dialog(group="if animation = true", enable=animation));
- input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
+    annotation (Dialog(group="if animation = true", enable=animation));
+  input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
     "Color of relative arrow from frame_a to frame_b"
-   annotation (Dialog(group="if animation = true", enable=animation));
- input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+    annotation (Dialog(group="if animation = true", enable=animation));
+  input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-   annotation (Dialog(group="if animation = true", enable=animation));
- input SI.Position s_small(min=sqrt(Modelica.Constants.small))=1.E-10
+    annotation (Dialog(group="if animation = true", enable=animation));
+  input SI.Position s_small(min=sqrt(Modelica.Constants.small))=1.E-10
     "Prevent zero-division if distance between frame_a and frame_b is zero"
-   annotation (Dialog(tab="Advanced"));
+    annotation (Dialog(tab="Advanced"));
 protected
- inner Modelica.Mechanics.MultiBody.World world;
- Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
-   r={frame_a.x, frame_a.y, 0},
-   r_head={frame_b.x, frame_b.y, 0} - {frame_a.x, frame_a.y, 0},
-   diameter=arrowDiameter,
-   color=arrowColor,
-   specularCoefficient=specularCoefficient) if planarWorld.enableAnimation and animation;
+  inner Modelica.Mechanics.MultiBody.World world;
+  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
+    r={frame_a.x, frame_a.y, 0},
+    r_head={frame_b.x, frame_b.y, 0} - {frame_a.x, frame_a.y, 0},
+    diameter=arrowDiameter,
+    color=arrowColor,
+    specularCoefficient=specularCoefficient) if planarWorld.enableAnimation and animation;
 
 protected
- SI.Position r_rel_0[3] = {frame_b.x, frame_b.y, 0} - {frame_a.x, frame_a.y, 0}
+  SI.Position r_rel_0[3] = {frame_b.x, frame_b.y, 0} - {frame_a.x, frame_a.y, 0}
     "Position vector from frame_a to frame_b resolved in world frame";
- SI.Area L2 = r_rel_0*r_rel_0;
- SI.Area s_small2 = s_small^2;
+  SI.Area L2 = r_rel_0*r_rel_0;
+  SI.Area s_small2 = s_small^2;
 equation
- {frame_a.fx, frame_a.fy} = zeros(2);
- {frame_b.fx, frame_b.fy} = zeros(2);
- frame_a.t = 0;
- frame_b.t = 0;
+  {frame_a.fx, frame_a.fy} = zeros(2);
+  {frame_b.fx, frame_b.fy} = zeros(2);
+  frame_a.t = 0;
+  frame_b.t = 0;
 
- distance =  smooth(1,if noEvent(L2 > s_small2) then sqrt(L2) else L2/(2*s_small)*(3-L2/s_small2));
- annotation (
+  distance =  smooth(1,if noEvent(L2 > s_small2) then sqrt(L2) else L2/(2*s_small)*(3-L2/s_small2));
+  annotation (
    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
            100}}), graphics={
        Line(points={{0,-60},{0,-100}}, color={0,0,255}),

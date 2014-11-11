@@ -2,12 +2,12 @@ within PlanarMechanics.Sensors;
 model AbsolutePosition
   "Measure absolute position vector of the origin of a frame connector"
   extends Internal.PartialAbsoluteSensor;
+
   Modelica.Blocks.Interfaces.RealOutput  r[3](each final quantity="Position", each final unit = "m")
     "Absolute position vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
-
   Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector r is optionally resolved"

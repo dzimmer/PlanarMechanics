@@ -2,7 +2,6 @@ within PlanarMechanics.Parts;
 model Spring "Linear 2D translational spring"
   extends PlanarMechanics.Interfaces.PartialTwoFlanges;
 
-  outer PlanarWorld planarWorld "Planar world model";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter Modelica.SIunits.TranslationalSpringConstant c_x(final min=0, start=1)

@@ -1,7 +1,7 @@
 within PlanarMechanics.Parts;
 model SpringDamper "Linear 2D translational spring damper model"
   extends PlanarMechanics.Interfaces.PartialTwoFlanges;
-  outer PlanarWorld planarWorld "Planar world model";
+
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter Modelica.SIunits.TranslationalSpringConstant c_x(final min=0, start=1)
@@ -274,7 +274,7 @@ equation
         Line(points={{-80,-50},{-50,-50}}),
         Line(points={{-80,32},{-80,-50}}),
         Line(points={{80,32},{80,-50}}),
-        Line(points={{-96,0},{-80,0}}),
-        Line(points={{96,0},{80,0}})}));
+        Line(points={{-100,0},{-80,0}}),
+        Line(points={{100,0},{80,0}})}));
 end SpringDamper;
 

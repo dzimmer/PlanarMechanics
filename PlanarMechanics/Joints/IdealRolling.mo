@@ -2,8 +2,7 @@ within PlanarMechanics.Joints;
 model IdealRolling "A joint representing a wheel ideally rolling on the x-axis"
 
   Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
-        iconTransformation(extent={{-120,-20},{-80,20}})));
+    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
   outer PlanarWorld planarWorld "Planar world model";
 
@@ -89,15 +88,15 @@ equation
           pattern=LinePattern.None,
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
+        Line(points={{0,0},{-100,0}}, color={0,0,255}),
         Ellipse(
           extent={{-20,20},{20,-20}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Line(
-          points={{-20,0},{-92,0}},
-          color={0,0,255})}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          lineColor={0,0,255})}),Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Model IdealRolling contains only one connector frame_a lying at the center of the wheel, where it is assumed that no slip occurs between the wheel and ground.</p>
 <p>The ground is hereby represented by the x-axis.</p>
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics));
 end IdealRolling;

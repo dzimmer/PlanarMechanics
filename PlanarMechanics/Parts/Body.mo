@@ -2,8 +2,7 @@ within PlanarMechanics.Parts;
 model Body "Body component with mass and inertia"
 
   Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
-        iconTransformation(extent={{-120,-20},{-80,20}})));
+    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
   outer PlanarWorld planarWorld "planar world model";
   parameter Boolean animate = true "= true, if animation shall be enabled";
   parameter StateSelect stateSelect=StateSelect.default
@@ -77,5 +76,7 @@ equation
           fillColor={85,170,255},
           textString="%name")}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Model <b>Body</b> is an ideal unlimited small point with mass and inertia.</p>
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}), graphics));
 end Body;

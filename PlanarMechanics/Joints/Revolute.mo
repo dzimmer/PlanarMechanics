@@ -1,12 +1,7 @@
 within PlanarMechanics.Joints;
 model Revolute "A revolute joint"
+  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
 
-  Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
-        iconTransformation(extent={{-120,-20},{-80,20}})));
-  Interfaces.Frame_b frame_b annotation (Placement(transformation(extent={{90,-10},
-            {110,10}}), iconTransformation(extent={{80,-20},{120,20}})));
-  outer PlanarWorld planarWorld "Planar world model";
   parameter Boolean useFlange=false
     "= true, if force flange enabled, otherwise implicitly grounded"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
@@ -94,7 +89,7 @@ equation
   frame_a.t = t;
   annotation (Icon(graphics={
         Text(
-          extent={{-100,-80},{100,-120}},
+          extent={{-100,-70},{100,-110}},
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255},
           textString="%name"), Rectangle(
@@ -125,5 +120,7 @@ equation
 <p>By setting <b>useFlange</b> as true, the flange for a 1-dim. rotational input will be activated. In the &quot;Initialization&quot; block, angular position <b>phi</b>, angular velocity <b>w</b> as well as angular acceleration <b>z</b> can be initialized.</p>
 <p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
 <p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics));
 end Revolute;

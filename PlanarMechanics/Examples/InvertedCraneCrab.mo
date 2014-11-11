@@ -97,15 +97,10 @@ equation
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/InvertedCraneCrab_3.png\"/></p>
 <p>Selected continuous time states</p>
 <ul>
-<li>actuatedPrismatic.s</li>
-<li>actuatedPrismatic.v</li>
-<li>actuatedRevolute.phi</li>
+<li>prismatic.s</li>
+<li>prismatic.v</li>
+<li>revolute.phi</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"),
     experiment(StopTime=3),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{

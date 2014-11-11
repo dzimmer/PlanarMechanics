@@ -111,5 +111,8 @@ equation
   annotation (experiment(StopTime=10),
     Documentation(info="<html>
 <p>This example shows how to use absolute and relative sensors for position, velocity and acceleration. For demonstration purposes a double pendulum is used.</p>
+</html>",
+        revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end MeasureDemo;

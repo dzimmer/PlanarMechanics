@@ -31,7 +31,7 @@ model WorldForce
 
   Interfaces.Frame_b frame_b
     "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   Modelica.Blocks.Interfaces.RealInput force[3]
     "x-, y-coordinates of force and torque resolved in world frame"
@@ -40,8 +40,8 @@ model WorldForce
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
     annotation (
-      Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
-          extent={{-40,-40},{-20,-20}})));
+      Placement(transformation(extent={{-36,-46},{-4,-14}}), iconTransformation(
+          extent={{-36,-46},{-4,-14}})));
 
   Real R[2,2] "Rotation matrix";
   SI.Angle phi "Rotation angle of the additional frame_c";
@@ -94,5 +94,8 @@ equation
 <p>An example of this model is given in the following figure:</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/WorldForce.png\"/></p>
 <p>The parameter ResolveinFrame defines in which frame the input force shall be resolved.</p>
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+            100,100}}),
+                    graphics));
 end WorldForce;

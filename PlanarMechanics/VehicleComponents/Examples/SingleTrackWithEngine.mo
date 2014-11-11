@@ -61,12 +61,12 @@ model SingleTrackWithEngine "Single track model"
 equation
   connect(idealWheelFront.frame_a, bodyFront.frame_a)
                                                  annotation (Line(
-      points={{4.8,50},{30,50}},
+      points={{4,50},{30,50}},
       color={95,95,95},
       thickness=0.5));
   connect(chassis.frame_a, idealWheelRear.frame_a)             annotation (
       Line(
-      points={{20,-50},{20,-80},{4.8,-80}},
+      points={{20,-50},{20,-80},{4,-80}},
       color={95,95,95},
       thickness=0.5));
   connect(bodyRear.frame_a, chassis.frame_a)        annotation (Line(
@@ -85,19 +85,20 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(trail.frame_b, idealWheelFront.frame_a) annotation (Line(
-      points={{20,40},{20,50},{4.8,50}},
+      points={{20,40},{20,50},{4,50}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=6),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
+<b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
+      info="<html>
 <p>An ideal rolling single track model of a car.
 There is dynamic state selection applied. It might be avoided by picking Rear.v_long as state.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_2.png\"></p>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end SingleTrackWithEngine;

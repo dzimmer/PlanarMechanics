@@ -173,7 +173,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation2.frame_a, WheelJoint2.frame_a) annotation (Line(
-      points={{-30,-50},{-59.2,-50}},
+      points={{-30,-50},{-60,-50}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation3.frame_b, fixedTranslation1.frame_a) annotation (
@@ -182,7 +182,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(WheelJoint3.frame_a, fixedTranslation3.frame_a) annotation (Line(
-      points={{59.2,-50},{30,-50}},
+      points={{60,-50},{30,-50}},
       color={95,95,95},
       thickness=0.5));
   connect(inertia2.flange_b, WheelJoint3.flange_a) annotation (Line(
@@ -220,7 +220,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(leftTrail.frame_b, WheelJoint1.frame_a) annotation (Line(
-      points={{-40,70},{-59.2,70}},
+      points={{-40,70},{-60,70}},
       color={95,95,95},
       thickness=0.5));
   connect(body2.frame_a, rightTrail.frame_b) annotation (Line(
@@ -228,7 +228,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(WheelJoint4.frame_a, rightTrail.frame_b) annotation (Line(
-      points={{59.2,70},{40,70}},
+      points={{60,70},{40,70}},
       color={95,95,95},
       thickness=0.5));
   connect(leftTrail.frame_a, revolute2.frame_a) annotation (Line(
@@ -252,7 +252,12 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=10),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
+<b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",                                                                                                    info="<html>
 <p>A double track model of a car.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/SimpleCarWithDifferentialGear_2.png\"></p>
@@ -277,10 +282,5 @@ equation
 <li>inertia3.phi</li>
 <li>inertia3.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end TwoTrackWithDifferentialGear;
