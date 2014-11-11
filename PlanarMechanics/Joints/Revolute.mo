@@ -10,7 +10,7 @@ model Revolute "A revolute joint"
   parameter Boolean useFlange=false
     "= true, if force flange enabled, otherwise implicitly grounded"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  //parameter Boolean initialize = false "Initialize Position and Velocity";
+  parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true);
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
@@ -18,28 +18,33 @@ model Revolute "A revolute joint"
       Placement(transformation(extent={{-10,90},{10,110}}),iconTransformation(
           extent={{-10,90},{10,110}})));
 
-  parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true, Dialog(group="Animation"));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the joint axis" annotation (Dialog(
-      group="Animation",
+      tab="Animation",
+      group="if animation = true",
       enable=animate));
   parameter SI.Distance cylinderLength=planarWorld.defaultJointLength
     "Length of cylinder representing the joint axis"
-    annotation (Dialog(group="Animation", enable=animate));
+    annotation (Dialog(tab="Animation",
+      group="if animation = true", enable=animate));
   parameter SI.Distance cylinderDiameter=planarWorld.defaultJointWidth
     "Diameter of cylinder representing the joint axis"
-    annotation (Dialog(group="Animation", enable=animate));
+    annotation (Dialog(tab="Animation",
+      group="if animation = true", enable=animate));
   input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor
     "Color of cylinder representing the joint axis"
-    annotation (HideResult=true, Dialog(colorSelector=true,group="Animation", enable=animate));
+    annotation (HideResult=true, Dialog(colorSelector=true,tab="Animation",
+      group="if animation = true", enable=animate));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (HideResult=true, Dialog(group="Animation", enable=animate));
+    annotation (HideResult=true, Dialog(tab="Animation",
+      group="if animation = true", enable=animate));
   parameter Boolean extraLine=false
     "Enable black line in the cylinder to show the joint rotation"
     annotation (HideResult = true,
-      Dialog(group="Animation",enable=animate),choices(checkBox=true));
+      Dialog(tab="Animation",
+      group="if animation = true",enable=animate),choices(checkBox=true));
 
   SI.Angle phi(final stateSelect = stateSelect, start = 0) "Angular position"
     annotation(Dialog(group="Initialization", showStartAttribute=true));
