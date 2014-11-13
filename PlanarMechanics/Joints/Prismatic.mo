@@ -5,8 +5,9 @@ model Prismatic "A prismatic joint"
   parameter Boolean useFlange=false
     "= true, if force flange enabled, otherwise implicitly grounded"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
+  parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true);
   parameter StateSelect stateSelect=StateSelect.default
-    "Priority to use acceleration as states" annotation(HideResult=true,Dialog(tab="Advanced"));
+    "Priority to use s and v as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
   parameter SI.Position r[2] "Direction of the rod wrt. body system at phi=0";
   final parameter SI.Length l = sqrt(r*r) "Lengt of r";
@@ -16,22 +17,24 @@ model Prismatic "A prismatic joint"
    annotation (
       Placement(transformation(extent={{-10,80},{10,100}})));
 
-  parameter Boolean animate = true "= true, if animation shall be enabled"
-     annotation(Dialog(group="Animation"));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of the prismatic joint box" annotation (Dialog(
-      group="Animation",
+      tab="Animation",
+      group="if animation = true",
       enable=animate));
   parameter SI.Distance boxWidth=l/planarWorld.defaultWidthFraction
     "Width of prismatic joint box"
-    annotation (Dialog(group="Animation", enable=animate));
+    annotation (Dialog(tab="Animation",
+      group="if animation = true", enable=animate));
   input Types.Color boxColor=Types.Defaults.JointColor
     "Color of prismatic joint box"
-    annotation (HideResult=true, Dialog(group="Animation", enable=animate));
+    annotation (HideResult=true, Dialog(tab="Animation",
+      group="if animation = true", enable=animate));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (HideResult=true, Dialog(group="Animation", enable=animate));
+    annotation (HideResult=true, Dialog(tab="Animation",
+      group="if animation = true", enable=animate));
 
   SI.Position s(final stateSelect = stateSelect, start = 0)
     "Elongation of the joint" annotation(Dialog(group="Initialization", showStartAttribute=true));
