@@ -61,7 +61,7 @@ equation
       points={{41,0},{70,0},{70,70},{42,70}},
       color={0,0,127}));
 
-  connect(fixed.frame_a, prismatic.frame_a) annotation (Line(
+  connect(fixed.frame, prismatic.frame_a) annotation (Line(
       points={{-60,30},{-40,30}},
       color={95,95,95},
       thickness=0.5));
