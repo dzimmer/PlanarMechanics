@@ -18,6 +18,10 @@ convertClass("PlanarMechanics.Utilities.AtanLib.atan3b_dder", "PlanarMechanics.U
 convertClass("PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.TwoPlanarConnectorsHeat", "PlanarMechanics.Interfaces.PartialTwoFramesAndHeat");
 
 convertElement("PlanarMechanics.Parts.Fixed", "frame_a", "frame");
+convertModifiers("PlanarMechanics.Joints.IdealRolling", {"initialize=true"}, {"x(fixed=%initialize%)"});
+convertModifiers("PlanarMechanics.Joints.IdealRolling", {"x_start=0"}, {"x(start=%x_start%)"});
+convertModifiers("PlanarMechanics.Joints.DryFrictionBasedRolling", {"initialize=true"}, {"x(fixed=%initialize%)"});
+convertModifiers("PlanarMechanics.Joints.DryFrictionBasedRolling", {"initialize=true"}, {"vx(fixed=%initialize%)"});
 
 //convertElement("PlanarMechanics...", "frame_a", "frameNameNew");
 //convertModifiers("PlanarMechanics...", {"eff=1"}, {"lossTable=[0,%eff%,%eff%,0,0]"});

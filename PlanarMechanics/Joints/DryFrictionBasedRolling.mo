@@ -13,7 +13,6 @@ model DryFrictionBasedRolling
   parameter SI.Velocity vSlide "Sliding velocity";
   parameter Real mu_A "Friction coefficient at adhesion";
   parameter Real mu_S "Friction coefficient at sliding";
-  parameter Boolean initialize = false "Initialize Position and Velocity";
 
   parameter Boolean animate = true "Enable animation"
                                                      annotation(Dialog(group="Animation"));
