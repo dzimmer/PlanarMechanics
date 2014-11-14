@@ -33,7 +33,7 @@ model SpringDamperDemo "Spring damper demo"
   Parts.FixedTranslation fixedTranslation(r={-1,0})
     annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
 equation
-  connect(fixed.frame_a,fixedTranslation. frame_a) annotation (Line(
+  connect(fixed.frame, fixedTranslation.frame_a) annotation (Line(
       points={{-60,40},{-40,40}},
       color={95,95,95},
       thickness=0.5));

@@ -250,29 +250,34 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           textString="%label2"),
         Line(points={{-56,60},{-56,-26}}, color={0,0,255}),
         Polygon(
-          points={{-68,-26},{-56,-66},{-44,-26},{-68,-26}},
+          points={{-68,-8},{-56,-48},{-44,-8},{-68,-8}},
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
         Line(points={{2,60},{2,-26}}, color={0,0,255}),
         Polygon(
-          points={{-10,-26},{2,-66},{14,-26},{-10,-26}},
+          points={{-10,-8},{2,-48},{14,-8},{-10,-8}},
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
         Line(points={{66,60},{66,-26}}, color={0,0,255}),
         Polygon(
-          points={{54,-26},{66,-66},{78,-26},{54,-26}},
+          points={{54,-8},{66,-48},{78,-8},{54,-8}},
           fillColor={0,0,255},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
         Text(
           extent={{-80,90},{80,60}},
           lineColor={0,0,0},
-          textString="2-dim.")}),
-    Documentation(revisions=
+          textString="2-dim."),
+        Text(
+          extent={{-100,-50},{100,-80}},
+          lineColor={0,0,0},
+          textString="g=%g")}),
+    Documentation(
+      revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
-                                                                                                    info="<html>
+      info="<html>
 <p>Model <b>PlanarWorld</b> defines all possible general parameters to make parameterization of models much more conveniant. It has the following functionalites.</p>
 <ol>
 <li>It defines the global coordinate system fixed in ground and show x, y, z axises in animation if wanted.</li>

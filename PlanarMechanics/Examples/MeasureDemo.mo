@@ -50,8 +50,8 @@ equation
       points={{50,-20},{56,-20},{70,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed.frame_a, revolute1.frame_a) annotation (Line(
-      points={{-80,20},{-72,20},{-70,20}},
+  connect(fixed.frame, revolute1.frame_a) annotation (Line(
+      points={{-80,20},{-70,20}},
       color={95,95,95},
       thickness=0.5));
   connect(revolute1.frame_b, fixedTranslation.frame_a) annotation (Line(

@@ -42,8 +42,7 @@ model PistonEngine "A piston engine (manual state selection)"
   inner PlanarWorld planarWorld(defaultWidthFraction=10)
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
-  connect(fixed.frame_a, revoluteDrive.frame_a)
-                                           annotation (Line(
+  connect(fixed.frame, revoluteDrive.frame_a) annotation (Line(
       points={{-80,50},{-70,50}},
       color={95,95,95},
       thickness=0.5));
@@ -52,7 +51,7 @@ equation
       points={{-50,50},{-30,50}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed1.frame_a, prismatic.frame_b) annotation (Line(
+  connect(fixed1.frame, prismatic.frame_b) annotation (Line(
       points={{60,-50},{50,-50}},
       color={95,95,95},
       thickness=0.5));

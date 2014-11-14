@@ -37,7 +37,7 @@ model SpringDemo "Spring demo"
         rotation=270,
         origin={30,0})));
 equation
-  connect(fixed.frame_a, fixedTranslation.frame_a) annotation (Line(
+  connect(fixed.frame, fixedTranslation.frame_a) annotation (Line(
       points={{-60,40},{-40,40}},
       color={95,95,95},
       thickness=0.5));

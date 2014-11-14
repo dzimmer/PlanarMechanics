@@ -76,7 +76,12 @@ equation
   //dry-friction law
   v_slip = vx + w*R;
   N = -frame_a.fy;
-  frame_a.fx = N*noEvent(Utilities.TripleS_Func(vAdhesion,vSlide,mu_A,mu_S,v_slip));
+  frame_a.fx =N*noEvent(Utilities.Functions.limitByStriple(
+    vAdhesion,
+    vSlide,
+    mu_A,
+    mu_S,
+    v_slip));
   //balance forces
   frame_a.fx*R = frame_a.t;
   annotation (Icon(graphics={

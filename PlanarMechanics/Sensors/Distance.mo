@@ -1,7 +1,7 @@
 within PlanarMechanics.Sensors;
 model Distance
   "Measure the distance between the origins of two frame connectors"
-  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
   extends Modelica.Icons.TranslationalSensor;
 
   import Modelica.Mechanics.MultiBody.Frames;

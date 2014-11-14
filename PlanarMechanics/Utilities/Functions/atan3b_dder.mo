@@ -1,4 +1,4 @@
-within PlanarMechanics.Utilities.AtanLib;
+within PlanarMechanics.Utilities.Functions;
 function atan3b_dder "Second deviation of atan3"
   import Modelica.Math;
   input Real u1;

@@ -3,21 +3,6 @@ package Examples "Collection of introductory examples"
   extends Modelica.Icons.ExamplesPackage;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   annotation (Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>

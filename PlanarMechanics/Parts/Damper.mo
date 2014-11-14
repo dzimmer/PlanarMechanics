@@ -1,6 +1,6 @@
 within PlanarMechanics.Parts;
 model Damper "Linear (velocity dependent) damper"
-  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));

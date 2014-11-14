@@ -52,7 +52,7 @@ equation
       points={{0,-20},{0,-20},{0,-30}},
       color={95,95,95},
       thickness=0.5));
-  connect(revolute.frame_a, fixed.frame_a) annotation (Line(
+  connect(revolute.frame_a, fixed.frame) annotation (Line(
       points={{0,-50},{0,-50},{0,-60}},
       color={95,95,95},
       thickness=0.5));

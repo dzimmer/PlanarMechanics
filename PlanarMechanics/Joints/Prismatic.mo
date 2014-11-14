@@ -1,6 +1,6 @@
 within PlanarMechanics.Joints;
 model Prismatic "A prismatic joint"
-  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
   parameter Boolean useFlange=false
     "= true, if force flange enabled, otherwise implicitly grounded"

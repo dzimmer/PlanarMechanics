@@ -1,0 +1,23 @@
+// Convert from PlanarMechanics 1.3.0 to PlanarMechanics 1.4.0 and higher
+
+// clear
+convertClear();
+
+
+// Change references to classes that are renamed
+convertClass("PlanarMechanics.Interfaces.PartialTwoFlanges", "PlanarMechanics.Interfaces.PartialTwoFrames");
+convertClass("PlanarMechanics.Utilities.S_Func", "PlanarMechanics.Utilities.Functions.limitBySform");
+convertClass("PlanarMechanics.Utilities.S_FuncBlock", "PlanarMechanics.Utilities.Blocks.LimiterS");
+convertClass("PlanarMechanics.Utilities.TripleS_Func", "PlanarMechanics.Utilities.Functions.limitByStriple");
+convertClass("PlanarMechanics.Utilities.SquaretimesSign", "PlanarMechanics.Utilities.Blocks.SquaretimesSign");
+
+convertClass("PlanarMechanics.Utilities.AtanLib.atan3b", "PlanarMechanics.Utilities.Functions.atan3b");
+convertClass("PlanarMechanics.Utilities.AtanLib.atan3b_der", "PlanarMechanics.Utilities.Functions.atan3b_der");
+convertClass("PlanarMechanics.Utilities.AtanLib.atan3b_dder", "PlanarMechanics.Utilities.Functions.atan3b_dder");
+
+convertClass("PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.TwoPlanarConnectorsHeat", "PlanarMechanics.Interfaces.PartialTwoFramesAndHeat");
+
+convertElement("PlanarMechanics.Parts.Fixed", "frame_a", "frame");
+
+//convertElement("PlanarMechanics...", "frame_a", "frameNameNew");
+//convertModifiers("PlanarMechanics...", {"eff=1"}, {"lossTable=[0,%eff%,%eff%,0,0]"});

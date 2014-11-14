@@ -123,7 +123,12 @@ equation
   vAdhesion = noEvent(max(sAdhesion*abs(radius*w_roll),vAdhesion_min));
   vSlide = noEvent(max(sSlide*abs(radius*w_roll),vSlide_min));
   fN = max(0, N+dynamicLoad);
-  f = fN*noEvent(Utilities.TripleS_Func(vAdhesion,vSlide,mu_A,mu_S,v_slip));
+  f =fN*noEvent(Utilities.Functions.limitByStriple(
+    vAdhesion,
+    vSlide,
+    mu_A,
+    mu_S,
+    v_slip));
   f_long =f*v_slip_long/v_slip;
   f_lat  =f*v_slip_lat/v_slip;
   f_long = {frame_a.fx, frame_a.fy}*e0;

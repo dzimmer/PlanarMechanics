@@ -1,7 +1,7 @@
 within PlanarMechanics.Sensors;
 model Power "Measure power flowing from frame_a to frame_b"
   extends Modelica.Icons.RotationalSensor;
-  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
   Modelica.Blocks.Interfaces.RealOutput power(quantity="Power",unit="W")
     "Power at frame_a as output signal"

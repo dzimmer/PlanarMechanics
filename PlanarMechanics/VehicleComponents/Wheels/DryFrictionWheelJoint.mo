@@ -110,7 +110,12 @@ equation
   v_slip = sqrt(v_slip_long^2 + v_slip_lat^2)+0.0001;
   -f_long*radius = flange_a.tau;
   frame_a.t = 0;
-  f = N*noEvent(Utilities.TripleS_Func(vAdhesion,vSlide,mu_A,mu_S,v_slip));
+  f =N*noEvent(Utilities.Functions.limitByStriple(
+    vAdhesion,
+    vSlide,
+    mu_A,
+    mu_S,
+    v_slip));
   f_long =f*v_slip_long/v_slip;
   f_lat  =f*v_slip_lat/v_slip;
   f_long = {frame_a.fx, frame_a.fy}*e0;
