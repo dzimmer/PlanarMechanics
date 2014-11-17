@@ -1,4 +1,4 @@
-within PlanarMechanics.Utilities.AtanLib;
+within PlanarMechanics.Utilities.Functions;
 function atan3b
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
   import Modelica.Math;

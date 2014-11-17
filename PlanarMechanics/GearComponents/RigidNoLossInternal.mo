@@ -1,8 +1,7 @@
 within PlanarMechanics.GearComponents;
 model RigidNoLossInternal "Internal rigid gear gonnection model"
   extends PlanarMechanics.Utilities.Icons.PlanarGearContactInternalL1;
-  extends
-    PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.TwoPlanarConnectorsHeat;
+  extends PlanarMechanics.Interfaces.PartialTwoFramesAndHeat;
 
   parameter SI.Distance r_a=1 "Radius of gear A";
   parameter SI.Distance r_b=1 "Radius of gear B";
@@ -131,10 +130,10 @@ equation
 // calculae phi_gear.
   phi_gear_zero = firstOrder.y;
   firstOrder.u = phi_gear;
-   phi_gear = PlanarMechanics.Utilities.AtanLib.atan3b(
-     frame_a.y - frame_b.y,
-     frame_a.x - frame_b.x,
-     (phi_gear_zero));
+   phi_gear =PlanarMechanics.Utilities.Functions.atan3b(
+    frame_a.y - frame_b.y,
+    frame_a.x - frame_b.x,
+    (phi_gear_zero));
 
 // ********* General set up **************
 // set up the total traveled angle

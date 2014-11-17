@@ -1,12 +1,17 @@
-within PlanarMechanics.Utilities;
-block S_FuncBlock
+within PlanarMechanics.Utilities.Blocks;
+block LimiterS "Limit the range of output y using S-form transition"
   extends Modelica.Blocks.Interfaces.SISO;
   parameter Real x_min = 0;
   parameter Real x_max = 1;
   parameter Real y_min = 0;
   parameter Real y_max = 1;
 equation
-  y = S_Func(x_min,x_max,y_min,y_max,u);
+  y =Functions.limitBySform(
+    x_min,
+    x_max,
+    y_min,
+    y_max,
+    u);
   annotation (Icon(graphics={
     Line(points={{-70,-78},{-70,78}}, color={192,192,192}),
     Polygon(
@@ -29,4 +34,4 @@ equation
       Documentation(revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
-end S_FuncBlock;
+end LimiterS;

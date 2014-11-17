@@ -2,6 +2,7 @@ Frame
 Frame_a
 Frame_b
 Frame_resolve
-PartialTwoFlanges
+PartialTwoFrames
+PartialTwoFramesAndHeat
 PlanarToMultiBody
 ZeroPosition

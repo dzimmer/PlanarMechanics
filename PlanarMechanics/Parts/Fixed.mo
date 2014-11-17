@@ -5,11 +5,11 @@ model Fixed
   parameter SI.Position r[2] = {0,0} "Fixed x,y-position";
   parameter SI.Angle phi = 0 "Fixed angle";
 
-  Interfaces.Frame_b frame_a
+  Interfaces.Frame_b frame
     annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 equation
-  {frame_a.x,frame_a.y} = r;
-  frame_a.phi = phi;
+  {frame.x,frame.y} = r;
+  frame.phi = phi;
   annotation (Icon(graphics={
         Text(
           extent={{-150,-80},{150,-120}},

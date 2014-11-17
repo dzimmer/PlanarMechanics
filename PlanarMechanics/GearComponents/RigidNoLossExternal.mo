@@ -1,8 +1,7 @@
 within PlanarMechanics.GearComponents;
 model RigidNoLossExternal "External rigid gear gonnection model"
   extends PlanarMechanics.Utilities.Icons.PlanarGearContactExternalL1;
-  extends
-    PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.TwoPlanarConnectorsHeat;
+  extends PlanarMechanics.Interfaces.PartialTwoFramesAndHeat;
 
   parameter SI.Distance r_a=1 "Radius of gear A";
   parameter SI.Distance r_b=1 "Radius of gear B";
@@ -12,8 +11,8 @@ model RigidNoLossExternal "External rigid gear gonnection model"
      tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Angle StartAngle_b = 0 "Start Angle of gear B" annotation (Dialog(
-      HideResult=true,tab="Animation",
+  parameter SI.Angle StartAngle_b = 0 "Start Angle of gear B" annotation (HideResult=true,Dialog(
+      tab="Animation",
       group="if animation = true",
       enable=animate));
   parameter Integer Tooth_a(min=1) = 20 "Number of teeth" annotation ( HideResult=true,Dialog(
@@ -130,7 +129,7 @@ equation
 
   phi_gear_zero = firstOrder.y;
   firstOrder.u = phi_gear;
-  phi_gear = PlanarMechanics.Utilities.AtanLib.atan3b(
+  phi_gear =PlanarMechanics.Utilities.Functions.atan3b(
     frame_b.y - frame_a.y,
     frame_b.x - frame_a.x,
     (phi_gear_zero));

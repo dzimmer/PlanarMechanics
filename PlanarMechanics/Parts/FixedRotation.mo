@@ -1,6 +1,6 @@
 within PlanarMechanics.Parts;
 model FixedRotation "A fixed translation between two components (rigid rod)"
-  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
   parameter SI.Angle alpha "Fixed rotation angle";
   parameter Boolean animate = true "= true, if animation shall be enabled"

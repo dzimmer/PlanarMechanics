@@ -13,7 +13,6 @@ model DryFrictionBasedRolling
   parameter SI.Velocity vSlide "Sliding velocity";
   parameter Real mu_A "Friction coefficient at adhesion";
   parameter Real mu_S "Friction coefficient at sliding";
-  parameter Boolean initialize = false "Initialize Position and Velocity";
 
   parameter Boolean animate = true "Enable animation"
                                                      annotation(Dialog(group="Animation"));
@@ -76,7 +75,12 @@ equation
   //dry-friction law
   v_slip = vx + w*R;
   N = -frame_a.fy;
-  frame_a.fx = N*noEvent(Utilities.TripleS_Func(vAdhesion,vSlide,mu_A,mu_S,v_slip));
+  frame_a.fx =N*noEvent(Utilities.Functions.limitByStriple(
+    vAdhesion,
+    vSlide,
+    mu_A,
+    mu_S,
+    v_slip));
   //balance forces
   frame_a.fx*R = frame_a.t;
   annotation (Icon(graphics={

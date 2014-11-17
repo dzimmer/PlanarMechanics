@@ -1,6 +1,6 @@
 within PlanarMechanics.Parts;
 model FixedTranslation "A fixed translation between two components (rigid rod)"
-  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
   parameter SI.Length r[2] = {1,0}
     "Fixed x,y-length of the rod resolved w.r.t to body frame_a at phi = 0";

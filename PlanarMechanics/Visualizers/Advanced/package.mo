@@ -3,7 +3,6 @@ package Advanced "Visualizers that require advanced knowledge in order to use th
   extends Modelica.Icons.Package;
 
 
-
   annotation (Documentation(info="<html>
 <p>
 This package contains components to visualize 2-dimensional shapes with dynamical sizes in 3-dimensional world. None of the components

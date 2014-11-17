@@ -18,7 +18,6 @@ model CounterSpin "Wheel with counter-spin and dry-friction law"
     R=0.1,
     vAdhesion=0.01,
     mu_S=0.15,
-    initialize=true,
     phi(fixed=true),
     w(fixed=true, start=15),
     vx(fixed=true, start=2),

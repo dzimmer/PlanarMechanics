@@ -7,10 +7,8 @@ model IdealRolling "A joint representing a wheel ideally rolling on the x-axis"
   outer PlanarWorld planarWorld "Planar world model";
 
   parameter SI.Length R = 1.0 "Radius of the wheel";
-  parameter Boolean initialize = false "Initialize Position";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
-  parameter SI.Position x_start = 0;
   //parameter SI.Angle phi_start = 0;
   //parameter SI.AngularVelocity w_start = 0;
   parameter Boolean animate = true "Enable animation" annotation(Dialog(group="Animation"));

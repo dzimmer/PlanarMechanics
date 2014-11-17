@@ -1,11 +1,11 @@
 within PlanarMechanics.Examples;
 model WheelBasedCranCrab "A pendulum mounted on an ideal rolling wheel"
   extends Modelica.Icons.Example;
-  Joints.IdealRolling idealRolling(R=0.3, initialize=true,
-    x_start=0,
-    x(fixed=true),
+  Joints.IdealRolling idealRolling(
+    R=0.3,
     phi(fixed=true),
-    w(fixed=true))                        annotation (Placement(
+    w(fixed=true),
+    x(fixed=true, start=0))               annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -42,7 +42,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(body1.frame_a, fixedTranslation.frame_b) annotation (Line(
-      points={{-20,-40},{-20,-35},{-20,-35},{-20,-30}},
+      points={{-20,-40},{-20,-35},{-20,-30}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation.frame_a, revolute.frame_b) annotation (Line(
