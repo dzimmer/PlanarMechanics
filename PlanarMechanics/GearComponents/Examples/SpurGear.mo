@@ -6,7 +6,7 @@ model SpurGear "Rigid spur gear"
     useFlange=true,
     w(fixed=false),
     phi(fixed=true))
-    annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    annotation (Placement(transformation(extent={{-60,10},{-40,-10}})));
   Modelica.Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(w_fixed=1)
     annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
   PlanarMechanics.Parts.Body gearA(m=1, I=1e-3)
@@ -30,7 +30,7 @@ model SpurGear "Rigid spur gear"
   PlanarMechanics.Joints.Revolute gearB_Bearing(
     useFlange=true,
     phi(fixed=false))
-    annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+    annotation (Placement(transformation(extent={{40,10},{60,-10}})));
   Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(
     tau_constant=10)
     annotation (Placement(transformation(extent={{-100,38},{-80,58}})));

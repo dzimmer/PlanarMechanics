@@ -9,7 +9,7 @@ model MeasureDemo "Measure demo"
   Parts.FixedTranslation fixedTranslation(r={1,0})
     annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-90,20})));
   Parts.Body body1(

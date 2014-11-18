@@ -161,10 +161,9 @@ equation
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={231,231,231}),
         Text(
-          extent={{-100,-100},{100,-140}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name")}),    Documentation(info="<html>
+          extent={{-150,140},{150,100}},
+          textString="%name",
+          lineColor={0,0,255})}),   Documentation(info="<html>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has dry-friction characteristics. This is an approximation for stiff wheels without a tire.</p>
 <p>The force depends with dry-friction characteristics on the slip velocity. The slip velocity is split into two components:</p>
 <ul>

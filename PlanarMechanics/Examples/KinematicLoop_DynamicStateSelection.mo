@@ -25,8 +25,8 @@ model KinematicLoop_DynamicStateSelection "An example of a kinematic loop"
     useFlange=true,
     s(fixed=true, start=0.4),
     v(fixed=true, start=0))
-    annotation (Placement(transformation(extent={{20,50},{40,70}})));
-  Modelica.Mechanics.Translational.Components.SpringDamper springDamper(
+    annotation (Placement(transformation(extent={{20,70},{40,50}})));
+  Modelica.Mechanics.Translational.Components.SpringDamper springDamper1D(
     c=20,
     s_rel0=0.4,
     d=4) annotation (Placement(transformation(extent={{0,80},{20,100}})));
@@ -50,7 +50,7 @@ model KinematicLoop_DynamicStateSelection "An example of a kinematic loop"
         extent={{-10,-10},{10,10}},
         origin={10,-60})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-50,60})));
   Modelica.Mechanics.Translational.Components.Fixed fixed1D annotation (
@@ -85,7 +85,7 @@ equation
       points={{-20,50},{-20,60},{-40,60}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed1D.flange, springDamper.flange_a)
+  connect(fixed1D.flange, springDamper1D.flange_a)
     annotation (Line(points={{-46,90},{0,90}}, color={0,127,0}));
   connect(revolute4.frame_a, fixedTranslation1.frame_b) annotation (Line(
       points={{-20,-30},{-20,-15},{-20,0}},
@@ -103,9 +103,8 @@ equation
       points={{40,60},{80,60},{80,50}},
       color={95,95,95},
       thickness=0.5));
-  connect(springDamper.flange_b, prismatic1.flange_a) annotation (Line(
-      points={{20,90},{30,90},{30,69}},
-      color={0,127,0}));
+  connect(springDamper1D.flange_b, prismatic1.flange_a)
+    annotation (Line(points={{20,90},{30,90},{30,69}}, color={0,127,0}));
   annotation (experiment(StopTime=6),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>In this version, the states are not manually set but might be dynamically selected by the simulation environment.</p>

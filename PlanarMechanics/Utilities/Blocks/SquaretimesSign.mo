@@ -39,11 +39,7 @@ Example:
     extent={{-100,-100},{100,100}}), graphics={Text(
       extent={{-90,-60},{90,60}},
       lineColor={160,160,164},
-          textString="K^*sign"),
-                        Text(
-      extent={{-150,150},{150,110}},
-      textString="%name",
-      lineColor={0,0,255})}),
+          textString="K^*sign")}),
     Diagram(coordinateSystem(
     preserveAspectRatio=true,
     extent={{-100,-100},{100,100}}), graphics={Rectangle(

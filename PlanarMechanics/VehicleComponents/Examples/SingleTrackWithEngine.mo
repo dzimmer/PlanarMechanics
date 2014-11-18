@@ -13,7 +13,7 @@ model SingleTrackWithEngine "Single track model"
     radius=0.3,
     phi_roll(fixed=true))
           annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={0,50})));
   Parts.FixedTranslation chassis(r={0,1})             annotation (
@@ -37,7 +37,7 @@ model SingleTrackWithEngine "Single track model"
     phi_roll(fixed=true),
     stateSelect=StateSelect.default)
                 annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={0,-80})));
   Joints.Revolute revolute(

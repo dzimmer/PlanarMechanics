@@ -41,7 +41,7 @@ model TestSlipBasedWheel "A slip-based wheel"
     vSlide_min=0.15,
     w_roll(fixed=false, start=10))
               annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=90,
         origin={0,30})));
   Modelica.Blocks.Sources.Constant const(k=0)
@@ -70,7 +70,7 @@ equation
   connect(slipBasedWheelJoint.flange_a, inertia.flange_b) annotation (Line(
       points={{0,40},{0,40},{0,50}}));
   connect(const.y, slipBasedWheelJoint.dynamicLoad) annotation (Line(
-      points={{-39,30},{-24,30},{-10,30}},
+      points={{-39,30},{-10,30}},
       color={0,0,127}));
   annotation (Documentation(revisions="<html>
 <p>

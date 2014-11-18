@@ -16,7 +16,7 @@ model PistonEngine "A piston engine (manual state selection)"
   Parts.FixedTranslation fixedTranslationDisc(r={0.3,0})
     annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-90,50})));
   Joints.Prismatic prismatic(r={1,0}, s(fixed=false, start=0))
@@ -69,8 +69,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(revolutePiston.frame_b, pistonRod.frame_b) annotation (Line(
-      points={{0,-20},{0,-12},{0,-12},{
-          0,-10}},
+      points={{0,-20},{0,-12},{0,-10}},
       color={95,95,95},
       thickness=0.5));
   connect(prismatic.frame_a, revolutePiston.frame_a) annotation (Line(

@@ -92,13 +92,14 @@ equation
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-150,110},{150,70}},
-          textString="%name"),
+          textString="%name",
+          lineColor={0,0,255}),
         Text(
-          extent={{-140,-22},{-104,-47}},
+          extent={{-108,-24},{-72,-49}},
           lineColor={128,128,128},
           textString="a"),
         Text(
-          extent={{104,-22},{140,-47}},
+          extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
           textString="b")}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
