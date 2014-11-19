@@ -44,31 +44,30 @@ equation
   frame_a.fy + frame_b.fy = 0;
   frame_a.t + frame_b.t = 0;
   annotation (Icon(graphics={
-        Text(
-          extent={{-150,-50},{150,-90}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name"),
         Polygon(
-          points={{96,10},{96,-10},{0,32},{-96,-10},{-96,8},{0,52},{96,10}},
+          points={{96,-8},{96,12},{0,-30},{-96,12},{-96,-6},{0,-50},{96,-8}},
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Ellipse(
-          extent={{-20,60},{20,20}},
+          extent={{-20,-20},{20,-60}},
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Ellipse(
-          extent={{-10,50},{10,30}},
+          extent={{-10,-30},{10,-50}},
           lineColor={255,255,255},
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid,
           lineThickness=0.5),
         Text(
-          extent={{-98,52},{-62,27}},
+          extent={{-150,80},{150,40}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Text(
+          extent={{-108,-24},{-72,-49}},
           lineColor={128,128,128},
           textString="a"),
         Text(
-          extent={{62,52},{98,27}},
+          extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
           textString="b")}),       Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static angle difference <b>alpha</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>

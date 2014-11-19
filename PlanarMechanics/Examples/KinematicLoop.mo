@@ -34,12 +34,11 @@ model KinematicLoop "An example of a kinematic loop (manual state selection)"
     useFlange=true,
     s(start=0.4, fixed=true),
     v(start=0, fixed=true))
-    annotation (Placement(transformation(extent={{20,50},{40,70}})));
-  Modelica.Mechanics.Translational.Components.SpringDamper springDamper(
+    annotation (Placement(transformation(extent={{20,70},{40,50}})));
+  Modelica.Mechanics.Translational.Components.SpringDamper springDamper1D(
     c=20,
     d=4,
-    s_rel0=0.4)
-         annotation (Placement(transformation(extent={{0,80},{20,100}})));
+    s_rel0=0.4) annotation (Placement(transformation(extent={{0,80},{20,100}})));
   Parts.Body body(
     m=1,
     I=0.1) annotation (Placement(transformation(
@@ -60,7 +59,7 @@ model KinematicLoop "An example of a kinematic loop (manual state selection)"
         extent={{-10,-10},{10,10}},
         origin={10,-60})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-50,60})));
   Modelica.Mechanics.Translational.Components.Fixed fixed1D annotation (
@@ -95,7 +94,7 @@ equation
       points={{-20,50},{-20,60},{-40,60}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed1D.flange, springDamper.flange_a)
+  connect(fixed1D.flange, springDamper1D.flange_a)
     annotation (Line(points={{-46,90},{0,90}}, color={0,127,0}));
   connect(revolute4.frame_a, fixedTranslation1.frame_b) annotation (Line(
       points={{-20,-30},{-20,-16},{-20,0}},
@@ -109,9 +108,8 @@ equation
       points={{20,60},{-40,60}},
       color={95,95,95},
       thickness=0.5));
-  connect(springDamper.flange_b, prismatic1.flange_a) annotation (Line(
-      points={{20,90},{30,90},{30,69}},
-      color={0,127,0}));
+  connect(springDamper1D.flange_b, prismatic1.flange_a)
+    annotation (Line(points={{20,90},{30,90},{30,69}}, color={0,127,0}));
   connect(prismatic1.frame_b,revolute3. frame_a) annotation (Line(
       points={{40,60},{80,60},{80,50}},
       color={95,95,95},

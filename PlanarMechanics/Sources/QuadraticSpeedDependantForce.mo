@@ -124,9 +124,6 @@ equation
           lineColor={0,127,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-150,80},{150,40}},
-          textString="%name"),
         Line(
           points={{-100,-100},{-80,-98},{-60,-92},{-40,-82},{-20,-68},{0,-50},{20,
               -28},{40,-2},{60,28},{80,62},{100,100}},
@@ -136,7 +133,15 @@ equation
           points={{0,-10},{0,-100}},
           color={95,95,95},
           smooth=Smooth.None,
-          pattern=LinePattern.Dot)}),
+          pattern=LinePattern.Dot),
+        Text(
+          extent={{-150,80},{150,40}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Text(
+          extent={{72,-24},{108,-49}},
+          lineColor={128,128,128},
+          textString="b")}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Model of a force quadratic dependant on the velocity of the flange. The force can be resolved in a world frame, or a relative speed can be used by selecting resolve_frame to use the extra frame_resolve.</p>
 <p>This model is e.g. suitable to simulate aerodynamic drag forces.</p>

@@ -13,7 +13,7 @@ model PowerDistanceDemo "Power and distance sensor demo"
         rotation=270,
         origin={-10,-30})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-70,30})));
   Parts.Body body1(

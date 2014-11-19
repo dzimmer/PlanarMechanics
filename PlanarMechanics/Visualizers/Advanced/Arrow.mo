@@ -107,7 +107,7 @@ library (will be replaced by a color editor).
           fillColor={128,128,128},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-150,105},{150,65}},
+          extent={{-150,100},{150,60}},
           textString="%name",
           lineColor={0,0,255})}));
 end Arrow;

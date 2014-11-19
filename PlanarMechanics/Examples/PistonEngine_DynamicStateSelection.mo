@@ -13,7 +13,7 @@ model PistonEngine_DynamicStateSelection "A piston engine"
   Parts.FixedTranslation fixedTranslationDisc(r={0.3,0})
     annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-90,50})));
   Joints.Prismatic prismatic(r={1,0}, s(start=0, fixed=false))

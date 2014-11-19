@@ -52,10 +52,6 @@ equation
           points={{70,0},{100,0}},
           color={0,0,127}),
         Text(
-          extent={{-127,95},{134,143}},
-          textString="%name",
-          lineColor={0,0,255}),
-        Text(
           extent={{62,46},{146,16}},
           textString="r"),
         Text(
@@ -64,7 +60,11 @@ equation
           textString="resolve"),
         Line(
           points={{0,-100},{0,-70}},
-          pattern=LinePattern.Dot)}),
+          pattern=LinePattern.Dot),
+        Text(
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          lineColor={0,0,255})}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The absolute position and angle vector<b> [x,y,phi]</b> of the origin of frame_a is determined and provided at the output signal connector <b>r</b>.</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the position and angle vector is resolved: </p>

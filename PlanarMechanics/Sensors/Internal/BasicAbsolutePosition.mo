@@ -29,10 +29,11 @@ equation
    end if;
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}},
-        grid={1,1}), graphics={Text(
+        grid={2,2}), graphics={Text(
           extent={{61,47},{145,17}},
-          textString="r"), Text(
-          extent={{-127,75},{134,123}},
+          textString="r"),
+        Text(
+          extent={{-150,120},{150,80}},
           textString="%name",
           lineColor={0,0,255})}));
 end BasicAbsolutePosition;

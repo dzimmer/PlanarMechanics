@@ -57,12 +57,12 @@ equation
           points={{0,-70},{0,-100}},
           color={0,0,127}),
         Text(
-          extent={{-127,95},{134,143}},
-          textString="%name",
-          lineColor={0,0,255}),
-        Text(
           extent={{18,-80},{102,-110}},
-          textString="r_rel")}),
+          textString="r_rel"),
+        Text(
+          extent={{-150,140},{150,100}},
+          textString="%name",
+          lineColor={0,0,255})}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The relative position and angle vector<b> [x,y,phi]</b> between the origins of frame_a and frame_b are determined and provided at the output signal connector <b>r_rel</b>.</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the position vector is resolved: </p>

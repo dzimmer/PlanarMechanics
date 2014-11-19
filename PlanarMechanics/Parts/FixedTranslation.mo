@@ -49,23 +49,27 @@ equation
   frame_a.t  + frame_b.t + r0*{frame_b.fy,-frame_b.fx} = 0;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}),
-                   graphics={
-        Text(
-          extent={{-150,-50},{150,-90}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name"), Rectangle(
+      graphics={
+        Rectangle(
           extent={{-100,6},{100,-6}},
           fillPattern=FillPattern.Solid,
           fillColor={175,175,175}),
         Text(
-          extent={{-98,46},{-62,21}},
+          extent={{-108,-24},{-72,-49}},
           lineColor={128,128,128},
           textString="a"),
         Text(
-          extent={{62,46},{98,21}},
+          extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
-          textString="b")}),             Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          textString="b"),
+        Text(
+          extent={{-150,80},{150,40}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Text(
+          extent={{-100,-50},{100,-80}},
+          lineColor={0,0,0},
+          textString="r=%r")}),          Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static position difference <b>r</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>
 </html>"),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
