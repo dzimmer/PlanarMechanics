@@ -25,7 +25,5 @@ object and an assert to check that both frame connectors are connected.
 Therefore, inherit from this partial model if the two frame connectors are
 needed and if the two frame connectors should be connected for a correct model.
 -->
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                         graphics));
+</html>"));
 end PartialTwoFrames;

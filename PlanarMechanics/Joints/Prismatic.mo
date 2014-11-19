@@ -98,9 +98,7 @@ equation
           fillColor={175,175,175}),
         Line(
           visible=useFlange,
-          points={{0,-90},{0,-20}},
-          color={0,0,0},
-          smooth=Smooth.None),
+          points={{0,-90},{0,-20}}),
         Text(
           extent={{-140,-22},{-104,-47}},
           lineColor={128,128,128},
@@ -117,8 +115,6 @@ equation
           extent={{-100,-50},{100,-80}},
           lineColor={0,0,0},
           textString="r=%r")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}),graphics),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>Direction of the Joint is determined by <b>r[2]</b>, which is a vector pointing from <b>frame_a</b> to <b>frame_b</b>. </p>
 <p>By setting <b>useFlange</b> as true, the flange for a 1-dim. translational input will be activated. In the &quot;Initialization&quot; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
