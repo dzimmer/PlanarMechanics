@@ -14,7 +14,7 @@ model Pendulum "A free swinging pendulum"
   Parts.FixedTranslation fixedTranslation(r= {1,0})
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Parts.Fixed fixed(phi=0) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-60,0})));
   inner PlanarWorld planarWorld(defaultWidthFraction=10)

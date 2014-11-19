@@ -17,17 +17,18 @@ model PartialAbsoluteBaseSensor
         origin={0,-100})));
 
 equation
-   assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-   assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
-   frame_a.fx = 0;
-   frame_a.fy = 0;
-   frame_a.t = 0;
-   frame_resolve.fx = 0;
-   frame_resolve.fy = 0;
-   frame_resolve.t = 0;
+  assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
+  assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
+  frame_a.fx = 0;
+  frame_a.fy = 0;
+  frame_a.t = 0;
+  frame_resolve.fx = 0;
+  frame_resolve.fy = 0;
+  frame_resolve.t = 0;
+
   annotation (Icon(coordinateSystem(preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        grid={2,2}), graphics={
         Text(
           extent={{-108,43},{-72,18}},
           lineColor={95,95,95},

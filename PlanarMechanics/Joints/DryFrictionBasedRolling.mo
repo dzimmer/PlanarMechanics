@@ -84,11 +84,6 @@ equation
   //balance forces
   frame_a.fx*R = frame_a.t;
   annotation (Icon(graphics={
-        Text(
-          extent={{-100,-80},{100,-120}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name"),
         Ellipse(
           extent={{-80,80},{80,-80}},
           pattern=LinePattern.None,
@@ -106,7 +101,14 @@ equation
           extent={{-20,20},{20,-20}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
-          lineColor={0,0,255})}),Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          lineColor={0,0,255}),
+        Text(
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          lineColor={0,0,255})}),
+    Documentation(
+      revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
+      info="<html>
 <p>Model SlipBasedRolling contains only one connector frame_a lying at the center of the wheel, where slip occurs between the wheel and ground and force caused by that is also taken into account.</p>
 <p>The ground is hereby represented by the x-axis.</p>
 </html>"),

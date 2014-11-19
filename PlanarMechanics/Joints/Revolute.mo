@@ -10,8 +10,7 @@ model Revolute "A revolute joint"
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a(phi = phi, tau = t) if useFlange annotation (
-      Placement(transformation(extent={{-10,90},{10,110}}),iconTransformation(
-          extent={{-10,90},{10,110}})));
+      Placement(transformation(extent={{-10,-110},{10,-90}})));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the joint axis" annotation (Dialog(
@@ -89,25 +88,27 @@ equation
   frame_a.t = t;
   annotation (Icon(graphics={
         Text(
-          extent={{-100,-70},{100,-110}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name"), Rectangle(
+          extent={{-150,100},{150,60}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Rectangle(
           extent={{-20,20},{20,-20}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175},
-          lineColor={0,0,0}),  Rectangle(
+          lineColor={0,0,0}),
+        Rectangle(
           extent={{-100,60},{-20,-62}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175},
-          lineColor={0,0,0}),  Rectangle(
+          lineColor={0,0,0}),
+        Rectangle(
           extent={{20,60},{100,-60}},
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={175,175,175},
           lineColor={0,0,0}),
         Line(
           visible=useFlange,
-          points={{0,100},{0,20}}),
+          points={{0,-100},{0,-20}}),
         Text(
           extent={{-140,-22},{-104,-47}},
           lineColor={128,128,128},

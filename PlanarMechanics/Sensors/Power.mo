@@ -25,16 +25,16 @@ equation
   annotation (
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
           100}}), graphics={
-      Line(points={{-70,0},{-101,0}}),
-      Line(points={{70,0},{100,0}}),
-      Line(points={{-80,0},{-80,-100}}, color={0,0,127}),
-      Text(
-        extent={{-60,-92},{16,-114}},
-        textString="power"),
-      Text(
-        extent={{-128,126},{126,68}},
-        textString="%name",
-        lineColor={0,0,255})}),
+        Line(points={{-70,0},{-101,0}}),
+        Line(points={{70,0},{100,0}}),
+        Line(points={{-80,0},{-80,-100}}, color={0,0,127}),
+        Text(
+          extent={{-60,-92},{16,-114}},
+          textString="power"),
+        Text(
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          lineColor={0,0,255})}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<HTML>
 <p>
 This component provides the power flowing from frame_a to frame_b

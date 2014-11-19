@@ -9,7 +9,7 @@ model SpringDemo "Spring demo"
         rotation=270,
         origin={0,-40})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-70,40})));
   inner PlanarWorld planarWorld

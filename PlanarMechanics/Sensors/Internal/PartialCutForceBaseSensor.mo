@@ -49,13 +49,9 @@ with the blocks of package Modelica.Blocks.
 </html>"), Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        grid={2,2}), graphics={
         Line(points={{-70,0},{-101,0}}),
         Line(points={{70,0},{100,0}}),
-        Text(
-          extent={{-132,76},{129,124}},
-          textString="%name",
-          lineColor={0,0,255}),
         Text(
           extent={{-118,55},{-82,30}},
           lineColor={128,128,128},
@@ -71,5 +67,9 @@ with the blocks of package Modelica.Blocks.
         Line(
           points={{80,0},{80,-100}},
           color={95,95,95},
-          pattern=LinePattern.Dot)}));
+          pattern=LinePattern.Dot),
+        Text(
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          lineColor={0,0,255})}));
 end PartialCutForceBaseSensor;

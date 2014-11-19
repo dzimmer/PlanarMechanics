@@ -49,13 +49,9 @@ with the blocks of package Modelica.Blocks.
 </html>"), Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        grid={2,2}), graphics={
         Line(points={{-70,0},{-101,0}}),
         Line(points={{70,0},{100,0}}),
-        Text(
-          extent={{-132,76},{129,124}},
-          textString="%name",
-          lineColor={0,0,255}),
         Text(
           extent={{-118,55},{-82,30}},
           lineColor={128,128,128},
@@ -63,5 +59,9 @@ with the blocks of package Modelica.Blocks.
         Text(
           extent={{83,55},{119,30}},
           lineColor={128,128,128},
-          textString="b")}));
+          textString="b"),
+        Text(
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          lineColor={0,0,255})}));
 end PartialCutTorqueBaseSensor;

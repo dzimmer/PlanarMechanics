@@ -40,13 +40,13 @@ model InvertedCraneCrab "An inverted model of a pendulum"
   inner PlanarWorld planarWorld
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   Joints.Revolute revolute(useFlange=true) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-10,0})));
   Joints.Prismatic prismatic(useFlange=true, r={1,0},
     s(fixed=true),
     v(fixed=true))
-    annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+    annotation (Placement(transformation(extent={{-40,40},{-20,20}})));
 equation
   connect(inverseBlockConstraints.u1, angleSensor.phi) annotation (Line(
       points={{35.5,0},{33.875,0},{33.875,0},{
@@ -69,7 +69,7 @@ equation
       color={0,0,127}));
 
   connect(revolute.flange_a, angleSensor.flange)
-    annotation (Line(points={{0,0},{4,0},{8,0}}));
+    annotation (Line(points={{0,0},{0,0},{8,0}}));
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-10,-10},{-10,-20}},
       color={95,95,95},

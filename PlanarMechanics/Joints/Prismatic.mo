@@ -15,7 +15,7 @@ model Prismatic "A prismatic joint"
 
   Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a(f = f, s = s) if useFlange
    annotation (
-      Placement(transformation(extent={{-10,80},{10,100}})));
+      Placement(transformation(extent={{-10,-100},{10,-80}})));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of the prismatic joint box" annotation (Dialog(
@@ -83,13 +83,9 @@ equation
   frame_a.t  + frame_b.t + r0*{frame_b.fy,-frame_b.fx} = 0;
   {frame_a.fx,frame_a.fy}*e0 = f;
 
-  annotation (Icon(graphics={
-        Text(
-          extent={{-100,-60},{100,-100}},
-          lineColor={0,0,0},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name"),
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}),
+                   graphics={
         Rectangle(
           extent={{-100,40},{-20,-40}},
           lineColor={0,0,0},
@@ -102,7 +98,7 @@ equation
           fillColor={175,175,175}),
         Line(
           visible=useFlange,
-          points={{0,90},{0,20}},
+          points={{0,-90},{0,-20}},
           color={0,0,0},
           smooth=Smooth.None),
         Text(
@@ -112,9 +108,17 @@ equation
         Text(
           extent={{104,-22},{140,-47}},
           lineColor={128,128,128},
-          textString="b")}),    Diagram(coordinateSystem(preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}),
-                                        graphics),
+          textString="b"),
+        Text(
+          extent={{-150,100},{150,60}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Text(
+          extent={{-100,-50},{100,-80}},
+          lineColor={0,0,0},
+          textString="r=%r")}),
+      Diagram(coordinateSystem(preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}),graphics),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>Direction of the Joint is determined by <b>r[2]</b>, which is a vector pointing from <b>frame_a</b> to <b>frame_b</b>. </p>
 <p>By setting <b>useFlange</b> as true, the flange for a 1-dim. translational input will be activated. In the &quot;Initialization&quot; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
