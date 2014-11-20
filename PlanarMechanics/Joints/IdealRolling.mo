@@ -96,7 +96,5 @@ equation
         info="<html>
 <p>Model IdealRolling contains only one connector frame_a lying at the center of the wheel, where it is assumed that no slip occurs between the wheel and ground.</p>
 <p>The ground is hereby represented by the x-axis.</p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics));
+</html>"));
 end IdealRolling;
