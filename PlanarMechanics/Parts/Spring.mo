@@ -61,7 +61,6 @@ model Spring "Linear 2D translational spring"
                                                      annotation(Dialog(group="Animation"));
   MB.Visualizers.Advanced.Shape contactA(
     shapeType="cylinder",
-    color={0,0,0},
     specularCoefficient=specularCoefficient,
     length=0.1,
     width=0.1,
@@ -73,7 +72,6 @@ model Spring "Linear 2D translational spring"
     R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape contactB(
     shapeType="cylinder",
-    color={0,0,0},
     specularCoefficient=specularCoefficient,
     length=0.1,
     width=0.1,

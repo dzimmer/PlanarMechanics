@@ -97,8 +97,5 @@ equation
 <p>An example of this model is given in the following figure:</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/WorldForce.png\"/></p>
 <p>The parameter ResolveinFrame defines in which frame the input force shall be resolved.</p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}),
-                    graphics));
+</html>"));
 end WorldForce;

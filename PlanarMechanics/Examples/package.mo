@@ -11,7 +11,7 @@ package Examples "Collection of introductory examples"
 </html>",
     info="<html>
 <p>
-This package is a collection of simulatable examples which show the use of the library models and elements. 
+This package is a collection of simulatable examples which show the use of the library models and elements.
 </p>
 </html>"));
 end Examples;
