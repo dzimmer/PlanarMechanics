@@ -71,7 +71,5 @@ equation
           lineColor={0,0,0},
           textString="r=%r")}),          Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static position difference <b>r</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+</html>"));
 end FixedTranslation;
