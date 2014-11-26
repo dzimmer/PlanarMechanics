@@ -111,8 +111,6 @@ equation
       info="<html>
 <p>Model SlipBasedRolling contains only one connector frame_a lying at the center of the wheel, where slip occurs between the wheel and ground and force caused by that is also taken into account.</p>
 <p>The ground is hereby represented by the x-axis.</p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics));
+</html>"));
 end DryFrictionBasedRolling;
 

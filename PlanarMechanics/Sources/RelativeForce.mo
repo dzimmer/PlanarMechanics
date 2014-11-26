@@ -127,7 +127,5 @@ equation
 </tr>
 </table>
 <p><br/>If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the force coordinates shall be resolved in the frame, which is connected to <b>frame_resolve</b>.</p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics));
+</html>"));
 end RelativeForce;

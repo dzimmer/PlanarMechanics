@@ -31,8 +31,7 @@ equation
   connect(revolute.frame_a, fixed.frame) annotation (Line(
       points={{-40,0},{-46,0},{-46,-1.22125e-015},{-50,-1.22125e-015}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Pendulum_1.png\"/></p>
@@ -43,6 +42,5 @@ equation
 <li>revolute.phi</li>
 <li>revolute.w</li>
 </ul>
-</html>"),
-    Diagram(graphics));
+</html>"));
 end Pendulum;

@@ -102,7 +102,5 @@ equation
 <li>revolute.phi</li>
 </ul>
 </html>"),
-    experiment(StopTime=3),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics));
+    experiment(StopTime=3));
 end InvertedCraneCrab;

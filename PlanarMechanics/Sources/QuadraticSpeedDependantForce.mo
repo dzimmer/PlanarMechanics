@@ -132,7 +132,6 @@ equation
           visible=(resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve),
           points={{0,-10},{0,-100}},
           color={95,95,95},
-          smooth=Smooth.None,
           pattern=LinePattern.Dot),
         Text(
           extent={{-150,80},{150,40}},
@@ -145,8 +144,6 @@ equation
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Model of a force quadratic dependant on the velocity of the flange. The force can be resolved in a world frame, or a relative speed can be used by selecting resolve_frame to use the extra frame_resolve.</p>
 <p>This model is e.g. suitable to simulate aerodynamic drag forces.</p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}),     graphics));
+</html>"));
 end QuadraticSpeedDependantForce;
 

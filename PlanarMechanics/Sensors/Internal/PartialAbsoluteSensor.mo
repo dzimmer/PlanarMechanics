@@ -14,6 +14,5 @@ equation
           extent={{-108,43},{-72,18}},
           lineColor={128,128,128},
           textString="a"), Line(
-          points={{-70,0},{-96,0},{-96,0}})}), Diagram(coordinateSystem(
-          preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
+          points={{-70,0},{-96,0},{-96,0}})}));
 end PartialAbsoluteSensor;
