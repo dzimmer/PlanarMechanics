@@ -8,9 +8,11 @@ model Body "Body component with mass and inertia"
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.Mass m "Mass of the body";
-  parameter SI.Inertia I "Inertia of the Body";
+  parameter SI.Inertia I
+    "Inertia of the body with respect to the origin of frame_a along the z-axis of frame_a";
   parameter SI.Acceleration g[2] = planarWorld.g
-    "Local gravity acting on the mass";
+    "Local gravity acting on the mass" annotation (Dialog(
+      tab="Advanced"));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of the body" annotation (Dialog(
       tab="Animation",
