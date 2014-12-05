@@ -26,20 +26,5 @@ package PlanarMechanics "A planar mechanical library for didactical purposes"
 <p>Copyright &copy; 2010-2014, Deutsches Zentrum fuer Luft- und Raumfahrt e.V.</p>
 <p><i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i></p>
 </html>"),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
-         graphics={
-        Ellipse(
-          extent={{-46,10},{-26,-8}},
-          fillPattern=FillPattern.Solid,
-          pattern=LinePattern.None),
-        Ellipse(
-          extent={{-74,-42},{-54,-60}},
-          fillPattern=FillPattern.Solid,
-          pattern=LinePattern.None),
-        Ellipse(
-          extent={{18,-34},{38,-52}},
-          fillPattern=FillPattern.Solid,
-          pattern=LinePattern.None),
-        Line(
-          points={{-64,-50},{-36,0},{24,-42}})}));
+    Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {10, 10}), graphics = {Rectangle(visible = true, lineColor = {0, 95, 127}, fillColor = {45, 161, 204}, pattern = LinePattern.None, fillPattern = FillPattern.Solid, extent = {{-100, -100}, {100, 100}}, radius = 25), Polygon(visible = true, origin = {-44.011, -9.193}, lineColor = {179, 179, 179}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Sphere, points = {{-35.989, -40.807}, {8.028, 54.436}, {32.105, 44.118}, {-4.143, -57.747}}), Polygon(visible = true, origin = {29.647, 47.559}, lineColor = {179, 179, 179}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Sphere, points = {{-37.584, 14.354}, {38.616, 7.739}, {38.616, -11.046}, {-39.647, -11.046}}), Ellipse(visible = true, origin = {75, 45}, lineColor = {160, 160, 164}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-17, -17}, {17, 17}}), Ellipse(visible = true, origin = {-20, 50}, lineColor = {160, 160, 164}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-22, -22}, {22, 22}}), Ellipse(visible = true, origin = {-63.922, -58.175}, lineColor = {160, 160, 164}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Solid, extent = {{-27, -27}, {27, 27}}), Ellipse(visible = true, origin = {-64.006, -58.283}, lineColor = {160, 160, 164}, fillColor = {160, 160, 164}, fillPattern = FillPattern.Solid, extent = {{-11, -11}, {11, 11}}), Ellipse(visible = true, origin = {-20, 50}, lineColor = {160, 160, 164}, fillColor = {160, 160, 164}, fillPattern = FillPattern.Solid, extent = {{-11, -11}, {11, 11}}), Ellipse(visible = true, origin = {75.039, 45.03}, lineColor = {160, 160, 164}, fillColor = {160, 160, 164}, fillPattern = FillPattern.Solid, extent = {{-8, -8}, {8, 8}})}));
 end PlanarMechanics;
