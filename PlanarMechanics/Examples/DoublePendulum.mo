@@ -10,7 +10,7 @@ model DoublePendulum
   Parts.FixedTranslation fixedTranslation(r={1,0})
     annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-90,20})));
   Parts.Body body1(
@@ -37,8 +37,8 @@ equation
       points={{50,-20},{50,-20},{60,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed.frame_a, revolute.frame_a) annotation (Line(
-      points={{-80,20},{-70,20}},
+  connect(fixed.frame, revolute.frame_a) annotation (Line(
+      points={{-80,20},{-76,20},{-70,20}},
       color={95,95,95},
       thickness=0.5));
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
@@ -54,7 +54,9 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=10),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
+</html>",                                                                                                  info="<html>
 <p>Beware this is a chaotic system. However, the chatoic part should start after 10s.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_2.png\"/></p>
@@ -65,10 +67,5 @@ equation
 <li>revolute1.phi</li>
 <li>revolute1.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end DoublePendulum;

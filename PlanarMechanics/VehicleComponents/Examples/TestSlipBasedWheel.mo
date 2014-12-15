@@ -41,7 +41,7 @@ model TestSlipBasedWheel "A slip-based wheel"
     vSlide_min=0.15,
     w_roll(fixed=false, start=10))
               annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=90,
         origin={0,30})));
   Modelica.Blocks.Sources.Constant const(k=0)
@@ -53,7 +53,7 @@ equation
       points={{0,-20},{0,-20},{0,-30}},
       color={95,95,95},
       thickness=0.5));
-  connect(revolute.frame_a, fixed.frame_a) annotation (Line(
+  connect(revolute.frame_a, fixed.frame) annotation (Line(
       points={{0,-50},{0,-50},{0,-60}},
       color={95,95,95},
       thickness=0.5));
@@ -64,15 +64,21 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(slipBasedWheelJoint.frame_a, prismatic.frame_b) annotation (Line(
-      points={{0,25.2},{0,25.2},{0,0}},
+      points={{0,26},{0,26},{0,0}},
       color={95,95,95},
       thickness=0.5));
   connect(slipBasedWheelJoint.flange_a, inertia.flange_b) annotation (Line(
       points={{0,40},{0,40},{0,50}}));
   connect(const.y, slipBasedWheelJoint.dynamicLoad) annotation (Line(
-      points={{-39,30},{-24,30},{-10,30}},
+      points={{-39,30},{-10,30}},
       color={0,0,127}));
-  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+  annotation (Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
+<b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
+      info="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_2.png\"></p>
 <p>Selected continuous time states</p>
@@ -84,11 +90,6 @@ equation
 <li>revolute.phi</li>
 <li>revolute.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"),
     experiment(StopTime=20));
 end TestSlipBasedWheel;

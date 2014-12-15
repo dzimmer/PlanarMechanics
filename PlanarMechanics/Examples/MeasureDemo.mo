@@ -9,7 +9,7 @@ model MeasureDemo "Measure demo"
   Parts.FixedTranslation fixedTranslation(r={1,0})
     annotation (Placement(transformation(extent={{-40,10},{-20,30}})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-90,20})));
   Parts.Body body1(
@@ -50,8 +50,8 @@ equation
       points={{50,-20},{56,-20},{70,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed.frame_a, revolute1.frame_a) annotation (Line(
-      points={{-80,20},{-72,20},{-70,20}},
+  connect(fixed.frame, revolute1.frame_a) annotation (Line(
+      points={{-80,20},{-70,20}},
       color={95,95,95},
       thickness=0.5));
   connect(revolute1.frame_b, fixedTranslation.frame_a) annotation (Line(
@@ -111,5 +111,8 @@ equation
   annotation (experiment(StopTime=10),
     Documentation(info="<html>
 <p>This example shows how to use absolute and relative sensors for position, velocity and acceleration. For demonstration purposes a double pendulum is used.</p>
+</html>",
+        revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end MeasureDemo;

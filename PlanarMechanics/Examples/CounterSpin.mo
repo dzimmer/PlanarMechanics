@@ -9,16 +9,15 @@ model CounterSpin "Wheel with counter-spin and dry-friction law"
     r(each fixed=false),
     v(each fixed=false))
               annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-10,0})));
   inner PlanarWorld planarWorld
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-  Joints.DryFrictionBasedRolling slipBasedRolling1(
+  Joints.DryFrictionBasedRolling slipBasedRolling(
     R=0.1,
     vAdhesion=0.01,
     mu_S=0.15,
-    initialize=true,
     phi(fixed=true),
     w(fixed=true, start=15),
     vx(fixed=true, start=2),
@@ -26,7 +25,7 @@ model CounterSpin "Wheel with counter-spin and dry-friction law"
     vSlide=0.03,
     mu_A=0.5) annotation (Placement(transformation(extent={{20,-10},{40,10}})));
 equation
-  connect(body.frame_a, slipBasedRolling1.frame_a) annotation (Line(
+  connect(body.frame_a, slipBasedRolling.frame_a) annotation (Line(
       points={{0,0},{20,0}},
       color={95,95,95},
       thickness=0.5));
@@ -43,10 +42,5 @@ equation
 <li>slipBasedRolling.phi</li>
 <li>slipBasedRolling.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end CounterSpin;

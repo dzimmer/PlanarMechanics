@@ -9,7 +9,7 @@ model QuadraticSpeedDependantForce
   Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
 protected
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB  resolveInFrameB= PlanarMechanics.Utilities.Conversions.fromFrameAtoFrameB(resolveInFrame)
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrameB= PlanarMechanics.Utilities.Conversions.fromFrameAtoFrameB(resolveInFrame)
     "Conversion from frame A to B";
 
 public
@@ -47,13 +47,15 @@ public
 
   Interfaces.Frame_b frame_b
     "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
-  Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0) if resolveInFrameB == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
+  Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0) if
+    resolveInFrameB == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
     annotation (
-      Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
-          extent={{-40,-40},{-20,-20}})));
+      Placement(transformation(extent={{-16,16},{16,-16}},
+        rotation=90,
+        origin={0,-100})));
 
 public
   Sensors.AbsoluteVelocity absoluteVelocity(resolveInFrame=resolveInFrame)
@@ -79,7 +81,7 @@ public
         extent={{-10,-10},{10,10}},
         origin={-50,0})));
 
-  Utilities.SquaretimesSign square(blockSize=3) annotation (Placement(
+  Utilities.Blocks.SquaretimesSign square(blockSize=3) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
@@ -94,11 +96,11 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(worldForce.frame_resolve, frame_resolve) annotation (Line(
-      points={{27,-3},{28,-3},{28,-4},{10,-4},{10,-4},{10,-50},{10,-50}},
+      points={{30,-4},{30,-10},{0,-10},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(absoluteVelocity.frame_resolve, frame_resolve) annotation (Line(
-      points={{30,30},{30,20},{10,20},{10,-50}},
+      points={{30,30},{30,20},{0,20},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(absoluteVelocity.v, normalizeSpeeds.u) annotation (Line(
@@ -113,25 +115,35 @@ equation
   connect(scaleForces.y, worldForce.force) annotation (Line(
       points={{-39,0},{18,0}},
       color={0,0,127}));
-  annotation (Icon(graphics={
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}),
+                   graphics={
         Polygon(
           points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},
               {-100,10}},
           lineColor={0,127,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-150,-40},{150,-80}},
-          textString="%name"),
         Line(
           points={{-100,-100},{-80,-98},{-60,-92},{-40,-82},{-20,-68},{0,-50},{20,
               -28},{40,-2},{60,28},{80,62},{100,100}},
-          color={0,0,127}, smooth=Smooth.Bezier)}),
+          color={0,0,127}, smooth=Smooth.Bezier),
+        Line(
+          visible=(resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve),
+          points={{0,-10},{0,-100}},
+          color={95,95,95},
+          pattern=LinePattern.Dot),
+        Text(
+          extent={{-150,80},{150,40}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Text(
+          extent={{72,-24},{108,-49}},
+          lineColor={128,128,128},
+          textString="b")}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Model of a force quadratic dependant on the velocity of the flange. The force can be resolved in a world frame, or a relative speed can be used by selecting resolve_frame to use the extra frame_resolve.</p>
 <p>This model is e.g. suitable to simulate aerodynamic drag forces.</p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}), graphics));
+</html>"));
 end QuadraticSpeedDependantForce;
 

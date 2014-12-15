@@ -51,7 +51,7 @@ equation
       points={{0,-20},{0,-20},{0,-30}},
       color={95,95,95},
       thickness=0.5));
-  connect(revolute.frame_a, fixed.frame_a) annotation (Line(
+  connect(revolute.frame_a, fixed.frame) annotation (Line(
       points={{0,-50},{0,-50},{0,-60}},
       color={95,95,95},
       thickness=0.5));
@@ -63,14 +63,20 @@ equation
       thickness=0.5));
   connect(dryFrictionWheelJoint.frame_a, prismatic.frame_b) annotation (
       Line(
-      points={{0,25.2},{0,0}},
+      points={{0,26},{0,0}},
       color={95,95,95},
       thickness=0.5));
   connect(dryFrictionWheelJoint.flange_a, inertia.flange_b) annotation (
       Line(
       points={{0,40},{0,40},{0,50}}));
   annotation (experiment(StopTime=20),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
+<b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
+      info="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestDryFrictionWheel_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/TestDryFrictionWheel_2.png\"></p>
 <p>Selected continuous time states</p>
@@ -82,10 +88,5 @@ equation
 <li>revolute.phi</li>
 <li>revolute.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end TestDryFrictionWheel;

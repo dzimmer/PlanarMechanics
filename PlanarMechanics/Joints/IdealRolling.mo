@@ -2,16 +2,13 @@ within PlanarMechanics.Joints;
 model IdealRolling "A joint representing a wheel ideally rolling on the x-axis"
 
   Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
-        iconTransformation(extent={{-120,-20},{-80,20}})));
+    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
   outer PlanarWorld planarWorld "Planar world model";
 
   parameter SI.Length R = 1.0 "Radius of the wheel";
-  parameter Boolean initialize = false "Initialize Position";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
-  parameter SI.Position x_start = 0;
   //parameter SI.Angle phi_start = 0;
   //parameter SI.AngularVelocity w_start = 0;
   parameter Boolean animate = true "Enable animation" annotation(Dialog(group="Animation"));
@@ -74,11 +71,6 @@ equation
   frame_a.fx*R = frame_a.t;
 
   annotation (Icon(graphics={
-        Text(
-          extent={{-100,-80},{100,-120}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name"),
         Ellipse(
           extent={{-80,80},{80,-80}},
           pattern=LinePattern.None,
@@ -89,14 +81,19 @@ equation
           pattern=LinePattern.None,
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
+        Line(points={{0,0},{-100,0}}, color={0,0,255}),
         Ellipse(
           extent={{-20,20},{20,-20}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
-        Line(
-          points={{-20,0},{-92,0}},
-          color={0,0,255})}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+        Text(
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          lineColor={0,0,255})}),
+      Documentation(
+        revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
+        info="<html>
 <p>Model IdealRolling contains only one connector frame_a lying at the center of the wheel, where it is assumed that no slip occurs between the wheel and ground.</p>
 <p>The ground is hereby represented by the x-axis.</p>
 </html>"));

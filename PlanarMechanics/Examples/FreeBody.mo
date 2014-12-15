@@ -14,16 +14,11 @@ model FreeBody "A simple free falling body"
     annotation (Placement(transformation(extent={{10,-10},{30,10}})));
   annotation (
     experiment(StopTime=3),
-    Documentation(revisions=
-          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
-                                                                                                    info="<html>
+    Documentation(revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
+      info="<html>
 <p>The gravity is defined in the planarWorld component</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/FreeBody_1.png\"/></p>
 <p>The DAE has 73&nbsp;scalar unknowns and 73&nbsp;scalar equations.</p>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end FreeBody;

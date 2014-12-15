@@ -109,7 +109,7 @@ equation
       points={{20,-10},{48,-10},{48,40},{20,40}},
       color={95,95,95},
       thickness=0.5));
-  connect(Fixed.frame_a, bearing_Sun.frame_a) annotation (Line(
+  connect(Fixed.frame, bearing_Sun.frame_a) annotation (Line(
       points={{-80,30},{-80,-10},{-70,-10}},
       color={95,95,95},
       thickness=0.5));
@@ -119,11 +119,11 @@ equation
       points={{-50,-40},{-40,-40}},
       color={95,95,95},
       thickness=0.5));
-  connect(bearing_Carrier.frame_a, Fixed.frame_a) annotation (Line(
+  connect(bearing_Carrier.frame_a, Fixed.frame) annotation (Line(
       points={{-70,-40},{-80,-40},{-80,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(bearing_Ring.frame_a, Fixed.frame_a) annotation (Line(
+  connect(bearing_Ring.frame_a, Fixed.frame) annotation (Line(
       points={{-70,40},{-80,40},{-80,30}},
       color={95,95,95},
       thickness=0.5));

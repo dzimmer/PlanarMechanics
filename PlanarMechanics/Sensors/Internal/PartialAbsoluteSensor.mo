@@ -4,8 +4,8 @@ partial model PartialAbsoluteSensor
   extends Modelica.Icons.RotationalSensor;
 
   Interfaces.Frame_a frame_a
-    "Coordinate system at which the kinematic quantities are measured"          annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
+    "Coordinate system at which the kinematic quantities are measured"
+    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
 equation
    assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");

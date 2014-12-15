@@ -13,7 +13,7 @@ model PowerDistanceDemo "Power and distance sensor demo"
         rotation=270,
         origin={-10,-30})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-70,30})));
   Parts.Body body1(
@@ -41,7 +41,7 @@ model PowerDistanceDemo "Power and distance sensor demo"
   Sensors.Distance distance
     annotation (Placement(transformation(extent={{2,62},{22,82}})));
 equation
-  connect(damper.frame_a,fixed. frame_a) annotation (Line(
+  connect(damper.frame_a, fixed.frame) annotation (Line(
       points={{-40,50},{-60,50},{-60,30}},
       color={95,95,95},
       thickness=0.5));
@@ -53,7 +53,7 @@ equation
       points={{-10,-10},{-10,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed.frame_a, prismatic.frame_a) annotation (Line(
+  connect(fixed.frame, prismatic.frame_a) annotation (Line(
       points={{-60,30},{-40,30}},
       color={95,95,95},
       thickness=0.5));
@@ -69,7 +69,7 @@ equation
       points={{-10,-80},{-10,-70}},
       color={95,95,95},
       thickness=0.5));
-  connect(distance.frame_a, fixed.frame_a) annotation (Line(
+  connect(distance.frame_a, fixed.frame) annotation (Line(
       points={{2,72},{-60,72},{-60,30}},
       color={95,95,95},
       thickness=0.5));
@@ -84,5 +84,8 @@ equation
   annotation (experiment(StopTime=6),
     Documentation(info="<html>
 <p>This example shows how to use sensors for power and distance. The crane crab is used as an example.</p>
+</html>",
+        revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end PowerDistanceDemo;

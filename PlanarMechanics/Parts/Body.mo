@@ -2,16 +2,17 @@ within PlanarMechanics.Parts;
 model Body "Body component with mass and inertia"
 
   Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
-        iconTransformation(extent={{-120,-20},{-80,20}})));
+    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
   outer PlanarWorld planarWorld "planar world model";
   parameter Boolean animate = true "= true, if animation shall be enabled";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.Mass m "Mass of the body";
-  parameter SI.Inertia I "Inertia of the Body";
+  parameter SI.Inertia I
+    "Inertia of the body with respect to the origin of frame_a along the z-axis of frame_a";
   parameter SI.Acceleration g[2] = planarWorld.g
-    "Local gravity acting on the mass";
+    "Local gravity acting on the mass" annotation (Dialog(
+      tab="Advanced"));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of the body" annotation (Dialog(
       tab="Animation",
@@ -72,10 +73,9 @@ equation
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255}),
         Text(
-          extent={{-150,-80},{150,-120}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name")}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          extent={{-150,100},{150,60}},
+          textString="%name",
+          lineColor={0,0,255})}),   Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>Model <b>Body</b> is an ideal unlimited small point with mass and inertia.</p>
 </html>"));
 end Body;

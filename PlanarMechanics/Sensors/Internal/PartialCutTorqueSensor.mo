@@ -29,7 +29,12 @@ equation
     "Connector frame_b of cut-force/-torque sensor object is not connected");
 
   annotation (
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
+<b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",                                                                                                    info="<html>
 <p>
 This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure the cut-force and/or
@@ -40,13 +45,9 @@ with the blocks of package Modelica.Blocks.
 </html>"), Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+        grid={2,2}), graphics={
         Line(points={{-70,0},{-101,0}}),
         Line(points={{70,0},{100,0}}),
-        Text(
-          extent={{-132,76},{129,124}},
-          textString="%name",
-          lineColor={0,0,255}),
         Text(
           extent={{-118,55},{-82,30}},
           lineColor={128,128,128},
@@ -54,5 +55,9 @@ with the blocks of package Modelica.Blocks.
         Text(
           extent={{83,55},{119,30}},
           lineColor={128,128,128},
-          textString="b")}));
+          textString="b"),
+        Text(
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          lineColor={0,0,255})}));
 end PartialCutTorqueSensor;

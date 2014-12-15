@@ -32,10 +32,11 @@ equation
    end if;
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}},
-        grid={1,1}), graphics={Text(
+        grid={2,2}), graphics={Text(
           extent={{12,-76},{96,-106}},
-          textString="r_rel"), Text(
-          extent={{-127,95},{134,143}},
+          textString="r_rel"),
+        Text(
+          extent={{-150,140},{150,100}},
           textString="%name",
           lineColor={0,0,255})}));
 end BasicRelativePosition;

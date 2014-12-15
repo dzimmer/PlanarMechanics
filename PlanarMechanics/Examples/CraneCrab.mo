@@ -14,7 +14,7 @@ model CraneCrab "A damped crane crab"
         rotation=270,
         origin={-10,-30})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-70,30})));
   Parts.Body body1(
@@ -34,13 +34,13 @@ model CraneCrab "A damped crane crab"
     useFlange=true,
     s(fixed=true, start=0),
     animate=true)
-    annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
-  Modelica.Mechanics.Translational.Components.Fixed fixed1 annotation (
+    annotation (Placement(transformation(extent={{-40,40},{-20,20}})));
+  Modelica.Mechanics.Translational.Components.Fixed fixed1D annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-66,60})));
-  Modelica.Mechanics.Translational.Components.Damper damper1(d=10)
+  Modelica.Mechanics.Translational.Components.Damper damper1D(d=10)
     annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
@@ -55,7 +55,7 @@ equation
       points={{-10,-10},{-10,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed.frame_a, prismatic.frame_a) annotation (Line(
+  connect(fixed.frame, prismatic.frame_a) annotation (Line(
       points={{-60,30},{-40,30}},
       color={95,95,95},
       thickness=0.5));
@@ -63,10 +63,9 @@ equation
       points={{-20,30},{0,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(damper1.flange_a, fixed1.flange) annotation (Line(
-      points={{-50,60},{-66,60}},
-      color={0,127,0}));
-  connect(damper1.flange_b, prismatic.flange_a)
+  connect(damper1D.flange_a, fixed1D.flange)
+    annotation (Line(points={{-50,60},{-66,60}}, color={0,127,0}));
+  connect(damper1D.flange_b, prismatic.flange_a)
     annotation (Line(points={{-30,60},{-30,39}}, color={0,127,0}));
   annotation (experiment(StopTime=10),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
@@ -79,10 +78,5 @@ equation
 <li>revolute.phi</li>
 <li>revolute.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end CraneCrab;

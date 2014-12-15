@@ -1,7 +1,6 @@
 within PlanarMechanics.Sources;
 model RelativeForce "Input signal acting as force and torque on two frames"
-  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
-  outer PlanarWorld planarWorld "Planar world model";
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
     resolveInFrame=
@@ -36,8 +35,9 @@ model RelativeForce "Input signal acting as force and torque on two frames"
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
     annotation (
-      Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
-          extent={{-40,-40},{-20,-20}})));
+      Placement(transformation(extent={{-16,-16},{16,16}},
+        rotation=90,
+        origin={0,-40})));
 
 protected
   SI.Position f_in_m[3]={force[1],force[2],0}/N_to_m
@@ -81,7 +81,9 @@ equation
     frame_a.fx + frame_b.fx = 0;
     frame_a.fy + frame_b.fy = 0;
     frame_a.t + frame_b.t = 0;
-  annotation (Icon(graphics={
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}),
+                   graphics={
         Polygon(
           points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},
               {-100,10}},
@@ -89,14 +91,15 @@ equation
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-150,-50},{150,-90}},
-          textString="%name"),
+          extent={{-150,110},{150,70}},
+          textString="%name",
+          lineColor={0,0,255}),
         Text(
-          extent={{-140,-22},{-104,-47}},
+          extent={{-108,-24},{-72,-49}},
           lineColor={128,128,128},
           textString="a"),
         Text(
-          extent={{104,-22},{140,-47}},
+          extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
           textString="b")}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>

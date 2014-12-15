@@ -1,7 +1,7 @@
 within PlanarMechanics.Parts;
 model SpringDamper "Linear 2D translational spring damper model"
-  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
-  outer PlanarWorld planarWorld "Planar world model";
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
+
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter Modelica.SIunits.TranslationalSpringConstant c_x(final min=0, start=1)
@@ -85,7 +85,6 @@ model SpringDamper "Linear 2D translational spring damper model"
 protected
   MB.Visualizers.Advanced.Shape contactA(
     shapeType="cylinder",
-    color={0,0,0},
     specularCoefficient=specularCoefficient,
     length=0.1,
     width=0.1,
@@ -97,7 +96,6 @@ protected
     R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape contactB(
     shapeType="cylinder",
-    color={0,0,0},
     specularCoefficient=specularCoefficient,
     length=0.1,
     width=0.1,
@@ -143,8 +141,7 @@ protected
 
 //   MB.Visualizers.Advanced.Shape contactA(
 //     shapeType="cylinder",
-//     color={0,0,0},
-//     specularCoefficient=0.5,
+//     //     specularCoefficient=0.5,
 //     length=0.1,
 //     width=.1,
 //     height=.1,
@@ -155,8 +152,7 @@ protected
 //     R=MB.Frames.nullRotation()) if  animate;
 //   MB.Visualizers.Advanced.Shape contactB(
 //     shapeType="cylinder",
-//     color={0,0,0},
-//     specularCoefficient=0.5,
+//     //     specularCoefficient=0.5,
 //     length=0.1,
 //     width=.1,
 //     height=.1,
@@ -216,25 +212,27 @@ equation
           points={{-80,40},{-58,40},{-43,10},{-13,70},{17,10},{47,70},{62,40},{
               80,40}},
           thickness=0.5),
-        Line(points={{-68,40},{-68,105}},color={128,128,128}),
-        Line(points={{72,40},{72,105}},color={128,128,128}),
-        Line(points={{-68,100},{72,100}},
+        Line(points={{-70,-106},{-70,-41}},
+                                         color={128,128,128}),
+        Line(points={{70,-106},{70,-41}},
+                                       color={128,128,128}),
+        Line(points={{-70,-100},{70,-100}},
                                         color={128,128,128}),
         Polygon(
-          points={{62,103},{72,100},{62,97},{62,103}},
+          points={{60,-97},{70,-100},{60,-103},{60,-97}},
           lineColor={128,128,128},
           fillColor={128,128,128},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-20,80},{20,105}},
-          lineColor={0,0,255},
+          extent={{-40,-96},{40,-76}},
+          lineColor={128,128,128},
           textString="phi_rel"),
         Rectangle(
           extent={{-50,-10},{40,-70}},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Line(points={{-50,-70},{68,-70}}),
-        Line(points={{-50,-10},{68,-10}}),
+        Line(points={{-50,-70},{54,-70}}),
+        Line(points={{-50,-10},{54,-10}}),
         Line(points={{40,-40},{80,-40}}),
         Line(points={{-80,-40},{-50,-40}}),
         Line(points={{-80,40},{-80,-40}}),
@@ -242,8 +240,9 @@ equation
         Line(points={{-96,0},{-80,0}}),
         Line(points={{96,0},{80,0}}),
         Text(
-          extent={{150,-120},{-150,-80}},
-          textString="%name")}),
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          lineColor={0,0,255})}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -274,7 +273,7 @@ equation
         Line(points={{-80,-50},{-50,-50}}),
         Line(points={{-80,32},{-80,-50}}),
         Line(points={{80,32},{80,-50}}),
-        Line(points={{-96,0},{-80,0}}),
-        Line(points={{96,0},{80,0}})}));
+        Line(points={{-100,0},{-80,0}}),
+        Line(points={{100,0},{80,0}})}));
 end SpringDamper;
 

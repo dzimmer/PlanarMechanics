@@ -3,8 +3,7 @@ model DryFrictionBasedRolling
   "A joint representing a wheel with slip-based rolling (dry friction law) on the x-axis"
 
   Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
-        iconTransformation(extent={{-120,-20},{-80,20}})));
+    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
   outer PlanarWorld planarWorld "Planar world model";
 
   parameter StateSelect stateSelect=StateSelect.default
@@ -14,7 +13,6 @@ model DryFrictionBasedRolling
   parameter SI.Velocity vSlide "Sliding velocity";
   parameter Real mu_A "Friction coefficient at adhesion";
   parameter Real mu_S "Friction coefficient at sliding";
-  parameter Boolean initialize = false "Initialize Position and Velocity";
 
   parameter Boolean animate = true "Enable animation"
                                                      annotation(Dialog(group="Animation"));
@@ -77,15 +75,15 @@ equation
   //dry-friction law
   v_slip = vx + w*R;
   N = -frame_a.fy;
-  frame_a.fx = N*noEvent(Utilities.TripleS_Func(vAdhesion,vSlide,mu_A,mu_S,v_slip));
+  frame_a.fx =N*noEvent(Utilities.Functions.limitByStriple(
+    vAdhesion,
+    vSlide,
+    mu_A,
+    mu_S,
+    v_slip));
   //balance forces
   frame_a.fx*R = frame_a.t;
   annotation (Icon(graphics={
-        Text(
-          extent={{-100,-80},{100,-120}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name"),
         Ellipse(
           extent={{-80,80},{80,-80}},
           pattern=LinePattern.None,
@@ -96,14 +94,21 @@ equation
           pattern=LinePattern.None,
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid),
+        Line(
+          points={{0,0},{-100,0}},
+          color={0,0,255}),
         Ellipse(
           extent={{-20,20},{20,-20}},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid,
           lineColor={0,0,255}),
-        Line(
-          points={{-20,0},{-92,0}},
-          color={0,0,255})}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+        Text(
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          lineColor={0,0,255})}),
+    Documentation(
+      revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
+      info="<html>
 <p>Model SlipBasedRolling contains only one connector frame_a lying at the center of the wheel, where slip occurs between the wheel and ground and force caused by that is also taken into account.</p>
 <p>The ground is hereby represented by the x-axis.</p>
 </html>"));

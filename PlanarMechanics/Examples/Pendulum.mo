@@ -14,22 +14,22 @@ model Pendulum "A free swinging pendulum"
   Parts.FixedTranslation fixedTranslation(r= {1,0})
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Parts.Fixed fixed(phi=0) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-60,0})));
   inner PlanarWorld planarWorld(defaultWidthFraction=10)
     annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
 equation
-  connect(fixed.frame_a, revolute.frame_a) annotation (Line(
-      points={{-50,0},{-50,0},{-40,0}},
-      color={95,95,95},
-      thickness=0.5));
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-20,0},{-15,0},{-10,0}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{10,0},{10,0},{30,0}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(revolute.frame_a, fixed.frame) annotation (Line(
+      points={{-40,0},{-46,0},{-46,-1.22125e-015},{-50,-1.22125e-015}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=3),
@@ -42,10 +42,5 @@ equation
 <li>revolute.phi</li>
 <li>revolute.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end Pendulum;

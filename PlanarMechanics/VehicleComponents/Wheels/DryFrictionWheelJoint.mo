@@ -1,8 +1,8 @@
 within PlanarMechanics.VehicleComponents.Wheels;
 model DryFrictionWheelJoint "Dry-Friction based wheel joint"
 
-  Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-48,0},
-            {-28,20}}), iconTransformation(extent={{-68,-20},{-28,20}})));
+  Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-56,-16},
+            {-24,16}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a annotation (
       Placement(transformation(extent={{90,-8},{110,12}}), iconTransformation(
           extent={{90,-10},{110,10}})));
@@ -110,7 +110,12 @@ equation
   v_slip = sqrt(v_slip_long^2 + v_slip_lat^2)+0.0001;
   -f_long*radius = flange_a.tau;
   frame_a.t = 0;
-  f = N*noEvent(Utilities.TripleS_Func(vAdhesion,vSlide,mu_A,mu_S,v_slip));
+  f =N*noEvent(Utilities.Functions.limitByStriple(
+    vAdhesion,
+    vSlide,
+    mu_A,
+    mu_S,
+    v_slip));
   f_long =f*v_slip_long/v_slip;
   f_lat  =f*v_slip_lat/v_slip;
   f_long = {frame_a.fx, frame_a.fy}*e0;
@@ -156,10 +161,9 @@ equation
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={231,231,231}),
         Text(
-          extent={{-100,-100},{100,-140}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name")}),    Documentation(info="<html>
+          extent={{-150,140},{150,100}},
+          textString="%name",
+          lineColor={0,0,255})}),   Documentation(info="<html>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has dry-friction characteristics. This is an approximation for stiff wheels without a tire.</p>
 <p>The force depends with dry-friction characteristics on the slip velocity. The slip velocity is split into two components:</p>
 <ul>

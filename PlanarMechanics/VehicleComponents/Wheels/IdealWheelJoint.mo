@@ -1,8 +1,8 @@
 within PlanarMechanics.VehicleComponents.Wheels;
 model IdealWheelJoint "Ideal wheel joint"
 
-  Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-48,0},
-            {-28,20}}), iconTransformation(extent={{-68,-20},{-28,20}})));
+  Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-56,-16},
+            {-24,16}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a annotation (
       Placement(transformation(extent={{90,-8},{110,12}}), iconTransformation(
           extent={{90,-10},{110,10}})));
@@ -136,10 +136,9 @@ equation
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={231,231,231}),
         Text(
-          extent={{-100,-100},{100,-140}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name")}),    Documentation(info="<html>
+          extent={{-150,140},{150,100}},
+          textString="%name",
+          lineColor={0,0,255})}),   Documentation(info="<html>
 <p>The ideal wheel joint enforces the constraints of ideal rolling on the x,y-plane.</p>
 <p>The constraint is that the velocity of the virtual point of contact shall be zero. This constrains is split into two components:</p>
 <ul>

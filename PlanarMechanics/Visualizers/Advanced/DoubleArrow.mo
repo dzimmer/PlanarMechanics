@@ -88,15 +88,15 @@ protected
           lineColor={128,128,128},
           fillColor={128,128,128},
           fillPattern=FillPattern.Solid),
-        Text(
-          extent={{-150,105},{150,65}},
-          textString="%name",
-          lineColor={0,0,255}),
         Polygon(
           points={{0,60},{60,0},{0,-60},{0,60}},
           lineColor={128,128,128},
           fillColor={128,128,128},
-          fillPattern=FillPattern.Solid)}),
+          fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-150,100},{150,60}},
+          textString="%name",
+          lineColor={0,0,255})}),
     Documentation(info="<HTML>
 <p>
 Model <b>DoubleArrow</b> defines a double arrow that is dynamically

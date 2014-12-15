@@ -1,12 +1,7 @@
 within PlanarMechanics.Parts;
 model Damper "Linear (velocity dependent) damper"
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
-  outer PlanarWorld planarWorld "Planar world model";
-  Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
-        iconTransformation(extent={{-120,-20},{-80,20}})));
-  Interfaces.Frame_b frame_b annotation (Placement(transformation(extent={{90,-10},
-            {110,10}}), iconTransformation(extent={{80,-20},{120,20}})));
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.TranslationalDampingConstant d=1 "Damping constant";
@@ -112,11 +107,6 @@ equation
 
   annotation (
     Icon(graphics={
-        Text(
-          extent={{-150,-50},{150,-90}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name"),
         Line(points={{-60,30},{60,30}}),
         Line(points={{-60,-30},{60,-30}}),
         Line(points={{30,0},{100,0}}),
@@ -126,11 +116,15 @@ equation
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-140,-22},{-104,-47}},
+          extent={{-150,80},{150,40}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Text(
+          extent={{-108,-24},{-72,-49}},
           lineColor={128,128,128},
           textString="a"),
         Text(
-          extent={{104,-22},{140,-47}},
+          extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
           textString="b")}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>

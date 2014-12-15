@@ -1,5 +1,5 @@
-within PlanarMechanics.Utilities;
-function S_Func "Models an S-Function"
+within PlanarMechanics.Utilities.Functions;
+function limitBySform "Returns a S-shaped transition"
   input Real x_min;
   input Real x_max;
   input Real y_min;
@@ -23,4 +23,4 @@ algorithm
   annotation(smoothOrder=1, Documentation(revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
-end S_Func;
+end limitBySform;

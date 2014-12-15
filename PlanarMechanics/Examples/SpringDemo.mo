@@ -9,7 +9,7 @@ model SpringDemo "Spring demo"
         rotation=270,
         origin={0,-40})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-70,40})));
   inner PlanarWorld planarWorld
@@ -37,7 +37,7 @@ model SpringDemo "Spring demo"
         rotation=270,
         origin={30,0})));
 equation
-  connect(fixed.frame_a, fixedTranslation.frame_a) annotation (Line(
+  connect(fixed.frame, fixedTranslation.frame_a) annotation (Line(
       points={{-60,40},{-40,40}},
       color={95,95,95},
       thickness=0.5));
@@ -68,5 +68,8 @@ equation
   annotation (experiment(StopTime=5),
     Documentation(info="<html>
 <p>This example shows how to use a spring and a damper separately. The motion is constrained by a prismatic joint. The spring passes a point of zero lenght.</p>
+</html>",
+        revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end SpringDemo;

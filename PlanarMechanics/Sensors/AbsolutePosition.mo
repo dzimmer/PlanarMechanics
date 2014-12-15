@@ -2,21 +2,18 @@ within PlanarMechanics.Sensors;
 model AbsolutePosition
   "Measure absolute position vector of the origin of a frame connector"
   extends Internal.PartialAbsoluteSensor;
+
   Modelica.Blocks.Interfaces.RealOutput  r[3](each final quantity="Position", each final unit = "m")
     "Absolute position vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
-
-  Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+   Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
+     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector r is optionally resolved"
-    annotation (Placement(transformation(extent={{-16,-16},{16,16}},
-        rotation=-90,
-        origin={0,-100}),
-        iconTransformation(extent={{-16,-16},{16,16}},
-        rotation=-90,
-        origin={0,-101})));
+     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
+         rotation=-90,
+         origin={0,-100})));
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
   Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
@@ -32,8 +29,7 @@ protected
 
 equation
   connect(position.frame_resolve, frame_resolve)         annotation (Line(
-      points={{0,-10},{0,-32.5},{0,-32.5},{
-          0,-55},{0,-55},{0,-100}},
+      points={{0,-10},{0,-32.5},{0,-32.5},{0,-55},{0,-100},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, position.frame_resolve)
@@ -51,26 +47,24 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (Icon(coordinateSystem(
-          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+          preserveAspectRatio=false,extent={{-100,-100},{100,100}}), graphics={
         Line(
           points={{70,0},{100,0}},
           color={0,0,127}),
         Text(
-          extent={{-127,95},{134,143}},
-          textString="%name",
-          lineColor={0,0,255}),
-        Text(
           extent={{62,46},{146,16}},
           textString="r"),
         Text(
-          visible = (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve),
           extent={{15,-67},{146,-92}},
           lineColor={95,95,95},
           textString="resolve"),
         Line(
-          visible = (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve),
-          points={{0,-96},{0,-96},{0,-70},{0,-70}},
-          pattern=LinePattern.Dot)}),
+          points={{0,-100},{0,-70}},
+          pattern=LinePattern.Dot),
+        Text(
+          extent={{-150,120},{150,80}},
+          textString="%name",
+          lineColor={0,0,255})}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The absolute position and angle vector<b> [x,y,phi]</b> of the origin of frame_a is determined and provided at the output signal connector <b>r</b>.</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the position and angle vector is resolved: </p>

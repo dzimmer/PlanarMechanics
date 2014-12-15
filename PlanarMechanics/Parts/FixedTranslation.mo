@@ -1,12 +1,7 @@
 within PlanarMechanics.Parts;
 model FixedTranslation "A fixed translation between two components (rigid rod)"
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
-  Interfaces.Frame_a frame_a
-    annotation (Placement(transformation(extent={{-110,-10},{-90,10}}),
-        iconTransformation(extent={{-120,-20},{-80,20}})));
-  Interfaces.Frame_b frame_b annotation (Placement(transformation(extent={{90,-10},
-            {110,10}}), iconTransformation(extent={{80,-20},{120,20}})));
-  outer PlanarWorld planarWorld "Planar world model";
   parameter SI.Length r[2] = {1,0}
     "Fixed x,y-length of the rod resolved w.r.t to body frame_a at phi = 0";
   final parameter SI.Length l = sqrt(r*r) "Length of vector r";
@@ -52,23 +47,29 @@ equation
   frame_a.fy + frame_b.fy = 0;
 //  frame_a.t + frame_b.t - sx0*frame_b.fy + sy0*frame_b.fx = 0;
   frame_a.t  + frame_b.t + r0*{frame_b.fy,-frame_b.fx} = 0;
-  annotation (Icon(graphics={
-        Text(
-          extent={{-150,-50},{150,-90}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name"), Rectangle(
-          extent={{-92,6},{92,-6}},
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}),
+      graphics={
+        Rectangle(
+          extent={{-100,6},{100,-6}},
           fillPattern=FillPattern.Solid,
           fillColor={175,175,175}),
         Text(
-          extent={{-140,-22},{-104,-47}},
+          extent={{-108,-24},{-72,-49}},
           lineColor={128,128,128},
           textString="a"),
         Text(
-          extent={{104,-22},{140,-47}},
+          extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
-          textString="b")}),             Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          textString="b"),
+        Text(
+          extent={{-150,80},{150,40}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Text(
+          extent={{-100,-50},{100,-80}},
+          lineColor={0,0,0},
+          textString="r=%r")}),          Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static position difference <b>r</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>
 </html>"));
 end FixedTranslation;

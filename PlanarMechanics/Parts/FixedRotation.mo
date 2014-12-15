@@ -1,7 +1,7 @@
 within PlanarMechanics.Parts;
 model FixedRotation "A fixed translation between two components (rigid rod)"
-  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
-  outer PlanarWorld planarWorld "Planar world model";
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
+
   parameter SI.Angle alpha "Fixed rotation angle";
   parameter Boolean animate = true "= true, if animation shall be enabled"
                                            annotation(Dialog(group="Animation"));
@@ -44,31 +44,30 @@ equation
   frame_a.fy + frame_b.fy = 0;
   frame_a.t + frame_b.t = 0;
   annotation (Icon(graphics={
-        Text(
-          extent={{-150,-50},{150,-90}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name"),
         Polygon(
-          points={{4,48},{92,8},{92,-12},{0,32},{-92,-10},{-92,8},{-6,48},{4,48}},
+          points={{96,-8},{96,12},{0,-30},{-96,12},{-96,-6},{0,-50},{96,-8}},
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Ellipse(
-          extent={{-20,60},{20,20}},
+          extent={{-20,-20},{20,-60}},
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid),
         Ellipse(
-          extent={{-10,50},{10,30}},
+          extent={{-10,-30},{10,-50}},
           lineColor={255,255,255},
           fillColor={175,175,175},
           fillPattern=FillPattern.Solid,
           lineThickness=0.5),
         Text(
-          extent={{-140,-22},{-104,-47}},
+          extent={{-150,80},{150,40}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Text(
+          extent={{-108,-24},{-72,-49}},
           lineColor={128,128,128},
           textString="a"),
         Text(
-          extent={{104,-22},{140,-47}},
+          extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
           textString="b")}),       Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static angle difference <b>alpha</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>

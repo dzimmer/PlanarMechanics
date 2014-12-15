@@ -1,8 +1,7 @@
 within PlanarMechanics.Parts;
 model Spring "Linear 2D translational spring"
-  extends PlanarMechanics.Interfaces.PartialTwoFlanges;
+  extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
-  outer PlanarWorld planarWorld "Planar world model";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter Modelica.SIunits.TranslationalSpringConstant c_x(final min=0, start=1)
@@ -62,7 +61,6 @@ model Spring "Linear 2D translational spring"
                                                      annotation(Dialog(group="Animation"));
   MB.Visualizers.Advanced.Shape contactA(
     shapeType="cylinder",
-    color={0,0,0},
     specularCoefficient=specularCoefficient,
     length=0.1,
     width=0.1,
@@ -74,7 +72,6 @@ model Spring "Linear 2D translational spring"
     R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape contactB(
     shapeType="cylinder",
-    color={0,0,0},
     specularCoefficient=specularCoefficient,
     length=0.1,
     width=0.1,
@@ -143,31 +140,33 @@ for this situation:
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
-        Text(
-          extent={{150,-90},{-150,-50}},
-          textString="%name"),
         Line(
           points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,
               0}},
           thickness=0.5),
-        Line(points={{-68,0},{-68,65}},  color={128,128,128}),
-        Line(points={{72,0},{72,65}},  color={128,128,128}),
-        Line(points={{-68,60},{72,60}}, color={128,128,128}),
+        Line(points={{-70,-76},{-70,0}}, color={128,128,128}),
+        Line(points={{70,-78},{70,0}}, color={128,128,128}),
+        Line(points={{-70,-70},{70,-70}},
+                                        color={128,128,128}),
         Polygon(
-          points={{62,63},{72,60},{62,57},{62,63}},
+          points={{60,-67},{70,-70},{60,-73},{60,-67}},
           lineColor={128,128,128},
           fillColor={128,128,128},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-20,40},{20,65}},
-          lineColor={0,0,255},
+          extent={{-40,-66},{40,-42}},
+          lineColor={128,128,128},
           textString="phi_rel"),
         Text(
-          extent={{-140,-22},{-104,-47}},
+          extent={{-150,80},{150,40}},
+          textString="%name",
+          lineColor={0,0,255}),
+        Text(
+          extent={{-108,-24},{-72,-49}},
           lineColor={128,128,128},
           textString="a"),
         Text(
-          extent={{104,-22},{140,-47}},
+          extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
           textString="b")}),
     Diagram(coordinateSystem(

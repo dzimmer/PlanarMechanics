@@ -1,8 +1,7 @@
 within PlanarMechanics.GearComponents;
 model RigidNoLossExternal "External rigid gear gonnection model"
   extends PlanarMechanics.Utilities.Icons.PlanarGearContactExternalL1;
-  extends
-    PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.TwoPlanarConnectorsHeat;
+  extends PlanarMechanics.Interfaces.PartialTwoFramesAndHeat;
 
   parameter SI.Distance r_a=1 "Radius of gear A";
   parameter SI.Distance r_b=1 "Radius of gear B";
@@ -12,8 +11,8 @@ model RigidNoLossExternal "External rigid gear gonnection model"
      tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Angle StartAngle_b = 0 "Start Angle of gear B" annotation (Dialog(
-      HideResult=true,tab="Animation",
+  parameter SI.Angle StartAngle_b = 0 "Start Angle of gear B" annotation (HideResult=true,Dialog(
+      tab="Animation",
       group="if animation = true",
       enable=animate));
   parameter Integer Tooth_a(min=1) = 20 "Number of teeth" annotation ( HideResult=true,Dialog(
@@ -62,7 +61,6 @@ protected
 
   MB.Visualizers.Advanced.Shape pointA(
     shapeType="cylinder",
-    color={0,0,0},
     specularCoefficient=0.5,
     length=0.15,
     width=r_a/10,
@@ -75,7 +73,6 @@ protected
 
   MB.Visualizers.Advanced.Shape pointB(
     shapeType="cylinder",
-    color={0,0,0},
     specularCoefficient=0.5,
     length=0.15,
     width=r_a/10,
@@ -130,7 +127,7 @@ equation
 
   phi_gear_zero = firstOrder.y;
   firstOrder.u = phi_gear;
-  phi_gear = PlanarMechanics.Utilities.AtanLib.atan3b(
+  phi_gear =PlanarMechanics.Utilities.Functions.atan3b(
     frame_b.y - frame_a.y,
     frame_b.x - frame_a.x,
     (phi_gear_zero));
@@ -218,7 +215,6 @@ equation
               47.6059},{24.5443,47.9909},{26.559,43.6734},{26.9421,41.7643},{
               29.9832,41.8761},{30.2251,43.8082},{31.9173,48.2619},{34.6414,
               48.0765},{35.7144,43.4344},{35.6922,41.4874}},
-          smooth=Smooth.None,
           fillColor={255,0,0},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
@@ -267,22 +263,16 @@ equation
               -47.8875,25.9962},{-47.2592,23.6526},{-44.1521,23.8756},{-43.865,
               26.2849},{-42.8073,29.0581},{-42.0308,30.2359},{-39.75,30.0005},{
               -39.2305,28.6889},{-38.7618,25.758},{-38.973,23.3409}},
-          smooth=Smooth.None,
           fillColor={255,160,160},
           fillPattern=FillPattern.Solid,
           lineThickness=0.5,
           pattern=LinePattern.None),
         Line(
           points={{-100,0},{-44,0}},
-          color={0,0,0},
-          smooth=Smooth.None,
           thickness=1),
         Line(
           points={{30,0},{100,0}},
-          color={0,0,0},
-          smooth=Smooth.None,
-          thickness=1)}), Icon(graphics),
-    Documentation(revisions=
+          thickness=1)}),    Documentation(revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",
                                                                                                     info="<html>
 <p>In this model an ideal gear connection is modelled. It is based on the paper from van der Linden , <a href=\"http://dx.doi.org/10.3384/ecp12076303\">Modelling of Elastic Gearboxes Using a Generalized Gear Contact Model</a>. However, no gear elasticity is modelled.</p>

@@ -16,7 +16,7 @@ model PistonEngine "A piston engine (manual state selection)"
   Parts.FixedTranslation fixedTranslationDisc(r={0.3,0})
     annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
   Parts.Fixed fixed annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-90,50})));
   Joints.Prismatic prismatic(r={1,0}, s(fixed=false, start=0))
@@ -42,8 +42,7 @@ model PistonEngine "A piston engine (manual state selection)"
   inner PlanarWorld planarWorld(defaultWidthFraction=10)
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
-  connect(fixed.frame_a, revoluteDrive.frame_a)
-                                           annotation (Line(
+  connect(fixed.frame, revoluteDrive.frame_a) annotation (Line(
       points={{-80,50},{-70,50}},
       color={95,95,95},
       thickness=0.5));
@@ -52,7 +51,7 @@ equation
       points={{-50,50},{-30,50}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixed1.frame_a, prismatic.frame_b) annotation (Line(
+  connect(fixed1.frame, prismatic.frame_b) annotation (Line(
       points={{60,-50},{50,-50}},
       color={95,95,95},
       thickness=0.5));
@@ -70,8 +69,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(revolutePiston.frame_b, pistonRod.frame_b) annotation (Line(
-      points={{0,-20},{0,-12},{0,-12},{
-          0,-10}},
+      points={{0,-20},{0,-12},{0,-10}},
       color={95,95,95},
       thickness=0.5));
   connect(prismatic.frame_a, revolutePiston.frame_a) annotation (Line(
@@ -92,11 +90,6 @@ equation
 <li>revoluteDrive.phi</li>
 <li>revoluteDrive.w</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"),
     experiment(StopTime=10));
 end PistonEngine;

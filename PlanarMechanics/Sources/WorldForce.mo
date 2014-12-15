@@ -31,7 +31,7 @@ model WorldForce
 
   Interfaces.Frame_b frame_b
     "Coordinate system fixed to the component with one cut-force and cut-torque"
-    annotation (Placement(transformation(extent={{80,-20},{120,20}})));
+    annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   Modelica.Blocks.Interfaces.RealInput force[3]
     "x-, y-coordinates of force and torque resolved in world frame"
@@ -40,8 +40,7 @@ model WorldForce
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
     annotation (
-      Placement(transformation(extent={{0,-60},{20,-40}}), iconTransformation(
-          extent={{-40,-40},{-20,-20}})));
+      Placement(transformation(extent={{-16,-16},{16,16}},rotation=90,origin={0,-40})));
 
   Real R[2,2] "Rotation matrix";
   SI.Angle phi "Rotation angle of the additional frame_c";
@@ -80,7 +79,9 @@ equation
   {frame_b.fx,frame_b.fy} + R*{force[1], force[2]} = {0, 0};
   frame_b.t +  force[3]= 0;
 
-  annotation (Icon(graphics={
+  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}}),
+                   graphics={
         Polygon(
           points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},
               {-100,10}},
@@ -88,8 +89,10 @@ equation
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Text(
-          extent={{-150,-50},{150,-90}},
-          textString="%name")}),    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          extent={{-150,80},{150,40}},
+          fillPattern=FillPattern.Sphere,
+          textString="%name",
+          lineColor={0,0,255})}),   Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The <b>3</b> signals of the <b>force</b> connector contain force and torque. The first and second signal are interpreted as the x- and y-coordinates of a <b>force</b> and the third is torque, acting at the frame connector to which <b>frame_b</b> of this component is attached. Note that torque is a scalar quantity, which is exerted perpendicular to the x-y plane.</p>
 <p>An example of this model is given in the following figure:</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/WorldForce.png\"/></p>

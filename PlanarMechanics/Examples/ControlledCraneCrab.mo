@@ -27,7 +27,7 @@ model ControlledCraneCrab "A controlled crane crab"
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Modelica.Mechanics.Translational.Sources.Force force annotation (
       Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-10,70})));
   Modelica.Blocks.Continuous.PID PID(
@@ -41,12 +41,12 @@ model ControlledCraneCrab "A controlled crane crab"
   Joints.Prismatic prismatic(r={1,0}, useFlange=true,
     s(fixed=true),
     v(fixed=true))
-    annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+    annotation (Placement(transformation(extent={{-40,40},{-20,20}})));
   Joints.Revolute revolute(useFlange=true,
     w(fixed=true),
     phi(fixed=true, start=-0.34906585039887))
                                            annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-10,0})));
 equation
@@ -61,7 +61,7 @@ equation
       points={{41,0},{70,0},{70,70},{42,70}},
       color={0,0,127}));
 
-  connect(fixed.frame_a, prismatic.frame_a) annotation (Line(
+  connect(fixed.frame, prismatic.frame_a) annotation (Line(
       points={{-60,30},{-40,30}},
       color={95,95,95},
       thickness=0.5));
@@ -70,7 +70,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(prismatic.flange_a, force.flange) annotation (Line(
-      points={{-30,39},{-30,50},{-30,70},{-20,70}},
+      points={{-30,39},{-30,39},{-30,70},{-20,70}},
       color={0,127,0}));
   connect(prismatic.frame_b, revolute.frame_a) annotation (Line(
       points={{-20,30},{-10,30},{-10,10}},
@@ -81,7 +81,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(revolute.flange_a, angleSensor.flange) annotation (Line(
-      points={{0,0},{10,0},{10,0},{20,0}}));
+      points={{0,0},{0,0},{20,0}}));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>A simple PID (actually PD) controlles the pendulum into upright position.</p>
@@ -96,10 +96,5 @@ equation
 <li>PID.D.x</li>
 <li>PID.I.y</li>
 </ul>
-</html>",
-      revisions="<html>
-<p>(c) Copyright by Dirk Zimmer</p>
-<p>The library was created and is owned by Dr. Dirk Zimmer.</p>
-<p>dirk.zimmer@dlr.de</p>
 </html>"));
 end ControlledCraneCrab;
