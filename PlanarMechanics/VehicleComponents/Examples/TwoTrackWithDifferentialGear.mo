@@ -149,7 +149,7 @@ model TwoTrackWithDifferentialGear "Double track model"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={40,60})));
-  inner PlanarWorld planarWorld(defaultWidthFraction=10)
+  inner PlanarWorld planarWorld(defaultWidthFraction=10, g={0,0})
     annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
   Joints.Revolute revolute2(
     useFlange=true,

@@ -56,7 +56,8 @@ model SingleTrackWithEngine "Single track model"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={20,30})));
-  inner PlanarWorld planarWorld(defaultWidthFraction=10, defaultZPosition=0)
+  inner PlanarWorld planarWorld(defaultWidthFraction=10, defaultZPosition=0,
+    g={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
   connect(idealWheelFront.frame_a, bodyFront.frame_a)
