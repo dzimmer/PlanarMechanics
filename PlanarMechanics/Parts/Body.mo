@@ -10,9 +10,6 @@ model Body "Body component with mass and inertia"
   parameter SI.Mass m "Mass of the body";
   parameter SI.Inertia I
     "Inertia of the body with respect to the origin of frame_a along the z-axis of frame_a";
-  parameter SI.Acceleration g[2] = planarWorld.g
-    "Local gravity acting on the mass" annotation (Dialog(
-      tab="Advanced"));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of the body" annotation (Dialog(
       tab="Animation",
@@ -48,8 +45,8 @@ model Body "Body component with mass and inertia"
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
     r_shape={0,0,0} -{0,0,1}*sphereDiameter/2,
-    r={frame_a.x,frame_a.y,zPosition},
-    R=MB.Frames.axisRotation(3,frame_a.phi,w)) if  planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.axisRotation(3,frame_a.phi,w))) if  planarWorld.enableAnimation and animate;
 equation
   //The velocity is a time-derivative of the position
   r = {frame_a.x, frame_a.y};
@@ -61,7 +58,7 @@ equation
   z = der(w);
   //Newton's law
   f = {frame_a.fx, frame_a.fy};
-  f + m*g = m*a;
+  f + m*planarWorld.g = m*a;
   frame_a.t = I*z;
   annotation (Icon(graphics={
         Rectangle(

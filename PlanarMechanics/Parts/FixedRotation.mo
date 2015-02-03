@@ -34,8 +34,8 @@ model FixedRotation "A fixed translation between two components (rigid rod)"
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
     r_shape={0,0,-0.05},
-    r={frame_a.x,frame_a.y,zPosition},
-    R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
 equation
   frame_a.x = frame_b.x;
   frame_a.y = frame_b.y;

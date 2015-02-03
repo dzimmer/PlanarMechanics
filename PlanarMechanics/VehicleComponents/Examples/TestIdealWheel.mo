@@ -41,7 +41,7 @@ model TestIdealWheel "Test an ideal wheel"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={0,60})));
-  inner PlanarWorld planarWorld(enableAnimation=true, g={0,0})
+  inner PlanarWorld planarWorld(enableAnimation=true, constantGravity={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
   connect(idealWheelJoint.frame_a, prismatic.frame_b) annotation (Line(

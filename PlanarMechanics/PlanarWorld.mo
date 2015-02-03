@@ -2,6 +2,18 @@ within PlanarMechanics;
 model PlanarWorld
   "Planar world coordinate system + gravity field + default animation definition"
 
+  MB.Interfaces.Frame_a MBFrame_a if connectToMultiBody
+    annotation (Placement(transformation(extent={{-118,-16},{-86,16}})));
+
+  SI.Position r_0[3]
+    "Position vector from world frame to the connector frame origin, resolved in world frame";
+  MB.Frames.Orientation R
+    "Orientation object to rotate the world frame into the connector frame";
+
+  parameter Boolean connectToMultiBody = false;
+
+  parameter Boolean inheritGravityFromMultiBody = false;
+
   parameter Boolean enableAnimation=true
     "= true, if animation of all components is enabled";
   parameter Boolean animateWorld=true
@@ -11,7 +23,10 @@ model PlanarWorld
                                                                                          annotation(Dialog(enable=enableAnimation));
   parameter String label1="x" "Label of horizontal axis in icon";
   parameter String label2="y" "Label of vertical axis in icon";
-  parameter SI.Acceleration[2] g={0,-9.81}
+  SI.Acceleration[2] g
+    "Constant gravity acceleration vector resolved in world frame";
+
+  parameter SI.Acceleration[2] constantGravity={0,-9.81}
     "Constant gravity acceleration vector resolved in world frame";
 
   parameter SI.Length axisLength=nominalLength/2 "Length of world axes arrows"
@@ -81,7 +96,14 @@ model PlanarWorld
   parameter Real defaultNm_to_m(unit="N.m/m", min=0) = 1000
     "Default scaling of torque arrows (length = torque/defaultNm_to_m)"
     annotation (Dialog(tab="Defaults"));
+
 protected
+  MB.Interfaces.Frame MBFrame;
+
+  outer Modelica.Mechanics.MultiBody.World world;
+
+  SI.Acceleration gz "auxiliary gravity acc. in z-direction";
+
   parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
   parameter Integer ndim2=if enableAnimation and animateWorld and
       axisShowLabels then 1 else 0;
@@ -211,6 +233,29 @@ protected
     color=gravityArrowColor,
     r_shape={gravityArrowTail[1],gravityArrowTail[2],0} + Modelica.Math.Vectors.normalize({g[1],g[2],0})*gravityLineLength,
     specularCoefficient=0) if enableAnimation and animateGravity;
+
+equation
+  if connectToMultiBody then
+    connect(MBFrame_a,MBFrame);
+  else
+    MBFrame.r_0 = {0,0,0};
+    MBFrame.R = MB.Frames.nullRotation();
+//    Connections.root(MBFrame.R);
+
+  end if;
+
+  r_0 = MBFrame.r_0;
+  R = MBFrame.R;
+
+  if inheritGravityFromMultiBody then
+    {g[1],g[2],gz} = MB.Frames.resolve2(R,world.gravityAcceleration(MBFrame.r_0));
+  else
+    gz = 0;
+    g = constantGravity;
+  end if;
+//  MBFrame.f = {0,0,0};
+//  MBFrame.t = {0,0,0};
+
     annotation (
     defaultComponentName="planarWorld",
     defaultComponentPrefixes="inner",
@@ -273,7 +318,7 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
         Text(
           extent={{-100,-50},{100,-80}},
           lineColor={0,0,0},
-          textString="g=%g")}),
+          textString="g=%constantGravity")}),
     Documentation(
       revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
@@ -284,5 +329,7 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
 <li>It contains all default parameters for animation, e.g. axis diameter, default joint length etc, which can still be overwritten by setting parameters in these models.</li>
 <li>It provides the default gravity definition and its animation.</li>
 </ol>
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics));
 end PlanarWorld;

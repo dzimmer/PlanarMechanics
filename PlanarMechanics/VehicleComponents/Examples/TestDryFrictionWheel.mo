@@ -44,7 +44,7 @@ model TestDryFrictionWheel "Dry friction wheel"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,30})));
-  inner PlanarWorld planarWorld(g={0,0})
+  inner PlanarWorld planarWorld(constantGravity={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
   connect(prismatic.frame_a, revolute.frame_b) annotation (Line(
