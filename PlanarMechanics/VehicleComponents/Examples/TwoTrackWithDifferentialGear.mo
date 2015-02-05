@@ -5,7 +5,8 @@ model TwoTrackWithDifferentialGear "Double track model"
   Parts.Body body(
     g={0,0},
     m=100,
-    I=1)
+    I=1,
+    enableGravity=false)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-40,90})));
@@ -29,12 +30,12 @@ model TwoTrackWithDifferentialGear "Double track model"
         origin={0,-10})));
   Parts.Body body1(
     I=0.1,
-    g={0,0},
     m=300,
     r(each fixed=true),
     v(each fixed=true),
     phi(fixed=true),
-    w(fixed=true))
+    w(fixed=true),
+    enableGravity=false)
           annotation (Placement(transformation(extent={{12,-40},{32,-20}})));
   VehicleComponents.Wheels.DryFrictionWheelJoint wheelJoint2(
     r= {0,1},
@@ -120,9 +121,9 @@ model TwoTrackWithDifferentialGear "Double track model"
         rotation=180,
         origin={90,70})));
   Parts.Body body2(
-    g={0,0},
     m=100,
-    I=1)
+    I=1,
+    enableGravity=false)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={40,90})));
@@ -149,7 +150,7 @@ model TwoTrackWithDifferentialGear "Double track model"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={40,60})));
-  inner PlanarWorld planarWorld(defaultWidthFraction=10)
+  inner PlanarWorld planarWorld(defaultWidthFraction=10, constantGravity={0,0})
     annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
   Joints.Revolute revolute2(
     useFlange=true,

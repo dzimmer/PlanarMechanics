@@ -46,7 +46,7 @@ model TestSlipBasedWheel "A slip-based wheel"
         origin={0,30})));
   Modelica.Blocks.Sources.Constant const(k=0)
     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
-  inner PlanarWorld planarWorld(g={0,0})
+  inner PlanarWorld planarWorld(constantGravity={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
   connect(prismatic.frame_a, revolute.frame_b) annotation (Line(

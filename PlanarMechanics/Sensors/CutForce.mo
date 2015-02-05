@@ -37,9 +37,10 @@ protected
     diameter=forceDiameter,
     color=forceColor,
     specularCoefficient=specularCoefficient,
-    r={frame_b.x, frame_b.y, 0},
+    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x, frame_b.y, 0})+planarWorld.r_0,
     r_tail=f_in_m,
-    r_head=-f_in_m) if planarWorld.enableAnimation and animation;
+    r_head=-f_in_m,
+    R=planarWorld.R) if planarWorld.enableAnimation and animation;
 
   Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
         positiveSign)

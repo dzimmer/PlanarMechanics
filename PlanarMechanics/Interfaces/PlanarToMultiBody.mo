@@ -1,7 +1,10 @@
 within PlanarMechanics.Interfaces;
 model PlanarToMultiBody
   "This model enables to connect planar models to 3D Models"
-
+  parameter SI.Length zPosition = planarWorld.defaultZPosition
+    "Position z of cylinder representing the fixed translation" annotation (Dialog(
+      tab="Animation", group="if animation = true", enable=animate));
+  outer PlanarWorld planarWorld "planar world model";
   Frame_a frame_a "Frame connector in Planarmechanics"
     annotation (Placement(transformation(extent={{-46,-8},{-26,12}}),
         iconTransformation(extent={{-48,-20},{-8,20}})));
@@ -12,17 +15,16 @@ protected
   SI.Force f0[3] "Force vector";
 equation
   //connect the translatory position w.r.t inertial system
-  frame_a.x = frame_b.r_0[1];
-  frame_a.y = frame_b.r_0[2];
-  0 = frame_b.r_0[3];
+  frame_b.r_0 = MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0;
+
   //Express 3D-rotation as planar rotation around z-axes
-  MB.Frames.planarRotation({0,0,1},frame_a.phi, der(frame_a.phi)) = frame_b.R;
-  //define force vector
-  f0 = {frame_a.fx, frame_a.fy, fz};
+  frame_b.R = MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0,0,1},frame_a.phi, der(frame_a.phi)));
+  //define force vector in inertial system
+  f0 = MB.Frames.resolve1(planarWorld.R,{frame_a.fx, frame_a.fy, fz});
   //the MulitBody force vector is resolved within the body system
   f0*frame_b.R.T + frame_b.f = zeros(3);
   //connect the torque
-  frame_a.t + frame_b.t[3] = 0;
+  frame_a.t + MB.Frames.resolve2(planarWorld.R,frame_b.t)*{0,0,1} = 0;
   //This element determines the orientation matrix fully, hence it is a "root-element"
   Connections.root(frame_b.R);
 
