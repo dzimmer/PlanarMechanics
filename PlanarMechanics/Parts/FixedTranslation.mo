@@ -30,8 +30,8 @@ model FixedTranslation "A fixed translation between two components (rigid rod)"
     lengthDirection={r0[1]/l,r0[2]/l,0},
     widthDirection={0,0,1},
     r_shape={0,0,0},
-    r={frame_a.x,frame_a.y,zPosition},
-    R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
 equation
   //resolve the rod w.r.t inertial system
 //  sx0 = cos(frame_a.phi)*sx + sin(frame_a.phi)*sy;

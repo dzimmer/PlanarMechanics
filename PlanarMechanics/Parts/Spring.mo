@@ -68,8 +68,8 @@ model Spring "Linear 2D translational spring"
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
     r_shape={0,0,-0.06},
-    r={frame_a.x,frame_a.y,zPosition},
-    R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape contactB(
     shapeType="cylinder",
     specularCoefficient=specularCoefficient,
@@ -79,8 +79,8 @@ model Spring "Linear 2D translational spring"
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
     r_shape={0,0,-0.06},
-    r={frame_b.x,frame_b.y,zPosition},
-    R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape lineShape(
     shapeType="spring",
     color=color,
@@ -91,7 +91,8 @@ model Spring "Linear 2D translational spring"
     lengthDirection=e_rel_0,
     widthDirection= {0,1,0},
     extra=numberOfWindings,
-    r={frame_a.x,frame_a.y,zPosition}) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
 equation
 
   if enableAssert then

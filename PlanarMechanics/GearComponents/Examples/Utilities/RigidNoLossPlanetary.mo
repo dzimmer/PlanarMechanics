@@ -114,7 +114,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(bearing_Sun.flange_a, flange_Sun) annotation (Line(
-      points={{-60,0},{-100,0}}));
+      points={{-60,-20},{-80,-20},{-80,0},{-100,0}}));
   connect(bearing_Carrier.frame_b, carrierAngle.frame_a) annotation (Line(
       points={{-50,-40},{-40,-40}},
       color={95,95,95},
@@ -128,13 +128,13 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(bearing_Ring.flange_a, flange_Ring) annotation (Line(
-      points={{-60,50},{-60,60},{-100,60}}));
+      points={{-60,30},{-60,60},{-100,60}}));
   connect(planet.frame_a, bearing_Planet.frame_b) annotation (Line(
       points={{72,40},{48,40},{48,-40},{40,-40}},
       color={95,95,95},
       thickness=0.5));
   connect(sun.flange_a, bearing_Sun.flange_a) annotation (Line(
-      points={{-40,10},{-60,10},{-60,0}}));
+      points={{-40,10},{-60,10},{-60,-20}}));
   connect(bearing_Sun.frame_b, sunPlanet.frame_a) annotation (Line(
       points={{-50,-10},{0,-10}},
       color={95,95,95},
@@ -146,7 +146,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(ring.flange_a, bearing_Ring.flange_a) annotation (Line(
-      points={{-40,60},{-60,60},{-60,50}}));
+      points={{-40,60},{-60,60},{-60,30}}));
   connect(sunPlanet.heatPort, internalHeatPort) annotation (Line(
       points={{0,-20},{60,-20},{60,-60},{-90,-60},{-90,-80},{-100,-80}},
       color={191,0,0}));
@@ -154,7 +154,7 @@ equation
       points={{20,50},{60,50},{60,-60},{-90,-60},{-90,-80},{-100,-80}},
       color={191,0,0}));
   connect(bearing_Carrier.flange_a, carrier.flange_a) annotation (Line(
-      points={{-60,-30},{70,-30}}));
+      points={{-60,-50},{6,-50},{6,-30},{70,-30}}));
   annotation (Documentation(info="<html>
 <p>This model is a model of a standard planetary gearbox. The inertia of all gear models, as well as the mass of the planetary gear can be entered to get the behaviour of a complete planetary gear. In this example only one planet is used as the gearbox models are rigid.</p>
 </html>", revisions=

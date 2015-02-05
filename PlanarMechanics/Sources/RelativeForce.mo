@@ -49,8 +49,8 @@ protected
     diameter=diameter,
     color=color,
     specularCoefficient=specularCoefficient,
-    R=MB.Frames.planarRotation({0, 0, 1},phi,der(phi)),
-    r={frame_b.x,frame_b.y,zPosition},
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0, 0, 1},phi,der(phi))),
+    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition})+planarWorld.r_0,
     r_tail=-f_in_m,
     r_head=f_in_m) if planarWorld.enableAnimation and animation;
 
@@ -58,8 +58,8 @@ protected
     diameter=diameter,
     color=color,
     specularCoefficient=specularCoefficient,
-    R=MB.Frames.planarRotation({0, 1, 0},Modelica.Constants.pi,0),
-    r={frame_b.x,frame_b.y,zPosition},
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0, 1, 0},Modelica.Constants.pi,0)),
+    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition})+planarWorld.r_0,
     r_tail=t_in_m,
     r_head=-t_in_m) if planarWorld.enableAnimation and animation;
 
