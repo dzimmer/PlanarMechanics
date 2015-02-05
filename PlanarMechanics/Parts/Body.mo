@@ -4,7 +4,10 @@ model Body "Body component with mass and inertia"
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
   outer PlanarWorld planarWorld "planar world model";
-  parameter Boolean animate = true "= true, if animation shall be enabled";
+  parameter Boolean animate = true "= true, if animation shall be enabled"     annotation (
+    Evaluate=true,
+    HideResult=true,
+    choices(checkBox=true));
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.Mass m "Mass of the body";
@@ -20,6 +23,11 @@ model Body "Body component with mass and inertia"
       tab="Animation",
       group="if animation = true",
       enable=animate));
+       parameter Boolean enableGravity = true
+    "= true, if gravity effects should be taken into account" annotation (
+    Evaluate=true,
+    HideResult=true,
+    choices(checkBox=true));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
@@ -58,7 +66,11 @@ equation
   z = der(w);
   //Newton's law
   f = {frame_a.fx, frame_a.fy};
-  f + m*planarWorld.g = m*a;
+  if enableGravity then
+    f + m*planarWorld.g = m*a;
+  else
+    f = m*a;
+  end if;
   frame_a.t = I*z;
   annotation (Icon(graphics={
         Rectangle(

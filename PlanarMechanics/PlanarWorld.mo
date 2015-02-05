@@ -10,17 +10,30 @@ model PlanarWorld
   MB.Frames.Orientation R
     "Orientation object to rotate the world frame into the connector frame";
 
-  parameter Boolean connectToMultiBody = false;
+  parameter Boolean connectToMultiBody = false annotation (
+    Evaluate=true,
+    HideResult=true,
+    choices(checkBox=true));
 
-  parameter Boolean inheritGravityFromMultiBody = false;
+  parameter Boolean inheritGravityFromMultiBody = false annotation (
+    Evaluate=true,
+    HideResult=true,
+    choices(checkBox=true));
 
   parameter Boolean enableAnimation=true
-    "= true, if animation of all components is enabled";
+    "= true, if animation of all components is enabled" annotation (
+    Evaluate=true,
+    HideResult=true,
+    choices(checkBox=true));
   parameter Boolean animateWorld=true
-    "= true, if world coordinate system shall be visualized" annotation(Dialog(enable=enableAnimation));
+    "= true, if world coordinate system shall be visualized" annotation (
+    HideResult=true,
+    choices(checkBox=true),Dialog(enable=enableAnimation));
   parameter Boolean animateGravity=true
     "= true, if gravity field shall be visualized (acceleration vector or field center)"
-                                                                                         annotation(Dialog(enable=enableAnimation));
+                                                                                         annotation (
+    HideResult=true,
+    choices(checkBox=true),Dialog(enable=enableAnimation));
   parameter String label1="x" "Label of horizontal axis in icon";
   parameter String label2="y" "Label of vertical axis in icon";
   SI.Acceleration[2] g
