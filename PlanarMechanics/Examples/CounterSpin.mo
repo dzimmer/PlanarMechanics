@@ -24,6 +24,8 @@ model CounterSpin "Wheel with counter-spin and dry-friction law"
     x(fixed=true),
     vSlide=0.03,
     mu_A=0.5) annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-60,-40},{-40,-20}})));
 equation
   connect(body.frame_a, slipBasedRolling.frame_a) annotation (Line(
       points={{0,0},{20,0}},

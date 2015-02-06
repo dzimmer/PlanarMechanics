@@ -32,6 +32,8 @@ model SpringDamperDemo "Spring damper demo"
     annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
   Parts.FixedTranslation fixedTranslation(r={-1,0})
     annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
 equation
   connect(fixed.frame, fixedTranslation.frame_a) annotation (Line(
       points={{-60,40},{-40,40}},

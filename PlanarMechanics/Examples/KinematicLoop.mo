@@ -69,6 +69,8 @@ model KinematicLoop "An example of a kinematic loop (manual state selection)"
         origin={-46,90})));
   inner PlanarWorld planarWorld
     annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
 equation
   connect(fixedTranslation1.frame_a, revolute1.frame_b) annotation (Line(
       points={{-20,20},{-20,30}},

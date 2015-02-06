@@ -32,6 +32,8 @@ model WheelBasedCranCrab "A pendulum mounted on an ideal rolling wheel"
         origin={-20,-50})));
   inner PlanarWorld planarWorld(defaultWidthFraction=10, defaultZPosition=0)
     annotation (Placement(transformation(extent={{-80,0},{-60,20}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
 equation
   connect(revolute.frame_a, idealRolling.frame_a) annotation (Line(
       points={{-20,20},{-20,40}},

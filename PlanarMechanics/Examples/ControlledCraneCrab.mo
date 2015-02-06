@@ -49,6 +49,8 @@ model ControlledCraneCrab "A controlled crane crab"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-10,0})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{-10,-40},{-10,-45},{-10,-50}},
