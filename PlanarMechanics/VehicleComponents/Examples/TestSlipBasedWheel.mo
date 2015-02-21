@@ -48,6 +48,8 @@ model TestSlipBasedWheel "A slip-based wheel"
     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
   inner PlanarWorld planarWorld(constantGravity={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
 equation
   connect(prismatic.frame_a, revolute.frame_b) annotation (Line(
       points={{0,-20},{0,-20},{0,-30}},

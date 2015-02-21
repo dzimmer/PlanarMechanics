@@ -163,6 +163,8 @@ model TwoTrackWithDifferentialGear "Double track model"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={40,30})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-100,-28},{-80,-8}})));
 equation
   connect(wheelJoint2.flange_a, inertia1.flange_b) annotation (Line(
       points={{-74,-50},{-82,-50}}));
