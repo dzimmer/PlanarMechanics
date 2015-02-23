@@ -3,7 +3,6 @@ model TwoTrackWithDifferentialGear "Double track model"
   extends Modelica.Icons.Example;
 
   Parts.Body body(
-    g={0,0},
     m=100,
     I=1,
     enableGravity=false)
