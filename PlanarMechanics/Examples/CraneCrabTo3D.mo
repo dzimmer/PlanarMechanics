@@ -21,7 +21,7 @@ model CraneCrabTo3D "A damped crane crab"
     m=1,
     I=0.1)
     annotation (Placement(transformation(extent={{60,20},{80,40}})));
-  inner PlanarWorld planarWorld(
+  inner PlanarWorldIn3D planarWorld(
     connectToMultiBody=true,
     inheritGravityFromMultiBody=true,
     constantGravity={0,0})
