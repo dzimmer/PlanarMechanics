@@ -1,7 +1,9 @@
 within PlanarMechanics.Parts;
 model Damper "Linear (velocity dependent) damper"
   extends PlanarMechanics.Interfaces.PartialTwoFrames;
-
+  extends
+    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+     final T=293.15);
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.TranslationalDampingConstant d=1 "Damping constant";
@@ -106,6 +108,8 @@ equation
   frame_a.fx + frame_b.fx = 0;
   frame_a.fy + frame_b.fy = 0;
   frame_a.t + frame_b.t = 0;
+
+  lossPower = -f*v;
 
   annotation (
     Icon(graphics={

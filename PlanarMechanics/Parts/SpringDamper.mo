@@ -1,6 +1,9 @@
 within PlanarMechanics.Parts;
 model SpringDamper "Linear 2D translational spring damper model"
   extends PlanarMechanics.Interfaces.PartialTwoFrames;
+    extends
+    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+     final T=293.15);
 
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
@@ -203,6 +206,8 @@ equation
   frame_b.fx = f_x;
   frame_a.fy = -f_y;
   frame_b.fy = f_y;
+
+  lossPower = d_x*v_relx*v_relx + d_y*v_rely*v_rely;
   annotation (
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>A <i>linear translational spring-damper</i>. x- and y direction stiffness and damping can be parameterized.</p>
