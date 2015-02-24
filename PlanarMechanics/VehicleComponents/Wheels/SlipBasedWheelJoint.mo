@@ -1,6 +1,8 @@
 within PlanarMechanics.VehicleComponents.Wheels;
 model SlipBasedWheelJoint "Slip-Friction based wheel joint"
-
+  extends
+    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+     final T=293.15);
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-56,-16},
             {-24,16}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a annotation (
@@ -133,6 +135,7 @@ equation
   f_lat  =f*v_slip_lat/v_slip;
   f_long = {frame_a.fx, frame_a.fy}*e0;
   f_lat = {frame_a.fy, -frame_a.fx}*e0;
+  lossPower = f*v_slip;
   annotation (Icon(graphics={
         Rectangle(
           extent={{-40,100},{40,-100}},
