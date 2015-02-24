@@ -12,6 +12,12 @@ model Revolute "A revolute joint"
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a(phi = phi, tau = t) if useFlange annotation (
       Placement(transformation(extent={{-10,-110},{10,-90}})));
 
+  Modelica.Mechanics.Rotational.Interfaces.Flange_b support if useFlange
+    "1-dim. rotational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+          rotation=180,
+        origin={-50,-100})));
+
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the joint axis" annotation (Dialog(
       tab="Animation",
@@ -69,6 +75,13 @@ public
     R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0,0,1}, phi, w)),
     extra=extra) if planarWorld.enableAnimation and animate;
 
+protected
+  Modelica.Mechanics.Rotational.Components.Fixed fixed
+    "support flange is fixed to ground"
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={-50,-80})));
+
 equation
   //Differential Equations
   w = der(phi);
@@ -86,6 +99,10 @@ equation
   frame_a.fy + frame_b.fy = 0;
   frame_a.t + frame_b.t = 0;
   frame_a.t = t;
+  connect(fixed.flange,support)  annotation (Line(
+      points={{-50,-80},{-50,-100}},
+      color={0,0,0},
+      smooth=Smooth.None));
   annotation (Icon(graphics={
         Text(
           extent={{-150,100},{150,60}},
@@ -121,5 +138,7 @@ equation
 <p>By setting <b>useFlange</b> as true, the flange for a 1-dim. rotational input will be activated. In the &quot;Initialization&quot; block, angular position <b>phi</b>, angular velocity <b>w</b> as well as angular acceleration <b>z</b> can be initialized.</p>
 <p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
 <p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics));
 end Revolute;
