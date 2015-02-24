@@ -43,6 +43,8 @@ model TestIdealWheel "Test an ideal wheel"
         origin={0,60})));
   inner PlanarWorld planarWorld(enableAnimation=true, constantGravity={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
 equation
   connect(idealWheelJoint.frame_a, prismatic.frame_b) annotation (Line(
       points={{0,26},{0,0}},

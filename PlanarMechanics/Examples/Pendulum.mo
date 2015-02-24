@@ -18,6 +18,8 @@ model Pendulum "A free swinging pendulum"
         rotation=180,
         origin={-60,0})));
   inner PlanarWorld planarWorld(defaultWidthFraction=10)
+    annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
+  inner MB.World world
     annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
 equation
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(

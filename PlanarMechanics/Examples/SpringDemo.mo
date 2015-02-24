@@ -36,6 +36,8 @@ model SpringDemo "Spring demo"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={30,0})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-80},{-60,-60}})));
 equation
   connect(fixed.frame, fixedTranslation.frame_a) annotation (Line(
       points={{-60,40},{-40,40}},

@@ -21,7 +21,7 @@ model MeasureDemo "Measure demo"
   inner PlanarWorld planarWorld(enableAnimation=true,
     animateWorld=false,
     animateGravity=false)
-    annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    annotation (Placement(transformation(extent={{-60,60},{-40,80}})));
   Sensors.AbsolutePosition absolutePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
     annotation (Placement(transformation(extent={{10,-10},{-10,10}},
         origin={-10,-90})));
@@ -40,6 +40,8 @@ model MeasureDemo "Measure demo"
     annotation (Placement(transformation(extent={{0,42},{20,62}})));
   Joints.Revolute revolute2(phi(fixed=true), w(fixed=true))
     annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-94,60},{-74,80}})));
 equation
   connect(fixedTranslation.frame_b,body. frame_a) annotation (Line(
       points={{-20,20},{-2,20},{10,20}},

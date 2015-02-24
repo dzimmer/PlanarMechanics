@@ -22,11 +22,13 @@ model DoublePendulum
   inner PlanarWorld planarWorld(enableAnimation=true,
     animateWorld=true,
     animateGravity=true)
-    annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
   Joints.Revolute revolute(phi(fixed=true, start=0), w(fixed=true, start=0))
     annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
   Joints.Revolute revolute1(phi(fixed=true, start=0), w(fixed=true, start=0))
     annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{-20,20},{0,20}},

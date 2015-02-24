@@ -20,6 +20,10 @@ model PlanetaryGear "Rigid planetary gearbox"
     annotation (Placement(transformation(extent={{-50,0},{-30,20}})));
   Modelica.Mechanics.Rotational.Sources.ConstantTorque RingTorque(tau_constant=
         1) annotation (Placement(transformation(extent={{-50,30},{-30,50}})));
+  inner PlanarWorld planarWorld
+    annotation (Placement(transformation(extent={{-80,-54},{-60,-34}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-92},{-60,-72}})));
 equation
   connect(heatCapacitor.port, planetary.heatPort) annotation (Line(
       points={{-10,-30},{0,-30},{0,0}},

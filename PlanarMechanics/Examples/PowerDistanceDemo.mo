@@ -21,7 +21,7 @@ model PowerDistanceDemo "Power and distance sensor demo"
     I=0.1)
     annotation (Placement(transformation(extent={{0,20},{20,40}})));
   inner PlanarWorld planarWorld
-    annotation (Placement(transformation(extent={{-80,-22},{-60,-2}})));
+    annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   Parts.Damper damper(d=1)
     annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
   Joints.Revolute revolute(w(fixed=true), phi(fixed=true, start=2.6179938779915))
@@ -40,6 +40,8 @@ model PowerDistanceDemo "Power and distance sensor demo"
         origin={-10,-60})));
   Sensors.Distance distance
     annotation (Placement(transformation(extent={{2,62},{22,82}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
 equation
   connect(damper.frame_a, fixed.frame) annotation (Line(
       points={{-40,50},{-60,50},{-60,30}},

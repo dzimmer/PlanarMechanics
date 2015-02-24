@@ -12,6 +12,8 @@ model FreeBody "A simple free falling body"
     phi(fixed=true),
     w(fixed=true))
     annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-30,34},{-10,54}})));
   annotation (
     experiment(StopTime=3),
     Documentation(revisions="<html>

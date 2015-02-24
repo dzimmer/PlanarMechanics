@@ -47,6 +47,8 @@ model InvertedCraneCrab "An inverted model of a pendulum"
     s(fixed=true),
     v(fixed=true))
     annotation (Placement(transformation(extent={{-40,40},{-20,20}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
 equation
   connect(inverseBlockConstraints.u1, angleSensor.phi) annotation (Line(
       points={{35.5,0},{33.875,0},{33.875,0},{

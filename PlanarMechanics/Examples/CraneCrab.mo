@@ -42,6 +42,8 @@ model CraneCrab "A damped crane crab"
         origin={-66,60})));
   Modelica.Mechanics.Translational.Components.Damper damper1D(d=10)
     annotation (Placement(transformation(extent={{-50,50},{-30,70}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{-10,-40},{-10,-50}},

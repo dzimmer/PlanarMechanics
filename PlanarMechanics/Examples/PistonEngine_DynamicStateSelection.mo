@@ -38,6 +38,8 @@ model PistonEngine_DynamicStateSelection "A piston engine"
         origin={0,-30})));
   inner PlanarWorld planarWorld(defaultWidthFraction=10)
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
 equation
   connect(fixed.frame, revoluteDrive.frame_a) annotation (Line(
       points={{-80,50},{-70,50}},

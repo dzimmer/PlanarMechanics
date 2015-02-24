@@ -46,6 +46,8 @@ model TestDryFrictionWheel "Dry friction wheel"
         origin={0,30})));
   inner PlanarWorld planarWorld(constantGravity={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-78,-60},{-58,-40}})));
 equation
   connect(prismatic.frame_a, revolute.frame_b) annotation (Line(
       points={{0,-20},{0,-20},{0,-30}},

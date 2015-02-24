@@ -38,6 +38,8 @@ model SpurGear "Rigid spur gear"
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
   RigidNoLossExternal gearwheelExternal
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{20,58},{40,80}})));
 equation
   connect(angle.frame_b, distance.frame_a)             annotation (Line(
       points={{-20,-30},{-6,-30},{20,-30}},
