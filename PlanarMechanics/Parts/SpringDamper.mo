@@ -250,7 +250,13 @@ equation
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
-          lineColor={0,0,255})}),
+          lineColor={0,0,255}),
+        Line(
+          visible=useHeatPort,
+          points={{-100,-100},{-100,-60},{-40,-60},{-20,-40}},
+          color={191,0,0},
+          pattern=LinePattern.Dot,
+          smooth=Smooth.None)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

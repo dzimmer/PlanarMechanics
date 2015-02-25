@@ -132,7 +132,17 @@ equation
         Text(
           extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
-          textString="b")}),
+          textString="b"),
+        Text(
+          extent={{-100,-50},{100,-80}},
+          lineColor={0,0,0},
+          textString="d=%d"),
+        Line(
+          visible=useHeatPort,
+          points={{-100,-100},{-100,-80},{-18,0}},
+          color={191,0,0},
+          pattern=LinePattern.Dot,
+          smooth=Smooth.None)}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component is a <b>linear damper</b>, which acts as a line force between frame_a and frame_b. A <b>force f</b> is exerted on the origin of frame_b and with opposite sign on the origin of frame_a along the line from the origin of frame_a to the origin of frame_b according to the equation: </p>
 <p><code>f = d*<b>der</b>(s);</code></p>
