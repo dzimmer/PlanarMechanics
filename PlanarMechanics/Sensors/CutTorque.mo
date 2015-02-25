@@ -15,7 +15,7 @@ model CutTorque "Measure cut torque vector"
     "= true, if animation shall be enabled (show arrow)";
   parameter Boolean positiveSign=true
     "= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)";
-  input Real Nm_to_m(unit="N.m/m") = 1000
+  input Real Nm_to_m(unit="N.m/m") = planarWorld.defaultNm_to_m
     "Torque arrow scaling (length = torque/Nm_to_m)"
     annotation (Dialog(group="if animation = true", enable=animation));
   input SI.Diameter torqueDiameter=planarWorld.defaultArrowDiameter

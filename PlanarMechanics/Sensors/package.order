@@ -8,7 +8,7 @@ TransformAbsoluteVector
 TransformRelativeVector
 CutForce
 CutTorque
-Power
 CutForceAndTorque
+Power
 Distance
 Internal

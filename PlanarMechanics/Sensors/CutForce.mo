@@ -15,7 +15,7 @@ model CutForce "Measure cut force vector"
   parameter Boolean positiveSign=true
     "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
 
-  input Real N_to_m(unit="N/m") = 1000
+  input Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
     annotation (Dialog(group="if animation = true", enable=animation));
   input SI.Diameter forceDiameter=planarWorld.defaultArrowDiameter
