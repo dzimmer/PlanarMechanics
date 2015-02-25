@@ -14,9 +14,9 @@ model Revolute "A revolute joint"
 
   Modelica.Mechanics.Rotational.Interfaces.Flange_b support if useFlange
     "1-dim. rotational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+    annotation (Placement(transformation(extent={{-10,10},{10,-10}},
           rotation=180,
-        origin={-50,-100})));
+        origin={-60,-100})));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the joint axis" annotation (Dialog(
@@ -80,7 +80,7 @@ protected
     "support flange is fixed to ground"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=180,
-        origin={-50,-80})));
+        origin={-60,-80})));
 
 equation
   //Differential Equations
@@ -100,7 +100,7 @@ equation
   frame_a.t + frame_b.t = 0;
   frame_a.t = t;
   connect(fixed.flange,support)  annotation (Line(
-      points={{-50,-80},{-50,-100}},
+      points={{-60,-80},{-60,-100}},
       color={0,0,0},
       smooth=Smooth.None));
   annotation (Icon(graphics={
@@ -133,12 +133,31 @@ equation
         Text(
           extent={{104,-22},{140,-47}},
           lineColor={128,128,128},
-          textString="b")}),             Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
+          textString="b"),
+        Line(
+          visible=useFlange,
+          points={{-30,-80},{-50,-100}},
+          color={0,0,0}),
+        Line(
+          visible=useFlange,
+          points={{-50,-80},{-70,-100}},
+          color={0,0,0}),
+        Line(
+          visible=useFlange,
+          points={{-70,-80},{-90,-100}},
+          color={0,0,0}),
+        Line(
+          visible=useFlange,
+          points={{-92,-100},{-30,-100}},
+          color={0,0,0}),
+        Rectangle(extent={{-100,60},{-20,-62}}, lineColor={0,0,0}),
+        Rectangle(extent={{20,62},{100,-60}}, lineColor={0,0,0})}),
+    Documentation(
+      revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",
+      info="<html>
 <p>Joint where frame_b rotates around axis n which is fixed in frame_a. The two frames coincide when the rotation angle &quot;phi = 0&quot;.</p>
 <p>By setting <b>useFlange</b> as true, the flange for a 1-dim. rotational input will be activated. In the &quot;Initialization&quot; block, angular position <b>phi</b>, angular velocity <b>w</b> as well as angular acceleration <b>z</b> can be initialized.</p>
 <p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
 <p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+</html>"));
 end Revolute;
