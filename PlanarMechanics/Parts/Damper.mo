@@ -1,7 +1,9 @@
 within PlanarMechanics.Parts;
 model Damper "Linear (velocity dependent) damper"
   extends PlanarMechanics.Interfaces.PartialTwoFrames;
-
+  extends
+    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+     final T=293.15);
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.TranslationalDampingConstant d=1 "Damping constant";
@@ -53,8 +55,9 @@ protected
     width=diameter_a,
     height=diameter_a,
     lengthDirection={d0[1], d0[2], 0},
-    widthDirection={0,1,0},
-    r={frame_a.x,frame_a.y,zPosition}) if planarWorld.enableAnimation and animate;
+    widthDirection={0,0,1},
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
 
   MB.Visualizers.Advanced.Shape shape_b(
     shapeType="cylinder",
@@ -64,9 +67,10 @@ protected
     width=diameter_b,
     height=diameter_b,
     lengthDirection={r0[1], r0[2], 0},
-    widthDirection={0,1,0},
+    widthDirection={0,0,1},
     r_shape=r0_b,
-    r={frame_a.x,frame_a.y,zPosition}) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
 
 equation
   if enableAssert then
@@ -104,6 +108,8 @@ equation
   frame_a.fx + frame_b.fx = 0;
   frame_a.fy + frame_b.fy = 0;
   frame_a.t + frame_b.t = 0;
+
+  lossPower = -f*v;
 
   annotation (
     Icon(graphics={

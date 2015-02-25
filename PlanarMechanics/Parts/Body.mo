@@ -4,13 +4,15 @@ model Body "Body component with mass and inertia"
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
   outer PlanarWorld planarWorld "planar world model";
-  parameter Boolean animate = true "= true, if animation shall be enabled";
+  parameter Boolean animate = true "= true, if animation shall be enabled"     annotation (
+    Evaluate=true,
+    HideResult=true,
+    choices(checkBox=true));
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.Mass m "Mass of the body";
-  parameter SI.Inertia I "Inertia of the Body";
-  parameter SI.Acceleration g[2] = planarWorld.g
-    "Local gravity acting on the mass";
+  parameter SI.Inertia I
+    "Inertia of the body with respect to the origin of frame_a along the z-axis of frame_a";
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of the body" annotation (Dialog(
       tab="Animation",
@@ -21,6 +23,11 @@ model Body "Body component with mass and inertia"
       tab="Animation",
       group="if animation = true",
       enable=animate));
+       parameter Boolean enableGravity = true
+    "= true, if gravity effects should be taken into account" annotation (
+    Evaluate=true,
+    HideResult=true,
+    choices(checkBox=true));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
@@ -46,8 +53,8 @@ model Body "Body component with mass and inertia"
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
     r_shape={0,0,0} -{0,0,1}*sphereDiameter/2,
-    r={frame_a.x,frame_a.y,zPosition},
-    R=MB.Frames.axisRotation(3,frame_a.phi,w)) if  planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.axisRotation(3,frame_a.phi,w))) if  planarWorld.enableAnimation and animate;
 equation
   //The velocity is a time-derivative of the position
   r = {frame_a.x, frame_a.y};
@@ -59,7 +66,11 @@ equation
   z = der(w);
   //Newton's law
   f = {frame_a.fx, frame_a.fy};
-  f + m*g = m*a;
+  if enableGravity then
+    f + m*planarWorld.g = m*a;
+  else
+    f = m*a;
+  end if;
   frame_a.t = I*z;
   annotation (Icon(graphics={
         Rectangle(

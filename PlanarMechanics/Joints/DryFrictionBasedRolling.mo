@@ -2,6 +2,10 @@ within PlanarMechanics.Joints;
 model DryFrictionBasedRolling
   "A joint representing a wheel with slip-based rolling (dry friction law) on the x-axis"
 
+    extends
+    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+     final T=293.15);
+
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
   outer PlanarWorld planarWorld "Planar world model";
@@ -35,8 +39,8 @@ model DryFrictionBasedRolling
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
     r_shape={0,0,-0.03},
-    r={frame_a.x,frame_a.y,0},
-    R=MB.Frames.nullRotation()) if  planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,0})+planarWorld.r_0,
+    R=planarWorld.R) if  planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape rim1(
     shapeType="cylinder",
     color={195,195,195},
@@ -47,8 +51,9 @@ model DryFrictionBasedRolling
     lengthDirection={1,0,0},
     widthDirection={0,0,1},
     r_shape={-R,0,0},
-    r={frame_a.x,frame_a.y,0},
-    R=MB.Frames.planarRotation({0,0,1},phi,0)) if  planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,0})+planarWorld.r_0,
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0,0,1},phi,0))) if
+         planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape rim2(
     shapeType="cylinder",
     color={195,195,195},
@@ -59,8 +64,9 @@ model DryFrictionBasedRolling
     lengthDirection={1,0,0},
     widthDirection={0,0,1},
     r_shape={-R,0,0},
-    r={frame_a.x,frame_a.y,0},
-    R=MB.Frames.planarRotation({0,0,1},phi-Modelica.Constants.pi/2,0)) if  planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,0})+planarWorld.r_0,
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0,0,1},phi-Modelica.Constants.pi/2,0))) if
+          planarWorld.enableAnimation and animate;
 initial equation
   //Initialization of Position and Velocity
 equation
@@ -83,6 +89,7 @@ equation
     v_slip));
   //balance forces
   frame_a.fx*R = frame_a.t;
+  lossPower = frame_a.fx*v_slip;
   annotation (Icon(graphics={
         Ellipse(
           extent={{-80,80},{80,-80}},

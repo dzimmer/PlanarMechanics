@@ -1,6 +1,9 @@
 within PlanarMechanics.Parts;
 model SpringDamper "Linear 2D translational spring damper model"
   extends PlanarMechanics.Interfaces.PartialTwoFrames;
+    extends
+    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+     final T=293.15);
 
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
@@ -92,8 +95,8 @@ protected
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
     r_shape={0,0,-0.06},
-    r={frame_a.x,frame_a.y,zPosition},
-    R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape contactB(
     shapeType="cylinder",
     specularCoefficient=specularCoefficient,
@@ -103,8 +106,8 @@ protected
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
     r_shape={0,0,-0.06},
-    r={frame_b.x,frame_b.y,zPosition},
-    R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape lineShape(
     shapeType="spring",
     color=color,
@@ -115,7 +118,8 @@ protected
     lengthDirection=e_rel_0,
     widthDirection= {0,1,0},
     extra=numberOfWindings,
-    r={frame_a.x,frame_a.y,zPosition}) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
     SI.Position r0_b[3] = {d0[1], d0[2], 0} * noEvent(min(length_a, length));
   MB.Visualizers.Advanced.Shape shape_a(
     shapeType="cylinder",
@@ -126,7 +130,8 @@ protected
     height=diameter_a,
     lengthDirection={d0[1], d0[2], 0},
     widthDirection={0,1,0},
-    r={frame_a.x,frame_a.y,zPosition}) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape shape_b(
     shapeType="cylinder",
     color=color_b,
@@ -137,7 +142,8 @@ protected
     lengthDirection={s_relx, s_rely, 0},
     widthDirection={0,1,0},
     r_shape=r0_b,
-    r={frame_a.x,frame_a.y,zPosition}) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
 
 //   MB.Visualizers.Advanced.Shape contactA(
 //     shapeType="cylinder",
@@ -200,6 +206,8 @@ equation
   frame_b.fx = f_x;
   frame_a.fy = -f_y;
   frame_b.fy = f_y;
+
+  lossPower = d_x*v_relx*v_relx + d_y*v_rely*v_rely;
   annotation (
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>A <i>linear translational spring-damper</i>. x- and y direction stiffness and damping can be parameterized.</p>

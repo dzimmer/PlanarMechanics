@@ -17,6 +17,11 @@ model Prismatic "A prismatic joint"
    annotation (
       Placement(transformation(extent={{-10,-100},{10,-80}})));
 
+    Modelica.Mechanics.Translational.Interfaces.Flange_b support if useFlange
+    "1-dim. translational flange of the drive drive support (assumed to be fixed in the world frame, NOT in the joint)"
+    annotation (Placement(transformation(extent={{10,-10},{-10,10}}, rotation=180,
+        origin={-60,-90})));
+
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of the prismatic joint box" annotation (Dialog(
       tab="Animation",
@@ -58,8 +63,15 @@ model Prismatic "A prismatic joint"
     lengthDirection={e0[1],e0[2],0},
     widthDirection={0,0,1},
     r_shape={0,0,0},
-    r={frame_a.x,frame_a.y,zPosition},
-    R=MB.Frames.nullRotation()) if planarWorld.enableAnimation and animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
+
+protected
+  Modelica.Mechanics.Translational.Components.Fixed
+                                 fixed
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={-60,-70})));
 
 equation
   //resolve the rod w.r.t. inertial system
@@ -83,6 +95,10 @@ equation
   frame_a.t  + frame_b.t + r0*{frame_b.fy,-frame_b.fx} = 0;
   {frame_a.fx,frame_a.fy}*e0 = f;
 
+  connect(fixed.flange,support)  annotation (Line(
+      points={{-60,-70},{-60,-90}},
+      color={0,127,0},
+      smooth=Smooth.None));
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}),
                    graphics={
@@ -120,5 +136,7 @@ equation
 <p>By setting <b>useFlange</b> as true, the flange for a 1-dim. translational input will be activated. In the &quot;Initialization&quot; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
 <p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
 <p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
-</html>"));
+</html>"),
+    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics));
 end Prismatic;

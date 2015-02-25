@@ -5,7 +5,7 @@ model SingleTrackWithEngine "Single track model"
   Parts.Body bodyFront(
     I=0.1,
     m=2,
-    g={0,0})
+    enableGravity=false)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         origin={40,50})));
   VehicleComponents.Wheels.IdealWheelJoint idealWheelFront(
@@ -23,12 +23,12 @@ model SingleTrackWithEngine "Single track model"
         origin={20,-40})));
   Parts.Body bodyRear(
     I=0.1,
-    g={0,0},
     m=10,
     phi(fixed=true),
     w(fixed=true),
     v(each fixed=false),
-    r(each fixed=true))
+    r(each fixed=true),
+    enableGravity=false)
           annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
   VehicleComponents.Wheels.IdealWheelJoint idealWheelRear(
     r={0,1},
@@ -56,7 +56,8 @@ model SingleTrackWithEngine "Single track model"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={20,30})));
-  inner PlanarWorld planarWorld(defaultWidthFraction=10, defaultZPosition=0)
+  inner PlanarWorld planarWorld(defaultWidthFraction=10, defaultZPosition=0,
+    constantGravity={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
   connect(idealWheelFront.frame_a, bodyFront.frame_a)

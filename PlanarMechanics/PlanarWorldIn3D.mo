@@ -1,14 +1,30 @@
 within PlanarMechanics;
-model PlanarWorld
+model PlanarWorldIn3D
   "Planar world coordinate system + gravity field + default animation definition"
+
+  MB.Interfaces.Frame_a MBFrame_a if connectToMultiBody
+    annotation (Placement(transformation(extent={{-118,-16},{-86,16}})));
 
   SI.Position r_0[3]
     "Position vector from world frame to the connector frame origin, resolved in world frame";
   MB.Frames.Orientation R
     "Orientation object to rotate the world frame into the connector frame";
 
+  parameter Boolean inheritGravityFromMultiBody = false
+    "=true if gravity vector shall be inherited from 3D world model"                                                     annotation (
+    Evaluate=true,
+    HideResult=true,
+    choices(checkBox=true),Dialog(group="Gravity"));
+
   parameter SI.Acceleration[2] constantGravity={0,-9.81}
     "Constant gravity acceleration vector resolved in world frame" annotation(Dialog(group="Gravity",enable = not inheritGravityFromMultiBody));
+
+    parameter Boolean connectToMultiBody = false
+    "= true when visualization of the planar world shall be connected to a 3D multibody system"
+                                                                                                        annotation (
+    Evaluate=true,
+    HideResult=true,
+    choices(checkBox=true),Dialog(group="Animation (General)"));
 
   parameter Boolean enableAnimation=true
     "= true, if animation of all components is enabled" annotation (
@@ -98,6 +114,12 @@ model PlanarWorld
     annotation (Dialog(tab="Defaults"));
 
 protected
+  MB.Interfaces.Frame MBFrame;
+
+  outer Modelica.Mechanics.MultiBody.World world;
+
+  SI.Acceleration gz "auxiliary gravity acc. in z-direction";
+
   parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
   parameter Integer ndim2=if enableAnimation and animateWorld and
       axisShowLabels then 1 else 0;
@@ -229,10 +251,26 @@ protected
     specularCoefficient=0) if enableAnimation and animateGravity;
 
 equation
-  r_0 = {0,0,0};
-  R = MB.Frames.nullRotation();
+  if connectToMultiBody then
+    connect(MBFrame_a,MBFrame);
+  else
+    MBFrame.r_0 = {0,0,0};
+    MBFrame.R = MB.Frames.nullRotation();
+//    Connections.root(MBFrame.R);
 
-  g = constantGravity;
+  end if;
+
+  r_0 = MBFrame.r_0;
+  R = MBFrame.R;
+
+  if inheritGravityFromMultiBody then
+    {g[1],g[2],gz} = MB.Frames.resolve2(R,world.gravityAcceleration(MBFrame.r_0));
+  else
+    gz = 0;
+    g = constantGravity;
+  end if;
+//  MBFrame.f = {0,0,0};
+//  MBFrame.t = {0,0,0};
 
     annotation (
     defaultComponentName="planarWorld",
@@ -307,8 +345,10 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
 <li>It contains all default parameters for animation, e.g. axis diameter, default joint length etc, which can still be overwritten by setting parameters in these models.</li>
 <li>It provides the default gravity definition and its animation.</li>
 </ol>
-<p><br>The pure planar world cannot be coupled to the 3D world. It shall be used when no outer 3D world  is available. </p>
+<p><br>The planar world can optionaly be coupled to a <a href=\"Modelica.Mechanics.MultiBody.Interfaces.Frame_a\">3D-Multibody connector</a>. This will affect visualization mainly. Beware! The physics of the planar world presume the inertial system to be non-accelerated. When connecting to an accelerated MultiBody connector the physical forces going along with this acceleration are thus neglected.</p>
+<p>For physical coupling between 2D and 3D system use <a href=\"PlanarMechanics.Interfaces.PlanarToMultiBody\">Interfaces.PlanarToMultiBody</a></p>
+<p>The gravity vector can be inherited from the <a href=\"Modelica.Mechanics.MultiBody.World\">MultiBody world component</a>. In this case, the vector is determined once for the origin of the planar world system and then applied to all body components (if enabled there, as default). </p>
 </html>"),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics));
-end PlanarWorld;
+end PlanarWorldIn3D;

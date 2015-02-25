@@ -68,8 +68,8 @@ protected
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
     r_shape={0,0,-0.03},
-    r={frame_a.x,frame_a.y,z_offset},
-    R=MB.Frames.nullRotation()) if   animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,z_offset})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and   animate;
 
   MB.Visualizers.Advanced.Shape pointB(
     shapeType="cylinder",
@@ -80,8 +80,8 @@ protected
     lengthDirection={0,0,1},
     widthDirection={1,0,0},
     r_shape={0,0,-0.03},
-    r={frame_b.x,frame_b.y,z_offset},
-    R=MB.Frames.nullRotation()) if   animate;
+    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,z_offset})+planarWorld.r_0,
+    R=planarWorld.R) if planarWorld.enableAnimation and   animate;
 
   MB.Visualizers.Advanced.Shape Gearwheel_a(
     shapeType="gearwheel",
@@ -93,12 +93,12 @@ protected
     lengthDirection={0,0,1},
     widthDirection={0,0,1},
     r_shape={0,0,0},
-    r={frame_a.x,frame_a.y,z_offset},
+    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,z_offset})+planarWorld.r_0,
     extra=Tooth_a,
-    R=MB.Frames.planarRotation(
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation(
         {0,0,1},
         frame_a.phi - StartAngle_a,
-        0)) if   animate;
+        0))) if planarWorld.enableAnimation and animate;
 
   MB.Visualizers.Advanced.Shape Gearwheel_b(
     shapeType="gearwheel",
@@ -110,12 +110,12 @@ protected
     lengthDirection={0,0,1},
     widthDirection={0,0,1},
     r_shape={0,0,0},
-    r={frame_b.x,frame_b.y,z_offset},
+    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,z_offset})+planarWorld.r_0,
     extra=Tooth_b,
-    R=MB.Frames.planarRotation(
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation(
         {0,0,1},
         frame_b.phi - StartAngle_b,
-        0)) if   animate;
+        0))) if planarWorld.enableAnimation and animate;
 
   constant SI.Acceleration unitAcceleration=1;
   constant SI.Force unitForce=1;
