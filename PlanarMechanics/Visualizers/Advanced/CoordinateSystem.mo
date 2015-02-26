@@ -1,0 +1,174 @@
+within PlanarMechanics.Visualizers.Advanced;
+model CoordinateSystem
+  "Visualizing an orthogonal coordinate system of three axes"
+
+  input SI.Position r[3]={0,0,0}
+    "Position vector from origin of world frame to origin of object frame, resolved in world frame"
+    annotation(Dialog);
+  input MB.Frames.Orientation R=MB.Frames.nullRotation()
+    "Orientation object to rotate the world frame into the object frame"  annotation(Dialog);
+  input SI.Position r_shape[3]={0,0,0}
+    "Position vector from origin of object frame to shape origin, resolved in object frame"
+    annotation(Dialog);
+
+  parameter SI.Length axisLength=planarWorld.nominalLength/2
+    "Length of world axes arrows";
+  parameter SI.Diameter axisDiameter=axisLength/planarWorld.defaultFrameDiameterFraction
+    "Diameter of world axes arrows";
+
+  parameter MB.Types.Color color_x=MB.Types.Defaults.FrameColor
+    "Color of x-arrow"
+    annotation (HideResult = true, Dialog(colorSelector=true));
+  parameter MB.Types.Color color_y=color_x "Color of y-arrow"
+    annotation (HideResult = true, Dialog(colorSelector=true));
+  parameter MB.Types.Color color_z=color_x "Color of z-arrow"
+    annotation (HideResult = true, Dialog(colorSelector=true));
+
+  parameter Boolean axisShowLabels=true "True, if labels shall be shown"
+    annotation (HideResult=true, Dialog(group="Axes labels"));
+  parameter SI.Length labelStart=1.05*axisLength
+    annotation(Dialog(group="Axes labels", enable=axisShowLabels));
+  parameter SI.Length scaledLabel=MB.Types.Defaults.FrameLabelHeightFraction*axisDiameter
+    annotation(Dialog(group="Axes labels", enable=axisShowLabels));
+
+  outer .PlanarMechanics.PlanarWorld planarWorld;
+  Arrow x_arrow(
+    R=R,
+    r=r,
+    r_tail={0,0,0},
+    r_head=axisLength*{1,0,0},
+    diameter=axisDiameter,
+    color=color_x,
+    specularCoefficient=0) if planarWorld.enableAnimation;
+  MB.Visualizers.Internal.Lines x_label(
+    R=R,
+    r=r,
+    r_lines={labelStart,0,0},
+    lines=scaledLabel*{[0,0; 1,1],[0,1; 1,0]},
+    diameter=axisDiameter,
+    n_x={1,0,0},
+    n_y={0,1,0},
+    color=color_x,
+    specularCoefficient=0) if planarWorld.enableAnimation and axisShowLabels;
+  Arrow y_arrow(
+    R=R,
+    r=r,
+    r_tail={0,0,0},
+    r_head=axisLength*{0,1,0},
+    diameter=axisDiameter,
+    color=color_y,
+    specularCoefficient=0) if planarWorld.enableAnimation;
+  MB.Visualizers.Internal.Lines y_label(
+    R=R,
+    r=r,
+    r_lines={0,labelStart,0},
+    lines=scaledLabel*{[0,0; 1,1.5],[0,1.5; 0.5,0.75]},
+    diameter=axisDiameter,
+    n_x={0,1,0},
+    n_y={-1,0,0},
+    color=color_y,
+    specularCoefficient=0) if planarWorld.enableAnimation and axisShowLabels;
+  Arrow z_arrow(
+    R=R,
+    r=r,
+    r_tail={0,0,0},
+    r_head=axisLength*{0,0,1},
+    diameter=axisDiameter,
+    color=color_z,
+    specularCoefficient=0) if planarWorld.enableAnimation;
+  MB.Visualizers.Internal.Lines z_label(
+    R=R,
+    r=r,
+    r_lines={0,0,labelStart},
+    lines=scaledLabel*{[0,0; 1,0],[0,1; 1,1],[0,1; 1,0]},
+    diameter=axisDiameter,
+    n_x={0,0,1},
+    n_y={0,1,0},
+    color=color_z,
+    specularCoefficient=0) if planarWorld.enableAnimation and axisShowLabels;
+  annotation (Documentation(info="<html>
+<p>
+This element enbles visualization of an <b>orthogonal coordinate system</b>
+as shown in the following picture.
+</p>
+
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/CoordinateSystem.png\" ALT=\"model Visualizers.Advanced.CoordinateSystem\">
+</p>
+
+<p>
+The variables <code>r</code>, <code>R</code> and <code>r_shape</code>
+are declared as (time varying) <b>input</b> variables.
+If the default equation is not appropriate, a corresponding
+modifier equation has to be provided in the
+model where a <b>CoordinateSystem</b> instance is used, e.g., in the form
+</p>
+<blockquote><pre>
+PlanarMechanics.Visualizers.Advanced.CoordinateSystem coordinateSystem(r = {sin(time), 0, 0.3});
+</pre></blockquote>
+
+<p>
+<b>Color</b> of each axis can be set individually using RGB color space given in the range 0 .. 255.
+The predefined type <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
+contains a menu definition of the colors used in the
+<a href=\"modelica://Modelica.Mechanics.MultiBody\">Modelia MultiBody library</a> (will be replaced by a color editor).
+</p>
+</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+            {100,100}}), graphics={
+        Text(
+          extent={{-150,100},{150,60}},
+          lineColor={0,0,255},
+          textString="%name"),
+        Polygon(
+          points={{-50,-90},{0,-72},{50,-90},{90,-70},{26,-16},{8,40},{-8,40},{-28,
+              -16},{-90,-70},{-50,-90}},
+          lineColor={255,255,255},
+          smooth=Smooth.None,
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{0,-30},{0,40}},
+          color={135,135,135},
+          thickness=0.5),
+        Line(
+          points={{0,-30},{74,-66}},
+          color={135,135,135},
+          thickness=0.5),
+        Line(
+          points={{-70,-66},{0,-30}},
+          thickness=0.5,
+          color={135,135,135}),
+        Text(
+          extent={{-69,-54},{-20,-84}},
+          lineColor={135,135,135},
+          fillColor={135,135,135},
+          fillPattern=FillPattern.Solid,
+          textString="x"),
+        Polygon(
+          points={{-96,-80},{-64,-72},{-76,-58},{-96,-80}},
+          lineColor={135,135,135},
+          fillColor={135,135,135},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{100,-82},{76,-56},{66,-72},{100,-82}},
+          lineColor={135,135,135},
+          fillColor={135,135,135},
+          fillPattern=FillPattern.Solid),
+        Text(
+          extent={{25,-54},{74,-84}},
+          lineColor={135,135,135},
+          fillColor={135,135,135},
+          fillPattern=FillPattern.Solid,
+          textString="z"),
+        Text(
+          extent={{10,60},{61,30}},
+          lineColor={135,135,135},
+          fillColor={135,135,135},
+          fillPattern=FillPattern.Solid,
+          textString="y"),
+        Polygon(
+          points={{-14,22},{14,22},{0,62},{-14,22}},
+          lineColor={135,135,135},
+          fillColor={135,135,135},
+          fillPattern=FillPattern.Solid)}));
+end CoordinateSystem;

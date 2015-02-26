@@ -37,9 +37,10 @@ model PlanarWorldIn3D
     choices(checkBox=true),Dialog(group="Animation (General)",enable=enableAnimation));
   parameter Boolean animateGravity=true
     "= true, if gravity field shall be visualized (acceleration vector or field center)"
-                                                                                         annotation (
-    HideResult=true,
-    choices(checkBox=true),Dialog(group="Animation (General)",enable=enableAnimation));
+    annotation (
+      HideResult=true,
+      choices(checkBox=true),
+      Dialog(group="Animation (General)",enable=enableAnimation));
   parameter String label1="x" "Label of horizontal axis in icon" annotation(Dialog(group="Animation (General)"));
   parameter String label2="y" "Label of vertical axis in icon" annotation(Dialog(group="Animation (General)"));
   SI.Acceleration[2] g
@@ -52,11 +53,12 @@ model PlanarWorldIn3D
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Boolean axisShowLabels=true "= true, if labels shall be shown"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_x=Types.Defaults.FrameColor "Color of x-arrow"
+  parameter Types.Color axisColor_x=Types.Defaults.FrameColor
+    "Color of x-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_y=axisColor_x "Coler of y-arrow"
+  parameter Types.Color axisColor_y=axisColor_x "Color of y-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_z=axisColor_x "Color of z-arrow"
+  parameter Types.Color axisColor_z=axisColor_x "Color of z-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Position gravityArrowTail[2]={0,0}
@@ -72,7 +74,7 @@ model PlanarWorldIn3D
       defaultWidthFraction "Diameter of gravity arrow" annotation (Dialog(tab=
           "Animation", group="if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
-  input Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+  parameter Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Length defaultZPosition=0
     "Default for z positions of all the elements"
@@ -118,111 +120,39 @@ protected
 
   outer Modelica.Mechanics.MultiBody.World world;
 
-  SI.Acceleration gz "auxiliary gravity acc. in z-direction";
+  SI.Acceleration gz "Auxiliary gravity acc. in z-direction";
 
   parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
   parameter Integer ndim2=if enableAnimation and animateWorld and
       axisShowLabels then 1 else 0;
-
-  // Parameters to define axes
-  parameter SI.Length headLength=min(axisLength, axisDiameter*Types.Defaults.
-      FrameHeadLengthFraction);
-  parameter SI.Length headWidth=axisDiameter*Types.Defaults.
-      FrameHeadWidthFraction;
-  parameter SI.Length lineLength=max(0, axisLength - headLength);
-  parameter SI.Length lineWidth=axisDiameter;
 
   // Parameters to define axes labels
   parameter SI.Length scaledLabel=Modelica.Mechanics.MultiBody.Types.Defaults.FrameLabelHeightFraction*
       axisDiameter;
   parameter SI.Length labelStart=1.05*axisLength;
 
-  // x-axis
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowLine(
-    shapeType="cylinder",
-    length=lineLength,
-    width=lineWidth,
-    height=lineWidth,
-    lengthDirection={1,0,0},
-    widthDirection={0,1,0},
-    color=axisColor_x,
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowHead(
-    shapeType="cone",
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
-    lengthDirection={1,0,0},
-    widthDirection={0,1,0},
-    color=axisColor_x,
-    r={lineLength,0,0},
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines x_label(
-    lines=scaledLabel*{[0, 0; 1, 1],[0, 1; 1, 0]},
-    diameter=axisDiameter,
-    color=axisColor_x,
-    r_lines={labelStart,0,0},
-    n_x={1,0,0},
-    n_y={0,1,0},
-    specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
+  // coordinate system IF NOT connected to multibody
+  Visualizers.Advanced.CoordinateSystem coordinateSystem(
+    axisLength=axisLength,
+    axisDiameter=axisDiameter,
+    axisShowLabels=axisShowLabels,
+    scaledLabel=scaledLabel,
+    labelStart=labelStart,
+    color_x=axisColor_x,
+    color_y=axisColor_y,
+    color_z=axisColor_z) if animateWorld and not connectToMultiBody;
 
-  // y-axis
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowLine(
-    shapeType="cylinder",
-    length=lineLength,
-    width=lineWidth,
-    height=lineWidth,
-    lengthDirection={0,1,0},
-    widthDirection={1,0,0},
-    color=axisColor_y,
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowHead(
-    shapeType="cone",
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
-    lengthDirection={0,1,0},
-    widthDirection={1,0,0},
-    color=axisColor_y,
-    r={0,lineLength,0},
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines y_label(
-    lines=scaledLabel*{[0, 0; 1, 1.5],[0, 1.5; 0.5, 0.75]},
-    diameter=axisDiameter,
-    color=axisColor_y,
-    r_lines={0,labelStart,0},
-    n_x={0,1,0},
-    n_y={-1,0,0},
-    specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
-
-  // z-axis
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowLine(
-    shapeType="cylinder",
-    length=lineLength,
-    width=lineWidth,
-    height=lineWidth,
-    lengthDirection={0,0,1},
-    widthDirection={0,1,0},
-    color=axisColor_z,
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowHead(
-    shapeType="cone",
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
-    lengthDirection={0,0,1},
-    widthDirection={0,1,0},
-    color=axisColor_z,
-    r={0,0,lineLength},
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines z_label(
-    lines=scaledLabel*{[0, 0; 1, 0],[0, 1; 1, 1],[0, 1; 1, 0]},
-    diameter=axisDiameter,
-    color=axisColor_z,
-    r_lines={0,0,labelStart},
-    n_x={0,0,1},
-    n_y={0,1,0},
-    specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
+  // coordinate system ONLY IF connected to multibody
+  Visualizers.Advanced.CoordinateSystem coordinateSystemMB(
+    axisLength=axisLength,
+    axisDiameter=axisDiameter,
+    axisShowLabels=axisShowLabels,
+    scaledLabel=scaledLabel,
+    labelStart=labelStart,
+    color_x=axisColor_x,
+    color_y=axisColor_y,
+    color_z=axisColor_z,
+    R=MBFrame_a.R) if animateWorld and connectToMultiBody;
 
   // gravity visualization
   parameter SI.Length gravityHeadLength=min(gravityArrowLength,
@@ -332,9 +262,15 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
           lineColor={0,0,0},
           textString="2-dim."),
         Text(
+          visible=not inheritGravityFromMultiBody,
           extent={{-100,-50},{100,-80}},
           lineColor={0,0,0},
-          textString="g=%constantGravity")}),
+          textString="g=%constantGravity"),
+        Text(
+          visible=inheritGravityFromMultiBody,
+          extent={{-100,-50},{100,-80}},
+          lineColor={0,0,0},
+          textString="g inherited from 3D")}),
     Documentation(
       revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
