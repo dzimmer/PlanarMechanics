@@ -36,11 +36,12 @@ model PlanarWorld
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Boolean axisShowLabels=true "= true, if labels shall be shown"
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_x=Types.Defaults.FrameColor "Color of x-arrow"
+  parameter Types.Color axisColor_x=Types.Defaults.FrameColor
+    "Color of x-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_y=axisColor_x "Coler of y-arrow"
+  parameter Types.Color axisColor_y=axisColor_x "Color of y-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
-  input Types.Color axisColor_z=axisColor_x "Color of z-arrow"
+  parameter Types.Color axisColor_z=axisColor_x "Color of z-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Position gravityArrowTail[2]={0,0}
@@ -56,7 +57,7 @@ model PlanarWorld
       defaultWidthFraction "Diameter of gravity arrow" annotation (Dialog(tab=
           "Animation", group="if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
-  input Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+  parameter Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Length defaultZPosition=0
     "Default for z positions of all the elements"
@@ -102,105 +103,21 @@ protected
   parameter Integer ndim2=if enableAnimation and animateWorld and
       axisShowLabels then 1 else 0;
 
-  // Parameters to define axes
-  parameter SI.Length headLength=min(axisLength, axisDiameter*Types.Defaults.
-      FrameHeadLengthFraction);
-  parameter SI.Length headWidth=axisDiameter*Types.Defaults.
-      FrameHeadWidthFraction;
-  parameter SI.Length lineLength=max(0, axisLength - headLength);
-  parameter SI.Length lineWidth=axisDiameter;
-
   // Parameters to define axes labels
   parameter SI.Length scaledLabel=Modelica.Mechanics.MultiBody.Types.Defaults.FrameLabelHeightFraction*
       axisDiameter;
   parameter SI.Length labelStart=1.05*axisLength;
 
-  // x-axis
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowLine(
-    shapeType="cylinder",
-    length=lineLength,
-    width=lineWidth,
-    height=lineWidth,
-    lengthDirection={1,0,0},
-    widthDirection={0,1,0},
-    color=axisColor_x,
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape x_arrowHead(
-    shapeType="cone",
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
-    lengthDirection={1,0,0},
-    widthDirection={0,1,0},
-    color=axisColor_x,
-    r={lineLength,0,0},
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines x_label(
-    lines=scaledLabel*{[0, 0; 1, 1],[0, 1; 1, 0]},
-    diameter=axisDiameter,
-    color=axisColor_x,
-    r_lines={labelStart,0,0},
-    n_x={1,0,0},
-    n_y={0,1,0},
-    specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
-
-  // y-axis
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowLine(
-    shapeType="cylinder",
-    length=lineLength,
-    width=lineWidth,
-    height=lineWidth,
-    lengthDirection={0,1,0},
-    widthDirection={1,0,0},
-    color=axisColor_y,
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape y_arrowHead(
-    shapeType="cone",
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
-    lengthDirection={0,1,0},
-    widthDirection={1,0,0},
-    color=axisColor_y,
-    r={0,lineLength,0},
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines y_label(
-    lines=scaledLabel*{[0, 0; 1, 1.5],[0, 1.5; 0.5, 0.75]},
-    diameter=axisDiameter,
-    color=axisColor_y,
-    r_lines={0,labelStart,0},
-    n_x={0,1,0},
-    n_y={-1,0,0},
-    specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
-
-  // z-axis
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowLine(
-    shapeType="cylinder",
-    length=lineLength,
-    width=lineWidth,
-    height=lineWidth,
-    lengthDirection={0,0,1},
-    widthDirection={0,1,0},
-    color=axisColor_z,
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape z_arrowHead(
-    shapeType="cone",
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
-    lengthDirection={0,0,1},
-    widthDirection={0,1,0},
-    color=axisColor_z,
-    r={0,0,lineLength},
-    specularCoefficient=0) if enableAnimation and animateWorld;
-  Modelica.Mechanics.MultiBody.Visualizers.Internal.Lines z_label(
-    lines=scaledLabel*{[0, 0; 1, 0],[0, 1; 1, 1],[0, 1; 1, 0]},
-    diameter=axisDiameter,
-    color=axisColor_z,
-    r_lines={0,0,labelStart},
-    n_x={0,0,1},
-    n_y={0,1,0},
-    specularCoefficient=0) if enableAnimation and animateWorld and axisShowLabels;
+  // coordinate system
+  Visualizers.Advanced.CoordinateSystem coordinateSystem(
+    axisLength=axisLength,
+    axisDiameter=axisDiameter,
+    axisShowLabels=axisShowLabels,
+    scaledLabel=scaledLabel,
+    labelStart=labelStart,
+    color_x=axisColor_x,
+    color_y=axisColor_y,
+    color_z=axisColor_z) if animateWorld;
 
   // gravity visualization
   parameter SI.Length gravityHeadLength=min(gravityArrowLength,

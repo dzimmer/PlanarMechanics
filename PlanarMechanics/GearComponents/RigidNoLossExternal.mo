@@ -272,9 +272,19 @@ equation
           thickness=1),
         Line(
           points={{30,0},{100,0}},
-          thickness=1)}),    Documentation(revisions=
-          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",
-                                                                                                    info="<html>
+          thickness=1)}),
+    Icon(
+        graphics={
+        Line(
+          visible=useHeatPort,
+          points={{-100,-100},{-100,-40},{-16,-40},{-16,0}},
+          color={191,0,0},
+          pattern=LinePattern.Dot,
+          smooth=Smooth.None)}),
+    Documentation(
+      revisions=
+"<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",
+      info="<html>
 <p>In this model an ideal gear connection is modelled. It is based on the paper from van der Linden , <a href=\"http://dx.doi.org/10.3384/ecp12076303\">Modelling of Elastic Gearboxes Using a Generalized Gear Contact Model</a>. However, no gear elasticity is modelled.</p>
 <p>The planar model of an external gear wheel is used to build complex gear models. A <a href=\"http://dx.doi.org/10.3384/ecp12076681\">planar library</a> is used to create the constraints of the gearwheels. An example can be found in <a href=\"modelica://Actuator.Mechanical.Planar.Examples.SpurGear\">here</a>.</p>
 <p>Using different parts from the planar library, it is possible to build complex gear systems. However, especially since no elasticity is included, kinematic loops can lead to complications and should be handled with care.</p>
