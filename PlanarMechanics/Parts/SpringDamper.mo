@@ -14,11 +14,11 @@ model SpringDamper "Linear 2D translational spring damper model"
   parameter Modelica.SIunits.RotationalSpringConstant c_phi(final min=0, start=1.0e5)
     "Spring constant";
   parameter Modelica.SIunits.TranslationalDampingConstant d_x(final min=0, start=1)
-    "Spring constant in x dir";
+    "Damping constant in x dir";
   parameter Modelica.SIunits.TranslationalDampingConstant d_y(final min=0, start=1)
-    "Spring constant in y dir";
+    "Damping constant in y dir";
   parameter Modelica.SIunits.RotationalDampingConstant d_phi(final min=0, start=1)
-    "Spring constant in x dir";
+    "Damping constant in phi dir";
   parameter Modelica.SIunits.Position s_relx0=0 "Unstretched spring length";
   parameter Modelica.SIunits.Position s_rely0=0 "Unstretched spring length";
   parameter Modelica.SIunits.Angle phi_rel0=0 "Unstretched spring angle";
