@@ -40,13 +40,8 @@ model CraneCrabTo3D "A damped crane crab"
     s(fixed=true, start=0),
     animate=true)
     annotation (Placement(transformation(extent={{20,40},{40,20}})));
-  Modelica.Mechanics.Translational.Components.Fixed fixed1D annotation (
-      Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={-6,60})));
   Modelica.Mechanics.Translational.Components.Damper damper1D(d=10)
-    annotation (Placement(transformation(extent={{10,50},{30,70}})));
+    annotation (Placement(transformation(extent={{20,50},{40,70}})));
   inner MB.World world(n={0,-1,0})
     annotation (Placement(transformation(extent={{-100,-60},{-80,-40}})));
   MB.Joints.Prismatic prismatic3D(
@@ -87,10 +82,9 @@ equation
       points={{40,30},{60,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(damper1D.flange_a, fixed1D.flange)
-    annotation (Line(points={{10,60},{-6,60}},   color={0,127,0}));
   connect(damper1D.flange_b, prismatic.flange_a)
-    annotation (Line(points={{30,60},{30,40}},   color={0,127,0}));
+    annotation (Line(points={{40,60},{40,40},{30,40}},
+                                                 color={0,127,0}));
   connect(body3D.frame_a, prismatic3D.frame_b) annotation (Line(
       points={{-10,-30},{-10,-50},{-20,-50}},
       color={95,95,95},
@@ -111,6 +105,8 @@ equation
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
+  connect(damper1D.flange_a, prismatic.support) annotation (Line(points={{20,60},
+          {20,60},{20,40},{24,40}}, color={0,127,0}));
   annotation (experiment(StopTime=10),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/CraneCrab_1.png\"/></p>
