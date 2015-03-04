@@ -109,7 +109,10 @@ protected
   parameter SI.Length labelStart=1.05*axisLength;
 
   // coordinate system
-  Visualizers.Advanced.CoordinateSystem coordinateSystem(
+  Visualizers.Internal.CoordinateSystem coordinateSystem(
+    r=zeros(3),
+    R=MB.Frames.nullRotation(),
+    r_shape=zeros(3),
     axisLength=axisLength,
     axisDiameter=axisDiameter,
     axisShowLabels=axisShowLabels,
@@ -117,7 +120,7 @@ protected
     labelStart=labelStart,
     color_x=axisColor_x,
     color_y=axisColor_y,
-    color_z=axisColor_z) if animateWorld;
+    color_z=axisColor_z) if enableAnimation and animateWorld;
 
   // gravity visualization
   parameter SI.Length gravityHeadLength=min(gravityArrowLength,

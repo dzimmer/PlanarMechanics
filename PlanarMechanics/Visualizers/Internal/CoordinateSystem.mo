@@ -1,4 +1,4 @@
-within PlanarMechanics.Visualizers.Advanced;
+within PlanarMechanics.Visualizers.Internal;
 model CoordinateSystem
   "Visualizing an orthogonal coordinate system of three axes"
 
@@ -11,9 +11,8 @@ model CoordinateSystem
     "Position vector from origin of object frame to shape origin, resolved in object frame"
     annotation(Dialog);
 
-  parameter SI.Length axisLength=planarWorld.nominalLength/2
-    "Length of world axes arrows";
-  parameter SI.Diameter axisDiameter=axisLength/planarWorld.defaultFrameDiameterFraction
+  parameter SI.Length axisLength=0.5 "Length of world axes arrows";
+  parameter SI.Diameter axisDiameter=axisLength/40
     "Diameter of world axes arrows";
 
   parameter MB.Types.Color color_x=MB.Types.Defaults.FrameColor
@@ -31,20 +30,68 @@ model CoordinateSystem
   parameter SI.Length scaledLabel=MB.Types.Defaults.FrameLabelHeightFraction*axisDiameter
     annotation(Dialog(group="Axes labels", enable=axisShowLabels));
 
-  outer .PlanarMechanics.PlanarWorld planarWorld;
-  Internal.CoordinateSystem coordinateSystem(
-    final r=r,
-    final R=R,
-    final r_shape=r_shape,
-    final axisLength=axisLength,
-    final axisDiameter=axisDiameter,
-    final color_x=color_x,
-    final color_y=color_y,
-    final color_z=color_z,
-    final axisShowLabels=axisShowLabels,
-    final labelStart=labelStart,
-    final scaledLabel=scaledLabel) if planarWorld.enableAnimation;
+protected
+  Advanced.Arrow x_arrow(
+    R=R,
+    r=r,
+    r_tail={0,0,0},
+    r_head=axisLength*{1,0,0},
+    diameter=axisDiameter,
+    color=color_x,
+    specularCoefficient=0);
+  MB.Visualizers.Internal.Lines x_label(
+    R=R,
+    r=r,
+    r_lines={labelStart,0,0},
+    lines=scaledLabel*{[0,0; 1,1],[0,1; 1,0]},
+    diameter=axisDiameter,
+    n_x={1,0,0},
+    n_y={0,1,0},
+    color=color_x,
+    specularCoefficient=0) if axisShowLabels;
+  Advanced.Arrow y_arrow(
+    R=R,
+    r=r,
+    r_tail={0,0,0},
+    r_head=axisLength*{0,1,0},
+    diameter=axisDiameter,
+    color=color_y,
+    specularCoefficient=0);
+  MB.Visualizers.Internal.Lines y_label(
+    R=R,
+    r=r,
+    r_lines={0,labelStart,0},
+    lines=scaledLabel*{[0,0; 1,1.5],[0,1.5; 0.5,0.75]},
+    diameter=axisDiameter,
+    n_x={0,1,0},
+    n_y={-1,0,0},
+    color=color_y,
+    specularCoefficient=0) if axisShowLabels;
+  Advanced.Arrow z_arrow(
+    R=R,
+    r=r,
+    r_tail={0,0,0},
+    r_head=axisLength*{0,0,1},
+    diameter=axisDiameter,
+    color=color_z,
+    specularCoefficient=0);
+  MB.Visualizers.Internal.Lines z_label(
+    R=R,
+    r=r,
+    r_lines={0,0,labelStart},
+    lines=scaledLabel*{[0,0; 1,0],[0,1; 1,1],[0,1; 1,0]},
+    diameter=axisDiameter,
+    n_x={0,0,1},
+    n_y={0,1,0},
+    color=color_z,
+    specularCoefficient=0) if axisShowLabels;
   annotation (Documentation(info="<html>
+<p>
+Note: This element is intended to be used in <a href=\"PlanarMechanics.PlanarWorld\">PlanarWorld</a> and its derivatives only!
+To visualize a coordinate system in your model, the best solution is usually to use the visualizer <a href=\"PlanarMechanics.Visualizers.Advanced.CoordinateSystem\">Advanced.CoordinateSystem</a>.
+The only difference between this two visualizers is that this one does not utilizes <b>outer planarWorld</b>, 
+whereas the other does.
+</p>
 <p>
 This element enbles visualization of an <b>orthogonal coordinate system</b>
 as shown in the following picture.
