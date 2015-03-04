@@ -132,7 +132,10 @@ protected
   parameter SI.Length labelStart=1.05*axisLength;
 
   // coordinate system IF NOT connected to multibody
-  Visualizers.Advanced.CoordinateSystem coordinateSystem(
+  Visualizers.Internal.CoordinateSystem coordinateSystem(
+    r=zeros(3),
+    R=MB.Frames.nullRotation(),
+    r_shape=zeros(3),
     axisLength=axisLength,
     axisDiameter=axisDiameter,
     axisShowLabels=axisShowLabels,
@@ -140,10 +143,13 @@ protected
     labelStart=labelStart,
     color_x=axisColor_x,
     color_y=axisColor_y,
-    color_z=axisColor_z) if animateWorld and not connectToMultiBody;
+    color_z=axisColor_z) if enableAnimation and animateWorld and not connectToMultiBody;
 
   // coordinate system ONLY IF connected to multibody
-  Visualizers.Advanced.CoordinateSystem coordinateSystemMB(
+  Visualizers.Internal.CoordinateSystem coordinateSystemMB(
+    r=zeros(3),
+    R=MBFrame_a.R,
+    r_shape=zeros(3),
     axisLength=axisLength,
     axisDiameter=axisDiameter,
     axisShowLabels=axisShowLabels,
@@ -151,8 +157,7 @@ protected
     labelStart=labelStart,
     color_x=axisColor_x,
     color_y=axisColor_y,
-    color_z=axisColor_z,
-    R=MBFrame_a.R) if animateWorld and connectToMultiBody;
+    color_z=axisColor_z) if enableAnimation and animateWorld and connectToMultiBody;
 
   // gravity visualization
   parameter SI.Length gravityHeadLength=min(gravityArrowLength,
