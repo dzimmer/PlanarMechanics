@@ -31,6 +31,7 @@ model CoordinateSystem
   parameter SI.Length scaledLabel=MB.Types.Defaults.FrameLabelHeightFraction*axisDiameter
     annotation(Dialog(group="Axes labels", enable=axisShowLabels));
 
+protected
   outer .PlanarMechanics.PlanarWorld planarWorld;
   Internal.CoordinateSystem coordinateSystem(
     final r=r,
