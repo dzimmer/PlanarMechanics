@@ -31,7 +31,7 @@ model CoordinateSystem
     annotation(Dialog(group="Axes labels", enable=axisShowLabels));
 
 protected
-  Advanced.Arrow x_arrow(
+  Arrow x_arrow(
     R=R,
     r=r,
     r_tail={0,0,0},
@@ -49,7 +49,7 @@ protected
     n_y={0,1,0},
     color=color_x,
     specularCoefficient=0) if axisShowLabels;
-  Advanced.Arrow y_arrow(
+  Arrow y_arrow(
     R=R,
     r=r,
     r_tail={0,0,0},
@@ -67,7 +67,7 @@ protected
     n_y={-1,0,0},
     color=color_y,
     specularCoefficient=0) if axisShowLabels;
-  Advanced.Arrow z_arrow(
+  Arrow z_arrow(
     R=R,
     r=r,
     r_tail={0,0,0},
@@ -87,9 +87,9 @@ protected
     specularCoefficient=0) if axisShowLabels;
   annotation (Documentation(info="<html>
 <p>
-Note: This element is intended to be used in <a href=\"PlanarMechanics.PlanarWorld\">PlanarWorld</a> and its derivatives only!
+<b>Note</b>: This element is intended to be used in <a href=\"PlanarMechanics.PlanarWorld\">PlanarWorld</a> and its derivatives only!
 To visualize a coordinate system in your model, the best solution is usually to use the visualizer <a href=\"PlanarMechanics.Visualizers.Advanced.CoordinateSystem\">Advanced.CoordinateSystem</a>.
-The only difference between this two visualizers is that this one does not utilizes <b>outer planarWorld</b>, 
+The only difference between this two visualizers is that the current one does not utilizes <b>outer planarWorld</b>, 
 whereas the other does.
 </p>
 <p>

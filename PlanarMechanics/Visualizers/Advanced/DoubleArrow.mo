@@ -37,9 +37,13 @@ protected
     "Position vector from planarWorld frame to shape frame, resolved in planarWorld frame"
       annotation (HideResult=true);
 
-  SI.Length headLength=noEvent(max(0, min(length, diameter*Types.Defaults.ArrowHeadLengthFraction)));
-  SI.Length headWidth=noEvent(max(0, diameter*Types.Defaults.ArrowHeadWidthFraction));
-  SI.Length arrowLength = noEvent(max(0, length - 1.5*diameter*Types.Defaults.ArrowHeadLengthFraction));
+  SI.Length headLength=noEvent(max(0, length - arrowLength))
+    annotation(HideResult=true);
+  SI.Length headWidth=noEvent(max(0, diameter*Types.Defaults.ArrowHeadWidthFraction))
+    annotation(HideResult=true);
+  SI.Length arrowLength = noEvent(max(0, length - 1.5*diameter*Types.Defaults.ArrowHeadLengthFraction))
+    annotation(HideResult=true);
+
   MB.Visualizers.Advanced.Shape arrowLine(
     length=arrowLength,
     width=diameter,
@@ -53,7 +57,7 @@ protected
     r=r,
     R=R) if planarWorld.enableAnimation;
   MB.Visualizers.Advanced.Shape arrowHead1(
-    length=headLength,
+    length=2/3*headLength,
     width=headWidth,
     height=headWidth,
     lengthDirection=to_unit1(r_head),
@@ -64,7 +68,7 @@ protected
     r=rvisobj + rxvisobj*arrowLength,
     R=R) if planarWorld.enableAnimation;
   MB.Visualizers.Advanced.Shape arrowHead2(
-    length=headLength,
+    length=2/3*headLength,
     width=headWidth,
     height=headWidth,
     lengthDirection=to_unit1(r_head),
@@ -72,7 +76,7 @@ protected
     shapeType="cone",
     color=color,
     specularCoefficient=specularCoefficient,
-    r=rvisobj + rxvisobj*(arrowLength + 0.5*headLength),
+    r=rvisobj + rxvisobj*(arrowLength + headLength/3),
     R=R) if planarWorld.enableAnimation;
 
   annotation (
