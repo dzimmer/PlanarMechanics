@@ -34,12 +34,12 @@ model Damper "Linear (velocity dependent) damper"
     "Diameter of cylinder at frame_b side"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input Types.Color color_a = {100,100,100} "Color at frame_a"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector));
+    annotation (HideResult=true, Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector=true));
   input Types.Color color_b = {155,155,155} "Color at frame_b"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector));
+    annotation (HideResult=true, Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector=true));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (HideResult=true, Dialog(tab="Animation", group="if animation = true", enable=animate));
 
   SI.Distance length
     "Distance between the origin of frame_a and the origin of frame_b";

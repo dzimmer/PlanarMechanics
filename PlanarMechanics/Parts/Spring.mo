@@ -41,12 +41,12 @@ model Spring "Linear 2D translational spring"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input SI.Position coilWidth = width/10 "Width of spring coil"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+  input Types.Color color = Types.Defaults.SpringColor "Color of spring"
+    annotation (HideResult=true, Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animate));
   input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Types.Color color = Types.Defaults.SpringColor "Color of spring"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (HideResult=true, Dialog(tab="Animation", group="if animation = true", enable=animate));
 
   SI.Length length
     "Distance between the origin of frame_a and the origin of frame_b";

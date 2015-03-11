@@ -24,10 +24,10 @@ model WorldForce
       tab="Animation",group="if animation = true", enable=animate));
   input Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
     "Color of arrow"
-    annotation (Dialog(tab="Animation",group="if animation = true",colorSelector=true,  enable=animation));
+    annotation (HideResult=true, Dialog(tab="Animation",group="if animation = true",colorSelector=true,  enable=animation));
   input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation",group="if animation = true",enable=animation));
+    annotation (HideResult=true, Dialog(tab="Animation",group="if animation = true",enable=animation));
 
   Interfaces.Frame_b frame_b
     "Coordinate system fixed to the component with one cut-force and cut-torque"

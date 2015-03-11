@@ -11,20 +11,20 @@ model DoubleArrow
     "Orientation object to rotate the planarWorld frame into the arrow frame" annotation(Dialog);
   input SI.Position r[3]={0,0,0}
     "Position vector from origin of planarWorld frame to origin of arrow frame, resolved in planarWorld frame"
-                                                                                                   annotation(Dialog);
+    annotation(Dialog);
   input SI.Position r_tail[3]={0,0,0}
     "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame"
-                                                                                               annotation(Dialog);
+    annotation(Dialog);
   input SI.Position r_head[3]={0,0,0}
     "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame"
-                                                                                                      annotation(Dialog);
+    annotation(Dialog);
   input SI.Diameter diameter=planarWorld.defaultArrowDiameter
     "Diameter of arrow line" annotation(Dialog);
   input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
-    "Color of double arrow" annotation(Dialog(colorSelector=true));
+    "Color of double arrow" annotation(HideResult=true, Dialog(colorSelector=true));
   input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
-                                                                                                        annotation(Dialog);
+    annotation(HideResult=true, Dialog);
 
 protected
   outer PlanarWorld planarWorld;

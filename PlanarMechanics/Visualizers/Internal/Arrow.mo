@@ -19,10 +19,10 @@ model Arrow
   input SI.Diameter diameter=1/40 "Diameter of arrow line"
     annotation(Dialog(enable=true));
   input MB.Types.Color color=MB.Types.Defaults.ArrowColor "Color of arrow"
-    annotation(Dialog(colorSelector=true));
+    annotation(HideResult=true, Dialog(colorSelector=true));
   input MB.Types.SpecularCoefficient specularCoefficient = 0.7
     "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
-    annotation(Dialog(enable=true));
+    annotation(HideResult=true, Dialog(enable=true));
 
 protected
   SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";

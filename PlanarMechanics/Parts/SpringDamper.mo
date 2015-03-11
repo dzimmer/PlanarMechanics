@@ -44,6 +44,11 @@ model SpringDamper "Linear 2D translational spring damper model"
   //Visualization
   parameter Boolean animate = true "Enable animation"
     annotation(Dialog(group="Animation"));
+  input MB.Types.SpecularCoefficient
+    specularCoefficient = planarWorld.defaultSpecularCoefficient
+    "Reflection of ambient light (= 0: light is completely absorbed)"
+    annotation (HideResult=true, Dialog(tab="Animation", group="if animation = true", enable=animate));
+
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
@@ -53,12 +58,8 @@ model SpringDamper "Linear 2D translational spring damper model"
     annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
   input SI.Length coilWidth = width/10 "Width of spring coil"
     annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
-  input MB.Types.SpecularCoefficient
-    specularCoefficient = planarWorld.defaultSpecularCoefficient
-    "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
   input Types.Color color = Types.Defaults.SpringColor "Color of spring"
-    annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
+    annotation (HideResult=true, Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate, colorSelector=true));
 
   parameter SI.Length length_a = planarWorld.defaultForceLength
     "Length of cylinder at frame_a side"
@@ -70,9 +71,9 @@ model SpringDamper "Linear 2D translational spring damper model"
     "Diameter of cylinder at frame_b side"
     annotation (Dialog(tab="Animation", group="Spring cylinders (if animation = true)", enable=animate));
   input Types.Color color_a = {100,100,100} "Color at frame_a"
-    annotation (Dialog(tab="Animation", group="Spring cylinders (if animation = true)", enable=animate, colorSelector));
+    annotation (HideResult=true, Dialog(tab="Animation", group="Spring cylinders (if animation = true)", enable=animate, colorSelector=true));
   input Types.Color color_b = {155,155,155} "Color at frame_b"
-    annotation (Dialog(tab="Animation", group="Spring cylinders (if animation = true)", enable=animate, colorSelector));
+    annotation (HideResult=true, Dialog(tab="Animation", group="Spring cylinders (if animation = true)", enable=animate, colorSelector=true));
 
   SI.Length length
     "Distance between the origin of frame_a and the origin of frame_b";
