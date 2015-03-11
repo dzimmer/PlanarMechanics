@@ -2,7 +2,8 @@ within PlanarMechanics.Parts;
 model Fixed
   "Frame fixed in the planar world frame at a given position and orientation"
 
-  parameter SI.Position r[2] = {0,0} "Fixed x,y-position";
+  parameter SI.Position r[2] = {0,0}
+    "Fixed absolute x,y-position, resolved in planarWorld frame";
   parameter SI.Angle phi = 0 "Fixed angle";
 
   Interfaces.Frame_b frame

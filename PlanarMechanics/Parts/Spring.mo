@@ -4,25 +4,25 @@ model Spring "Linear 2D translational spring"
 
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
-  parameter Modelica.SIunits.TranslationalSpringConstant c_x(final min=0, start=1)
+  parameter SI.TranslationalSpringConstant c_x(final min=0, start=1)
     "Spring constant in x dir";
-  parameter Modelica.SIunits.TranslationalSpringConstant c_y(final min=0, start=1)
+  parameter SI.TranslationalSpringConstant c_y(final min=0, start=1)
     "Spring constant in y dir";
-  parameter Modelica.SIunits.RotationalSpringConstant c_phi(final min=0, start=1.0e5)
+  parameter SI.RotationalSpringConstant c_phi(final min=0, start=1.0e5)
     "Spring constant";
-  parameter Modelica.SIunits.Position s_relx0=0 "Unstretched spring length";
-  parameter Modelica.SIunits.Position s_rely0=0 "Unstretched spring length";
-  parameter Modelica.SIunits.Angle phi_rel0=0 "Unstretched spring angle";
+  parameter SI.Position s_relx0=0 "Unstretched spring length";
+  parameter SI.Position s_rely0=0 "Unstretched spring length";
+  parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
 
-  Modelica.SIunits.Position s_relx(final stateSelect=stateSelect, start = 0)
-    "Spring length" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  Modelica.SIunits.Position s_rely(final stateSelect=stateSelect, start = 0)
-    "Spring length" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Position s_relx(final stateSelect=stateSelect, start = 0) "Spring length"
+    annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Position s_rely(final stateSelect=stateSelect, start = 0) "Spring length"
+    annotation(Dialog(group="Initialization", showStartAttribute=true));
 
-  Modelica.SIunits.Angle phi_rel(final stateSelect=stateSelect, start = 0)
-    "Spring angle" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  Modelica.SIunits.Force f_x "Force in x direction";
-  Modelica.SIunits.Force f_y "Force in y direction";
+  SI.Angle phi_rel(final stateSelect=stateSelect, start = 0) "Spring angle"
+                   annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Force f_x "Force in x direction";
+  SI.Force f_y "Force in y direction";
 
   parameter SI.Position s_small = 1.E-10
     "Prevent zero-division if distance between frame_a and frame_b is zero" annotation (Dialog(
@@ -51,9 +51,9 @@ model Spring "Linear 2D translational spring"
   SI.Length length
     "Distance between the origin of frame_a and the origin of frame_b";
   SI.Position r_rel_0[3]
-    "Position vector from frame_a to frame_b resolved in world frame";
+    "Position vector (3D) from frame_a to frame_b resolved in multibody world frame";
   Real e_rel_0[3](each final unit="1")
-    "Unit vector in direction from frame_a to frame_b, resolved in world frame";
+    "Unit vector (3D) in direction from frame_a to frame_b, resolved in multibody world frame";
 
   //Visualization
   import MB = Modelica.Mechanics.MultiBody;
