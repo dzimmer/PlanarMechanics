@@ -31,9 +31,9 @@ model Damper "Linear (velocity dependent) damper"
   input SI.Diameter diameter_b = 0.6*diameter_a
     "Diameter of cylinder at frame_b side"
     annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
-  input Types.Color color_a = {100,100,100} "Color of cylinder at frame_a side"
+  input Types.Color color_a = {0,127,255} "Color of cylinder at frame_a side"
     annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
-  input Types.Color color_b = {155,155,155} "Color of cylinder at frame_b side"
+  input Types.Color color_b = {0,64,200} "Color of cylinder at frame_b side"
     annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
 
   SI.Distance length
@@ -107,8 +107,7 @@ equation
     Icon(graphics={
         Line(points={{-60,30},{60,30}}),
         Line(points={{-60,-30},{60,-30}}),
-        Line(points={{30,0},{100,0}}),
-        Line(points={{-101,0},{-60,0}}),
+        Line(points={{-100,0},{100,0}}),
         Rectangle(
           extent={{-60,30},{30,-30}},
           fillColor={192,192,192},
@@ -126,7 +125,17 @@ equation
           points={{-100,-100},{-100,-80},{-18,0}},
           color={191,0,0},
           pattern=LinePattern.Dot,
-          smooth=Smooth.None)}),
+          smooth=Smooth.None),
+        Ellipse(
+          extent={{-90,10},{-70,-10}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Ellipse(
+          extent={{70,10},{90,-10}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid)}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component is a <b>linear damper</b>, which acts as a line force between frame_a and frame_b. A <b>force f</b> is exerted on the origin of frame_b and with opposite sign on the origin of frame_a along the line from the origin of frame_a to the origin of frame_b according to the equation: </p>
 <p><code>f = d*<b>der</b>(s);</code></p>
