@@ -31,11 +31,11 @@ model Revolute "A revolute joint"
     "Diameter of cylinder representing the joint axis"
     annotation (Dialog(tab="Animation",
       group="if animation = true", enable=animate));
-  input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Types.Defaults.JointColor
+  input PlanarMechanics.Types.Color cylinderColor=Types.Defaults.JointColor
     "Color of cylinder representing the joint axis"
     annotation (HideResult=true, Dialog(colorSelector=true,tab="Animation",
       group="if animation = true", enable=animate));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+  input PlanarMechanics.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(tab="Animation",

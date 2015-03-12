@@ -4,7 +4,7 @@ model FixedRotation "A fixed translation between two components (rigid rod)"
 
   parameter SI.Angle alpha "Fixed rotation angle";
   parameter Boolean animate = true "= true, if animation shall be enabled"
-                                           annotation(Dialog(group="Animation"));
+    annotation(Dialog(group="Animation"));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed rotation" annotation (Dialog(
       tab="Animation",
@@ -16,17 +16,17 @@ model FixedRotation "A fixed translation between two components (rigid rod)"
   parameter SI.Length cylinderDiameter=planarWorld.defaultJointWidth
     "Diameter of cylinder representing the fixed rotation"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Modelica.Mechanics.MultiBody.Types.Color cylinderColor={155,155,155}
+  input PlanarMechanics.Types.Color color=Types.Defaults.RodColor
     "Color of cylinder representing the fixed rotation"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animation = true", enable=animate));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+  input PlanarMechanics.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult = true, Dialog(tab="Animation", group="if animation = true", enable=animate));
   //Visualization
   MB.Visualizers.Advanced.Shape cylinder(
     shapeType="cylinder",
-    color=cylinderColor,
+    color=color,
     specularCoefficient=specularCoefficient,
     length=cylinderLength,
     width=cylinderDiameter,

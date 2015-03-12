@@ -20,10 +20,10 @@ model Distance
     annotation (Dialog(group="if animation = true", enable=animation));
   input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
     "Color of relative arrow from frame_a to frame_b"
-    annotation (Dialog(group="if animation = true", enable=animation));
+    annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
   input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(group="if animation = true", enable=animation));
+    annotation (HideResult=true, Dialog(group="if animation = true", enable=animation));
   input SI.Position s_small(min=sqrt(Modelica.Constants.small))=1.E-10
     "Prevent zero-division if distance between frame_a and frame_b is zero"
     annotation (Dialog(tab="Advanced"));

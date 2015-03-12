@@ -1,41 +1,37 @@
 within PlanarMechanics.Parts;
 model SpringDamper "Linear 2D translational spring damper model"
-  extends PlanarMechanics.Interfaces.PartialTwoFrames;
+  extends BaseClasses.TwoConnectorShapes;
     extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
      final T=293.15);
 
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
-  parameter Modelica.SIunits.TranslationalSpringConstant c_x(final min=0, start=1)
+  parameter SI.TranslationalSpringConstant c_x(final min=0, start=1)
     "Spring constant in x dir";
-  parameter Modelica.SIunits.TranslationalSpringConstant c_y(final min=0, start=1)
+  parameter SI.TranslationalSpringConstant c_y(final min=0, start=1)
     "Spring constant in y dir";
-  parameter Modelica.SIunits.RotationalSpringConstant c_phi(final min=0, start=1.0e5)
-    "Spring constant";
-  parameter Modelica.SIunits.TranslationalDampingConstant d_x(final min=0, start=1)
+  parameter SI.RotationalSpringConstant c_phi(final min=0, start=1.0e5)
+    "Spring constant in phi dir";
+  parameter SI.TranslationalDampingConstant d_x(final min=0, start=1)
     "Damping constant in x dir";
-  parameter Modelica.SIunits.TranslationalDampingConstant d_y(final min=0, start=1)
+  parameter SI.TranslationalDampingConstant d_y(final min=0, start=1)
     "Damping constant in y dir";
-  parameter Modelica.SIunits.RotationalDampingConstant d_phi(final min=0, start=1)
+  parameter SI.RotationalDampingConstant d_phi(final min=0, start=1)
     "Damping constant in phi dir";
-  parameter Modelica.SIunits.Position s_relx0=0 "Unstretched spring length";
-  parameter Modelica.SIunits.Position s_rely0=0 "Unstretched spring length";
-  parameter Modelica.SIunits.Angle phi_rel0=0 "Unstretched spring angle";
+  parameter SI.Position s_relx0=0 "Unstretched spring length";
+  parameter SI.Position s_rely0=0 "Unstretched spring length";
+  parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
 
-  Real[2] d0;
-  Modelica.SIunits.Velocity v_relx "Spring velocity";
-  Modelica.SIunits.Velocity v_rely "Spring velocity";
-  Modelica.SIunits.AngularVelocity w_rel(start=0) "Spring anglular velocity"                          annotation(Dialog(group="Initialization", showStartAttribute=true));
-  Modelica.SIunits.Position s_relx(final stateSelect=stateSelect)
-    "Spring length";
-  Modelica.SIunits.Position s_rely(final stateSelect=stateSelect)
-    "Spring length";
-  Modelica.SIunits.Angle phi_rel(start=0, final stateSelect=stateSelect)
-    "Spring angle"                                                                annotation(Dialog(group="Initialization", showStartAttribute=true));
-  Modelica.SIunits.Force f_x "Force in x direction";
-  Modelica.SIunits.Force f_y "Force in y direction";
-  Modelica.SIunits.Torque tau "Torque between frames (= frame_b.f)";
+  SI.Velocity v_relx "Spring velocity";
+  SI.Velocity v_rely "Spring velocity";
+  SI.AngularVelocity w_rel(start=0) "Spring anglular velocity" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Position s_relx(final stateSelect=stateSelect) "Spring length";
+  SI.Position s_rely(final stateSelect=stateSelect) "Spring length";
+  SI.Angle phi_rel(start=0, final stateSelect=stateSelect) "Spring angle" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Force f_x "Force in x direction";
+  SI.Force f_y "Force in y direction";
+  SI.Torque tau "Torque between frames (= frame_b.f)";
 
   parameter SI.Position s_small = 1.E-10
     "Prevent zero-division if distance between frame_a and frame_b is zero" annotation (Dialog(
@@ -45,70 +41,39 @@ model SpringDamper "Linear 2D translational spring damper model"
     "Cause an assert when the distance between frame_a and frame_b < s_small" annotation (Dialog(
       tab="Advanced"));
 
-  parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "Position z of cylinder representing the fixed translation" annotation (Dialog(
-      tab="Animation", group="if animation = true", enable=animate));
+  //Visualization
   parameter Integer numberOfWindings = 5 "Number of spring windings"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input SI.Length width = planarWorld.defaultForceWidth "Width of spring"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
+  input SI.Length width = planarWorld.defaultJointWidth "Width of spring"
+    annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
   input SI.Length coilWidth = width/10 "Width of spring coil"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
-    specularCoefficient = planarWorld.defaultSpecularCoefficient
-    "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
   input Types.Color color = Types.Defaults.SpringColor "Color of spring"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (HideResult=true, Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate, colorSelector=true));
+
   parameter SI.Length length_a = planarWorld.defaultForceLength
     "Length of cylinder at frame_a side"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
   input SI.Diameter diameter_a = planarWorld.defaultForceWidth
     "Diameter of cylinder at frame_a side"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
   input SI.Diameter diameter_b = 0.6*diameter_a
     "Diameter of cylinder at frame_b side"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Types.Color color_a = {100,100,100} "Color at frame_a"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector));
-  input Types.Color color_b = {155,155,155} "Color at frame_b"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector));
+    annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
+  input Types.Color color_a = {100,100,100} "Color of cylinder at frame_a side"
+    annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
+  input Types.Color color_b = {155,155,155} "Color of cylinder at frame_b side"
+    annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
 
   SI.Length length
     "Distance between the origin of frame_a and the origin of frame_b";
   SI.Position r_rel_0[3]
-    "Position vector from frame_a to frame_b resolved in world frame";
+    "Position vector (3D) from frame_a to frame_b resolved in multibody world frame";
   Real e_rel_0[3](each final unit="1")
-    "Unit vector in direction from frame_a to frame_b, resolved in world frame";
+    "Unit vector (3D) in direction from frame_a to frame_b, resolved in multibody world frame";
 
-  //Visualization
-  import MB = Modelica.Mechanics.MultiBody;
-  parameter Boolean animate = true "Enable animation"
-                                                     annotation(Dialog(group="Animation"));
 protected
-  MB.Visualizers.Advanced.Shape contactA(
-    shapeType="cylinder",
-    specularCoefficient=specularCoefficient,
-    length=0.1,
-    width=0.1,
-    height=0.1,
-    lengthDirection={0,0,1},
-    widthDirection={1,0,0},
-    r_shape={0,0,-0.06},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape contactB(
-    shapeType="cylinder",
-    specularCoefficient=specularCoefficient,
-    length=0.1,
-    width=0.1,
-    height=0.1,
-    lengthDirection={0,0,1},
-    widthDirection={1,0,0},
-    r_shape={0,0,-0.06},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition})+planarWorld.r_0,
-    R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape lineShape(
+  MB.Visualizers.Advanced.Shape shapeCoil(
     shapeType="spring",
     color=color,
     specularCoefficient=specularCoefficient,
@@ -120,19 +85,18 @@ protected
     extra=numberOfWindings,
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
     R=planarWorld.R) if planarWorld.enableAnimation and animate;
-    SI.Position r0_b[3] = {d0[1], d0[2], 0} * noEvent(min(length_a, length));
-  MB.Visualizers.Advanced.Shape shape_a(
+  MB.Visualizers.Advanced.Shape cylinderDamper_a(
     shapeType="cylinder",
     color=color_a,
     specularCoefficient=specularCoefficient,
     length=noEvent(min(length_a, length)),
     width=diameter_a,
     height=diameter_a,
-    lengthDirection={d0[1], d0[2], 0},
+    lengthDirection={s_relx, s_rely, 0},
     widthDirection={0,1,0},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
     R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape shape_b(
+  MB.Visualizers.Advanced.Shape cylinderDamper_b(
     shapeType="cylinder",
     color=color_b,
     specularCoefficient=specularCoefficient,
@@ -141,32 +105,10 @@ protected
     height=diameter_b,
     lengthDirection={s_relx, s_rely, 0},
     widthDirection={0,1,0},
-    r_shape=r0_b,
+    r_shape=Modelica.Math.Vectors.normalize(r_rel_0) * noEvent(min(length_a, length)),
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
     R=planarWorld.R) if planarWorld.enableAnimation and animate;
 
-//   MB.Visualizers.Advanced.Shape contactA(
-//     shapeType="cylinder",
-//     //     specularCoefficient=0.5,
-//     length=0.1,
-//     width=.1,
-//     height=.1,
-//     lengthDirection={0,0,1},
-//     widthDirection={1,0,0},
-//     r_shape={0,0,-0.06},
-//     r={frame_a.x,frame_a.y,0},
-//     R=MB.Frames.nullRotation()) if  animate;
-//   MB.Visualizers.Advanced.Shape contactB(
-//     shapeType="cylinder",
-//     //     specularCoefficient=0.5,
-//     length=0.1,
-//     width=.1,
-//     height=.1,
-//     lengthDirection={0,0,1},
-//     widthDirection={1,0,0},
-//     r_shape={0,0,-0.06},
-//     r={frame_b.x,frame_b.y,0},
-//     R=MB.Frames.nullRotation()) if  animate;
 equation
      assert(noEvent(length > s_small), "
  The distance between the origin of frame_a and the origin of frame_b
@@ -188,18 +130,18 @@ equation
  ");
   r_rel_0 = {s_relx, s_rely, 0};
   length = Modelica.Math.Vectors.length(r_rel_0);
-  e_rel_0 = r_rel_0/Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent(length, s_small);
-  d0= Modelica.Math.Vectors.normalize({s_relx,s_rely});
+  e_rel_0 = r_rel_0/MB.Frames.Internal.maxWithoutEvent(length, s_small);
 
+  s_relx = frame_b.x-frame_a.x;
+  s_rely = frame_b.y-frame_a.y;
   v_relx = der(s_relx);
   v_rely = der(s_rely);
   w_rel = der(phi_rel);
   phi_rel = frame_b.phi - frame_a.phi;
+
   tau = c_phi*(phi_rel - phi_rel0) + d_phi*w_rel;
   frame_a.t = -tau;
   frame_b.t = tau;
-  s_relx = frame_b.x-frame_a.x;
-  s_rely = frame_b.y-frame_a.y;
   f_x = c_x*(s_relx - s_relx0) + d_x*v_relx;
   f_y = c_y*(s_rely - s_rely0) + d_y*v_rely;
   frame_a.fx = -f_x;

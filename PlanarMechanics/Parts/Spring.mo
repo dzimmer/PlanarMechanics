@@ -1,28 +1,28 @@
 within PlanarMechanics.Parts;
 model Spring "Linear 2D translational spring"
-  extends PlanarMechanics.Interfaces.PartialTwoFrames;
+  extends BaseClasses.TwoConnectorShapes;
 
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
-  parameter Modelica.SIunits.TranslationalSpringConstant c_x(final min=0, start=1)
+  parameter SI.TranslationalSpringConstant c_x(final min=0, start=1)
     "Spring constant in x dir";
-  parameter Modelica.SIunits.TranslationalSpringConstant c_y(final min=0, start=1)
+  parameter SI.TranslationalSpringConstant c_y(final min=0, start=1)
     "Spring constant in y dir";
-  parameter Modelica.SIunits.RotationalSpringConstant c_phi(final min=0, start=1.0e5)
+  parameter SI.RotationalSpringConstant c_phi(final min=0, start=1.0e5)
     "Spring constant";
-  parameter Modelica.SIunits.Position s_relx0=0 "Unstretched spring length";
-  parameter Modelica.SIunits.Position s_rely0=0 "Unstretched spring length";
-  parameter Modelica.SIunits.Angle phi_rel0=0 "Unstretched spring angle";
+  parameter SI.Position s_relx0=0 "Unstretched spring length";
+  parameter SI.Position s_rely0=0 "Unstretched spring length";
+  parameter SI.Angle phi_rel0=0 "Unstretched spring angle";
 
-  Modelica.SIunits.Position s_relx(final stateSelect=stateSelect, start = 0)
-    "Spring length" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  Modelica.SIunits.Position s_rely(final stateSelect=stateSelect, start = 0)
-    "Spring length" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Position s_relx(final stateSelect=stateSelect, start = 0) "Spring length"
+    annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Position s_rely(final stateSelect=stateSelect, start = 0) "Spring length"
+    annotation(Dialog(group="Initialization", showStartAttribute=true));
 
-  Modelica.SIunits.Angle phi_rel(final stateSelect=stateSelect, start = 0)
-    "Spring angle" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  Modelica.SIunits.Force f_x "Force in x direction";
-  Modelica.SIunits.Force f_y "Force in y direction";
+  SI.Angle phi_rel(final stateSelect=stateSelect, start = 0) "Spring angle"
+                   annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Force f_x "Force in x direction";
+  SI.Force f_y "Force in y direction";
 
   parameter SI.Position s_small = 1.E-10
     "Prevent zero-division if distance between frame_a and frame_b is zero" annotation (Dialog(
@@ -32,56 +32,25 @@ model Spring "Linear 2D translational spring"
     "Cause an assert when the distance between frame_a and frame_b < s_small" annotation (Dialog(
       tab="Advanced"));
 
-  parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "Position z of cylinder representing the fixed translation" annotation (Dialog(
-      tab="Animation", group="if animation = true", enable=animate));
+  //Visualization
   parameter Integer numberOfWindings = 5 "Number of spring windings"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input SI.Position width = planarWorld.defaultForceWidth "Width of spring"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input SI.Position coilWidth = width/10 "Width of spring coil"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
-    specularCoefficient = planarWorld.defaultSpecularCoefficient
-    "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
+  input SI.Length width = planarWorld.defaultJointWidth "Width of spring"
+    annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
+  input SI.Length coilWidth = width/10 "Width of spring coil"
+    annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
   input Types.Color color = Types.Defaults.SpringColor "Color of spring"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (HideResult=true, Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate, colorSelector=true));
 
   SI.Length length
     "Distance between the origin of frame_a and the origin of frame_b";
   SI.Position r_rel_0[3]
-    "Position vector from frame_a to frame_b resolved in world frame";
+    "Position vector (3D) from frame_a to frame_b resolved in multibody world frame";
   Real e_rel_0[3](each final unit="1")
-    "Unit vector in direction from frame_a to frame_b, resolved in world frame";
+    "Unit vector (3D) in direction from frame_a to frame_b, resolved in multibody world frame";
 
-  //Visualization
-  import MB = Modelica.Mechanics.MultiBody;
-  parameter Boolean animate = true "Enable animation"
-                                                     annotation(Dialog(group="Animation"));
-  MB.Visualizers.Advanced.Shape contactA(
-    shapeType="cylinder",
-    specularCoefficient=specularCoefficient,
-    length=0.1,
-    width=0.1,
-    height=0.1,
-    lengthDirection={0,0,1},
-    widthDirection={1,0,0},
-    r_shape={0,0,-0.06},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape contactB(
-    shapeType="cylinder",
-    specularCoefficient=specularCoefficient,
-    length=0.1,
-    width=0.1,
-    height=0.1,
-    lengthDirection={0,0,1},
-    widthDirection={1,0,0},
-    r_shape={0,0,-0.06},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition})+planarWorld.r_0,
-    R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape lineShape(
+protected
+  MB.Visualizers.Advanced.Shape shapeCoil(
     shapeType="spring",
     color=color,
     specularCoefficient=specularCoefficient,
@@ -161,15 +130,7 @@ for this situation:
         Text(
           extent={{-150,80},{150,40}},
           textString="%name",
-          lineColor={0,0,255}),
-        Text(
-          extent={{-108,-24},{-72,-49}},
-          lineColor={128,128,128},
-          textString="a"),
-        Text(
-          extent={{72,-24},{108,-49}},
-          lineColor={128,128,128},
-          textString="b")}),
+          lineColor={0,0,255})}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

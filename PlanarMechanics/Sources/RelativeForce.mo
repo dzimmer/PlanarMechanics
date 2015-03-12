@@ -22,10 +22,10 @@ model RelativeForce "Input signal acting as force and torque on two frames"
       tab="Animation",group="if animation = true", enable=animate));
   input Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
     "Color of arrow"
-    annotation (Dialog(tab="Animation",group="if animation = true",colorSelector=true,  enable=animation));
+    annotation (HideResult=true, Dialog(tab="Animation",group="if animation = true",colorSelector=true,  enable=animation));
   input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation",group="if animation = true",enable=animation));
+    annotation (HideResult=true, Dialog(tab="Animation",group="if animation = true",enable=animation));
   Modelica.Blocks.Interfaces.RealInput force[3] annotation (Placement(transformation(extent={{-20,-20},{20,20}},
         origin={0,50})));
 

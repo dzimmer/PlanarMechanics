@@ -23,13 +23,18 @@ model Body "Body component with mass and inertia"
       tab="Animation",
       group="if animation = true",
       enable=animate));
-       parameter Boolean enableGravity = true
+  parameter Boolean enableGravity = true
     "= true, if gravity effects should be taken into account" annotation (
     Evaluate=true,
     HideResult=true,
     choices(checkBox=true));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
-    specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input Types.Color sphereColor=Types.Defaults.BodyColor "Color of sphere"
+    annotation (HideResult = true, Dialog(
+      colorSelector=true,
+      tab="Animation",
+      group="if animation = true",
+      enable=animate));
+  input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult = true, Dialog(tab="Animation", group="if animation = true", enable=animate));
   SI.Force f[2] "Force";
@@ -45,7 +50,7 @@ model Body "Body component with mass and inertia"
   //Visualization
   MB.Visualizers.Advanced.Shape sphere(
     shapeType="sphere",
-    color={63,63,255},
+    color=sphereColor,
     specularCoefficient=specularCoefficient,
     length=sphereDiameter,
     width=sphereDiameter,

@@ -15,11 +15,12 @@ model Arrow
     annotation(Dialog);
   input SI.Diameter diameter=planarWorld.defaultArrowDiameter
     "Diameter of arrow line" annotation(Dialog);
-  input MB.Types.Color color=MB.Types.Defaults.ArrowColor "Color of arrow"
-    annotation(Dialog(colorSelector=true));
-  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input PlanarMechanics.Types.Color color=PlanarMechanics.Types.Defaults.ArrowColor
+    "Color of arrow"
+    annotation(HideResult=true, Dialog(colorSelector=true));
+  input PlanarMechanics.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
-    annotation(Dialog);
+    annotation(HideResult=true, Dialog);
 
 protected
   outer PlanarWorld planarWorld;
@@ -55,9 +56,9 @@ Visualizers.Advanced.Arrow arrow(diameter = sin(time));
 
 <p>
 Variable <b>color</b> is a RGB color space given in the range 0 .. 255.
-The predefined type <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
-contains a menu definition of the colors used in the
-<a href=\"modelica://Modelica.Mechanics.MultiBody\">Modelia MultiBody library</a> (will be replaced by a color editor).
+The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
+contains a menu definition of the colors used in the library</a>
+(will be replaced by a color editor).
 </p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{

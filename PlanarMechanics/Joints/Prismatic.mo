@@ -31,11 +31,11 @@ model Prismatic "A prismatic joint"
     "Width of prismatic joint box"
     annotation (Dialog(tab="Animation",
       group="if animation = true", enable=animate));
-  input Types.Color boxColor=Types.Defaults.JointColor
+  input PlanarMechanics.Types.Color boxColor=Types.Defaults.JointColor
     "Color of prismatic joint box"
     annotation (HideResult=true, Dialog(tab="Animation",
-      group="if animation = true", enable=animate));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
+      group="if animation = true", enable=animate, colorSelector=true));
+  input PlanarMechanics.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(tab="Animation",
@@ -62,8 +62,8 @@ model Prismatic "A prismatic joint"
     height=boxWidth,
     lengthDirection={e0[1],e0[2],0},
     widthDirection={0,0,1},
-    r_shape={0,0,0},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
+    r_shape={frame_a.x,frame_a.y,zPosition},
+    r=planarWorld.r_0,
     R=planarWorld.R) if planarWorld.enableAnimation and animate;
 
 protected

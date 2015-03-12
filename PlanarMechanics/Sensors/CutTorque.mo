@@ -22,10 +22,10 @@ model CutTorque "Measure cut torque vector"
     "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
   input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
     "Color of torque arrow"
-    annotation (Dialog(group="if animation = true", enable=animation));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+    annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
+  input PlanarMechanics.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(group="if animation = true", enable=animation));
+    annotation (HideResult=true, Dialog(group="if animation = true", enable=animation));
 
 protected
  inner Modelica.Mechanics.MultiBody.World world;

@@ -11,20 +11,20 @@ model DoubleArrow
     "Orientation object to rotate the planarWorld frame into the arrow frame" annotation(Dialog);
   input SI.Position r[3]={0,0,0}
     "Position vector from origin of planarWorld frame to origin of arrow frame, resolved in planarWorld frame"
-                                                                                                   annotation(Dialog);
+    annotation(Dialog);
   input SI.Position r_tail[3]={0,0,0}
     "Position vector from origin of arrow frame to double arrow tail, resolved in arrow frame"
-                                                                                               annotation(Dialog);
+    annotation(Dialog);
   input SI.Position r_head[3]={0,0,0}
     "Position vector from double arrow tail to the head of the double arrow, resolved in arrow frame"
-                                                                                                      annotation(Dialog);
+    annotation(Dialog);
   input SI.Diameter diameter=planarWorld.defaultArrowDiameter
     "Diameter of arrow line" annotation(Dialog);
-  input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
-    "Color of double arrow" annotation(Dialog(colorSelector=true));
-  input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input PlanarMechanics.Types.Color color=PlanarMechanics.Types.Defaults.ArrowColor
+    "Color of double arrow" annotation(HideResult=true, Dialog(colorSelector=true));
+  input PlanarMechanics.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
-                                                                                                        annotation(Dialog);
+    annotation(HideResult=true, Dialog);
 
 protected
   outer PlanarWorld planarWorld;
@@ -101,7 +101,7 @@ protected
           extent={{-150,100},{150,60}},
           textString="%name",
           lineColor={0,0,255})}),
-    Documentation(info="<HTML>
+    Documentation(info="<html>
 <p>
 Model <b>DoubleArrow</b> defines a double arrow that is dynamically
 visualized at the defined location (see variables below).
@@ -122,13 +122,10 @@ model where an <b>Arrow</b> instance is used, e.g., in the form
     Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
 </pre>
 <p>
-Variable <b>color</b> is an Integer vector with 3 elements,
-{r, g, b}, and specifies the color of the shape.
-{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
-Note, r g, b are given in the range 0 .. 255.
-The predefined type <b>MultiBody.Types.Color</b> contains
-a menu definition of the colors used in the MultiBody
-library (will be replaced by a color editor).
+Variable <b>color</b> is a RGB color space given in the range 0 .. 255.
+The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
+contains a menu definition of the colors used in the library</a>
+(will be replaced by a color editor).
 </p>
-</HTML>"));
+</html>"));
 end DoubleArrow;

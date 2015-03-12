@@ -1,6 +1,6 @@
 within PlanarMechanics.Parts;
 model Damper "Linear (velocity dependent) damper"
-  extends PlanarMechanics.Interfaces.PartialTwoFrames;
+  extends BaseClasses.TwoConnectorShapes;
   extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
      final T=293.15);
@@ -21,33 +21,26 @@ model Damper "Linear (velocity dependent) damper"
     "Cause an assert when the distance between frame_a and frame_b < s_small" annotation (Dialog(
       tab="Advanced"));
 
-  parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "Position z of cylinder representing the fixed translation" annotation (Dialog(
-      tab="Animation", group="if animation = true", enable=animate));
+  //Visualization
   parameter SI.Length length_a = planarWorld.defaultForceLength
     "Length of cylinder at frame_a side"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
   input SI.Diameter diameter_a = planarWorld.defaultForceWidth
     "Diameter of cylinder at frame_a side"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
   input SI.Diameter diameter_b = 0.6*diameter_a
     "Diameter of cylinder at frame_b side"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input Types.Color color_a = {100,100,100} "Color at frame_a"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector));
-  input Types.Color color_b = {155,155,155} "Color at frame_b"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
-    "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
+  input Types.Color color_a = {100,100,100} "Color of cylinder at frame_a side"
+    annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
+  input Types.Color color_b = {155,155,155} "Color of cylinder at frame_b side"
+    annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
 
   SI.Distance length
     "Distance between the origin of frame_a and the origin of frame_b";
-  parameter Boolean animate = true "Enable animation"
-                                                     annotation(Dialog(group="Animation"));
 protected
   SI.Position r0_b[3] = {d0[1], d0[2], 0} * noEvent(min(length_a, length));
-  MB.Visualizers.Advanced.Shape shape_a(
+  MB.Visualizers.Advanced.Shape cylinder_a(
     shapeType="cylinder",
     color=color_a,
     specularCoefficient=specularCoefficient,
@@ -58,8 +51,7 @@ protected
     widthDirection={0,0,1},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
     R=planarWorld.R) if planarWorld.enableAnimation and animate;
-
-  MB.Visualizers.Advanced.Shape shape_b(
+  MB.Visualizers.Advanced.Shape cylinder_b(
     shapeType="cylinder",
     color=color_b,
     specularCoefficient=specularCoefficient,
@@ -125,14 +117,6 @@ equation
           extent={{-150,80},{150,40}},
           textString="%name",
           lineColor={0,0,255}),
-        Text(
-          extent={{-108,-24},{-72,-49}},
-          lineColor={128,128,128},
-          textString="a"),
-        Text(
-          extent={{72,-24},{108,-49}},
-          lineColor={128,128,128},
-          textString="b"),
         Text(
           extent={{-100,-50},{100,-80}},
           lineColor={0,0,0},
