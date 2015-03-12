@@ -35,7 +35,7 @@ public
     "Diameter of force arrow" annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation" annotation (Dialog(
-      tab="Animation",group="if animation = true", enable=animate));
+      tab="Animation",group="if animation = true", enable=animation));
   input Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
     "Color of arrow"
     annotation (HideResult=true, Dialog(tab="Animation",group="if animation = true",colorSelector=true,  enable=animation));

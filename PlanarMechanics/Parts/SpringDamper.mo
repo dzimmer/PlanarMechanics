@@ -1,6 +1,6 @@
 within PlanarMechanics.Parts;
 model SpringDamper "Linear 2D translational spring damper model"
-  extends PlanarMechanics.Interfaces.PartialTwoFrames;
+  extends BaseClasses.TwoConnectorShapes;
     extends
     Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
      final T=293.15);
@@ -12,7 +12,7 @@ model SpringDamper "Linear 2D translational spring damper model"
   parameter SI.TranslationalSpringConstant c_y(final min=0, start=1)
     "Spring constant in y dir";
   parameter SI.RotationalSpringConstant c_phi(final min=0, start=1.0e5)
-    "Spring constant";
+    "Spring constant in phi dir";
   parameter SI.TranslationalDampingConstant d_x(final min=0, start=1)
     "Damping constant in x dir";
   parameter SI.TranslationalDampingConstant d_y(final min=0, start=1)
@@ -42,19 +42,9 @@ model SpringDamper "Linear 2D translational spring damper model"
       tab="Advanced"));
 
   //Visualization
-  parameter Boolean animate = true "Enable animation"
-    annotation(Dialog(group="Animation"));
-  input MB.Types.SpecularCoefficient
-    specularCoefficient = planarWorld.defaultSpecularCoefficient
-    "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (HideResult=true, Dialog(tab="Animation", group="if animation = true", enable=animate));
-
-  parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "Position z of cylinder representing the fixed translation" annotation (Dialog(
-      tab="Animation", group="if animation = true", enable=animate));
   parameter Integer numberOfWindings = 5 "Number of spring windings"
     annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
-  input SI.Length width = planarWorld.defaultForceWidth "Width of spring"
+  input SI.Length width = planarWorld.defaultJointWidth "Width of spring"
     annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
   input SI.Length coilWidth = width/10 "Width of spring coil"
     annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
@@ -63,17 +53,17 @@ model SpringDamper "Linear 2D translational spring damper model"
 
   parameter SI.Length length_a = planarWorld.defaultForceLength
     "Length of cylinder at frame_a side"
-    annotation (Dialog(tab="Animation", group="Spring cylinders (if animation = true)", enable=animate));
+    annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
   input SI.Diameter diameter_a = planarWorld.defaultForceWidth
     "Diameter of cylinder at frame_a side"
-    annotation (Dialog(tab="Animation", group="Spring cylinders (if animation = true)", enable=animate));
+    annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
   input SI.Diameter diameter_b = 0.6*diameter_a
     "Diameter of cylinder at frame_b side"
-    annotation (Dialog(tab="Animation", group="Spring cylinders (if animation = true)", enable=animate));
-  input Types.Color color_a = {100,100,100} "Color at frame_a"
-    annotation (HideResult=true, Dialog(tab="Animation", group="Spring cylinders (if animation = true)", enable=animate, colorSelector=true));
-  input Types.Color color_b = {155,155,155} "Color at frame_b"
-    annotation (HideResult=true, Dialog(tab="Animation", group="Spring cylinders (if animation = true)", enable=animate, colorSelector=true));
+    annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
+  input Types.Color color_a = {100,100,100} "Color of cylinder at frame_a side"
+    annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
+  input Types.Color color_b = {155,155,155} "Color of cylinder at frame_b side"
+    annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
 
   SI.Length length
     "Distance between the origin of frame_a and the origin of frame_b";
@@ -83,29 +73,7 @@ model SpringDamper "Linear 2D translational spring damper model"
     "Unit vector (3D) in direction from frame_a to frame_b, resolved in multibody world frame";
 
 protected
-  MB.Visualizers.Advanced.Shape contactA(
-    shapeType="cylinder",
-    specularCoefficient=specularCoefficient,
-    length=0.1,
-    width=0.1,
-    height=0.1,
-    lengthDirection={0,0,1},
-    widthDirection={1,0,0},
-    r_shape={0,0,-0.05},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape contactB(
-    shapeType="cylinder",
-    specularCoefficient=specularCoefficient,
-    length=0.1,
-    width=0.1,
-    height=0.1,
-    lengthDirection={0,0,1},
-    widthDirection={1,0,0},
-    r_shape={0,0,-0.05},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition})+planarWorld.r_0,
-    R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape lineShape(
+  MB.Visualizers.Advanced.Shape shapeCoil(
     shapeType="spring",
     color=color,
     specularCoefficient=specularCoefficient,
@@ -117,7 +85,7 @@ protected
     extra=numberOfWindings,
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
     R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape shape_a(
+  MB.Visualizers.Advanced.Shape cylinderDamper_a(
     shapeType="cylinder",
     color=color_a,
     specularCoefficient=specularCoefficient,
@@ -128,7 +96,7 @@ protected
     widthDirection={0,1,0},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
     R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape shape_b(
+  MB.Visualizers.Advanced.Shape cylinderDamper_b(
     shapeType="cylinder",
     color=color_b,
     specularCoefficient=specularCoefficient,
@@ -141,28 +109,6 @@ protected
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
     R=planarWorld.R) if planarWorld.enableAnimation and animate;
 
-//   MB.Visualizers.Advanced.Shape contactA(
-//     shapeType="cylinder",
-//     //     specularCoefficient=0.5,
-//     length=0.1,
-//     width=.1,
-//     height=.1,
-//     lengthDirection={0,0,1},
-//     widthDirection={1,0,0},
-//     r_shape={0,0,-0.06},
-//     r={frame_a.x,frame_a.y,0},
-//     R=MB.Frames.nullRotation()) if  animate;
-//   MB.Visualizers.Advanced.Shape contactB(
-//     shapeType="cylinder",
-//     //     specularCoefficient=0.5,
-//     length=0.1,
-//     width=.1,
-//     height=.1,
-//     lengthDirection={0,0,1},
-//     widthDirection={1,0,0},
-//     r_shape={0,0,-0.06},
-//     r={frame_b.x,frame_b.y,0},
-//     R=MB.Frames.nullRotation()) if  animate;
 equation
      assert(noEvent(length > s_small), "
  The distance between the origin of frame_a and the origin of frame_b

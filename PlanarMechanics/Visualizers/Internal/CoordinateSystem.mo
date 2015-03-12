@@ -15,19 +15,19 @@ model CoordinateSystem
   parameter SI.Diameter axisDiameter=axisLength/40
     "Diameter of world axes arrows";
 
-  parameter MB.Types.Color color_x=MB.Types.Defaults.FrameColor
+  parameter PlanarMechanics.Types.Color color_x=PlanarMechanics.Types.Defaults.FrameColor
     "Color of x-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true));
-  parameter MB.Types.Color color_y=color_x "Color of y-arrow"
+  parameter PlanarMechanics.Types.Color color_y=color_x "Color of y-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true));
-  parameter MB.Types.Color color_z=color_x "Color of z-arrow"
+  parameter PlanarMechanics.Types.Color color_z=color_x "Color of z-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true));
 
   parameter Boolean axisShowLabels=true "True, if labels shall be shown"
     annotation (HideResult=true, Dialog(group="Axes labels"));
   parameter SI.Length labelStart=1.05*axisLength
     annotation(Dialog(group="Axes labels", enable=axisShowLabels));
-  parameter SI.Length scaledLabel=MB.Types.Defaults.FrameLabelHeightFraction*axisDiameter
+  parameter SI.Length scaledLabel=PlanarMechanics.Types.Defaults.FrameLabelHeightFraction*axisDiameter
     annotation(Dialog(group="Axes labels", enable=axisShowLabels));
 
 protected
@@ -114,9 +114,9 @@ PlanarMechanics.Visualizers.Advanced.CoordinateSystem coordinateSystem(r = {sin(
 
 <p>
 <b>Color</b> of each axis can be set individually using RGB color space given in the range 0 .. 255.
-The predefined type <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
-contains a menu definition of the colors used in the
-<a href=\"modelica://Modelica.Mechanics.MultiBody\">Modelia MultiBody library</a> (will be replaced by a color editor).
+The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
+contains a menu definition of the colors used in the library</a>
+(will be replaced by a color editor).
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}), graphics={

@@ -74,7 +74,7 @@ model PlanarWorldIn3D
       defaultWidthFraction "Diameter of gravity arrow" annotation (Dialog(tab=
           "Animation", group="if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
-  parameter Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow" annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+  parameter Types.Color gravityArrowColor={0,180,0} "Color of gravity arrow" annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Length defaultZPosition=0
     "Default for z positions of all the elements"
@@ -132,6 +132,7 @@ protected
   parameter SI.Length labelStart=1.05*axisLength;
 
   // coordinate system IF NOT connected to multibody
+protected
   Visualizers.Internal.CoordinateSystem coordinateSystem(
     r=zeros(3),
     R=MB.Frames.nullRotation(),
@@ -146,6 +147,7 @@ protected
     color_z=axisColor_z) if enableAnimation and animateWorld and not connectToMultiBody;
 
   // coordinate system ONLY IF connected to multibody
+protected
   Visualizers.Internal.CoordinateSystem coordinateSystemMB(
     r=zeros(3),
     R=MBFrame_a.R,
@@ -160,31 +162,24 @@ protected
     color_z=axisColor_z) if enableAnimation and animateWorld and connectToMultiBody;
 
   // gravity visualization
-  parameter SI.Length gravityHeadLength=min(gravityArrowLength,
-      gravityArrowDiameter*Types.Defaults.ArrowHeadLengthFraction);
-  parameter SI.Length gravityHeadWidth=gravityArrowDiameter*Types.Defaults.ArrowHeadWidthFraction;
-  parameter SI.Length gravityLineLength=max(0, gravityArrowLength - gravityHeadLength);
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravityArrowLine(
-    shapeType="cylinder",
-    length=gravityLineLength,
-    width=gravityArrowDiameter,
-    height=gravityArrowDiameter,
-    lengthDirection={g[1],g[2],0},
-    widthDirection={0,1,0},
+protected
+  Visualizers.Internal.Arrow gravityArrow(
+    r=zeros(3),
+    R=MB.Frames.nullRotation(),
+    r_tail={gravityArrowTail[1],gravityArrowTail[2],0},
+    r_head=gravityArrowLength*Modelica.Math.Vectors.normalize({g[1],g[2],0}),
+    diameter=gravityArrowDiameter,
     color=gravityArrowColor,
-    r_shape={gravityArrowTail[1],gravityArrowTail[2],0},
-    specularCoefficient=0) if enableAnimation and animateGravity;
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravityArrowHead(
-    shapeType="cone",
-    length=gravityHeadLength,
-    width=gravityHeadWidth,
-    height=gravityHeadWidth,
-    lengthDirection={g[1],g[2],0},
-    widthDirection={0,1,0},
+    specularCoefficient=0) if enableAnimation and animateGravity and not connectToMultiBody;
+protected
+  Visualizers.Internal.Arrow gravityArrowMB(
+    R=MBFrame_a.R,
+    r=MBFrame_a.r_0,
+    r_tail={gravityArrowTail[1],gravityArrowTail[2],0},
+    r_head=gravityArrowLength*Modelica.Math.Vectors.normalize({g[1],g[2],0}),
+    diameter=gravityArrowDiameter,
     color=gravityArrowColor,
-    r_shape={gravityArrowTail[1],gravityArrowTail[2],0} + Modelica.Math.Vectors.normalize({g[1],g[2],0})*gravityLineLength,
-    specularCoefficient=0) if enableAnimation and animateGravity;
-
+    specularCoefficient=0) if enableAnimation and animateGravity and connectToMultiBody;
 equation
   if connectToMultiBody then
     connect(MBFrame_a,MBFrame);

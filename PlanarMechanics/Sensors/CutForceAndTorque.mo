@@ -37,7 +37,7 @@ model CutForceAndTorque "Measure cut force and cut torque vector"
   input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
     "Color of torque arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input PlanarMechanics.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(group="if animation = true", enable=animation));
 

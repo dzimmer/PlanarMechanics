@@ -18,9 +18,10 @@ model Arrow
     annotation(Dialog(enable=true));
   input SI.Diameter diameter=1/40 "Diameter of arrow line"
     annotation(Dialog(enable=true));
-  input MB.Types.Color color=MB.Types.Defaults.ArrowColor "Color of arrow"
+  input PlanarMechanics.Types.Color color=PlanarMechanics.Types.Defaults.ArrowColor
+    "Color of arrow"
     annotation(HideResult=true, Dialog(colorSelector=true));
-  input MB.Types.SpecularCoefficient specularCoefficient = 0.7
+  input PlanarMechanics.Types.SpecularCoefficient specularCoefficient = 0.7
     "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
     annotation(HideResult=true, Dialog(enable=true));
 
@@ -36,9 +37,9 @@ protected
 
   SI.Length headLength=noEvent(max(0, length - arrowLength))
     annotation(HideResult=true);
-  SI.Length headWidth=noEvent(max(0, diameter*MB.Types.Defaults.ArrowHeadWidthFraction))
+  SI.Length headWidth=noEvent(max(0, diameter*PlanarMechanics.Types.Defaults.ArrowHeadWidthFraction))
     annotation(HideResult=true);
-  SI.Length arrowLength = noEvent(max(0, length - diameter*MB.Types.Defaults.ArrowHeadLengthFraction))
+  SI.Length arrowLength = noEvent(max(0, length - diameter*PlanarMechanics.Types.Defaults.ArrowHeadLengthFraction))
     annotation(HideResult=true);
 
   MB.Visualizers.Advanced.Shape arrowLine(
@@ -95,9 +96,9 @@ Visualizers.Advanced.Arrow arrow(diameter = sin(time));
 
 <p>
 Variable <b>color</b> is a RGB color space given in the range 0 .. 255.
-The predefined type <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">MultiBody.Types.Color</a>
-contains a menu definition of the colors used in the
-<a href=\"modelica://Modelica.Mechanics.MultiBody\">Modelia MultiBody library</a> (will be replaced by a color editor).
+The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
+contains a menu definition of the colors used in the library</a>
+(will be replaced by a color editor).
 </p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{

@@ -1,6 +1,6 @@
 within PlanarMechanics.Parts;
 model Spring "Linear 2D translational spring"
-  extends PlanarMechanics.Interfaces.PartialTwoFrames;
+  extends BaseClasses.TwoConnectorShapes;
 
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
@@ -32,21 +32,15 @@ model Spring "Linear 2D translational spring"
     "Cause an assert when the distance between frame_a and frame_b < s_small" annotation (Dialog(
       tab="Advanced"));
 
-  parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "Position z of cylinder representing the fixed translation" annotation (Dialog(
-      tab="Animation", group="if animation = true", enable=animate));
+  //Visualization
   parameter Integer numberOfWindings = 5 "Number of spring windings"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input SI.Position width = planarWorld.defaultForceWidth "Width of spring"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input SI.Position coilWidth = width/10 "Width of spring coil"
-    annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
+  input SI.Length width = planarWorld.defaultJointWidth "Width of spring"
+    annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
+  input SI.Length coilWidth = width/10 "Width of spring coil"
+    annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
   input Types.Color color = Types.Defaults.SpringColor "Color of spring"
-    annotation (HideResult=true, Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animate));
-  input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
-    specularCoefficient = planarWorld.defaultSpecularCoefficient
-    "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (HideResult=true, Dialog(tab="Animation", group="if animation = true", enable=animate));
+    annotation (HideResult=true, Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate, colorSelector=true));
 
   SI.Length length
     "Distance between the origin of frame_a and the origin of frame_b";
@@ -55,33 +49,8 @@ model Spring "Linear 2D translational spring"
   Real e_rel_0[3](each final unit="1")
     "Unit vector (3D) in direction from frame_a to frame_b, resolved in multibody world frame";
 
-  //Visualization
-  import MB = Modelica.Mechanics.MultiBody;
-  parameter Boolean animate = true "Enable animation"
-                                                     annotation(Dialog(group="Animation"));
-  MB.Visualizers.Advanced.Shape contactA(
-    shapeType="cylinder",
-    specularCoefficient=specularCoefficient,
-    length=0.1,
-    width=0.1,
-    height=0.1,
-    lengthDirection={0,0,1},
-    widthDirection={1,0,0},
-    r_shape={0,0,-0.06},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape contactB(
-    shapeType="cylinder",
-    specularCoefficient=specularCoefficient,
-    length=0.1,
-    width=0.1,
-    height=0.1,
-    lengthDirection={0,0,1},
-    widthDirection={1,0,0},
-    r_shape={0,0,-0.06},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition})+planarWorld.r_0,
-    R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape lineShape(
+protected
+  MB.Visualizers.Advanced.Shape shapeCoil(
     shapeType="spring",
     color=color,
     specularCoefficient=specularCoefficient,
@@ -161,15 +130,7 @@ for this situation:
         Text(
           extent={{-150,80},{150,40}},
           textString="%name",
-          lineColor={0,0,255}),
-        Text(
-          extent={{-108,-24},{-72,-49}},
-          lineColor={128,128,128},
-          textString="a"),
-        Text(
-          extent={{72,-24},{108,-49}},
-          lineColor={128,128,128},
-          textString="b")}),
+          lineColor={0,0,255})}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
