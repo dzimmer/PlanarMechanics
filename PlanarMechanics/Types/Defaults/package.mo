@@ -3,23 +3,23 @@ package Defaults "Default settings of the MultiBody library via constants"
   extends Modelica.Icons.Package;
 
   // Color defaults
-  constant Types.Color BodyColor={0,128,255}
+  constant Types.Color BodyColor={0,103,200}
   "Default color for body shapes that have mass (light blue)";
-  constant Types.Color RodColor={155,155,155}
+  constant Types.Color RodColor={115,115,115}
   "Default color for massless rod shapes (grey)";
-  constant Types.Color JointColor={255,0,0}
+  constant Types.Color JointColor={200,0,0}
   "Default color for elementary joints (red)";
-  constant Types.Color ForceColor={0,128,0}
+  constant Types.Color ForceColor={0,100,0}
   "Default color for force arrow (dark green)";
-  constant Types.Color TorqueColor={0,128,0}
+  constant Types.Color TorqueColor={0,100,0}
   "Default color for torque arrow (dark green)";
-  constant Types.Color SpringColor={0,0,255}
+  constant Types.Color SpringColor={0,0,200}
   "Default color for a spring (blue)";
-  constant Types.Color SensorColor={255,255,0}
+  constant Types.Color SensorColor={200,200,0}
   "Default color for sensors (yellow)";
-  constant Types.Color FrameColor={0,0,255}
+  constant Types.Color FrameColor={85,85,200}
   "Default color for frame axes and labels (blue)";
-  constant Types.Color ArrowColor={0,0,255}
+  constant Types.Color ArrowColor={0,0,200}
   "Default color for arrows and double arrows (blue)";
 
   // Arrow and frame defaults
