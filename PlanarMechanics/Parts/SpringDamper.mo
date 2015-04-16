@@ -110,6 +110,7 @@ protected
     R=planarWorld.R) if planarWorld.enableAnimation and animate;
 
 equation
+  if enableAssert then
      assert(noEvent(length > s_small), "
  The distance between the origin of frame_a and the origin of frame_b
  of a Spring component became smaller as parameter s_small
@@ -127,7 +128,8 @@ equation
  - The flange_b connector might be defined by a pre-defined motion,
    e.g., with Modelica.Mechanics.Translational.Position and the
    predefined flange_b.s is zero or negative.
- ");
+ ",level=  AssertionLevel.warning);
+   end if;
   r_rel_0 = {s_relx, s_rely, 0};
   length = Modelica.Math.Vectors.length(r_rel_0);
   e_rel_0 = r_rel_0/MB.Frames.Internal.maxWithoutEvent(length, s_small);
