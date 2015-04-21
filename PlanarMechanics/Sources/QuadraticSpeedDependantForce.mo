@@ -75,8 +75,8 @@ public
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-10,40})));
-  Modelica.Blocks.Math.MatrixGain scaleForces(K=[-F_nominal,0,0; 0,-F_nominal,0;
-        0,0,-tau_nominal])                   annotation (Placement(
+  Modelica.Blocks.Math.MatrixGain scaleForces(K=[F_nominal,0,0; 0,F_nominal,0;
+        0,0,tau_nominal])                    annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         origin={-50,0})));
