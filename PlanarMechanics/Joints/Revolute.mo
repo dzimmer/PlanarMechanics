@@ -5,7 +5,7 @@ model Revolute "A revolute joint"
   parameter Boolean useFlange=false
     "= true, if force flange enabled, otherwise implicitly grounded"
     annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
-  parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true);
+  parameter Boolean animate = true "= true, if animation shall be enabled" annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 

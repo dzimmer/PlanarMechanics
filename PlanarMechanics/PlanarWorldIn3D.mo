@@ -149,7 +149,7 @@ protected
   // coordinate system ONLY IF connected to multibody
 protected
   Visualizers.Internal.CoordinateSystem coordinateSystemMB(
-    r=zeros(3),
+    r=MBFrame_a.r_0,
     R=MBFrame_a.R,
     r_shape=zeros(3),
     axisLength=axisLength,
