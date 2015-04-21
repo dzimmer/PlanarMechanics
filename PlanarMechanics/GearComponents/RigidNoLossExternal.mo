@@ -279,8 +279,7 @@ equation
           visible=useHeatPort,
           points={{-100,-100},{-100,-40},{-16,-40},{-16,0}},
           color={191,0,0},
-          pattern=LinePattern.Dot,
-          smooth=Smooth.None)}),
+          pattern=LinePattern.Dot)}),
     Documentation(
       revisions=
 "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b> </p></html>",

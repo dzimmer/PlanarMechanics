@@ -5,7 +5,7 @@ package BaseClasses "Collection of base classes for 'Parts'"
   annotation (Documentation(info="<html>
 <p>
 A collection of base classes for planar parts.
-These partial classes should be extended to create proper model. 
+These partial classes should be extended to create proper models.
 </p>
 </html>"));
 end BaseClasses;

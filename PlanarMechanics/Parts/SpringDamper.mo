@@ -199,8 +199,7 @@ equation
           visible=useHeatPort,
           points={{-100,-100},{-100,-60},{-40,-60},{-20,-40}},
           color={191,0,0},
-          pattern=LinePattern.Dot,
-          smooth=Smooth.None)}),
+          pattern=LinePattern.Dot)}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},

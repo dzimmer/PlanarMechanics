@@ -124,8 +124,7 @@ equation
           visible=useHeatPort,
           points={{-100,-100},{-100,-80},{-18,0}},
           color={191,0,0},
-          pattern=LinePattern.Dot,
-          smooth=Smooth.None),
+          pattern=LinePattern.Dot),
         Ellipse(
           extent={{-90,10},{-70,-10}},
           lineColor={0,0,0},

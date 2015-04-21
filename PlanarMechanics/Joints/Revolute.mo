@@ -100,9 +100,7 @@ equation
   frame_a.t + frame_b.t = 0;
   frame_a.t = t;
   connect(fixed.flange,support)  annotation (Line(
-      points={{-60,-80},{-60,-100}},
-      color={0,0,0},
-      smooth=Smooth.None));
+      points={{-60,-80},{-60,-100}}));
   annotation (Icon(graphics={
         Text(
           extent={{-150,100},{150,60}},
@@ -136,20 +134,16 @@ equation
           textString="b"),
         Line(
           visible=useFlange,
-          points={{-30,-80},{-50,-100}},
-          color={0,0,0}),
+          points={{-30,-80},{-50,-100}}),
         Line(
           visible=useFlange,
-          points={{-50,-80},{-70,-100}},
-          color={0,0,0}),
+          points={{-50,-80},{-70,-100}}),
         Line(
           visible=useFlange,
-          points={{-70,-80},{-90,-100}},
-          color={0,0,0}),
+          points={{-70,-80},{-90,-100}}),
         Line(
           visible=useFlange,
-          points={{-92,-100},{-30,-100}},
-          color={0,0,0}),
+          points={{-92,-100},{-30,-100}}),
         Rectangle(extent={{-100,60},{-20,-62}}, lineColor={0,0,0}),
         Rectangle(extent={{20,62},{100,-60}}, lineColor={0,0,0})}),
     Documentation(

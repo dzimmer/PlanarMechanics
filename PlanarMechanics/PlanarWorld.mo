@@ -213,7 +213,5 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
 <li>It provides the default gravity definition and its animation.</li>
 </ol>
 <p><br>The pure planar world cannot be coupled to the 3D world. It shall be used when no outer 3D world  is available. </p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+</html>"));
 end PlanarWorld;
