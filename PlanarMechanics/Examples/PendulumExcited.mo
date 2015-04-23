@@ -41,22 +41,18 @@ equation
   connect(fixedTranslation.frame_b, cutForce.frame_a) annotation (Line(
       points={{10,0},{20,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(cutForce.frame_b, body.frame_a) annotation (Line(
       points={{40,0},{60,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(worldForce.frame_b, body.frame_a) annotation (Line(
       points={{40,-40},{50,-40},{50,0},{60,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(signalVec3.y, worldForce.force) annotation (Line(
       points={{1,-40},{18,-40}},
-      color={0,0,127},
-      smooth=Smooth.None));
+      color={0,0,127}));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>
@@ -64,7 +60,5 @@ This example demonstrates simple pendulum excited by a world force.
 The animation parameters of cut and excitation forces can be changed
 at once using default parameters of planarWorld.
 </p>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+</html>"));
 end PendulumExcited;
