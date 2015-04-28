@@ -99,14 +99,14 @@ public
     connectToMultiBody=true,
     nominalLength=0.1,
     animateGravity=false)
-    annotation (Placement(transformation(extent={{40,-78},{60,-58}})));
+    annotation (Placement(transformation(extent={{60,-90},{80,-70}})));
   MB.Parts.Body body3D(r_CM=zeros(3),
     m=1e-5,
     animation=false)                       annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={0,-48})));
-  MB.Interfaces.Frame_a                           VisualisationFrame if connectToMultiBody
+        rotation=180,
+        origin={-30,-80})));
+  MB.Interfaces.Frame_a                           frameVisualisation if connectToMultiBody
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
         rotation=90,
         origin={0,-98})));
@@ -173,18 +173,20 @@ equation
       color={191,0,0}));
   connect(bearing_Carrier.flange_a, carrier.flange_a) annotation (Line(
       points={{-60,-30},{-60,-26},{70,-26}}));
-  connect(planarWorld.MBFrame_a, VisualisationFrame) annotation (Line(
-      points={{39.8,-68},{0,-68},{0,-98}},
+  connect(planarWorld.MBFrame_a,frameVisualisation)  annotation (Line(
+      points={{59.8,-80},{0,-80},{0,-98}},
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
   connect(body3D.frame_a, planarWorld.MBFrame_a) annotation (Line(
-      points={{0,-58},{0,-68},{39.8,-68}},
+      points={{-20,-80},{59.8,-80}},
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
   annotation (Documentation(info="<html>
 <p>This model is a model of a standard planetary gearbox. The inertia of all gear models, as well as the mass of the planetary gear can be entered to get the behaviour of a complete planetary gear. In this example only one planet is used as the gearbox models are rigid.</p>
 </html>", revisions=
-          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>"));
+          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>"), Diagram(
+        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+            100}}), graphics));
 end RigidNoLossPlanetary;

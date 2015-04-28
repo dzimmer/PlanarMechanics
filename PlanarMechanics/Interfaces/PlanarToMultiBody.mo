@@ -6,10 +6,9 @@ model PlanarToMultiBody
       tab="Animation", group="if animation = true", enable=animate));
   outer PlanarWorld planarWorld "planar world model";
   Frame_a frame_a "Frame connector in Planarmechanics"
-    annotation (Placement(transformation(extent={{-46,-8},{-26,12}}),
-        iconTransformation(extent={{-60,-20},{-20,20}})));
-  MB.Interfaces.Frame_b frame_b "Frame connector in MultiBody" annotation (Placement(transformation(extent={{6,
-            -16},{38,16}}), iconTransformation(extent={{24,-16},{56,16}})));
+    annotation (Placement(transformation(extent={{-60,-20},{-20,20}})));
+  MB.Interfaces.Frame_b frame_b "Frame connector in MultiBody" annotation (Placement(transformation(extent={{25,-15},
+            {55,15}})));
 protected
   SI.Force fz "Normal Force";
   SI.Force f0[3] "Force vector";
@@ -38,5 +37,6 @@ equation
 <p>The orientation and position of the 2D system within the 3D system are determined by the Multi-Body connector of the planar world model or zero rotation at zero position otherwise</p>
 <p>The physical connection assumes the 2D world to be the root of the system, defining the orientation. All forces and torques acting outside the plane are assumed to be absorbed by the planar world system.. Beware! These forces are not transmitted by the Multi-Body connector of the planar world.</p>
 </html>"),
-    Diagram(coordinateSystem(extent={{-40,-20},{40,20}})));
+    Diagram(coordinateSystem(extent={{-40,-20},{40,20}}, preserveAspectRatio=false),
+        graphics));
 end PlanarToMultiBody;
