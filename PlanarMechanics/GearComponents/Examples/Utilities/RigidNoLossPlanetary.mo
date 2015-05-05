@@ -48,8 +48,8 @@ model RigidNoLossPlanetary "Planetary gearbox"
         origin={82,40})));
   PlanarMechanics.Parts.FixedTranslation carrierPart(r={r_s + r_p,0})
     annotation (Placement(transformation(extent={{-8,-50},{12,-30}})));
-  PlanarMechanics.Parts.Fixed
-              Fixed  annotation (Placement(transformation(
+  PlanarMechanics.Parts.Fixed fixed
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-90,30})));
@@ -96,20 +96,22 @@ model RigidNoLossPlanetary "Planetary gearbox"
     annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
 public
   inner PlanarWorldIn3D planarWorld(
-    connectToMultiBody=true,
     nominalLength=0.1,
-    animateGravity=false)
+    animateGravity=false,
+    connectToMultiBody=connectToMultiBody)
     annotation (Placement(transformation(extent={{60,-90},{80,-70}})));
-  MB.Parts.Body body3D(r_CM=zeros(3),
+  MB.Parts.Body body3D(
+    r_CM=zeros(3),
     m=1e-5,
-    animation=false)                       annotation (Placement(transformation(
+    animation=false) if connectToMultiBody
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-30,-80})));
-  MB.Interfaces.Frame_a                           frameVisualisation if connectToMultiBody
+  MB.Interfaces.Frame_a frameVisualisation if connectToMultiBody
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
         rotation=90,
-        origin={0,-98})));
+        origin={0,-100})));
 equation
   connect(carrierAngle.frame_b, carrierPart.frame_a)   annotation (Line(
       points={{-20,-40},{-8,-40}},
@@ -127,7 +129,7 @@ equation
       points={{20,10},{48,10},{48,40},{20,40}},
       color={95,95,95},
       thickness=0.5));
-  connect(Fixed.frame, bearing_Sun.frame_a) annotation (Line(
+  connect(fixed.frame, bearing_Sun.frame_a) annotation (Line(
       points={{-80,30},{-80,10},{-70,10}},
       color={95,95,95},
       thickness=0.5));
@@ -137,11 +139,11 @@ equation
       points={{-50,-40},{-40,-40}},
       color={95,95,95},
       thickness=0.5));
-  connect(bearing_Carrier.frame_a, Fixed.frame) annotation (Line(
+  connect(bearing_Carrier.frame_a,fixed. frame) annotation (Line(
       points={{-70,-40},{-80,-40},{-80,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(bearing_Ring.frame_a, Fixed.frame) annotation (Line(
+  connect(bearing_Ring.frame_a,fixed. frame) annotation (Line(
       points={{-70,40},{-80,40},{-80,30}},
       color={95,95,95},
       thickness=0.5));
@@ -174,7 +176,7 @@ equation
   connect(bearing_Carrier.flange_a, carrier.flange_a) annotation (Line(
       points={{-60,-30},{-60,-26},{70,-26}}));
   connect(planarWorld.MBFrame_a,frameVisualisation)  annotation (Line(
-      points={{59.8,-80},{0,-80},{0,-98}},
+      points={{59.8,-80},{0,-80},{0,-100}},
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
@@ -186,7 +188,5 @@ equation
   annotation (Documentation(info="<html>
 <p>This model is a model of a standard planetary gearbox. The inertia of all gear models, as well as the mass of the planetary gear can be entered to get the behaviour of a complete planetary gear. In this example only one planet is used as the gearbox models are rigid.</p>
 </html>", revisions=
-          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>"), Diagram(
-        coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>"));
 end RigidNoLossPlanetary;

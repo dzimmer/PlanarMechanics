@@ -92,7 +92,9 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/Distance.png\">
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png\">
+</p>
 
 <p>
 If the distance is smaller as parameter <b>s_small</b> (in the \"advanced\" menu),
