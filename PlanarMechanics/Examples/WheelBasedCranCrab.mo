@@ -51,7 +51,7 @@ equation
       thickness=0.5));
   annotation (experiment(StopTime=4.5),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<p>This model contains non-holonomic constriants.</p>
+<p>This model contains non-holonomic constraints.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/WheelBasedCranCrab_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/WheelBasedCranCrab_2.png\"></p>
 <p>Selected continuous time states</p>
