@@ -1,5 +1,5 @@
 within PlanarMechanics.Sources;
-model QuadraticSpeedDependantForce
+model QuadraticSpeedDependentForce
   "External force and torque acting at frame_b, defined by 3 input signals and resolved in world frame"
 
   outer PlanarWorld planarWorld "Planar world model";
@@ -142,8 +142,7 @@ equation
           lineColor={128,128,128},
           textString="b")}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<p>Model of a force quadratic dependant on the velocity of the flange. The force can be resolved in a world frame, or a relative speed can be used by selecting resolve_frame to use the extra frame_resolve.</p>
+<p>Model of a force quadratic dependent on the velocity of the flange. The force can be resolved in a world frame, or a relative speed can be used by selecting resolve_frame to use the extra frame_resolve.</p>
 <p>This model is e.g. suitable to simulate aerodynamic drag forces.</p>
 </html>"));
-end QuadraticSpeedDependantForce;
-
+end QuadraticSpeedDependentForce;
