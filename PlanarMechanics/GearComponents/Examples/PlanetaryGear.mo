@@ -45,8 +45,7 @@ equation
   connect(fixedRotation.frame_b, planetary.frameVisualisation) annotation (Line(
       points={{10,-60},{20,-60},{20,0}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (Documentation(info="<html>
 <p>The model shows the possibilities of the gear connection models.
 In this example only one of 3 planets is modelled. This reduction can be done because of the symmetry of the gears. For more advanced topics like load sharing between gears, more advanced models should be used.</p>
