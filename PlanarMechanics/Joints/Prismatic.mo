@@ -10,7 +10,7 @@ model Prismatic "A prismatic joint"
     "Priority to use s and v as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
   parameter SI.Position r[2] "Direction of the rod wrt. body system at phi=0";
-  final parameter SI.Length l = sqrt(r*r) "Lengt of r";
+  final parameter SI.Length l = sqrt(r*r) "Length of r";
   final parameter SI.Distance e[2]= r/l "Normalized r";
 
   Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a(f = f, s = s) if useFlange
