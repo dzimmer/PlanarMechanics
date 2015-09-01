@@ -18,7 +18,7 @@ model Prismatic "A prismatic joint"
       Placement(transformation(extent={{-10,-110},{10,-90}})));
 
     Modelica.Mechanics.Translational.Interfaces.Flange_b support if useFlange
-    "1-dim. translational flange of the drive drive support (assumed to be fixed in the world frame, NOT in the joint)"
+    "1-dim. translational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
     annotation (Placement(transformation(extent={{10,10},{-10,-10}}, rotation=180,
         origin={-60,-100})));
 
