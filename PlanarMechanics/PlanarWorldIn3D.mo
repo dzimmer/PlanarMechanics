@@ -275,14 +275,14 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
       revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
       info="<html>
-<p>Model <b>PlanarWorld</b> defines all possible general parameters to make parameterization of models much more conveniant. It has the following functionalites.</p>
+<p>Model <b>PlanarWorld</b> defines all possible general parameters to make parameterization of models much more convenient. It has the following functionalites.</p>
 <ol>
-<li>It defines the global coordinate system fixed in ground and show x, y, z axises in animation if wanted.</li>
+<li>It defines the global coordinate system fixed in ground and shows the x, y, z axes in animation if wanted.</li>
 <li>It contains all default parameters for animation, e.g. axis diameter, default joint length etc, which can still be overwritten by setting parameters in these models.</li>
 <li>It provides the default gravity definition and its animation.</li>
 </ol>
 <p><br>The planar world can optionaly be coupled to a <a href=\"Modelica.Mechanics.MultiBody.Interfaces.Frame_a\">3D-Multibody connector</a>. This will affect visualization mainly. Beware! The physics of the planar world presume the inertial system to be non-accelerated. When connecting to an accelerated MultiBody connector the physical forces going along with this acceleration are thus neglected.</p>
 <p>For physical coupling between 2D and 3D system use <a href=\"PlanarMechanics.Interfaces.PlanarToMultiBody\">Interfaces.PlanarToMultiBody</a></p>
-<p>The gravity vector can be inherited from the <a href=\"Modelica.Mechanics.MultiBody.World\">MultiBody world component</a>. In this case, the vector is determined once for the origin of the planar world system and then applied to all body components (if enabled there, as default). </p>
+<p>The gravity vector can be inherited from the <a href=\"Modelica.Mechanics.MultiBody.World\">MultiBody world component</a>. In this case, the vector is determined once for the origin of the planar world system and then applied to all body components (if enabled there, as default).</p>
 </html>"));
 end PlanarWorldIn3D;
