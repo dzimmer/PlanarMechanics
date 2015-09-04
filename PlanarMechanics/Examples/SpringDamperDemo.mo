@@ -46,9 +46,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(
-      StopTime=5,
-      __Dymola_fixedstepsize=0.0001,
-      __Dymola_Algorithm="Euler"),
+      StopTime=5),
     Documentation(info="<html>
 <p>This example shows how to use a spring and a damper in combination. The motion of the body is not constrained.</p>
 </html>",
