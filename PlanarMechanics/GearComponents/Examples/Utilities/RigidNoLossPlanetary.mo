@@ -178,13 +178,11 @@ equation
   connect(planarWorld.MBFrame_a,frameVisualisation)  annotation (Line(
       points={{59.8,-80},{0,-80},{0,-100}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   connect(body3D.frame_a, planarWorld.MBFrame_a) annotation (Line(
       points={{-20,-80},{59.8,-80}},
       color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
+      thickness=0.5));
   annotation (Documentation(info="<html>
 <p>This model is a model of a standard planetary gearbox. The inertia of all gear models, as well as the mass of the planetary gear can be entered to get the behaviour of a complete planetary gear. In this example only one planet is used as the gearbox models are rigid.</p>
 </html>", revisions=

@@ -9,6 +9,6 @@ annotation (Documentation(revisions="<html>
 </p>
 </html>", info="<html>
 <p>This package contains input/output blocks to build up block diagrams.</p>
-<placeholder to reach necesary length of documentation (100 strings)>
+<placeholder to reach necessary length of documentation (100 strings)>
 </html>"));
 end Blocks;

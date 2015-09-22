@@ -10,7 +10,7 @@ model Prismatic "A prismatic joint"
     "Priority to use s and v as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
   parameter SI.Position r[2] "Direction of the rod wrt. body system at phi=0";
-  final parameter SI.Length l = sqrt(r*r) "Lengt of r";
+  final parameter SI.Length l = sqrt(r*r) "Length of r";
   final parameter SI.Distance e[2]= r/l "Normalized r";
 
   Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a(f = f, s = s) if useFlange
@@ -18,7 +18,7 @@ model Prismatic "A prismatic joint"
       Placement(transformation(extent={{-10,-110},{10,-90}})));
 
     Modelica.Mechanics.Translational.Interfaces.Flange_b support if useFlange
-    "1-dim. translational flange of the drive drive support (assumed to be fixed in the world frame, NOT in the joint)"
+    "1-dim. translational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
     annotation (Placement(transformation(extent={{10,10},{-10,-10}}, rotation=180,
         origin={-60,-100})));
 
