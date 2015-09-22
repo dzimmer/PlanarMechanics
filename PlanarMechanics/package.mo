@@ -7,7 +7,7 @@ package PlanarMechanics "A planar mechanical library for didactical purposes"
 
   annotation (
     preferredView="info",
-    version="1.4.0 Development Version",
+    version="1.4.0-dev",
     versionDate="2014-11-11",
     uses(Modelica(version="3.2.1")),
     conversion(
