@@ -29,15 +29,15 @@ package PlanarMechanics "A planar mechanical library for didactical purposes"
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
          graphics={
         Ellipse(
-          extent={{-46,10},{-26,-8}},
+          extent={{-46,10},{-26,-10}},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Ellipse(
-          extent={{-74,-42},{-54,-60}},
+          extent={{-74,-40},{-54,-60}},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Ellipse(
-          extent={{18,-34},{38,-52}},
+          extent={{18,-34},{38,-54}},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Line(
