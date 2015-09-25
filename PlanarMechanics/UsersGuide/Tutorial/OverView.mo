@@ -1,5 +1,5 @@
 within PlanarMechanics.UsersGuide.Tutorial;
-class OverView "Overview of PlanarMechanics library"
+class OverView "Overview of library"
   extends Modelica.Icons.Information;
   annotation (Documentation(revisions=
           "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
