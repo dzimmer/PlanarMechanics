@@ -39,6 +39,8 @@ model SpurGear "Rigid spur gear"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={68,-50})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{20,60},{40,80}})));
 equation
   connect(gearA_Bearing.frame_b, gearA.frame_a)
                                             annotation (Line(

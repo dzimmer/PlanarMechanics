@@ -30,6 +30,8 @@ model PlanetaryGear "Rigid planetary gearbox"
 
   MB.Parts.Fixed fixed
     annotation (Placement(transformation(extent={{-50,-70},{-30,-50}})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
 equation
   connect(heatCapacitor.port, planetary.heatPort) annotation (Line(
       points={{-10,-30},{0,-30},{0,0}},
