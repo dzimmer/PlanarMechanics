@@ -13,7 +13,7 @@ model RigidNoLossInternal "Internal rigid gear gonnection model"
       group="if animation = true",
       enable=animate));
   final parameter Integer Tooth_b(min=1) = integer(
-    Gears.Utilities.Functions.round(Tooth_a/r_a*r_b)) "Number of Tooth"
+    PlanarMechanics.Utilities.Functions.round(Tooth_a/r_a*r_b)) "Number of Tooth"
     annotation (Dialog(
       HideResult=true,
       tab="Animation",
