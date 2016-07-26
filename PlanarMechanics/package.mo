@@ -1,5 +1,5 @@
 within ;
-package PlanarMechanics "A planar mechanical library for didactical purposes"
+package PlanarMechanics "Library to model 2-dimensional, planar mechanical systems"
   extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
   import MB = Modelica.Mechanics.MultiBody;
