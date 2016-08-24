@@ -14,19 +14,18 @@ model IdealWheelJoint "Ideal wheel joint"
   parameter SI.Length r[2] "Driving direction of the wheel at angle phi = 0";
   final parameter SI.Length l = sqrt(r*r) "Length of vector r";
   final parameter Real e[2] =  r/l "Normalized direction";
-  Real e0[2] "normalized direction w.r.t inertial system";
+  Real e0[2] "Normalized direction w.r.t inertial system";
   Real R[2,2] "Rotation Matrix";
-  SI.Angle phi_roll(start=0) "roll angle of the wheel" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Angle phi_roll(start=0) "Roll angle of the wheel" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularVelocity w_roll(final stateSelect=stateSelect, start=0)
-    "roll velocity of wheel"  annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.Velocity v[2] "velocity";
-  SI.Velocity v_long "driving velocity in (longitudinal) driving direction";
+    "Roll velocity of wheel"  annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Velocity v[2] "Velocity";
+  SI.Velocity v_long "Driving velocity in (longitudinal) driving direction";
   SI.Acceleration a(stateSelect=stateSelect, start=0)
-    "acceleration of driving velocity" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.Force f_long "longitudinal force";
+    "Acceleration of driving velocity" annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Force f_long "Longitudinal force";
     parameter Boolean animate = true "= true, if animation shall be enabled"
     annotation(Dialog(group="Animation"));
-  parameter Boolean SimVis = false "Perform animation with SimVis" annotation(Dialog(group="Animation"));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of the body" annotation (Dialog(
@@ -149,7 +148,7 @@ equation
 </ul>
 <p>The radius of the wheel can be specified by the parameter <b>radius</b>. The driving direction (for phi=0) can be specified by the parameter <b>r</b>.</p>
 <p>The wheel contains a 2D frame connector for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D flange connector.</p>
-<p>For examples of usage see the local Examples package.</p>
+<p>For examples of usage see the local <a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.</p>
 </html>", revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
