@@ -7,9 +7,9 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
 
   annotation (
     preferredView="info",
-    version="1.4.0 Development Version",
-    versionDate="2014-11-11",
-    uses(Modelica(version="3.2.1")),
+    version="1.4.0",
+    versionDate="2017-01-12",
+    uses(Modelica(version="3.2.2")),
     conversion(
       from(version="1.3.0", script="modelica://PlanarMechanics/Resources/Scripts/Dymola/convertFromPlanarMechanics1_3_0.mos")),
     Documentation(
