@@ -5,29 +5,28 @@ model WorldForce
   outer PlanarWorld planarWorld "Planar world model";
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB
-    resolveInFrame=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b
+    resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_b, 3: frame_resolve)";
   parameter Boolean animation=true "= true, if animation shall be enabled";
 
    parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
-    annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
+    annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
   parameter Real Nm_to_m(unit="N.m/m") = planarWorld.defaultNm_to_m
     "Torque arrow scaling (length = torque/Nm_to_m)"
-    annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
+    annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
 
-  input SI.Diameter diameter=planarWorld.defaultArrowDiameter
-    "Diameter of force arrow" annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
+  input SI.Diameter diameter = planarWorld.defaultArrowDiameter
+    "Diameter of force arrow" annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation" annotation (Dialog(
-      tab="Animation",group="if animation = true", enable=animate));
+      tab="Animation",group="If animation = true", enable=animation));
   input Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
     "Color of arrow"
-    annotation (HideResult=true, Dialog(tab="Animation",group="if animation = true",colorSelector=true,  enable=animation));
+    annotation (HideResult=true, Dialog(tab="Animation",group="If animation = true",colorSelector=true,  enable=animation));
   input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (HideResult=true, Dialog(tab="Animation",group="if animation = true",enable=animation));
+    annotation (HideResult=true, Dialog(tab="Animation",group="If animation = true",enable=animation));
 
   Interfaces.Frame_b frame_b
     "Coordinate system fixed to the component with one cut-force and cut-torque"
