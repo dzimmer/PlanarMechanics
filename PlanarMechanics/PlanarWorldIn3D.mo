@@ -39,8 +39,7 @@ model PlanarWorldIn3D
       Dialog(group="Animation (General)",enable=enableAnimation));
   parameter String label1="x" "Label of horizontal axis in icon" annotation(Dialog(group="Animation (General)"));
   parameter String label2="y" "Label of vertical axis in icon" annotation(Dialog(group="Animation (General)"));
-  SI.Acceleration[2] g
-    "Constant gravity acceleration vector resolved in world frame";
+  SI.Acceleration[2] g "Constant gravity acceleration vector resolved in world frame";
 
   parameter SI.Length axisLength=nominalLength/2 "Length of world axes arrows"
     annotation (Dialog(tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
@@ -59,12 +58,10 @@ model PlanarWorldIn3D
 
   parameter SI.Position gravityArrowTail[2]={0,0}
     "Position vector from origin of world frame to arrow tail, resolved in world frame"
-    annotation (Dialog(tab="Animation", group=
-          "If animateGravity = true",
+    annotation (Dialog(tab="Animation", group="If animateGravity = true",
           enable=enableAnimation and animateGravity));
   parameter SI.Length gravityArrowLength=axisLength/2 "Length of gravity arrow"
-    annotation (Dialog(tab="Animation", group=
-          "If animateGravity = true",
+    annotation (Dialog(tab="Animation", group="If animateGravity = true",
           enable=enableAnimation and animateGravity));
   parameter SI.Diameter gravityArrowDiameter=gravityArrowLength/
       defaultWidthFraction "Diameter of gravity arrow" annotation (Dialog(tab=
@@ -104,7 +101,7 @@ model PlanarWorldIn3D
   parameter Real defaultFrameDiameterFraction=40
     "Default for arrow diameter of a coordinate system as a fraction of axis length"
     annotation (Dialog(tab="Defaults"));
-  parameter Real defaultSpecularCoefficient(min=0) = 0.7
+  parameter PlanarMechanics.Types.SpecularCoefficient defaultSpecularCoefficient(min=0) = 0.7
     "Default reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultN_to_m(unit="N/m", min=0) = 1000
@@ -130,11 +127,11 @@ protected
       axisDiameter;
   parameter SI.Length labelStart=1.05*axisLength;
 
-  // coordinate system IF NOT connected to multibody
+  // coordinate system
 protected
   Visualizers.Internal.CoordinateSystem coordinateSystem(
-    r=zeros(3),
-    R=MB.Frames.nullRotation(),
+    r=r_0,
+    R=R,
     r_shape=zeros(3),
     axisLength=axisLength,
     axisDiameter=axisDiameter,
@@ -143,42 +140,17 @@ protected
     labelStart=labelStart,
     color_x=axisColor_x,
     color_y=axisColor_y,
-    color_z=axisColor_z) if enableAnimation and animateWorld and not connectToMultiBody;
-
-  // coordinate system ONLY IF connected to multibody
-protected
-  Visualizers.Internal.CoordinateSystem coordinateSystemMB(
-    r=MBFrame.r_0,
-    R=MBFrame.R,
-    r_shape=zeros(3),
-    axisLength=axisLength,
-    axisDiameter=axisDiameter,
-    axisShowLabels=axisShowLabels,
-    scaledLabel=scaledLabel,
-    labelStart=labelStart,
-    color_x=axisColor_x,
-    color_y=axisColor_y,
-    color_z=axisColor_z) if enableAnimation and animateWorld and connectToMultiBody;
-
+    color_z=axisColor_z) if enableAnimation and animateWorld;
   // gravity visualization
-protected
   Visualizers.Internal.Arrow gravityArrow(
-    r=zeros(3),
-    R=MB.Frames.nullRotation(),
+    r=r_0,
+    R=R,
     r_tail={gravityArrowTail[1],gravityArrowTail[2],0},
     r_head=gravityArrowLength*Modelica.Math.Vectors.normalize({g[1],g[2],0}),
     diameter=gravityArrowDiameter,
     color=gravityArrowColor,
-    specularCoefficient=0) if enableAnimation and animateGravity and not connectToMultiBody;
-protected
-  Visualizers.Internal.Arrow gravityArrowMB(
-    R=MBFrame.R,
-    r=MBFrame.r_0,
-    r_tail={gravityArrowTail[1],gravityArrowTail[2],0},
-    r_head=gravityArrowLength*Modelica.Math.Vectors.normalize({g[1],g[2],0}),
-    diameter=gravityArrowDiameter,
-    color=gravityArrowColor,
-    specularCoefficient=0) if enableAnimation and animateGravity and connectToMultiBody;
+    specularCoefficient=0) if enableAnimation and animateGravity;
+
 equation
   if connectToMultiBody then
     connect(MBFrame_a,MBFrame);
