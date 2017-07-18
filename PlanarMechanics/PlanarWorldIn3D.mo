@@ -148,8 +148,8 @@ protected
   // coordinate system ONLY IF connected to multibody
 protected
   Visualizers.Internal.CoordinateSystem coordinateSystemMB(
-    r=MBFrame_a.r_0,
-    R=MBFrame_a.R,
+    r=MBFrame.r_0,
+    R=MBFrame.R,
     r_shape=zeros(3),
     axisLength=axisLength,
     axisDiameter=axisDiameter,
@@ -172,8 +172,8 @@ protected
     specularCoefficient=0) if enableAnimation and animateGravity and not connectToMultiBody;
 protected
   Visualizers.Internal.Arrow gravityArrowMB(
-    R=MBFrame_a.R,
-    r=MBFrame_a.r_0,
+    R=MBFrame.R,
+    r=MBFrame.r_0,
     r_tail={gravityArrowTail[1],gravityArrowTail[2],0},
     r_head=gravityArrowLength*Modelica.Math.Vectors.normalize({g[1],g[2],0}),
     diameter=gravityArrowDiameter,
