@@ -20,12 +20,12 @@ protected
 equation
    if resolveInFrame == ResolveInFrameA.world then
       //force = Frames.resolve1(frame_a.R, frame_a.f)*csign;
-      force = {{cos(frame_a.phi), -sin(frame_a.phi)},{sin(frame_a.phi), cos(frame_a.phi)}}*{frame_a.fx, frame_a.fy} * csign;
+      force = {frame_a.fx, frame_a.fy} * csign;
    elseif resolveInFrame == ResolveInFrameA.frame_a then
-      force = {frame_a.fx, frame_a.fy}*csign;
+      force = {{cos(frame_a.phi), sin(frame_a.phi)},{-sin(frame_a.phi), cos(frame_a.phi)}}*{frame_a.fx, frame_a.fy}*csign;
    elseif resolveInFrame == ResolveInFrameA.frame_resolve then
       //force = Frames.resolveRelative(frame_a.f, frame_a.R, frame_resolve.R)*csign;
-      force = transpose({{cos(frame_resolve.phi), -sin(frame_resolve.phi)},{sin(frame_resolve.phi), cos(frame_resolve.phi)}})*{{cos(frame_a.phi), -sin(frame_a.phi)},{sin(frame_a.phi), cos(frame_a.phi)}}*{frame_a.fx, frame_a.fy} * csign;
+      force = {{cos(frame_resolve.phi), sin(frame_resolve.phi)},{-sin(frame_resolve.phi), cos(frame_resolve.phi)}}*{frame_a.fx, frame_a.fy} * csign;
    else
       assert(false,"Wrong value for parameter resolveInFrame");
       force = zeros(2);

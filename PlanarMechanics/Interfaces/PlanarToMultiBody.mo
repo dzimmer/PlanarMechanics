@@ -2,13 +2,15 @@ within PlanarMechanics.Interfaces;
 model PlanarToMultiBody
   "This model enables to connect planar models to 3D Models"
   parameter SI.Length zPosition = planarWorld.defaultZPosition
-    "Position z of cylinder representing the fixed translation" annotation (Dialog(
-      tab="Animation", group="if animation = true", enable=animate));
+    "Position z of cylinder representing the fixed translation";
+    //annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+
   outer PlanarWorld planarWorld "planar world model";
   Frame_a frame_a "Frame connector in PlanarMechanics"
     annotation (Placement(transformation(extent={{-56,-16},{-24,16}})));
   MB.Interfaces.Frame_b frame_b "Frame connector in MultiBody"
     annotation (Placement(transformation(extent={{24,-16},{56,16}})));
+
 protected
   SI.Force fz "Normal Force";
   SI.Force f0[3] "Force vector";

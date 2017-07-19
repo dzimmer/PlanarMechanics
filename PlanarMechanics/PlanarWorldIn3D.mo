@@ -3,7 +3,7 @@ model PlanarWorldIn3D
   "Planar world coordinate system + gravity field + default animation definition"
 
   MB.Interfaces.Frame_a MBFrame_a if connectToMultiBody
-    annotation (Placement(transformation(extent={{-118,-16},{-86,16}})));
+    annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
   SI.Position r_0[3]
     "Position vector from world frame to the connector frame origin, resolved in world frame";
@@ -11,30 +11,26 @@ model PlanarWorldIn3D
     "Orientation object to rotate the world frame into the connector frame";
 
   parameter Boolean inheritGravityFromMultiBody = false
-    "=true if gravity vector shall be inherited from 3D world model"                                                     annotation (
-    Evaluate=true,
-    HideResult=true,
-    choices(checkBox=true),Dialog(group="Gravity"));
+    "=true if gravity vector shall be inherited from 3D world model"
+    annotation (
+      Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(group="Gravity"));
 
   parameter SI.Acceleration[2] constantGravity={0,-9.81}
-    "Constant gravity acceleration vector resolved in world frame" annotation(Dialog(group="Gravity",enable = not inheritGravityFromMultiBody));
+    "Constant gravity acceleration vector resolved in world frame"
+    annotation(Dialog(group="Gravity",enable = not inheritGravityFromMultiBody));
 
-    parameter Boolean connectToMultiBody = false
+  parameter Boolean connectToMultiBody = false
     "= true when visualization of the planar world shall be connected to a 3D multibody system"
-                                                                                                        annotation (
-    Evaluate=true,
-    HideResult=true,
-    choices(checkBox=true),Dialog(group="Animation (General)"));
+    annotation (
+      Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(group="Animation (General)"));
 
   parameter Boolean enableAnimation=true
     "= true, if animation of all components is enabled" annotation (
-    Evaluate=true,
-    HideResult=true,
-    choices(checkBox=true),Dialog(group="Animation (General)"));
+      Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(group="Animation (General)"));
   parameter Boolean animateWorld=true
     "= true, if world coordinate system shall be visualized" annotation (
-    HideResult=true,
-    choices(checkBox=true),Dialog(group="Animation (General)",enable=enableAnimation));
+      HideResult=true, choices(checkBox=true),
+      Dialog(group="Animation (General)",enable=enableAnimation));
   parameter Boolean animateGravity=true
     "= true, if gravity field shall be visualized (acceleration vector or field center)"
     annotation (
@@ -43,38 +39,38 @@ model PlanarWorldIn3D
       Dialog(group="Animation (General)",enable=enableAnimation));
   parameter String label1="x" "Label of horizontal axis in icon" annotation(Dialog(group="Animation (General)"));
   parameter String label2="y" "Label of vertical axis in icon" annotation(Dialog(group="Animation (General)"));
-  SI.Acceleration[2] g
-    "Constant gravity acceleration vector resolved in world frame";
+  SI.Acceleration[2] g "Constant gravity acceleration vector resolved in world frame";
 
   parameter SI.Length axisLength=nominalLength/2 "Length of world axes arrows"
-    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (Dialog(tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
   parameter SI.Diameter axisDiameter=axisLength/defaultFrameDiameterFraction
     "Diameter of world axes arrows"
-    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (Dialog(tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Boolean axisShowLabels=true "= true, if labels shall be shown"
-    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (Dialog(tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Types.Color axisColor_x=Types.Defaults.FrameColor
     "Color of x-arrow"
-    annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Types.Color axisColor_y=axisColor_x "Color of y-arrow"
-    annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Types.Color axisColor_z=axisColor_x "Color of z-arrow"
-    annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Position gravityArrowTail[2]={0,0}
     "Position vector from origin of world frame to arrow tail, resolved in world frame"
-    annotation (Dialog(tab="Animation", group=
-          "if animateGravity = true and gravityType = UniformGravity",
-          enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
+    annotation (Dialog(tab="Animation", group="If animateGravity = true",
+          enable=enableAnimation and animateGravity));
   parameter SI.Length gravityArrowLength=axisLength/2 "Length of gravity arrow"
-    annotation (Dialog(tab="Animation", group=
-          "if animateGravity = true and gravityType = UniformGravity",
-          enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
+    annotation (Dialog(tab="Animation", group="If animateGravity = true",
+          enable=enableAnimation and animateGravity));
   parameter SI.Diameter gravityArrowDiameter=gravityArrowLength/
       defaultWidthFraction "Diameter of gravity arrow" annotation (Dialog(tab=
-          "Animation", group="if animateGravity = true and gravityType = UniformGravity",
-          enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
-  parameter Types.Color gravityArrowColor={0,180,0} "Color of gravity arrow" annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+          "Animation", group="If animateGravity = true",
+          enable=enableAnimation and animateGravity));
+  parameter Types.Color gravityArrowColor={0,180,0} "Color of gravity arrow" annotation (
+      HideResult = true,
+      Dialog(colorSelector=true,tab="Animation", group="If animateGravity = true",
+        enable=enableAnimation and animateGravity));
 
   parameter SI.Length defaultZPosition=0
     "Default for z positions of all the elements"
@@ -105,7 +101,7 @@ model PlanarWorldIn3D
   parameter Real defaultFrameDiameterFraction=40
     "Default for arrow diameter of a coordinate system as a fraction of axis length"
     annotation (Dialog(tab="Defaults"));
-  parameter Real defaultSpecularCoefficient(min=0) = 0.7
+  parameter PlanarMechanics.Types.SpecularCoefficient defaultSpecularCoefficient(min=0) = 0.7
     "Default reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultN_to_m(unit="N/m", min=0) = 1000
@@ -131,11 +127,11 @@ protected
       axisDiameter;
   parameter SI.Length labelStart=1.05*axisLength;
 
-  // coordinate system IF NOT connected to multibody
+  // coordinate system
 protected
   Visualizers.Internal.CoordinateSystem coordinateSystem(
-    r=zeros(3),
-    R=MB.Frames.nullRotation(),
+    r=r_0,
+    R=R,
     r_shape=zeros(3),
     axisLength=axisLength,
     axisDiameter=axisDiameter,
@@ -144,42 +140,17 @@ protected
     labelStart=labelStart,
     color_x=axisColor_x,
     color_y=axisColor_y,
-    color_z=axisColor_z) if enableAnimation and animateWorld and not connectToMultiBody;
-
-  // coordinate system ONLY IF connected to multibody
-protected
-  Visualizers.Internal.CoordinateSystem coordinateSystemMB(
-    r=MBFrame_a.r_0,
-    R=MBFrame_a.R,
-    r_shape=zeros(3),
-    axisLength=axisLength,
-    axisDiameter=axisDiameter,
-    axisShowLabels=axisShowLabels,
-    scaledLabel=scaledLabel,
-    labelStart=labelStart,
-    color_x=axisColor_x,
-    color_y=axisColor_y,
-    color_z=axisColor_z) if enableAnimation and animateWorld and connectToMultiBody;
-
+    color_z=axisColor_z) if enableAnimation and animateWorld;
   // gravity visualization
-protected
   Visualizers.Internal.Arrow gravityArrow(
-    r=zeros(3),
-    R=MB.Frames.nullRotation(),
+    r=r_0,
+    R=R,
     r_tail={gravityArrowTail[1],gravityArrowTail[2],0},
     r_head=gravityArrowLength*Modelica.Math.Vectors.normalize({g[1],g[2],0}),
     diameter=gravityArrowDiameter,
     color=gravityArrowColor,
-    specularCoefficient=0) if enableAnimation and animateGravity and not connectToMultiBody;
-protected
-  Visualizers.Internal.Arrow gravityArrowMB(
-    R=MBFrame_a.R,
-    r=MBFrame_a.r_0,
-    r_tail={gravityArrowTail[1],gravityArrowTail[2],0},
-    r_head=gravityArrowLength*Modelica.Math.Vectors.normalize({g[1],g[2],0}),
-    diameter=gravityArrowDiameter,
-    color=gravityArrowColor,
-    specularCoefficient=0) if enableAnimation and animateGravity and connectToMultiBody;
+    specularCoefficient=0) if enableAnimation and animateGravity;
+
 equation
   if connectToMultiBody then
     connect(MBFrame_a,MBFrame);

@@ -26,22 +26,22 @@ public
 
    parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
-    annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
+    annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
   parameter Real Nm_to_m(unit="N.m/m") = planarWorld.defaultNm_to_m
     "Torque arrow scaling (length = torque/Nm_to_m)"
-    annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
+    annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
 
   input SI.Diameter diameter=planarWorld.defaultArrowDiameter
-    "Diameter of force arrow" annotation (Dialog(tab="Animation",group="if animation = true", enable=animation));
+    "Diameter of force arrow" annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation" annotation (Dialog(
-      tab="Animation",group="if animation = true", enable=animation));
+      tab="Animation",group="If animation = true", enable=animation));
   input Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
     "Color of arrow"
-    annotation (HideResult=true, Dialog(tab="Animation",group="if animation = true",colorSelector=true,  enable=animation));
+    annotation (HideResult=true, Dialog(tab="Animation",group="If animation = true",colorSelector=true,  enable=animation));
   input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
-    annotation (HideResult=true, Dialog(tab="Animation",group="if animation = true",enable=animation));
+    annotation (HideResult=true, Dialog(tab="Animation",group="If animation = true",enable=animation));
 
   SI.Force force[3] = worldForce.force;
 

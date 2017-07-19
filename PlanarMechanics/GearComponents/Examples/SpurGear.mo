@@ -14,11 +14,7 @@ model SpurGear "Rigid spur gear"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,30})));
-  PlanarMechanics.Parts.FixedTranslation distance(r={2,0})
-    annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
-  PlanarMechanics.Parts.FixedRotation angle(alpha=0)
-    annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
-  PlanarMechanics.Parts.Fixed fixed  annotation (Placement(transformation(
+  PlanarMechanics.Parts.Fixed fixed_A annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-70,-52})));
@@ -38,11 +34,14 @@ model SpurGear "Rigid spur gear"
     annotation (Placement(transformation(extent={{60,60},{80,80}})));
   RigidNoLossExternal gearwheelExternal
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+  Parts.Fixed                 fixed_B(r={2,0})
+                              annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={68,-50})));
+  inner MB.World world
+    annotation (Placement(transformation(extent={{20,60},{40,80}})));
 equation
-  connect(angle.frame_b, distance.frame_a)             annotation (Line(
-      points={{-20,-30},{-6,-30},{20,-30}},
-      color={95,95,95},
-      thickness=0.5));
   connect(gearA_Bearing.frame_b, gearA.frame_a)
                                             annotation (Line(
       points={{-40,0},{-20,0},{-20,20}},
@@ -51,16 +50,8 @@ equation
   connect(constantSpeed.flange, gearA_Bearing.flange_a)
                                                  annotation (Line(
       points={{-80,20},{-50,20},{-50,10}}));
-  connect(fixed.frame, gearA_Bearing.frame_a) annotation (Line(
+  connect(fixed_A.frame, gearA_Bearing.frame_a) annotation (Line(
       points={{-70,-42},{-70,0},{-60,0}},
-      color={95,95,95},
-      thickness=0.5));
-  connect(fixed.frame, angle.frame_a) annotation (Line(
-      points={{-70,-42},{-70,-30},{-40,-30}},
-      color={95,95,95},
-      thickness=0.5));
-  connect(gearB_Bearing.frame_b, distance.frame_b) annotation (Line(
-      points={{60,0},{66,0},{66,-30},{40,-30}},
       color={95,95,95},
       thickness=0.5));
   connect(constantTorque.flange, gearB_Bearing.flange_a) annotation (Line(
@@ -75,6 +66,10 @@ equation
       thickness=0.5));
   connect(gearwheelExternal.frame_b, gearB.frame_a) annotation (Line(
       points={{10,0},{20,0},{20,20}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(fixed_B.frame, gearB_Bearing.frame_b) annotation (Line(
+      points={{68,-40},{68,0},{60,0}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=10),Documentation(info="<html>

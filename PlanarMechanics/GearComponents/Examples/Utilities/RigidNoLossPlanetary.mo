@@ -57,27 +57,27 @@ model RigidNoLossPlanetary "Planetary gearbox"
       useHeatPort=true,
       Tooth_a=40,
       StartAngle_b=0,
-      StartAngle_a=-2*3.1415/40/4,
       r_a=r_s,
       r_b=r_p,
       RGB_a=RGB_s,
       RGB_b=RGB_p,
-      animate=animate)
+      animate=animate,
+    StartAngle_a=0)
     annotation (Placement(transformation(extent={{0,0},{20,20}})));
   PlanarMechanics.Parts.FixedRotation carrierAngle(alpha=0)
     annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
   PlanarMechanics.Joints.Revolute
                   bearing_Planet
     annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
-  RigidNoLossInternal                                                       planetRing(
-      useHeatPort=true,
-      Tooth_a=40,
-      z_offset=0.15,
-      r_a=r_p,
-      r_b=r_r,
-      animate=animate,
-      RGB_a=RGB_p,
-      RGB_b=RGB_r) annotation (Placement(transformation(
+  RigidNoLossInternal planetRing(
+    useHeatPort=true,
+    Tooth_a=40,
+    z_offset=0.15,
+    r_a=r_p,
+    r_b=r_r,
+    animate=animate,
+    RGB_a=RGB_p,
+    RGB_b=RGB_r) annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={10,40})));
