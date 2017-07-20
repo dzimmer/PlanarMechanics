@@ -66,7 +66,6 @@ equation
   annotation (experiment(StopTime=10),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/CraneCrab_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CraneCrab_2.png\"/></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>prismatic.s</li>
