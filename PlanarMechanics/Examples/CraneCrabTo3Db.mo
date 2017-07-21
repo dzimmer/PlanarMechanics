@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples;
-model CraneCrabTo3Db "A planar damped crane crab in the multi-body world - case b)"
+model CraneCrabTo3Db "A planar damped crane crab in the 3D world - case b)"
   extends Modelica.Icons.Example;
 
   MB.Parts.Body body1(r_CM=zeros(3), m=1) annotation (Placement(transformation(
@@ -50,7 +50,7 @@ model CraneCrabTo3Db "A planar damped crane crab in the multi-body world - case 
     annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
   inner MB.World world(n={0,-1,0})
     annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
-  Interfaces.PlanarTo3D adaptor3DtoPlanar annotation (Placement(transformation(extent={{46,18},{54,22}})));
+  Interfaces.PlanarTo3D adaptor3D annotation (Placement(transformation(extent={{46,18},{54,22}})));
 equation
   connect(fixedTranslation.frame_b,body3. frame_a) annotation (Line(
       points={{60,-60},{60,-72}},
@@ -86,11 +86,11 @@ equation
       points={{20,20},{-10,20}},
       color={95,95,95},
       thickness=0.5));
-  connect(prismatic2.frame_b, adaptor3DtoPlanar.frameMultiBody) annotation (Line(
+  connect(prismatic2.frame_b, adaptor3D.frameMultiBody) annotation (Line(
       points={{40,20},{46,20}},
       color={95,95,95},
       thickness=0.5));
-  connect(adaptor3DtoPlanar.framePlanar, body2.frame_a) annotation (Line(
+  connect(adaptor3D.framePlanar, body2.frame_a) annotation (Line(
       points={{54,20},{70,20}},
       color={95,95,95},
       thickness=0.5));

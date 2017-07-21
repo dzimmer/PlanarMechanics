@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples;
-model CraneCrabTo3Dc "A planar damped crane crab in the multi-body world - case c)"
+model CraneCrabTo3Dc "A planar damped crane crab in the 3D world - case c)"
   extends Modelica.Icons.Example;
 
   MB.Parts.Body body2(r_CM=zeros(3), m=1) annotation (Placement(transformation(
@@ -53,11 +53,11 @@ model CraneCrabTo3Dc "A planar damped crane crab in the multi-body world - case 
     annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
   inner MB.World world(n={0,-1,0})
     annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
-  Interfaces.PlanarTo3D adaptor3DtoPlanar1 annotation (Placement(transformation(
+  Interfaces.PlanarTo3D adaptor3D1 annotation (Placement(transformation(
         extent={{-4,-2},{4,2}},
         rotation=-90,
         origin={0,0})));
-  Interfaces.PlanarTo3D adaptor3DtoPlanar2 annotation (Placement(transformation(
+  Interfaces.PlanarTo3D adaptor3D2 annotation (Placement(transformation(
         extent={{4,-2},{-4,2}},
         rotation=90,
         origin={60,0})));
@@ -84,11 +84,11 @@ equation
       thickness=0.5));
   connect(damper1D.flange_a, prismatic2.support) annotation (Line(points={{20,50},{20,26},{26,26}}, color={0,127,0}));
   connect(damper1D.flange_b, prismatic2.axis) annotation (Line(points={{40,50},{40,26},{38,26}}, color={0,127,0}));
-  connect(revolute.frame_a, adaptor3DtoPlanar2.framePlanar) annotation (Line(
+  connect(revolute.frame_a, adaptor3D2.framePlanar) annotation (Line(
       points={{60,-10},{60,-4}},
       color={95,95,95},
       thickness=0.5));
-  connect(prismatic2.frame_b, adaptor3DtoPlanar2.frameMultiBody) annotation (Line(
+  connect(prismatic2.frame_b, adaptor3D2.frameMultiBody) annotation (Line(
       points={{40,20},{60,20},{60,4}},
       color={95,95,95},
       thickness=0.5));
@@ -100,11 +100,11 @@ equation
       points={{-10,20},{20,20}},
       color={95,95,95},
       thickness=0.5));
-  connect(prismatic1.frame_b, adaptor3DtoPlanar1.frameMultiBody) annotation (Line(
+  connect(prismatic1.frame_b, adaptor3D1.frameMultiBody) annotation (Line(
       points={{-10,20},{0,20},{0,4}},
       color={95,95,95},
       thickness=0.5));
-  connect(adaptor3DtoPlanar1.framePlanar, body1.frame_a) annotation (Line(
+  connect(adaptor3D1.framePlanar, body1.frame_a) annotation (Line(
       points={{0,-4},{0,-10}},
       color={95,95,95},
       thickness=0.5));
