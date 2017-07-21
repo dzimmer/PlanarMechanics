@@ -23,9 +23,11 @@ model DoublePendulum
     animateWorld=true,
     animateGravity=true)
     annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-  Joints.Revolute revolute(phi(fixed=true, start=0), w(fixed=true, start=0))
+  Joints.Revolute revolute(phi(fixed=true, start=0), w(fixed=true, start=0),
+    stateSelect=StateSelect.always)
     annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
-  Joints.Revolute revolute1(phi(fixed=true, start=0), w(fixed=true, start=0))
+  Joints.Revolute revolute1(phi(fixed=true, start=0), w(fixed=true, start=0),
+    stateSelect=StateSelect.always)
     annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
@@ -57,7 +59,7 @@ equation
     Documentation(revisions="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
 </html>",                                                                                                  info="<html>
-<p>Beware this is a chaotic system. However, the chatoic part should start after 10s.</p>
+<p>Beware this is a chaotic system. However, the chaotic part should start after 10s.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_2.png\"/></p>
 <p>Selected continuous time states</p>
