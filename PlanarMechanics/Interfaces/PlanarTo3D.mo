@@ -16,8 +16,11 @@ protected
   constant SI.Torque ty = 0 "Torque about y-axis of 2D plane";
   SI.Force f0[3] "Force vector resolved w.r.t inertial frame";
   SI.Torque t0[3] "Torque vector resolved w.r.t inertial frame";
-  Real angles[3] "Actual orientation angles of frameMultiBody";
+  Real angles[3](stateSelect=StateSelect.always) "Actual orientation angles of frameMultiBody";
   Real position[3] "Actual position of frameMultiBody";
+
+initial equation
+  angles = MB.Frames.axesRotationsAngles(frameMultiBody.R, {1,2,3}, 0);
 
 equation
   // The following assert is not needed since rooting of the connection is treated here
@@ -48,14 +51,14 @@ equation
   //        The planarWorld.r_0 subtraction is not done here since it has influence on
   //        the (false) visualization of planar mechanics in 3D world
   position = MB.Frames.resolve2(planarWorld.R, frameMultiBody.r_0); // - planarWorld.r_0;
-  angles = MB.Frames.axesRotationsAngles(frameMultiBody.R, {1,2,3}, 0);
 
   framePlanar.x = position[1];
   framePlanar.y = position[2];
   framePlanar.phi = angles[3];
+  der(angles) = frameMultiBody.R.w;
 
   annotation (
-    defaultComponentName="adaptor3DtoPlanar",
+    defaultComponentName="adaptor3D",
     Icon(
       coordinateSystem(extent={{-40,-20},{40,20}},
           preserveAspectRatio=false),
