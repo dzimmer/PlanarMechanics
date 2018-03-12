@@ -2,6 +2,7 @@ FreeBody
 Pendulum
 PendulumExcited
 DoublePendulum
+DoublePendulumTo3D
 MeasureDemo
 PowerDistanceDemo
 CraneCrab
@@ -18,5 +19,5 @@ WheelBasedCranCrab
 CraneCrabTo3Da
 CraneCrabTo3Db
 CraneCrabTo3Dc
+CraneCrabTo3Dd
 CraneCrabMBS
-DoublePendulumTo3D
