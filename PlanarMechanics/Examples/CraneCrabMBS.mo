@@ -98,7 +98,6 @@ The simulation results of this example can be compared with those of examples
 <a href=\"modelica://PlanarMechanics.Examples.CraneCrabTo3Da\">CraneCrabTo3Da</a>,
 <a href=\"modelica://PlanarMechanics.Examples.CraneCrabTo3Db\">CraneCrabTo3Db</a>,
 <a href=\"modelica://PlanarMechanics.Examples.CraneCrabTo3Dc\">CraneCrabTo3Dc</a>,
-<a href=\"modelica://PlanarMechanics.Examples.CraneCrabTo3Dd\">CraneCrabTo3Dd</a>.
 </p>
 <!--Especially, the states of joints are to be compared, see below.
 </p>

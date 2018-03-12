@@ -126,7 +126,6 @@ Here, the planar damped crane crab is modelled of both planar and multibody part
 The simulation results of this example can be compared with those of examples
 <a href=\"modelica://PlanarMechanics.Examples.CraneCrabTo3Db\">CraneCrabTo3Db</a>,
 <a href=\"modelica://PlanarMechanics.Examples.CraneCrabTo3Dc\">CraneCrabTo3Dc</a>,
-<a href=\"modelica://PlanarMechanics.Examples.CraneCrabTo3Dd\">CraneCrabTo3Dd</a>,
 <a href=\"modelica://PlanarMechanics.Examples.CraneCrabMBS\">CraneCrabMBS</a>,
 The last one is modelled purely in 3D and can thus be seen as a reference for the comparison.
 Especially, the states of joints are to be compared, see below.
