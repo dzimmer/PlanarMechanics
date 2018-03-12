@@ -100,6 +100,7 @@ equation
 <p>This component enables the connection between planar and <a href=\"Modelica://Modelica.Mechanics.MultiBody\">3-dimensional</a> mechanics.</p>
 <p>The orientation and position of the 2D system within the 3D system are determined by the Multi-Body connector of the planar world model or zero rotation at zero position otherwise</p>
 <p>The physical connection assumes the 2D world to be the root of the system, defining the orientation. All forces and torques acting outside the plane are assumed to be absorbed by the planar world system.. Beware! These forces are not transmitted by the Multi-Body connector of the planar world.</p>
+<p>See also <a href=\"modelica://PlanarMechanics.UsersGuide.Tutorial.Connecting3D\">Tutorial</a> for more information.</p>
 </html>"),
     Diagram(coordinateSystem(extent={{-40,-20},{40,20}}, preserveAspectRatio=false),
         graphics={Line(
