@@ -14,7 +14,7 @@ protected
 
 public
   parameter Modelica.SIunits.Force F_nominal
-    "Nominal torque (if negative, torque is acting as load)";
+    "Nominal force (if negative, torque is acting as load)";
   parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
     "Nominal speed";
   parameter Modelica.SIunits.Torque tau_nominal
