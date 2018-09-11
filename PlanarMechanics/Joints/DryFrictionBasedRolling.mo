@@ -2,9 +2,8 @@ within PlanarMechanics.Joints;
 model DryFrictionBasedRolling
   "A joint representing a wheel with slip-based rolling (dry friction law) on the x-axis"
 
-    extends
-    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-     final T=293.15);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+    final T=293.15);
 
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));

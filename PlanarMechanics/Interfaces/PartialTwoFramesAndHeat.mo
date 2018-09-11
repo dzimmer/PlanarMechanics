@@ -2,8 +2,7 @@ within PlanarMechanics.Interfaces;
 partial model PartialTwoFramesAndHeat
   "Partial model with two frames and HeatPort"
   extends PlanarMechanics.Interfaces.PartialTwoFrames;
-  extends
-    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT;
 
   annotation (
     Documentation(info="<html>

@@ -1,8 +1,7 @@
 within PlanarMechanics.VehicleComponents.Wheels;
 model SlipBasedWheelJoint "Slip-Friction based wheel joint"
-  extends
-    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-     final T=293.15);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+    final T=293.15);
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-56,-16},
             {-24,16}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a annotation (

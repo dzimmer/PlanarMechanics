@@ -1,7 +1,6 @@
 within PlanarMechanics.GearComponents.Examples.Utilities;
 model RigidNoLossPlanetary "Planetary gearbox"
-  extends
-    PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.PlanetaryGearInterface;
+  extends PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.PlanetaryGearInterface;
 
   parameter SI.Distance r_s(start=1) "Radius of sun gear";
   parameter SI.Distance r_p(start=1) "Radius of planet gear";

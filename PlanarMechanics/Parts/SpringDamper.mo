@@ -1,9 +1,8 @@
 within PlanarMechanics.Parts;
 model SpringDamper "Linear 2D translational spring damper model"
   extends BaseClasses.TwoConnectorShapes;
-    extends
-    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-     final T=293.15);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+    final T=293.15);
 
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi, w and a as states" annotation(HideResult=true,Dialog(tab="Advanced"));
