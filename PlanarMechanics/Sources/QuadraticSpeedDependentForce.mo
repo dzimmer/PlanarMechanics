@@ -73,7 +73,7 @@ public
   Modelica.Blocks.Math.MatrixGain normalizeSpeeds(
     K=[1/v_nominal,0,0; 0,1/v_nominal,0; 0,0,1/w_nominal])
     annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-10,40})));
   Modelica.Blocks.Math.MatrixGain scaleForces(
@@ -84,7 +84,7 @@ public
         origin={-50,0})));
   Utilities.Blocks.SquaretimesSign square(blockSize=3) annotation (Placement(
         transformation(
-        extent={{-10,-10},{10,10}},
+        extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-50,40})));
 equation
@@ -152,7 +152,7 @@ equation
     Documentation(
       info="<html>
 <p>
-Model of a force quadratic dependent on the absolute velocity of the flange.
+Model of a force quadratic dependent on the velocity of the flange.
 The force can be resolved in a world frame, or a relative speed can be used
 by selecting resolve_frame to use the extra frame_resolve.
 </p>
