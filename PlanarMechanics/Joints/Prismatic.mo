@@ -17,7 +17,7 @@ model Prismatic "A prismatic joint"
    annotation (
       Placement(transformation(extent={{-10,-110},{10,-90}})));
 
-    Modelica.Mechanics.Translational.Interfaces.Flange_b support if useFlange
+  Modelica.Mechanics.Translational.Interfaces.Flange_b support if useFlange
     "1-dim. translational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
     annotation (Placement(transformation(extent={{10,10},{-10,-10}}, rotation=180,
         origin={-60,-100})));
@@ -145,7 +145,16 @@ equation
           points={{-70,-80},{-90,-100}})}),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b> </p></html>",  info="<html>
 <p>Direction of the Joint is determined by <b>r[2]</b>, which is a vector pointing from <b>frame_a</b> to <b>frame_b</b>. </p>
-<p>By setting <b>useFlange</b> as true, the flange for a 1-dim. translational input will be activated. In the &quot;Initialization&quot; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange \"flange_a\" represents the driving flange and
+flange \"support\" represents the bearing) can be enabled via
+parameter <strong>useFlange</strong>. The enabled flange_a flange can be
+driven with elements of the
+<a href=\"modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
+library.
+</p>
+<p>In the &quot;Initialization&quot; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
 <p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
 <p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
 </html>"));

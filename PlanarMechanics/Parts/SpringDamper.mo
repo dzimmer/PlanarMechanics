@@ -128,8 +128,7 @@ equation
  - The flange_b connector might be defined by a pre-defined motion,
    e.g., with Modelica.Mechanics.Translational.Position and the
    predefined flange_b.s is zero or negative.
-",
-      level = AssertionLevel.warning);
+",    level = AssertionLevel.warning);
   end if;
 
   r_rel_0 = {s_relx, s_rely, 0};

@@ -150,7 +150,16 @@ equation
       revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b> </p></html>",
       info="<html>
 <p>Joint where frame_b rotates around axis n which is fixed in frame_a. The two frames coincide when the rotation angle &quot;phi = 0&quot;.</p>
-<p>By setting <b>useFlange</b> as true, the flange for a 1-dim. rotational input will be activated. In the &quot;Initialization&quot; block, angular position <b>phi</b>, angular velocity <b>w</b> as well as angular acceleration <b>z</b> can be initialized.</p>
+<p>
+Optionally, two additional 1-dimensional mechanical flanges
+(flange \"flange_a\" represents the driving flange and
+flange \"support\" represents the bearing) can be enabled via
+parameter <strong>useFlange</strong>. The enabled axis flange can be
+driven with elements of the
+<a href=\"modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
+library.
+</p>
+<p>In the &quot;Initialization&quot; block, angular position <b>phi</b>, angular velocity <b>w</b> as well as angular acceleration <b>z</b> can be initialized.</p>
 <p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
 <p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
 </html>"));
