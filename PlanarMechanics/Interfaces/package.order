@@ -4,5 +4,6 @@ Frame_b
 Frame_resolve
 PartialTwoFrames
 PartialTwoFramesAndHeat
+PlanarTo3D
 PlanarToMultiBody
 ZeroPosition

@@ -2,6 +2,7 @@ FreeBody
 Pendulum
 PendulumExcited
 DoublePendulum
+DoublePendulumTo3D
 MeasureDemo
 PowerDistanceDemo
 CraneCrab
@@ -15,4 +16,7 @@ PistonEngine
 PistonEngine_DynamicStateSelection
 CounterSpin
 WheelBasedCranCrab
-CraneCrabTo3D
+CraneCrabTo3Da
+CraneCrabTo3Db
+CraneCrabTo3Dc
+CraneCrabMBS

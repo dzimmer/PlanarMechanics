@@ -252,8 +252,9 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
 <li>It contains all default parameters for animation, e.g. axis diameter, default joint length etc, which can still be overwritten by setting parameters in these models.</li>
 <li>It provides the default gravity definition and its animation.</li>
 </ol>
-<p><br>The planar world can optionaly be coupled to a <a href=\"Modelica.Mechanics.MultiBody.Interfaces.Frame_a\">3D-Multibody connector</a>. This will affect visualization mainly. Beware! The physics of the planar world presume the inertial system to be non-accelerated. When connecting to an accelerated MultiBody connector the physical forces going along with this acceleration are thus neglected.</p>
-<p>For physical coupling between 2D and 3D system use <a href=\"PlanarMechanics.Interfaces.PlanarToMultiBody\">Interfaces.PlanarToMultiBody</a></p>
+<p>The planar world can optionaly be coupled to a <a href=\"Modelica.Mechanics.MultiBody.Interfaces.Frame_a\">3D-Multibody connector</a>. This will affect visualization mainly. Beware! The physics of the planar world presume the inertial system to be non-accelerated. When connecting to an accelerated MultiBody connector the physical forces going along with this acceleration are thus neglected.</p>
+<p>For physical coupling between 2D and 3D system use <a href=\"PlanarMechanics.Interfaces.PlanarTo3D\">Interfaces.PlanarTo3D</a></p>
 <p>The gravity vector can be inherited from the <a href=\"Modelica.Mechanics.MultiBody.World\">MultiBody world component</a>. In this case, the vector is determined once for the origin of the planar world system and then applied to all body components (if enabled there, as default).</p>
+<p>See also <a href=\"modelica://PlanarMechanics.UsersGuide.Tutorial.Connecting3D\">Tutorial</a> for more information.</p>
 </html>"));
 end PlanarWorldIn3D;
