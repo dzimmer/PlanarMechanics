@@ -24,7 +24,7 @@ public
 
   parameter Boolean animation=true "= true, if animation shall be enabled";
 
-   parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
+  parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
     annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
   parameter Real Nm_to_m(unit="N.m/m") = planarWorld.defaultNm_to_m
@@ -70,17 +70,18 @@ public
     specularCoefficient=specularCoefficient,
     resolveInFrame=resolveInFrameB)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
-  Modelica.Blocks.Math.MatrixGain normalizeSpeeds(K=[1/v_nominal,0,0; 0,1/
-        v_nominal,0; 0,0,1/w_nominal]) annotation (Placement(transformation(
+  Modelica.Blocks.Math.MatrixGain normalizeSpeeds(
+    K=[1/v_nominal,0,0; 0,1/v_nominal,0; 0,0,1/w_nominal])
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-10,40})));
-  Modelica.Blocks.Math.MatrixGain scaleForces(K=[F_nominal,0,0; 0,F_nominal,0;
-        0,0,tau_nominal])                    annotation (Placement(
+  Modelica.Blocks.Math.MatrixGain scaleForces(
+    K=[F_nominal,0,0; 0,F_nominal,0;0,0,tau_nominal])
+    annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         origin={-50,0})));
-
   Utilities.Blocks.SquaretimesSign square(blockSize=3) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
@@ -115,6 +116,7 @@ equation
   connect(scaleForces.y, worldForce.force) annotation (Line(
       points={{-39,0},{18,0}},
       color={0,0,127}));
+
   annotation (
     Icon(
       coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
@@ -147,8 +149,20 @@ equation
           extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
           textString="b")}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<p>Model of a force quadratic dependent on the velocity of the flange. The force can be resolved in a world frame, or a relative speed can be used by selecting resolve_frame to use the extra frame_resolve.</p>
-<p>This model is e.g. suitable to simulate aerodynamic drag forces.</p>
+    Documentation(
+      info="<html>
+<p>
+Model of a force quadratic dependent on the absolute velocity of the flange.
+The force can be resolved in a world frame, or a relative speed can be used
+by selecting resolve_frame to use the extra frame_resolve.
+</p>
+<p>
+This model is e.g. suitable to simulate aerodynamic drag forces.
+</p>
+</html>",
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b>
+</p>
 </html>"));
 end QuadraticSpeedDependentForce;
