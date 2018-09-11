@@ -26,7 +26,8 @@ model RelativeForce "Input signal acting as force and torque on two frames"
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(tab="Animation",group="If animation = true",enable=animation));
   Modelica.Blocks.Interfaces.RealInput force[3] annotation (Placement(transformation(extent={{-20,-20},{20,20}},
-        origin={0,50})));
+        origin={-60,-120},
+        rotation=90)));
 
   Real R[2,2] "Rotation matrix";
   SI.Angle phi "Rotation angle of the additional frame_c";
@@ -36,7 +37,7 @@ model RelativeForce "Input signal acting as force and torque on two frames"
     annotation (
       Placement(transformation(extent={{-16,-16},{16,16}},
         rotation=90,
-        origin={0,-40})));
+        origin={40,-100})));
 
 protected
   SI.Position f_in_m[3]={force[1],force[2],0}/N_to_m
@@ -83,9 +84,21 @@ equation
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}),
                    graphics={
+        Line(
+          points={{30,0},{30,-100}},
+          color={95,95,95},
+          pattern=LinePattern.Dot),
+        Line(
+          points={{-60,-100},{30,-100}},
+          color={95,95,95},
+          pattern=LinePattern.Dot),
         Polygon(
-          points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},
-              {-100,10}},
+          points={{14,10},{44,10},{44,40},{94,0},{44,-40},{44,-10},{14,-10},{14,10}},
+          lineColor={0,127,0},
+          fillColor={215,215,215},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{-14,10},{-44,10},{-44,40},{-94,0},{-44,-40},{-44,-10},{-14,-10},{-14,10}},
           lineColor={0,127,0},
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
