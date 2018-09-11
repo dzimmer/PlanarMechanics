@@ -78,7 +78,7 @@ equation
       points={{30,-50},{20,-50},{20,-20},{30,-20}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This example contains an algebraic loop. A non-linear system must be solved for initialization and at simulation.</p>
 <p>This version does not stipulate the state selection</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/PistonEngine_1.png\"></p>

@@ -83,7 +83,7 @@ equation
   connect(revolute.flange_a, angleSensor.flange) annotation (Line(
       points={{0,0},{0,0},{20,0}}));
   annotation (experiment(StopTime=3),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>A simple PID (actually PD) controlles the pendulum into upright position.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/ControlledCraneCrab_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/ControlledCraneCrab_2.png\"/></p>

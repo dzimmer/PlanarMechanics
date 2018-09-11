@@ -54,7 +54,7 @@ equation
       points={{1,-40},{18,-40}},
       color={0,0,127}));
   annotation (experiment(StopTime=3),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>
 This example demonstrates simple pendulum excited by a world force.
 The animation parameters of cut and excitation forces can be changed

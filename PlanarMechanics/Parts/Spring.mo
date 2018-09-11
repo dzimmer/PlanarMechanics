@@ -65,7 +65,6 @@ protected
 equation
 
   if enableAssert then
-
     assert(noEvent(length > s_small), "
 The distance between the origin of frame_a and the origin of frame_b
 of a Spring component became smaller as parameter s_small
@@ -83,9 +82,10 @@ for this situation:
 - The flange_b connector might be defined by a pre-defined motion,
   e.g., with Modelica.Mechanics.Translational.Position and the
   predefined flange_b.s is zero or negative.
-  ",level=  AssertionLevel.warning);
-
+",
+      level = AssertionLevel.warning);
   end if;
+
   r_rel_0 = {s_relx, s_rely, 0};
   length = Modelica.Math.Vectors.length(r_rel_0);
   e_rel_0 = r_rel_0/Modelica.Mechanics.MultiBody.Frames.Internal.maxWithoutEvent(length, s_small);
@@ -103,7 +103,7 @@ for this situation:
   frame_b.fy = f_y;
 
   annotation (
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>A <i>linear translational spring</i>. x- and y direction stiffness can be parameterized.</p>
 </html>"),
     Icon(coordinateSystem(
@@ -152,4 +152,3 @@ for this situation:
           lineColor={0,0,255},
           textString="phi_rel")}));
 end Spring;
-

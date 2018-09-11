@@ -57,7 +57,7 @@ equation
       thickness=0.5));
   annotation (experiment(StopTime=10),
     Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
 </html>",                                                                                                  info="<html>
 <p>Beware this is a chaotic system. However, the chaotic part should start after 10s.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_1.png\"/></p>

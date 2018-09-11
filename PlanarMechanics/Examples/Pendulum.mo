@@ -33,7 +33,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=3),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Pendulum_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Pendulum_2.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Pendulum_3.png\"/></p>

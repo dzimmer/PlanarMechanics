@@ -4,7 +4,7 @@ package Tutorial "Tutorial"
 
 
   annotation (Documentation(revisions=
-        "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",
+        "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",
                                                                                                     info="<html>
 <p>This tutorial provides an introduction into the PlanarMechanics library.</p>
 <ol>

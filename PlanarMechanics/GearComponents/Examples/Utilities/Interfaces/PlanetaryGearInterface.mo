@@ -16,7 +16,7 @@ partial model PlanetaryGearInterface "Planetary gear interface"
       Placement(transformation(extent={{90,-10},{110,10}}),iconTransformation(
           extent={{90,-10},{110,10}})));
   annotation (Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
 </html>", info="<html>
 <p>This partial class contains common interfaces for a planetary gear model.</p>
 </html>"));

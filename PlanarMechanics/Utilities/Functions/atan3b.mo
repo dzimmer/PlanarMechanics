@@ -78,7 +78,7 @@ algorithm
           points={{-84,-40},{88,-40}},
           color={175,175,175})}),
     Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
 </html>",                                                                                                  info="<HTML>
 <p>
 This function returns y = <b>atan3</b>(u1,u2,y0) such that

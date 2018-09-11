@@ -115,7 +115,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=6),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2014 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>In this version, the states are manually selected.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/KinematicLoop_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/KinematicLoop_2.png\"></p>
