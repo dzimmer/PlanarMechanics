@@ -88,7 +88,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(planarWorld.MBFrame_a, prismatic3D.frame_b) annotation (Line(
-      points={{-0.2,-50},{-20,-50}},
+      points={{0,-50},{-20,-50}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedRotation3D.frame_a, world.frame_b) annotation (Line(
@@ -104,7 +104,6 @@ equation
   annotation (experiment(StopTime=10),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/CraneCrab_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CraneCrab_2.png\"/></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>prismatic.s</li>
