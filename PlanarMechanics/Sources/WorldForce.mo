@@ -39,7 +39,7 @@ model WorldForce
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
     annotation (
-      Placement(transformation(extent={{-16,-16},{16,16}},rotation=90,origin={0,-40})));
+      Placement(transformation(extent={{-16,-16},{16,16}},rotation=90,origin={0,-100})));
 
   Real R[2,2] "Rotation matrix";
   SI.Angle phi "Rotation angle of the additional frame_c";
@@ -78,9 +78,15 @@ equation
   {frame_b.fx,frame_b.fy} + R*{force[1], force[2]} = {0, 0};
   frame_b.t +  force[3]= 0;
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}),
-                   graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+      graphics={
+        Line(
+          points={{0,0},{0,-100}},
+          color={95,95,95},
+          pattern=LinePattern.Dot,
+          visible=resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve),
         Polygon(
           points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},
               {-100,10}},

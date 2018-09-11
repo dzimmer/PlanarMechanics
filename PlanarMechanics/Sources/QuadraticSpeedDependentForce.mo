@@ -4,12 +4,12 @@ model QuadraticSpeedDependentForce
 
   outer PlanarWorld planarWorld "Planar world model";
 
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
-    resolveInFrame=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
 protected
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrameB= PlanarMechanics.Utilities.Conversions.fromFrameAtoFrameB(resolveInFrame)
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrameB=
+    PlanarMechanics.Utilities.Conversions.fromFrameAtoFrameB(resolveInFrame)
     "Conversion from frame A to B";
 
 public
@@ -96,7 +96,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(worldForce.frame_resolve, frame_resolve) annotation (Line(
-      points={{30,-4},{30,-10},{0,-10},{0,-100}},
+      points={{30,-10},{0,-10},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(absoluteVelocity.frame_resolve, frame_resolve) annotation (Line(
@@ -115,9 +115,15 @@ equation
   connect(scaleForces.y, worldForce.force) annotation (Line(
       points={{-39,0},{18,0}},
       color={0,0,127}));
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-            {100,100}}),
-                   graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+      graphics={
+        Line(
+          points={{0,0},{0,-100}},
+          color={95,95,95},
+          pattern=LinePattern.Dot,
+          visible=resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve),
         Polygon(
           points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},
               {-100,10}},
