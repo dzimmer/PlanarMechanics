@@ -64,7 +64,7 @@ contains a menu definition of the colors used in the library</a>
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
         Rectangle(
-          extent={{-100,28},{20,-30}},
+          extent={{-100,30},{20,-30}},
           lineColor={128,128,128},
           fillColor={128,128,128},
           fillPattern=FillPattern.Solid),
