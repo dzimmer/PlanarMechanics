@@ -83,7 +83,7 @@ protected
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
         Rectangle(
-          extent={{-100,28},{0,-28}},
+          extent={{-100,30},{0,-30}},
           lineColor={128,128,128},
           fillColor={128,128,128},
           fillPattern=FillPattern.Solid),

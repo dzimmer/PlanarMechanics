@@ -16,8 +16,7 @@ equation
   connect(flange_b,idealPlanetary. ring) annotation (Line(
       points={{0,-100},{0,-62},{0,-62}}));
   connect(idealPlanetary.carrier, flange_right) annotation (Line(
-      points={{4,-42},{4,0},{100,0}},
-      pattern=LinePattern.None));
+      points={{4,-42},{4,0},{100,0}}));
   connect(idealPlanetary.sun, flange_left) annotation (Line(
       points={{0,-42},{0,-42},{0,0},{-100,0}}));
   annotation (Icon(graphics={

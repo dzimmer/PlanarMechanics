@@ -1,5 +1,7 @@
 within PlanarMechanics.Utilities.Functions;
 function atan3b_der "First deviation of atan3"
+  extends Modelica.Icons.Function;
+
   import Modelica.Math;
   input Real u1;
   input Real u2;
