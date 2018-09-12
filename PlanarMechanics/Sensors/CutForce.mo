@@ -44,31 +44,29 @@ protected
 
   Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
         positiveSign)
-    annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Interfaces.ZeroPosition zeroPosition if
     not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
-    annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+    annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
 equation
   connect(cutForce.frame_a, frame_a)      annotation (Line(
-      points={{-50,0},{-62.5,0},{-62.5,0},{-75,
-          0},{-75,0},{-100,0}},
+      points={{-10,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutForce.frame_b, frame_b)      annotation (Line(
-      points={{-30,0},{2.5,0},{2.5,0},{35,
-          0},{35,0},{100,0}},
+      points={{10,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutForce.frame_resolve, frame_resolve)      annotation (Line(
-      points={{-32,-10},{-32,-60},{80,-60},{80,-100}},
+      points={{8,-10},{8,-60},{80,-60},{80,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(cutForce.force, force)      annotation (Line(
-      points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}},
+      points={{-8,-11},{-8,-60},{-80,-60},{-80,-110}},
       color={0,0,127}));
   connect(zeroPosition.frame_resolve, cutForce.frame_resolve)      annotation (
       Line(
-      points={{0,-30},{-32,-30},{-32,-10}},
+      points={{40,-30},{8,-30},{8,-10}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   annotation (

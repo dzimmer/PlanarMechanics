@@ -26,9 +26,8 @@ model AbsoluteVelocity
 protected
   Internal.BasicAbsolutePosition position(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-  Modelica.Blocks.Continuous.Der der1[3]                           annotation (Placement(transformation(
-        extent={{-20,-20},{0,0}},
-        origin={10,10})));
+  Modelica.Blocks.Continuous.Der der1[3] annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}})));
   TransformAbsoluteVector transformAbsoluteVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
       frame_r_out=resolveInFrame) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
@@ -42,8 +41,7 @@ protected
     annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
 equation
   connect(position.r, der1.u) annotation (Line(
-      points={{-39,0},{-32.25,0},{-32.25,0},{
-          -25.5,0},{-25.5,0},{-12,0}},
+      points={{-39,0},{-12,0}},
       color={0,0,127}));
   connect(position.frame_a, frame_a) annotation (Line(
       points={{-60,0},{-70,0},{-70,0},{-80,
@@ -51,12 +49,10 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(der1.y, transformAbsoluteVector.r_in) annotation (Line(
-      points={{11,0},{19.5,0},{19.5,0},{38,
-          0}},
+      points={{11,0},{38,0}},
       color={0,0,127}));
   connect(transformAbsoluteVector.r_out, v) annotation (Line(
-      points={{61,0},{71.5,0},{71.5,0},{110,
-          0}},
+      points={{61,0},{56,0},{56,0},{110,0}},
       color={0,0,127}));
   connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
       points={{-60,-50},{-50,-50},{-50,-10}},

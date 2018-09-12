@@ -36,7 +36,7 @@ protected
   Interfaces.ZeroPosition zeroPosition if
     not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve or
          frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
-    annotation (Placement(transformation(extent={{40,10},{60,30}})));
+    annotation (Placement(transformation(extent={{40,20},{60,40}})));
 
 equation
   connect(basicTransformVector.frame_a, frame_a) annotation (Line(
@@ -50,12 +50,12 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(basicTransformVector.frame_resolve, frame_resolve) annotation (Line(
-      points={{10,8.1},{20,8.1},{20,8},{32,8},{32,80},{100,80}},
+      points={{10,8.1},{30,8.1},{30,80},{100,80}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(zeroPosition.frame_resolve, basicTransformVector.frame_resolve)
     annotation (Line(
-      points={{40,20},{32,20},{32,8.1},{10,8.1}},
+      points={{40,30},{30,30},{30,8.1},{10,8.1}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(basicTransformVector.r_out, r_out) annotation (Line(
