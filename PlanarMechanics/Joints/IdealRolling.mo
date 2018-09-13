@@ -92,7 +92,11 @@ equation
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
-          lineColor={0,0,255})}),
+          lineColor={0,0,255}),
+        Text(
+          extent={{-150,-90},{150,-120}},
+          lineColor={0,0,0},
+          textString="R=%R")}),
       Documentation(
         revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",
         info="<html>
