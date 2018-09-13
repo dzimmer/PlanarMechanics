@@ -1,0 +1,11 @@
+time
+body.v_0[1]
+body.v_0[2]
+body.v_0[3]
+body.w_a[1]
+body.w_a[2]
+body.w_a[3]
+revolute.phi
+revolute.w
+revolute1.phi
+revolute1.w

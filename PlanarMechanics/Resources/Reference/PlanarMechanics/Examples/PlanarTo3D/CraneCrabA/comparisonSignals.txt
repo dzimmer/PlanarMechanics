@@ -1,0 +1,7 @@
+time
+prismatic1.s
+prismatic1.v
+prismatic2.s
+prismatic2.v
+revolute.phi
+revolute.w
