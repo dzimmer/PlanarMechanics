@@ -19,6 +19,8 @@ package Tutorial "Tutorial"
   <li> <a href=\"Modelica://PlanarMechanics.UsersGuide.Tutorial.FirstExample\">A first example</a>
        demonstrates how to build up, simulate and animate a model by using a simple pendulum
        as example.</li>
+  <li> A short <a href=\"modelica://PlanarMechanics.UsersGuide.Tutorial.Connecting3D\">tutorial
+       on the connection</a> of the 2D and 3D worlds.</li>
 </ol>
 </html>"));
 end Tutorial;
