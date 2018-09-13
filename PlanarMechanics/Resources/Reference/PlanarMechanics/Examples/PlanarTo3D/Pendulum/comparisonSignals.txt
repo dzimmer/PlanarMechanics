@@ -1,0 +1,11 @@
+time
+sensorAnglesMBS.angles[1]
+sensorAnglesMBS.angles[2]
+sensorAnglesMBS.angles[3]
+sensorAngles3Din2D.angles[1]
+sensorAngles3Din2D.angles[2]
+sensorAngles3Din2D.angles[3]
+revoluteMBS.phi
+revoluteMBS.w
+revolute3Din2D.phi
+revolute3Din2D.w

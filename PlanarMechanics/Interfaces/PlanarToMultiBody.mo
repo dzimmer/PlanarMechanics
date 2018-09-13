@@ -1,70 +1,142 @@
 within PlanarMechanics.Interfaces;
-model PlanarToMultiBody
-  "This model enables to connect planar models to 3D Models"
+model PlanarToMultiBody "This model enables to connect planar models to the 3-dimensional world"
+
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation";
-    //annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
+  parameter Boolean rootMBS = false
+    "= true, if frameMultiBody shall be Connections.root explicitly"
+    annotation (Evaluate=true, Dialog(tab="Advanced"));
 
-  outer PlanarWorld planarWorld "planar world model";
-  Frame_a frame_a "Frame connector in PlanarMechanics"
-    annotation (Placement(transformation(extent={{-56,-16},{-24,16}})));
-  MB.Interfaces.Frame_b frame_b "Frame connector in MultiBody"
-    annotation (Placement(transformation(extent={{24,-16},{56,16}})));
+  outer PlanarWorldIn3D planarWorld "Planar world model";
+  Frame_b framePlanar "Frame connector in PlanarMechanics"
+    annotation (Placement(transformation(extent={{44,-16},{76,16}})));
+  MB.Interfaces.Frame_a frameMultiBody "Frame connector in MultiBody"
+    annotation (Placement(transformation(extent={{-76,-16},{-44,16}})));
 
 protected
-  SI.Force fz "Normal Force";
-  SI.Force f0[3] "Force vector";
-equation
-  //connect the translatory position w.r.t inertial system
-  frame_b.r_0 = MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0;
+  SI.Force fz "Force normal to 2D plane";
+  SI.Torque tx "Torque about x-axis of 2D plane";
+  SI.Torque ty "Torque about y-axis of 2D plane";
+  SI.Force f0[3] "Multibody force vector resolved w.r.t inertial frame";
+  SI.Torque t0[3] "Multibody torque vector resolved w.r.t inertial frame";
+  Real angles[3](each stateSelect=StateSelect.prefer) "Actual orientation angles of frameMultiBody, resolved in 2D world frame";
+  Real position[3] "Actual position of frameMultiBody, resolved in 2D world frame";
 
-  //Express 3D-rotation as planar rotation around z-axes
-  frame_b.R = MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0,0,1},frame_a.phi, der(frame_a.phi)));
-  //define force vector in inertial system
-  f0 = MB.Frames.resolve1(planarWorld.R,{frame_a.fx, frame_a.fy, fz});
-  //the MulitBody force vector is resolved within the body system
-  f0 + MB.Frames.resolve1(frame_b.R, frame_b.f) = zeros(3);
-  //connect the torque
-  frame_a.t + MB.Frames.resolve2(planarWorld.R, MB.Frames.resolve1(frame_b.R, frame_b.t))*{0,0,1} = 0;
-  //This element determines the orientation matrix fully, hence it is a "root-element"
-  Connections.root(frame_b.R);
+initial equation
+  if not Connections.isRoot(frameMultiBody.R) then
+    angles = MB.Frames.axesRotationsAngles(frameMultiBody.R, {1,2,3}, 0);
+  // else
+  //   Modelica.Utilities.Streams.print("PlanarToMultiBody adaptor: MBS frame is rooted");
+  end if;
+
+equation
+  assert(cardinality(framePlanar) > 0,
+    "Connector framePlanar of " + getInstanceName() + " is not connected");
+
+  if rootMBS then
+    Connections.root(frameMultiBody.R);
+  else
+    Connections.potentialRoot(frameMultiBody.R,0);
+  end if;
+
+  if Connections.isRoot(frameMultiBody.R) then
+    // frameMultiBody connector is 'root'
+    position = {framePlanar.x, framePlanar.y, zPosition};
+    angles = {0, 0, framePlanar.phi};
+    frameMultiBody.r_0 = MB.Frames.resolve1(planarWorld.R, position) + planarWorld.r_0;
+    frameMultiBody.R = MB.Frames.absoluteRotation(planarWorld.R, MB.Frames.planarRotation({0,0,1}, angles[3], der(angles[3])));
+  else
+    // Express 3D-rotation as planar rotation around z-axis
+    //   The planarWorld.r_0 subtraction is not done here since it has influence on
+    //   the (false) visualization of planar mechanics in 3D world
+    position = MB.Frames.resolve2(planarWorld.R, frameMultiBody.r_0); // - planarWorld.r_0;
+    // angles = Modelica.Mechanics.MultiBody.Frames.axesRotationsAngles(frameMultiBody.R, {1,2,3});
+    der(angles) = MB.Frames.resolve2(planarWorld.R, MB.Frames.angularVelocity1(frameMultiBody.R));
+    framePlanar.x = position[1];
+    framePlanar.y = position[2];
+    framePlanar.phi = angles[3];
+    fz = 0;
+    tx = 0;
+    ty = 0;
+  end if;
+
+  // Define force and torque vectors in inertial system
+  f0 = MB.Frames.resolve1(frameMultiBody.R, frameMultiBody.f);
+  t0 = MB.Frames.resolve1(frameMultiBody.R, frameMultiBody.t);
+
+  // Force and torque balance
+  MB.Frames.resolve2(planarWorld.R, f0) + {framePlanar.fx, framePlanar.fy, fz} = zeros(3);
+  MB.Frames.resolve2(planarWorld.R, t0) + {tx, ty, framePlanar.t} = zeros(3);
 
   annotation (
-    defaultComponentName="adaptorPlanar2MBS",
+    defaultComponentName="adaptor3D",
     Icon(
-      coordinateSystem(extent={{-40,-20},{40,20}},
-          preserveAspectRatio=false),
+      coordinateSystem(extent={{-60,-60},{60,60}}, initialScale=0.1),
       graphics={
-        Line(
-          points={{-42,24},{-26,24},{-26,-24},{-42,-24}},
-          color={95,95,95},
-          thickness=0.5),
-        Line(
-          points={{42,24},{26,24},{26,-24},{42,-24}},
-          color={95,95,95},
-          thickness=0.5),
+        Rectangle(
+          extent={{-56,26},{2,-26}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.HorizontalCylinder),
         Text(
           extent={{-90,60},{90,30}},
           textColor={0,0,255},
           textString="%name"),
-        Rectangle(
-          extent={{-26,8},{26,-8}},
-          lineColor={95,95,95},
-          fillColor={95,95,95},
-          fillPattern=FillPattern.Solid)}),
-    Documentation(revisions="<html>
+        Polygon(
+          points={{0,28},{6,28},{6,18},{-10,18},{0,28}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{-8,-18},{4,-18},{4,-28},{-18,-28},{-8,-18}},
+          lineColor={255,255,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Polygon(
+          points={{20,-18},{20,18},{-10,18},{-18,10},{0,-10},{-8,-18},{20,-18}},
+          lineColor={255,0,0},
+          fillPattern=FillPattern.Solid,
+          fillColor={255,0,0}),
+        Polygon(
+          points={{56,-22},{4,-22},{16,-10},{-2,10},{10,22},{56,22},{56,-22}},
+          lineColor={0,0,0},
+          fillColor={225,240,255},
+          fillPattern=FillPattern.Solid),
+        Line(
+          points={{-2,26},{-18,10},{0,-10},{-16,-26}},
+          color={0,0,0})}),
+    Diagram(
+      coordinateSystem(extent={{-60,-60},{60,60}}, initialScale=0.1),
+      graphics={
+        Line(
+          points={{-60,0},{60,0}},
+          color={95,95,95},
+          thickness=0.5)}),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
+<strong>Developed 2018 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>",  info="<html>
-<p>This component enables the connection between Planarmechanics and <a href=\"Modelica://Modelica.Mechanics.MultiBody\">MultiBody</a>.</p>
-<p>The orientation and position of the 2D system within the 3D system are determined by the Multi-Body connector of the planar world model or zero rotation at zero position otherwise</p>
-<p>The physical connection assumes the 2D world to be the root of the system, defining the orientation. All forces and torques acting outside the plane are assumed to be absorbed by the planar world system.. Beware! These forces are not transmitted by the Multi-Body connector of the planar world.</p>
-</html>"),
-    Diagram(coordinateSystem(extent={{-40,-20},{40,20}}, preserveAspectRatio=false),
-        graphics={Line(
-          points={{-40,0},{40,0}},
-          color={95,95,95},
-          thickness=0.5)}));
+</html>",
+      info="<html>
+<p>
+This component enables the connection between planar and
+<a href=\"modelica://Modelica.Mechanics.MultiBody\">three-dimensional</a> (3D) mechanics.
+</p>
+<p>
+The orientation and position of the 2D system within the 3D system are determined by the multibody
+connector of the <a href=\"modelica://PlanarMechanics.PlanarWorldIn3D\">planar world model</a>, or zero
+rotation at zero position otherwise.
+</p>
+<p>
+The parameter <code>rootMBS</code> allows to force <code>frameMultiBody</code> to be a&nbsp;<em>root</em>
+frame in the subsequent 3D system. This is particularly necessary when the planar world is
+a&nbsp;&quot;leading&quot; mechanism and multibody parts are connected to it.
+</p>
+<p>
+See also <a href=\"modelica://PlanarMechanics.UsersGuide.Tutorial.Connecting3D\">Tutorial</a> for further
+information and how to use <code>rootMBS</code> parameter properly.
+</p>
+</html>"));
 end PlanarToMultiBody;
