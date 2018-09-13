@@ -43,7 +43,8 @@ equation
   frame_a.fx + frame_b.fx = 0;
   frame_a.fy + frame_b.fy = 0;
   frame_a.t + frame_b.t = 0;
-  annotation (Icon(graphics={
+  annotation (
+    Icon(graphics={
         Polygon(
           points={{96,-8},{96,12},{0,-30},{-96,12},{-96,-6},{0,-50},{96,-8}},
           fillColor={175,175,175},
@@ -59,17 +60,21 @@ equation
           fillPattern=FillPattern.Solid,
           lineThickness=0.5),
         Text(
-          extent={{-150,80},{150,40}},
-          textString="%name",
-          lineColor={0,0,255}),
-        Text(
           extent={{-108,-24},{-72,-49}},
           lineColor={128,128,128},
           textString="a"),
         Text(
           extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
-          textString="b")}),       Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          textString="b"),
+        Text(
+          extent={{-100,-70},{100,-100}},
+          textString="alpha=%alpha"),
+        Text(
+          extent={{-150,70},{150,30}},
+          textString="%name",
+          lineColor={0,0,255})}),
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static angle difference <b>alpha</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>
 </html>"));
 end FixedRotation;

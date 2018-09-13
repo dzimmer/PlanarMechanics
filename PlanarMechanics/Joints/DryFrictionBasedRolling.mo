@@ -116,7 +116,11 @@ equation
           visible=useHeatPort,
           points={{-100,-100},{-100,-80},{0,-80}},
           color={191,0,0},
-          pattern=LinePattern.Dot)}),
+          pattern=LinePattern.Dot),
+        Text(
+          extent={{-150,-90},{150,-120}},
+          lineColor={0,0,0},
+          textString="R=%R")}),
     Documentation(
       revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",
       info="<html>

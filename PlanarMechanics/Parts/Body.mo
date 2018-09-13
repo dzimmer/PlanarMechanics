@@ -77,7 +77,8 @@ equation
     f = m*a;
   end if;
   frame_a.t = I*z;
-  annotation (Icon(graphics={
+  annotation (
+    Icon(graphics={
         Rectangle(
           extent={{-100,40},{-20,-40}},
           fillColor={85,170,255},
@@ -87,9 +88,23 @@ equation
           fillPattern=FillPattern.Sphere,
           fillColor={85,170,255}),
         Text(
+          extent={{150,-96},{-150,-66}},
+          textString="m=%m"),
+        Text(
+          extent={{150,-130},{-150,-100}},
+          textString="I=%I",
+          lineColor={0,0,0}),
+        Text(
           extent={{-150,100},{150,60}},
           textString="%name",
-          lineColor={0,0,255})}),   Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+          lineColor={0,0,255})}),
+    Documentation(
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
+      info="<html>
 <p>Model <b>Body</b> is an ideal unlimited small point with mass and inertia.</p>
 </html>"));
 end Body;
