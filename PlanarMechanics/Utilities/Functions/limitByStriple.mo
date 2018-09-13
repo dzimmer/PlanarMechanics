@@ -1,5 +1,7 @@
 within PlanarMechanics.Utilities.Functions;
 function limitByStriple "Returns a point-symmetric Triple S-Function"
+  extends Modelica.Icons.Function;
+
   input Real x_max;
   input Real x_sat;
   input Real y_max;

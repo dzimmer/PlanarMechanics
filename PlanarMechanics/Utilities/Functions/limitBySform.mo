@@ -1,5 +1,7 @@
 within PlanarMechanics.Utilities.Functions;
 function limitBySform "Returns a S-shaped transition"
+  extends Modelica.Icons.Function;
+
   input Real x_min;
   input Real x_max;
   input Real y_min;
