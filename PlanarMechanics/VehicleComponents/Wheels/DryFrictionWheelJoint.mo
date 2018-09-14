@@ -175,7 +175,9 @@ equation
         Text(
           extent={{-150,140},{150,100}},
           textString="%name",
-          lineColor={0,0,255})}),   Documentation(info="<html>
+          lineColor={0,0,255})}),
+    Documentation(
+      info="<html>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has dry-friction characteristics. This is an approximation for stiff wheels without a tire.</p>
 <p>The force depends with dry-friction characteristics on the slip velocity. The slip velocity is split into two components:</p>
 <ul>
@@ -185,7 +187,11 @@ equation
 <p>The radius of the wheel can be specified by the parameter <b>radius</b>. The driving direction (for phi=0) can be specified by the parameter <b>r</b>. The normal load is set by <b>N</b>.</p>
 <p>The wheel contains a 2D connector <b>frame_a</b> for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D  connector <b>flange_a</b>.</p>
 <p>For examples of usage see the local <a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.</p>
-</html>", revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
+</html>",
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
 </html>"));
 end DryFrictionWheelJoint;

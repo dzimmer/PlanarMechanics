@@ -72,7 +72,7 @@ equation
   annotation (experiment(StopTime=20),
     Documentation(revisions="<html>
 <p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",

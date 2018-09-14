@@ -252,12 +252,14 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=10),
-    Documentation(revisions="<html>
+    Documentation(
+      revisions="<html>
 <p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
 </p>
-</html>",                                                                                                    info="<html>
+</html>",
+      info="<html>
 <p>A double track model of a car.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SimpleCarWithDifferentialGear_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SimpleCarWithDifferentialGear_2.png\"></p>
