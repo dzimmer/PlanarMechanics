@@ -30,7 +30,12 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=3),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_2.png\"></p>
 <p>The model contains a large local stiffness before 2&nbsp;s</p>

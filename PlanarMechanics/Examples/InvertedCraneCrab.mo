@@ -90,7 +90,12 @@ equation
   connect(force.flange, prismatic.flange_a) annotation (Line(
       points={{-20,70},{-30,70},{-30,40}},
       color={0,127,0}));
-  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+  annotation (Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>The trajectory is stipulated, the force is being measured.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_1.png\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_2.png\"/></p>

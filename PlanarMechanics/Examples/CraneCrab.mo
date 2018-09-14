@@ -64,7 +64,12 @@ equation
   connect(damper1D.flange_a, prismatic.support)
     annotation (Line(points={{-40,60},{-40,40},{-36,40}}, color={0,127,0}));
   annotation (experiment(StopTime=10),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CraneCrab_1.png\"/></p>
 <p>Selected continuous time states</p>
 <ul>

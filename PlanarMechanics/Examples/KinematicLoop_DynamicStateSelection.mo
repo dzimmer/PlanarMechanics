@@ -106,7 +106,12 @@ equation
   connect(springDamper1D.flange_b, prismatic1.flange_a)
     annotation (Line(points={{20,90},{30,90},{30,70}}, color={0,127,0}));
   annotation (experiment(StopTime=6),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>In this version, the states are not manually set but might be dynamically selected by the simulation environment.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/KinematicLoop_1.png\"></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/KinematicLoop_2.png\"></p>

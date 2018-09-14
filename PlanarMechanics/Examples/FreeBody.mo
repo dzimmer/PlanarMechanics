@@ -15,7 +15,11 @@ model FreeBody "A simple free falling body"
   annotation (
     experiment(StopTime=3),
     Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
       info="<html>
 <p>The gravity is defined in the planarWorld component</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/FreeBody_1.png\"/></p>

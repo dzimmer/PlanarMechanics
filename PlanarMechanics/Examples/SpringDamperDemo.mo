@@ -51,6 +51,10 @@ equation
 <p>This example shows how to use a spring and a damper in combination. The motion of the body is not constrained.</p>
 </html>",
         revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
-</html>"));
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>
+"));
 end SpringDamperDemo;
