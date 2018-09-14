@@ -1,9 +1,15 @@
 within PlanarMechanics.UsersGuide.Tutorial;
 class FirstExample "A first example"
   extends Modelica.Icons.Information;
-  annotation (Documentation(revisions=
-          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",
-                                                                                                    info="<html>
+  annotation (
+    Documentation(
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
+      info="<html>
 <p>Here seveal steps will be listed to demonstrate how to build up, simulate and animate a <b>simple pendulum</b>, which consists of a fixed point, a planar world model, a revolute joint, a fixed translation and a body.</p>
 <ul>
 <li><b>Building up Modelica composition diagram</b>.</li>
