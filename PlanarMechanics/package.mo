@@ -47,7 +47,8 @@ visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.m
 </html>",
       revisions="<html>
 <p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>"),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
