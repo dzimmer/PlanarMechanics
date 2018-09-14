@@ -13,7 +13,8 @@ protected
 algorithm
   w :=Math.atan2(u1, u2);
   y := w + 2*pi*div(abs(w-y0)+pi,2*pi)*(if y0 > w then +1 else -1);
-  annotation (derivative(noDerivative=y0) = atan3b_der,
+  annotation (
+    derivative(noDerivative=y0) = atan3b_der,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -77,9 +78,14 @@ algorithm
         Line(
           points={{-84,-40},{88,-40}},
           color={175,175,175})}),
-    Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
-</html>",                                                                                                  info="<HTML>
+    Documentation(
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
+      info="<html>
 <p>
 This function returns y = <b>atan3</b>(u1,u2,y0) such that
 <b>tan</b>(y) = u1/u2 and
@@ -93,6 +99,5 @@ shall be returned:
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Math/atan3.png\">
 </p>
-
 </html>"));
 end atan3b;

@@ -6,8 +6,7 @@ package UsersGuide "User's Guide"
   annotation (
     DocumentationClass=true,
     Documentation(
-      revisions=
-"<html>
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>

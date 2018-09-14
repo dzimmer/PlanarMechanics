@@ -22,7 +22,13 @@ algorithm
   end if;
   y := y*(y_max-y_min)/2;
   y := y + y_max/2 + y_min/2;
-  annotation(smoothOrder=1, Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
+  annotation(
+    smoothOrder=1,
+    Documentation(
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
 </html>"));
 end limitBySform;
