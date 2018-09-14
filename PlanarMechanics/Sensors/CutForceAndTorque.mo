@@ -114,7 +114,12 @@ equation
         Text(
           extent={{-56,-70},{60,-96}},
           textString="torque")}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>
 The cut-force and cut-torque acting between the two frames to which this
 model is connected, are determined and provided at the output signal connectors

@@ -92,7 +92,12 @@ equation
           extent={{-116,45},{-80,20}},
           lineColor={95,95,95},
           textString="a")}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>
 The input vector \"Real r_in[3]\" is assumed to be an absolute kinematic quantity
 of frame_a that is defined to be resolved in the frame defined

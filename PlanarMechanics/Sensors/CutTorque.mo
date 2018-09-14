@@ -74,7 +74,12 @@ equation
           extent={{-180,-72},{-64,-98}},
           textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
               127})}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>The cut-torque acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>torque</b> (= frame_a.t). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-torque is provided (= frame_b.t).</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the torque vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
