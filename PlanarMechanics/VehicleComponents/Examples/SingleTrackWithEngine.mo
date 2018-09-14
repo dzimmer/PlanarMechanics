@@ -99,7 +99,7 @@ equation
       info="<html>
 <p>An ideal rolling single track model of a car.
 There is dynamic state selection applied. It might be avoided by picking Rear.v_long as state.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SingleTrackWithEngine_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SingleTrackWithEngine_2.png\"></p>
 </html>"));
 end SingleTrackWithEngine;

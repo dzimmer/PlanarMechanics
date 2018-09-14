@@ -101,7 +101,7 @@ equation
 </table>
 <p>If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>In the following figure the modeling and animation of a CutForce sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CutForce2.png\">
-<img src=\"modelica://PlanarMechanics/Resources/Images/CutForce.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce2.png\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce.png\"></p>
 </html>"));
 end CutForce;

@@ -103,7 +103,7 @@ equation
           {20,60},{20,40},{24,40}}, color={0,127,0}));
   annotation (experiment(StopTime=10),
     Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CraneCrab_1.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CraneCrab_1.png\"/></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>prismatic.s</li>

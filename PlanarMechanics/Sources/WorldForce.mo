@@ -112,7 +112,7 @@ An example of this model is given in the following figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://PlanarMechanics/Resources/Images/WorldForce.png\"/>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sources/WorldForce.png\"/>
 </blockquote>
 
 <p>

@@ -77,8 +77,8 @@ equation
 </p>
 </html>",
       info="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestDryFrictionWheel_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestDryFrictionWheel_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestDryFrictionWheel_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestDryFrictionWheel_2.png\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>inertia.phi</li>

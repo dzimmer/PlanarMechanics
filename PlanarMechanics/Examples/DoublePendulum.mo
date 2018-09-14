@@ -60,8 +60,8 @@ equation
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
 </html>",                                                                                                  info="<html>
 <p>Beware this is a chaotic system. However, the chaotic part should start after 10s.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/DoublePendulum_2.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/DoublePendulum_1.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/DoublePendulum_2.png\"/></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>revolute.phi</li>

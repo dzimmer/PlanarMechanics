@@ -81,8 +81,8 @@ equation
   annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This example contains an algebraic loop. A non-linear system must be solved for initialization and at simulation.</p>
 <p>This version does not stipulate the state selection</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/PistonEngine_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/PistonEngine_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/PistonEngine_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/PistonEngine_2.png\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>There are 2&nbsp;sets of dynamic state selection.</li>
