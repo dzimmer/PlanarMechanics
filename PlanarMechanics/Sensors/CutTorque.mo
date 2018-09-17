@@ -105,7 +105,7 @@ equation
 </table>
 <p>If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and output torque is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>In the following figure the modeling and animation of a CutTorque sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque1.png\"/>
-<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque2.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque1.png\" alt=\"Modelica diagram\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque2.png\" alt=\"CutTorque2 animation\"></p>
 </html>"));
 end CutTorque;
