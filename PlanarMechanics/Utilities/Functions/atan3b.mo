@@ -97,7 +97,7 @@ shall be returned:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/atan3.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/atan3.png\" alt=\"Function atan3\">
 </p>
 </html>"));
 end atan3b;
