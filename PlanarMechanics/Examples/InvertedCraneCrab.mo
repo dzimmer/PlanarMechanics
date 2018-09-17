@@ -97,9 +97,9 @@ equation
 </p>
 </html>",  info="<html>
 <p>The trajectory is stipulated, the force is being measured.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_2.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_3.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_1.png\" alt=\"Diagram InvertedCraneCrab_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_2.png\" alt=\"Diagram InvertedCraneCrab_2\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_3.png\" alt=\"Diagram InvertedCraneCrab_3\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>prismatic.s</li>

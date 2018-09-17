@@ -22,7 +22,7 @@ model FreeBody "A simple free falling body"
 </html>",
       info="<html>
 <p>The gravity is defined in the planarWorld component</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/FreeBody_1.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/FreeBody_1.png\" alt=\"Diagram FreeBody_1\"></p>
 <p>The DAE has 73&nbsp;scalar unknowns and 73&nbsp;scalar equations.</p>
 </html>"));
 end FreeBody;

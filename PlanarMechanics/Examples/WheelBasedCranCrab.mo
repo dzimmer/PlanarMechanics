@@ -58,8 +58,8 @@ equation
 </html>",
       info="<html>
 <p>This model contains non-holonomic constraints.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCranCrab_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCranCrab_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCranCrab_1.png\" alt=\"Diagram WheelBasedCranCrab_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCranCrab_2.png\" alt=\"Diagram WheelBasedCranCrab_2\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>body1.frame_a.phi</li>

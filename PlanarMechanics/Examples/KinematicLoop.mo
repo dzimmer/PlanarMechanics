@@ -122,8 +122,8 @@ equation
 </p>
 </html>",  info="<html>
 <p>In this version, the states are manually selected.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/KinematicLoop_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/KinematicLoop_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/KinematicLoop_1.png\" alt=\"Diagram KinematicLoop_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/KinematicLoop_2.png\" alt=\"Diagram KinematicLoop_2\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>revolute1.phi</li>

@@ -88,8 +88,8 @@ equation
 </html>",  info="<html>
 <p>This example contains an algebraic loop. A non-linear system must be solved for initialization and at simulation.</p>
 <p>In this version, the state are manually selected.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/PistonEngine_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/PistonEngine_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/PistonEngine_1.png\" alt=\"Diagram PistonEngine_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/PistonEngine_2.png\" alt=\"Diagram PistonEngine_2\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>revoluteDrive.phi</li>

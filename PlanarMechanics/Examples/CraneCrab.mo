@@ -70,7 +70,7 @@ equation
 <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CraneCrab_1.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CraneCrab_1.png\" alt=\"Diagram CraneCrab_1\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>prismatic.s</li>

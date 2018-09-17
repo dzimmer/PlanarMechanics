@@ -15,7 +15,7 @@ class FirstExample "A first example"
 <li><b>Building up Modelica composition diagram</b>.</li>
 </ul>
 <p>The diagram is showed as following.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/UsersGuide/Tutorial/FirstExample/FirstExample1.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/UsersGuide/Tutorial/FirstExample/FirstExample1.png\" alt=\"Modelica diagram\"></p>
 <p>where component <b>Fixed</b>, <b>Body</b>, <b>FixedTranslation </b>can be found in <b>Parts</b> package, component <b>Revolute</b> in <b>Joints</b>, <b>PlanarWorld</b> directly under PlanarMechanics.</p>
 <p>Every model having components from PlanarMechanics library must include an instance of component PlanarWorld on the highest level. The reason is that PlanarWorld component defines the default gravity for the model, includes default settings of animation parameters of almost every components.</p>
 <ul>
@@ -26,6 +26,6 @@ class FirstExample "A first example"
 <li><h4>Translating and simulating the simple pendulum model.</h4></li>
 </ul>
 <p>With the above settings, animation is as following:</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/UsersGuide/Tutorial/FirstExample/FirstExample2.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/UsersGuide/Tutorial/FirstExample/FirstExample2.png\" alt=\"First example animation\"></p>
 </html>"));
 end FirstExample;

@@ -90,8 +90,8 @@ equation
 </p>
 </html>",  info="<html>
 <p>A simple PID (actually PD) controlles the pendulum into upright position.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/ControlledCraneCrab_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/ControlledCraneCrab_2.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/ControlledCraneCrab_1.png\" alt=\"Diagram ControlledCraneCrab_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/ControlledCraneCrab_2.png\" alt=\"Diagram ControlledCraneCrab_2\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>actuatedPrismatic.s</li>

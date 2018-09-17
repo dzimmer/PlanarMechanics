@@ -64,8 +64,8 @@ equation
 </html>",
       info="<html>
 <p>Beware this is a chaotic system. However, the chaotic part should start after 10s.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/DoublePendulum_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/DoublePendulum_2.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/DoublePendulum_1.png\" alt=\"Diagram DoublePendulum_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/DoublePendulum_2.png\" alt=\"Diagram DoublePendulum_2\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>revolute.phi</li>

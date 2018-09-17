@@ -36,10 +36,10 @@ equation
 <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_1.png\" alt=\"Diagram CounterSpin_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_2.png\" alt=\"Diagram CounterSpin_2\"></p>
 <p>The model contains a large local stiffness before 2&nbsp;s</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_3.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_3.png\" alt=\"Diagram CounterSpin_3\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>body.r[1]</li>

@@ -39,9 +39,9 @@ equation
 <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/Pendulum_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/Pendulum_2.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/Pendulum_3.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/Pendulum_1.png\" alt=\"Diagram Pendulum_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/Pendulum_2.png\" alt=\"Diagram Pendulum_2\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/Pendulum_3.png\" alt=\"Diagram Pendulum_3\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>revolute.phi</li>
