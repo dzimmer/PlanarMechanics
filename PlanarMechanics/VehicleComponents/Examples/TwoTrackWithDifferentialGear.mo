@@ -261,9 +261,9 @@ equation
 </html>",
       info="<html>
 <p>A double track model of a car.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SimpleCarWithDifferentialGear_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SimpleCarWithDifferentialGear_2.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SimpleCarWithDifferentialGear_3.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SimpleCarWithDifferentialGear_1.png\" alt=\"Diagram SimpleCarWithDifferentialGear_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SimpleCarWithDifferentialGear_2.png\" alt=\"Diagram SimpleCarWithDifferentialGear_2\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SimpleCarWithDifferentialGear_3.png\" alt=\"Diagram SimpleCarWithDifferentialGear_3\"></p>
 
 <p>Selected continuous time states</p>
 <ul>

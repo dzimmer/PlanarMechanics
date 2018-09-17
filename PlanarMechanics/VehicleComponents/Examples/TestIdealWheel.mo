@@ -72,8 +72,8 @@ equation
 </html>",
       info="<html>
 <p>It introduces one non-holonomic constraint. Difficult for index-reduction.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestIdealWheel_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestIdealWheel_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestIdealWheel_1.png\" alt=\"Diagram TestIdealWheel_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestIdealWheel_2.png\" alt=\"Diagram TestIdealWheel_2\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>inertia.phi</li>
