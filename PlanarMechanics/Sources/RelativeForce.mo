@@ -162,5 +162,5 @@ connected to <b>frame_resolve</b>.
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
 </p>
-</html>));
+</html>"));
 end RelativeForce;
