@@ -44,31 +44,29 @@ protected
 
   Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
         positiveSign)
-    annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Interfaces.ZeroPosition zeroPosition if
     not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
-    annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
+    annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
 equation
   connect(cutForce.frame_a, frame_a)      annotation (Line(
-      points={{-50,0},{-62.5,0},{-62.5,0},{-75,
-          0},{-75,0},{-100,0}},
+      points={{-10,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutForce.frame_b, frame_b)      annotation (Line(
-      points={{-30,0},{2.5,0},{2.5,0},{35,
-          0},{35,0},{100,0}},
+      points={{10,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutForce.frame_resolve, frame_resolve)      annotation (Line(
-      points={{-32,-10},{-32,-60},{80,-60},{80,-100}},
+      points={{8,-10},{8,-60},{80,-60},{80,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(cutForce.force, force)      annotation (Line(
-      points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}},
+      points={{-8,-11},{-8,-60},{-80,-60},{-80,-110}},
       color={0,0,127}));
   connect(zeroPosition.frame_resolve, cutForce.frame_resolve)      annotation (
       Line(
-      points={{0,-30},{-32,-30},{-32,-10}},
+      points={{40,-30},{8,-30},{8,-10}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   annotation (
@@ -77,7 +75,12 @@ equation
           extent={{-190,-70},{-74,-96}},
           textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
               127})}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>The cut-force acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-force is provided (= frame_b.f).</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the force vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
@@ -103,7 +106,7 @@ equation
 </table>
 <p>If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>In the following figure the modeling and animation of a CutForce sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/CutForce2.png\">
-<img src=\"modelica://PlanarMechanics/Resources/Images/CutForce.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce2.png\" alt=\"Modelica diagram\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce.png\" alt=\"CutForce animation\"></p>
 </html>"));
 end CutForce;
