@@ -31,15 +31,13 @@ algorithm
       y_max,
       x);
   end if;
-  annotation(
+  annotation (
     smoothOrder=1,
-    Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
-</html>", info="<html>
+    Documentation(
+      info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-y = Functions.<strong>limitByStriple</strong>(
-  x_max, x_sat, y_max, y_sat, x);
+y = Functions.<strong>limitByStriple</strong>(x_max, x_sat, y_max, y_sat, x);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -48,7 +46,7 @@ A point symmetric interpolation between points (0,&nbsp;0), (x_max,&nbsp;y_max)
 and (x_sat,&nbsp;y_sat), provided x_max&nbsp;&lt;&nbsp;x_sat. The approximation
 is done in such a way that the 1st function&#039;s derivative is zero at points
 points (x_max,&nbsp;y_max) and (x_sat,&nbsp;y_sat).
-Thus, the 1st function#039;s derivative is continuous for all <em>x</em>.
+Thus, the 1st function&#039;s derivative is continuous for all&nbsp;<em>x</em>.
 The higher derivatives are, in contrast, discontinuous at these points.
 </p>
 
@@ -64,5 +62,8 @@ y_sat&nbsp;=&nbsp;1.2.
 <blockquote>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Utilities/Functions/limitByStriple.png\">
 </blockquote>
+</html>",
+      revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end limitByStriple;
