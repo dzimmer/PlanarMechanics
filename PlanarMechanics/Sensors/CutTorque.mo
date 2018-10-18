@@ -42,21 +42,21 @@ protected
     //R=Modelica.Mechanics.MultiBody.Frames.planarRotation({0,0,1},frame_b.phi,0),
   Internal.BasicCutTorque cutTorque(positiveSign=
        positiveSign)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
 //   Interfaces.ZeroPosition zeroPosition if
 //     not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
 //     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 equation
   connect(cutTorque.frame_a, frame_a) annotation (Line(
-      points={{-10,0},{-100,0}},
+      points={{-50,0},{-71.5,0},{-81,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutTorque.frame_b, frame_b) annotation (Line(
-      points={{10,0},{100,0}},
+      points={{-30,0},{-6.5,0},{29,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutTorque.torque, torque) annotation (Line(
-      points={{-8,-11},{-8,-60},{-80,-60},{-80,-110}},
+      points={{-48,-11},{-48,-60},{-80,-60},{-80,-110}},
       color={0,0,127}));
 //   connect(cutTorque.frame_resolve, frame_resolve) annotation (Line(
 //       points={{-44,-10},{-44,-74},{80,-74},{80,-100}},
@@ -74,12 +74,7 @@ equation
           extent={{-180,-72},{-64,-98}},
           textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
               127})}),
-    Documentation(revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
-</html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The cut-torque acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>torque</b> (= frame_a.t). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-torque is provided (= frame_b.t).</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the torque vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
@@ -105,7 +100,7 @@ equation
 </table>
 <p>If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and output torque is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>In the following figure the modeling and animation of a CutTorque sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque1.png\" alt=\"Modelica diagram\">
-<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque2.png\" alt=\"CutTorque2 animation\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/CutTorque1.png\"/>
+<img src=\"modelica://PlanarMechanics/Resources/Images/CutTorque2.png\"/></p>
 </html>"));
 end CutTorque;

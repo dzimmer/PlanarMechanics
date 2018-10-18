@@ -2,17 +2,20 @@ within PlanarMechanics.Sensors;
 model AbsoluteAcceleration
   "Measure absolute acceleration vector of origin of frame connector"
   extends Internal.PartialAbsoluteSensor;
-
-  Modelica.Blocks.Interfaces.RealOutput a[3](
-    each final quantity="Velocity", each final unit="m/s2")
+  Modelica.Blocks.Interfaces.RealOutput a[3](each final quantity="Velocity", each final
+            unit =                                                                    "m/s2")
     "Absolute velocity vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
+
   Interfaces.Frame_resolve frame_resolve if
     resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector v is optionally resolved"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
+        rotation=-90,
+        origin={0,-100}),
+        iconTransformation(extent={{-16,-16},{16,16}},
         rotation=-90,
         origin={0,-100})));
 
@@ -24,12 +27,13 @@ protected
   Internal.BasicAbsolutePosition position(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Modelica.Blocks.Continuous.Der der1[3]                           annotation (Placement(transformation(
-        extent={{-20,-10},{0,10}})));
+        extent={{-20,-20},{0,0}},
+        origin={-6,10})));
   TransformAbsoluteVector transformAbsoluteVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
       frame_r_out=resolveInFrame) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
-        origin={30,0})));
+        origin={20,0})));
   Interfaces.ZeroPosition zeroPosition
     annotation (Placement(transformation(extent={{-60,-60},{-80,-40}})));
   Interfaces.ZeroPosition zeroPosition1 if
@@ -37,10 +41,12 @@ protected
     resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
   Modelica.Blocks.Continuous.Der der2[3]                           annotation (Placement(transformation(
-        extent={{60,-10},{80,10}})));
+        extent={{-20,-20},{0,0}},
+        origin={68,10})));
 equation
   connect(position.r, der1.u) annotation (Line(
-      points={{-39,0},{-22,0}},
+      points={{-39,0},{-32.25,0},{-32.25,0},{
+          -25.5,0},{-25.5,0},{-28,0}},
       color={0,0,127}));
   connect(position.frame_a, frame_a) annotation (Line(
       points={{-60,0},{-70,0},{-70,0},{-80,
@@ -52,29 +58,32 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_a, frame_a) annotation (Line(
-      points={{30,10},{30,20},{-70,20},{-70,0},{-100,0}},
+      points={{20,10},{20,20},{-70,20},{-70,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
     annotation (Line(
-      points={{29.9,-10},{30,-10},{30,-50},{60,-50}},
+      points={{19.9,-10},{20,-10},{20,-50},{60,-50}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
-      points={{29.9,-10},{30,-10},{30,-50},{0,-50},{0,-100}},
+      points={{19.9,-10},{20,-10},{20,-50},{0,-50},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
 
   connect(der1.y, transformAbsoluteVector.r_in) annotation (Line(
-      points={{1,0},{18,0},{18,6.66134e-16}},
+      points={{-5,0},{17.5,0},{17.5,0},{8,
+          0}},
       color={0,0,127}));
 
   connect(transformAbsoluteVector.r_out, der2.u) annotation (Line(
-      points={{41,0},{58,0}},
+      points={{31,0},{38.5,0},{38.5,0},{46,
+          0}},
       color={0,0,127}));
 
   connect(der2.y, a) annotation (Line(
-      points={{81,0},{110,0}},
+      points={{69,0},{89.5,0},{89.5,0},{110,
+          0}},
       color={0,0,127}));
 
   annotation (Icon(coordinateSystem(
@@ -98,12 +107,7 @@ equation
           extent={{-150,120},{150,80}},
           textString="%name",
           lineColor={0,0,255})}),
-    Documentation(revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
-</html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>The absolute acceleration vector of the origin of frame_a is determined and provided at the output signal connector <b>a</b>.</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the velocity vector is resolved: </p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>

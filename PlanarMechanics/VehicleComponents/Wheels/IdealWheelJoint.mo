@@ -143,9 +143,7 @@ equation
         Text(
           extent={{-150,140},{150,100}},
           textString="%name",
-          lineColor={0,0,255})}),
-    Documentation(
-      info="<html>
+          lineColor={0,0,255})}),   Documentation(info="<html>
 <p>The ideal wheel joint enforces the constraints of ideal rolling on the x,y-plane.</p>
 <p>The constraint is that the velocity of the virtual point of contact shall be zero. This constrains is split into two components:</p>
 <ul>
@@ -155,11 +153,7 @@ equation
 <p>The radius of the wheel can be specified by the parameter <b>radius</b>. The driving direction (for phi=0) can be specified by the parameter <b>r</b>.</p>
 <p>The wheel contains a 2D frame connector for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D flange connector.</p>
 <p>For examples of usage see the local <a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.</p>
-</html>", 
-      revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
+</html>", revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end IdealWheelJoint;

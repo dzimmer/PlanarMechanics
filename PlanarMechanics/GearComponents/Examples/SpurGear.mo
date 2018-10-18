@@ -76,11 +76,6 @@ equation
 <p>Simple example of a spur gear in a planar environment.
 The gear A is driven using a constant velocity of 1&nbsp;rad/s, the gear B is loaded by constant torque of 10&nbsp;Nm.
 </p>
-</html>",
-      revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
-</html>"));
+</html>", revisions=
+          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>"));
 end SpurGear;

@@ -74,12 +74,7 @@ equation
           extent={{-150,70},{150,30}},
           textString="%name",
           lineColor={0,0,255})}),
-    Documentation(revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
-</html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>This component assures a static angle difference <b>alpha</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>
 </html>"));
 end FixedRotation;

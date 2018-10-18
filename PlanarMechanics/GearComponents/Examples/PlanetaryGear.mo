@@ -54,12 +54,7 @@ In this example only one of 3 planets is modelled. This reduction can be done be
 <p>
 The ring gear is driven using a 1&nbsp;Nm load, the velocity of the sun is fixed to 1&nbsp;rad/s.
 </p>
-</html>",
-      revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
-</html>"),
+</html>", revisions=
+          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>"),
     experiment(StopTime=10));
 end PlanetaryGear;

@@ -102,12 +102,7 @@ for this situation:
   frame_b.fy = f_y;
 
   annotation (
-    Documentation(revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
-</html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>A <i>linear translational spring</i>. x- and y direction stiffness can be parameterized.</p>
 </html>"),
     Icon(coordinateSystem(

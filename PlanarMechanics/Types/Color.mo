@@ -19,12 +19,7 @@ type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
       choice={100,100,100} "{100,100,100} \"dark grey\"",
       choice={155,155,155} "{155,155,155} \"grey\"",
       choice={255,255,255} "{255,255,255} \"white\""),
-  Documentation(revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
-</html>",  info="<html>
+  Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>
 Type <b>Color</b> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of a shape.

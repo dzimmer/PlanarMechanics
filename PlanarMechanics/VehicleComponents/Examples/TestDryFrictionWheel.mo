@@ -72,13 +72,13 @@ equation
   annotation (experiment(StopTime=20),
     Documentation(revisions="<html>
 <p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
 <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",
       info="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestDryFrictionWheel_1.png\" alt=\"Diagram TestDryFrictionWheel_1\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestDryFrictionWheel_2.png\" alt=\"Diagram TestDryFrictionWheel_2\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestDryFrictionWheel_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestDryFrictionWheel_2.png\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>inertia.phi</li>

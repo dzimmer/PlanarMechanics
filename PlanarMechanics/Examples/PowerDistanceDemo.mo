@@ -86,9 +86,6 @@ equation
 <p>This example shows how to use sensors for power and distance. The crane crab is used as an example.</p>
 </html>",
         revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
 </html>"));
 end PowerDistanceDemo;

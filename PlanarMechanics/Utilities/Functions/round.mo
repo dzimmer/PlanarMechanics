@@ -7,9 +7,7 @@ function round "Round to nearest Integer"
 
 algorithm
   i :=if v >= 0 then integer(floor(v + 0.5)) else integer(ceil(v - 0.5));
-  annotation (
-    Documentation(
-      info="<html>
+  annotation (Documentation(info="<html>
 <p>
 Returns the input argument rounded to the nearest Integer. Examples:
 </p>
@@ -20,11 +18,11 @@ Returns the input argument rounded to the nearest Integer. Examples:
    round(-1.3) -> -1
    round(-1.6) -> -2
 </pre>
-</html>",
-      revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
+</html>", revisions="<html>
+<table border=0 cellspacing=0 cellpadding=0>
+  <tr><td valign=\"center\"> <img src=\"modelica://PowerTrain/Resources/Images/dlr_logo.png\" ></td>
+      <td valign=\"center\"> <b>Copyright &copy; DLR Institute of System Dynamics and Control<b> </td>
+  </tr>
+ </table>
 </html>"));
 end round;

@@ -107,15 +107,9 @@ model PlanarGearContactExternalL1 "Icon for an external planar gear contact"
         Text(
           extent={{-150,100},{150,60}},
           textString="%name",
-          lineColor={0,0,255})}),
-    Documentation(
-      revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
-</html>",
-      info="<html>
+          lineColor={0,0,255})}),Documentation(revisions="<html>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
+</html>", info="<html>
 <p>
 This partial class is intended to design a <em>default icon for an external planar gear contact</em>.
 <p>

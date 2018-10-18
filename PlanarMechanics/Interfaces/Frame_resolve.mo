@@ -39,12 +39,7 @@ coordinate system a vector is resolved (non-filled rectangular icon)"
           fillPattern=FillPattern.Solid),
         Line(points={{-12,0},{12,0}}, color={135,197,255}),
         Line(points={{0,12},{0,-12}}, color={135,197,255})}),
-    Documentation(revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
-</p>
-</html>",  info="<html>
+    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
 <p>
 Basic definition of a coordinate system that is fixed to a mechanical
 component. In the origin of the coordinate system the cut-force

@@ -66,14 +66,14 @@ equation
       thickness=0.5));
   annotation (Documentation(revisions="<html>
 <p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
 <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",
       info="<html>
 <p>It introduces one non-holonomic constraint. Difficult for index-reduction.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestIdealWheel_1.png\" alt=\"Diagram TestIdealWheel_1\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestIdealWheel_2.png\" alt=\"Diagram TestIdealWheel_2\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_1.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestIdealWheel_2.png\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>inertia.phi</li>
