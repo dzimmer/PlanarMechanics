@@ -1,9 +1,8 @@
 within PlanarMechanics.Parts;
 model Damper "Linear (velocity dependent) damper"
   extends BaseClasses.TwoConnectorShapes;
-  extends
-    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-     final T=293.15);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+    final T=293.15);
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
   parameter SI.TranslationalDampingConstant d=1 "Damping constant";
@@ -135,10 +134,19 @@ equation
           lineColor={0,0,0},
           fillColor={255,255,255},
           fillPattern=FillPattern.Solid)}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>This component is a <b>linear damper</b>, which acts as a line force between frame_a and frame_b. A <b>force f</b> is exerted on the origin of frame_b and with opposite sign on the origin of frame_a along the line from the origin of frame_a to the origin of frame_b according to the equation: </p>
 <p><code>f = d*<b>der</b>(s);</code></p>
 <p>where &quot;d&quot; is the damping constant, &quot;s&quot; is the distance between the origin of frame_a and origin of frame_b, and &quot;der(s)&quot; is the time derivative of &quot;s&quot;.</p>
-<p>In the following figure a typical animation is shown where a mass is hanging on a damper.<img src=\"modelica://PlanarMechanics/Resources/Images/Damper.png\"/></p>
+<p>In the following figure a typical animation is shown where a mass is hanging on a damper.</p>
+
+<blockquote>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Parts/Damper.png\" alt=\"Damper animation\">
+</blockquote>
 </html>"));
 end Damper;

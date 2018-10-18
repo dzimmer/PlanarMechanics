@@ -88,13 +88,18 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(force.flange, prismatic.flange_a) annotation (Line(
-      points={{-20,70},{-30,70},{-30,39}},
+      points={{-20,70},{-30,70},{-30,40}},
       color={0,127,0}));
-  annotation (Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+  annotation (Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>The trajectory is stipulated, the force is being measured.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/InvertedCraneCrab_1.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/InvertedCraneCrab_2.png\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/InvertedCraneCrab_3.png\"/></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_1.png\" alt=\"Diagram InvertedCraneCrab_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_2.png\" alt=\"Diagram InvertedCraneCrab_2\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_3.png\" alt=\"Diagram InvertedCraneCrab_3\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>prismatic.s</li>

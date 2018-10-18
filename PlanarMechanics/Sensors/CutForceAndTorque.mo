@@ -72,39 +72,35 @@ protected
         positiveSign)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Internal.BasicCutTorque cutTorque(positiveSign=positiveSign)
-    annotation (Placement(transformation(extent={{-2,-10},{18,10}})));
+    annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   Interfaces.ZeroPosition zeroPosition if
     not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
-    annotation (Placement(transformation(extent={{60,30},{80,50}})));
+    annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 equation
   connect(cutForce.frame_a, frame_a) annotation (Line(
-      points={{-60,0},{-70,0},{-70,0},{-80,
-          0},{-80,0},{-100,0}},
+      points={{-60,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutForce.frame_b, cutTorque.frame_a) annotation (Line(
-      points={{-40,0},{-30.5,0},{-30.5,0},{-21,
-          0},{-21,0},{-2,0}},
+      points={{-40,0},{40,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutTorque.frame_b, frame_b) annotation (Line(
-      points={{18,0},{38.5,0},{38.5,0},{59,
-          0},{59,0},{100,0}},
+      points={{60,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(cutForce.force, force) annotation (Line(
-      points={{-58,-11},{-58,-20},{-80,-20},{-80,-110}},
+      points={{-58,-11},{-58,-60},{-80,-60},{-80,-110}},
       color={0,0,127}));
   connect(cutTorque.torque, torque) annotation (Line(
-      points={{0,-11},{0,-35.75},{0,-35.75},{
-          0,-60.5},{0,-60.5},{0,-110}},
+      points={{42,-11},{42,-79.75},{0,-79.75},{0,-110}},
       color={0,0,127}));
   connect(zeroPosition.frame_resolve, cutForce.frame_resolve) annotation (Line(
-      points={{60,40},{-26,40},{-26,-20},{-42,-20},{-42,-10}},
+      points={{-20,-30},{-42,-30},{-42,-10}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(cutForce.frame_resolve, frame_resolve) annotation (Line(
-      points={{-42,-10},{-42,-70},{80,-70},{80,-100}},
+      points={{-42,-10},{-42,-60},{80,-60},{80,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   annotation (
@@ -118,7 +114,12 @@ equation
         Text(
           extent={{-56,-70},{60,-96}},
           textString="torque")}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>
 The cut-force and cut-torque acting between the two frames to which this
 model is connected, are determined and provided at the output signal connectors
@@ -163,7 +164,7 @@ with negative sign at frame_a.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\" alt=\"CutForceAndTorque animation\">
 </p>
 </html>"));
 end CutForceAndTorque;

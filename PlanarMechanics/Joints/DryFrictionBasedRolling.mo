@@ -2,9 +2,8 @@ within PlanarMechanics.Joints;
 model DryFrictionBasedRolling
   "A joint representing a wheel with slip-based rolling (dry friction law) on the x-axis"
 
-    extends
-    Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-     final T=293.15);
+  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
+    final T=293.15);
 
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
@@ -123,7 +122,12 @@ equation
           lineColor={0,0,0},
           textString="R=%R")}),
     Documentation(
-      revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
       info="<html>
 <p>Model SlipBasedRolling contains only one connector frame_a lying at the center of the wheel, where slip occurs between the wheel and ground and force caused by that is also taken into account.</p>
 <p>The ground is hereby represented by the x-axis.</p>
