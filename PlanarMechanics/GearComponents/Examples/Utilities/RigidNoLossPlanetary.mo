@@ -1,7 +1,6 @@
 within PlanarMechanics.GearComponents.Examples.Utilities;
 model RigidNoLossPlanetary "Planetary gearbox"
-  extends
-    PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.PlanetaryGearInterface;
+  extends PlanarMechanics.GearComponents.Examples.Utilities.Interfaces.PlanetaryGearInterface;
 
   parameter SI.Distance r_s(start=1) "Radius of sun gear";
   parameter SI.Distance r_p(start=1) "Radius of planet gear";
@@ -185,6 +184,11 @@ equation
       thickness=0.5));
   annotation (Documentation(info="<html>
 <p>This model is a model of a standard planetary gearbox. The inertia of all gear models, as well as the mass of the planetary gear can be entered to get the behaviour of a complete planetary gear. In this example only one planet is used as the gearbox models are rigid.</p>
-</html>", revisions=
-          "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>"));
+</html>",
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>"));
 end RigidNoLossPlanetary;

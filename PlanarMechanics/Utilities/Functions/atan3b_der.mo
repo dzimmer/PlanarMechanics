@@ -11,7 +11,13 @@ function atan3b_der "First deviation of atan3"
   output Modelica.SIunits.AngularVelocity y_der;
 algorithm
   y_der := u2/(u1*u1+u2*u2)*u1_der - u1/(u1*u1+u2*u2)*u2_der;
-  annotation (derivative = atan3b_dder, Documentation(revisions="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/><b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p>
+  annotation (
+    derivative = atan3b_dder,
+    Documentation(
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+</p>
 </html>"));
 end atan3b_der;

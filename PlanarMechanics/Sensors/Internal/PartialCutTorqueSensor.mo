@@ -3,9 +3,9 @@ partial model PartialCutTorqueSensor
   "Base model to measure the cut force and/or torque between two frames, defined by components"
 
   extends Modelica.Icons.RotationalSensor;
-  Interfaces.Frame_a frame_a "Coordinate system a"                                 annotation (Placement(
+  Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(
         transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b "Coordinate system b"                                 annotation (Placement(
+  Interfaces.Frame_b frame_b "Coordinate system b" annotation (Placement(
         transformation(extent={{84,-16},{116,16}})));
 //   Interfaces.Frame_resolve frame_resolve if
 //          resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
@@ -31,10 +31,11 @@ equation
   annotation (
     Documentation(revisions="<html>
 <p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
 </p>
-</html>",                                                                                                    info="<html>
+</html>",
+      info="<html>
 <p>
 This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure the cut-force and/or
