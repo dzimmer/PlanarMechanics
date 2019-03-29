@@ -92,14 +92,14 @@ equation
   annotation (experiment(StopTime=6),
     Documentation(revisions="<html>
 <p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",
       info="<html>
 <p>An ideal rolling single track model of a car.
 There is dynamic state selection applied. It might be avoided by picking Rear.v_long as state.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/SingleTrackWithEngine_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SingleTrackWithEngine_1.png\" alt=\"Diagram SingleTrackWithEngine_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SingleTrackWithEngine_2.png\" alt=\"Diagram SingleTrackWithEngine_2\"></p>
 </html>"));
 end SingleTrackWithEngine;

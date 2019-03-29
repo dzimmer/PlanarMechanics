@@ -51,7 +51,7 @@ equation
   annotation (
    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
            100}}), graphics={
-        Line(points={{0,-60},{0,-100}}, color={0,0,255}),
+        Line(points={{0,-60},{0,-100}}, color={0,0,127}),
         Line(points={{-70,0},{-101,0}}),
         Line(points={{70,0},{100,0}}),
         Text(
@@ -60,9 +60,6 @@ equation
           lineColor={0,0,255})}),
    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
            100,100}}), graphics={
-       Line(points={{-70,0},{-101,0}}),
-       Line(points={{70,0},{100,0}}),
-       Line(points={{0,-60},{0,-100}}, color={0,0,255}),
        Text(
          extent={{-22,70},{20,46}},
          textString="s",
@@ -73,7 +70,12 @@ equation
          lineColor={0,0,255},
          fillColor={0,0,255},
          fillPattern=FillPattern.Solid)}),
-   Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<HTML>
+   Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>
 The <b>distance</b> between the origins of frame_a
 and of frame_b are determined and provided at the
@@ -93,7 +95,7 @@ the yellow arrow is the animated sensor.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png\" alt=\"Distance animation\">
 </p>
 
 <p>
@@ -109,5 +111,5 @@ are identical for sqrt() and the polynomial at s_small. Furthermore, the polynom
 passes through zero. The effect is, that the distance function is continuous and
 differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 </p>
-</HTML>"));
+</html>"));
 end Distance;

@@ -74,13 +74,13 @@ equation
       color={0,0,127}));
   annotation (Documentation(revisions="<html>
 <p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",
       info="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_1.png\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/TestSlipBasedWheel_2.png\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestSlipBasedWheel_1.png\" alt=\"Diagram TestSlipBasedWheel_1\"></p>
+<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestSlipBasedWheel_2.png\" alt=\"Diagram TestSlipBasedWheel_2\"></p>
 <p>Selected continuous time states</p>
 <ul>
 <li>inertia.phi</li>

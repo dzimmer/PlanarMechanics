@@ -7,14 +7,16 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
 
   annotation (
     preferredView="info",
-    version="1.4.0",
-    versionDate="2017-01-12",
-    uses(Modelica(version="3.2.2")),
+    version="1.4.1",
+    versionBuild=1,
+    versionDate="2019-03-29",
+    dateModified = "2019-03-29 12:00:00Z",
+    uses(
+      Modelica(version="3.2.3")),
     conversion(
+      noneFromVersion="1.4.0",
       from(version="1.3.0", script="modelica://PlanarMechanics/Resources/Scripts/Dymola/convertFromPlanarMechanics1_3_0.mos")),
     Documentation(
-      revisions=
-        "<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",
       info="<html>
 <p>
 Library <b>PlanarMechanics</b> is a <b>free</b> Modelica package providing
@@ -35,7 +37,7 @@ In order to know how the library works, first have a look at:
 
 <h4>Licensed by DLR e.V. under the Modelica License 2</h4>
 <p>
-Copyright &copy; 2010-2018, Deutsches Zentrum fuer Luft- und Raumfahrt e.V.
+Copyright &copy; 2010-2019, Deutsches Zentrum fuer Luft- und Raumfahrt e.V.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely
@@ -44,6 +46,12 @@ the terms of the Modelica License 2. For license conditions (including
 the disclaimer of warranty)
 see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or
 visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+</p>
+</html>",
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>"),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
