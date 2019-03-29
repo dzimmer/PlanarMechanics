@@ -10,14 +10,16 @@ class ReleaseNotes "Release notes"
 This version requires the <b>Modelica&nbsp;3.2.3</b> Library.
 It is backwards compatible to previous library versions.
 </p>
+<p>Improvements in this version:</p>
+<ul>
+<li>PNG files moved to folders which exactly represent the package structure
+    (see also <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Format.Figures\">Modelica.UsersGuide.Conventions.Documentation.Format.Figures</a>).</li>
+<li>Documentation of some classes.</li>
+<li>Improved icons of some classes.</li>
+</ul>
 
 <!--
 <p>New features</p>
-<ul>
-<li>...</li>
-</ul>
-
-<p>Improvements in this version</p>
 <ul>
 <li>...</li>
 </ul>
