@@ -34,7 +34,7 @@ In order to know how the library works, first have a look at:
 
 <h4>Licensed by DLR e.V. under the Modelica License 2</h4>
 <p>
-Copyright &copy; 2010-2018, Deutsches Zentrum fuer Luft- und Raumfahrt e.V.
+Copyright &copy; 2010-2019, Deutsches Zentrum fuer Luft- und Raumfahrt e.V.
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely
@@ -48,7 +48,7 @@ visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\">http://www.m
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>"),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),

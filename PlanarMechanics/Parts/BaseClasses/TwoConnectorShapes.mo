@@ -68,7 +68,7 @@ protected
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
 <p>This partial base class contains two frames and optionally enables to visualize a cylinder at place of each of these frames. This class should be extended to create a proper model, see e.g. <a href=\"modelica://PlanarMechanics.Parts.Spring\">Spring</a> model. </p>
