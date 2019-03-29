@@ -8,10 +8,10 @@ class ReleaseNotes "Release notes"
 <h4>Version 1.4.1, 2019-03-29</h4>
 <p>
 This version requires the <b>Modelica&nbsp;3.2.3</b> Library.
-It is backwards compatible to versions&nbsp;1.4.x of the PlanarMechanics library.
+It is backwards compatible to previous library versions.
 </p>
 
-<--
+<!--
 <p>New features</p>
 <ul>
 <li>...</li>
@@ -21,7 +21,7 @@ It is backwards compatible to versions&nbsp;1.4.x of the PlanarMechanics library
 <ul>
 <li>...</li>
 </ul>
---/>
+-->
 
 <h4>Version 1.4.0, 2017-01-12</h4>
 <p>
