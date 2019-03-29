@@ -6,10 +6,10 @@ LibraryInfoMenuCommand(
   category="libraries",
   text="PlanarMechanics",
   reference="PlanarMechanics",
-  version="1.4.0",
+  version="1.4.1",
   isModel=true,
-  description="Planar Mechanics Library 1.4.0 for Modelica",
-  ModelicaVersion="3.2.2",
+  description="Planar Mechanics Library 1.4.1 for Modelica",
+  ModelicaVersion="3.2.3",
   pos=1130)
 
 // LibraryInfoPreload(reference="Modelica_LinearSystems2")
