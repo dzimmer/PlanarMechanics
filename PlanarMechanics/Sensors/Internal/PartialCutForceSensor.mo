@@ -32,10 +32,11 @@ equation
     Documentation(
       revisions="<html>
 <p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/>
-<b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
 </p>
-</html>",                                                                                                    info="<html>
+</html>",
+      info="<html>
 <p>
 This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure the cut-force and/or

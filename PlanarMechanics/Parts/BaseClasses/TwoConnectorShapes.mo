@@ -4,7 +4,7 @@ partial model TwoConnectorShapes
   extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
   parameter Boolean animate = true "Enable animation"
-                                                     annotation(Dialog(group="Animation"));
+    annotation(Dialog(group="Animation"));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation" annotation (Dialog(
@@ -65,7 +65,12 @@ protected
           extent={{72,-24},{108,-49}},
           lineColor={128,128,128},
           textString="b")}),
-    Documentation(revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b></p></html>",  info="<html>
+    Documentation(revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",  info="<html>
 <p>This partial base class contains two frames and optionally enables to visualize a cylinder at place of each of these frames. This class should be extended to create a proper model, see e.g. <a href=\"modelica://PlanarMechanics.Parts.Spring\">Spring</a> model. </p>
 </html>"));
 end TwoConnectorShapes;

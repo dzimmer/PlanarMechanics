@@ -98,7 +98,7 @@ as shown in the following picture.
 </p>
 
 <p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/CoordinateSystem.png\" ALT=\"model Visualizers.Advanced.CoordinateSystem\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/Visualizers/Advanced/CoordinateSystem.png\" ALT=\"model Visualizers.Advanced.CoordinateSystem\">
 </p>
 
 <p>

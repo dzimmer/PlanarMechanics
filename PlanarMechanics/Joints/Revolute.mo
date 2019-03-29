@@ -147,7 +147,12 @@ equation
         Rectangle(extent={{-100,60},{-20,-62}}, lineColor={0,0,0}),
         Rectangle(extent={{20,62},{100,-60}}, lineColor={0,0,0})}),
     Documentation(
-      revisions="<html><p><img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\"/> <b>Developed 2010-2018 at the DLR Institute of System Dynamics and Control</b> </p></html>",
+      revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+</p>
+</html>",
       info="<html>
 <p>Joint where frame_b rotates around axis n which is fixed in frame_a. The two frames coincide when the rotation angle &quot;phi = 0&quot;.</p>
 <p>
