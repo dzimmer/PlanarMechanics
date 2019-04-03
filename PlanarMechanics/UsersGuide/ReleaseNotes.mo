@@ -10,6 +10,12 @@ class ReleaseNotes "Release notes"
 This version requires the <b>Modelica&nbsp;3.2.3</b> Library.
 It is backwards compatible to previous library versions.
 </p>
+
+<ul>
+<li> The license has been changed to BSD 3-clause, visit:
+     <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
+</ul>
+
 <p>Improvements in this version:</p>
 <ul>
 <li>PNG files moved to folders which exactly represent the package structure
