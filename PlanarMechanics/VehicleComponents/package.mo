@@ -7,7 +7,7 @@ package VehicleComponents "Vehicle relevant 2-dim. components"
     Documentation(info="<html>
 <p>This package contains elements useful for modeling vehicles that roll on the xy-plane.
 Essentially, there are various wheel models and a differential gear.</p>
-</html>", 
+</html>",
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
