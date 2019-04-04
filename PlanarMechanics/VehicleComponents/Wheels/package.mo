@@ -7,7 +7,7 @@ package Wheels "Wheel and tire models"
     Documentation(
       info="<html>
 <p>This package contains wheel models that roll on the x,y plane. The wheel models are hereby represented as a mass-free element similar to a joint component.</p>
-</html>", 
+</html>",
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">

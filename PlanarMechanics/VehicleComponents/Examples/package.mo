@@ -4,7 +4,7 @@ package Examples "Collection of simulatable models involving vehicle components"
 
 
   annotation (
-    Documentation( 
+    Documentation(
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
