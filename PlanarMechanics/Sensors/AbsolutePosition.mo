@@ -50,7 +50,7 @@ equation
       thickness=0.5));
   annotation (
     Icon(
-      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
         Line(
           points={{70,0},{100,0}},
