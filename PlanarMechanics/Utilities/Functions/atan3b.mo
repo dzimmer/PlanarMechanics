@@ -91,13 +91,17 @@ This function returns y = <b>atan3</b>(u1,u2,y0) such that
 <b>tan</b>(y) = u1/u2 and
 y is in the range: -pi &lt; y-y0 &lt; pi.<br>
 u2 may be zero, provided u1 is not zero. The difference to
-Modelica.Math.atan2(..) is the optional third argument y0 that
-allows to specify which of the infinite many solutions
-shall be returned:
+<a href=\"modelica://Modelica.Math.atan3\">Modelica.Math.atan3</a>(&hellip;)
+is that the derivatives of atan3 are explicitely defined here.
 </p>
 
+
+<h4>See also</h4>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/atan3.png\" alt=\"Function atan3\">
+<a href=\"modelica://PlanarMechanics.Utilities.Functions.atan3b_der\">atan3b_der</a>
+for 1st derivative and
+<a href=\"modelica://PlanarMechanics.Utilities.Functions.atan3b_dder\">atan3b_dder</a>
+for 2nd derivative of this function.
 </p>
 </html>"));
 end atan3b;

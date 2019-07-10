@@ -14,6 +14,12 @@ algorithm
   annotation (
     derivative = atan3b_dder,
     Documentation(
+      info="<html>
+<p>
+The first derivative of the function
+<a href=\"modelica://PlanarMechanics.Utilities.Functions.atan3b\">atan3b</a>.
+</p>
+</html>",
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
