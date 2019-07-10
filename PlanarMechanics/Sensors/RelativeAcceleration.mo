@@ -4,8 +4,8 @@ model RelativeAcceleration
   extends Internal.PartialRelativeSensor;
 
   Modelica.Blocks.Interfaces.RealOutput a_rel[3](
-    each final quantity="Velocity", each final unit="m/s")
-    "Relative velocity vector resolved in frame defined by resolveInFrame"
+    each final quantity="Acceleration", each final unit="m/s2")
+    "Relative acceleration vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,

@@ -4,8 +4,8 @@ model AbsoluteAcceleration
   extends Internal.PartialAbsoluteSensor;
 
   Modelica.Blocks.Interfaces.RealOutput a[3](
-    each final quantity="Velocity", each final unit="m/s2")
-    "Absolute velocity vector resolved in frame defined by resolveInFrame"
+    each final quantity="Acceleration", each final unit="m/s2")
+    "Absolute acceleration vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
