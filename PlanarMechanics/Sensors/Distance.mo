@@ -13,18 +13,18 @@ model Distance
        origin={0,-110},
        extent={{10,-10},{-10,10}},
        rotation=90)));
-  parameter Boolean animation=true
+  parameter Boolean animation = true
     "= true, if animation shall be enabled (show arrow)";
-  input SI.Diameter arrowDiameter=planarWorld.defaultArrowDiameter
+  input SI.Diameter arrowDiameter = planarWorld.defaultArrowDiameter
     "Diameter of relative arrow from frame_a to frame_b"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
+  input Types.Color arrowColor = Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
     "Color of relative arrow from frame_a to frame_b"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
   input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(group="if animation = true", enable=animation));
-  input SI.Position s_small(min=sqrt(Modelica.Constants.small))=1.E-10
+  input SI.Position s_small(min=sqrt(Modelica.Constants.small)) = 1.E-10
     "Prevent zero-division if distance between frame_a and frame_b is zero"
     annotation (Dialog(tab="Advanced"));
 protected
@@ -49,8 +49,9 @@ equation
 
   distance =  smooth(1,if noEvent(L2 > s_small2) then sqrt(L2) else L2/(2*s_small)*(3-L2/s_small2));
   annotation (
-   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-           100}}), graphics={
+   Icon(
+     coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+     graphics={
         Line(points={{0,-60},{0,-100}}, color={0,0,127}),
         Line(points={{-70,0},{-101,0}}),
         Line(points={{70,0},{100,0}}),
@@ -58,8 +59,9 @@ equation
           extent={{-150,80},{150,40}},
           textString="%name",
           lineColor={0,0,255})}),
-   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-           100,100}}), graphics={
+   Diagram(
+     coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+     graphics={
        Text(
          extent={{-22,70},{20,46}},
          textString="s",

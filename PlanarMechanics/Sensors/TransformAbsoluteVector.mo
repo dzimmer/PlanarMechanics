@@ -3,7 +3,7 @@ model TransformAbsoluteVector "Transform absolute vector in to another frame"
   extends Modelica.Icons.RotationalSensor;
 
   Interfaces.Frame_a frame_a
-    "Coordinate system from which absolute kinematic quantities are measured"            annotation (Placement(
+    "Coordinate system from which absolute kinematic quantities are measured" annotation (Placement(
         transformation(extent={{-116,-16},{-84,16}})));
 
   Interfaces.Frame_resolve frame_resolve if
@@ -25,15 +25,15 @@ model TransformAbsoluteVector "Transform absolute vector in to another frame"
         origin={0,-110})));
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_in=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_resolve)";
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_out=
-                  frame_r_in
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_out = frame_r_in
     "Frame in which vector r_in shall be resolved and provided as r_out (1: world, 2: frame_a, 3: frame_resolve)";
 
 protected
-  Internal.BasicTransformAbsoluteVector basicTransformVector(frame_r_in=
-        frame_r_in, frame_r_out=frame_r_out)
+  Internal.BasicTransformAbsoluteVector basicTransformVector(
+    frame_r_in = frame_r_in,
+    frame_r_out = frame_r_out)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Interfaces.ZeroPosition zeroPosition if
     not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve or
@@ -64,9 +64,10 @@ equation
       points={{0,12},{0,39},{0,39},{0,
           66},{0,66},{0,120}},
       color={0,0,127}));
-  annotation (Icon(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
-        graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
+      graphics={
         Line(
           points={{0,-70},{0,-100}},
           color={0,0,127}),

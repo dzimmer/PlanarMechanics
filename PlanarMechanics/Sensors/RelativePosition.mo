@@ -2,22 +2,23 @@ within PlanarMechanics.Sensors;
 model RelativePosition
   "Measure relative position vector between the origins of two frame connectors"
   extends Internal.PartialRelativeSensor;
-  Modelica.Blocks.Interfaces.RealOutput r_rel[3]
+
+  Modelica.Blocks.Interfaces.RealOutput r_rel[3](
+    each final quantity="Position",
+    each final unit = "m")
     "Relative position vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={0,-110})));
-
   Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
     "Coordinate system in which r_rel is optionally resolved"
     annotation (Placement(transformation(extent={{84,64},{116,96}}),
         iconTransformation(extent={{84,65},{116,97}})));
 
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
-    resolveInFrame=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
 protected
@@ -51,8 +52,10 @@ equation
       points={{0,-11},{0,-35.75},{0,-35.75},{
           0,-60.5},{0,-60.5},{0,-110}},
       color={0,0,127}));
-  annotation (Icon(coordinateSystem(
-          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
         Line(
           points={{0,-70},{0,-100}},
           color={0,0,127}),

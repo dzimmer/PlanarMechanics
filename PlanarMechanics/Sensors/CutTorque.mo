@@ -6,21 +6,22 @@ model CutTorque "Measure cut torque vector"
 
   Modelica.Blocks.Interfaces.RealOutput torque
     "Cut torque resolved in frame defined by resolveInFrame"
-       annotation (Placement(transformation(
+    annotation (Placement(transformation(
         origin={-80,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
 
-  parameter Boolean animation=true
+  parameter Boolean animation = true
     "= true, if animation shall be enabled (show arrow)";
-  parameter Boolean positiveSign=true
+  parameter Boolean positiveSign = true
     "= true, if torque with positive sign is returned (= frame_a.t), otherwise with negative sign (= frame_b.t)";
+
   input Real Nm_to_m(unit="N.m/m") = planarWorld.defaultNm_to_m
     "Torque arrow scaling (length = torque/Nm_to_m)"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input SI.Diameter torqueDiameter=planarWorld.defaultArrowDiameter
+  input SI.Diameter torqueDiameter = planarWorld.defaultArrowDiameter
     "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
-  input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
+  input Types.Color torqueColor = Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
     "Color of torque arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
   input PlanarMechanics.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
@@ -28,8 +29,8 @@ model CutTorque "Measure cut torque vector"
     annotation (HideResult=true, Dialog(group="if animation = true", enable=animation));
 
 protected
- inner Modelica.Mechanics.MultiBody.World world;
-  SI.Position t_in_m[3]={0,0,frame_a.t}*(if positiveSign then +1 else -1)/Nm_to_m
+  inner Modelica.Mechanics.MultiBody.World world;
+  SI.Position t_in_m[3] = {0,0,frame_a.t}*(if positiveSign then +1 else -1)/Nm_to_m
     "Torque mapped from Nm to m for animation";
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow torqueArrow(
     diameter=torqueDiameter,
@@ -40,8 +41,8 @@ protected
     r_head=-t_in_m,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;
     //R=Modelica.Mechanics.MultiBody.Frames.planarRotation({0,0,1},frame_b.phi,0),
-  Internal.BasicCutTorque cutTorque(positiveSign=
-       positiveSign)
+  Internal.BasicCutTorque cutTorque(
+    positiveSign=positiveSign)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 //   Interfaces.ZeroPosition zeroPosition if
 //     not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
@@ -69,11 +70,14 @@ equation
 //       pattern=LinePattern.Dot,
 //       ));
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-            100}}), graphics={Text(
+    Icon(
+      coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
+      graphics={
+        Text(
           extent={{-180,-72},{-64,-98}},
-          textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
-              127})}),
+          textString="torque"),
+        Line(
+          points={{-80,-100},{-80,0}}, color={0,0,127})}),
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">

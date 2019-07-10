@@ -4,7 +4,8 @@ model AbsoluteAcceleration
   extends Internal.PartialAbsoluteSensor;
 
   Modelica.Blocks.Interfaces.RealOutput a[3](
-    each final quantity="Acceleration", each final unit="m/s2")
+    each final quantity="Acceleration",
+    each final unit="m/s2")
     "Absolute acceleration vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -17,26 +18,27 @@ model AbsoluteAcceleration
         origin={0,-100})));
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which output vector v shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
 protected
-  Internal.BasicAbsolutePosition position(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
+  Internal.BasicAbsolutePosition position(
+    resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-  Modelica.Blocks.Continuous.Der der1[3]                           annotation (Placement(transformation(
+  Modelica.Blocks.Continuous.Der der1[3] annotation (Placement(transformation(
         extent={{-20,-10},{0,10}})));
-  TransformAbsoluteVector transformAbsoluteVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
-      frame_r_out=resolveInFrame) annotation (Placement(transformation(
+  TransformAbsoluteVector transformAbsoluteVector(
+    frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
+    frame_r_out=resolveInFrame) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={30,0})));
   Interfaces.ZeroPosition zeroPosition
     annotation (Placement(transformation(extent={{-60,-60},{-80,-40}})));
-  Interfaces.ZeroPosition zeroPosition1 if
-       not (
+  Interfaces.ZeroPosition zeroPosition1 if not (
     resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
-  Modelica.Blocks.Continuous.Der der2[3]                           annotation (Placement(transformation(
+  Modelica.Blocks.Continuous.Der der2[3] annotation (Placement(transformation(
         extent={{60,-10},{80,10}})));
 equation
   connect(position.r, der1.u) annotation (Line(
@@ -77,8 +79,10 @@ equation
       points={{81,0},{110,0}},
       color={0,0,127}));
 
-  annotation (Icon(coordinateSystem(
-          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
         Line(
           points={{70,0},{100,0}},
           color={0,0,127}),

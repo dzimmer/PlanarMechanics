@@ -4,7 +4,8 @@ model RelativeAcceleration
   extends Internal.PartialRelativeSensor;
 
   Modelica.Blocks.Interfaces.RealOutput a_rel[3](
-    each final quantity="Acceleration", each final unit="m/s2")
+    each final quantity="Acceleration",
+    each final unit="m/s2")
     "Relative acceleration vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -15,24 +16,24 @@ model RelativeAcceleration
     "Coordinate system in which v_rel is optionally resolved"
     annotation (Placement(transformation(extent={{84,64},{116,96}})));
 
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
-    resolveInFrame=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
     "Frame in which output vector v_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
 protected
-  RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a)
+  RelativePosition relativePosition(
+    resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a)
     annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-  Interfaces.ZeroPosition zeroPosition if
-    not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+  Interfaces.ZeroPosition zeroPosition if not (
+    resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
     annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
   Modelica.Blocks.Continuous.Der der_r_rel[3] annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,0})));
   TransformRelativeVector transformRelativeVector(
-      frame_r_in= Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
-      frame_r_out=resolveInFrame)
+    frame_r_in= Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
+    frame_r_out=resolveInFrame)
     annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
   Modelica.Blocks.Continuous.Der der_r_rel1[3] annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -48,7 +49,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(relativePosition.r_rel, der_r_rel.u)
-                                          annotation (Line(
+    annotation (Line(
       points={{0,29},{0,12},{2.22045e-15,12}},
       color={0,0,127}));
   connect(transformRelativeVector.frame_a, frame_a) annotation (Line(
@@ -77,8 +78,10 @@ equation
   connect(der_r_rel1.y, a_rel) annotation (Line(
       points={{-2.22045e-15,-81},{-2.22045e-15,-110},{0,-110}},
       color={0,0,127}));
-  annotation (Icon(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
         Line(
           points={{0,-70},{0,-100}},
           color={0,0,127}),

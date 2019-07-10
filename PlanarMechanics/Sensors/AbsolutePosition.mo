@@ -3,20 +3,22 @@ model AbsolutePosition
   "Measure absolute position vector of the origin of a frame connector"
   extends Internal.PartialAbsoluteSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput  r[3](each final quantity="Position", each final unit = "m")
+  Modelica.Blocks.Interfaces.RealOutput r[3](
+    each final quantity="Position",
+    each final unit = "m")
     "Absolute position vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
-   Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
-     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+  Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector r is optionally resolved"
-     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
+    annotation (Placement(transformation(extent={{-16,-16},{16,16}},
          rotation=-90,
          origin={0,-100})));
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which output vector r shall be resolved (1: world, 2: frame_a, 3:frame_resolve)";
 
 protected
@@ -46,8 +48,10 @@ equation
           0},{-55,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Icon(coordinateSystem(
-          preserveAspectRatio=false,extent={{-100,-100},{100,100}}), graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+      graphics={
         Line(
           points={{70,0},{100,0}},
           color={0,0,127}),
