@@ -86,7 +86,7 @@ package Sensors "Test models for PlanarMechanics.Sensors"
         thickness=0.5));
   end AbsoluteRotated;
 
-  model AbsoluteRotatedAdd "Test sensors measuring absolute quantities of accelerating body in rotated frame_a"
+  model AbsoluteRotatedAcc "Test sensors measuring absolute quantities of accelerating body in rotated frame_a"
     extends Modelica.Icons.Example;
 
     inner PlanarMechanics.PlanarWorld planarWorld annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
@@ -131,5 +131,5 @@ package Sensors "Test models for PlanarMechanics.Sensors"
         color={95,95,95},
         thickness=0.5));
     connect(const.y, worldForce.force) annotation (Line(points={{-39,-60},{-22,-60}}, color={0,0,127}));
-  end AbsoluteRotatedAdd;
+  end AbsoluteRotatedAcc;
 end Sensors;
