@@ -30,7 +30,7 @@ protected
     annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
 
 equation
-  connect(position.frame_resolve, frame_resolve)         annotation (Line(
+  connect(position.frame_resolve, frame_resolve) annotation (Line(
       points={{0,-10},{0,-32.5},{0,-32.5},{0,-55},{0,-100},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));

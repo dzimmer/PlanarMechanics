@@ -7,7 +7,10 @@ model Distance
   import Modelica.Mechanics.MultiBody.Frames;
   import Modelica.Mechanics.MultiBody.Types;
 
-  Modelica.Blocks.Interfaces.RealOutput distance
+  Modelica.Blocks.Interfaces.RealOutput distance(
+    final quantity="Position",
+    final unit = "m",
+    min = 0)
     "Distance between the origin of frame_a and the origin of frame_b"
     annotation (Placement(transformation(
        origin={0,-110},
@@ -47,7 +50,7 @@ equation
   frame_a.t = 0;
   frame_b.t = 0;
 
-  distance =  smooth(1,if noEvent(L2 > s_small2) then sqrt(L2) else L2/(2*s_small)*(3-L2/s_small2));
+  distance = smooth(1,if noEvent(L2 > s_small2) then sqrt(L2) else L2/(2*s_small)*(3-L2/s_small2));
   annotation (
    Icon(
      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
