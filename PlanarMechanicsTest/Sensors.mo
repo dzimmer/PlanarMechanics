@@ -133,7 +133,7 @@ package Sensors "Test models for PlanarMechanics.Sensors"
     connect(const.y, worldForce.force) annotation (Line(points={{-39,-60},{-22,-60}}, color={0,0,127}));
   end AbsoluteRotatedAcc;
 
-  model AbsoluteAccCentrifugal
+  model AbsoluteAccCentrifugal "Test sensors measuring absolute quantities in for steady state rotation of frame_a"
     extends Modelica.Icons.Example;
 
     inner PlanarMechanics.PlanarWorldIn3D planarWorld(
@@ -299,4 +299,70 @@ Expected results:
             lineColor={28,108,200},
             textString="New actual result: {-a,0,0}")}));
   end AbsoluteAccCentrigual_Solution;
+
+  model AbsoluteAccCentrifugalAcc "Test sensors measuring absolute quantities in for accelerated rotation of frame_a"
+    extends Modelica.Icons.Example;
+
+    inner PlanarMechanics.PlanarWorldIn3D planarWorld(
+      constantGravity={0,0},
+      animateGravity=false,
+      animateWorld=false,
+      connectToMultiBody=false,
+      enableAnimation=true,
+      inheritGravityFromMultiBody=false)
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    PlanarMechanics.Parts.Body body(m=1, I=0.1)
+      annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
+    PlanarMechanics.Parts.FixedTranslation fixedTranslation(r={10,0})
+      annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+    PlanarMechanics.Parts.Fixed fixed annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=180,
+          origin={-90,-20})));
+    PlanarMechanics.Joints.Revolute revolute1(
+      useFlange=true,
+      phi(fixed=true),
+      w(fixed=true,
+        displayUnit="rad/s",
+        start=10))
+      annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));
+    PlanarMechanics.Sensors.AbsolutePosition absolutePosition(resolveInFrame=
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
+      annotation (Placement(transformation(extent={{20,10},{40,30}})));
+    PlanarMechanics.Sensors.AbsoluteVelocity absoluteVelocity(resolveInFrame=
+      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
+      annotation (Placement(transformation(extent={{20,40},{40,60}})));
+    PlanarMechanics.Sensors.AbsoluteAcceleration absoluteAcceleration(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
+      annotation (Placement(transformation(extent={{20,70},{40,90}})));
+    Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(tau_constant=100) annotation (Placement(transformation(extent={{-90,-70},{-70,-50}})));
+  equation
+    connect(fixedTranslation.frame_b,body. frame_a) annotation (Line(
+        points={{-20,-20},{10,-20}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame,revolute1. frame_a) annotation (Line(
+        points={{-80,-20},{-70,-20}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(revolute1.frame_b,fixedTranslation. frame_a) annotation (Line(
+        points={{-50,-20},{-40,-20}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absolutePosition.frame_a, body.frame_a) annotation (Line(
+        points={{20,20},{0,20},{0,-20},{10,-20}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absoluteVelocity.frame_a, body.frame_a) annotation (Line(
+        points={{20,50},{0,50},{0,-20},{10,-20}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absoluteAcceleration.frame_a, body.frame_a) annotation (Line(
+        points={{20,80},{0,80},{0,-20},{10,-20}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(constantTorque.flange, revolute1.flange_a) annotation (Line(points={{-70,-60},{-60,-60},{-60,-30}}, color={0,0,0}));
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+          coordinateSystem(preserveAspectRatio=false)));
+  end AbsoluteAccCentrifugalAcc;
 end Sensors;
