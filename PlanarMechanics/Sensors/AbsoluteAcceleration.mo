@@ -28,18 +28,18 @@ protected
   Modelica.Blocks.Continuous.Der der1[3] annotation (Placement(transformation(
         extent={{-20,-10},{0,10}})));
   TransformAbsoluteVector transformAbsoluteVector(
-    frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
+    frame_r_in=position.resolveInFrame,
     frame_r_out=resolveInFrame) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
-        origin={30,0})));
+        origin={70,0})));
   Interfaces.ZeroPosition zeroPosition
     annotation (Placement(transformation(extent={{-60,-60},{-80,-40}})));
   Interfaces.ZeroPosition zeroPosition1 if not (
     resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
-    annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
+    annotation (Placement(transformation(extent={{60,-60},{40,-40}})));
   Modelica.Blocks.Continuous.Der der2[3] annotation (Placement(transformation(
-        extent={{60,-10},{80,10}})));
+        extent={{20,-10},{40,10}})));
 equation
   connect(position.r, der1.u) annotation (Line(
       points={{-39,0},{-22,0}},
@@ -52,33 +52,24 @@ equation
   connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
       points={{-60,-50},{-50,-50},{-50,-10}},
       color={95,95,95},
-      pattern=LinePattern.Dot));
+      pattern=LinePattern.Dash));
   connect(transformAbsoluteVector.frame_a, frame_a) annotation (Line(
-      points={{30,10},{30,20},{-70,20},{-70,0},{-100,0}},
+      points={{70,10},{70,20},{-70,20},{-70,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
     annotation (Line(
-      points={{29.9,-10},{30,-10},{30,-50},{60,-50}},
+      points={{69.9,-10},{70,-10},{70,-50},{60,-50}},
       color={95,95,95},
-      pattern=LinePattern.Dot));
+      pattern=LinePattern.Dash));
   connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
-      points={{29.9,-10},{30,-10},{30,-50},{0,-50},{0,-100}},
+      points={{69.9,-10},{70,-10},{70,-80},{0,-80},{0,-100}},
       color={95,95,95},
-      pattern=LinePattern.Dot));
+      pattern=LinePattern.Dash));
 
-  connect(der1.y, transformAbsoluteVector.r_in) annotation (Line(
-      points={{1,0},{18,0},{18,6.66134e-16}},
-      color={0,0,127}));
-
-  connect(transformAbsoluteVector.r_out, der2.u) annotation (Line(
-      points={{41,0},{58,0}},
-      color={0,0,127}));
-
-  connect(der2.y, a) annotation (Line(
-      points={{81,0},{110,0}},
-      color={0,0,127}));
-
+  connect(der1.y, der2.u) annotation (Line(points={{1,0},{18,0}}, color={0,0,127}));
+  connect(der2.y, transformAbsoluteVector.r_in) annotation (Line(points={{41,0},{58,0}}, color={0,0,127}));
+  connect(transformAbsoluteVector.r_out, a) annotation (Line(points={{81,0},{110,0}}, color={0,0,127}));
   annotation (
     Icon(
       coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
