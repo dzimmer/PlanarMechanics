@@ -10,11 +10,11 @@ model BasicCutForce
 
   Modelica.Blocks.Interfaces.RealOutput force[2](each final quantity="Force", each final unit="N")
     "Cut force resolved in frame defined by resolveInFrame"
-       annotation (Placement(transformation(
+    annotation (Placement(transformation(
         origin={-80,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-    parameter Boolean positiveSign=true
+  parameter Boolean positiveSign=true
     "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
 protected
   parameter Integer csign=if positiveSign then +1 else -1;
