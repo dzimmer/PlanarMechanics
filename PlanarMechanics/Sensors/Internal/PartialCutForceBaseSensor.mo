@@ -3,9 +3,9 @@ partial model PartialCutForceBaseSensor
   "Base model to measure the cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)"
 
   extends Modelica.Icons.RotationalSensor;
-  Interfaces.Frame_a frame_a "Coordinate system a"                                 annotation (Placement(
+  Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(
         transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b "Coordinate system b"                                 annotation (Placement(
+  Interfaces.Frame_b frame_b "Coordinate system b" annotation (Placement(
         transformation(extent={{84,-16},{116,16}})));
   Interfaces.Frame_resolve frame_resolve
     "The output vector is optionally resolved in this frame (cut-force/-torque are set to zero)"
@@ -14,9 +14,8 @@ partial model PartialCutForceBaseSensor
         extent={{-16,-16},{16,16}},
         rotation=270)));
 
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
-    resolveInFrame=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which output vector is resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
 protected

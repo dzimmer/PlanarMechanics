@@ -3,12 +3,13 @@ model BasicTransformRelativeVector
   "Transform relative vector in to another frame"
   import Modelica.Mechanics.MultiBody.Frames;
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
+
   extends Internal.PartialRelativeBaseSensor;
+
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_in=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
     "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_out=
-                  frame_r_in
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_out=frame_r_in
     "Frame in which vector r_out (= r_in in other frame) is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
   Modelica.Blocks.Interfaces.RealInput r_in[3]
@@ -25,7 +26,7 @@ model BasicTransformRelativeVector
 // protected
 //   Modelica.Mechanics.MultiBody.Frames.Orientation R1
 //     "Orientation object from world frame to frame in which r_in is resolved";
-Real R1[3,3];
+  Real R1[3,3];
 
 equation
    if frame_r_out == frame_r_in then

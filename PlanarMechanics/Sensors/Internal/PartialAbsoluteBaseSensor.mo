@@ -4,7 +4,7 @@ model PartialAbsoluteBaseSensor
   extends Modelica.Icons.RotationalSensor;
 
   Interfaces.Frame_a frame_a
-    "Coordinate system from which kinematic quantities are measured"            annotation (Placement(
+    "Coordinate system from which kinematic quantities are measured" annotation (Placement(
         transformation(extent={{-116,-16},{-84,16}})));
 
   Interfaces.Frame_resolve frame_resolve

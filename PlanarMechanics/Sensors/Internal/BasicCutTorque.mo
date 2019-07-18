@@ -7,6 +7,7 @@ model BasicCutTorque
   import Modelica.Mechanics.MultiBody.Frames;
 
   extends Internal.PartialCutTorqueBaseSensor;
+
   Modelica.Blocks.Interfaces.RealOutput torque(final quantity="Torque", final unit=
         "N.m") "Cut torque resolved in frame defined by resolveInFrame"
        annotation (Placement(transformation(
