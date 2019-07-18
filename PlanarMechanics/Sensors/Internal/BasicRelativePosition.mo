@@ -3,8 +3,8 @@ model BasicRelativePosition
   "Measure relative position vector (same as Sensors.RelativePosition, but frame_resolve is not conditional and must be connected)"
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
   extends Sensors.Internal.PartialRelativeBaseSensor;
-  Modelica.Blocks.Interfaces.RealOutput r_rel[3](each final quantity="Position", each final
-            unit = "m")
+
+  Modelica.Blocks.Interfaces.RealOutput r_rel[3]
     "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={0,-110},
