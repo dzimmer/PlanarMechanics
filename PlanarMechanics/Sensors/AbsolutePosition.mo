@@ -3,9 +3,7 @@ model AbsolutePosition
   "Measure absolute position vector of the origin of a frame connector"
   extends Internal.PartialAbsoluteSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput r[3](
-    each final quantity="Position",
-    each final unit = "m")
+  Modelica.Blocks.Interfaces.RealOutput r[3]
     "Absolute position vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

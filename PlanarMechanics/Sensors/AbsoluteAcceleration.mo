@@ -3,9 +3,7 @@ model AbsoluteAcceleration
   "Measure absolute acceleration vector of origin of frame connector"
   extends Internal.PartialAbsoluteSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput a[3](
-    each final quantity="Acceleration",
-    each final unit="m/s2")
+  Modelica.Blocks.Interfaces.RealOutput a[3]
     "Absolute acceleration vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},

@@ -3,9 +3,7 @@ model RelativeAcceleration
   "Measure relative acceleration vector between the origins of two frame connectors"
   extends Internal.PartialRelativeSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput a_rel[3](
-    each final quantity="Acceleration",
-    each final unit="m/s2")
+  Modelica.Blocks.Interfaces.RealOutput a_rel[3]
     "Relative acceleration vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
