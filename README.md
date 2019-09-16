@@ -21,7 +21,7 @@ The PlanarMechanics library is an open-source Modelica library for the modelling
 
 ## License
 
-The libray is released under Modelica License 2.
+The libray is released under the 3-Clause BSD license, see https://modelica.org/licenses/modelica-3-clause-bsd.
 
 ## Development and contribution
 The library was developed by the German Aerospace Center (DLR)
