@@ -243,63 +243,6 @@ Expected results:
           "PlotTestResults"));
   end AbsoluteAccCentrifugal;
 
-  model AbsoluteAccCentrigual_Solution "Proposed solution"
-    extends AbsoluteAccCentrifugal(
-      absoluteAcceleration(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world),
-
-      absoluteVelocity(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a),
-
-      absolutePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a));
-    PlanarMechanics.Sensors.TransformAbsoluteVector
-                            transformAbsoluteVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
-        frame_r_out=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
-                                    annotation (Placement(transformation(
-          extent={{10,-10},{-10,10}},
-          rotation=90,
-          origin={70,80})));
-  equation
-    connect(absoluteAcceleration.a, transformAbsoluteVector.r_in)
-      annotation (Line(points={{41,80},{58,80}}, color={0,0,127}));
-    connect(transformAbsoluteVector.frame_a, body.frame_a) annotation (Line(
-        points={{70,90},{70,96},{0,96},{0,-20},{10,-20}},
-        color={95,95,95},
-        thickness=0.5));
-    annotation (__Dymola_Commands(executeCall(
-          ensureSimulated=true,
-          autoRun=true) = {createPlot(
-            id=1,
-            position={0,0,1289,847},
-            y={"absoluteVelocity.v[1]","absoluteVelocity.v[2]",
-            "absoluteVelocity.v[3]"},
-            range={0.0,1.0,-50.0,150.0},
-            grid=true,
-            colors={{28,108,200},{238,46,47},{0,140,72}}),createPlot(
-            id=1,
-            position={0,0,1289,279},
-            y={"absolutePosition.r[1]","absolutePosition.r[2]",
-            "absolutePosition.r[3]"},
-            range={0.0,1.0,-5.0,15.0},
-            grid=true,
-            subPlot=3,
-            colors={{28,108,200},{238,46,47},{0,140,72}}),createPlot(
-            id=1,
-            position={0,0,1289,279},
-            y={"body.a[1]","body.a[2]","absoluteAcceleration.a[1]",
-            "absoluteAcceleration.a[2]","absoluteAcceleration.a[3]",
-            "transformAbsoluteVector.r_out[1]",
-            "transformAbsoluteVector.r_out[2]",
-            "transformAbsoluteVector.r_out[3]"},
-            range={0.0,1.0,-1500.0,1500.0},
-            grid=true,
-            subPlot=2,
-            colors={{28,108,200},{238,46,47},{0,140,72},{217,67,180},{0,0,0},{
-            162,29,33},{244,125,35},{102,44,145}})} "Plot test results"),
-        Diagram(graphics={Text(
-            extent={{46,-80},{96,-100}},
-            lineColor={28,108,200},
-            textString="New actual result: {-a,0,0}")}));
-  end AbsoluteAccCentrigual_Solution;
-
   model AbsoluteAccCentrifugalAcc "Test sensors measuring absolute quantities in for accelerated rotation of frame_a"
     extends Modelica.Icons.Example;
 
