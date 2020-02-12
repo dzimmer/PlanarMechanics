@@ -1,8 +1,9 @@
 within PlanarMechanics.Utilities.Functions;
 function atan3b
-  "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
+  "Obsolete function: Four quadrant inverse tangent (select solution that is closest to given angle y0)"
   import Modelica.Math;
   extends Modelica.Math.Icons.AxisCenter;
+  extends Modelica.Icons.ObsoleteModel;
   input Real u1;
   input Real u2;
   input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 < pi";
@@ -14,6 +15,7 @@ algorithm
   w :=Math.atan2(u1, u2);
   y := w + 2*pi*div(abs(w-y0)+pi,2*pi)*(if y0 > w then +1 else -1);
   annotation (
+    obsolete = "Obsolete function - use Modelica.Math.atan3 instead",
     derivative(noDerivative=y0) = atan3b_der,
     Icon(coordinateSystem(
         preserveAspectRatio=true,

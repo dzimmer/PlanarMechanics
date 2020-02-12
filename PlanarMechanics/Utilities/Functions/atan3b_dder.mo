@@ -1,6 +1,7 @@
 within PlanarMechanics.Utilities.Functions;
-function atan3b_dder "Second deviation of atan3"
+function atan3b_dder "Obsolete function: Second deviation of atan3"
   extends Modelica.Icons.Function;
+  extends Modelica.Icons.ObsoleteModel;
 
   import Modelica.Math;
   input Real u1;
@@ -15,6 +16,7 @@ algorithm
   y_dder := (2*u1*u2/((u1*u1+u2*u2)*(u1*u1+u2*u2)))*u2_der - (2*u1*u2/((u1*u1+u2*u2)*(u1*u1+u2*u2)))*u1_der;
 
   annotation (
+    obsolete = "Obsolete function",
     Documentation(
       info="<html>
 <p>

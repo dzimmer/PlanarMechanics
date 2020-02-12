@@ -1,7 +1,6 @@
 within PlanarMechanics.Utilities;
-package Functions "Library for the atan3 function which is double differentiable"
-extends Modelica.Icons.Package;
-
+package Functions "Library for utility functions"
+  extends Modelica.Icons.Package;
 
   annotation (
     Documentation(
