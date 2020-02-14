@@ -43,7 +43,8 @@ package Sensors "Test models for PlanarMechanics.Sensors"
         points={{36,-30},{20,-30},{20,30},{40,30}},
         color={95,95,95},
         thickness=0.5));
-    annotation ();
+
+    annotation (experiment(StopTime=1));
   end PositionDistance;
 
   model AbsoluteRotated "Test sensors measuring absolute quantities in rotated frame_a"
@@ -84,6 +85,8 @@ package Sensors "Test models for PlanarMechanics.Sensors"
         points={{40,70},{20,70},{20,-20},{40,-20}},
         color={95,95,95},
         thickness=0.5));
+
+    annotation (experiment(StopTime=1));
   end AbsoluteRotated;
 
   model AbsoluteRotatedAcc "Test sensors measuring absolute quantities of accelerating body in rotated frame_a"
@@ -131,6 +134,8 @@ package Sensors "Test models for PlanarMechanics.Sensors"
         color={95,95,95},
         thickness=0.5));
     connect(const.y, worldForce.force) annotation (Line(points={{-39,-60},{-22,-60}}, color={0,0,127}));
+
+    annotation (experiment(StopTime=1));
   end AbsoluteRotatedAcc;
 
   model AbsoluteAccCentrifugal "Test sensors measuring absolute quantities in for steady state rotation of frame_a"
@@ -197,7 +202,10 @@ package Sensors "Test models for PlanarMechanics.Sensors"
         points={{20,80},{0,80},{0,-20},{10,-20}},
         color={95,95,95},
         thickness=0.5));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
+
+    annotation (
+      experiment(StopTime=1),
+      Diagram(
           coordinateSystem(preserveAspectRatio=false), graphics={Text(
             extent={{-60,-40},{60,-100}},
             lineColor={28,108,200},
@@ -305,7 +313,7 @@ Expected results:
         color={95,95,95},
         thickness=0.5));
     connect(constantTorque.flange, revolute1.flange_a) annotation (Line(points={{-70,-60},{-60,-60},{-60,-30}}, color={0,0,0}));
-    annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(
-          coordinateSystem(preserveAspectRatio=false)));
+
+    annotation (experiment(StopTime=1));
   end AbsoluteAccCentrifugalAcc;
 end Sensors;
