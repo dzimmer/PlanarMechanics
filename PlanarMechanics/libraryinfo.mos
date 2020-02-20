@@ -6,9 +6,9 @@ LibraryInfoMenuCommand(
   category="libraries",
   text="PlanarMechanics",
   reference="PlanarMechanics",
-  version="1.4.1",
+  version="1.4.2-dev",
   isModel=true,
-  description="Planar Mechanics Library 1.4.1 for Modelica",
+  description="Planar Mechanics Library 1.4.2-development version for Modelica",
   ModelicaVersion="3.2.3",
   pos=1130)
 
