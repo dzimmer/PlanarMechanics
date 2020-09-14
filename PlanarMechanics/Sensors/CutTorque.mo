@@ -88,9 +88,21 @@ equation
 </p>
 </html>",
       info="<html>
-<p>The cut-torque acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>torque</b> (= frame_a.t). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-torque is provided (= frame_b.t).</p>
-<p>In the following figure the modeling and animation of a CutTorque sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque1.png\" alt=\"Modelica diagram\">
-<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque2.png\" alt=\"CutTorque2 animation\"></p>
+<p>
+The cut-torque acting between the two frames to which this model
+is connected, is determined and provided at the output signal
+connector <b>torque</b> (= frame_a.t).
+If parameter <b>positiveSign</b> = <b>false</b>, the negative
+cut-torque is provided (= frame_b.t).
+</p>
+<p>
+In the following figure the modeling and animation of a&nbsp;CutTorque
+sensor is shown.
+</p>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque1.png\" alt=\"Modelica diagram\">
+<br>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque2.png\" alt=\"CutTorque2 animation\">
+</p>
 </html>"));
 end CutTorque;

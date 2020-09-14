@@ -87,8 +87,17 @@ equation
 </p>
 </html>",
       info="<html>
-<p>The cut-force acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-force is provided (= frame_b.f).</p>
-<p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the force vector is resolved: </p>
+<p>
+The cut-force acting between the two frames to which this model
+is connected, is determined and provided at the output signal
+connector <b>force</b> (= frame_a.f).
+If parameter <b>positiveSign</b> = <b>false</b>, the negative
+cut-force is provided (= frame_b.f).
+</p>
+<p>
+Via parameter <b>resolveInFrame</b> it is defined, in which frame
+the force vector is resolved.
+</p>
 
 <table border=1 cellspacing=0 cellpadding=2>
   <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
@@ -114,9 +123,20 @@ equation
   </tr>
 </table>
 
-<p>If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
-<p>In the following figure the modeling and animation of a CutForce sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce2.png\" alt=\"Modelica diagram\">
-<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce.png\" alt=\"CutForce animation\"></p>
+<p>
+If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>,
+the conditional connector &quot;frame_resolve&quot; is enabled and
+output force is resolved in the frame, to which frame_resolve is connected.
+Note, if this connector is enabled, it must be connected.
+</p>
+<p>
+In the following figure the modeling and animation of a&nbsp;CutForce
+sensor is shown.
+</p>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce2.png\" alt=\"Modelica diagram\">
+<br>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce.png\" alt=\"CutForce animation\">
+</p>
 </html>"));
 end CutForce;

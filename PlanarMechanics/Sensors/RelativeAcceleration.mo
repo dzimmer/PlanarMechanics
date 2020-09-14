@@ -99,8 +99,15 @@ equation
 <b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
-<p>The relative acceleration vector between the origins of frame_a and of frame_b are determined and provided at the output signal connector <b>a_rel</b>.</p>
-<p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the velocity vector is resolved.</p>
+<p>
+The relative acceleration vector between the origins of frame_a
+and of frame_b are determined and provided at the output signal
+connector <b>a_rel</b>.
+</p>
+<p>
+Via parameter <b>resolveInFrame</b> it is defined, in which frame
+the velocity vector is resolved.
+</p>
 
 <table border=1 cellspacing=0 cellpadding=2>
   <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
@@ -126,10 +133,16 @@ equation
   </tr>
 </table>
 
-<p>If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and a_rel is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.
+<p>
+If <code>resolveInFrame&nbsp;= Types.ResolveInFrameAB.frame_resolve</code>,
+the conditional connector &quot;frame_resolve&quot; is enabled
+and a_rel is resolved in the frame, to which frame_resolve is
+connected. Note, if this connector is enabled, it must be connected.
 </p>
 <p>
-Example: If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the output vector is computed as:</p>
+Example: If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>,
+the output vector is computed as:
+</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-LZbFgA50.png\" alt=\"r_rel = transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi), 0; sin(frame_resolve.phi),cos(frame_resolve.phi), 0;0,0,1]) * [frame_b.x - frame_a.x;frame_b.y - frame_a.y;frame_b.phi - frame_a.phi]\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-b53N2SsO.png\" alt=\"v_rela = der(r_rel)\"/></p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-PGBmAMb7.png\" alt=\"v_rel = transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi),0;sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1]) * [cos(frame_a.phi),-sin(frame_a.phi), 0;sin(frame_a.phi), cos(frame_a.phi),0;0,0,1] * r_rela\"/></p>

@@ -75,8 +75,15 @@ equation
 <b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
-<p>The absolute position and angle vector<b> [x,y,phi]</b> of the origin of frame_a is determined and provided at the output signal connector <b>r</b>.</p>
-<p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the position vector is resolved.</p>
+<p>
+The absolute position and angle vector <b>[x,y,phi]</b> of the origin
+of frame_a is determined and provided at the output signal
+connector&nbsp;<b>r</b>.
+</p>
+<p>
+Via parameter <b>resolveInFrame</b> it is defined, in which frame
+the position vector is resolved.
+</p>
 
 <table border=1 cellspacing=0 cellpadding=2>
   <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
@@ -98,8 +105,16 @@ equation
   </tr>
 </table>
 
-<p>If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and r is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
-<p>Example: If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>, the output vector is computed as: </p>
+<p>
+If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>,
+the conditional connector &quot;frame_resolve&quot; is enabled and&nbsp;r
+is resolved in the frame, to which frame_resolve is connected.
+Note, if this connector is enabled, it must be connected.
+</p>
+<p>
+Example: If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>,
+the output vector is computed as:
+</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-dcUlfcwL.png\" alt=\"r =transpose([cos(frame_resolve.phi), -sin(frame_resolve.phi), 0; sin(frame_resolve.phi),cos(frame_resolve.phi), 0;0, 0, 1]) * [frame_a.x;frame_a.y;frame_a.phi] - [0;0;frame_resolve.phi]\"/></p>
 </html>"));
 end AbsolutePosition;
