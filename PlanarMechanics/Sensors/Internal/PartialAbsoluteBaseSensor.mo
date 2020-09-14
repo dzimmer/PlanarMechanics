@@ -11,7 +11,7 @@ model PartialAbsoluteBaseSensor
     "Coordinate system in which vector is optionally resolved"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
         rotation=-90,
-        origin={10,-100}),
+        origin={0,-100}),
         iconTransformation(extent={{-16,-16},{16,16}},
         rotation=-90,
         origin={0,-100})));
