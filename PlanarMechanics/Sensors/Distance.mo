@@ -8,7 +8,7 @@ model Distance
   import Modelica.Mechanics.MultiBody.Types;
 
   Modelica.Blocks.Interfaces.RealOutput distance(
-    final quantity="Position",
+    final quantity = "Position",
     final unit = "m",
     min = 0)
     "Distance between the origin of frame_a and the origin of frame_b"

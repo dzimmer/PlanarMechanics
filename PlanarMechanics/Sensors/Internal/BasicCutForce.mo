@@ -8,7 +8,9 @@ model BasicCutForce
 
   extends Internal.PartialCutForceBaseSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput force[2](each final quantity="Force", each final unit="N")
+  Modelica.Blocks.Interfaces.RealOutput force[2](
+    each final quantity = "Force",
+    each final unit = "N")
     "Cut force resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={-80,-110},

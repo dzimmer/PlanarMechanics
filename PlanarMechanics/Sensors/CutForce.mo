@@ -4,8 +4,8 @@ model CutForce "Measure cut force vector"
   import SI = Modelica.SIunits;
 
   Modelica.Blocks.Interfaces.RealOutput force[2](
-    each final quantity="Force",
-    each final unit="N")
+    each final quantity = "Force",
+    each final unit = "N")
     "Cut force resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={-80,-110},

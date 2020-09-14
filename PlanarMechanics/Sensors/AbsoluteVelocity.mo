@@ -1,10 +1,12 @@
 within PlanarMechanics.Sensors;
 model AbsoluteVelocity
-  "Measure absolute velocity vector of origin of frame connector"
+  "Measure absolute velocity of origin of frame connector"
   extends Internal.PartialAbsoluteSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput v[3]
-    "Absolute velocity vector resolved in frame defined by resolveInFrame"
+  Modelica.Blocks.Interfaces.RealOutput v[3](
+    final quantity = {"Velocity", "Velocity", "AngularVelocity"},
+    final unit = {"m/s", "m/s", "rad/s"})
+    "Vector of absolute measurements of frame_a on velocity level, resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
@@ -52,7 +54,7 @@ equation
       points={{11,0},{38,0}},
       color={0,0,127}));
   connect(transformAbsoluteVector.r_out, v) annotation (Line(
-      points={{61,0},{56,0},{56,0},{110,0}},
+      points={{61,-6.66134e-16},{110,-6.66134e-16},{110,0}},
       color={0,0,127}));
   connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
       points={{-60,-50},{-50,-50},{-50,-10}},

@@ -1,19 +1,20 @@
 within PlanarMechanics.Sensors.Internal;
 model BasicRelativePosition
-  "Measure relative position vector (same as Sensors.RelativePosition, but frame_resolve is not conditional and must be connected)"
+  "Measure relative position and orientation (same as Sensors.RelativePosition, but frame_resolve is not conditional and must be connected)"
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
   extends Sensors.Internal.PartialRelativeBaseSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput r_rel[3]
-    "Relative position vector frame_b.r_0 - frame_a.r_0 resolved in frame defined by resolveInFrame"
+  Modelica.Blocks.Interfaces.RealOutput r_rel[3](
+    final quantity = {"Position", "Position", "Angle"},
+    final unit = {"m", "m", "rad"})
+    "Vector of relative measurements from frame_a to frame_b on position level, resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={0,-110},
         extent={{-10,-10},{10,10}},
         rotation=270)));
 
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB
-    resolveInFrame=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
     "Frame in which output vector r_rel is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
 equation

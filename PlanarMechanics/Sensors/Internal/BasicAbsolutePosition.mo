@@ -1,18 +1,19 @@
 within PlanarMechanics.Sensors.Internal;
 model BasicAbsolutePosition
-  "Measure absolute position vector (same as Sensors.AbsolutePosition, but frame_resolve is not conditional and must be connected)"
+  "Measure absolute position and orientation (same as Sensors.AbsolutePosition, but frame_resolve is not conditional and must be connected)"
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
   extends Sensors.Internal.PartialAbsoluteBaseSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput r[3]
-    "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
+  Modelica.Blocks.Interfaces.RealOutput r[3](
+    final quantity = {"Position", "Position", "Angle"},
+    final unit = {"m", "m", "rad"})
+    "Vector of absolute measurements on position level, resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={110,0},
         extent={{-10,-10},{10,10}})));
 
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
-    resolveInFrame=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which output vector r is resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
 equation

@@ -8,7 +8,9 @@ model BasicCutTorque
 
   extends Internal.PartialCutTorqueBaseSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput torque(final quantity="Torque", final unit="N.m")
+  Modelica.Blocks.Interfaces.RealOutput torque(
+    final quantity = "Torque",
+    final unit = "N.m")
     "Cut torque resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={-80,-110},

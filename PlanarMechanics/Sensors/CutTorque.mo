@@ -1,12 +1,12 @@
 within PlanarMechanics.Sensors;
-model CutTorque "Measure cut torque vector"
+model CutTorque "Measure cut torque"
   extends Internal.PartialCutTorqueSensor;
 
   import SI = Modelica.SIunits;
 
   Modelica.Blocks.Interfaces.RealOutput torque(
-    final quantity="Torque",
-    final unit="N.m")
+    final quantity = "Torque",
+    final unit = "N.m")
     "Cut torque resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={-80,-110},

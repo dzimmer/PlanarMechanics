@@ -1,10 +1,12 @@
 within PlanarMechanics.Sensors;
 model RelativeVelocity
-  "Measure relative velocity vector between the origins of two frame connectors"
+  "Measure relative velocity between the origins of two frame connectors"
   extends Internal.PartialRelativeSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput v_rel[3]
-    "Relative velocity vector resolved in frame defined by resolveInFrame"
+  Modelica.Blocks.Interfaces.RealOutput v_rel[3](
+    final quantity = {"Velocity", "Velocity", "AngularVelocity"},
+    final unit = {"m/s", "m/s", "rad/s"})
+    "Vector of relative measurements from frame_a to frame_b on velocity level, resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,

@@ -1,10 +1,12 @@
 within PlanarMechanics.Sensors;
 model RelativePosition
-  "Measure relative position vector between the origins of two frame connectors"
+  "Measure relative position and orientation between the origins of two frame connectors"
   extends Internal.PartialRelativeSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput r_rel[3]
-    "Relative position vector resolved in frame defined by resolveInFrame"
+  Modelica.Blocks.Interfaces.RealOutput r_rel[3](
+    final quantity = {"Position", "Position", "Angle"},
+    final unit = {"m", "m", "rad"})
+    "Vector of relative measurements from frame_a to frame_b on position level, resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
