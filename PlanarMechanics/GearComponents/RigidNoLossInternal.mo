@@ -48,7 +48,7 @@ model RigidNoLossInternal "Internal rigid gear gonnection model"
 protected
   SI.Angle phi_gear2=atan2(frame_a.y - frame_b.y, frame_a.x - frame_b.x)
     "Temporary Gear angle";
-  Modelica.SIunits.AngularVelocity dphi_gear2 "Temporary Gear angle";
+  SI.AngularVelocity dphi_gear2 "Temporary Gear angle";
 
  //Visualization
 

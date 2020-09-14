@@ -2,7 +2,6 @@ within PlanarMechanics.Sensors.Internal;
 model BasicCutTorque
   "Measure cut-torque vector"
 
-  import SI = Modelica.SIunits;
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
   import Modelica.Mechanics.MultiBody.Frames;
 

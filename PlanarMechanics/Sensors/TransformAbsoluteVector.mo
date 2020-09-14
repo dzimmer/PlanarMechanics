@@ -1,6 +1,6 @@
 within PlanarMechanics.Sensors;
 model TransformAbsoluteVector "Transform absolute vector in to another frame"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
 
   Interfaces.Frame_a frame_a
     "Coordinate system from which absolute kinematic quantities are measured" annotation (Placement(

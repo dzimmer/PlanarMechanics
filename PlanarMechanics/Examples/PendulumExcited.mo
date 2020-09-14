@@ -25,7 +25,7 @@ model PendulumExcited "A swinging pendulum excited by a world force"
   Sources.WorldForce worldForce(color={255,0,0}, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
     annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
   Modelica.Blocks.Sources.Sine signalVec3[3](
-    each freqHz=1,
+    each f=1,
     amplitude={0,-5,0},
     each startTime=1.8) "Vector of three excitation signals"
     annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));

@@ -6,12 +6,12 @@ function atan3b_dder "Obsolete function: Second deviation of atan3"
   import Modelica.Math;
   input Real u1;
   input Real u2;
-  input Modelica.SIunits.Angle y_d=0 "y shall be in the range: -pi < y-y0 < pi";
+  input SI.Angle y0=0 "y shall be in the range: -pi < y-y0 < pi";
   input Real u1_der;
   input Real u2_der;
   input Real u1_dder;
   input Real u2_dder;
-  output Modelica.SIunits.AngularAcceleration y_dder;
+  output SI.AngularAcceleration y_dder;
 algorithm
   y_dder := (2*u1*u2/((u1*u1+u2*u2)*(u1*u1+u2*u2)))*u2_der - (2*u1*u2/((u1*u1+u2*u2)*(u1*u1+u2*u2)))*u1_der;
 

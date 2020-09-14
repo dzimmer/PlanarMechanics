@@ -1,6 +1,6 @@
 within PlanarMechanics.Utilities.Conversions;
 function fromFrameAtoFrameB "Convert from frameA to frameB"
-  extends Modelica.SIunits.Icons.Conversion;
+  extends Modelica.Units.Icons.Conversion;
   input Modelica.Mechanics.MultiBody.Types.ResolveInFrameA FrameA;
   output Modelica.Mechanics.MultiBody.Types.ResolveInFrameB FrameB;
 

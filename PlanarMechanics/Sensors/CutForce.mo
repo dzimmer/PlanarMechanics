@@ -1,8 +1,6 @@
 within PlanarMechanics.Sensors;
 model CutForce "Measure cut force vector"
 
-  import SI = Modelica.SIunits;
-
   Modelica.Blocks.Interfaces.RealOutput force[2](
     each final quantity = "Force",
     each final unit = "N")
@@ -36,10 +34,9 @@ protected
   SI.Position f_in_m[3] = {frame_a.fx, frame_a.fy, 0}*(if positiveSign then +1 else -1)/N_to_m
     "Force mapped from N to m for animation";
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
-    diameter=forceDiameter,
     color=forceColor,
     specularCoefficient=specularCoefficient,
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x, frame_b.y, 0})+planarWorld.r_0,
+    r=MB.Frames.resolve1(planarWorld.R, {frame_b.x,frame_b.y,0}) + planarWorld.r_0,
     r_tail=f_in_m,
     r_head=-f_in_m,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;

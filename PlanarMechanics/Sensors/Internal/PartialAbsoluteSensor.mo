@@ -1,7 +1,7 @@
 within PlanarMechanics.Sensors.Internal;
 partial model PartialAbsoluteSensor
   "Partial absolute sensor model for sensors defined by components"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
 
   Interfaces.Frame_a frame_a
     "Coordinate system at which the kinematic quantities are measured"

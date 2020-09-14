@@ -3,7 +3,7 @@ model Arrow
   "Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)"
 
   import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-  import Modelica.SIunits.Conversions.to_unit1;
+  import Modelica.Units.Conversions.to_unit1;
 
   input MB.Frames.Orientation R=MB.Frames.nullRotation()
     "Orientation object to rotate the planarWorld frame into the arrow frame" annotation(Dialog(enable=true));

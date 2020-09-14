@@ -2,7 +2,6 @@ within PlanarMechanics.Sensors.Internal;
 model BasicCutForce
   "Measure cut force vector (frame_resolve must be connected)"
 
-  import SI = Modelica.SIunits;
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
   import Modelica.Mechanics.MultiBody.Frames;
 

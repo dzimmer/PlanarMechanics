@@ -2,8 +2,6 @@ within PlanarMechanics.Sensors;
 model CutTorque "Measure cut torque"
   extends Internal.PartialCutTorqueSensor;
 
-  import SI = Modelica.SIunits;
-
   Modelica.Blocks.Interfaces.RealOutput torque(
     final quantity = "Torque",
     final unit = "N.m")
@@ -35,10 +33,9 @@ protected
   SI.Position t_in_m[3] = {0,0,frame_a.t}*(if positiveSign then +1 else -1)/Nm_to_m
     "Torque mapped from Nm to m for animation";
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow torqueArrow(
-    diameter=torqueDiameter,
     color=torqueColor,
     specularCoefficient=specularCoefficient,
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x, frame_b.y, 0})+planarWorld.r_0,
+    r=MB.Frames.resolve1(planarWorld.R, {frame_b.x,frame_b.y,0}) + planarWorld.r_0,
     r_tail=t_in_m,
     r_head=-t_in_m,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;

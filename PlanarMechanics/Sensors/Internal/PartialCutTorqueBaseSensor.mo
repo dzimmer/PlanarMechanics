@@ -2,7 +2,7 @@ within PlanarMechanics.Sensors.Internal;
 partial model PartialCutTorqueBaseSensor
   "Base model to measure the cut force and/or torque between two frames, defined by equations (frame_resolve must be connected exactly once)"
 
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(
         transformation(extent={{-116,-16},{-84,16}})));
   Interfaces.Frame_b frame_b "Coordinate system b" annotation (Placement(

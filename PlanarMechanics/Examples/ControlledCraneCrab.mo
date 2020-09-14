@@ -33,7 +33,7 @@ model ControlledCraneCrab "A controlled crane crab"
   Modelica.Blocks.Continuous.PID PID(
     Td=0.2,
     k=-320*9.81*5,
-    initType=Modelica.Blocks.Types.InitPID.InitialState,
+    initType=Modelica.Blocks.Types.Init.InitialState,
     xi_start=0,
     Ti=1e9) annotation (Placement(transformation(extent={{40,60},{20,80}})));
   inner PlanarWorld planarWorld
