@@ -79,35 +79,41 @@ equation
           extent={{-190,-70},{-74,-96}},
           textString="force"),
         Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
-    Documentation(revisions="<html>
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
-</html>",  info="<html>
+</html>",
+      info="<html>
 <p>The cut-force acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-force is provided (= frame_b.f).</p>
 <p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the force vector is resolved: </p>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td><p align=\"center\"><h4>resolveInFrame =</h4></p><p align=\"center\">Types.ResolveInFrameAB.</p></td>
-<td><p align=\"center\"><h4>Meaning</h4></p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>world</p></td>
-<td valign=\"top\"><p>Resolve vector in world frame</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_a</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_a</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_b</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_b</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_resolve</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
-</tr>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
+  <tr>
+    <th>resolveInFrame = &hellip;</th>
+    <th>Output vector resolved in</th>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.world</td>
+    <td valign=\"top\">world frame</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_a</td>
+    <td valign=\"top\">frame_a</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_b</td>
+    <td valign=\"top\">frame_b</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_resolve</td>
+    <td valign=\"top\">frame_resolve (must be connected)</td>
+  </tr>
 </table>
+
 <p>If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>In the following figure the modeling and animation of a CutForce sensor is shown.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce2.png\" alt=\"Modelica diagram\">

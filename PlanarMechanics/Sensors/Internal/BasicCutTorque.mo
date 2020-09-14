@@ -1,6 +1,6 @@
 within PlanarMechanics.Sensors.Internal;
 model BasicCutTorque
-  "Measure cut torque vector (frame_resolve must be connected)"
+  "Measure cut-torque vector"
 
   import SI = Modelica.SIunits;
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
@@ -31,12 +31,19 @@ equation
           extent={{-190,-70},{-74,-96}},
           textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
               0,127})}),
-    Documentation(revisions="<html>
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
-</html>",  info="<HTML>
-
-</HTML>"));
+</html>",
+      info="<html>
+<p>
+This sensor outputs cut-torque between the two connecting frames,
+whereby the output signal torque = frame_a.t.
+If parameter <b>positiveSign</b> = <b>false</b>, the negative
+cut-torque is provided (= frame_b.t).
+</p>
+</html>"));
 end BasicCutTorque;

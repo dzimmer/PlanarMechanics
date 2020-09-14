@@ -135,29 +135,38 @@ If parameter <b>positiveSign</b> =
 (= frame_b.f, frame_b.t).
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
-the two vectors are resolved:
+Via parameter <b>resolveInFrame</b> it is defined in which frame
+the force output is resolved.
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vectors in world frame</td></tr>
-
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vectors in frame_a</td></tr>
-
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vectors in frame_b</td></tr>
-
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
+  <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
+  <tr>
+    <th>resolveInFrame = &hellip;</th>
+    <th>Force vector resolved in</th>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.world</td>
+    <td valign=\"top\">world frame</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_a</td>
+    <td valign=\"top\">frame_a</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_b</td>
+    <td valign=\"top\">frame_b</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_resolve</td>
+    <td valign=\"top\">frame_resolve (must be connected)</td>
+  </tr>
 </table>
 
 <p>
 If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector
-\"frame_resolve\" is enabled and the output vectors force and torque are resolved in the frame, to
-which frame_resolve is connected. Note, if this connector is enabled, it must
+<code>frame_resolve</code> is enabled and the output vector force is resolved in the frame, to
+which <code>frame_resolve</code> is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
 

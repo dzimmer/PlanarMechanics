@@ -102,24 +102,28 @@ equation
 </p>
 </html>",  info="<html>
 <p>The absolute velocity vector of the origin of frame_a is determined and provided at the output signal connector <b>v</b>.</p>
-<p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the velocity vector is resolved: </p>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td><p align=\"center\"><h4>resolveInFrame =</h4></p><p align=\"center\">Types.ResolveInFrameA.</p></td>
-<td><p align=\"center\"><h4>Meaning</h4></p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>world</p></td>
-<td valign=\"top\"><p>Resolve vector in world frame</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_a</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_a</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_resolve</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
-</tr>
+<p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the velocity vector is resolved.</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
+  <tr>
+    <th>resolveInFrame = &hellip;</th>
+    <th>Output vector resolved in</th>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameA.world</td>
+    <td valign=\"top\">world frame</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameA.frame_a</td>
+    <td valign=\"top\">frame_a</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameA.frame_resolve</td>
+    <td valign=\"top\">frame_resolve (must be connected)</td>
+  </tr>
 </table>
+
 <p>If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and v is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
 <p>Example: If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>, the output vector is computed as: </p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-x2brh9fX.png\" alt=\"
