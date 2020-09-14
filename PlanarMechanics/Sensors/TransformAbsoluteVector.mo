@@ -100,11 +100,11 @@ equation
 </p>
 </html>",  info="<html>
 <p>
-The input vector \"Real r_in[3]\" is assumed to be an absolute kinematic quantity
+The input vector &quot;Real r_in[3]&quot; is assumed to be an absolute kinematic quantity
 of frame_a that is defined to be resolved in the frame defined
-with parameter \"frame_r_in\". This model resolves vector r_in in the
-coordinate system defined with parameter \"frame_r_out\" and returns the
-transformed output vector as \"Real r_out[3]\";
+with parameter &quot;frame_r_in&quot;. This model resolves vector r_in in the
+coordinate system defined with parameter &quot;frame_r_out&quot; and returns the
+transformed output vector as &quot;Real r_out[3]&quot;;
 </p>
 </html>"));
 end TransformAbsoluteVector;
