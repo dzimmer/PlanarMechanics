@@ -3,20 +3,20 @@ model AbsolutePosition
   "Measure absolute position vector of the origin of a frame connector"
   extends Internal.PartialAbsoluteSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput  r[3](each final quantity="Position", each final unit = "m")
+  Modelica.Blocks.Interfaces.RealOutput r[3]
     "Absolute position vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
-   Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
-     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+  Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector r is optionally resolved"
-     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
+    annotation (Placement(transformation(extent={{-16,-16},{16,16}},
          rotation=-90,
          origin={0,-100})));
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which output vector r shall be resolved (1: world, 2: frame_a, 3:frame_resolve)";
 
 protected
@@ -28,7 +28,7 @@ protected
     annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
 
 equation
-  connect(position.frame_resolve, frame_resolve)         annotation (Line(
+  connect(position.frame_resolve, frame_resolve) annotation (Line(
       points={{0,-10},{0,-32.5},{0,-32.5},{0,-55},{0,-100},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
@@ -46,8 +46,10 @@ equation
           0},{-55,0},{-100,0}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Icon(coordinateSystem(
-          preserveAspectRatio=false,extent={{-100,-100},{100,100}}), graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
         Line(
           points={{70,0},{100,0}},
           color={0,0,127}),
@@ -68,7 +70,7 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
 <p>The absolute position and angle vector<b> [x,y,phi]</b> of the origin of frame_a is determined and provided at the output signal connector <b>r</b>.</p>

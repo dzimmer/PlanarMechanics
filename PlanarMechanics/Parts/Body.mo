@@ -4,7 +4,7 @@ model Body "Body component with mass and inertia"
   Interfaces.Frame_a frame_a
     annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
   outer PlanarWorld planarWorld "planar world model";
-  parameter Boolean animate = true "= true, if animation shall be enabled"     annotation (
+  parameter Boolean animate = true "= true, if animation shall be enabled" annotation (
     Evaluate=true,
     HideResult=true,
     choices(checkBox=true));
@@ -25,9 +25,9 @@ model Body "Body component with mass and inertia"
       enable=animate));
   parameter Boolean enableGravity = true
     "= true, if gravity effects should be taken into account" annotation (
-    Evaluate=true,
-    HideResult=true,
-    choices(checkBox=true));
+      Evaluate=true,
+      HideResult=true,
+      choices(checkBox=true));
   input Types.Color sphereColor=Types.Defaults.BodyColor "Color of sphere"
     annotation (HideResult = true, Dialog(
       colorSelector=true,
@@ -38,15 +38,15 @@ model Body "Body component with mass and inertia"
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult = true, Dialog(tab="Animation", group="if animation = true", enable=animate));
   SI.Force f[2] "Force";
-  SI.Position r[2](each final stateSelect=stateSelect, start={0,0})
-    "Translational position"                                                            annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.Position r[2](each final stateSelect=stateSelect, start={0,0}) "Translational position"
+    annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Velocity v[2](each final stateSelect=stateSelect, start={0,0}) "Velocity" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Acceleration a[2](start={0,0}) "Acceleration" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Angle phi(final stateSelect=stateSelect, start=0) "Angle" annotation(Dialog(group="Initialization", showStartAttribute=true));
-  SI.AngularVelocity w(final stateSelect=stateSelect, start = 0)
-    "Angular velocity"                                                              annotation(Dialog(group="Initialization", showStartAttribute=true));
+  SI.AngularVelocity w(final stateSelect=stateSelect, start = 0) "Angular velocity"
+    annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularAcceleration z(start = 0) "Angular acceleration"
-                           annotation(Dialog(group="Initialization", showStartAttribute=true));
+    annotation(Dialog(group="Initialization", showStartAttribute=true));
   //Visualization
   MB.Visualizers.Advanced.Shape sphere(
     shapeType="sphere",
@@ -65,7 +65,7 @@ equation
   r = {frame_a.x, frame_a.y};
   v = der(r);
   phi = frame_a.phi;
-  w = der(frame_a.phi);
+  w = der(phi);
   //The acceleration is a time-derivative of the velocity
   a = der(v);
   z = der(w);
@@ -102,7 +102,7 @@ equation
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",
       info="<html>

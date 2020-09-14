@@ -4,7 +4,7 @@ model BasicAbsolutePosition
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
   extends Sensors.Internal.PartialAbsoluteBaseSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each final unit = "m")
+  Modelica.Blocks.Interfaces.RealOutput r[3]
     "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={110,0},

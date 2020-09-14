@@ -21,17 +21,15 @@ model TransformRelativeVector "Transform relative vector in to another frame"
         origin={0,-110})));
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_in=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
     "Frame in which vector r_in is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_out=
-                  frame_r_in
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB frame_r_out = frame_r_in
     "Frame in which vector r_in shall be resolved and provided as r_out (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
 protected
-  Internal.BasicTransformRelativeVector
-    basicTransformVector(
-      frame_r_in=frame_r_in,
-      frame_r_out=frame_r_out)
+  Internal.BasicTransformRelativeVector basicTransformVector(
+    frame_r_in = frame_r_in,
+    frame_r_out = frame_r_out)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Interfaces.ZeroPosition zeroPosition if
     not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve or
@@ -66,8 +64,10 @@ equation
       points={{0,12},{0,39},{0,39},{0,
           66},{0,66},{0,120}},
       color={0,0,127}));
-  annotation (Icon(coordinateSystem(
-          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
         Line(
           points={{0,-70},{0,-100}},
           color={0,0,127}),
@@ -83,7 +83,7 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
 <p>

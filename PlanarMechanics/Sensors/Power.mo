@@ -3,7 +3,9 @@ model Power "Measure power flowing from frame_a to frame_b"
   extends Modelica.Icons.RotationalSensor;
   extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
-  Modelica.Blocks.Interfaces.RealOutput power(quantity="Power",unit="W")
+  Modelica.Blocks.Interfaces.RealOutput power(
+    final quantity="Power",
+    final unit="W")
     "Power at frame_a as output signal"
     annotation (Placement(transformation(
       origin={-80,-110},
@@ -23,8 +25,9 @@ equation
       + frame_a.t * der(frame_a.phi);
 
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-          100}}), graphics={
+    Icon(
+      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
         Line(points={{-70,0},{-101,0}}),
         Line(points={{70,0},{100,0}}),
         Line(points={{-80,0},{-80,-100}}, color={0,0,127}),
@@ -38,7 +41,7 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<HTML>
 <p>

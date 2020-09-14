@@ -9,7 +9,7 @@ connector Frame "General connector for planar mechanical components"
   annotation (Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
 <p>Frame is a connector, which lies at the origin of the coordinate system attached to it. Cut-force and cut_torque act at the origin of the coordinate system and are resolved in planarWorld frame. Normally, this connector is fixed to a mechanical component. But this model is never used directly in a system. It is only for usage of inheritance.</p>

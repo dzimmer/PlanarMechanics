@@ -3,8 +3,7 @@ model RelativeVelocity
   "Measure relative velocity vector between the origins of two frame connectors"
   extends Internal.PartialRelativeSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput v_rel[3](
-    each final quantity="Velocity", each final unit="m/s")
+  Modelica.Blocks.Interfaces.RealOutput v_rel[3]
     "Relative velocity vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -20,10 +19,11 @@ model RelativeVelocity
     "Frame in which output vector v_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
 protected
-  RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a)
+  RelativePosition relativePosition(
+    resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Interfaces.ZeroPosition zeroPosition if
-       not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+  Interfaces.ZeroPosition zeroPosition if not (
+    resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
     annotation (Placement(transformation(extent={{40,-60},{60,-40}})));
   Modelica.Blocks.Continuous.Der der_r_rel[3] annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -72,8 +72,10 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
 
-  annotation (Icon(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
         Line(
           points={{0,-70},{0,-100}},
           color={0,0,127}),
@@ -87,7 +89,7 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
 <p>The relative velocity vector between the origins of frame_a and of frame_b are determined and provided at the output signal connector <b>v_rel</b>.</p>

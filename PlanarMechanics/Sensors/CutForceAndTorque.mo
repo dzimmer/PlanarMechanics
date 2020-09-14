@@ -4,37 +4,42 @@ model CutForceAndTorque "Measure cut force and cut torque vector"
   import SI = Modelica.SIunits;
   import Modelica.Mechanics.MultiBody.Types;
 
-  Modelica.Blocks.Interfaces.RealOutput force[2](final quantity="Force", final unit="N")
+  Modelica.Blocks.Interfaces.RealOutput force[2](
+    each final quantity="Force",
+    each final unit="N")
     "Cut force resolved in frame defined by resolveInFrame"
-       annotation (Placement(transformation(
+    annotation (Placement(transformation(
         origin={-80,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-  Modelica.Blocks.Interfaces.RealOutput torque
+  Modelica.Blocks.Interfaces.RealOutput torque(
+    final quantity="Torque",
+    final unit="N.m")
     "Cut torque resolved in frame defined by resolveInFrame"
-       annotation (Placement(transformation(
+    annotation (Placement(transformation(
         origin={0,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
 
-  parameter Boolean animation=true
+  parameter Boolean animation = true
     "= true, if animation shall be enabled (show force and torque arrow)";
-  parameter Boolean positiveSign=true
+  parameter Boolean positiveSign = true
     "= true, if force and torque with positive sign is returned (= frame_a.f/.t), otherwise with negative sign (= frame_b.f/.t)";
+
   input Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
     annotation (Dialog(group="if animation = true", enable=animation));
   input Real Nm_to_m(unit="N.m/m") = planarWorld.defaultNm_to_m
     "Torque arrow scaling (length = torque/Nm_to_m)"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input SI.Diameter forceDiameter=planarWorld.defaultArrowDiameter
+  input SI.Diameter forceDiameter = planarWorld.defaultArrowDiameter
     "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-  input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow"
-                                annotation (Dialog(group="if animation = true", enable=animation));
-  input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
+  input SI.Diameter torqueDiameter = forceDiameter "Diameter of torque arrow"
+    annotation (Dialog(group="if animation = true", enable=animation));
+  input Types.Color forceColor = Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
     "Color of force arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
-  input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
+  input Types.Color torqueColor = Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
     "Color of torque arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
   input PlanarMechanics.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
@@ -104,8 +109,9 @@ equation
       color={95,95,95},
       pattern=LinePattern.Dot));
   annotation (
-    Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-            100}}), graphics={
+    Icon(
+      coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
+      graphics={
         Line(points={{-80,-100},{-80,0}}, color={0,0,127}),
         Line(points={{0,-100},{0,-70}}, color={0,0,127}),
         Text(
@@ -117,7 +123,7 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
 <p>

@@ -2,13 +2,12 @@ within PlanarMechanics.Sensors;
 model AbsoluteVelocity
   "Measure absolute velocity vector of origin of frame connector"
   extends Internal.PartialAbsoluteSensor;
-  Modelica.Blocks.Interfaces.RealOutput v[3](each final quantity="Velocity", each final
-            unit =                                                                    "m/s")
+
+  Modelica.Blocks.Interfaces.RealOutput v[3]
     "Absolute velocity vector resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
-
   Interfaces.Frame_resolve frame_resolve if
     resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector v is optionally resolved"
@@ -20,23 +19,24 @@ model AbsoluteVelocity
         origin={0,-100})));
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
-      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which output vector v shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
 protected
-  Internal.BasicAbsolutePosition position(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
+  Internal.BasicAbsolutePosition position(
+    resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Modelica.Blocks.Continuous.Der der1[3] annotation (Placement(transformation(
         extent={{-10,-10},{10,10}})));
-  TransformAbsoluteVector transformAbsoluteVector(frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
-      frame_r_out=resolveInFrame) annotation (Placement(transformation(
+  TransformAbsoluteVector transformAbsoluteVector(
+    frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
+    frame_r_out=resolveInFrame) annotation (Placement(transformation(
         extent={{10,-10},{-10,10}},
         rotation=90,
         origin={50,0})));
   Interfaces.ZeroPosition zeroPosition
     annotation (Placement(transformation(extent={{-60,-60},{-80,-40}})));
-  Interfaces.ZeroPosition zeroPosition1 if
-       not (
+  Interfaces.ZeroPosition zeroPosition1 if not (
     resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
 equation
@@ -71,8 +71,10 @@ equation
       points={{49.9,-10},{50,-10},{50,-50},{0,-50},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
-  annotation (Icon(coordinateSystem(
-          preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+  annotation (
+    Icon(
+      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
         Line(
           points={{70,0},{100,0}},
           color={0,0,127}),
@@ -94,7 +96,7 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
 <p>The absolute velocity vector of the origin of frame_a is determined and provided at the output signal connector <b>v</b>.</p>

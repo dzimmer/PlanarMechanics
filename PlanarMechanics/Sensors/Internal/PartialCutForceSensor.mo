@@ -3,21 +3,20 @@ partial model PartialCutForceSensor
   "Base model to measure the cut force and/or torque between two frames, defined by components"
 
   extends Modelica.Icons.RotationalSensor;
-  Interfaces.Frame_a frame_a "Coordinate system a"                                 annotation (Placement(
+  Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(
         transformation(extent={{-116,-16},{-84,16}})));
-  Interfaces.Frame_b frame_b "Coordinate system b"                                 annotation (Placement(
+  Interfaces.Frame_b frame_b "Coordinate system b" annotation (Placement(
         transformation(extent={{84,-16},{116,16}})));
   Interfaces.Frame_resolve frame_resolve if
-         resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+    resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)"
     annotation (Placement(transformation(
         origin={80,-100},
         extent={{-16,-16},{16,16}},
         rotation=270)));
 
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA
-    resolveInFrame=
-  Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which output vector(s) is/are resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
 protected
@@ -33,7 +32,7 @@ equation
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",
       info="<html>

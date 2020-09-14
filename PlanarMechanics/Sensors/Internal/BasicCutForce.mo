@@ -7,13 +7,14 @@ model BasicCutForce
   import Modelica.Mechanics.MultiBody.Frames;
 
   extends Internal.PartialCutForceBaseSensor;
+
   Modelica.Blocks.Interfaces.RealOutput force[2](each final quantity="Force", each final unit="N")
     "Cut force resolved in frame defined by resolveInFrame"
-       annotation (Placement(transformation(
+    annotation (Placement(transformation(
         origin={-80,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
-    parameter Boolean positiveSign=true
+  parameter Boolean positiveSign=true
     "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
 protected
   parameter Integer csign=if positiveSign then +1 else -1;
@@ -40,7 +41,7 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<HTML>
 

@@ -7,9 +7,10 @@ model BasicCutTorque
   import Modelica.Mechanics.MultiBody.Frames;
 
   extends Internal.PartialCutTorqueBaseSensor;
-  Modelica.Blocks.Interfaces.RealOutput torque(final quantity="Torque", final unit=
-        "N.m") "Cut torque resolved in frame defined by resolveInFrame"
-       annotation (Placement(transformation(
+
+  Modelica.Blocks.Interfaces.RealOutput torque(final quantity="Torque", final unit="N.m")
+    "Cut torque resolved in frame defined by resolveInFrame"
+    annotation (Placement(transformation(
         origin={-80,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
@@ -31,7 +32,7 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<HTML>
 

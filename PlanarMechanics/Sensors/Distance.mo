@@ -7,24 +7,27 @@ model Distance
   import Modelica.Mechanics.MultiBody.Frames;
   import Modelica.Mechanics.MultiBody.Types;
 
-  Modelica.Blocks.Interfaces.RealOutput distance
+  Modelica.Blocks.Interfaces.RealOutput distance(
+    final quantity="Position",
+    final unit = "m",
+    min = 0)
     "Distance between the origin of frame_a and the origin of frame_b"
     annotation (Placement(transformation(
        origin={0,-110},
        extent={{10,-10},{-10,10}},
        rotation=90)));
-  parameter Boolean animation=true
+  parameter Boolean animation = true
     "= true, if animation shall be enabled (show arrow)";
-  input SI.Diameter arrowDiameter=planarWorld.defaultArrowDiameter
+  input SI.Diameter arrowDiameter = planarWorld.defaultArrowDiameter
     "Diameter of relative arrow from frame_a to frame_b"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
+  input Types.Color arrowColor = Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
     "Color of relative arrow from frame_a to frame_b"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
   input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(group="if animation = true", enable=animation));
-  input SI.Position s_small(min=sqrt(Modelica.Constants.small))=1.E-10
+  input SI.Position s_small(min=sqrt(Modelica.Constants.small)) = 1.E-10
     "Prevent zero-division if distance between frame_a and frame_b is zero"
     annotation (Dialog(tab="Advanced"));
 protected
@@ -47,10 +50,11 @@ equation
   frame_a.t = 0;
   frame_b.t = 0;
 
-  distance =  smooth(1,if noEvent(L2 > s_small2) then sqrt(L2) else L2/(2*s_small)*(3-L2/s_small2));
+  distance = smooth(1,if noEvent(L2 > s_small2) then sqrt(L2) else L2/(2*s_small)*(3-L2/s_small2));
   annotation (
-   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-           100}}), graphics={
+   Icon(
+     coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+     graphics={
         Line(points={{0,-60},{0,-100}}, color={0,0,127}),
         Line(points={{-70,0},{-101,0}}),
         Line(points={{70,0},{100,0}}),
@@ -58,8 +62,9 @@ equation
           extent={{-150,80},{150,40}},
           textString="%name",
           lineColor={0,0,255})}),
-   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-           100,100}}), graphics={
+   Diagram(
+     coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+     graphics={
        Text(
          extent={{-22,70},{20,46}},
          textString="s",
@@ -73,7 +78,7 @@ equation
    Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
 <p>
@@ -85,7 +90,7 @@ signal can be easily obtained by connecting the
 block
 <a href=\"modelica://Modelica.Blocks.Continuous.Der\">Modelica.Blocks.Continuous.Der</a>
 to \"distance\" (this block performs analytic differentiation
-of the input signal using the der(..) operator).
+of the input signal using the <code><strong>der</strong>(&hellip;)</code> operator).
 </p>
 <p>
 In the following figure the animation of a Distance

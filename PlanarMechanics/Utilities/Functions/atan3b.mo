@@ -1,8 +1,9 @@
 within PlanarMechanics.Utilities.Functions;
 function atan3b
-  "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
+  "Obsolete function: Four quadrant inverse tangent (select solution that is closest to given angle y0)"
   import Modelica.Math;
   extends Modelica.Math.Icons.AxisCenter;
+  extends Modelica.Icons.ObsoleteModel;
   input Real u1;
   input Real u2;
   input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 < pi";
@@ -14,6 +15,7 @@ algorithm
   w :=Math.atan2(u1, u2);
   y := w + 2*pi*div(abs(w-y0)+pi,2*pi)*(if y0 > w then +1 else -1);
   annotation (
+    obsolete = "Obsolete function - use Modelica.Math.atan3 instead",
     derivative(noDerivative=y0) = atan3b_der,
     Icon(coordinateSystem(
         preserveAspectRatio=true,
@@ -82,7 +84,7 @@ algorithm
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2019 at the DLR Institute of System Dynamics and Control</b>
+<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",
       info="<html>
@@ -91,13 +93,17 @@ This function returns y = <b>atan3</b>(u1,u2,y0) such that
 <b>tan</b>(y) = u1/u2 and
 y is in the range: -pi &lt; y-y0 &lt; pi.<br>
 u2 may be zero, provided u1 is not zero. The difference to
-Modelica.Math.atan2(..) is the optional third argument y0 that
-allows to specify which of the infinite many solutions
-shall be returned:
+<a href=\"modelica://Modelica.Math.atan3\">Modelica.Math.atan3</a>(&hellip;)
+is that the derivatives of atan3 are explicitely defined here.
 </p>
 
+
+<h4>See also</h4>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/atan3.png\" alt=\"Function atan3\">
+<a href=\"modelica://PlanarMechanics.Utilities.Functions.atan3b_der\">atan3b_der</a>
+for 1st derivative and
+<a href=\"modelica://PlanarMechanics.Utilities.Functions.atan3b_dder\">atan3b_dder</a>
+for 2nd derivative of this function.
 </p>
 </html>"));
 end atan3b;
