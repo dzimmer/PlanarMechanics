@@ -13,6 +13,7 @@ It is backwards compatible to previous library versions.
 
 <p>Improvements in this version:</p>
 <ul>
+<li> <a href=\"modelica://PlanarMechanics.Sensors\">Sensors</a>: add quantity and unit to outputs where missing.</li>
 <li>&hellip;</li>
 </ul>
 
