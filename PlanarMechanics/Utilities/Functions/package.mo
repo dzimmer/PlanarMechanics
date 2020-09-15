@@ -1,6 +1,6 @@
 within PlanarMechanics.Utilities;
 package Functions "Library for utility functions"
-  extends Modelica.Icons.Package;
+  extends Modelica.Icons.FunctionsPackage;
 
   annotation (
     Documentation(

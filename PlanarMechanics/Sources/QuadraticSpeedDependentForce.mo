@@ -13,13 +13,13 @@ protected
     "Conversion from frame A to B";
 
 public
-  parameter Modelica.SIunits.Force F_nominal
+  parameter SI.Force F_nominal
     "Nominal force (if negative, torque is acting as load)";
-  parameter Modelica.SIunits.Velocity v_nominal(min=Modelica.Constants.eps)
+  parameter SI.Velocity v_nominal(min=Modelica.Constants.eps)
     "Nominal speed";
-  parameter Modelica.SIunits.Torque tau_nominal
+  parameter SI.Torque tau_nominal
     "Nominal torque (if negative, torque is acting as load)";
-  parameter Modelica.SIunits.AngularVelocity w_nominal(min=Modelica.Constants.eps)
+  parameter SI.AngularVelocity w_nominal(min=Modelica.Constants.eps)
     "Nominal speed";
 
   parameter Boolean animation=true "= true, if animation shall be enabled";

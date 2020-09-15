@@ -1,10 +1,12 @@
 within PlanarMechanics.Sensors;
 model AbsoluteVelocity
-  "Measure absolute velocity vector of origin of frame connector"
+  "Measure absolute velocity of origin of frame connector"
   extends Internal.PartialAbsoluteSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput v[3]
-    "Absolute velocity vector resolved in frame defined by resolveInFrame"
+  Modelica.Blocks.Interfaces.RealOutput v[3](
+    final quantity = {"Velocity", "Velocity", "AngularVelocity"},
+    final unit = {"m/s", "m/s", "rad/s"})
+    "Vector of absolute measurements of frame_a on velocity level, resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
@@ -52,7 +54,7 @@ equation
       points={{11,0},{38,0}},
       color={0,0,127}));
   connect(transformAbsoluteVector.r_out, v) annotation (Line(
-      points={{61,0},{56,0},{56,0},{110,0}},
+      points={{61,-6.66134e-16},{110,-6.66134e-16},{110,0}},
       color={0,0,127}));
   connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
       points={{-60,-50},{-50,-50},{-50,-10}},
@@ -99,27 +101,45 @@ equation
 <b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
 </html>",  info="<html>
-<p>The absolute velocity vector of the origin of frame_a is determined and provided at the output signal connector <b>v</b>.</p>
-<p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the velocity vector is resolved: </p>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td><p align=\"center\"><h4>resolveInFrame =</h4></p><p align=\"center\">Types.ResolveInFrameA.</p></td>
-<td><p align=\"center\"><h4>Meaning</h4></p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>world</p></td>
-<td valign=\"top\"><p>Resolve vector in world frame</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_a</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_a</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_resolve</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
-</tr>
+<p>
+The absolute velocity vector of the origin of frame_a
+is determined and provided at the output signal connector&nbsp;<b>v</b>.
+</p>
+<p>
+Via parameter <b>resolveInFrame</b> it is defined, in which frame
+the velocity vector is resolved.
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
+  <tr>
+    <th>resolveInFrame = &hellip;</th>
+    <th>Output vector resolved in</th>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameA.world</td>
+    <td valign=\"top\">world frame</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameA.frame_a</td>
+    <td valign=\"top\">frame_a</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameA.frame_resolve</td>
+    <td valign=\"top\">frame_resolve (must be connected)</td>
+  </tr>
 </table>
-<p>If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and v is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
-<p>Example: If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>, the output vector is computed as: </p>
+
+<p>
+If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>,
+the conditional connector &quot;frame_resolve&quot; is enabled and&nbsp;v
+is resolved in the frame, to which frame_resolve is connected.
+Note, if this connector is enabled, it must be connected.
+</p>
+<p>
+Example: If <code>resolveInFrame&nbsp;= Types.ResolveInFrameA.frame_resolve</code>,
+the output vector is computed as:
+</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-x2brh9fX.png\" alt=\"
 v0 = der([x,y,phi])\"></p>
 <p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-Kgd1NoyE.png\" alt=\"v = [cos(frame_resolve.phi), sin(frame_resolve.phi),0;-sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1] * [v0[1];v0[2];v0[3]]\"></p>

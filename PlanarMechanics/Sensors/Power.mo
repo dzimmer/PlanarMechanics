@@ -1,11 +1,11 @@
 within PlanarMechanics.Sensors;
 model Power "Measure power flowing from frame_a to frame_b"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
   extends PlanarMechanics.Interfaces.PartialTwoFrames;
 
   Modelica.Blocks.Interfaces.RealOutput power(
-    final quantity="Power",
-    final unit="W")
+    final quantity = "Power",
+    final unit = "W")
     "Power at frame_a as output signal"
     annotation (Placement(transformation(
       origin={-80,-110},
@@ -43,10 +43,10 @@ equation
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
-</html>",  info="<HTML>
+</html>",  info="<html>
 <p>
 This component provides the power flowing from frame_a to frame_b
 as output signal <b>power</b>.
 </p>
-</HTML>"));
+</html>"));
 end Power;

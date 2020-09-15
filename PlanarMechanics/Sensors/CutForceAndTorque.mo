@@ -1,20 +1,19 @@
 within PlanarMechanics.Sensors;
-model CutForceAndTorque "Measure cut force and cut torque vector"
+model CutForceAndTorque "Measure cut force vector and cut torque"
 
-  import SI = Modelica.SIunits;
   import Modelica.Mechanics.MultiBody.Types;
 
   Modelica.Blocks.Interfaces.RealOutput force[2](
-    each final quantity="Force",
-    each final unit="N")
+    each final quantity = "Force",
+    each final unit = "N")
     "Cut force resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={-80,-110},
         extent={{10,-10},{-10,10}},
         rotation=90)));
   Modelica.Blocks.Interfaces.RealOutput torque(
-    final quantity="Torque",
-    final unit="N.m")
+    final quantity = "Torque",
+    final unit = "N.m")
     "Cut torque resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={0,-110},
@@ -56,19 +55,17 @@ protected
   SI.Position t_in_m[3]={0,0,frame_a.t}*csign/Nm_to_m
     "Torque mapped from Nm to m for animation";
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
-    diameter=forceDiameter,
     color=forceColor,
     specularCoefficient=specularCoefficient,
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x, frame_b.y, 0})+planarWorld.r_0,
+    r=MB.Frames.resolve1(planarWorld.R, {frame_b.x,frame_b.y,0}) + planarWorld.r_0,
     r_tail=f_in_m,
     r_head=-f_in_m,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;
     //R=Modelica.Mechanics.MultiBody.Frames.planarRotation({0,0,1},frame_b.phi,0),
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow torqueArrow(
-    diameter=torqueDiameter,
     color=torqueColor,
     specularCoefficient=specularCoefficient,
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x, frame_b.y, 0})+planarWorld.r_0,
+    r=MB.Frames.resolve1(planarWorld.R, {frame_b.x,frame_b.y,0}) + planarWorld.r_0,
     r_tail=t_in_m,
     r_head=-t_in_m,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;
@@ -135,29 +132,38 @@ If parameter <b>positiveSign</b> =
 (= frame_b.f, frame_b.t).
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
-the two vectors are resolved:
+Via parameter <b>resolveInFrame</b> it is defined in which frame
+the force output is resolved.
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>resolveInFrame =<br>Types.ResolveInFrameAB.</b></th><th><b>Meaning</b></th></tr>
-<tr><td valign=\"top\">world</td>
-    <td valign=\"top\">Resolve vectors in world frame</td></tr>
-
-<tr><td valign=\"top\">frame_a</td>
-    <td valign=\"top\">Resolve vectors in frame_a</td></tr>
-
-<tr><td valign=\"top\">frame_b</td>
-    <td valign=\"top\">Resolve vectors in frame_b</td></tr>
-
-<tr><td valign=\"top\">frame_resolve</td>
-    <td valign=\"top\">Resolve vectors in frame_resolve</td></tr>
+  <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
+  <tr>
+    <th>resolveInFrame = &hellip;</th>
+    <th>Force vector resolved in</th>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.world</td>
+    <td valign=\"top\">world frame</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_a</td>
+    <td valign=\"top\">frame_a</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_b</td>
+    <td valign=\"top\">frame_b</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_resolve</td>
+    <td valign=\"top\">frame_resolve (must be connected)</td>
+  </tr>
 </table>
 
 <p>
 If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector
-\"frame_resolve\" is enabled and the output vectors force and torque are resolved in the frame, to
-which frame_resolve is connected. Note, if this connector is enabled, it must
+<code>frame_resolve</code> is enabled and the output vector force is resolved in the frame, to
+which <code>frame_resolve</code> is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
 

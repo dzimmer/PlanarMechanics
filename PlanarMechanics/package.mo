@@ -1,22 +1,21 @@
 within ;
 package PlanarMechanics "Library to model 2-dimensional, planar mechanical systems"
   extends Modelica.Icons.Package;
-  import SI = Modelica.SIunits;
+  import Modelica.Units.SI;
   import MB = Modelica.Mechanics.MultiBody;
 
 
   annotation (
     preferredView="info",
-    version="1.4.2-dev",
+    version="1.5.0",
     versionBuild=1,
-    versionDate="2019-02-20",
-    dateModified = "2019-02-20 12:00:00Z",
+    versionDate="2020-09-15",
+    dateModified = "2020-09-15 12:00:00Z",
     uses(
-      Modelica(version="3.2.3")),
+      Modelica(version="4.0.0")),
     conversion(
-      noneFromVersion="1.4.1",
-      noneFromVersion="1.4.0",
-      from(version="1.3.0", script="modelica://PlanarMechanics/Resources/Scripts/Dymola/convertFromPlanarMechanics1_3_0.mos")),
+      from(version="1.3.0", script="modelica://PlanarMechanics/Resources/Scripts/Dymola/convertFromPlanarMechanics1_3_0.mos"),
+      from(version={"1.4.1","1.4.0"}, script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1.4.1.mos")),
     Documentation(
       info="<html>
 <p>

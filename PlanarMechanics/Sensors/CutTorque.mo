@@ -1,12 +1,10 @@
 within PlanarMechanics.Sensors;
-model CutTorque "Measure cut torque vector"
+model CutTorque "Measure cut torque"
   extends Internal.PartialCutTorqueSensor;
 
-  import SI = Modelica.SIunits;
-
   Modelica.Blocks.Interfaces.RealOutput torque(
-    final quantity="Torque",
-    final unit="N.m")
+    final quantity = "Torque",
+    final unit = "N.m")
     "Cut torque resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={-80,-110},
@@ -35,10 +33,9 @@ protected
   SI.Position t_in_m[3] = {0,0,frame_a.t}*(if positiveSign then +1 else -1)/Nm_to_m
     "Torque mapped from Nm to m for animation";
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow torqueArrow(
-    diameter=torqueDiameter,
     color=torqueColor,
     specularCoefficient=specularCoefficient,
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x, frame_b.y, 0})+planarWorld.r_0,
+    r=MB.Frames.resolve1(planarWorld.R, {frame_b.x,frame_b.y,0}) + planarWorld.r_0,
     r_tail=t_in_m,
     r_head=-t_in_m,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;
@@ -80,38 +77,29 @@ equation
           textString="torque"),
         Line(
           points={{-80,-100},{-80,0}}, color={0,0,127})}),
-    Documentation(revisions="<html>
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
-</html>",  info="<html>
-<p>The cut-torque acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>torque</b> (= frame_a.t). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-torque is provided (= frame_b.t).</p>
-<p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the torque vector is resolved: </p>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td><p align=\"center\"><h4>resolveInFrame =</h4></p><p align=\"center\">Types.ResolveInFrameAB.</p></td>
-<td><p align=\"center\"><h4>Meaning</h4></p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>world</p></td>
-<td valign=\"top\"><p>Resolve vector in world frame</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_a</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_a</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_b</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_b</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_resolve</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
-</tr>
-</table>
-<p>If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and output torque is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
-<p>In the following figure the modeling and animation of a CutTorque sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque1.png\" alt=\"Modelica diagram\">
-<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque2.png\" alt=\"CutTorque2 animation\"></p>
+</html>",
+      info="<html>
+<p>
+The cut-torque acting between the two frames to which this model
+is connected, is determined and provided at the output signal
+connector <b>torque</b> (= frame_a.t).
+If parameter <b>positiveSign</b> = <b>false</b>, the negative
+cut-torque is provided (= frame_b.t).
+</p>
+<p>
+In the following figure the modeling and animation of a&nbsp;CutTorque
+sensor is shown.
+</p>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque1.png\" alt=\"Modelica diagram\">
+<br>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque2.png\" alt=\"CutTorque2 animation\">
+</p>
 </html>"));
 end CutTorque;

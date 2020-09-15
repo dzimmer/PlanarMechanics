@@ -15,8 +15,13 @@ package UsersGuide "User's Guide"
       info="<html>
 <p>Library <b>PlanarMechanics</b> is a <b>free</b> Modelica package providing 2-dimensional mechanical components to model mechanical systems, such as robots, mechanisms, vehicles, where MultiBody library is unnecessarily complex. This package contains the User&#39;s Guide for the PlanarMechanics library.</p>
 <ol>
-<li><a href=\"modelica://PlanarMechanics.UsersGuide.Tutorial\">Tutorial</a> gives an introduction about how to use the library.</li>
-<li><a href=\"modelica://PlanarMechanics.UsersGuide.Contact\">Contact</a> provides information about the author of the library as well as acknowledgments.</li>
+  <li><a href=\"modelica://PlanarMechanics.UsersGuide.Tutorial\">Tutorial</a>
+      gives an introduction about how to use the library.</li>
+  <li><a href=\"modelica://PlanarMechanics.UsersGuide.Contact\">Contact</a>
+      provides information about the author of the library as well as
+      acknowledgments.</li>
+  <li><a href=\"modelica://PlanarMechanics.UsersGuide.ReleaseNotes\">Release Notes</a>
+      collect notes on Library's releases.</li>
 </ol>
 </html>"));
 end UsersGuide;

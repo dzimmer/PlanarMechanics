@@ -1,11 +1,9 @@
 within PlanarMechanics.Sensors;
 model CutForce "Measure cut force vector"
 
-  import SI = Modelica.SIunits;
-
   Modelica.Blocks.Interfaces.RealOutput force[2](
-    each final quantity="Force",
-    each final unit="N")
+    each final quantity = "Force",
+    each final unit = "N")
     "Cut force resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         origin={-80,-110},
@@ -36,10 +34,9 @@ protected
   SI.Position f_in_m[3] = {frame_a.fx, frame_a.fy, 0}*(if positiveSign then +1 else -1)/N_to_m
     "Force mapped from N to m for animation";
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
-    diameter=forceDiameter,
     color=forceColor,
     specularCoefficient=specularCoefficient,
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x, frame_b.y, 0})+planarWorld.r_0,
+    r=MB.Frames.resolve1(planarWorld.R, {frame_b.x,frame_b.y,0}) + planarWorld.r_0,
     r_tail=f_in_m,
     r_head=-f_in_m,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;
@@ -79,38 +76,64 @@ equation
           extent={{-190,-70},{-74,-96}},
           textString="force"),
         Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
-    Documentation(revisions="<html>
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
 </p>
-</html>",  info="<html>
-<p>The cut-force acting between the two frames to which this model is connected, is determined and provided at the output signal connector <b>force</b> (= frame_a.f). If parameter <b>positiveSign</b> = <b>false</b>, the negative cut-force is provided (= frame_b.f).</p>
-<p>Via parameter <b>resolveInFrame</b> it is defined, in which frame the force vector is resolved: </p>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td><p align=\"center\"><h4>resolveInFrame =</h4></p><p align=\"center\">Types.ResolveInFrameAB.</p></td>
-<td><p align=\"center\"><h4>Meaning</h4></p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>world</p></td>
-<td valign=\"top\"><p>Resolve vector in world frame</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_a</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_a</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_b</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_b</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>frame_resolve</p></td>
-<td valign=\"top\"><p>Resolve vector in frame_resolve</p></td>
-</tr>
+</html>",
+      info="<html>
+<p>
+The cut-force acting between the two frames to which this model
+is connected, is determined and provided at the output signal
+connector <b>force</b> (= frame_a.f).
+If parameter <b>positiveSign</b> = <b>false</b>, the negative
+cut-force is provided (= frame_b.f).
+</p>
+<p>
+Via parameter <b>resolveInFrame</b> it is defined, in which frame
+the force vector is resolved.
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
+  <tr>
+    <th>resolveInFrame = &hellip;</th>
+    <th>Output vector resolved in</th>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.world</td>
+    <td valign=\"top\">world frame</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_a</td>
+    <td valign=\"top\">frame_a</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_b</td>
+    <td valign=\"top\">frame_b</td>
+  </tr>
+  <tr>
+    <td valign=\"top\">Types.ResolveInFrameAB.frame_resolve</td>
+    <td valign=\"top\">frame_resolve (must be connected)</td>
+  </tr>
 </table>
-<p>If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector &quot;frame_resolve&quot; is enabled and output force is resolved in the frame, to which frame_resolve is connected. Note, if this connector is enabled, it must be connected.</p>
-<p>In the following figure the modeling and animation of a CutForce sensor is shown.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce2.png\" alt=\"Modelica diagram\">
-<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce.png\" alt=\"CutForce animation\"></p>
+
+<p>
+If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>,
+the conditional connector &quot;frame_resolve&quot; is enabled and
+output force is resolved in the frame, to which frame_resolve is connected.
+Note, if this connector is enabled, it must be connected.
+</p>
+<p>
+In the following figure the modeling and animation of a&nbsp;CutForce
+sensor is shown.
+</p>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce2.png\" alt=\"Modelica diagram\">
+<br>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce.png\" alt=\"CutForce animation\">
+</p>
 </html>"));
 end CutForce;

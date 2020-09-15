@@ -1,7 +1,7 @@
 within PlanarMechanics.Sensors.Internal;
 model PartialAbsoluteBaseSensor
   "Partial absolute sensor models for sensors defined by equations (frame_resolve must be connected exactly once)"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
 
   Interfaces.Frame_a frame_a
     "Coordinate system from which kinematic quantities are measured" annotation (Placement(
@@ -11,7 +11,7 @@ model PartialAbsoluteBaseSensor
     "Coordinate system in which vector is optionally resolved"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
         rotation=-90,
-        origin={10,-100}),
+        origin={0,-100}),
         iconTransformation(extent={{-16,-16},{16,16}},
         rotation=-90,
         origin={0,-100})));

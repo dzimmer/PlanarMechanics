@@ -6,8 +6,8 @@ function atan3b
   extends Modelica.Icons.ObsoleteModel;
   input Real u1;
   input Real u2;
-  input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 < pi";
-  output Modelica.SIunits.Angle y;
+  input SI.Angle y0=0 "y shall be in the range: -pi < y-y0 < pi";
+  output SI.Angle y;
 protected
   Real pi = Modelica.Constants.pi;
   Real w;

@@ -2,13 +2,13 @@ within PlanarMechanics.Sensors;
 model Distance
   "Measure the distance between the origins of two frame connectors"
   extends PlanarMechanics.Interfaces.PartialTwoFrames;
-  extends Modelica.Icons.TranslationalSensor;
+  extends Modelica.Icons.RectangularSensor;
 
   import Modelica.Mechanics.MultiBody.Frames;
   import Modelica.Mechanics.MultiBody.Types;
 
   Modelica.Blocks.Interfaces.RealOutput distance(
-    final quantity="Position",
+    final quantity = "Position",
     final unit = "m",
     min = 0)
     "Distance between the origin of frame_a and the origin of frame_b"
@@ -33,9 +33,8 @@ model Distance
 protected
   inner Modelica.Mechanics.MultiBody.World world;
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
-    r={frame_a.x, frame_a.y, 0},
-    r_head={frame_b.x, frame_b.y, 0} - {frame_a.x, frame_a.y, 0},
-    diameter=arrowDiameter,
+    r={frame_a.x,frame_a.y,0},
+    r_head={frame_b.x,frame_b.y,0} - {frame_a.x,frame_a.y,0},
     color=arrowColor,
     specularCoefficient=specularCoefficient) if planarWorld.enableAnimation and animation;
 

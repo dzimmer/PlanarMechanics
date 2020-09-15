@@ -1,7 +1,7 @@
 within PlanarMechanics.Sensors.Internal;
 partial model PartialRelativeSensor
   "Partial relative sensor model for sensors defined by components"
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
 
   Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(
         transformation(extent={{-116,-16},{-84,16}})));

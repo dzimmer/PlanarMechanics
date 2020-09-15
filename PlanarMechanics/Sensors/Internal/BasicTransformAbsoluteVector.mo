@@ -4,7 +4,7 @@ model BasicTransformAbsoluteVector
   import Modelica.Mechanics.MultiBody.Frames;
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
 
-  extends Modelica.Icons.RotationalSensor;
+  extends Modelica.Icons.RoundSensor;
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA frame_r_in=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
