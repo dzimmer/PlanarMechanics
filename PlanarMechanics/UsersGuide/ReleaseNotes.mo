@@ -5,7 +5,7 @@ class ReleaseNotes "Release notes"
   annotation (
     Documentation(
       info="<html>
-<h4>Version 1.4.2-dev, 2020-??-??</h4>
+<h4>Version 1.5.0, 2020-10-02</h4>
 <p>
 This version requires the <b>Modelica&nbsp;4.0.0</b> Library.
 It is backwards compatible to previous library versions.
@@ -14,7 +14,6 @@ It is backwards compatible to previous library versions.
 <p>Improvements in this version:</p>
 <ul>
 <li> <a href=\"modelica://PlanarMechanics.Sensors\">Sensors</a>: add quantity and unit to outputs where missing.</li>
-<li>&hellip;</li>
 </ul>
 
 
