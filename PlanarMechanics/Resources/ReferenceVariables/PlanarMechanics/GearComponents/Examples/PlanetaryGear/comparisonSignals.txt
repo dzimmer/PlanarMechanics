@@ -1,0 +1,11 @@
+time
+heatCapacitor.T
+planetary.bearing_Planet.phi
+planetary.bearing_Planet.w
+planetary.bearing_Ring.w
+planetary.planet.phi
+planetary.planet.w
+planetary.planetRing.frame_b.phi
+planetary.planetRing.phi_gear
+planetary.sunPlanet.frame_a.phi
+planetary.sunPlanet.phi_gear

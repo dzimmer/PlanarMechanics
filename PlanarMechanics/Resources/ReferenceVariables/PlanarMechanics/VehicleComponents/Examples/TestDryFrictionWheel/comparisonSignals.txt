@@ -1,0 +1,7 @@
+time
+body.phi
+inertia.phi
+inertia.w
+prismatic.s
+prismatic.v
+revolute.w

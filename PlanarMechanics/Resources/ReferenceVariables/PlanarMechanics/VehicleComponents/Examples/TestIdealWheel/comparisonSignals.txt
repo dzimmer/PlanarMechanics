@@ -1,0 +1,5 @@
+time
+inertia.phi
+prismatic.s
+revolute.phi
+revolute.w

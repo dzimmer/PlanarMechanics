@@ -1,0 +1,5 @@
+time
+body.phi
+damper1D.s_rel
+damper1D.v_rel
+revolute.w

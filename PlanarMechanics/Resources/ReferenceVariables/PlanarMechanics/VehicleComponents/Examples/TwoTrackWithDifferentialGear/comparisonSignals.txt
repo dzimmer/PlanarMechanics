@@ -1,0 +1,17 @@
+time
+body1.phi
+body1.r[1]
+body1.r[2]
+body1.v[2]
+body1.w
+body2.v[1]
+inertia.phi
+inertia.w
+inertia1.phi
+inertia1.w
+inertia2.phi
+inertia2.w
+inertia3.phi
+inertia3.w
+revolute2.phi
+revolute2.w

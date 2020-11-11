@@ -1,0 +1,4 @@
+time
+gearA.phi
+gearB_Bearing.phi
+gearwheelExternal.phi_gear
