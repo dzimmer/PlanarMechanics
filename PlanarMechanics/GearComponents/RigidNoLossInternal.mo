@@ -1,5 +1,5 @@
 within PlanarMechanics.GearComponents;
-model RigidNoLossInternal "Internal rigid gear gonnection model"
+model RigidNoLossInternal "Internal rigid gear connection model"
   extends PlanarMechanics.Utilities.Icons.PlanarGearContactInternalL1;
   extends PlanarMechanics.Interfaces.PartialTwoFramesAndHeat;
 

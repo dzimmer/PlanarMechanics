@@ -1,5 +1,5 @@
 within PlanarMechanics.GearComponents;
-model RigidNoLossExternal "External rigid gear gonnection model"
+model RigidNoLossExternal "External rigid gear connection model"
   extends PlanarMechanics.Utilities.Icons.PlanarGearContactExternalL1;
   extends PlanarMechanics.Interfaces.PartialTwoFramesAndHeat;
 
