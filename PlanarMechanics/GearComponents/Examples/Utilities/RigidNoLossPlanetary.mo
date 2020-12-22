@@ -39,35 +39,19 @@ model RigidNoLossPlanetary "Planetary gearbox"
     HideResult=true,
     choices(checkBox=true));
 
+  Modelica.Mechanics.Rotational.Components.Inertia sun(J=J_s)
+    annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+  Modelica.Mechanics.Rotational.Components.Inertia ring(J=J_r)
+    annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
   PlanarMechanics.Parts.Body planet(
     m=1,
     I=1e-3,
-    phi(fixed=false))            annotation (Placement(transformation(
+    phi(fixed=false)) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={82,40})));
-  PlanarMechanics.Parts.FixedTranslation carrierPart(r={r_s + r_p,0})
-    annotation (Placement(transformation(extent={{-8,-50},{12,-30}})));
-  PlanarMechanics.Parts.Fixed fixed
-    annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=180,
-        origin={-90,30})));
-  RigidNoLossExternal                                                       sunPlanet(
-      useHeatPort=true,
-      Tooth_a=40,
-      StartAngle_b=0,
-      r_a=r_s,
-      r_b=r_p,
-      RGB_a=RGB_s,
-      RGB_b=RGB_p,
-      animate=animate,
-    StartAngle_a=0)
-    annotation (Placement(transformation(extent={{0,0},{20,20}})));
-  PlanarMechanics.Parts.FixedRotation carrierAngle(alpha=0)
-    annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
-  PlanarMechanics.Joints.Revolute
-                  bearing_Planet
-    annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
+  Modelica.Mechanics.Rotational.Components.Inertia carrier(J=J_c, phi(
+        start=0))
+    annotation (Placement(transformation(extent={{70,-36},{90,-16}})));
   RigidNoLossInternal planetRing(
     useHeatPort=true,
     Tooth_a=40,
@@ -80,19 +64,34 @@ model RigidNoLossPlanetary "Planetary gearbox"
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={10,40})));
+  RigidNoLossExternal sunPlanet(
+      useHeatPort=true,
+      Tooth_a=40,
+      StartAngle_b=0,
+      r_a=r_s,
+      r_b=r_p,
+      RGB_a=RGB_s,
+      RGB_b=RGB_p,
+      animate=animate,
+    StartAngle_a=0)
+    annotation (Placement(transformation(extent={{0,0},{20,20}})));
   PlanarMechanics.Joints.Revolute bearing_Sun(useFlange=true)
     annotation (Placement(transformation(extent={{-70,0},{-50,20}})));
-  PlanarMechanics.Joints.Revolute bearing_Carrier(useFlange=true)
-    annotation (Placement(transformation(extent={{-70,-30},{-50,-50}})));
   PlanarMechanics.Joints.Revolute bearing_Ring(useFlange=true)
     annotation (Placement(transformation(extent={{-70,50},{-50,30}})));
-  Modelica.Mechanics.Rotational.Components.Inertia sun(J=J_s)
-    annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
-  Modelica.Mechanics.Rotational.Components.Inertia carrier(J=J_c, phi(
-        start=0))
-    annotation (Placement(transformation(extent={{70,-36},{90,-16}})));
-  Modelica.Mechanics.Rotational.Components.Inertia ring(J=J_r)
-    annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
+  PlanarMechanics.Joints.Revolute bearing_Planet
+    annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
+  PlanarMechanics.Joints.Revolute bearing_Carrier(useFlange=true)
+    annotation (Placement(transformation(extent={{-70,-30},{-50,-50}})));
+  PlanarMechanics.Parts.FixedRotation carrierAngle(alpha=0)
+    annotation (Placement(transformation(extent={{-40,-50},{-20,-30}})));
+  PlanarMechanics.Parts.FixedTranslation carrierPart(r={r_s + r_p,0})
+    annotation (Placement(transformation(extent={{-8,-50},{12,-30}})));
+  PlanarMechanics.Parts.Fixed fixed
+    annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=180,
+        origin={-90,30})));
 public
   inner PlanarWorldIn3D planarWorld(
     nominalLength=0.1,
@@ -112,11 +111,11 @@ public
         rotation=90,
         origin={0,-100})));
 equation
-  connect(carrierAngle.frame_b, carrierPart.frame_a)   annotation (Line(
+  connect(carrierAngle.frame_b, carrierPart.frame_a) annotation (Line(
       points={{-20,-40},{-8,-40}},
       color={95,95,95},
       thickness=0.5));
-  connect(bearing_Planet.frame_a, carrierPart.frame_b)  annotation (Line(
+  connect(bearing_Planet.frame_a, carrierPart.frame_b) annotation (Line(
       points={{20,-40},{12,-40}},
       color={95,95,95},
       thickness=0.5));
@@ -175,15 +174,21 @@ equation
   connect(bearing_Carrier.flange_a, carrier.flange_a) annotation (Line(
       points={{-60,-30},{-60,-26},{70,-26}}));
   connect(planarWorld.MBFrame_a,frameVisualisation)  annotation (Line(
-      points={{59.8,-80},{0,-80},{0,-100}},
+      points={{60,-80},{0,-80},{0,-100}},
       color={95,95,95},
       thickness=0.5));
   connect(body3D.frame_a, planarWorld.MBFrame_a) annotation (Line(
-      points={{-20,-80},{59.8,-80}},
+      points={{-20,-80},{60,-80}},
       color={95,95,95},
       thickness=0.5));
   annotation (Documentation(info="<html>
-<p>This model is a model of a standard planetary gearbox. The inertia of all gear models, as well as the mass of the planetary gear can be entered to get the behaviour of a complete planetary gear. In this example only one planet is used as the gearbox models are rigid.</p>
+<p>
+This model is a model of a standard planetary gearbox.
+The inertia of all gear models, as well as the mass of
+the planetary gear can be entered to get the behaviour
+of a&nbsp;complete planetary gear. In this example only
+one planet is used as the gearbox models are rigid.
+</p>
 </html>",
       revisions="<html>
 <p>
