@@ -1,5 +1,5 @@
 within PlanarMechanics.GearComponents;
-model RigidNoLossInternal "Internal rigid gear gonnection model"
+model RigidNoLossInternal "Internal rigid gear connection model"
   extends PlanarMechanics.Utilities.Icons.PlanarGearContactInternalL1;
   extends PlanarMechanics.Interfaces.PartialTwoFramesAndHeat;
 
@@ -269,18 +269,38 @@ equation
 </p>
 </html>",
       info="<html>
-<p>In this model an ideal gear connection is modelled. It is based on the paper from van der Linden , <a href=\"http://dx.doi.org/10.3384/ecp12076303\">Modelling of Elastic Gearboxes Using a Generalized Gear Contact Model</a>. However, no gear elasticity is modelled.</p>
-<p>The planar model of an internal gear wheel is used to build complex gear models. A <a href=\"http://dx.doi.org/10.3384/ecp12076681\">planar library</a> is used to create the constraints of the gearwheels. An example can be found in <a href=\"modelica://PlanarMechanics.GearComponents.Examples.SpurGear\">here</a>.</p>
-<p>Using different parts from the planar library, it is possible to build complex gear systems. However, especially since no elasticity is included, kinematic loops can lead to complications and should be handled with care.</p>
-<p>This model is suitable for: </p>
+<p>
+In this model an ideal gear connection is modelled.
+It is based on the paper from van der Linden:
+<a href=\"http://dx.doi.org/10.3384/ecp12076303\">Modelling of Elastic Gearboxes Using a Generalized Gear Contact Model</a>.
+However, no gear elasticity is modelled.
+</p>
+<p>
+The planar model of an internal gear wheel is used to build
+complex gear models. A&nbsp;<a href=\"http://dx.doi.org/10.3384/ecp12076681\">planar library</a>
+is used to create the constraints of the gearwheels. An example
+can be found in <a href=\"modelica://PlanarMechanics.GearComponents.Examples.SpurGear\">SpurGear</a>.
+</p>
+<p>
+Using different parts from the planar library, it is possible to
+build complex gear systems. However, especially since no elasticity
+is included, kinematic loops can lead to complications and should
+be handled with care.
+</p>
+<p>
+This model is suitable for:
+</p>
 <ul>
-<li>Kinematic analysis of gear systems and gear-like systems.</li>
-<li>Modelling of multiple gear stage models with clutches.</li>
+  <li>Kinematic analysis of gear systems and gear-like systems.</li>
+  <li>Modelling of multiple gear stage models with clutches.</li>
 </ul>
 
 <h4>Literature</h4>
 <ol>
-<li>van der Linden, F., Modelling of Elastic Gearboxes Using a Generalized Gear Contact Model, <i>Proceedings of the 9th International MODELICA Conference, Linkoping University Electronic Press, </i><b>2012</b>, 303-310 </li>
+  <li>van der Linden, F., Modelling of Elastic Gearboxes Using
+      a&nbsp;Generalized Gear Contact Model, <em>Proceedings of the
+      9th International MODELICA Conference, Linkoping University
+      Electronic Press</em>, <strong>2012</strong>, 303-310 </li>
 </ol>
 </html>"));
 end RigidNoLossInternal;

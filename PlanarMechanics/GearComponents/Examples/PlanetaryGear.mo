@@ -11,9 +11,16 @@ model PlanetaryGear "Rigid planetary gearbox"
     J_p=1e-3,
     J_c=1e-3,
     J_r=1e-3,
-    connectToMultiBody=true)
+    connectToMultiBody=true,
+    bearing_Sun(phi(fixed=true, start=0)),
+    bearing_Carrier(
+      stateSelect=StateSelect.always,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=0.5)))
     annotation (Placement(transformation(extent={{0,0},{40,40}})));
-  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(C=1)
+  Modelica.Thermal.HeatTransfer.Components.HeatCapacitor heatCapacitor(
+    C=1,
+    T(fixed=true))
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-20,-30})));

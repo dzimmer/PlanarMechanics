@@ -36,9 +36,9 @@ In order to know how the library works, first have a look at:
 </ul>
 
 
-<h4>Licensed by DLR e.V. under the 3-Clause BSD License</h4>
+<h4>Licensed by DLR under the 3-Clause BSD License</h4>
 <p>
-Copyright &copy; 2010-2020, Deutsches Zentrum fuer Luft- und Raumfahrt e.V.
+Copyright &copy; 2010-2020, Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)
 </p>
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely

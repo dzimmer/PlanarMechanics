@@ -1,4 +1,4 @@
-within PlanarMechanics.UsersGuide;
+﻿within PlanarMechanics.UsersGuide;
 class Contact "Contact"
   extends Modelica.Icons.Contact;
   annotation (
@@ -10,16 +10,16 @@ class Contact "Contact"
 </p>
 </html>",
       info="<html>
-<dl>
-<dt><b>Library Officer:</b></dt>
-<dd><a href=\"http://www.robotic.dlr.de/Dirk.Zimmer/\">Dirk Zimmer</a></dd>
-<dd>Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)</dd>
-<dd>Robotic and Mechatronic Centre</dd>
-<dd><a href=\"https://www.dlr.de/sr/en\">Institute of Sytem Dynamics and Control</<></dd>
-<dd>M&uuml;nchner Strasse 20 D-82234 Wessling</dd>
-<dd>Germany</dd>
-<dd>email: <a href=\"mailto:Dirk.Zimmer@dlr.de\">Dirk.Zimmer@dlr.de</a></dd>
-</dl>
+<h4>Library Officer</h4>
+<blockquote>
+<a href=\"http://www.robotic.dlr.de/Dirk.Zimmer/\">Dirk Zimmer</a><br>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
+<a href=\"https://www.dlr.de/sr/en\">Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)</a><br>
+M&uuml;nchener Straße 20<br>
+D-82234 We&szlig;ling<br>
+Germany<br>
+email: <a href=\"mailto:Dirk.Zimmer@dlr.de\">Dirk.Zimmer@dlr.de</a>
+</blockquote>
 
 <h4>Acknowledgements:</h4>
 <ul>
