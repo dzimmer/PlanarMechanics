@@ -1,0 +1,9 @@
+time
+body.phi
+body.w
+revolute2.phi
+revolute2.w
+revolute4.phi
+revolute4.w
+springDamper1D.s_rel
+springDamper1D.v_rel

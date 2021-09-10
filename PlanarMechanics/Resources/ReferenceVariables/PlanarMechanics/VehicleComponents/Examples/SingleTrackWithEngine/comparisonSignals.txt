@@ -1,0 +1,11 @@
+time
+bodyFront.phi
+bodyFront.r[1]
+bodyFront.r[2]
+bodyFront.w
+idealWheelFront.phi_roll
+idealWheelFront.v_long
+idealWheelRear.phi_roll
+idealWheelRear.v_long
+revolute.phi
+revolute.w

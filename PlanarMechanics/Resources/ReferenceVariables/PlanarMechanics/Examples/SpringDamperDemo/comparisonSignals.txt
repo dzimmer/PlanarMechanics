@@ -1,0 +1,7 @@
+time
+body.phi
+body.r[1]
+body.r[2]
+body.v[1]
+body.v[2]
+body.w

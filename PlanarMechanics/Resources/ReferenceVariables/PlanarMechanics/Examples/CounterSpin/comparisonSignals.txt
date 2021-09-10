@@ -1,0 +1,5 @@
+time
+body.r[1]
+body.v[1]
+slipBasedRolling.phi
+slipBasedRolling.w

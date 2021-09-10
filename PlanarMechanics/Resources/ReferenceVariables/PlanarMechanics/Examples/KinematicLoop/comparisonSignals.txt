@@ -1,0 +1,5 @@
+time
+revolute1.phi
+revolute1.w
+revolute4.phi
+revolute4.w
