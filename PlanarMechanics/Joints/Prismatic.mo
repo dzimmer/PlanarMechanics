@@ -10,8 +10,9 @@ model Prismatic "A prismatic joint"
     "Priority to use s and v as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
   parameter SI.Position r[2] "Direction of the rod wrt. body system at phi=0";
-  final parameter SI.Length l = sqrt(r*r) "Length of r";
-  final parameter SI.Distance e[2]= r/l "Normalized r";
+  final parameter SI.Length l = Modelica.Math.Vectors.length(r) "Length of r";
+  final parameter Real e[2](each final unit="1") = Modelica.Math.Vectors.normalizeWithAssert(r)
+    "Unit vector in direction of r";
 
   Modelica.Mechanics.Translational.Interfaces.Flange_a flange_a(f = f, s = s) if useFlange
    annotation (
@@ -47,10 +48,10 @@ model Prismatic "A prismatic joint"
     "Velocity of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Acceleration a(start = 0) "Acceleration of elongation" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.Force f "Force in direction of elongation";
-  Real e0[2] "Direction of the prismatic rod resolved wrt. inertial frame";
+  Real e0[2] "Unit vector in direction of r resolved w.r.t. inertial frame";
   SI.Position r0[2]
-    "Translation vector of the prismatic rod resolved wrt. inertial frame";
-  Real R[2,2] "Rotation Matrix";
+    "Translation vector of the prismatic rod resolved w.r.t. inertial frame";
+  Real R[2,2] "Rotation matrix";
 
   //Visualization
   MB.Visualizers.Advanced.Shape box(
@@ -67,8 +68,7 @@ model Prismatic "A prismatic joint"
     R=planarWorld.R) if planarWorld.enableAnimation and animate;
 
 protected
-  Modelica.Mechanics.Translational.Components.Fixed
-                                 fixed
+  Modelica.Mechanics.Translational.Components.Fixed fixed
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=180,
         origin={-60,-80})));
