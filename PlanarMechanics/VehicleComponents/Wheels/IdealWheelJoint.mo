@@ -12,10 +12,11 @@ model IdealWheelJoint "Ideal wheel joint"
 
   parameter SI.Length radius "Radius of the wheel";
   parameter SI.Length r[2] "Driving direction of the wheel at angle phi = 0";
-  final parameter SI.Length l = sqrt(r*r) "Length of vector r";
-  final parameter Real e[2] =  r/l "Normalized direction";
-  Real e0[2] "Normalized direction w.r.t inertial system";
-  Real R[2,2] "Rotation Matrix";
+  final parameter SI.Length l = Modelica.Math.Vectors.length(r) "Length of r";
+  final parameter Real e[2](each final unit="1") = Modelica.Math.Vectors.normalizeWithAssert(r)
+    "Unit vector in direction of r";
+  Real e0[2] "Unit vector in direction of r resolved w.r.t. inertial frame";
+  Real R[2,2] "Rotation matrix";
   SI.Angle phi_roll(start=0) "Roll angle of the wheel" annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularVelocity w_roll(final stateSelect=stateSelect, start=0)
     "Roll velocity of wheel"  annotation(Dialog(group="Initialization", showStartAttribute=true));
