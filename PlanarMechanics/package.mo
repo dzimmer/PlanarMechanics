@@ -57,17 +57,17 @@ the disclaimer of warranty) visit
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
          graphics={
         Ellipse(
-          extent={{-46,10},{-26,-10}},
+          extent={{-30,30},{-10,10}},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Ellipse(
-          extent={{-74,-40},{-54,-60}},
+          extent={{-70,-30},{-50,-50}},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Ellipse(
-          extent={{18,-34},{38,-54}},
+          extent={{50,-30},{70,-50}},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Line(
-          points={{-64,-50},{-36,0},{24,-42}})}));
+          points={{-60,-40},{-20,20},{60,-40}})}));
 end PlanarMechanics;
