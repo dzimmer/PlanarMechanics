@@ -115,13 +115,12 @@ for this situation:
         extent={{-100,-100},{100,100}},
         grid={2,2}), graphics={
         Line(
-          points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,
-              0}},
+          points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},{100,0}},
           thickness=0.5),
         Line(points={{-70,-76},{-70,0}}, color={128,128,128}),
         Line(points={{70,-78},{70,0}}, color={128,128,128}),
         Line(points={{-70,-70},{70,-70}},
-                                        color={128,128,128}),
+          color={128,128,128}),
         Polygon(
           points={{60,-67},{70,-70},{60,-73},{60,-67}},
           lineColor={128,128,128},
@@ -129,12 +128,12 @@ for this situation:
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-40,-66},{40,-42}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="phi_rel"),
         Text(
           extent={{-150,80},{150,40}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
@@ -153,6 +152,6 @@ for this situation:
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-20,40},{20,65}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="phi_rel")}));
 end Spring;

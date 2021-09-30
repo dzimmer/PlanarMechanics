@@ -76,7 +76,7 @@ contains a menu definition of the colors used in the library</a>
             {100,100}}), graphics={
         Text(
           extent={{-150,100},{150,60}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="%name"),
         Polygon(
           points={{-50,-90},{0,-72},{50,-90},{90,-70},{26,-16},{8,40},{-8,40},{-28,
@@ -99,9 +99,7 @@ contains a menu definition of the colors used in the library</a>
           color={135,135,135}),
         Text(
           extent={{-69,-54},{-20,-84}},
-          lineColor={135,135,135},
-          fillColor={135,135,135},
-          fillPattern=FillPattern.Solid,
+          textColor={135,135,135},
           textString="x"),
         Polygon(
           points={{-96,-80},{-64,-72},{-76,-58},{-96,-80}},
@@ -115,15 +113,11 @@ contains a menu definition of the colors used in the library</a>
           fillPattern=FillPattern.Solid),
         Text(
           extent={{25,-54},{74,-84}},
-          lineColor={135,135,135},
-          fillColor={135,135,135},
-          fillPattern=FillPattern.Solid,
+          textColor={135,135,135},
           textString="z"),
         Text(
           extent={{10,60},{61,30}},
-          lineColor={135,135,135},
-          fillColor={135,135,135},
-          fillPattern=FillPattern.Solid,
+          textColor={135,135,135},
           textString="y"),
         Polygon(
           points={{-14,22},{14,22},{0,62},{-14,22}},

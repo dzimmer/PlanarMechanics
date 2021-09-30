@@ -58,15 +58,15 @@ with the blocks of package Modelica.Blocks.
         Line(points={{70,0},{100,0}}),
         Text(
           extent={{-118,55},{-82,30}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="a"),
         Text(
           extent={{83,55},{119,30}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="b"),
         Text(
           extent={{70,-66},{201,-91}},
-          lineColor={95,95,95},
+          textColor={95,95,95},
           textString="resolve"),
         Line(
           points={{80,0},{80,-100}},
@@ -75,5 +75,5 @@ with the blocks of package Modelica.Blocks.
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
-          lineColor={0,0,255})}));
+          textColor={0,0,255})}));
 end PartialCutForceBaseSensor;

@@ -94,9 +94,8 @@ equation
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-150,80},{150,40}},
-          fillPattern=FillPattern.Sphere,
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(
       info="<html>
 <p>

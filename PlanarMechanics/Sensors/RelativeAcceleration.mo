@@ -88,11 +88,11 @@ equation
         Text(
           extent={{18,-80},{102,-110}},
           textString="a_rel",
-          lineColor={0,0,0}),
+          textColor={0,0,0}),
         Text(
           extent={{-150,140},{150,100}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">

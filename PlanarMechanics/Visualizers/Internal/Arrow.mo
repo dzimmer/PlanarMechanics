@@ -116,5 +116,5 @@ contains a menu definition of the colors used in the library</a>
         Text(
           extent={{-150,100},{150,60}},
           textString="%name",
-          lineColor={0,0,255})}));
+          textColor={0,0,255})}));
 end Arrow;

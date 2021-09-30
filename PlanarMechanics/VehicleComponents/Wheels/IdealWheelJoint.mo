@@ -139,12 +139,12 @@ equation
           fillColor={231,231,231}),
         Text(
           extent={{-150,-110},{150,-140}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="radius=%radius"),
         Text(
           extent={{-150,140},{150,100}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(
       info="<html>
 <p>The ideal wheel joint enforces the constraints of ideal rolling on the x,y-plane.</p>
