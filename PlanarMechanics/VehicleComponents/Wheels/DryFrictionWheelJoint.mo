@@ -84,8 +84,8 @@ model DryFrictionWheelJoint "Dry-Friction based wheel joint"
     widthDirection={1,0,0},
     r_shape={0,0,-radius},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi,0)))
-      if planarWorld.enableAnimation and animate;
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi,0))) if
+         planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape rim2(
     shapeType="cylinder",
     color={195,195,195},
@@ -97,8 +97,8 @@ model DryFrictionWheelJoint "Dry-Friction based wheel joint"
     widthDirection={1,0,0},
     r_shape={0,0,-radius},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi+Modelica.Constants.pi/2,0)))
-     if planarWorld.enableAnimation and animate;
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi+Modelica.Constants.pi/2,0))) if
+        planarWorld.enableAnimation and animate;
 equation
   R = {{cos(frame_a.phi), -sin(frame_a.phi)}, {sin(frame_a.phi),cos(frame_a.phi)}};
   e0 = R*e;

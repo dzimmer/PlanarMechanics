@@ -10,8 +10,8 @@ model AbsoluteVelocity
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
-  Interfaces.Frame_resolve frame_resolve
- if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+  Interfaces.Frame_resolve frame_resolve if
+    resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector v is optionally resolved"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
         rotation=-90,

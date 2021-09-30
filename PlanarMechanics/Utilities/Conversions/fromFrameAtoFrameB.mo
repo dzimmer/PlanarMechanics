@@ -15,8 +15,9 @@ algorithm
     FrameB := Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve;
   end if;
 
-  annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics={
+  annotation (Inline=true,
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
         Text(
           extent={{-20,100},{-102,56}},
           textColor={0,0,0},
