@@ -39,7 +39,7 @@ model DryFrictionBasedRolling
     widthDirection={1,0,0},
     r_shape={0,0,-0.03},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,0})+planarWorld.r_0,
-    R=planarWorld.R) if  planarWorld.enableAnimation and animate;
+    R=planarWorld.R)  if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape rim1(
     shapeType="cylinder",
     color={195,195,195},
@@ -51,8 +51,8 @@ model DryFrictionBasedRolling
     widthDirection={0,0,1},
     r_shape={-R,0,0},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,0})+planarWorld.r_0,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0,0,1},phi,0))) if
-         planarWorld.enableAnimation and animate;
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0,0,1},phi,0)))
+      if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape rim2(
     shapeType="cylinder",
     color={195,195,195},
@@ -64,8 +64,8 @@ model DryFrictionBasedRolling
     widthDirection={0,0,1},
     r_shape={-R,0,0},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,0})+planarWorld.r_0,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0,0,1},phi-Modelica.Constants.pi/2,0))) if
-          planarWorld.enableAnimation and animate;
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0,0,1},phi-Modelica.Constants.pi/2,0)))
+       if planarWorld.enableAnimation and animate;
 initial equation
   //Initialization of Position and Velocity
 equation
@@ -111,7 +111,7 @@ equation
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Line(
           visible=useHeatPort,
           points={{-100,-100},{-100,-80},{0,-80}},
@@ -119,7 +119,7 @@ equation
           pattern=LinePattern.Dot),
         Text(
           extent={{-150,-90},{150,-120}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="R=%R")}),
     Documentation(
       revisions="<html>

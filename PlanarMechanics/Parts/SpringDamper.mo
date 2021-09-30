@@ -177,7 +177,7 @@ equation
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-40,-96},{40,-76}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="phi_rel"),
         Rectangle(
           extent={{-50,-10},{40,-70}},
@@ -194,7 +194,7 @@ equation
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Line(
           visible=useHeatPort,
           points={{-100,-100},{-100,-60},{-40,-60},{-20,-40}},
@@ -218,7 +218,7 @@ equation
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-20,72},{20,97}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="phi_rel"),
         Rectangle(
           extent={{-50,-20},{40,-80}},

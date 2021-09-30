@@ -25,8 +25,8 @@ protected
   Internal.BasicRelativePosition relativePosition(resolveInFrame=resolveInFrame)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
-  Interfaces.ZeroPosition zeroPosition if
-    not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+  Interfaces.ZeroPosition zeroPosition
+ if not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
     annotation (Placement(transformation(extent={{52,20},{72,40}})));
 
 equation
@@ -65,7 +65,7 @@ equation
         Text(
           extent={{-150,140},{150,100}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">

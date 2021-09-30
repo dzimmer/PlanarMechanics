@@ -55,9 +55,8 @@ model PlanetaryGear "Icon for planetary gears"
           fillColor={0,0,255}),
         Text(
           extent={{-140,140},{140,100}},
-          fillPattern=FillPattern.Sphere,
-          fillColor={85,170,255},
-          textString="%name")}),
+          textString="%name",
+          textColor={0,0,255})}),
     Documentation(
       revisions="<html>
 <p>

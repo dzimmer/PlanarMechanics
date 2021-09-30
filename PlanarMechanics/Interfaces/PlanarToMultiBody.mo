@@ -45,7 +45,7 @@ equation
           thickness=0.5),
         Text(
           extent={{-90,60},{90,30}},
-          lineColor={0,0,255},
+          textColor={0,0,255},
           textString="%name"),
         Rectangle(
           extent={{-26,8},{26,-8}},

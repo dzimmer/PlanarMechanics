@@ -64,20 +64,21 @@ equation
           fillColor={175,175,175}),
         Text(
           extent={{-108,-24},{-72,-49}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="a"),
         Text(
           extent={{72,-24},{108,-49}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="b"),
         Text(
           extent={{-150,80},{150,40}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{-100,-50},{100,-80}},
-          lineColor={0,0,0},
-          textString="r=%r")}),          Documentation(revisions="<html>
+          textColor={0,0,0},
+          textString="r=%r")}),
+    Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>

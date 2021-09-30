@@ -49,8 +49,8 @@ public
     "Coordinate system fixed to the component with one cut-force and cut-torque"
     annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
-  Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0) if
-    resolveInFrameB == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
+  Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0)
+ if resolveInFrameB == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
     annotation (
       Placement(transformation(extent={{-16,16},{16,-16}},
@@ -144,10 +144,10 @@ equation
         Text(
           extent={{-150,80},{150,40}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{72,-24},{108,-49}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="b")}),
     Documentation(
       info="<html>

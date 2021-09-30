@@ -117,19 +117,19 @@ equation
           color={0,127,0}),
         Text(
           extent={{-140,-22},{-104,-47}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="a"),
         Text(
           extent={{104,-22},{140,-47}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="b"),
         Text(
           extent={{-150,100},{150,60}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{-100,-50},{100,-80}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="r=%r"),
         Line(
           visible=useFlange,

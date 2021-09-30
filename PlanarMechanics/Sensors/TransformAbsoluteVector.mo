@@ -6,8 +6,8 @@ model TransformAbsoluteVector "Transform absolute vector in to another frame"
     "Coordinate system from which absolute kinematic quantities are measured" annotation (Placement(
         transformation(extent={{-116,-16},{-84,16}})));
 
-  Interfaces.Frame_resolve frame_resolve if
-   (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) or
+  Interfaces.Frame_resolve frame_resolve
+if (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) or
    (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     "Coordinate system in which r_in or r_out is optionally resolved"
     annotation (Placement(transformation(extent={{84,-16},{116,16}}),
@@ -35,8 +35,8 @@ protected
     frame_r_in = frame_r_in,
     frame_r_out = frame_r_out)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Interfaces.ZeroPosition zeroPosition if
-    not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve or
+  Interfaces.ZeroPosition zeroPosition
+ if not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve or
          frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     annotation (Placement(transformation(extent={{40,20},{60,40}})));
 
@@ -85,13 +85,13 @@ equation
           pattern=LinePattern.Dot),
         Text(
           extent={{58,47},{189,22}},
-          lineColor={95,95,95},
+          textColor={95,95,95},
           textString="resolve"),
         Line(
           points={{-70,0},{-96,0},{-96,0}}),
         Text(
           extent={{-116,45},{-80,20}},
-          lineColor={95,95,95},
+          textColor={95,95,95},
           textString="a")}),
     Documentation(revisions="<html>
 <p>

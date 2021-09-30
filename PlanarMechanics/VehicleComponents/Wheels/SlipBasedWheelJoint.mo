@@ -94,8 +94,8 @@ model SlipBasedWheelJoint "Slip-Friction based wheel joint"
     widthDirection={1,0,0},
     r_shape={0,0,-radius},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi,0))) if
-      planarWorld.enableAnimation and animate;
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi,0)))
+   if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape rim2(
     shapeType="cylinder",
     color={195,195,195},
@@ -107,8 +107,8 @@ model SlipBasedWheelJoint "Slip-Friction based wheel joint"
     widthDirection={1,0,0},
     r_shape={0,0,-radius},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi+Modelica.Constants.pi/2,0))) if
-      planarWorld.enableAnimation and animate;
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi+Modelica.Constants.pi/2,0)))
+   if planarWorld.enableAnimation and animate;
 equation
   R = {{cos(frame_a.phi), -sin(frame_a.phi)}, {sin(frame_a.phi),cos(frame_a.phi)}};
   e0 = R*e;
@@ -181,12 +181,12 @@ equation
           smooth=Smooth.None),
         Text(
           extent={{-150,-40},{150,-70}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="radius=%radius"),
         Text(
           extent={{-150,140},{150,100}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(
       info="<html>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has slip-dependent friction characteristics. This is an approximation for wheels with a rim and a rupper tire.</p>
