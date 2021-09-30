@@ -56,6 +56,8 @@ the disclaimer of warranty) visit
 </html>"),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
          graphics={
+        Line(points={{-60,70},{-60,-70}}, color={175,175,175}),
+        Line(points={{-80,-40},{80,-40}}, color={175,175,175}),
         Ellipse(
           extent={{-30,30},{-10,10}},
           fillPattern=FillPattern.Solid,
@@ -65,9 +67,9 @@ the disclaimer of warranty) visit
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Ellipse(
-          extent={{50,-30},{70,-50}},
+          extent={{40,-30},{60,-50}},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.None),
         Line(
-          points={{-60,-40},{-20,20},{60,-40}})}));
+          points={{-60,-40},{-20,20},{50,-40}})}));
 end PlanarMechanics;
