@@ -111,7 +111,7 @@ equation
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Line(
           visible=useHeatPort,
           points={{-100,-100},{-100,-80},{0,-80}},
@@ -119,7 +119,7 @@ equation
           pattern=LinePattern.Dot),
         Text(
           extent={{-150,-90},{150,-120}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="R=%R")}),
     Documentation(
       revisions="<html>

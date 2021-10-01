@@ -32,7 +32,7 @@ algorithm
           fillPattern=FillPattern.Solid),
         Text(
           extent={{-90,-46},{-18,-94}},
-          lineColor={192,192,192},
+          textColor={192,192,192},
           textString="atan3")}),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
@@ -63,16 +63,16 @@ algorithm
         Text(
           extent={{-56,82},{-12,72}},
           textString="(2*N-1)*pi",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{-52,-72},{-10,-88}},
           textString="(2*N-3)*pi",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Line(points={{0,40},{-8,40}}, color={192,192,192}),
         Line(points={{0,-40},{-8,-40}}, color={192,192,192}),
         Text(
           extent={{38,-68},{78,-84}},
-          lineColor={95,95,95},
+          textColor={95,95,95},
           textString="u1, u2, y0"),
         Line(
           points={{-84,40},{88,40}},

@@ -93,11 +93,11 @@ equation
         Text(
           extent={{150,-130},{-150,-100}},
           textString="I=%I",
-          lineColor={0,0,0}),
+          textColor={0,0,0}),
         Text(
           extent={{-150,100},{150,60}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(
       revisions="<html>
 <p>
