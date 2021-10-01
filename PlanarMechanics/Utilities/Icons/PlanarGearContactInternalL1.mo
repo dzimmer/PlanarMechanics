@@ -126,6 +126,6 @@ model PlanarGearContactInternalL1 "Icon for an internal planar gear contact"
       info="<html>
 <p>
 This partial class is intended to design a <em>default icon for an internal planar gear contact</em>.
-<p>
+</p>
 </html>"));
 end PlanarGearContactInternalL1;
