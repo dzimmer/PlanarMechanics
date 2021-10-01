@@ -14,12 +14,12 @@ algorithm
 Returns the input argument rounded to the nearest Integer. Examples:
 </p>
  
-<pre>
-   round(2.4)  ->  2
-   round(2.6)  ->  3
-   round(-1.3) -> -1
-   round(-1.6) -> -2
-</pre>
+<blockquote><pre>
+round(2.4)  ->  2
+round(2.6)  ->  3
+round(-1.3) -> -1
+round(-1.6) -> -2
+</pre></blockquote>
 </html>",
       revisions="<html>
 <p>
