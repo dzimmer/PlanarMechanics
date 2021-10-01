@@ -15,6 +15,6 @@ package Icons "Icons used for library components"
 <p>
 A&nbsp;collection of basic icons to be used for different elements of the library.
 </p>
-</placeholder_to_comply_minimal_number_of_characters_for_documentation>
+<!-- placeholder_to_comply_minimal_number_of_characters_for_documentation -->
 </html>"));
 end Icons;

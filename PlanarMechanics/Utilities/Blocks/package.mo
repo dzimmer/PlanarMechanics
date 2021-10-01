@@ -12,6 +12,6 @@ package Blocks "Blocks to process signals"
 </html>",
       info="<html>
 <p>This package contains input/output blocks to build up block diagrams.</p>
-</placeholder_to_comply_minimal_number_of_characters_for_documentation>
+<!-- placeholder_to_comply_minimal_number_of_characters_for_documentation -->
 </html>"));
 end Blocks;
