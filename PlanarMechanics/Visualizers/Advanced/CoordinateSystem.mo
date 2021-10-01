@@ -69,7 +69,7 @@ PlanarMechanics.Visualizers.Advanced.CoordinateSystem coordinateSystem(r = {sin(
 <p>
 <b>Color</b> of each axis can be set individually using RGB color space given in the range 0 .. 255.
 The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
-contains a menu definition of the colors used in the library</a>
+contains a menu definition of the colors used in the library
 (will be replaced by a color editor).
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
