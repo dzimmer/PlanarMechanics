@@ -130,6 +130,7 @@ model is connected, are determined and provided at the output signal connectors
 If parameter <strong>positiveSign</strong> =
 <strong>false</strong>, the negative cut-force and cut-torque is provided
 (= frame_b.f, frame_b.t).
+</p>
 
 <p>
 Via parameter <strong>resolveInFrame</strong> it is defined in which frame
