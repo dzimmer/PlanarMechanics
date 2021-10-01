@@ -136,7 +136,7 @@ Via parameter <b>resolveInFrame</b> it is defined in which frame
 the force output is resolved.
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
   <tr>
     <th>resolveInFrame = &hellip;</th>
