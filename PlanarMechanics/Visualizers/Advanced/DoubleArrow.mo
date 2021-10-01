@@ -100,7 +100,7 @@ protected
         Text(
           extent={{-150,100},{150,60}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(info="<html>
 <p>
 Model <b>DoubleArrow</b> defines a double arrow that is dynamically

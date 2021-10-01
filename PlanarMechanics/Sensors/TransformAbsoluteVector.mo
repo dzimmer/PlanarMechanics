@@ -85,13 +85,13 @@ equation
           pattern=LinePattern.Dot),
         Text(
           extent={{58,47},{189,22}},
-          lineColor={95,95,95},
+          textColor={95,95,95},
           textString="resolve"),
         Line(
           points={{-70,0},{-96,0},{-96,0}}),
         Text(
           extent={{-116,45},{-80,20}},
-          lineColor={95,95,95},
+          textColor={95,95,95},
           textString="a")}),
     Documentation(revisions="<html>
 <p>

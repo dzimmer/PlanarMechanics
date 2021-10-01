@@ -80,10 +80,10 @@ equation
         Text(
           extent={{58,48},{142,18}},
           textString="acc",
-          lineColor={0,0,0}),
+          textColor={0,0,0}),
         Text(
           extent={{15,-67},{146,-92}},
-          lineColor={95,95,95},
+          textColor={95,95,95},
           textString="resolve"),
         Line(
           points={{0,-70},{0,-95}},
@@ -92,7 +92,7 @@ equation
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">

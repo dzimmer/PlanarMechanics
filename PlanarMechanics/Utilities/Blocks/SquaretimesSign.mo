@@ -23,16 +23,17 @@ a parameter blockSize, thus
 </pre></blockquote>
 </html>"), Icon(coordinateSystem(
     preserveAspectRatio=true,
-    extent={{-100,-100},{100,100}}), graphics={Text(
-      extent={{-100,-98},{100,-68}},
-      lineColor={160,160,164},
+    extent={{-100,-100},{100,100}}), graphics={
+        Text(
+          extent={{-100,-98},{100,-68}},
+          textColor={160,160,164},
           textString="sign(u) * u^2"),
         Polygon(
           points={{0,90},{-8,68},{8,68},{0,90}},
           lineColor={192,192,192},
           fillColor={192,192,192},
           fillPattern=FillPattern.Solid),
-        Line(points={{0,68},{0,-80}},     color={192,192,192}),
+        Line(points={{0,68},{0,-80}}, color={192,192,192}),
         Line(points={{-90,0},{68,0}}, color={192,192,192}),
         Polygon(
           points={{90,0},{68,8},{68,-8},{90,0}},
@@ -50,12 +51,14 @@ a parameter blockSize, thus
           smooth=Smooth.Bezier)}),
     Diagram(coordinateSystem(
     preserveAspectRatio=true,
-    extent={{-100,-100},{100,100}}), graphics={Rectangle(
-      extent={{-100,-100},{100,100}},
-      lineColor={0,0,255},
-      fillColor={255,255,255},
-      fillPattern=FillPattern.Solid), Text(
-      extent={{-90,-60},{90,60}},
-      lineColor={160,160,164},
+    extent={{-100,-100},{100,100}}), graphics={
+        Rectangle(
+          extent={{-100,-100},{100,100}},
+          lineColor={0,0,255},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-90,-60},{90,60}},
+          textColor={160,160,164},
           textString="sign(u) * u^2")}));
 end SquaretimesSign;

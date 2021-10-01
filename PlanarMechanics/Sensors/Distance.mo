@@ -60,14 +60,14 @@ equation
         Text(
           extent={{-150,80},{150,40}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
    Diagram(
      coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
      graphics={
        Text(
          extent={{-22,70},{20,46}},
          textString="s",
-         lineColor={0,0,255}),
+         textColor={0,0,255}),
        Line(points={{-98,40},{88,40}}, color={0,0,255}),
        Polygon(
          points={{102,40},{87,46},{87,34},{102,40}},

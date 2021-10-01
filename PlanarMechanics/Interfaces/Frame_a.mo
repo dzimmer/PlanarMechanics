@@ -35,9 +35,9 @@ connector Frame_a
           lineThickness=0.5),
         Line(points={{-12,0},{12,0}}, color={135,197,255}),
         Line(points={{0,12},{0,-12}}, color={135,197,255}),
-                                      Text(
+        Text(
           extent={{-140,-50},{140,-88}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="%name")}),
     Documentation(revisions="<html>
 <p>

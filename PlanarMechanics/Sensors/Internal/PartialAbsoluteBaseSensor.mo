@@ -31,7 +31,7 @@ equation
         grid={2,2}), graphics={
         Text(
           extent={{-108,43},{-72,18}},
-          lineColor={95,95,95},
+          textColor={95,95,95},
           textString="a"),
         Line(
           points={{-70,0},{-96,0},{-96,0}}),
@@ -45,6 +45,6 @@ equation
           pattern=LinePattern.Dot),
         Text(
           extent={{0,-75},{131,-100}},
-          lineColor={95,95,95},
+          textColor={95,95,95},
           textString="resolve")}));
 end PartialAbsoluteBaseSensor;

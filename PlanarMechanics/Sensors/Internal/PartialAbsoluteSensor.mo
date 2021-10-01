@@ -10,9 +10,10 @@ partial model PartialAbsoluteSensor
 equation
    assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
   annotation (Icon(coordinateSystem(preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={Text(
+          extent={{-100,-100},{100,100}}), graphics={
+        Text(
           extent={{-108,43},{-72,18}},
-          lineColor={128,128,128},
-          textString="a"), Line(
-          points={{-70,0},{-96,0},{-96,0}})}));
+          textColor={128,128,128},
+          textString="a"),
+        Line(points={{-70,0},{-96,0},{-96,0}})}));
 end PartialAbsoluteSensor;

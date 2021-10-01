@@ -32,11 +32,11 @@ equation
           extent={{-100,-100},{100,100}}), graphics={
         Text(
           extent={{-108,43},{-72,18}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="a"),
         Text(
           extent={{72,41},{108,16}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="b"),
         Line(
           points={{-70,0},{-96,0},{-96,0}}),
