@@ -116,8 +116,8 @@ equation
   lossPower = 0;
 
   w_gear = der(phi_gear);
-  s_relx = frame_a.x-frame_b.x;
-  s_rely = frame_a.y-frame_b.y;
+  s_relx = frame_b.x-frame_a.x;
+  s_rely = frame_b.y-frame_a.y;
   v_relx = der(s_relx);
   v_rely = der(s_rely);
 
