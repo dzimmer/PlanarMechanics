@@ -43,14 +43,14 @@ equation
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",
       info="<html>
 <p>
 This sensor outputs cut-force between the two connecting frames,
 whereby the output signal <code>force&nbsp;= {frame_a.fx, frame_a.fy}</code>.
-If parameter <b>positiveSign</b>&nbsp;= <b>false</b>, the negative
+If parameter <strong>positiveSign</strong>&nbsp;= <strong>false</strong>, the negative
 cut-force is provided.
 The cut-force is resolved in frame specified by the parameter
 <code>resolveInFrame</code>

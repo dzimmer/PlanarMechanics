@@ -120,24 +120,24 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
 <p>
 The cut-force and cut-torque acting between the two frames to which this
 model is connected, are determined and provided at the output signal connectors
-<b>force</b> (= frame_a.f) and <b>torque</b> (= frame_a.t).
-If parameter <b>positiveSign</b> =
-<b>false</b>, the negative cut-force and cut-torque is provided
+<strong>force</strong> (= frame_a.f) and <strong>torque</strong> (= frame_a.t).
+If parameter <strong>positiveSign</strong> =
+<strong>false</strong>, the negative cut-force and cut-torque is provided
 (= frame_b.f, frame_b.t).
 
 <p>
-Via parameter <b>resolveInFrame</b> it is defined in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined in which frame
 the force output is resolved.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
+  <caption align=\"bottom\">Options of parameter <strong>resolveInFrame</strong></caption>
   <tr>
     <th>resolveInFrame = &hellip;</th>
     <th>Force vector resolved in</th>

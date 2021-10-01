@@ -102,10 +102,10 @@ equation
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",
       info="<html>
-<p>Model <b>Body</b> is an ideal unlimited small point with mass and inertia.</p>
+<p>Model <strong>Body</strong> is an ideal unlimited small point with mass and inertia.</p>
 </html>"));
 end Body;

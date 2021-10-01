@@ -6,7 +6,7 @@ type SpecularCoefficient = Modelica.Icons.TypeReal(min=0)
       "\"1.0 (glossy)\""),
   Documentation(info="<html>
 <p>
-Type <b>SpecularCoefficient</b> defines the reflection of
+Type <strong>SpecularCoefficient</strong> defines the reflection of
 ambient light on shape surfaces. If value = 0, the light
 is completely absorbed. Often, 0.7 is a reasonable value.
 It might be that from some viewing directions, a body is no

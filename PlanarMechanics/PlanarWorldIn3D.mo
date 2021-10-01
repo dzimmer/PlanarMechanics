@@ -246,11 +246,11 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",
       info="<html>
-<p>Model <b>PlanarWorld</b> defines all possible general parameters to make parameterization of models much more convenient. It has the following functionalites.</p>
+<p>Model <strong>PlanarWorld</strong> defines all possible general parameters to make parameterization of models much more convenient. It has the following functionalites.</p>
 <ol>
 <li>It defines the global coordinate system fixed in ground and shows the x, y, z axes in animation if wanted.</li>
 <li>It contains all default parameters for animation, e.g. axis diameter, default joint length etc, which can still be overwritten by setting parameters in these models.</li>

@@ -84,13 +84,13 @@ algorithm
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",
       info="<html>
 <p>
-This function returns y = <b>atan3</b>(u1,u2,y0) such that
-<b>tan</b>(y) = u1/u2 and
+This function returns y = <strong>atan3</strong>(u1,u2,y0) such that
+<strong>tan</strong>(y) = u1/u2 and
 y is in the range: -pi &lt; y-y0 &lt; pi.<br>
 u2 may be zero, provided u1 is not zero. The difference to
 <a href=\"modelica://Modelica.Math.atan3\">Modelica.Math.atan3</a>(&hellip;)

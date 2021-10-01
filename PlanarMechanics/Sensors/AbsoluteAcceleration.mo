@@ -96,20 +96,20 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
 <p>
 The absolute acceleration vector of the origin of frame_a
-is determined and provided at the output signal connector&nbsp;<b>a</b>.
+is determined and provided at the output signal connector&nbsp;<strong>a</strong>.
 </p>
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the velocity vector is resolved.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
-  <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
+  <caption align=\"bottom\">Options of parameter <strong>resolveInFrame</strong></caption>
   <tr>
     <th>resolveInFrame = &hellip;</th>
     <th>Output vector resolved in</th>

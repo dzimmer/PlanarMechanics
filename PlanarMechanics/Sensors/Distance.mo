@@ -77,14 +77,14 @@ equation
    Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
 <p>
-The <b>distance</b> between the origins of frame_a
+The <strong>distance</strong> between the origins of frame_a
 and of frame_b are determined and provided at the
-output signal connector <b>distance</b>. This
-distance is always positive. <b>Derivatives</b> of this
+output signal connector <strong>distance</strong>. This
+distance is always positive. <strong>Derivatives</strong> of this
 signal can be easily obtained by connecting the
 block
 <a href=\"modelica://Modelica.Blocks.Continuous.Der\">Modelica.Blocks.Continuous.Der</a>
@@ -103,7 +103,7 @@ the yellow arrow is the animated sensor.
 </p>
 
 <p>
-If the distance is smaller as parameter <b>s_small</b> (in the \"advanced\" menu),
+If the distance is smaller as parameter <strong>s_small</strong> (in the \"advanced\" menu),
 it is approximated such that its derivative is
 finite for zero distance. Without such an approximation, the derivative would
 be infinite and a division by zero would occur. The approximation is performed

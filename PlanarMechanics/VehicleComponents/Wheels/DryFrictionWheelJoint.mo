@@ -185,14 +185,14 @@ equation
 <li>the lateral velocity</li>
 <li>the longitudinal velocity minus the rolling velocity times the radius.</li>
 </ul>
-<p>The radius of the wheel can be specified by the parameter <b>radius</b>. The driving direction (for phi=0) can be specified by the parameter <b>r</b>. The normal load is set by <b>N</b>.</p>
-<p>The wheel contains a 2D connector <b>frame_a</b> for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D  connector <b>flange_a</b>.</p>
+<p>The radius of the wheel can be specified by the parameter <strong>radius</strong>. The driving direction (for phi=0) can be specified by the parameter <strong>r</strong>. The normal load is set by <strong>N</strong>.</p>
+<p>The wheel contains a 2D connector <strong>frame_a</strong> for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D  connector <strong>flange_a</strong>.</p>
 <p>For examples of usage see the local <a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.</p>
 </html>",
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>"));
 end DryFrictionWheelJoint;

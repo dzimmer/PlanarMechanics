@@ -7,7 +7,7 @@ class ReleaseNotes "Release notes"
       info="<html>
 <h4>Version 1.5.0, 2020-10-02</h4>
 <p>
-This version requires the <b>Modelica&nbsp;4.0.0</b> Library.
+This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
 It is backwards compatible to previous library versions.
 </p>
 
@@ -19,7 +19,7 @@ It is backwards compatible to previous library versions.
 
 <h4>Version 1.4.1, 2019-03-29</h4>
 <p>
-This version requires the <b>Modelica&nbsp;3.2.3</b> Library.
+This version requires the <strong>Modelica&nbsp;3.2.3</strong> Library.
 It is backwards compatible to previous library versions.
 </p>
 

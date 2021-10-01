@@ -6,17 +6,17 @@ class FirstExample "A first example"
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",
       info="<html>
-<p>Here seveal steps will be listed to demonstrate how to build up, simulate and animate a <b>simple pendulum</b>, which consists of a fixed point, a planar world model, a revolute joint, a fixed translation and a body.</p>
+<p>Here seveal steps will be listed to demonstrate how to build up, simulate and animate a <strong>simple pendulum</strong>, which consists of a fixed point, a planar world model, a revolute joint, a fixed translation and a body.</p>
 <ul>
-<li><b>Building up Modelica composition diagram</b>.</li>
+<li><strong>Building up Modelica composition diagram</strong>.</li>
 </ul>
 <p>The diagram is showed as following.</p>
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/UsersGuide/Tutorial/FirstExample/FirstExample1.png\" alt=\"Modelica diagram\"></p>
-<p>where component <b>Fixed</b>, <b>Body</b>, <b>FixedTranslation </b>can be found in <b>Parts</b> package, component <b>Revolute</b> in <b>Joints</b>, <b>PlanarWorld</b> directly under PlanarMechanics.</p>
+<p>where component <strong>Fixed</strong>, <strong>Body</strong>, <strong>FixedTranslation </strong>can be found in <strong>Parts</strong> package, component <strong>Revolute</strong> in <strong>Joints</strong>, <strong>PlanarWorld</strong> directly under PlanarMechanics.</p>
 <p>Every model having components from PlanarMechanics library must include an instance of component PlanarWorld on the highest level. The reason is that PlanarWorld component defines the default gravity for the model, includes default settings of animation parameters of almost every components.</p>
 <ul>
 <li><h4>Setting up initial values and parameters.</h4></li>
