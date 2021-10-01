@@ -107,9 +107,9 @@ Model <strong>DoubleArrow</strong> defines a double arrow that is dynamically
 visualized at the defined location (see variables below).
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
-</p>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
+</div>
 
 <p>
 The variables under heading <strong>Parameters</strong> below
