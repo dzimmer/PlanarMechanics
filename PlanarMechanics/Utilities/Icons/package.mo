@@ -13,8 +13,8 @@ package Icons "Icons used for library components"
 </html>",
       info="<html>
 <p>
-A collection of basic icons to be used for different elements of the library.
+A&nbsp;collection of basic icons to be used for different elements of the library.
 </p>
-<placeholder to comply minimal number of characters for documentation>
+</placeholder_to_comply_minimal_number_of_characters_for_documentation>
 </html>"));
 end Icons;
