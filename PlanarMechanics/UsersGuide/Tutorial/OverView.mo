@@ -10,7 +10,13 @@ class OverView "Overview of PlanarMechanics library"
 </p>
 </html>",
       info="<html>
-<p>Library <strong>PlanarMechanics</strong> is a <strong>free</strong> Modelica package providing 2-dimensional mechanical components to model <strong>mechanical systems</strong>, such as robots, mechanisms, vehicles, where MultiBody library is too complex to use. The main features of the library are:</p>
+<p>
+Library <strong>PlanarMechanics</strong> is a&nbsp;<strong>free</strong>
+Modelica package providing 2-dimensional mechanical components to
+model <strong>mechanical systems</strong>, such as robots, mechanisms,
+vehicles, where MultiBody library is too complex to use.
+The main features of the library are:
+</p>
 <ul>
   <li> Much more <strong>compact</strong> than MultiBody library, which means fewer
        parameters to be set, shorter time to build up a model-based system, in the
