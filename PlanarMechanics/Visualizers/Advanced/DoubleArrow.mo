@@ -103,28 +103,28 @@ protected
           textColor={0,0,255})}),
     Documentation(info="<html>
 <p>
-Model <b>DoubleArrow</b> defines a double arrow that is dynamically
+Model <strong>DoubleArrow</strong> defines a double arrow that is dynamically
 visualized at the defined location (see variables below).
 </p>
 
-<p>
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
-</p>
+<div>
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/DoubleArrow.png\" alt=\"model Visualizers.Advanced.DoubleArrow\">
+</div>
 
 <p>
-The variables under heading <b>Parameters</b> below
-are declared as (time varying) <b>input</b> variables.
+The variables under heading <strong>Parameters</strong> below
+are declared as (time varying) <strong>input</strong> variables.
 If the default equation is not appropriate, a corresponding
 modifier equation has to be provided in the
-model where an <b>Arrow</b> instance is used, e.g., in the form
+model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
 <pre>
     Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
 </pre>
 <p>
-Variable <b>color</b> is a RGB color space given in the range 0 .. 255.
+Variable <strong>color</strong> is a RGB color space given in the range 0 .. 255.
 The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
-contains a menu definition of the colors used in the library</a>
+contains a menu definition of the colors used in the library
 (will be replaced by a color editor).
 </p>
 </html>"));

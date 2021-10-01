@@ -109,7 +109,7 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
 <p>In this version, the states are not manually set but might be dynamically selected by the simulation environment.</p>
@@ -117,23 +117,26 @@ equation
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/KinematicLoop_2.png\" alt=\"Diagram KinematicLoop_2\"></p>
 <p>Selected continuous time states</p>
 <ul>
-<li>There are 2&nbsp;sets of dynamic state selection.</li>
-<ul>
-<li>From set&nbsp;1 there there are 2&nbsp;states to be selected from:</li>
-<ul>
-<li>body.frame_a.phi</li>
-<li>revolute2.phi</li>
-<li>revolute4.phi</li>
-<li>springDamper.s_rel</li>
-</ul>
-<li>From set&nbsp;2 there there are 2&nbsp;states to be selected from:</li>
-<ul>
-<li>body.w</li>
-<li>revolute2.w</li>
-<li>revolute4.w</li>
-<li>springDamper.v_rel</li>
-</ul>
-</ul>
+  <li>There are 2&nbsp;sets of dynamic state selection.
+      <ul>
+        <li>From set&nbsp;1 there there are 2&nbsp;states to be selected from:
+            <ul>
+              <li>body.frame_a.phi</li>
+              <li>revolute2.phi</li>
+              <li>revolute4.phi</li>
+              <li>springDamper.s_rel</li>
+            </ul>
+        </li>
+        <li>From set&nbsp;2 there there are 2&nbsp;states to be selected from:
+            <ul>
+              <li>body.w</li>
+              <li>revolute2.w</li>
+              <li>revolute4.w</li>
+              <li>springDamper.v_rel</li>
+            </ul>
+        </li>
+      </ul>
+  </li>
 </ul>
 </html>"));
 end KinematicLoop_DynamicStateSelection;

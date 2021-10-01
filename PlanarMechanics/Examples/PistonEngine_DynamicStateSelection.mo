@@ -81,7 +81,7 @@ equation
   annotation (Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
 <p>This example contains an algebraic loop. A non-linear system must be solved for initialization and at simulation.</p>
@@ -90,21 +90,24 @@ equation
 <p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/PistonEngine_2.png\" alt=\"Diagram PistonEngine_2\"></p>
 <p>Selected continuous time states</p>
 <ul>
-<li>There are 2&nbsp;sets of dynamic state selection.</li>
-<ul>
-<li>From set&nbsp;1 there is 1&nbsp;state to be selected from:</li>
-<ul>
-<li>prismatic.s</li>
-<li>revoluteDisc.phi</li>
-<li>revolutePiston.phi</li>
-</ul>
-<li>From set&nbsp;2 there is 1&nbsp;state to be selected from:</li>
-<ul>
-<li>prismatic.v</li>
-<li>revoluteDisc.w</li>
-<li>revoluteDrive.w</li>
-</ul>
-</ul>
+  <li>There are 2&nbsp;sets of dynamic state selection.
+      <ul>
+        <li>From set&nbsp;1 there is 1&nbsp;state to be selected from:
+            <ul>
+              <li>prismatic.s</li>
+              <li>revoluteDisc.phi</li>
+              <li>revolutePiston.phi</li>
+            </ul>
+        </li>
+        <li>From set&nbsp;2 there is 1&nbsp;state to be selected from:
+            <ul>
+              <li>prismatic.v</li>
+              <li>revoluteDisc.w</li>
+              <li>revoluteDrive.w</li>
+            </ul>
+        </li>
+      </ul>
+  </li>
 </ul>
 </html>"),
     experiment(StopTime=10));

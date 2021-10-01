@@ -8,13 +8,13 @@ package Icons "Icons used for library components"
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",
       info="<html>
 <p>
-A collection of basic icons to be used for different elements of the library.
+A&nbsp;collection of basic icons to be used for different elements of the library.
 </p>
-<placeholder to comply minimal number of characters for documentation>
+<!-- placeholder_to_comply_minimal_number_of_characters_for_documentation -->
 </html>"));
 end Icons;

@@ -81,9 +81,9 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
-<p>This component assures a static position difference <b>r</b> between two frame connectors, to which <b>frame_a</b> and <b>frame_b</b> are connected.</p>
+<p>This component assures a static position difference <strong>r</strong> between two frame connectors, to which <strong>frame_a</strong> and <strong>frame_b</strong> are connected.</p>
 </html>"));
 end FixedTranslation;

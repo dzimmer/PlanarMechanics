@@ -99,10 +99,10 @@ equation
     Documentation(
       info="<html>
 <p>
-The <b>3</b> signals of the <b>force</b> connector contain force and torque.
+The <strong>3</strong> signals of the <strong>force</strong> connector contain force and torque.
 The first and second signal are interpreted as the x- and y-coordinates of
-a <b>force</b> and the third is torque, acting at the frame connector
-to which <b>frame_b</b> of this component is attached.
+a <strong>force</strong> and the third is torque, acting at the frame connector
+to which <strong>frame_b</strong> of this component is attached.
 Note that torque is a scalar quantity, which is exerted perpendicular
 to the x-y plane.
 </p>
@@ -121,7 +121,7 @@ The parameter resolveInFrame defines in which frame the input force shall be res
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>"));
 end WorldForce;

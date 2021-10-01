@@ -19,7 +19,7 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
     Documentation(
       info="<html>
 <p>
-Library <b>PlanarMechanics</b> is a <b>free</b> Modelica package providing
+Library <strong>PlanarMechanics</strong> is a <strong>free</strong> Modelica package providing
 2-dimensional mechanical components to model mechanical systems, such as
 robots, mechanisms, vehicles, where
 <a href=\"modelica://Modelica.Mechanics.MultiBody\">MultiBody</a> library is unnecessarily
@@ -51,7 +51,7 @@ the disclaimer of warranty) visit
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>"),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),

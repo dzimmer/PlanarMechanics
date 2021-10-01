@@ -190,21 +190,21 @@ equation
     Documentation(
       info="<html>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has slip-dependent friction characteristics. This is an approximation for wheels with a rim and a rupper tire.</p>
-<p>The force depends with friction characteristics on the <b>slip</b>. The <b>slip</b> is split into two components:</p>
+<p>The force depends with friction characteristics on the <strong>slip</strong>. The <strong>slip</strong> is split into two components:</p>
 <ul>
 <li>lateral slip: the lateral velocity divided by the rolling velocity.</li>
 <li>longitudinal slip: the longitudinal slip velocity divided by the rolling velocity.</li>
 </ul>
 <p>For low rolling velocity this definitions become ill-conditioned. Hence a dry-friction model is used for low rolling velocities.</p>
-<p>The radius of the wheel can be specified by the parameter <b>radius</b>. The driving direction (for phi=0) can be specified by the parameter <b>r</b>. The normal load is set by <b>N</b>.</p>
-<p>The wheel contains a 2D connector <b>frame_a</b> for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D  connector <b>flange_a</b>.</p>
+<p>The radius of the wheel can be specified by the parameter <strong>radius</strong>. The driving direction (for phi=0) can be specified by the parameter <strong>r</strong>. The normal load is set by <strong>N</strong>.</p>
+<p>The wheel contains a 2D connector <strong>frame_a</strong> for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D  connector <strong>flange_a</strong>.</p>
 <p>In addition there is an input for a dynamic component of the normal load.</p>
 <p>For examples of usage see the local <a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.</p>
 </html>",
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>"));
 end SlipBasedWheelJoint;

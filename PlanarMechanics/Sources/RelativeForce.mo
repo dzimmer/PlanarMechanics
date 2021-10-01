@@ -116,15 +116,15 @@ equation
     Documentation(
       info="<html>
 <p>
-The <b>3</b> signals of the <b>force</b> connector contain force and torque.
+The <strong>3</strong> signals of the <strong>force</strong> connector contain force and torque.
 The first and second signal are interpreted as the x- and y-coordinates of
-a <b>force</b> and the third is torque, acting between two frame connectors
+a <strong>force</strong> and the third is torque, acting between two frame connectors
 to which frame_a and frame_b are attached respectively.
 Note that torque is a scalar quantity, which is exerted perpendicular
 to the x-y plane.
 </p>
 <p>
-Parameter <code><b>resolveInFrame</b></code> defines in which frame the input
+Parameter <code><strong>resolveInFrame</strong></code> defines in which frame the input
 force shall be resolved.
 </p>
 
@@ -154,13 +154,13 @@ force shall be resolved.
 <p>
 If resolveInFrame&nbsp;=&nbsp;Types.ResolveInFrameAB.frame_resolve,
 the force coordinates shall be resolved in the frame, which is
-connected to <b>frame_resolve</b>.
+connected to <strong>frame_resolve</strong>.
 </p>
 </html>",
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>"));
 end RelativeForce;

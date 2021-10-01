@@ -10,8 +10,8 @@ model AbsoluteVelocity
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
-  Interfaces.Frame_resolve frame_resolve if
-    resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+  Interfaces.Frame_resolve frame_resolve
+ if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector v is optionally resolved"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
         rotation=-90,
@@ -98,20 +98,20 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
 <p>
 The absolute velocity vector of the origin of frame_a
-is determined and provided at the output signal connector&nbsp;<b>v</b>.
+is determined and provided at the output signal connector&nbsp;<strong>v</strong>.
 </p>
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the velocity vector is resolved.
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
-  <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\">Options of parameter <strong>resolveInFrame</strong></caption>
   <tr>
     <th>resolveInFrame = &hellip;</th>
     <th>Output vector resolved in</th>
@@ -140,9 +140,20 @@ Note, if this connector is enabled, it must be connected.
 Example: If <code>resolveInFrame&nbsp;= Types.ResolveInFrameA.frame_resolve</code>,
 the output vector is computed as:
 </p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-x2brh9fX.png\" alt=\"
-v0 = der([x,y,phi])\"></p>
-<p><br/><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-Kgd1NoyE.png\" alt=\"v = [cos(frame_resolve.phi), sin(frame_resolve.phi),0;-sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1] * [v0[1];v0[2];v0[3]]\"></p>
-<p>where <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-zBL2JSRi.png\" alt=\"[x,y,phi]\"> is position and angle vector of origin of frame_a resolved in world coordinate.</p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-x2brh9fX.png\" alt=\"v0 = der([x,y,phi])\">
+</div>
+<p>&nbsp;</p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-Kgd1NoyE.png\" alt=\"v = [cos(frame_resolve.phi), sin(frame_resolve.phi),0;-sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1] * [v0[1];v0[2];v0[3]]\">
+</div>
+
+<p>where</p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-zBL2JSRi.png\" alt=\"[x,y,phi]\">
+</div>
+<p>
+is position and angle vector of origin of frame_a resolved in world coordinate.
+</p>
 </html>"));
 end AbsoluteVelocity;

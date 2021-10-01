@@ -156,10 +156,10 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
-<p>A <i>linear translational spring-damper</i>. x- and y direction stiffness and damping can be parameterized.</p>
+<p>A <em>linear translational spring-damper</em>. x- and y direction stiffness and damping can be parameterized.</p>
 </html>"),
     Icon(coordinateSystem(
         preserveAspectRatio=true,

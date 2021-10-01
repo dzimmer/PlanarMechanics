@@ -69,21 +69,21 @@ equation
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
 <p>
-The relative position and angle vector <b>[x,y,phi]</b> between
+The relative position and angle vector <strong>[x,y,phi]</strong> between
 the origins of frame_a and frame_b are determined and provided
-at the output signal connector <b>r_rel</b>.
+at the output signal connector <strong>r_rel</strong>.
 </p>
 <p>
-Via parameter <b>resolveInFrame</b> it is defined, in which frame
+Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
 the position vector is resolved.
 </p>
 
-<table border=1 cellspacing=0 cellpadding=2>
-  <caption align=\"bottom\">Options of parameter <b>resolveInFrame</b></caption>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\">Options of parameter <strong>resolveInFrame</strong></caption>
   <tr>
     <th>resolveInFrame = &hellip;</th>
     <th>Output vector resolved in</th>

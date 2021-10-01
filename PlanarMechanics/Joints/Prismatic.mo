@@ -147,11 +147,11 @@ equation
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",
       info="<html>
-<p>Direction of the Joint is determined by <b>r[2]</b>, which is a vector pointing from <b>frame_a</b> to <b>frame_b</b>. </p>
+<p>Direction of the Joint is determined by <strong>r[2]</strong>, which is a vector pointing from <strong>frame_a</strong> to <strong>frame_b</strong>. </p>
 <p>
 Optionally, two additional 1-dimensional mechanical flanges
 (flange \"flange_a\" represents the driving flange and
@@ -161,8 +161,8 @@ driven with elements of the
 <a href=\"modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
 library.
 </p>
-<p>In the &quot;Initialization&quot; block, elongation of the joint <b>s</b>, velocity of elongation <b>v</b> as well as acceleration of elongation <b>a</b> can be initialized.</p>
-<p>It can be defined via parameter (in &quot;advanced&quot; tab) <b>stateSelect</b> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
-<p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <b>zPosition</b> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
+<p>In the &quot;Initialization&quot; block, elongation of the joint <strong>s</strong>, velocity of elongation <strong>v</strong> as well as acceleration of elongation <strong>a</strong> can be initialized.</p>
+<p>It can be defined via parameter (in &quot;advanced&quot; tab) <strong>stateSelect</strong> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
+<p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <strong>zPosition</strong> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
 </html>"));
 end Prismatic;

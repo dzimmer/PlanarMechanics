@@ -22,11 +22,11 @@ type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
   Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<b>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</b>
+<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
 <p>
-Type <b>Color</b> is an Integer vector with 3 elements,
+Type <strong>Color</strong> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of a shape.
 {r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
 Note, r g, b are given in the range 0 .. 255.
