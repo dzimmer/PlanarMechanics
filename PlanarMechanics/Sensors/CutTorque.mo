@@ -96,10 +96,10 @@ cut-torque is provided (= frame_b.t).
 In the following figure the modeling and animation of a&nbsp;CutTorque
 sensor is shown.
 </p>
-<p>
+<div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque1.png\" alt=\"Modelica diagram\">
 <br>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutTorque2.png\" alt=\"CutTorque2 animation\">
-</p>
+</div>
 </html>"));
 end CutTorque;

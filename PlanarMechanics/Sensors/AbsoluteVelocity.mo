@@ -143,16 +143,11 @@ the output vector is computed as:
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-x2brh9fX.png\" alt=\"v0 = der([x,y,phi])\">
 </div>
-<p>&nbsp;</p>
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-Kgd1NoyE.png\" alt=\"v = [cos(frame_resolve.phi), sin(frame_resolve.phi),0;-sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1] * [v0[1];v0[2];v0[3]]\">
 </div>
 
-<p>where</p>
-<div>
-<img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-zBL2JSRi.png\" alt=\"[x,y,phi]\">
-</div>
-<p>
+<p>where <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-zBL2JSRi.png\" alt=\"[x,y,phi]\">
 is position and angle vector of origin of frame_a resolved in world coordinate.
 </p>
 </html>"));

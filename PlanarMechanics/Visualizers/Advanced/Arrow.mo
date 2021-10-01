@@ -39,9 +39,9 @@ Model <strong>Arrow</strong> defines an arrow that is dynamically
 visualized at the defined location (see variables below).
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.Advanced.Arrow\">
-</p>
+</div>
 
 <p>
 The variables under heading <strong>Parameters</strong> below

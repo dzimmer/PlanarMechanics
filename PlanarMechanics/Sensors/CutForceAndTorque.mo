@@ -176,8 +176,8 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\" alt=\"CutForceAndTorque animation\">
-</p>
+</div>
 </html>"));
 end CutForceAndTorque;

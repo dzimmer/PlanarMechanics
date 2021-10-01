@@ -130,10 +130,10 @@ Note, if this connector is enabled, it must be connected.
 In the following figure the modeling and animation of a&nbsp;CutForce
 sensor is shown.
 </p>
-<p>
+<div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce2.png\" alt=\"Modelica diagram\">
 <br>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Sensors/CutForce.png\" alt=\"CutForce animation\">
-</p>
+</div>
 </html>"));
 end CutForce;

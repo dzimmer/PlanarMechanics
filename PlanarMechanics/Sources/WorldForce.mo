@@ -110,9 +110,9 @@ to the x-y plane.
 An example of this model is given in the following figure:
 </p>
 
-<blockquote>
+<div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Sources/WorldForce.png\" alt=\"Modelica diagram\">
-</blockquote>
+</div>
 
 <p>
 The parameter resolveInFrame defines in which frame the input force shall be resolved.

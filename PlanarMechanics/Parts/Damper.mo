@@ -145,8 +145,8 @@ equation
 <p>where &quot;d&quot; is the damping constant, &quot;s&quot; is the distance between the origin of frame_a and origin of frame_b, and &quot;der(s)&quot; is the time derivative of &quot;s&quot;.</p>
 <p>In the following figure a typical animation is shown where a mass is hanging on a damper.</p>
 
-<blockquote>
+<div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Parts/Damper.png\" alt=\"Damper animation\">
-</blockquote>
+</div>
 </html>"));
 end Damper;
