@@ -72,10 +72,10 @@ equation
 </div>
 <p>Selected continuous time states</p>
 <ul>
-<li>revolute.phi</li>
-<li>revolute.w</li>
-<li>revolute1.phi</li>
-<li>revolute1.w</li>
+  <li>revolute.phi</li>
+  <li>revolute.w</li>
+  <li>revolute1.phi</li>
+  <li>revolute1.w</li>
 </ul>
 </html>"));
 end DoublePendulum;

@@ -13,7 +13,8 @@ It is backwards compatible to previous library versions.
 
 <p>Improvements in this version:</p>
 <ul>
-<li> <a href=\"modelica://PlanarMechanics.Sensors\">Sensors</a>: add quantity and unit to outputs where missing.</li>
+  <li> <a href=\"modelica://PlanarMechanics.Sensors\">Sensors</a>: add quantity and
+       unit to outputs where missing.</li>
 </ul>
 
 
@@ -24,16 +25,16 @@ It is backwards compatible to previous library versions.
 </p>
 
 <ul>
-<li> The license has been changed to BSD 3-clause, visit:
-     <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
+  <li> The license has been changed to BSD 3-clause, visit:
+       <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</li>
 </ul>
 
 <p>Improvements in this version:</p>
 <ul>
-<li>PNG files moved to folders which exactly represent the package structure
-    (see also <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Format.Figures\">Modelica.UsersGuide.Conventions.Documentation.Format.Figures</a>).</li>
-<li>Documentation of some classes.</li>
-<li>Improved icons of some classes.</li>
+  <li> PNG files moved to folders which exactly represent the package structure
+       (see also <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Format.Figures\">Modelica.UsersGuide.Conventions.Documentation.Format.Figures</a>).</li>
+  <li> Documentation of some classes.</li>
+  <li> Improved icons of some classes.</li>
 </ul>
 
 <!--

@@ -96,8 +96,8 @@ equation
 </div>
 <p>Selected continuous time states</p>
 <ul>
-<li>revoluteDrive.phi</li>
-<li>revoluteDrive.w</li>
+  <li>revoluteDrive.phi</li>
+  <li>revoluteDrive.w</li>
 </ul>
 </html>"),
     experiment(StopTime=10));

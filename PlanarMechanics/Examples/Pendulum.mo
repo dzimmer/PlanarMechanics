@@ -50,8 +50,8 @@ equation
 </div>
 <p>Selected continuous time states</p>
 <ul>
-<li>revolute.phi</li>
-<li>revolute.w</li>
+  <li>revolute.phi</li>
+  <li>revolute.w</li>
 </ul>
 </html>"));
 end Pendulum;

@@ -273,22 +273,22 @@ equation
 
 <p>Selected continuous time states</p>
 <ul>
-<li>actuatedRevolute.phi</li>
-<li>actuatedRevolute.w</li>
-<li>body.v[1]</li>
-<li>body1.frame_a.phi</li>
-<li>body1.r[1]</li>
-<li>body1.r[2]</li>
-<li>body1.w</li>
-<li>body2.v[2]</li>
-<li>inertia.phi</li>
-<li>inertia.w</li>
-<li>inertia1.phi</li>
-<li>inertia1.w</li>
-<li>inertia2.phi</li>
-<li>inertia2.w</li>
-<li>inertia3.phi</li>
-<li>inertia3.w</li>
+  <li>actuatedRevolute.phi</li>
+  <li>actuatedRevolute.w</li>
+  <li>body.v[1]</li>
+  <li>body1.frame_a.phi</li>
+  <li>body1.r[1]</li>
+  <li>body1.r[2]</li>
+  <li>body1.w</li>
+  <li>body2.v[2]</li>
+  <li>inertia.phi</li>
+  <li>inertia.w</li>
+  <li>inertia1.phi</li>
+  <li>inertia1.w</li>
+  <li>inertia2.phi</li>
+  <li>inertia2.w</li>
+  <li>inertia3.phi</li>
+  <li>inertia3.w</li>
 </ul>
 </html>"));
 end TwoTrackWithDifferentialGear;

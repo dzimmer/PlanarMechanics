@@ -98,12 +98,12 @@ equation
 </div>
 <p>Selected continuous time states</p>
 <ul>
-<li>actuatedPrismatic.s</li>
-<li>actuatedPrismatic.v</li>
-<li>actuatedRevolute.phi</li>
-<li>actuatedRevolute.w</li>
-<li>PID.D.x</li>
-<li>PID.I.y</li>
+  <li>actuatedPrismatic.s</li>
+  <li>actuatedPrismatic.v</li>
+  <li>actuatedRevolute.phi</li>
+  <li>actuatedRevolute.w</li>
+  <li>PID.D.x</li>
+  <li>PID.I.y</li>
 </ul>
 </html>"));
 end ControlledCraneCrab;

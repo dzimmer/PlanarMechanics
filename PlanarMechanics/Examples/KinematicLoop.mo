@@ -130,10 +130,10 @@ equation
 </div>
 <p>Selected continuous time states</p>
 <ul>
-<li>revolute1.phi</li>
-<li>revolute1.w</li>
-<li>revolute4.phi</li>
-<li>revolute4.w</li>
+  <li>revolute1.phi</li>
+  <li>revolute1.w</li>
+  <li>revolute4.phi</li>
+  <li>revolute4.w</li>
 </ul>
 </html>"));
 end KinematicLoop;

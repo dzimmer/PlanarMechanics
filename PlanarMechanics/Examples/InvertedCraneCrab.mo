@@ -108,9 +108,9 @@ equation
 </div>
 <p>Selected continuous time states</p>
 <ul>
-<li>prismatic.s</li>
-<li>prismatic.v</li>
-<li>revolute.phi</li>
+  <li>prismatic.s</li>
+  <li>prismatic.v</li>
+  <li>revolute.phi</li>
 </ul>
 </html>"),
     experiment(StopTime=3));

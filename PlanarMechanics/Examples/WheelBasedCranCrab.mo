@@ -66,11 +66,11 @@ equation
 </div>
 <p>Selected continuous time states</p>
 <ul>
-<li>body1.frame_a.phi</li>
-<li>body1.r[1]</li>
-<li>body1.w</li>
-<li>revolute.phi</li>
-<li>revolute.w</li>
+  <li>body1.frame_a.phi</li>
+  <li>body1.r[1]</li>
+  <li>body1.w</li>
+  <li>revolute.phi</li>
+  <li>revolute.w</li>
 </ul>
 </html>"));
 end WheelBasedCranCrab;

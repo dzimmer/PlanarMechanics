@@ -80,10 +80,10 @@ equation
 </div>
 <p>Selected continuous time states</p>
 <ul>
-<li>inertia.phi</li>
-<li>prismatic.s</li>
-<li>revolute.phi</li>
-<li>revolute.w</li>
+  <li>inertia.phi</li>
+  <li>prismatic.s</li>
+  <li>revolute.phi</li>
+  <li>revolute.w</li>
 </ul>
 </html>"),
     experiment(StopTime=10));

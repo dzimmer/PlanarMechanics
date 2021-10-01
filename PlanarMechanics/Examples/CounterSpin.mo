@@ -48,10 +48,10 @@ equation
 </div>
 <p>Selected continuous time states</p>
 <ul>
-<li>body.r[1]</li>
-<li>body.v[1]</li>
-<li>slipBasedRolling.phi</li>
-<li>slipBasedRolling.w</li>
+  <li>body.r[1]</li>
+  <li>body.v[1]</li>
+  <li>slipBasedRolling.phi</li>
+  <li>slipBasedRolling.w</li>
 </ul>
 </html>"));
 end CounterSpin;
