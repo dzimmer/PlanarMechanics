@@ -87,10 +87,12 @@ protected
     specularCoefficient=0) if axisShowLabels;
   annotation (Documentation(info="<html>
 <p>
-<b>Note</b>: This element is intended to be used in <a href=\"PlanarMechanics.PlanarWorld\">PlanarWorld</a> and its derivatives only!
-To visualize a coordinate system in your model, the best solution is usually to use the visualizer <a href=\"PlanarMechanics.Visualizers.Advanced.CoordinateSystem\">Advanced.CoordinateSystem</a>.
-The only difference between this two visualizers is that the current one does not utilizes <b>outer planarWorld</b>, 
-whereas the other does.
+<b>Note</b>: This element is intended to be used in
+<a href=\"PlanarMechanics.PlanarWorld\">PlanarWorld</a> and its derivatives only!
+To visualize a coordinate system in your model, the best solution is usually to use
+the visualizer <a href=\"PlanarMechanics.Visualizers.Advanced.CoordinateSystem\">Advanced.CoordinateSystem</a>.
+The only difference between this two visualizers is that the current one does
+not utilizes <b>outer planarWorld</b>, whereas the other does.
 </p>
 <p>
 This element enbles visualization of an <b>orthogonal coordinate system</b>
@@ -115,7 +117,7 @@ PlanarMechanics.Visualizers.Advanced.CoordinateSystem coordinateSystem(r = {sin(
 <p>
 <b>Color</b> of each axis can be set individually using RGB color space given in the range 0 .. 255.
 The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
-contains a menu definition of the colors used in the library</a>
+contains a menu definition of the colors used in the library
 (will be replaced by a color editor).
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},

@@ -124,7 +124,7 @@ model where an <b>Arrow</b> instance is used, e.g., in the form
 <p>
 Variable <b>color</b> is a RGB color space given in the range 0 .. 255.
 The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
-contains a menu definition of the colors used in the library</a>
+contains a menu definition of the colors used in the library
 (will be replaced by a color editor).
 </p>
 </html>"));

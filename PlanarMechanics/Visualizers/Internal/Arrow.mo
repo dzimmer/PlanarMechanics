@@ -69,10 +69,12 @@ protected
   annotation (
     Documentation(info="<html>
 <p>
-<b>Note</b>: This element is intended to be used in <a href=\"PlanarMechanics.Visualizers.Internal.CoordinateSystem\">CoordinateSystem</a> only!
-To visualize an arrow in your model, the best solution is usually to use the visualizer <a href=\"PlanarMechanics.Visualizers.Advanced.Arrow\">Advanced.Arrow</a>.
-The only difference between this two visualizers is that the current one does not utilizes <b>outer planarWorld</b>, 
-whereas the other does.
+<b>Note</b>: This element is intended to be used in
+<a href=\"PlanarMechanics.Visualizers.Internal.CoordinateSystem\">CoordinateSystem</a> only!
+To visualize an arrow in your model, the best solution is usually to use
+the visualizer <a href=\"PlanarMechanics.Visualizers.Advanced.Arrow\">Advanced.Arrow</a>.
+The only difference between this two visualizers is that the current one does
+not utilizes <b>outer planarWorld</b>, whereas the other does.
 </p>
 <p>
 Model <b>Arrow</b> defines an arrow that is dynamically
@@ -97,7 +99,7 @@ Visualizers.Advanced.Arrow arrow(diameter = sin(time));
 <p>
 Variable <b>color</b> is a RGB color space given in the range 0 .. 255.
 The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
-contains a menu definition of the colors used in the library</a>
+contains a menu definition of the colors used in the library
 (will be replaced by a color editor).
 </p>
 </html>"),
