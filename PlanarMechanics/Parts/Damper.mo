@@ -114,10 +114,10 @@ equation
         Text(
           extent={{-150,80},{150,40}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Text(
           extent={{-100,-50},{100,-80}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="d=%d"),
         Line(
           visible=useHeatPort,

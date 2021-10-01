@@ -37,7 +37,7 @@ equation
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
-          lineColor={0,0,255})}),
+          textColor={0,0,255})}),
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">

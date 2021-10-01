@@ -105,7 +105,7 @@ equation
         Text(
           extent={{-150,100},{150,60}},
           textString="%name",
-          lineColor={0,0,255}),
+          textColor={0,0,255}),
         Rectangle(
           extent={{-20,20},{20,-20}},
           fillPattern=FillPattern.HorizontalCylinder,
@@ -126,11 +126,11 @@ equation
           points={{0,-100},{0,-20}}),
         Text(
           extent={{-140,-22},{-104,-47}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="a"),
         Text(
           extent={{104,-22},{140,-47}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="b"),
         Line(
           visible=useFlange,

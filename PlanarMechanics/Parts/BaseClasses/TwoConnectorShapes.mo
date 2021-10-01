@@ -59,11 +59,11 @@ protected
     Icon(graphics={
         Text(
           extent={{-108,-24},{-72,-49}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="a"),
         Text(
           extent={{72,-24},{108,-49}},
-          lineColor={128,128,128},
+          textColor={128,128,128},
           textString="b")}),
     Documentation(revisions="<html>
 <p>
