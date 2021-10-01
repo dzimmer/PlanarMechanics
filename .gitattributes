@@ -14,6 +14,8 @@
 LICENSE text
 
 # list of files that git archive should ignore
+.CI export-ignore
 .gitattributes export-ignore
+.github export-ignore
 .gitignore export-ignore
 PlanarMechanics/Resources/ReferenceVariables export-ignore
