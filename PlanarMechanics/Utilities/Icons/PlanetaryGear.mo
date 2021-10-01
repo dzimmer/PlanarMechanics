@@ -67,6 +67,6 @@ model PlanetaryGear "Icon for planetary gears"
       info="<html>
 <p>
 This partial class is intended to design a <em>default icon for a planetary gear models</em>.
-<p>
+</p>
 </html>"));
 end PlanetaryGear;

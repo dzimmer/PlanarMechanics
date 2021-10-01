@@ -118,6 +118,6 @@ package GearConnections "Icon for a package class which contains gear connetion 
 </html>", info="<html>
 <p>
 This partial class is intended to design a <em>default icon for a package class</em> which contains different <em>gear connection models</em>.
-<p>
+</p>
 </html>"));
 end GearConnections;
