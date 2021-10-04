@@ -129,7 +129,7 @@ the velocity vector is resolved.
 </table>
 
 <p>
-If <code>resolveInFrame&nbsp;= Types.ResolveInFrameA.frame_resolve</code>,
+If <code>resolveInFrame&nbsp;= Types.ResolveInFrameAB.frame_resolve</code>,
 the conditional connector <code>frame_resolve</code> is enabled
 and <code>v_rel</code> is resolved in the frame, to which
 <code>frame_resolve</code> is connected.
