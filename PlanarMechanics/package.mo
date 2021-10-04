@@ -56,8 +56,6 @@ the disclaimer of warranty) visit
 </html>"),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
          graphics={
-        Line(points={{-60,70},{-60,-70}}, color={175,175,175}),
-        Line(points={{-80,-40},{80,-40}}, color={175,175,175}),
         Ellipse(
           extent={{-30,30},{-10,10}},
           fillPattern=FillPattern.Solid,
