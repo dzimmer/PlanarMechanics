@@ -3,6 +3,8 @@ model RigidNoLossInternal "Internal rigid gear connection model"
   extends PlanarMechanics.Utilities.Icons.PlanarGearContactInternalL1;
   extends PlanarMechanics.Interfaces.PartialTwoFramesAndHeat;
 
+  import Modelica.Math.Vectors.length;
+
   parameter SI.Distance r_a=1 "Radius of gear A";
   parameter SI.Distance r_b=1 "Radius of gear B";
 
@@ -32,6 +34,7 @@ model RigidNoLossInternal "Internal rigid gear connection model"
       group="If animation = true",
       enable=animate));
 
+
   SI.AngularVelocity w_a "Angular speed of gear A";
   SI.AngularVelocity w_b "Angular speed of gear B";
   SI.AngularVelocity w_gear "Angular speed of gear the overall gear contact";
@@ -46,9 +49,11 @@ model RigidNoLossInternal "Internal rigid gear connection model"
   SI.Angle phi_gear "Gear angle";
 
 protected
-  SI.Angle phi_gear2=atan2(frame_a.y - frame_b.y, frame_a.x - frame_b.x)
-    "Temporary Gear angle";
-  SI.AngularVelocity dphi_gear2 "Temporary Gear angle";
+  SI.Velocity v_relx "Relative velocity in x between frame_b to frame_a";
+  SI.Velocity v_rely "Relative velocity in y between frame_b to frame_a";
+  SI.Position s_relx "Relative position in x from frame_b to frame_a";
+  SI.Position s_rely "Relative position in y from frame_b to frame_a";
+  Real res "Residual (shall be =0)";
 
  //Visualization
 
@@ -62,7 +67,7 @@ protected
     widthDirection={1,0,0},
     r_shape={0,0,-0.03},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,z_offset})+planarWorld.r_0,
-    R=planarWorld.R) if planarWorld.enableAnimation and   animate;
+    R=planarWorld.R) if planarWorld.enableAnimation and animate;
 
   MB.Visualizers.Advanced.Shape pointB(
     shapeType="cylinder",
@@ -74,7 +79,7 @@ protected
     widthDirection={1,0,0},
     r_shape={0,0,-0.03},
     r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,z_offset})+planarWorld.r_0,
-    R=planarWorld.R) if  planarWorld.enableAnimation and  animate;
+    R=planarWorld.R)  if planarWorld.enableAnimation and animate;
 
   MB.Visualizers.Advanced.Shape Gearwheel_a(
     shapeType="gearwheel",
@@ -117,9 +122,29 @@ initial equation
   phi_gear = atan2(frame_a.y - frame_b.y, frame_a.x - frame_b.x);
 equation
   lossPower = 0;
+
   w_gear = der(phi_gear);
-  dphi_gear2 = der(phi_gear2);
-  der(phi_gear) = dphi_gear2;
+  s_relx = frame_a.x-frame_b.x;
+  s_rely = frame_a.y-frame_b.y;
+  v_relx = der(s_relx);
+  v_rely = der(s_rely);
+
+  // For the circular movement in 3D, there is the following relation
+  // between angular velocity, radius and velocity:
+  //   v3_rel = w3_vec X r3_rel,
+  // with all vectors being of dimension 3.
+  // => this cross product yields e.g. y-component of the relative velocity
+  //    v3_rel_y = w3_vec_z*r3_relx - w3_vec_x*r3_relz
+  //
+  // Back to 2D we set:
+  //   r3_rel = {s_relx, s_rely, 0}
+  //   v3_rel = {v_relx, v_rely, 0}
+  //   w3_vec = {0, 0, w_gear}
+  // and hence:
+  v_rely = w_gear*s_relx;
+
+  // Residual given by orthogonality condition, i.e. scalar product of v_rel and r_rel
+  res = {s_relx, s_rely, 0}*{v_relx, v_rely, 0} / length({s_relx, s_rely}) / length({v_relx, v_rely});
 
 // Derivatives
   w_a = der(frame_a.phi);
