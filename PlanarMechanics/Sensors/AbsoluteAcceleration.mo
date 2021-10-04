@@ -100,12 +100,12 @@ equation
 </p>
 </html>",  info="<html>
 <p>
-The absolute acceleration vector of the origin of frame_a
-is determined and provided at the output signal connector&nbsp;<strong>a</strong>.
+The absolute acceleration vector of the origin of <code>frame_a</code>
+is determined and provided at the output signal connector&nbsp;<code>a</code>.
 </p>
 <p>
-Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
-the velocity vector is resolved.
+Via parameter <code>resolveInFrame</code> it is defined, in which frame
+the acceleration vector is resolved.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -130,8 +130,9 @@ the velocity vector is resolved.
 
 <p>
 If <code>resolveInFrame&nbsp;= Types.ResolveInFrameA.frame_resolve</code>,
-the conditional connector &quot;frame_resolve&quot; is enabled
-and&nbsp;v is resolved in the frame, to which frame_resolve is connected.
+the conditional connector <code>frame_resolve</code> is enabled
+and&nbsp;<code>a</code> is resolved in the frame, to which
+<code>frame_resolve</code> is connected.
 Note, if this connector is enabled, it must be connected.
 </p>
 <p>

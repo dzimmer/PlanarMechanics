@@ -76,12 +76,12 @@ equation
 </p>
 </html>",  info="<html>
 <p>
-The absolute position and angle vector <strong>[x,y,phi]</strong> of the origin
-of frame_a is determined and provided at the output signal
-connector&nbsp;<strong>r</strong>.
+The absolute position and angle vector [<var>x</var>&nbsp;<var>y</var>&nbsp;<var>&phi;</var>]
+of the origin of <code>frame_a</code> is determined and provided at the output signal
+connector&nbsp;<code>r</code>.
 </p>
 <p>
-Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+Via parameter <code>resolveInFrame</code> it is defined, in which frame
 the position vector is resolved.
 </p>
 
@@ -106,9 +106,10 @@ the position vector is resolved.
 </table>
 
 <p>
-If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>,
-the conditional connector &quot;frame_resolve&quot; is enabled and&nbsp;r
-is resolved in the frame, to which frame_resolve is connected.
+If <code>resolveInFrame&nbsp;= Types.ResolveInFrameA.frame_resolve</code>,
+the conditional connector <code>frame_resolve</code> is enabled
+and&nbsp;<code>r</code> is resolved in the frame, to which
+<code>frame_resolve</code> is connected.
 Note, if this connector is enabled, it must be connected.
 </p>
 <p>

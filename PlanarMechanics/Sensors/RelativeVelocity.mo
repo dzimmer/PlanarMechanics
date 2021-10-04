@@ -94,12 +94,13 @@ equation
 <strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
-<p>The relative velocity vector between the origins of frame_a
-and of frame_b are determined and provided at the output signal
-connector <strong>v_rel</strong>.
+<p>
+The relative velocity vector between the origins of <code>frame_a</code>
+and of <code>frame_b</code> are determined and provided at the output signal
+connector <code>v_rel</code>.
 </p>
 <p>
-Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+Via parameter <code>resolveInFrame</code> it is defined, in which frame
 the velocity vector is resolved.
 </p>
 
@@ -128,9 +129,10 @@ the velocity vector is resolved.
 </table>
 
 <p>
-If <code>resolveInFrame&nbsp;= Types.ResolveInFrameAB.frame_resolve</code>,
-the conditional connector &quot;frame_resolve&quot; is enabled and
-v_rel is resolved in the frame, to which frame_resolve is connected.
+If <code>resolveInFrame&nbsp;= Types.ResolveInFrameA.frame_resolve</code>,
+the conditional connector <code>frame_resolve</code> is enabled
+and <code>v_rel</code> is resolved in the frame, to which
+<code>frame_resolve</code> is connected.
 Note, if this connector is enabled, it must be connected.
 </p>
 <p>
