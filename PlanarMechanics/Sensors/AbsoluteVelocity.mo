@@ -148,8 +148,9 @@ the output vector is computed as:
 <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-Kgd1NoyE.png\" alt=\"v = [cos(frame_resolve.phi), sin(frame_resolve.phi),0;-sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1] * [v0[1];v0[2];v0[3]]\">
 </div>
 
-<p>where <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-zBL2JSRi.png\" alt=\"[x,y,phi]\">
-is position and angle vector of origin of frame_a resolved in world coordinate.
+<p>where [<var>x</var>&nbsp;<var>y</var>&nbsp;<var>&phi;</var>]
+is position and angle vector of origin of <code>frame_a</code> resolved
+in world frame.
 </p>
 </html>"));
 end AbsoluteVelocity;

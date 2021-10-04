@@ -149,8 +149,9 @@ the output vector is computed as:
 <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-FoL9Qy7b.png\" alt=\"a = der(v)\"/>
 </div>
 <p>
-where <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-zBL2JSRi.png\" alt=\"[x,y,phi]\"/>
-is position and angle vector of origin of frame_a resolved in world coordinate.
+where [<var>x</var>&nbsp;<var>y</var>&nbsp;<var>&phi;</var>]
+is position and angle vector of origin of <code>frame_a</code> resolved
+in world frame.
 </p>
 </html>"));
 end AbsoluteAcceleration;
