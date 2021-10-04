@@ -37,6 +37,9 @@ equation
 <strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
-<p>This component defines the x, y-position and angle of the frame connectors, to which this component is attached to.</p>
+<p>
+This component defines the x, y-position and angle of the frame connectors,
+to which this component is attached to.
+</p>
 </html>"));
 end Fixed;
