@@ -118,9 +118,9 @@ equation
 <p>
 The <strong>3</strong> signals of the <strong>force</strong> connector contain force and torque.
 The first and second signal are interpreted as the x- and y-coordinates of
-a <strong>force</strong> and the third is torque, acting between two frame connectors
-to which frame_a and frame_b are attached respectively.
-Note that torque is a scalar quantity, which is exerted perpendicular
+a&nbsp;<strong>force</strong> and the third is torque, acting between two frame connectors
+to which <code>frame_a</code> and <code>frame_b</code> are attached respectively.
+Note that torque is a&nbsp;scalar quantity, which is exerted perpendicular
 to the x-y plane.
 </p>
 <p>
