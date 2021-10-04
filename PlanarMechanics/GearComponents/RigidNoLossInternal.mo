@@ -296,15 +296,13 @@ equation
       info="<html>
 <p>
 In this model an ideal gear connection is modelled.
-It is based on the paper from van der Linden:
-<a href=\"http://dx.doi.org/10.3384/ecp12076303\">Modelling of Elastic Gearboxes Using a Generalized Gear Contact Model</a>.
+It is based on the paper [<a href=\"modelica://PlanarMechanics.UsersGuide.References\">Linden2012</a>]
 However, no gear elasticity is modelled.
 </p>
 <p>
-The planar model of an internal gear wheel is used to build
-complex gear models. A&nbsp;<a href=\"http://dx.doi.org/10.3384/ecp12076681\">planar library</a>
-is used to create the constraints of the gearwheels. An example
-can be found in <a href=\"modelica://PlanarMechanics.GearComponents.Examples.SpurGear\">SpurGear</a>.
+The planar model of an <em>internal gear wheel</em> is aimed to build
+complex gear models. There is a&nbsp;corresponding example of
+<a href=\"modelica://PlanarMechanics.GearComponents.Examples.SpurGear\">SpurGear</a>.
 </p>
 <p>
 Using different parts from the planar library, it is possible to
@@ -319,13 +317,5 @@ This model is suitable for:
   <li>Kinematic analysis of gear systems and gear-like systems.</li>
   <li>Modelling of multiple gear stage models with clutches.</li>
 </ul>
-
-<h4>Literature</h4>
-<ol>
-  <li>van der Linden, F., Modelling of Elastic Gearboxes Using
-      a&nbsp;Generalized Gear Contact Model, <em>Proceedings of the
-      9th International MODELICA Conference, Linkoping University
-      Electronic Press</em>, <strong>2012</strong>, 303-310 </li>
-</ol>
 </html>"));
 end RigidNoLossInternal;
