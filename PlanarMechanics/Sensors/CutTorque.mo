@@ -88,12 +88,12 @@ equation
 <p>
 The cut-torque acting between the two frames to which this model
 is connected, is determined and provided at the output signal
-connector <strong>torque</strong> (= frame_a.t).
-If parameter <strong>positiveSign</strong> = <strong>false</strong>, the negative
-cut-torque is provided (= frame_b.t).
+connector <code>torque</code> (=&nbsp;<code>frame_a.t</code>).
+If parameter <code>positiveSign&nbsp;= false</code>, the negative
+cut-torque is provided (=&nbsp;<code>frame_b.t</code>).
 </p>
 <p>
-In the following figure the modeling and animation of a&nbsp;CutTorque
+In the following figure the modeling and animation of this
 sensor is shown.
 </p>
 <div>

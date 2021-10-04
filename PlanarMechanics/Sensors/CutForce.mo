@@ -87,12 +87,12 @@ equation
 <p>
 The cut-force acting between the two frames to which this model
 is connected, is determined and provided at the output signal
-connector <strong>force</strong> (= frame_a.f).
-If parameter <strong>positiveSign</strong> = <strong>false</strong>, the negative
-cut-force is provided (= frame_b.f).
+connector <code>force</code> (=&nbsp;<code>frame_a.f</code>).
+If parameter <code>positiveSign&nbsp;= false</code>, the negative
+cut-force is provided (=&nbsp;<code>frame_b.f</code>).
 </p>
 <p>
-Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+Via parameter <code>resolveInFrame</code> it is defined, in which frame
 the force vector is resolved.
 </p>
 
@@ -121,13 +121,14 @@ the force vector is resolved.
 </table>
 
 <p>
-If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>,
-the conditional connector &quot;frame_resolve&quot; is enabled and
-output force is resolved in the frame, to which frame_resolve is connected.
+If <code>resolveInFrame&nbsp;= Types.ResolveInFrameAB.frame_resolve</code>,
+the conditional connector <code>frame_resolve</code> is enabled and
+output <code>force</code> is resolved in the frame, to which
+<code>frame_resolve</code> is connected.
 Note, if this connector is enabled, it must be connected.
 </p>
 <p>
-In the following figure the modeling and animation of a&nbsp;CutForce
+In the following figure the modeling and animation of this
 sensor is shown.
 </p>
 <div>
