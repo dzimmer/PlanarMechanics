@@ -152,9 +152,9 @@ equation
     Documentation(
       info="<html>
 <p>
-Model of a force quadratic dependent on the velocity of the flange.
-The force can be resolved in a world frame, or a relative speed can be used
-by selecting resolve_frame to use the extra frame_resolve.
+Model of a&nbsp;force quadratic dependent on the velocity of the flange.
+The force can be resolved in a&nbsp;world frame, or a&nbsp;relative speed
+can be used by selecting resolve_frame to use the extra frame_resolve.
 </p>
 <p>
 This model is e.g. suitable to simulate aerodynamic drag forces.

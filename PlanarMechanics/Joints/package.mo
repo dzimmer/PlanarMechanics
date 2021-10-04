@@ -9,6 +9,9 @@ annotation (Documentation(revisions="<html>
 <strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
-<p>This package contains idealized, massless <strong>joint components </strong>and<strong> Rolling components</strong>.</p>
+<p>
+This package contains idealized, massless <strong>joint components</strong>
+and <strong>rolling components</strong>.
+</p>
 </html>"));
 end Joints;

@@ -100,12 +100,12 @@ equation
 </p>
 </html>",  info="<html>
 <p>
-The absolute acceleration vector of the origin of frame_a
-is determined and provided at the output signal connector&nbsp;<strong>a</strong>.
+The absolute acceleration vector of the origin of <code>frame_a</code>
+is determined and provided at the output signal connector&nbsp;<code>a</code>.
 </p>
 <p>
-Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
-the velocity vector is resolved.
+Via parameter <code>resolveInFrame</code> it is defined, in which frame
+the acceleration vector is resolved.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -130,17 +130,28 @@ the velocity vector is resolved.
 
 <p>
 If <code>resolveInFrame&nbsp;= Types.ResolveInFrameA.frame_resolve</code>,
-the conditional connector &quot;frame_resolve&quot; is enabled
-and&nbsp;v is resolved in the frame, to which frame_resolve is connected.
+the conditional connector <code>frame_resolve</code> is enabled
+and&nbsp;<code>a</code> is resolved in the frame, to which
+<code>frame_resolve</code> is connected.
 Note, if this connector is enabled, it must be connected.
 </p>
 <p>
 Example: If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>,
 the output vector is computed as:
 </p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-x2brh9fX.png\" alt=\"
-v0 = der([x,y,phi])\"/></p><p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-Kgd1NoyE.png\" alt=\"v = [cos(frame_resolve.phi), sin(frame_resolve.phi),0;-sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1] * [v0[1];v0[2];v0[3]]\"/></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-FoL9Qy7b.png\" alt=\"a = der(v)\"/></p>
-<p>where <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-zBL2JSRi.png\" alt=\"[x,y,phi]\"/> is position and angle vector of origin of frame_a resolved in world coordinate.</p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-x2brh9fX.png\" alt=\"v0 = der([x,y,phi])\"/>
+</div>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-Kgd1NoyE.png\" alt=\"v = [cos(frame_resolve.phi), sin(frame_resolve.phi),0;-sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1] * [v0[1];v0[2];v0[3]]\"/>
+</div>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-FoL9Qy7b.png\" alt=\"a = der(v)\"/>
+</div>
+<p>
+where [<var>x</var>&nbsp;<var>y</var>&nbsp;<var>&phi;</var>]
+is position and angle vector of origin of <code>frame_a</code> resolved
+in world frame.
+</p>
 </html>"));
 end AbsoluteAcceleration;

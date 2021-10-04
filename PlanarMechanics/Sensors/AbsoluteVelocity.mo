@@ -102,11 +102,11 @@ equation
 </p>
 </html>",  info="<html>
 <p>
-The absolute velocity vector of the origin of frame_a
-is determined and provided at the output signal connector&nbsp;<strong>v</strong>.
+The absolute velocity vector of the origin of <code>frame_a</code>
+is determined and provided at the output signal connector&nbsp;<code>v</code>.
 </p>
 <p>
-Via parameter <strong>resolveInFrame</strong> it is defined, in which frame
+Via parameter <code>resolveInFrame</code> it is defined, in which frame
 the velocity vector is resolved.
 </p>
 
@@ -131,9 +131,10 @@ the velocity vector is resolved.
 </table>
 
 <p>
-If <code>resolveInFrame = Types.ResolveInFrameA.frame_resolve</code>,
-the conditional connector &quot;frame_resolve&quot; is enabled and&nbsp;v
-is resolved in the frame, to which frame_resolve is connected.
+If <code>resolveInFrame&nbsp;= Types.ResolveInFrameA.frame_resolve</code>,
+the conditional connector <code>frame_resolve</code> is enabled
+and&nbsp;<code>v</code> is resolved in the frame, to which
+<code>frame_resolve</code> is connected.
 Note, if this connector is enabled, it must be connected.
 </p>
 <p>
@@ -143,17 +144,13 @@ the output vector is computed as:
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-x2brh9fX.png\" alt=\"v0 = der([x,y,phi])\">
 </div>
-<p>&nbsp;</p>
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-Kgd1NoyE.png\" alt=\"v = [cos(frame_resolve.phi), sin(frame_resolve.phi),0;-sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1] * [v0[1];v0[2];v0[3]]\">
 </div>
 
-<p>where</p>
-<div>
-<img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-zBL2JSRi.png\" alt=\"[x,y,phi]\">
-</div>
-<p>
-is position and angle vector of origin of frame_a resolved in world coordinate.
+<p>where [<var>x</var>&nbsp;<var>y</var>&nbsp;<var>&phi;</var>]
+is position and angle vector of origin of <code>frame_a</code> resolved
+in world frame.
 </p>
 </html>"));
 end AbsoluteVelocity;

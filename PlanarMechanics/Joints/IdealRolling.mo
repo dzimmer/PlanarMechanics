@@ -105,7 +105,12 @@ equation
 </p>
 </html>",
         info="<html>
-<p>Model IdealRolling contains only one connector frame_a lying at the center of the wheel, where it is assumed that no slip occurs between the wheel and ground.</p>
-<p>The ground is hereby represented by the x-axis.</p>
+<p>
+This model contains only one connector <code>frame_a</code> lying at the center
+of the wheel, where it is assumed that no slip occurs between the wheel and ground.
+</p>
+<p>
+The ground is hereby represented by the x-axis.
+</p>
 </html>"));
 end IdealRolling;

@@ -81,39 +81,42 @@ equation
 </p>
 </html>",  info="<html>
 <p>
-The <strong>distance</strong> between the origins of frame_a
-and of frame_b are determined and provided at the
-output signal connector <strong>distance</strong>. This
+The <strong>distance</strong> between the origins of <code>frame_a</code>
+and of <code>frame_b</code> are determined and provided at the
+output signal connector <code>distance</code>. This
 distance is always positive. <strong>Derivatives</strong> of this
 signal can be easily obtained by connecting the
 block
 <a href=\"modelica://Modelica.Blocks.Continuous.Der\">Modelica.Blocks.Continuous.Der</a>
-to \"distance\" (this block performs analytic differentiation
+to <code>distance</code> (this block performs analytic differentiation
 of the input signal using the <code><strong>der</strong>(&hellip;)</code> operator).
 </p>
 <p>
-In the following figure the animation of a Distance
+In the following figure the animation of the
 sensor is shown. The light blue coordinate system is
-frame_a, the dark blue coordinate system is frame_b, and
-the yellow arrow is the animated sensor.
+<code>frame_a</code>, the dark blue coordinate system is <code>frame_b</code>,
+and the yellow arrow is the animated sensor.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png\" alt=\"Distance animation\">
-</p>
+</div>
 
 <p>
-If the distance is smaller as parameter <strong>s_small</strong> (in the \"advanced\" menu),
-it is approximated such that its derivative is
+If the distance is smaller then the parameter <code>s_small</code>
+(in the \"Advanced\" menu), it is approximated such that its derivative is
 finite for zero distance. Without such an approximation, the derivative would
-be infinite and a division by zero would occur. The approximation is performed
-in the following way: If distance > s_small, it is computed as sqrt(r*r) where
-r is the position vector from the origin of frame_a to the origin of frame_b.
-If the distance becomes smaller as s_small, the \"sqrt()\" function is approximated
-by a second order polynomial, such that the function value and its first derivative
-are identical for sqrt() and the polynomial at s_small. Furthermore, the polynomial
-passes through zero. The effect is, that the distance function is continuous and
-differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
+be infinite and a&nbsp;division by zero would occur. The approximation is performed
+in the following way: If distance&nbsp;&gt;&nbsp;<var>s</var><sub>small</sub>, it is
+computed as sqrt(<var>r</var>*<var>r</var>) where&nbsp;<var>r</var> is the
+position vector from the origin of <code>frame_a</code> to the origin of <code>frame_b</code>.
+If the distance becomes smaller then <var>s</var><sub>small</sub>, the &quot;sqrt()&quot;
+function is approximated by a&nbsp;second order polynomial, such that the function
+value and its first derivative are identical for sqrt() and the polynomial at
+<var>s</var><sub>small</sub>.
+Furthermore, the polynomial passes through zero. The effect is, that the distance
+function is continuous and differentiable everywhere. The derivative at zero distance
+is 3/(2*<var>s</var><sub>small</sub>).
 </p>
 </html>"));
 end Distance;

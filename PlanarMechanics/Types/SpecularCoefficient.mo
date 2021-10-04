@@ -15,7 +15,7 @@ In the following image, the different values of SpecularCoefficient
 are shown for a cylinder:
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Types/SpecularCoefficient.png\" alt=\"SpecularCoefficient animation\">
-</p>
+</div>
 </html>"));

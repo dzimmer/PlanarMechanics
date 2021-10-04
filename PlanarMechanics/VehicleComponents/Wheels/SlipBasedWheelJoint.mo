@@ -192,8 +192,8 @@ equation
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has slip-dependent friction characteristics. This is an approximation for wheels with a rim and a rupper tire.</p>
 <p>The force depends with friction characteristics on the <strong>slip</strong>. The <strong>slip</strong> is split into two components:</p>
 <ul>
-<li>lateral slip: the lateral velocity divided by the rolling velocity.</li>
-<li>longitudinal slip: the longitudinal slip velocity divided by the rolling velocity.</li>
+  <li>lateral slip: the lateral velocity divided by the rolling velocity.</li>
+  <li>longitudinal slip: the longitudinal slip velocity divided by the rolling velocity.</li>
 </ul>
 <p>For low rolling velocity this definitions become ill-conditioned. Hence a dry-friction model is used for low rolling velocities.</p>
 <p>The radius of the wheel can be specified by the parameter <strong>radius</strong>. The driving direction (for phi=0) can be specified by the parameter <strong>r</strong>. The normal load is set by <strong>N</strong>.</p>

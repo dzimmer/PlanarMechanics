@@ -36,16 +36,27 @@ equation
 <strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_1.png\" alt=\"Diagram CounterSpin_1\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_2.png\" alt=\"Diagram CounterSpin_2\"></p>
-<p>The model contains a large local stiffness before 2&nbsp;s</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_3.png\" alt=\"Diagram CounterSpin_3\"></p>
-<p>Selected continuous time states</p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_1.png\" alt=\"Diagram CounterSpin_1\">
+</div>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_2.png\" alt=\"Diagram CounterSpin_2\">
+</div>
+<p>
+The model contains a&nbsp;large local stiffness before 2&nbsp;s.
+</p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_3.png\" alt=\"Diagram CounterSpin_3\">
+</div>
+
+<p>
+Selected continuous time states:
+</p>
 <ul>
-<li>body.r[1]</li>
-<li>body.v[1]</li>
-<li>slipBasedRolling.phi</li>
-<li>slipBasedRolling.w</li>
+  <li>body.r[1]</li>
+  <li>body.v[1]</li>
+  <li>slipBasedRolling.phi</li>
+  <li>slipBasedRolling.w</li>
 </ul>
 </html>"));
 end CounterSpin;

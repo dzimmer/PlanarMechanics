@@ -58,15 +58,19 @@ equation
 </html>",
       info="<html>
 <p>This model contains non-holonomic constraints.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCranCrab_1.png\" alt=\"Diagram WheelBasedCranCrab_1\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCranCrab_2.png\" alt=\"Diagram WheelBasedCranCrab_2\"></p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCranCrab_1.png\" alt=\"Diagram WheelBasedCranCrab_1\">
+</div>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCranCrab_2.png\" alt=\"Diagram WheelBasedCranCrab_2\">
+</div>
 <p>Selected continuous time states</p>
 <ul>
-<li>body1.frame_a.phi</li>
-<li>body1.r[1]</li>
-<li>body1.w</li>
-<li>revolute.phi</li>
-<li>revolute.w</li>
+  <li>body1.frame_a.phi</li>
+  <li>body1.r[1]</li>
+  <li>body1.w</li>
+  <li>revolute.phi</li>
+  <li>revolute.w</li>
 </ul>
 </html>"));
 end WheelBasedCranCrab;

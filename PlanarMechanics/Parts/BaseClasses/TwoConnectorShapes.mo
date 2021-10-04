@@ -71,6 +71,11 @@ protected
 <strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
-<p>This partial base class contains two frames and optionally enables to visualize a cylinder at place of each of these frames. This class should be extended to create a proper model, see e.g. <a href=\"modelica://PlanarMechanics.Parts.Spring\">Spring</a> model. </p>
+<p>
+This partial base class contains two frames and optionally enables to visualize
+a&nbsp;cylinder at place of each of these frames. This class should be extended
+to create a&nbsp;proper model, see e.g.
+<a href=\"modelica://PlanarMechanics.Parts.Spring\">Spring</a> model.
+</p>
 </html>"));
 end TwoConnectorShapes;

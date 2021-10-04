@@ -154,18 +154,36 @@ equation
 </p>
 </html>",
       info="<html>
-<p>Joint where frame_b rotates around axis n which is fixed in frame_a. The two frames coincide when the rotation angle &quot;phi = 0&quot;.</p>
 <p>
-Optionally, two additional 1-dimensional mechanical flanges
-(flange \"flange_a\" represents the driving flange and
-flange \"support\" represents the bearing) can be enabled via
-parameter <strong>useFlange</strong>. The enabled axis flange can be
-driven with elements of the
+Joint of in-plane rotation of <code>frame_b</code> relative to <code>frame_a</code>.
+The two frames coincide when the rotation angle <var>phi</var>&nbsp;= 0&deg;.
+</p>
+<p>
+Optionally, two additional one-dimensional mechanical flanges (flange
+<code>flange_a</code> represents the driving flange and flange
+<code>support</code> represents the bearing) can be enabled via
+parameter <code>useFlange</code>. The enabled <code>flange_a</code>
+flange can be driven with elements of the
 <a href=\"modelica://Modelica.Mechanics.Rotational\">Modelica.Mechanics.Rotational</a>
 library.
 </p>
-<p>In the &quot;Initialization&quot; block, angular position <strong>phi</strong>, angular velocity <strong>w</strong> as well as angular acceleration <strong>z</strong> can be initialized.</p>
-<p>It can be defined via parameter (in &quot;advanced&quot; tab) <strong>stateSelect</strong> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
-<p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <strong>zPosition</strong> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
+<p>
+In the &quot;Initialization&quot; block, angular position <code>phi</code>,
+angular velocity&nbsp;<code>w</code> as well as angular
+acceleration&nbsp;<code>z</code> can be initialized.
+</p>
+<p>
+It can be defined via parameter (in &quot;Advanced&quot; tab)
+<code>stateSelect</code> that the relative angle <code>phi</code>
+and its derivative shall be definitely used as states by setting
+<code>stateSelect&nbsp;= StateSelect.always</code>.
+</p>
+<p>
+In &quot;Animation&quot; group, animation parameters for this model can be set,
+where <code>zPosition</code> represents the model&apos;s position along
+the&nbsp;<var>z</var> axis in 3D animation. Some of the values can be preset
+by an outer <a href=\"modelica://PlanarMechanics.PlanarWorld\">PlanarWorld</a>
+model.
+</p>
 </html>"));
 end Revolute;

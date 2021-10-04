@@ -51,9 +51,9 @@ This element enbles visualization of an <strong>orthogonal coordinate system</st
 as shown in the following picture.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Visualizers/Advanced/CoordinateSystem.png\" ALT=\"model Visualizers.Advanced.CoordinateSystem\">
-</p>
+</div>
 
 <p>
 The variables <code>r</code>, <code>R</code> and <code>r_shape</code>

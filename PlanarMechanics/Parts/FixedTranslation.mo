@@ -84,6 +84,10 @@ equation
 <strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
-<p>This component assures a static position difference <strong>r</strong> between two frame connectors, to which <strong>frame_a</strong> and <strong>frame_b</strong> are connected.</p>
+<p>
+This component assures a&nbsp;static position difference <strong>r</strong> between two
+frame connectors, to which <strong>frame_a</strong> and <strong>frame_b</strong>
+are connected.
+</p>
 </html>"));
 end FixedTranslation;

@@ -90,16 +90,20 @@ equation
 </p>
 </html>",  info="<html>
 <p>A simple PID (actually PD) controlles the pendulum into upright position.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/ControlledCraneCrab_1.png\" alt=\"Diagram ControlledCraneCrab_1\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/Examples/ControlledCraneCrab_2.png\" alt=\"Diagram ControlledCraneCrab_2\"></p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/ControlledCraneCrab_1.png\" alt=\"Diagram ControlledCraneCrab_1\">
+</div>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/ControlledCraneCrab_2.png\" alt=\"Diagram ControlledCraneCrab_2\">
+</div>
 <p>Selected continuous time states</p>
 <ul>
-<li>actuatedPrismatic.s</li>
-<li>actuatedPrismatic.v</li>
-<li>actuatedRevolute.phi</li>
-<li>actuatedRevolute.w</li>
-<li>PID.D.x</li>
-<li>PID.I.y</li>
+  <li>actuatedPrismatic.s</li>
+  <li>actuatedPrismatic.v</li>
+  <li>actuatedRevolute.phi</li>
+  <li>actuatedRevolute.w</li>
+  <li>PID.D.x</li>
+  <li>PID.I.y</li>
 </ul>
 </html>"));
 end ControlledCraneCrab;

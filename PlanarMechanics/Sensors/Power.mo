@@ -45,8 +45,8 @@ equation
 </p>
 </html>",  info="<html>
 <p>
-This component provides the power flowing from frame_a to frame_b
-as output signal <strong>power</strong>.
+This component provides the power flowing from <code>frame_a</code>
+to <code>frame_b</code> as output signal <code>power</code>.
 </p>
 </html>"));
 end Power;

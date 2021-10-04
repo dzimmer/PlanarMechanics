@@ -126,15 +126,14 @@ equation
 <p>
 The cut-force and cut-torque acting between the two frames to which this
 model is connected, are determined and provided at the output signal connectors
-<strong>force</strong> (= frame_a.f) and <strong>torque</strong> (= frame_a.t).
-If parameter <strong>positiveSign</strong> =
-<strong>false</strong>, the negative cut-force and cut-torque is provided
-(= frame_b.f, frame_b.t).
+<code>force</code> (=&nbsp;<code>frame_a.f</code>) and <code>torque</code>
+(=&nbsp;<code>frame_a.t</code>).
+If parameter <code>positiveSign&nbsp;= false</code>, the negative
+cut-force and cut-torque is provided (=&nbsp;<code>frame_b.f</code>, <code>frame_b.t</code>).
 </p>
-
 <p>
-Via parameter <strong>resolveInFrame</strong> it is defined in which frame
-the force output is resolved.
+Via parameter <code>resolveInFrame</code> it is defined, in which frame
+the <code>force</code> vector is resolved.
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -162,22 +161,23 @@ the force output is resolved.
 </table>
 
 <p>
-If <code>resolveInFrame = Types.ResolveInFrameAB.frame_resolve</code>, the conditional connector
-<code>frame_resolve</code> is enabled and the output vector force is resolved in the frame, to
-which <code>frame_resolve</code> is connected. Note, if this connector is enabled, it must
-be connected.
+If <code>resolveInFrame&nbsp;= Types.ResolveInFrameAB.frame_resolve</code>,
+the conditional connector <code>frame_resolve</code> is enabled and
+output <code>force</code> is resolved in the frame, to which
+<code>frame_resolve</code> is connected.
+Note, if this connector is enabled, it must be connected.
 </p>
 
 <p>
-In the following figure the animation of a CutForceAndTorque
-sensor is shown. The dark blue coordinate system is frame_b,
+In the following figure the animation of the
+sensor is shown. The dark blue coordinate system is <code>frame_b</code>,
 and the green arrows are the cut force and the cut torque,
-respectively, acting at frame_b and
-with negative sign at frame_a.
+respectively, acting at <code>frame_b</code> and
+with negative sign at <code>frame_a</code>.
 </p>
 
-<p>
+<div>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\" alt=\"CutForceAndTorque animation\">
-</p>
+</div>
 </html>"));
 end CutForceAndTorque;

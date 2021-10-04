@@ -101,18 +101,18 @@ equation
 <p>
 The <strong>3</strong> signals of the <strong>force</strong> connector contain force and torque.
 The first and second signal are interpreted as the x- and y-coordinates of
-a <strong>force</strong> and the third is torque, acting at the frame connector
-to which <strong>frame_b</strong> of this component is attached.
-Note that torque is a scalar quantity, which is exerted perpendicular
+a&nbsp;<strong>force</strong> and the third is torque, acting at the frame connector
+to which <code>frame_b</code> of this component is attached.
+Note that torque is a&nbsp;scalar quantity, which is exerted perpendicular
 to the x-y plane.
 </p>
 <p>
 An example of this model is given in the following figure:
 </p>
 
-<blockquote>
+<div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Sources/WorldForce.png\" alt=\"Modelica diagram\">
-</blockquote>
+</div>
 
 <p>
 The parameter resolveInFrame defines in which frame the input force shall be resolved.

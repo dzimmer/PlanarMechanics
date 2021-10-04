@@ -79,16 +79,20 @@ equation
 </p>
 </html>",
       info="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestSlipBasedWheel_1.png\" alt=\"Diagram TestSlipBasedWheel_1\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestSlipBasedWheel_2.png\" alt=\"Diagram TestSlipBasedWheel_2\"></p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestSlipBasedWheel_1.png\" alt=\"Diagram TestSlipBasedWheel_1\">
+</div>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestSlipBasedWheel_2.png\" alt=\"Diagram TestSlipBasedWheel_2\">
+</div>
 <p>Selected continuous time states</p>
 <ul>
-<li>inertia.phi</li>
-<li>inertia.w</li>
-<li>prismatic.s</li>
-<li>prismatic.v</li>
-<li>revolute.phi</li>
-<li>revolute.w</li>
+  <li>inertia.phi</li>
+  <li>inertia.w</li>
+  <li>prismatic.s</li>
+  <li>prismatic.v</li>
+  <li>revolute.phi</li>
+  <li>revolute.w</li>
 </ul>
 </html>"),
     experiment(StopTime=20));

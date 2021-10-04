@@ -118,9 +118,11 @@ If the default equation is not appropriate, a corresponding
 modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
-<pre>
-    Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
-</pre>
+
+<blockquote><pre>
+Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
+</pre></blockquote>
+
 <p>
 Variable <strong>color</strong> is a RGB color space given in the range 0 .. 255.
 The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>

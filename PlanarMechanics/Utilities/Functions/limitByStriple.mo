@@ -60,9 +60,9 @@ y_max&nbsp;=&nbsp;1.4,
 y_sat&nbsp;=&nbsp;1.2.
 </p>
 
-<blockquote>
+<div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Utilities/Functions/limitByStriple.png\">
-</blockquote>
+</div>
 </html>",
       revisions="<html>
 <p>

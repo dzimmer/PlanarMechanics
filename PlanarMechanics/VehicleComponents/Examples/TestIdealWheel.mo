@@ -72,14 +72,18 @@ equation
 </html>",
       info="<html>
 <p>It introduces one non-holonomic constraint. Difficult for index-reduction.</p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestIdealWheel_1.png\" alt=\"Diagram TestIdealWheel_1\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestIdealWheel_2.png\" alt=\"Diagram TestIdealWheel_2\"></p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestIdealWheel_1.png\" alt=\"Diagram TestIdealWheel_1\">
+</div>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestIdealWheel_2.png\" alt=\"Diagram TestIdealWheel_2\">
+</div>
 <p>Selected continuous time states</p>
 <ul>
-<li>inertia.phi</li>
-<li>prismatic.s</li>
-<li>revolute.phi</li>
-<li>revolute.w</li>
+  <li>inertia.phi</li>
+  <li>prismatic.s</li>
+  <li>revolute.phi</li>
+  <li>revolute.w</li>
 </ul>
 </html>"),
     experiment(StopTime=10));

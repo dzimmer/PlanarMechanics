@@ -23,13 +23,13 @@ email: <a href=\"mailto:Dirk.Zimmer@dlr.de\">Dirk.Zimmer@dlr.de</a>
 
 <h4>Acknowledgements:</h4>
 <ul>
-<li>The origin of this library is a planar mechanical library conceived for
-    teaching purposes at the TUM. This library was designed by Dirk Zimmer.</li>
-<li>Further component development and testing by practical applications was
-    performed by Franciscus van der Linden.</li>
-<li>A refinement of the library and the modeling of sensors and sources was
-    performed by Zheng Qu.</li>
-<li>Components for gear wheels have been added by Franciscus van der Linden.</li>
+  <li>The origin of this library is a planar mechanical library conceived for
+      teaching purposes at the TUM. This library was designed by Dirk Zimmer.</li>
+  <li>Further component development and testing by practical applications was
+      performed by Franciscus van der Linden.</li>
+  <li>A refinement of the library and the modeling of sensors and sources was
+      performed by Zheng Qu.</li>
+  <li>Components for gear wheels have been added by Franciscus van der Linden.</li>
 </ul>
 </html>"));
 end Contact;

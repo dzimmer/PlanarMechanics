@@ -159,7 +159,10 @@ equation
 <strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
-<p>A <em>linear translational spring-damper</em>. x- and y direction stiffness and damping can be parameterized.</p>
+<p>
+A <em>linear translational spring-damper</em>. x- and y direction stiffness and
+damping can be parameterized.
+</p>
 </html>"),
     Icon(coordinateSystem(
         preserveAspectRatio=true,

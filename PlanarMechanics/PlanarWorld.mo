@@ -210,9 +210,12 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
       info="<html>
 <p>Model <strong>PlanarWorld</strong> defines all possible general parameters to make parameterization of models much more convenient. It has the following functionalites.</p>
 <ol>
-<li>It defines the global coordinate system fixed in ground and shows the x, y, z axes in animation if wanted.</li>
-<li>It contains all default parameters for animation, e.g. axis diameter, default joint length etc, which can still be overwritten by setting parameters in these models.</li>
-<li>It provides the default gravity definition and its animation.</li>
+  <li> It defines the global coordinate system fixed in ground and shows the
+       x, y, z axes in animation if wanted.</li>
+  <li> It contains all default parameters for animation, e.g. axis diameter, default
+       joint length etc, which can still be overwritten by setting parameters in these
+       models.</li>
+  <li> It provides the default gravity definition and its animation.</li>
 </ol>
 <p><br>The pure planar world cannot be coupled to the 3D world. It shall be used when no outer 3D world is available.</p>
 </html>"));

@@ -77,16 +77,20 @@ equation
 </p>
 </html>",
       info="<html>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestDryFrictionWheel_1.png\" alt=\"Diagram TestDryFrictionWheel_1\"></p>
-<p><img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestDryFrictionWheel_2.png\" alt=\"Diagram TestDryFrictionWheel_2\"></p>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestDryFrictionWheel_1.png\" alt=\"Diagram TestDryFrictionWheel_1\">
+</div>
+<div>
+<img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestDryFrictionWheel_2.png\" alt=\"Diagram TestDryFrictionWheel_2\">
+</div>
 <p>Selected continuous time states</p>
 <ul>
-<li>inertia.phi</li>
-<li>inertia.w</li>
-<li>prismatic.s</li>
-<li>prismatic.v</li>
-<li>revolute.phi</li>
-<li>revolute.w</li>
+  <li>inertia.phi</li>
+  <li>inertia.w</li>
+  <li>prismatic.s</li>
+  <li>prismatic.v</li>
+  <li>revolute.phi</li>
+  <li>revolute.w</li>
 </ul>
 </html>"));
 end TestDryFrictionWheel;

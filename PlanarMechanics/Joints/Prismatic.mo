@@ -151,18 +151,37 @@ equation
 </p>
 </html>",
       info="<html>
-<p>Direction of the Joint is determined by <strong>r[2]</strong>, which is a vector pointing from <strong>frame_a</strong> to <strong>frame_b</strong>. </p>
 <p>
-Optionally, two additional 1-dimensional mechanical flanges
-(flange \"flange_a\" represents the driving flange and
-flange \"support\" represents the bearing) can be enabled via
-parameter <strong>useFlange</strong>. The enabled flange_a flange can be
-driven with elements of the
+Direction of the prismatic joint is determined by <code>r[2]</code>,
+which is a&nbsp;vector pointing from <code>frame_a</code> to
+<code>frame_b</code>.
+</p>
+<p>
+Optionally, two additional one-dimensional mechanical flanges (flange
+<code>flange_a</code> represents the driving flange and flange
+<code>support</code> represents the bearing) can be enabled via
+parameter <code>useFlange</code>. The enabled <code>flange_a</code>
+flange can be driven with elements of the
 <a href=\"modelica://Modelica.Mechanics.Translational\">Modelica.Mechanics.Translational</a>
 library.
 </p>
-<p>In the &quot;Initialization&quot; block, elongation of the joint <strong>s</strong>, velocity of elongation <strong>v</strong> as well as acceleration of elongation <strong>a</strong> can be initialized.</p>
-<p>It can be defined via parameter (in &quot;advanced&quot; tab) <strong>stateSelect</strong> that the relative distance &quot;s&quot; and its derivative shall be definitely used as states by setting stateSelect=StateSelect.always. </p>
-<p>In &quot;Animation&quot; group, animation parameters for this model can be set, where <strong>zPosition</strong> represents the model&apos;s position along the z axis in 3D animation. Some of the values can be preset by an outer PlanarWorld model.</p>
+<p>
+In the &quot;Initialization&quot; block, elongation&nbsp;<code>s</code>
+of the joint, velocity of elongation&nbsp;<code>v</code> as well as
+acceleration of elongation&nbsp;<code>a</code> can be initialized.
+</p>
+<p>
+It can be defined via parameter (in &quot;Advanced&quot; tab)
+<code>stateSelect</code> that the relative distance&nbsp;<code>s</code>
+and its derivative shall be definitely used as states by setting
+<code>stateSelect&nbsp;= StateSelect.always</code>.
+</p>
+<p>
+In &quot;Animation&quot; group, animation parameters for this model can be set,
+where <code>zPosition</code> represents the model&apos;s position along
+the&nbsp;<var>z</var> axis in 3D animation. Some of the values can be preset
+by an outer <a href=\"modelica://PlanarMechanics.PlanarWorld\">PlanarWorld</a>
+model.
+</p>
 </html>"));
 end Prismatic;
