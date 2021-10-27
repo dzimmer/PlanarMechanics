@@ -28,7 +28,8 @@ type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
 <p>
 Type <strong>Color</strong> is an Integer vector with 3 elements,
 {r, g, b}, and specifies the color of a shape.
-{r,g,b} are the \"red\", \"green\" and \"blue\" color parts.
+{r,g,b} are the &quot;red&quot;, &quot;green&quot; and &quot;blue&quot;
+color parts.
 Note, r g, b are given in the range 0 .. 255.
 </p>
 </html>"));

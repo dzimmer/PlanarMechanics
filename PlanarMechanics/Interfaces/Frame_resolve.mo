@@ -53,7 +53,7 @@ express in which coordinate system a vector is resolved.
 A component that uses a Frame_resolve connector has to set the
 cut-force and cut-torque of this frame to zero. When connecting
 from a Frame_resolve connector to another frame connector,
-by default the connecting line has line style \"dotted\".
+by default the connecting line has line style &quot;dotted&quot;.
 This component has a non-filled rectangular icon.
 </p>
 </html>"));

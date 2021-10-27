@@ -104,7 +104,7 @@ and the yellow arrow is the animated sensor.
 
 <p>
 If the distance is smaller then the parameter <code>s_small</code>
-(in the \"Advanced\" menu), it is approximated such that its derivative is
+(in the &quot;Advanced&quot; menu), it is approximated such that its derivative is
 finite for zero distance. Without such an approximation, the derivative would
 be infinite and a&nbsp;division by zero would occur. The approximation is performed
 in the following way: If distance&nbsp;&gt;&nbsp;<var>s</var><sub>small</sub>, it is
