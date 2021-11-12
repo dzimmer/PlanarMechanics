@@ -20,7 +20,7 @@ It is backwards compatible to previous library versions.
        and
        <a href=\"modelica://PlanarMechanics.GearComponents.RigidNoLossExternal\">GearComponents.RigidNoLossExternal</a>:
        Use the 3D relation of a&nbsp;circular motion
-       (<var>v</var>&nbsp;= <var>w</var> <code>x</code> <var>r</var>)
+       (<var>v</var>&nbsp;= <var>&omega;</var> <code>x</code> <var>r</var>)
        to calculate <code>w_gear</code> directly and in continuous matter.
   </li>
   <li> Fix underdetermined initialization of example
