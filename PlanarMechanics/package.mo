@@ -7,14 +7,15 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
 
   annotation (
     preferredView="info",
-    version="1.5.0",
-    versionDate="2020-10-02",
-    dateModified = "2020-10-02 12:00:00Z",
+    version="1.5.1",
+    versionDate="2021-11-30",
+    dateModified = "2021-11-16 12:00:00Z",
     uses(
       Modelica(version="4.0.0")),
     conversion(
       from(version="1.3.0", script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_3_0.mos"),
-      from(version={"1.4.1","1.4.0"}, script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_4_1.mos")),
+      from(version={"1.4.1","1.4.0"}, script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_4_1.mos"),
+      noneFromVersion="1.5.0"),
     Documentation(
       info="<html>
 <p>

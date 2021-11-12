@@ -5,7 +5,7 @@ class ReleaseNotes "Release notes"
   annotation (
     Documentation(
       info="<html>
-<h4>Version 1.?.?, 2021-mm-dd</h4>
+<h4>Version 1.5.1, 2021-11-30</h4>
 <p>
 This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
 It is backwards compatible to previous library versions.
