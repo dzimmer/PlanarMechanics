@@ -3,7 +3,7 @@ package PlanarMechanicsTest "Library to test components of package PlanarMechani
   extends Modelica.Icons.Package;
 
   annotation (
-    version="1.5.1",
+    version="1.5.1-beta.1",
     versionDate="2021-11-30",
     dateModified = "2021-11-16 12:00:00Z",
     uses(

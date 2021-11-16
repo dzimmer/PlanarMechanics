@@ -7,7 +7,7 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
 
   annotation (
     preferredView="info",
-    version="1.5.1",
+    version="1.5.1-beta.1",
     versionDate="2021-11-30",
     dateModified = "2021-11-16 12:00:00Z",
     uses(
