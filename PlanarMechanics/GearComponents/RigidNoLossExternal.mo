@@ -136,7 +136,9 @@ equation
   v_rely = w_gear*s_relx;
 
   // Residual given by orthogonality condition, i.e. scalar product of v_rel and r_rel
-  res = {s_relx, s_rely, 0}*{v_relx, v_rely, 0} / length({s_relx, s_rely}) / length({v_relx, v_rely});
+  res = if noEvent(length({v_relx, v_rely}) > Modelica.Constants.eps) then
+    {s_relx, s_rely, 0}*{v_relx, v_rely, 0} / length({s_relx, s_rely}) / length({v_relx, v_rely}) else
+    length({s_relx, s_rely}) - (r_a + r_b);
 
 // Derivatives
   w_a = der(frame_a.phi);
