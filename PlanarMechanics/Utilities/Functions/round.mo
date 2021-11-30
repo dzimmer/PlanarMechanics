@@ -24,7 +24,7 @@ round(-1.6) -> -2
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
+<strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>"));
 end round;

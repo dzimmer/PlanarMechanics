@@ -11,7 +11,7 @@ package Wheels "Wheel and tire models"
       revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
+<strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
