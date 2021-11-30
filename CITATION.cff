@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using these metadata.
+title: Modelica library PlanarMechanics
+abstract: The PlanarMechanics library is an open-source Modelica library for the modelling of planar mechanical multi-body systems.
+authors:
+  - family-names: Zimmer
+    given-names: Dirk
+  - family-names: van der Linden
+    given-names: Franciscus 
+  - family-names: Qu
+    given-names: Zheng 
+  - name: "German Aerospace Center (DLR), Institute of System Dynamics and Control (SR)"
+    country: DE
+    website: "https://www.dlr.de/sr/en"
+version: 1.6.0
+date-released: "2023-09-12"
+identifiers:
+  - description: "The GitHub release URL of Version 1.6.0 of the PlanarMechanics library."
+    type: url
+    value: "https://github.com/dzimmer/PlanarMechanics/releases/tag/v1.6.0"
+license: BSD-3-Clause
+repository-code: "https://github.com/dzimmer/PlanarMechanics"
