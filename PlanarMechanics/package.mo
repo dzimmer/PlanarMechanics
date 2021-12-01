@@ -47,12 +47,6 @@ the terms of the 3-Clause BSD license. For license conditions (including
 the disclaimer of warranty) visit
 <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
-</html>",
-      revisions="<html>
-<p>
-<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
-<strong>Developed 2010-2020 at the DLR Institute of System Dynamics and Control</strong>
-</p>
 </html>"),
     Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
          graphics={
