@@ -178,15 +178,15 @@ package Sensors "Test models for PlanarMechanics.Sensors"
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
       annotation (Placement(transformation(extent={{20,70},{40,90}})));
   equation
-    connect(fixedTranslation.frame_b,body. frame_a) annotation (Line(
+    connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
         points={{-20,-20},{10,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(fixed.frame,revolute1. frame_a) annotation (Line(
+    connect(fixed.frame, revolute1.frame_a) annotation (Line(
         points={{-80,-20},{-70,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(revolute1.frame_b,fixedTranslation. frame_a) annotation (Line(
+    connect(revolute1.frame_b, fixedTranslation.frame_a) annotation (Line(
         points={{-50,-20},{-40,-20}},
         color={95,95,95},
         thickness=0.5));
@@ -288,15 +288,15 @@ Expected results:
       annotation (Placement(transformation(extent={{20,70},{40,90}})));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque(tau_constant=100) annotation (Placement(transformation(extent={{-90,-70},{-70,-50}})));
   equation
-    connect(fixedTranslation.frame_b,body. frame_a) annotation (Line(
+    connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
         points={{-20,-20},{10,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(fixed.frame,revolute1. frame_a) annotation (Line(
+    connect(fixed.frame, revolute1.frame_a) annotation (Line(
         points={{-80,-20},{-70,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(revolute1.frame_b,fixedTranslation. frame_a) annotation (Line(
+    connect(revolute1.frame_b, fixedTranslation.frame_a) annotation (Line(
         points={{-50,-20},{-40,-20}},
         color={95,95,95},
         thickness=0.5));
