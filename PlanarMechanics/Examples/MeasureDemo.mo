@@ -41,11 +41,11 @@ model MeasureDemo "Measure demo"
   Joints.Revolute revolute2(phi(fixed=true), w(fixed=true))
     annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
 equation
-  connect(fixedTranslation.frame_b,body. frame_a) annotation (Line(
+  connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{-20,20},{-2,20},{10,20}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixedTranslation1.frame_b,body1. frame_a)
+  connect(fixedTranslation1.frame_b, body1.frame_a)
                                                   annotation (Line(
       points={{50,-20},{56,-20},{70,-20}},
       color={95,95,95},

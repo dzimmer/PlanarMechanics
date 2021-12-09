@@ -13,7 +13,7 @@ model DifferentialGear "Simple Model of a differential gear"
   Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_right
     annotation (Placement(transformation(extent={{90,-10},{110,10}})));
 equation
-  connect(flange_b,idealPlanetary. ring) annotation (Line(
+  connect(flange_b, idealPlanetary.ring) annotation (Line(
       points={{0,-100},{0,-62},{0,-62}}));
   connect(idealPlanetary.carrier, flange_right) annotation (Line(
       points={{4,-42},{4,0},{100,0}}));

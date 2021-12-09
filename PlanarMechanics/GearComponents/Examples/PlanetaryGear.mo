@@ -43,7 +43,7 @@ equation
   connect(heatCapacitor.port, planetary.heatPort) annotation (Line(
       points={{-10,-30},{0,-30},{0,0}},
       color={191,0,0}));
-  connect(planetary.flange_Sun,sunSpeed. flange) annotation (Line(
+  connect(planetary.flange_Sun, sunSpeed.flange) annotation (Line(
       points={{0,20},{-10,20},{-10,10},{-30,10}}));
   connect(ringTorque.flange, planetary.flange_Ring) annotation (Line(
       points={{-30,40},{-10,40},{-10,32},{0,32}}));

@@ -165,14 +165,14 @@ model TwoTrackWithDifferentialGear "Double track model"
 equation
   connect(wheelJoint2.flange_a, inertia1.flange_b) annotation (Line(
       points={{-74,-50},{-82,-50}}));
-  connect(inertia.flange_b,wheelJoint1. flange_a) annotation (Line(
+  connect(inertia.flange_b, wheelJoint1.flange_a) annotation (Line(
       points={{-80,70},{-74,70}}));
   connect(fixedTranslation2.frame_b, fixedTranslation1.frame_a) annotation (
      Line(
       points={{-10,-50},{0,-50},{0,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixedTranslation2.frame_a,wheelJoint2. frame_a) annotation (Line(
+  connect(fixedTranslation2.frame_a, wheelJoint2.frame_a) annotation (Line(
       points={{-30,-50},{-60,-50}},
       color={95,95,95},
       thickness=0.5));
@@ -185,7 +185,7 @@ equation
       points={{60,-50},{30,-50}},
       color={95,95,95},
       thickness=0.5));
-  connect(inertia2.flange_b,wheelJoint3. flange_a) annotation (Line(
+  connect(inertia2.flange_b, wheelJoint3.flange_a) annotation (Line(
       points={{80,-50},{74,-50}}));
   connect(body1.frame_a, fixedTranslation1.frame_a) annotation (Line(
       points={{12,-30},{0,-30},{0,-20}},
@@ -201,15 +201,15 @@ equation
       points={{0,0},{0,0},{0,12},{10,12}},
       color={95,95,95},
       thickness=0.5));
-  connect(inertia3.flange_b,wheelJoint4. flange_a) annotation (Line(
+  connect(inertia3.flange_b, wheelJoint4.flange_a) annotation (Line(
       points={{80,70},{74,70}}));
   connect(pulse.y, torque.tau) annotation (Line(
       points={{-1,80},{-10,80},{-10,62}},
       color={0,0,127}));
-  connect(differentialGear.flange_right,wheelJoint3. flange_a) annotation (
+  connect(differentialGear.flange_right, wheelJoint3.flange_a) annotation (
       Line(
       points={{10,-72},{74,-72},{74,-50}}));
-  connect(differentialGear.flange_left,wheelJoint2. flange_a) annotation (
+  connect(differentialGear.flange_left, wheelJoint2.flange_a) annotation (
       Line(
       points={{-10,-72},{-74,-72},{-74,-50}}));
   connect(constantTorque1.flange, differentialGear.flange_b) annotation (
@@ -219,7 +219,7 @@ equation
       points={{-40,80},{-40,70}},
       color={95,95,95},
       thickness=0.5));
-  connect(leftTrail.frame_b,wheelJoint1. frame_a) annotation (Line(
+  connect(leftTrail.frame_b, wheelJoint1.frame_a) annotation (Line(
       points={{-40,70},{-60,70}},
       color={95,95,95},
       thickness=0.5));

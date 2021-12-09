@@ -137,11 +137,11 @@ equation
       points={{-50,-40},{-40,-40}},
       color={95,95,95},
       thickness=0.5));
-  connect(bearing_Carrier.frame_a,fixed. frame) annotation (Line(
+  connect(bearing_Carrier.frame_a, fixed.frame) annotation (Line(
       points={{-70,-40},{-80,-40},{-80,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(bearing_Ring.frame_a,fixed. frame) annotation (Line(
+  connect(bearing_Ring.frame_a, fixed.frame) annotation (Line(
       points={{-70,40},{-80,40},{-80,30}},
       color={95,95,95},
       thickness=0.5));

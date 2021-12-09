@@ -74,7 +74,7 @@ equation
       points={{-20,20},{-20,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixedTranslation2.frame_a,revolute3. frame_b) annotation (Line(
+  connect(fixedTranslation2.frame_a, revolute3.frame_b) annotation (Line(
       points={{80,20},{80,30}},
       color={95,95,95},
       thickness=0.5));
@@ -86,7 +86,7 @@ equation
       points={{40,-10},{80,-10},{80,0}},
       color={95,95,95},
       thickness=0.5));
-  connect(fixedTranslation3.frame_a,revolute4. frame_b) annotation (Line(
+  connect(fixedTranslation3.frame_a, revolute4.frame_b) annotation (Line(
       points={{0,-60},{-20,-60},{-20,-50}},
       color={95,95,95},
       thickness=0.5));
@@ -110,7 +110,7 @@ equation
       thickness=0.5));
   connect(springDamper1D.flange_b, prismatic1.flange_a)
     annotation (Line(points={{20,90},{30,90},{30,70}}, color={0,127,0}));
-  connect(prismatic1.frame_b,revolute3. frame_a) annotation (Line(
+  connect(prismatic1.frame_b, revolute3.frame_a) annotation (Line(
       points={{40,60},{80,60},{80,50}},
       color={95,95,95},
       thickness=0.5));
