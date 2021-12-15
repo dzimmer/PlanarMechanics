@@ -26,6 +26,11 @@ The libray is released under the 3-Clause BSD license, see [LICENSE](LICENSE) an
 ## Reference results
 Reference results for regression testing can be found in [PlanarMechanics_ReferenceResults](https://github.com/DLR-SR/PlanarMechanics_ReferenceResults).
 
+## Tool compatibility 
+- [Dymola](https://www.3ds.com/products-services/catia/products/dymola/): The library has been developed using Dymola.
+- [Open Modelica](https://www.openmodelica.org/): The library is fully compatible to Open Modelica.  
+- [Modelon Impact](https://www.modelon.com/modelon-impact/): The library is reported to be fully compatible to Modelon Impact. 
+
 ## Development and contribution
 The library was developed by the German Aerospace Center (DLR)
 Contributors:
