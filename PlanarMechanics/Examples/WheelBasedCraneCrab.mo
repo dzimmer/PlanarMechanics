@@ -1,11 +1,11 @@
 within PlanarMechanics.Examples;
-model WheelBasedCranCrab "A pendulum mounted on an ideal rolling wheel"
+model WheelBasedCraneCrab "A pendulum mounted on an ideal rolling wheel"
   extends Modelica.Icons.Example;
   Joints.IdealRolling idealRolling(
     R=0.3,
     phi(fixed=true),
     w(fixed=true),
-    x(fixed=true, start=0))               annotation (Placement(
+    x(fixed=true, start=0)) annotation (Placement(
         transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -15,7 +15,7 @@ model WheelBasedCranCrab "A pendulum mounted on an ideal rolling wheel"
     I=0.1)
     annotation (Placement(transformation(extent={{10,20},{30,40}})));
   Joints.Revolute revolute(phi(fixed=true, start=1.3962634015955), w(fixed=true))
-                           annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-20,10})));
@@ -26,7 +26,7 @@ model WheelBasedCranCrab "A pendulum mounted on an ideal rolling wheel"
         origin={-20,-20})));
   Parts.Body body1(
     m=2,
-    I=0.2)       annotation (Placement(transformation(
+    I=0.2) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-20,-50})));
@@ -59,10 +59,10 @@ equation
       info="<html>
 <p>This model contains non-holonomic constraints.</p>
 <div>
-<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCranCrab_1.png\" alt=\"Diagram WheelBasedCranCrab_1\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCraneCrab_1.png\" alt=\"Diagram WheelBasedCraneCrab_1\">
 </div>
 <div>
-<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCranCrab_2.png\" alt=\"Diagram WheelBasedCranCrab_2\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/WheelBasedCraneCrab_2.png\" alt=\"Diagram WheelBasedCraneCrab_2\">
 </div>
 <p>Selected continuous time states</p>
 <ul>
@@ -73,4 +73,4 @@ equation
   <li>revolute.w</li>
 </ul>
 </html>"));
-end WheelBasedCranCrab;
+end WheelBasedCraneCrab;
