@@ -1,12 +1,8 @@
 within PlanarMechanics.VehicleComponents.Wheels;
 model DryFrictionWheelJoint "Dry-Friction based wheel joint"
+  extends PlanarMechanics.VehicleComponents.Wheels.BaseClasses.WheelBase;
   extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
     final T=293.15);
-  Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-56,-16},
-            {-24,16}})));
-  Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a annotation (
-      Placement(transformation(extent={{90,-8},{110,12}}), iconTransformation(
-          extent={{90,-10},{110,10}})));
   outer PlanarWorld planarWorld "planar world model";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use acceleration as states" annotation(HideResult=true,Dialog(tab="Advanced"));
@@ -124,59 +120,12 @@ equation
   f_lat = {frame_a.fy, -frame_a.fx}*e0;
   lossPower = f*v_slip;
   annotation (Icon(graphics={
-        Rectangle(
-          extent={{-40,100},{40,-100}},
-          lineColor={95,95,95},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={231,231,231}),
-        Line(
-          points={{-40,30},{40,30}},
-          color={95,95,95}),
-        Line(
-          points={{-40,-30},{40,-30}},
-          color={95,95,95}),
-        Line(
-          points={{-40,60},{40,60}},
-          color={95,95,95}),
-        Line(
-          points={{-40,80},{40,80}},
-          color={95,95,95}),
-        Line(
-          points={{-40,90},{40,90}},
-          color={95,95,95}),
-        Line(
-          points={{-40,100},{40,100}},
-          color={95,95,95}),
-        Line(
-          points={{-40,-80},{40,-80}},
-          color={95,95,95}),
-        Line(
-          points={{-40,-90},{40,-90}},
-          color={95,95,95}),
-        Line(
-          points={{-40,-100},{40,-100}},
-          color={95,95,95}),
-        Line(
-          points={{-40,-60},{40,-60}},
-          color={95,95,95}),
-        Rectangle(
-          extent={{100,10},{40,-10}},
-          fillPattern=FillPattern.HorizontalCylinder,
-          fillColor={231,231,231}),
         Line(
           visible=useHeatPort,
           points={{-100,-100},{-100,-90},{0,-90}},
           color={191,0,0},
           pattern=LinePattern.Dot,
-          smooth=Smooth.None),
-        Text(
-          extent={{-150,-110},{150,-140}},
-          textColor={0,0,0},
-          textString="radius=%radius"),
-        Text(
-          extent={{-150,140},{150,100}},
-          textString="%name",
-          textColor={0,0,255})}),
+          smooth=Smooth.None)}),
     Documentation(
       info="<html>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has dry-friction characteristics. This is an approximation for stiff wheels without a tire.</p>
