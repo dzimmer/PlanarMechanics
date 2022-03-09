@@ -1,13 +1,11 @@
 within PlanarMechanics.VehicleComponents.Wheels;
 model DryFrictionWheelJoint "Dry-Friction based wheel joint"
   extends PlanarMechanics.VehicleComponents.Wheels.BaseClasses.WheelBase;
-  extends Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort(
-    final T=293.15);
+
   outer PlanarWorld planarWorld "planar world model";
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use acceleration as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
-  parameter SI.Length radius "Radius of the wheel";
   parameter SI.Length r[2] "Driving direction of the wheel at angle phi = 0";
   parameter SI.Force N "Normal force";
   parameter SI.Velocity vAdhesion "Adhesion velocity";
@@ -80,8 +78,8 @@ model DryFrictionWheelJoint "Dry-Friction based wheel joint"
     widthDirection={1,0,0},
     r_shape={0,0,-radius},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi,0))) if
-         planarWorld.enableAnimation and animate;
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi,0)))
+    if planarWorld.enableAnimation and animate;
   MB.Visualizers.Advanced.Shape rim2(
     shapeType="cylinder",
     color={195,195,195},
@@ -93,8 +91,8 @@ model DryFrictionWheelJoint "Dry-Friction based wheel joint"
     widthDirection={1,0,0},
     r_shape={0,0,-radius},
     r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi+Modelica.Constants.pi/2,0))) if
-        planarWorld.enableAnimation and animate;
+    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi+Modelica.Constants.pi/2,0)))
+    if planarWorld.enableAnimation and animate;
 equation
   R = {{cos(frame_a.phi), -sin(frame_a.phi)}, {sin(frame_a.phi),cos(frame_a.phi)}};
   e0 = R*e;
@@ -119,13 +117,8 @@ equation
   f_long = {frame_a.fx, frame_a.fy}*e0;
   f_lat = {frame_a.fy, -frame_a.fx}*e0;
   lossPower = f*v_slip;
-  annotation (Icon(graphics={
-        Line(
-          visible=useHeatPort,
-          points={{-100,-100},{-100,-90},{0,-90}},
-          color={191,0,0},
-          pattern=LinePattern.Dot,
-          smooth=Smooth.None)}),
+
+  annotation (
     Documentation(
       info="<html>
 <p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has dry-friction characteristics. This is an approximation for stiff wheels without a tire.</p>
