@@ -50,13 +50,13 @@ partial model WheelBase
           fillColor={231,231,231}),
         Text(
           extent={{-150,-58},{150,-88}},
-          lineColor={0,0,0},
+          textColor={0,0,0},
           textString="radius=%radius"),
         Text(
           extent={{-150,140},{150,100}},
           textString="%name",
-          lineColor={0,0,255})}), Diagram(coordinateSystem(
-          preserveAspectRatio=false)),
+          textColor={0,0,255})}),
+    Diagram(coordinateSystem(preserveAspectRatio=false)),
     Documentation(info="<html>
 <p>
 This partial class contains common connectors needed for wheel models
