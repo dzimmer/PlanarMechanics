@@ -121,15 +121,33 @@ equation
   annotation (
     Documentation(
       info="<html>
-<p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has dry-friction characteristics. This is an approximation for stiff wheels without a tire.</p>
-<p>The force depends with dry-friction characteristics on the slip velocity. The slip velocity is split into two components:</p>
+<p>
+The ideal wheel joint models the behavior of a&nbsp;wheel rolling on a&nbsp;x,y-plane
+whose contact patch has dry-friction characteristics. This is an approximation for
+stiff wheels without a&nbsp;tire.
+</p>
+<p>
+The force depends with dry-friction characteristics on the slip velocity. The slip
+velocity is split into two components:
+</p>
 <ul>
   <li>the lateral velocity</li>
   <li>the longitudinal velocity minus the rolling velocity times the radius.</li>
 </ul>
-<p>The radius of the wheel can be specified by the parameter <strong>radius</strong>. The driving direction (for phi=0) can be specified by the parameter <strong>r</strong>. The normal load is set by <strong>N</strong>.</p>
-<p>The wheel contains a 2D connector <strong>frame_a</strong> for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D  connector <strong>flange_a</strong>.</p>
-<p>For examples of usage see the local <a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.</p>
+<p>
+The radius of the wheel can be specified by the parameter <strong>radius</strong>.
+The driving direction (for phi&nbsp;=&nbsp;0) can be specified by the
+parameter&nbsp;<strong>r</strong>. The normal load is set by&nbsp;<strong>N</strong>.
+</p>
+<p>
+The wheel contains a&nbsp;2D connector <strong>frame_a</strong> for the steering on
+the plane. The rolling motion of the wheel can be actuated by the 1D  connector
+<strong>flange_a</strong>.
+</p>
+<p>
+For examples of usage see the local
+<a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.
+</p>
 </html>",
       revisions="<html>
 <p>

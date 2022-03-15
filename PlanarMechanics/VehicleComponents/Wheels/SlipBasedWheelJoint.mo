@@ -135,17 +135,40 @@ equation
   annotation (
     Documentation(
       info="<html>
-<p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has slip-dependent friction characteristics. This is an approximation for wheels with a rim and a rubber tire.</p>
-<p>The force depends with friction characteristics on the <strong>slip</strong>. The <strong>slip</strong> is split into two components:</p>
+<p>
+The ideal wheel joint models the behavior of a&nbsp;wheel rolling on&nbsp;a x,y-plane
+whose contact patch has slip-dependent friction characteristics. This is an
+approximation for wheels with a&nbsp;rim and a&nbsp;rubber tire.
+</p>
+<p>
+The force depends with friction characteristics on the <strong>slip</strong>.
+The <strong>slip</strong> is split into two components:
+</p>
 <ul>
   <li>lateral slip: the lateral velocity divided by the rolling velocity.</li>
   <li>longitudinal slip: the longitudinal slip velocity divided by the rolling velocity.</li>
 </ul>
-<p>For low rolling velocity this definitions become ill-conditioned. Hence a dry-friction model is used for low rolling velocities.</p>
-<p>The radius of the wheel can be specified by the parameter <strong>radius</strong>. The driving direction (for phi=0) can be specified by the parameter <strong>r</strong>. The normal load is set by <strong>N</strong>.</p>
-<p>The wheel contains a 2D connector <strong>frame_a</strong> for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D  connector <strong>flange_a</strong>.</p>
-<p>In addition there is an input for a dynamic component of the normal load.</p>
-<p>For examples of usage see the local <a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.</p>
+<p>
+For low rolling velocity this definitions become ill-conditioned.
+Hence a&nbsp;dry-friction model is used for low rolling velocities.
+</p>
+<p>
+The radius of the wheel can be specified by the parameter <strong>radius</strong>.
+The driving direction (for phi&nbsp;=&nbsp;0) can be specified by the
+parameter&nbsp;<strong>r</strong>. The normal load is set &nbsp;<strong>N</strong>.
+</p>
+<p>
+The wheel contains a&nbsp;2D connector <strong>frame_a</strong> for the steering
+on the plane. The rolling motion of the wheel can be actuated by the 1D connector
+<strong>flange_a</strong>.
+</p>
+<p>
+In addition there is an input for a&nbsp;dynamic component of the normal load.
+</p>
+<p>
+For examples of usage see the local
+<a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.
+</p>
 </html>",
       revisions="<html>
 <p>

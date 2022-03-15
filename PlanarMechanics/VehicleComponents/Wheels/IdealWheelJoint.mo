@@ -97,15 +97,30 @@ equation
   annotation (
     Documentation(
       info="<html>
-<p>The ideal wheel joint enforces the constraints of ideal rolling on the x,y-plane.</p>
-<p>The constraint is that the velocity of the virtual point of contact shall be zero. This constrains is split into two components:</p>
+<p>
+The ideal wheel joint enforces the constraints of ideal rolling on the x,y-plane.
+</p>
+<p>
+The constraint is that the velocity of the virtual point of contact shall be zero.
+This constrains is split into two components:
+</p>
 <ul>
   <li>no lateral velocity</li>
   <li>the longitudinal velocity has to equal the rolling velocity times the radius.</li>
 </ul>
-<p>The radius of the wheel can be specified by the parameter <strong>radius</strong>. The driving direction (for phi=0) can be specified by the parameter <strong>r</strong>.</p>
-<p>The wheel contains a 2D frame connector for the steering on the plane. The rolling motion of the wheel can be actuated by the 1D flange connector.</p>
-<p>For examples of usage see the local <a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.</p>
+<p>
+The radius of the wheel can be specified by the parameter <strong>radius</strong>.
+The driving direction (for phi&nbsp;=&nbsp;0) can be specified by the
+parameter&nbsp;<strong>r</strong>.
+</p>
+<p>
+The wheel contains a&nbsp;2D frame connector for the steering on the plane.
+The rolling motion of the wheel can be actuated by the 1D flange connector.
+</p>
+<p>
+For examples of usage see the local
+<a href=\"modelica://PlanarMechanics.VehicleComponents.Examples\">Examples package</a>.
+</p>
 </html>",
       revisions="<html>
 <p>
