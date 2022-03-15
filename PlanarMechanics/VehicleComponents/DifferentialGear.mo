@@ -86,7 +86,11 @@ equation
           textString="%name",
           textColor={0,0,255})}),
     Documentation(info="<html>
-<p>The differential gear is a 1D-rotational component. It is a variant of a planetary gear and can be used to distribute the torque equally among the wheels on one axis.</p>
+<p>
+The differential gear is a&nbsp;1D-rotational component. It is
+a&nbsp;variant of a&nbsp;planetary gear and can be used to
+distribute the torque equally among the wheels on one axis.
+</p>
 </html>",
       revisions="<html>
 <p>
