@@ -135,7 +135,7 @@ equation
   annotation (
     Documentation(
       info="<html>
-<p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has slip-dependent friction characteristics. This is an approximation for wheels with a rim and a rupper tire.</p>
+<p>The ideal wheel joint models the behavior of a wheel rolling on a x,y-plane whose contact patch has slip-dependent friction characteristics. This is an approximation for wheels with a rim and a rubber tire.</p>
 <p>The force depends with friction characteristics on the <strong>slip</strong>. The <strong>slip</strong> is split into two components:</p>
 <ul>
   <li>lateral slip: the lateral velocity divided by the rolling velocity.</li>
