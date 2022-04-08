@@ -31,7 +31,7 @@ model SingleTrackWithEngine "Single track model"
     enableGravity=false)
     annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
   VehicleComponents.Wheels.IdealWheelJoint idealWheelRear(
-    r={0,1},
+    r=idealWheelFront.r,
     radius=0.3,
     w_roll(fixed=true, start=0),
     phi_roll(fixed=true),
@@ -63,7 +63,8 @@ model SingleTrackWithEngine "Single track model"
     c_W=0.4,
     area=2,
     rho=1.18,
-    r={0,1}) annotation (Placement(transformation(extent={{0,-30},{-20,-10}})));
+    r=idealWheelFront.r)
+    annotation (Placement(transformation(extent={{0,-30},{-20,-10}})));
 equation
   connect(idealWheelFront.frame_a, bodyFront.frame_a)
     annotation (Line(
