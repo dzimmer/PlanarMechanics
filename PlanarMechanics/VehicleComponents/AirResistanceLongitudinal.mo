@@ -1,8 +1,8 @@
 within PlanarMechanics.VehicleComponents;
 model AirResistanceLongitudinal "Velocity dependent longitudinal air resistance"
 
-  parameter Real c_W(min=0) = 0.5 "Drag coefficient";
-  parameter SI.Area area(min=0) = 1.2 "Frontal cross area of vehicle";
+  parameter Real c_W(min=0, start=0.5) "Drag coefficient";
+  parameter SI.Area area(min=0, start=2) "Frontal cross area of vehicle";
   parameter SI.Density rho = 1.18 "Air density";
   parameter SI.Length r[2] = {1,0} "Driving direction of vehicle at angle frame_a.phi = 0";
 
