@@ -8,19 +8,6 @@ model SingleTrackWithEngine "Single track model"
     enableGravity=false)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         origin={40,50})));
-  VehicleComponents.Wheels.IdealWheelJoint idealWheelFront(
-    r={0,1},
-    radius=0.3,
-    phi_roll(fixed=true))
-          annotation (Placement(transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=180,
-        origin={0,50})));
-  Parts.FixedTranslation chassis(r={0,1}) annotation (
-      Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={20,-40})));
   Parts.Body bodyRear(
     I=0.1,
     m=10,
@@ -30,6 +17,20 @@ model SingleTrackWithEngine "Single track model"
     r(each fixed=true),
     enableGravity=false)
     annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
+  AirResistanceLongitudinal airResistance(
+    c_W=0.4,
+    area=2,
+    rho=1.18,
+    r=idealWheelFront.r)
+    annotation (Placement(transformation(extent={{0,-30},{-20,-10}})));
+  VehicleComponents.Wheels.IdealWheelJoint idealWheelFront(
+    r={0,1},
+    radius=0.3,
+    phi_roll(fixed=true))
+          annotation (Placement(transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=180,
+        origin={0,50})));
   VehicleComponents.Wheels.IdealWheelJoint idealWheelRear(
     r=idealWheelFront.r,
     radius=0.3,
@@ -40,6 +41,11 @@ model SingleTrackWithEngine "Single track model"
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={0,-80})));
+  Parts.FixedTranslation chassis(r={0,1}) annotation (
+      Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={20,-40})));
   Joints.Revolute revolute(
     w(fixed=false, start=0),
     stateSelect=StateSelect.always,
@@ -59,12 +65,6 @@ model SingleTrackWithEngine "Single track model"
   inner PlanarWorld planarWorld(defaultWidthFraction=10, defaultZPosition=0,
     constantGravity={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
-  AirResistanceLongitudinal airResistance(
-    c_W=0.4,
-    area=2,
-    rho=1.18,
-    r=idealWheelFront.r)
-    annotation (Placement(transformation(extent={{0,-30},{-20,-10}})));
 equation
   connect(idealWheelFront.frame_a, bodyFront.frame_a)
     annotation (Line(

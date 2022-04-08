@@ -2,6 +2,11 @@ within PlanarMechanics.VehicleComponents.Examples;
 model TestAirDrag "Test air drag model"
   extends Modelica.Icons.Example;
 
+  AirResistanceLongitudinal airDrag(rho(displayUnit="kg/m3")) annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
+  Sensors.AbsoluteVelocity sensorAbsoluteVelocity(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a) annotation (Placement(transformation(extent={{20,40},{40,60}})));
+  Parts.Body body(m=10, I=1,
+    animate=false)
+    annotation (Placement(transformation(extent={{20,10},{40,30}})));
   Parts.FixedTranslation fixedTranslation(r={0,2})
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
@@ -19,13 +24,8 @@ model TestAirDrag "Test air drag model"
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,-70})));
-  Parts.Body body(m=10, I=1,
-    animate=false)
-    annotation (Placement(transformation(extent={{20,10},{40,30}})));
   inner PlanarWorld planarWorld(enableAnimation=true, constantGravity={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
-  AirResistanceLongitudinal airDrag(rho(displayUnit="kg/m3")) annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
-  Sensors.AbsoluteVelocity sensorAbsoluteVelocity(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a) annotation (Placement(transformation(extent={{20,40},{40,60}})));
 equation
   connect(fixedTranslation.frame_a, revolute.frame_b) annotation (Line(
       points={{0,-20},{0,-20},{0,-30}},
