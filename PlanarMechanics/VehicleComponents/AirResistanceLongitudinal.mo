@@ -4,6 +4,7 @@ model AirResistanceLongitudinal "Velocity dependent longitudinal air resistance"
   parameter Real c_W(min=0) = 0.5 "Drag coefficient";
   parameter SI.Area area(min=0) = 1.2 "Frontal cross area of vehicle";
   parameter SI.Density rho = 1.18 "Air density";
+  parameter SI.Length r[2] = {1,0} "Driving direction of vehicle at angle frame_a.phi = 0";
 
   SI.Velocity vAir[2]
     "Air velocity relative to vehicle (vAir = -v_veh + v_wind), resolved in frame_a";
@@ -11,23 +12,27 @@ model AirResistanceLongitudinal "Velocity dependent longitudinal air resistance"
 
 protected
   SI.Force f_long "Air force acting in x-direction of frame_a, resolved in frame_a";
-  SI.Velocity v_wind_0[2] "Wind velocity, resolved in inertial system";
+  SI.Velocity v_wind_0[2] "Wind velocity, resolved in inertial frame";
   SI.Velocity v0[2] "Velocity resolved in inertial frame";
   constant SI.Velocity v_eps = 1e-3
     "Minimum vehicle velocity to apply this air drag model";
+  final parameter Real e[2](each final unit="1") = Modelica.Math.Vectors.normalizeWithAssert(r)
+    "Unit vector in direction of r";
   Real R[2,2] "Rotation matrix";
+  Real R0a[2,2] "Rotation matrix from inertial frame to frame_a";
+  Real Rae[2,2] "Rotation matrix from frame_a to e";
 
 public
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
 equation
+  R0a = {{cos(frame_a.phi), -sin(frame_a.phi)}, {sin(frame_a.phi),cos(frame_a.phi)}};
+  Rae = {{e[1], -e[2]}, {e[2], e[1]}};
+  R = R0a*Rae;
+
   // Vehicle environment
   v_wind_0=zeros(2); //atmosphere.windVelocity(frame_a.r_0);
-
-  R = {{cos(frame_a.phi), -sin(frame_a.phi)}, {sin(frame_a.phi),cos(frame_a.phi)}};
   v0 = der({frame_a.x,frame_a.y});
-  //v = transpose(R)*v0;
-  //v = v_long*e0;
 
   // Air velocity resolved in frame_a
   vAir = transpose(R)*( -v0 + v_wind_0);
@@ -55,9 +60,11 @@ rho           : density of the air,
 v_x = vAir[1] : longitudinal component of air velocity, resolved in frame_a.
 </pre></blockquote>
 <p>
-Just air drag in vehicle&apos;s longitudinal direction is calculated here, which
-is assumed being in x-direction of <code>frame_a</code>, thus
-<code>frame_a.fx&nbsp;= fDrag</code>.
+Just air drag in vehicle&apos;s longitudinal direction is calculated here,
+which can be specified for <code>frame_a.phi&nbsp;=&nbsp;0</code> by the
+parameter&nbsp;<code>r</code>.
+For example for <code>r&nbsp;=&nbsp;{1,&nbsp;0}</code> the driving direction is in
+x-direction of <code>frame_a</code> and, thus, <code>frame_a.fx&nbsp;= fDrag</code>.
 The other forces and torque are disregarded.
 </p>
 
