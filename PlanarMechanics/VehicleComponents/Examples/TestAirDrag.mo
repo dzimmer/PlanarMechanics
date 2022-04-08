@@ -64,7 +64,7 @@ The following diagrams show the translational velocity
 of the body (abowe) and the drag force and its comonents (below). 
 </p>
 <div>
-<img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestAirDrag_1.png\" alt=\"Diagram TestIdealWheel_1\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestAirDrag_1.png\" alt=\"Diagram TestAirDrag_1\">
 </div>
 </html>"),
     experiment(StopTime=10));
