@@ -97,7 +97,7 @@ the air drag is set to zero.
           fillPattern=FillPattern.Solid,
           textString="cw = %c_W"),
         Text(
-          extent={{-150,100},{150,60}},
+          extent={{-150,80},{150,40}},
           textString="%name",
           textColor={0,0,255})}));
 end AirResistanceLongitudinal;
