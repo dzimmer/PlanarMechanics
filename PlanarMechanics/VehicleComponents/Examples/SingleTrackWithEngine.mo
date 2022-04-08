@@ -51,7 +51,7 @@ model SingleTrackWithEngine "Single track model"
   Modelica.Mechanics.Rotational.Sources.ConstantTorque engineTorque(
       tau_constant=2)
     annotation (Placement(transformation(extent={{-40,-90},{-20,-70}})));
-  Parts.FixedTranslation trail(r={0,-0.1})            annotation (
+  Parts.FixedTranslation trail(r={0,-0.1}) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -61,24 +61,24 @@ model SingleTrackWithEngine "Single track model"
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
 equation
   connect(idealWheelFront.frame_a, bodyFront.frame_a)
-                                                 annotation (Line(
-      points={{4,50},{30,50}},
+    annotation (Line(
+      points={{3.8,50},{30,50}},
       color={95,95,95},
       thickness=0.5));
-  connect(chassis.frame_a, idealWheelRear.frame_a)             annotation (
+  connect(chassis.frame_a, idealWheelRear.frame_a) annotation (
       Line(
-      points={{20,-50},{20,-80},{4,-80}},
+      points={{20,-50},{20,-80},{3.8,-80}},
       color={95,95,95},
       thickness=0.5));
-  connect(bodyRear.frame_a, chassis.frame_a)        annotation (Line(
+  connect(bodyRear.frame_a, chassis.frame_a) annotation (Line(
       points={{30,-80},{20,-80},{20,-50}},
       color={95,95,95},
       thickness=0.5));
-  connect(revolute.frame_a, chassis.frame_b)           annotation (Line(
+  connect(revolute.frame_a, chassis.frame_b) annotation (Line(
       points={{20,-10},{20,-30}},
       color={95,95,95},
       thickness=0.5));
-  connect(engineTorque.flange, idealWheelRear.flange_a)      annotation (
+  connect(engineTorque.flange, idealWheelRear.flange_a) annotation (
       Line(
       points={{-20,-80},{-10,-80}}));
   connect(trail.frame_a, revolute.frame_b) annotation (Line(
@@ -86,7 +86,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(trail.frame_b, idealWheelFront.frame_a) annotation (Line(
-      points={{20,40},{20,50},{4,50}},
+      points={{20,40},{20,50},{3.8,50}},
       color={95,95,95},
       thickness=0.5));
   annotation (experiment(StopTime=6),
