@@ -16,7 +16,7 @@ model SingleTrackWithEngine "Single track model"
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={0,50})));
-  Parts.FixedTranslation chassis(r={0,1})             annotation (
+  Parts.FixedTranslation chassis(r={0,1}) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
@@ -29,14 +29,14 @@ model SingleTrackWithEngine "Single track model"
     v(each fixed=false),
     r(each fixed=true),
     enableGravity=false)
-          annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
+    annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
   VehicleComponents.Wheels.IdealWheelJoint idealWheelRear(
     r={0,1},
     radius=0.3,
     w_roll(fixed=true, start=0),
     phi_roll(fixed=true),
     stateSelect=StateSelect.default)
-                annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={0,-80})));
@@ -44,7 +44,7 @@ model SingleTrackWithEngine "Single track model"
     w(fixed=false, start=0),
     stateSelect=StateSelect.always,
     phi(fixed=true, start=0.69813170079773))
-               annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={20,0})));
@@ -59,6 +59,11 @@ model SingleTrackWithEngine "Single track model"
   inner PlanarWorld planarWorld(defaultWidthFraction=10, defaultZPosition=0,
     constantGravity={0,0})
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+  AirResistanceLongitudinal airResistance(
+    c_W=0.4,
+    area=2,
+    rho=1.18,
+    r={0,1}) annotation (Placement(transformation(extent={{0,-30},{-20,-10}})));
 equation
   connect(idealWheelFront.frame_a, bodyFront.frame_a)
     annotation (Line(
@@ -89,21 +94,25 @@ equation
       points={{20,40},{20,50},{3.8,50}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=6),
-    Documentation(revisions="<html>
+  connect(airResistance.frame_a, chassis.frame_b) annotation (Line(
+      points={{0,-20},{20,-20},{20,-30}},
+      color={95,95,95},
+      thickness=0.5));
+  annotation (
+    experiment(
+      StopTime=6),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",
       info="<html>
-<p>An ideal rolling single track model of a car.
+<p>An ideal rolling single track model of a&nbsp;car.
 There is dynamic state selection applied. It might be avoided by picking Rear.v_long as state.</p>
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SingleTrackWithEngine_1.png\" alt=\"Diagram SingleTrackWithEngine_1\">
-</div>
-<div>
-<img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SingleTrackWithEngine_2.png\" alt=\"Diagram SingleTrackWithEngine_2\">
 </div>
 </html>"));
 end SingleTrackWithEngine;
