@@ -92,9 +92,7 @@ the air drag is set to zero.
           smooth=Smooth.Bezier),
         Text(
           extent={{-100,-30},{100,-60}},
-          lineColor={0,0,0},
-          fillColor={0,255,255},
-          fillPattern=FillPattern.Solid,
+          textColor={0,0,0},
           textString="cw = %c_W"),
         Text(
           extent={{-150,80},{150,40}},
