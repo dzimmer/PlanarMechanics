@@ -5,6 +5,28 @@ class ReleaseNotes "Release notes"
   annotation (
     Documentation(
       info="<html>
+<h4>Version 1.6.0, 2022-??-??</h4>
+<p>
+This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
+It is backwards compatible to previous library versions.
+</p>
+
+<p>New components:</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.VehicleComponents.AirResistanceLongitudinal\">Air drag model</a>
+    for vehicles.
+  </li>
+</ul>
+
+<p>Improvements in this version:</p>
+<ul>
+  <li>
+    ...
+  </li>
+</ul>
+
+
 <h4>Version 1.5.1, 2021-11-30</h4>
 <p>
 This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.

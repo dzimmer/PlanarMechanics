@@ -2,15 +2,29 @@ within PlanarMechanics.VehicleComponents.Examples;
 model TestSlipBasedWheel "A slip-based wheel"
   extends Modelica.Icons.Example;
 
+  VehicleComponents.Wheels.SlipBasedWheelJoint slipBasedWheelJoint(
+    radius=0.3, r = {1,0},
+    mu_A=0.8,
+    mu_S=0.4,
+    N=100,
+    sAdhesion=0.04,
+    sSlide=0.12,
+    vAdhesion_min=0.05,
+    vSlide_min=0.15,
+    w_roll(fixed=false, start=10))
+    annotation (Placement(transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=90,
+        origin={0,30})));
   Joints.Prismatic prismatic(r={0,1},
     s(start=1, fixed=true),
     v(fixed=true))
-                annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,-10})));
   Joints.Revolute revolute(phi(fixed=true), w(fixed=true))
-                           annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={0,-40})));
@@ -30,20 +44,6 @@ model TestSlipBasedWheel "A slip-based wheel"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={0,60})));
-  VehicleComponents.Wheels.SlipBasedWheelJoint slipBasedWheelJoint(
-    radius=0.3, r = {1,0},
-    mu_A=0.8,
-    mu_S=0.4,
-    N=100,
-    sAdhesion=0.04,
-    sSlide=0.12,
-    vAdhesion_min=0.05,
-    vSlide_min=0.15,
-    w_roll(fixed=false, start=10))
-              annotation (Placement(transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=90,
-        origin={0,30})));
   Modelica.Blocks.Sources.Constant const(k=0)
     annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
   inner PlanarWorld planarWorld(constantGravity={0,0})
@@ -64,7 +64,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(slipBasedWheelJoint.frame_a, prismatic.frame_b) annotation (Line(
-      points={{0,26},{0,26},{0,0}},
+      points={{0,26.2},{0,26.2},{0,0}},
       color={95,95,95},
       thickness=0.5));
   connect(slipBasedWheelJoint.flange_a, inertia.flange_b) annotation (Line(

@@ -9,6 +9,22 @@ model TwoTrackWithDifferentialGear "Double track model"
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-40,90})));
+  Parts.Body body1(
+    I=0.1,
+    m=300,
+    r(each fixed=true),
+    v(each fixed=true),
+    phi(fixed=true),
+    w(fixed=true),
+    enableGravity=false)
+    annotation (Placement(transformation(extent={{12,-40},{32,-20}})));
+  Parts.Body body2(
+    m=100,
+    I=1,
+    enableGravity=false)
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={40,90})));
   VehicleComponents.Wheels.DryFrictionWheelJoint wheelJoint1(
     vAdhesion=0.1,
     r = {0,1},
@@ -18,24 +34,10 @@ model TwoTrackWithDifferentialGear "Double track model"
     radius=0.25,
     N=1000,
     phi_roll(fixed=false))
-          annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-64,70})));
-  Parts.FixedTranslation fixedTranslation1(r={0,2})   annotation (
-      Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={0,-10})));
-  Parts.Body body1(
-    I=0.1,
-    m=300,
-    r(each fixed=true),
-    v(each fixed=true),
-    phi(fixed=true),
-    w(fixed=true),
-    enableGravity=false)
-          annotation (Placement(transformation(extent={{12,-40},{32,-20}})));
   VehicleComponents.Wheels.DryFrictionWheelJoint wheelJoint2(
     r= {0,1},
     vAdhesion=0.1,
@@ -45,35 +47,10 @@ model TwoTrackWithDifferentialGear "Double track model"
     radius=0.25,
     N=1500,
     phi_roll(fixed=false))
-           annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-64,-50})));
-  Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque1(
-      tau_constant=25)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        origin={-50,-90})));
-  Modelica.Mechanics.Rotational.Components.Inertia inertia(
-    phi(fixed=true, start=0),
-    w(fixed=true, start=0),
-    J=1)                    annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        origin={-90,70})));
-  Modelica.Mechanics.Rotational.Components.Inertia inertia1(
-    phi(fixed=true, start=0),
-    w(fixed=true, start=0),
-    J=1)                    annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        origin={-92,-50})));
-  Parts.FixedTranslation fixedTranslation2(r={0.75,0})   annotation (
-      Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        origin={-20,-50})));
-  Parts.FixedTranslation fixedTranslation3(r={-0.75,0})  annotation (
-      Placement(transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=180,
-        origin={20,-50})));
   VehicleComponents.Wheels.DryFrictionWheelJoint wheelJoint3(
     r = {0,1},
     vAdhesion=0.1,
@@ -82,25 +59,9 @@ model TwoTrackWithDifferentialGear "Double track model"
     mu_S=0.7,
     radius=0.25,
     N=1500)
-           annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={64,-50})));
-  Modelica.Mechanics.Rotational.Components.Inertia inertia2(
-    J=1,
-    phi(fixed=true, start=0),
-    w(fixed=true, start=0)) annotation (Placement(transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=180,
-        origin={90,-50})));
-  Parts.FixedTranslation fixedTranslation4(r={0.75,0})   annotation (
-      Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        origin={-20,12})));
-  Parts.FixedTranslation fixedTranslation5(r={-0.75,0})  annotation (
-      Placement(transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=180,
-        origin={20,12})));
   VehicleComponents.Wheels.DryFrictionWheelJoint wheelJoint4(
     vAdhesion=0.1,
     r={0,1},
@@ -109,27 +70,11 @@ model TwoTrackWithDifferentialGear "Double track model"
     mu_S=0.7,
     radius=0.25,
     N=1000)
-          annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={64,70})));
-  Modelica.Mechanics.Rotational.Components.Inertia inertia3(
-    phi(fixed=true, start=0),
-    w(fixed=true, start=0),
-    J=1)                    annotation (Placement(transformation(
-        extent={{-10,10},{10,-10}},
-        rotation=180,
-        origin={90,70})));
-  Parts.Body body2(
-    m=100,
-    I=1,
-    enableGravity=false)
-    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-        rotation=90,
-        origin={40,90})));
-  Modelica.Mechanics.Rotational.Sources.Torque torque
-    annotation (Placement(transformation(extent={{10,-10},{-10,10}},
-        rotation=90,
-        origin={-10,50})));
+  VehicleComponents.DifferentialGear differentialGear
+    annotation (Placement(transformation(extent={{-10,-82},{10,-62}})));
   Modelica.Blocks.Sources.Pulse pulse(
     period=2,
     offset=0,
@@ -137,20 +82,77 @@ model TwoTrackWithDifferentialGear "Double track model"
     width=30,
     amplitude=-2)
     annotation (Placement(transformation(extent={{20,70},{0,90}})));
-  VehicleComponents.DifferentialGear differentialGear
-    annotation (Placement(transformation(extent={{-10,-82},{10,-62}})));
-  Parts.FixedTranslation leftTrail(r={0.,-0.05})         annotation (
+  Modelica.Mechanics.Rotational.Sources.Torque torque
+    annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+        rotation=90,
+        origin={-10,50})));
+  Modelica.Mechanics.Rotational.Sources.ConstantTorque constantTorque1(
+      tau_constant=25)
+    annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+        origin={-50,-90})));
+  Modelica.Mechanics.Rotational.Components.Inertia inertia(
+    phi(fixed=true, start=0),
+    w(fixed=true, start=0),
+    J=1) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        origin={-90,70})));
+  Modelica.Mechanics.Rotational.Components.Inertia inertia1(
+    phi(fixed=true, start=0),
+    w(fixed=true, start=0),
+    J=1) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        origin={-92,-50})));
+  Modelica.Mechanics.Rotational.Components.Inertia inertia2(
+    J=1,
+    phi(fixed=true, start=0),
+    w(fixed=true, start=0)) annotation (Placement(transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=180,
+        origin={90,-50})));
+  Modelica.Mechanics.Rotational.Components.Inertia inertia3(
+    phi(fixed=true, start=0),
+    w(fixed=true, start=0),
+    J=1) annotation (Placement(transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=180,
+        origin={90,70})));
+  Parts.FixedTranslation fixedTranslation1(r={0,2}) annotation (
+      Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=90,
+        origin={0,-10})));
+  Parts.FixedTranslation fixedTranslation2(r={0.75,0}) annotation (
+      Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        origin={-20,-50})));
+  Parts.FixedTranslation fixedTranslation3(r={-0.75,0}) annotation (
+      Placement(transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=180,
+        origin={20,-50})));
+  Parts.FixedTranslation fixedTranslation4(r={0.75,0}) annotation (
+      Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        origin={-20,12})));
+  Parts.FixedTranslation fixedTranslation5(r={-0.75,0}) annotation (
+      Placement(transformation(
+        extent={{-10,10},{10,-10}},
+        rotation=180,
+        origin={20,12})));
+  Parts.FixedTranslation leftTrail(r={0.,-0.05}) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-40,60})));
-  Parts.FixedTranslation rightTrail(r={0.,-0.05})        annotation (
+  Parts.FixedTranslation rightTrail(r={0.,-0.05}) annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={40,60})));
-  inner PlanarWorld planarWorld(defaultWidthFraction=10, constantGravity={0,0})
-    annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
+  Joints.Revolute revolute(useFlange=true) annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=270,
+        origin={40,30})));
   Joints.Revolute revolute2(
     useFlange=true,
     phi(fixed=true, start=-0.43633231299858),
@@ -158,10 +160,8 @@ model TwoTrackWithDifferentialGear "Double track model"
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-40,30})));
-  Joints.Revolute revolute(useFlange=true) annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=270,
-        origin={40,30})));
+  inner PlanarWorld planarWorld(defaultWidthFraction=10, constantGravity={0,0})
+    annotation (Placement(transformation(extent={{-100,0},{-80,20}})));
 equation
   connect(wheelJoint2.flange_a, inertia1.flange_b) annotation (Line(
       points={{-74,-50},{-82,-50}}));
@@ -173,7 +173,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation2.frame_a, wheelJoint2.frame_a) annotation (Line(
-      points={{-30,-50},{-60,-50}},
+      points={{-30,-50},{-60.2,-50}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation3.frame_b, fixedTranslation1.frame_a) annotation (
@@ -182,7 +182,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(wheelJoint3.frame_a, fixedTranslation3.frame_a) annotation (Line(
-      points={{60,-50},{30,-50}},
+      points={{60.2,-50},{30,-50}},
       color={95,95,95},
       thickness=0.5));
   connect(inertia2.flange_b, wheelJoint3.flange_a) annotation (Line(
@@ -220,7 +220,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(leftTrail.frame_b, wheelJoint1.frame_a) annotation (Line(
-      points={{-40,70},{-60,70}},
+      points={{-40,70},{-60.2,70}},
       color={95,95,95},
       thickness=0.5));
   connect(body2.frame_a, rightTrail.frame_b) annotation (Line(
@@ -228,7 +228,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(wheelJoint4.frame_a, rightTrail.frame_b) annotation (Line(
-      points={{60,70},{40,70}},
+      points={{60.2,70},{40,70}},
       color={95,95,95},
       thickness=0.5));
   connect(leftTrail.frame_a, revolute2.frame_a) annotation (Line(
