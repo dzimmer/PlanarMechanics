@@ -2,7 +2,11 @@ within PlanarMechanics.VehicleComponents.Examples;
 model TestAirDrag "Test air drag model"
   extends Modelica.Icons.Example;
 
-  AirResistanceLongitudinal airDrag(rho(displayUnit="kg/m3")) annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
+  AirResistanceLongitudinal airDrag(
+    c_W=0.5,
+    area=1.2,
+    rho(displayUnit="kg/m3") = 1.18,
+    r={1,0}) annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
   Sensors.AbsoluteVelocity sensorAbsoluteVelocity(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a) annotation (Placement(transformation(extent={{20,40},{40,60}})));
   Parts.Body body(m=10, I=1,
     animate=false)
