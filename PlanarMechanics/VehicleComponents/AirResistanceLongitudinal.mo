@@ -31,7 +31,7 @@ equation
   R = R0a*Rae;
 
   // Vehicle environment
-  v_wind_0=zeros(2); //atmosphere.windVelocity(frame_a.r_0);
+  v_wind_0=zeros(2);
   v0 = der({frame_a.x,frame_a.y});
 
   // Air velocity resolved in frame_a
