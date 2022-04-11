@@ -26,7 +26,7 @@ public
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
 equation
-  R0a = {{cos(frame_a.phi), -sin(frame_a.phi)}, {sin(frame_a.phi),cos(frame_a.phi)}};
+  R0a =PlanarMechanics.TransformationMatrices.RbyAngle(frame_a.phi);
   Rae = {{e[1], -e[2]}, {e[2], e[1]}};
   R = R0a*Rae;
 
