@@ -1,6 +1,8 @@
 within PlanarMechanics.VehicleComponents;
 model AirResistanceLongitudinal "Velocity dependent longitudinal air resistance"
 
+  import PlanarMechanics.Transformations.Internal.TransformationMatrix;
+
   parameter Real c_W(min=0, start=0.5) "Drag coefficient";
   parameter SI.Area area(min=0, start=2) "Frontal cross area of vehicle";
   parameter SI.Density rho = 1.18 "Air density";
@@ -16,16 +18,16 @@ protected
   SI.Velocity v0[2] "Velocity resolved in inertial frame";
   constant SI.Velocity v_eps = 1e-3
     "Minimum vehicle velocity to apply this air drag model";
-  Real R[2,2] "Rotation matrix";
-  Real R0a[2,2] "Rotation matrix from inertial frame to frame_a";
-  Real Rar[2,2] "Rotation matrix from frame_a to e";
+  TransformationMatrix R "Rotation matrix";
+  TransformationMatrix R0a "Rotation matrix from inertial frame to frame_a";
+  TransformationMatrix Rar "Rotation matrix from frame_a to e";
 
 public
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
 equation
-  R0a = PlanarMechanics.TransformationMatrices.RbyAngle(frame_a.phi);
-  Rar = PlanarMechanics.TransformationMatrices.RbyVector(r);
+  R0a =PlanarMechanics.Transformations.RbyAngle(frame_a.phi);
+  Rar =PlanarMechanics.Transformations.RbyVector(r);
   R = R0a*Rar;
 
   // Vehicle environment
