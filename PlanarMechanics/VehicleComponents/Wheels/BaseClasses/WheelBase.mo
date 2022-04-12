@@ -14,22 +14,25 @@ partial model WheelBase
           fillPattern=FillPattern.HorizontalCylinder,
           fillColor={231,231,231}),
         Line(
+          points={{-40,100},{40,100}},
+          color={95,95,95}),
+        Line(
+          points={{-40,90},{40,90}},
+          color={95,95,95}),
+        Line(
+          points={{-40,80},{40,80}},
+          color={95,95,95}),
+        Line(
+          points={{-40,60},{40,60}},
+          color={95,95,95}),
+        Line(
           points={{-40,30},{40,30}},
           color={95,95,95}),
         Line(
           points={{-40,-30},{40,-30}},
           color={95,95,95}),
         Line(
-          points={{-40,60},{40,60}},
-          color={95,95,95}),
-        Line(
-          points={{-40,80},{40,80}},
-          color={95,95,95}),
-        Line(
-          points={{-40,90},{40,90}},
-          color={95,95,95}),
-        Line(
-          points={{-40,100},{40,100}},
+          points={{-40,-60},{40,-60}},
           color={95,95,95}),
         Line(
           points={{-40,-80},{40,-80}},
@@ -40,9 +43,6 @@ partial model WheelBase
         Line(
           points={{-40,-100},{40,-100}},
           color={95,95,95}),
-        Line(
-          points={{-40,-60},{40,-60}},
-          color={95,95,95}),
         Rectangle(
           extent={{100,10},{40,-10}},
           fillPattern=FillPattern.HorizontalCylinder,
@@ -52,10 +52,6 @@ partial model WheelBase
           points={{-100,-100},{-30,-100}},
           color={191,0,0},
           smooth=Smooth.None),
-        Text(
-          extent={{-150,-58},{150,-88}},
-          textColor={0,0,0},
-          textString="radius=%radius"),
         Text(
           extent={{-150,140},{150,100}},
           textString="%name",

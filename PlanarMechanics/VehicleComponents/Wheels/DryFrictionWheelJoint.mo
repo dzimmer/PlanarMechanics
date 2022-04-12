@@ -1,6 +1,7 @@
 within PlanarMechanics.VehicleComponents.Wheels;
 model DryFrictionWheelJoint "Dry-Friction based wheel joint"
-  extends PlanarMechanics.VehicleComponents.Wheels.BaseClasses.WheelBase;
+  extends PlanarMechanics.VehicleComponents.Wheels.BaseClasses.WheelBase
+    annotation (IconMap(extent={{-100,-100}, {100,100}},primitivesVisible=false));
 
   outer PlanarWorld planarWorld "planar world model";
   parameter StateSelect stateSelect=StateSelect.default
@@ -154,5 +155,52 @@ For examples of usage see the local
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>"));
+</html>"),
+    Icon(graphics={
+        Rectangle(
+          extent={{100,10},{30,-10}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={231,231,231}),
+        Rectangle(
+          extent={{-40,90},{40,-90}},
+          lineColor={95,95,95},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={231,231,231}),
+        Line(
+          points={{-40,80},{40,80}},
+          color={95,95,95}),
+        Line(
+          points={{-40,70},{40,70}},
+          color={95,95,95}),
+        Line(
+          points={{-40,50},{40,50}},
+          color={95,95,95}),
+        Line(
+          points={{-40,20},{40,20}},
+          color={95,95,95}),
+        Line(
+          points={{-40,-20},{40,-20}},
+          color={95,95,95}),
+        Line(
+          points={{-40,-50},{40,-50}},
+          color={95,95,95}),
+        Line(
+          points={{-40,-70},{40,-70}},
+          color={95,95,95}),
+        Line(
+          points={{-40,-80},{40,-80}},
+          color={95,95,95}),
+        Rectangle(
+          extent={{-30,100},{30,-100}},
+          lineColor={32,32,32},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={175,175,175}),
+        Text(
+          extent={{-150,-30},{150,-60}},
+          textColor={0,0,0},
+          textString="radius=%radius"),
+        Text(
+          extent={{-150,140},{150,100}},
+          textString="%name",
+          textColor={0,0,255})}));
 end DryFrictionWheelJoint;
