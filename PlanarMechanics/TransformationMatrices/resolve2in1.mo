@@ -25,11 +25,21 @@ This function returns vector&nbsp;<var>v</var> resolved in frame&nbsp;1
 (=&nbsp;<code>v1</code>) from vector&nbsp;<var>v</var> resolved in
 frame&nbsp;2 (=&nbsp;<code>v2</code>) using the planar transformation
 matrix&nbsp;R<sub>12</sub>. This matrix describes the orientation to rotate
-frame&nbsp;1 into frame&nbsp;2 by rotation <code>angle</code>,
-and therefore: 
+frame&nbsp;1 into frame&nbsp;2 by rotation <code>angle</code>, i.e
 </p>
+
 <blockquote><pre>
-v1 = R12(angle) * v2 = resolve2in1(angle, v2).
+             | cos(angle)  -sin(angle) |
+R12(angle) = |                         | ,
+             | sin(angle)   cos(angle) |
+</pre></blockquote>
+
+<p>
+and thus
+</p>
+
+<blockquote><pre>
+v1 = R12 * v2 = resolve2in1(angle, v2).
 </pre></blockquote>
 
 <h4>See also</h4>

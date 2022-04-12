@@ -16,19 +16,17 @@ protected
   SI.Velocity v0[2] "Velocity resolved in inertial frame";
   constant SI.Velocity v_eps = 1e-3
     "Minimum vehicle velocity to apply this air drag model";
-  final parameter Real e[2](each final unit="1") = Modelica.Math.Vectors.normalizeWithAssert(r)
-    "Unit vector in direction of r";
   Real R[2,2] "Rotation matrix";
   Real R0a[2,2] "Rotation matrix from inertial frame to frame_a";
-  Real Rae[2,2] "Rotation matrix from frame_a to e";
+  Real Rar[2,2] "Rotation matrix from frame_a to e";
 
 public
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
 equation
-  R0a =PlanarMechanics.TransformationMatrices.RbyAngle(frame_a.phi);
-  Rae = {{e[1], -e[2]}, {e[2], e[1]}};
-  R = R0a*Rae;
+  R0a = PlanarMechanics.TransformationMatrices.RbyAngle(frame_a.phi);
+  Rar = PlanarMechanics.TransformationMatrices.RbyVector(r);
+  R = R0a*Rar;
 
   // Vehicle environment
   v_wind_0=zeros(2);
