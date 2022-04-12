@@ -24,7 +24,7 @@ model SlipBasedWheelJoint "Slip-Friction based wheel joint"
   final parameter Real e[2](each final unit="1") = Modelica.Math.Vectors.normalizeWithAssert(r)
     "Unit vector in direction of r";
   Real e0[2] "Unit vector in direction of r resolved w.r.t. inertial frame";
-  Real R[2,2] "Rotation matrix";
+  PlanarMechanics.Transformations.Internal.TransformationMatrix R "Rotation matrix";
   SI.Angle phi_roll(stateSelect=stateSelect, start=0) "Roll angle of the wheel"
     annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularVelocity w_roll(final stateSelect=stateSelect, start=0)
@@ -86,7 +86,7 @@ protected
     specularCoefficient=specularCoefficient) if planarWorld.enableAnimation and animate;
 equation
   Rrel = Modelica.Mechanics.MultiBody.Frames.planarRotation({0,0,1}, frame_a.phi, 0);
-  R = {{cos(frame_a.phi), -sin(frame_a.phi)}, {sin(frame_a.phi),cos(frame_a.phi)}};
+  R =PlanarMechanics.Transformations.RbyAngle(frame_a.phi);
   e0 = R*e;
   v = der({frame_a.x,frame_a.y});
   phi_roll = flange_a.phi;
