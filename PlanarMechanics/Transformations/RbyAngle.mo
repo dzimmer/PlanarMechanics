@@ -6,6 +6,7 @@ function RbyAngle "Return transformation matrix to rotate around an angle along 
 
   input SI.Angle angle "Rotation angle to rotate frame 1 into frame 2";
   output Internal.TransformationMatrix R "Transformation matrix to rotate frame 1 into frame 2";
+
 algorithm
   R :=[cos(angle),-sin(angle); sin(angle),cos(angle)];
 
