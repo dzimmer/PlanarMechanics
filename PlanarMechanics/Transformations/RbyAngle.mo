@@ -1,4 +1,4 @@
-within PlanarMechanics.TransformationMatrices;
+within PlanarMechanics.Transformations;
 function RbyAngle "Return transformation matrix to rotate around an angle along one frame axis"
   extends Modelica.Icons.Function;
   import Modelica.Math.sin;
