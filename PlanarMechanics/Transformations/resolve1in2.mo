@@ -1,4 +1,4 @@
-within PlanarMechanics.TransformationMatrices;
+within PlanarMechanics.Transformations;
 function resolve1in2 "Transform vector from frame 1 to frame 2"
   extends Modelica.Icons.Function;
   input SI.Angle angle "Orientation angle to rotate frame 1 into frame 2";
@@ -7,7 +7,7 @@ function resolve1in2 "Transform vector from frame 1 to frame 2"
 protected
   Internal.TransformationMatrix R;
 algorithm
-  R := PlanarMechanics.TransformationMatrices.RbyAngle(angle);
+  R := PlanarMechanics.Transformations.RbyAngle(angle);
   v2 := transpose(R)*v2;
 
   annotation (
