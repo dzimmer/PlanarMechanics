@@ -1,6 +1,7 @@
 within PlanarMechanics.VehicleComponents.Wheels;
 model SlipBasedWheelJoint "Slip-Friction based wheel joint"
-  extends PlanarMechanics.VehicleComponents.Wheels.BaseClasses.WheelBase;
+  extends PlanarMechanics.VehicleComponents.Wheels.BaseClasses.WheelBase
+    annotation (IconMap(extent={{-100,-100}, {100,100}},primitivesVisible=false));
 
   Modelica.Blocks.Interfaces.RealInput dynamicLoad(unit="N") annotation (Placement(transformation(
         extent={{20,-20},{-20,20}},
@@ -175,5 +176,48 @@ For examples of usage see the local
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>"));
+</html>"),
+    Icon(graphics={
+        Rectangle(
+          extent={{100,10},{30,-10}},
+          fillPattern=FillPattern.HorizontalCylinder,
+          fillColor={231,231,231}),
+        Rectangle(
+          lineColor={32,32,32},
+          fillColor={175,175,175},
+          fillPattern=FillPattern.HorizontalCylinder,
+          extent={{40,-100},{-40,100}},
+          radius=20),
+        Line(
+          points={{-30,90},{30,90}},
+          color={95,95,95}),
+        Line(
+          points={{-30,80},{30,80}},
+          color={95,95,95}),
+        Line(
+          points={{-30,60},{30,60}},
+          color={95,95,95}),
+        Line(
+          points={{-30,30},{30,30}},
+          color={95,95,95}),
+        Line(
+          points={{-30,-30},{30,-30}},
+          color={95,95,95}),
+        Line(
+          points={{-30,-60},{30,-60}},
+          color={95,95,95}),
+        Line(
+          points={{-30,-80},{30,-80}},
+          color={95,95,95}),
+        Line(
+          points={{-30,-90},{30,-90}},
+          color={95,95,95}),
+        Text(
+          extent={{-150,-30},{150,-60}},
+          textColor={0,0,0},
+          textString="radius=%radius"),
+        Text(
+          extent={{-150,140},{150,100}},
+          textString="%name",
+          textColor={0,0,255})}));
 end SlipBasedWheelJoint;

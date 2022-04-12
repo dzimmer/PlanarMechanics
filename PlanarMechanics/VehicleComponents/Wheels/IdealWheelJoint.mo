@@ -127,5 +127,9 @@ For examples of usage see the local
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>"));
+</html>"), Icon(graphics={
+        Text(
+          extent={{-150,-30},{150,-60}},
+          textColor={0,0,0},
+          textString="radius=%radius")}));
 end IdealWheelJoint;
