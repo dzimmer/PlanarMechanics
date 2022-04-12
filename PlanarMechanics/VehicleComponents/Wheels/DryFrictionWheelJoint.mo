@@ -17,7 +17,8 @@ model DryFrictionWheelJoint "Dry-Friction based wheel joint"
   final parameter Real e[2](each final unit="1") = Modelica.Math.Vectors.normalizeWithAssert(r)
     "Unit vector in direction of r";
   Real e0[2] "Unit vector in direction of r resolved w.r.t. inertial frame";
-  PlanarMechanics.Transformations.Internal.TransformationMatrix R "Rotation matrix";
+  PlanarMechanics.Transformations.Internal.TransformationMatrix R=
+    PlanarMechanics.Transformations.RbyAngle(frame_a.phi) "Rotation matrix";
   SI.Angle phi_roll(stateSelect=stateSelect, start=0) "Roll angle of the wheel"
     annotation(Dialog(group="Initialization", showStartAttribute=true));
   SI.AngularVelocity w_roll(final stateSelect=stateSelect, start=0)
@@ -94,8 +95,7 @@ model DryFrictionWheelJoint "Dry-Friction based wheel joint"
     R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi+Modelica.Constants.pi/2,0)))
     if planarWorld.enableAnimation and animate;
 equation
-  R =PlanarMechanics.Transformations.RbyAngle(frame_a.phi);
-  e0 = R*e;
+  e0 = PlanarMechanics.Transformations.resolve2in1(frame_a.phi, e);
   v = der({frame_a.x,frame_a.y});
   phi_roll = flange_a.phi;
   w_roll = der(phi_roll);
