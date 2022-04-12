@@ -20,7 +20,7 @@ protected
     "Minimum vehicle velocity to apply this air drag model";
   TransformationMatrix R "Rotation matrix";
   TransformationMatrix R0a "Rotation matrix from inertial frame to frame_a";
-  TransformationMatrix Rar "Rotation matrix from frame_a to e";
+  TransformationMatrix Rar "Rotation matrix from frame_a to frame by r";
 
 public
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));

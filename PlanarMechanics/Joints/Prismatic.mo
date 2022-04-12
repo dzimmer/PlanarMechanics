@@ -51,7 +51,8 @@ model Prismatic "A prismatic joint"
   Real e0[2] "Unit vector in direction of r resolved w.r.t. inertial frame";
   SI.Position r0[2]
     "Translation vector of the prismatic rod resolved w.r.t. inertial frame";
-  Real R[2,2] "Rotation matrix";
+  PlanarMechanics.Transformations.Internal.TransformationMatrix R=
+    PlanarMechanics.Transformations.RbyAngle(frame_a.phi) "Rotation matrix";
 
   //Visualization
   MB.Visualizers.Advanced.Shape box(
@@ -75,8 +76,7 @@ protected
 
 equation
   //resolve the rod w.r.t. inertial system
-  R = {{cos(frame_a.phi), -sin(frame_a.phi)}, {sin(frame_a.phi),cos(frame_a.phi)}};
-  e0 = R*e;
+  e0 = PlanarMechanics.Transformations.resolve2in1(frame_a.phi, e);
   r0 = e0*s;
   //differential equations
   v = der(s);
