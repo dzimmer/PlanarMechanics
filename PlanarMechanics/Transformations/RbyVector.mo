@@ -7,8 +7,8 @@ function RbyVector "Return transformation matrix given by vector"
 protected
   Real e[2](each final unit="1") = Modelica.Math.Vectors.normalizeWithAssert(v)
     "Unit vector in direction of v";
-algorithm
 
+algorithm
   R :=[e[1], -e[2]; e[2], e[1]];
 
   annotation (
