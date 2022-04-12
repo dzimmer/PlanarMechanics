@@ -7,8 +7,7 @@ function resolve1in2 "Transform vector from frame 1 to frame 2"
 protected
   Internal.TransformationMatrix R;
 algorithm
-  R := PlanarMechanics.Transformations.RbyAngle(angle);
-  v2 := transpose(R)*v2;
+  v2 := PlanarMechanics.Transformations.resolve2in1(-angle, v1);
 
   annotation (
     Inline=true,
