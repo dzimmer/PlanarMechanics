@@ -1,4 +1,4 @@
-within PlanarMechanics.TransformationMatrices;
+within PlanarMechanics.Transformations;
 function RbyVector "Return transformation matrix given by vector"
   extends Modelica.Icons.Function;
 
