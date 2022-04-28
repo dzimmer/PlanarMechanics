@@ -7,8 +7,8 @@ model FixedTranslation "A fixed translation between two components (rigid rod)"
   final parameter SI.Length l = Modelica.Math.Vectors.length(r)
     "Length of vector r";
   SI.Position r0[2] "Length of the rod resolved w.r.t to inertal frame";
-  PlanarMechanics.Transformations.Internal.TransformationMatrix R=
-    PlanarMechanics.Transformations.RbyAngle(frame_a.phi) "Rotation matrix from world frame to frame_a";
+  PlanarMechanics.Types.TransformationMatrix R=
+    PlanarMechanics.Utilities.Transformations.RbyAngle(frame_a.phi) "Rotation matrix from world frame to frame_a";
 
   parameter Boolean animate = true "= true, if animation shall be enabled"
     annotation(Dialog(group="Animation"));
@@ -45,7 +45,7 @@ equation
   //resolve the rod w.r.t inertial system
 //  sx0 = cos(frame_a.phi)*sx + sin(frame_a.phi)*sy;
 //  sy0 = -sin(frame_a.phi)*sx + cos(frame_a.phi)*sy;
-  r0 = PlanarMechanics.Transformations.resolve2in1(frame_a.phi, r);
+  r0 = PlanarMechanics.Utilities.Transformations.resolve2in1(frame_a.phi, r);
   //rigidly connect positions
   frame_a.x + r0[1] = frame_b.x;
   frame_a.y + r0[2] = frame_b.y;

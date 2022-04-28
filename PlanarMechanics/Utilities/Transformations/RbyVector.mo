@@ -1,9 +1,9 @@
-within PlanarMechanics.Transformations;
+within PlanarMechanics.Utilities.Transformations;
 function RbyVector "Return transformation matrix given by vector"
   extends Modelica.Icons.Function;
 
   input Real v[2] "Vector giving rotation angle from frame 1 into frame 2";
-  output Internal.TransformationMatrix R "Transformation matrix to rotate frame 1 into frame 2";
+  output Types.TransformationMatrix R "Transformation matrix to rotate frame 1 into frame 2";
 protected
   Real e[2](each final unit="1") = Modelica.Math.Vectors.normalizeWithAssert(v)
     "Unit vector in direction of v";

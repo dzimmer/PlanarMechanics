@@ -1,4 +1,4 @@
-within PlanarMechanics;
+within PlanarMechanics.Utilities;
 package Transformations "Functions for transformation matrices"
   extends Modelica.Icons.FunctionsPackage;
 

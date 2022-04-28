@@ -1,4 +1,4 @@
-within PlanarMechanics.Transformations.Internal;
+within PlanarMechanics.Utilities.Transformations.Internal;
 function resolve2in1_der "Derivative of function resolve2in1(..)"
   extends Modelica.Icons.Function;
 

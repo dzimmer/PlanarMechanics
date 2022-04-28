@@ -1,4 +1,4 @@
-within PlanarMechanics.Transformations;
+within PlanarMechanics.Utilities.Transformations;
 package Internal "Internal definitions that may be removed or changed (do not use)"
   extends Modelica.Icons.InternalPackage;
 
