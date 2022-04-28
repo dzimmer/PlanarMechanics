@@ -27,7 +27,7 @@ model RelativeForce "Input signal acting as force and torque on two frames"
   Modelica.Blocks.Interfaces.RealInput force[3]
     annotation (Placement(transformation(extent={{-20,-20},{20,20}}, origin={-60,-120}, rotation=90)));
 
-  PlanarMechanics.Transformations.Internal.TransformationMatrix R "Rotation matrix from world frame to frame_b";
+  PlanarMechanics.Types.TransformationMatrix R "Rotation matrix from world frame to frame_b";
   SI.Angle phi "Rotation angle of the additional frame_c";
 
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
@@ -71,7 +71,7 @@ equation
   elseif resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.world then
     phi = 0;
   end if;
-    R = PlanarMechanics.Transformations.RbyAngle(phi);
+    R = PlanarMechanics.Utilities.Transformations.RbyAngle(phi);
     {frame_b.fx, frame_b.fy} + R * {force[1], force[2]} = {0, 0};
     frame_b.t + force[3] = 0;
 

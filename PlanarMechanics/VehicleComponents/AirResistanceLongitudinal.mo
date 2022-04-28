@@ -1,7 +1,7 @@
 within PlanarMechanics.VehicleComponents;
 model AirResistanceLongitudinal "Velocity dependent longitudinal air resistance"
 
-  import PlanarMechanics.Transformations.Internal.TransformationMatrix;
+  import PlanarMechanics.Types.TransformationMatrix;
 
   parameter Real c_W(min=0, start=0.5) "Drag coefficient";
   parameter SI.Area area(min=0, start=2) "Frontal cross area of vehicle";
@@ -26,8 +26,8 @@ public
   Interfaces.Frame_a frame_a annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
 
 equation
-  R0a =PlanarMechanics.Transformations.RbyAngle(frame_a.phi);
-  Rar =PlanarMechanics.Transformations.RbyVector(r);
+  R0a =PlanarMechanics.Utilities.Transformations.RbyAngle(frame_a.phi);
+  Rar =PlanarMechanics.Utilities.Transformations.RbyVector(r);
   R = R0a*Rar;
 
   // Vehicle environment
