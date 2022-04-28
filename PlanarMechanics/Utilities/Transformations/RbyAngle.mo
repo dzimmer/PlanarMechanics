@@ -1,11 +1,11 @@
-within PlanarMechanics.Transformations;
+within PlanarMechanics.Utilities.Transformations;
 function RbyAngle "Return transformation matrix to rotate around an angle along one frame axis"
   extends Modelica.Icons.Function;
   import Modelica.Math.sin;
   import Modelica.Math.cos;
 
   input SI.Angle angle "Rotation angle to rotate frame 1 into frame 2";
-  output Internal.TransformationMatrix R "Transformation matrix to rotate frame 1 into frame 2";
+  output Types.TransformationMatrix R "Transformation matrix to rotate frame 1 into frame 2";
 
 algorithm
   R :=[cos(angle),-sin(angle); sin(angle),cos(angle)];
