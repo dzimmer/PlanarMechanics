@@ -12,6 +12,7 @@ algorithm
   R :=[e[1], -e[2]; e[2], e[1]];
 
   annotation (
+    smoothOrder=1000,
     Inline=true,
     Documentation(info="<html>
 <h4>Syntax</h4>
