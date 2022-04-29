@@ -12,7 +12,7 @@ algorithm
   v1 := R*v2;
 
   annotation (
-    derivative = Internal.resolve2in1_der,
+    smoothOrder=2,
     Inline=true,
     Documentation(
       info="<html>
