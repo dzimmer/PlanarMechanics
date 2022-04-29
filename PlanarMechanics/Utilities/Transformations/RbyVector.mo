@@ -17,13 +17,13 @@ algorithm
     Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-R = TransformationMatrices.<strong>RbyVector</strong>(v);
+R = Transformations.<strong>RbyVector</strong>(v);
 </pre></blockquote>
 
 <h4>Description</h4>
 <p>
 The function call returns
-<a href=\"modelica://PlanarMechanics.TransformationMatrices.Internal.TransformationMatrix\">transformation matrix</a>&nbsp;R
+<a href=\"modelica://PlanarMechanics.Types.TransformationMatrix\">transformation matrix</a>&nbsp;R
 that describes the rotation from frame&nbsp;1 into frame&nbsp;2.
 The rotation is given by input vector&nbsp;<code>v</code> resolved
 in frame&nbsp;1, i.e. the vector defines the <var>x</var> axis of

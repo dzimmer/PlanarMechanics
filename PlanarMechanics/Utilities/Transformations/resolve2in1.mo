@@ -18,7 +18,7 @@ algorithm
       info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-v1 = TransformationMatrices.<strong>resolve2in1</strong>(angle, v2);
+v1 = Transformations.<strong>resolve2in1</strong>(angle, v2);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -47,7 +47,7 @@ v1 = R12 * v2 = resolve2in1(angle, v2).
 <h4>See also</h4>
 <p>
 Inverse transformation:
-<a href=\"modelica://PlanarMechanics.TransformationMatrices.resolve1in2\">resolve1in2</a>.
+<a href=\"modelica://PlanarMechanics.Utilities.Transformations.resolve1in2\">resolve1in2</a>.
 </p>
 </html>"));
 end resolve2in1;
