@@ -16,7 +16,7 @@ algorithm
       info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
-v2 = TransformationMatrices.<strong>resolve1in2</strong>(angle, v1);
+v2 = Transformations.<strong>resolve1in2</strong>(angle, v1);
 </pre></blockquote>
 
 <h4>Description</h4>
@@ -30,7 +30,7 @@ given by rotation <code>angle</code>.
 </p>
 <p>
 This function returns inverse operation to 
-<a href=\"modelica://PlanarMechanics.TransformationMatrices.resolve2in1\">resolve2in1</a>,
+<a href=\"modelica://PlanarMechanics.Utilities.Transformations.resolve2in1\">resolve2in1</a>,
 i.e. when
 </p>
 <blockquote><pre>
