@@ -75,8 +75,8 @@ protected
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
   Internal.BasicCutTorque cutTorque(positiveSign=positiveSign)
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
-  Interfaces.ZeroPosition zeroPosition if
-    not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+  Interfaces.ZeroPosition zeroPosition
+    if not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
 equation
   connect(cutForce.frame_a, frame_a) annotation (Line(

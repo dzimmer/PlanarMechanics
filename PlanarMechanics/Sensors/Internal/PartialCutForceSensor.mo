@@ -7,8 +7,8 @@ partial model PartialCutForceSensor
         transformation(extent={{-116,-16},{-84,16}})));
   Interfaces.Frame_b frame_b "Coordinate system b" annotation (Placement(
         transformation(extent={{84,-16},{116,16}})));
-  Interfaces.Frame_resolve frame_resolve if
-    resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+  Interfaces.Frame_resolve frame_resolve
+    if resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)"
     annotation (Placement(transformation(
         origin={80,-100},

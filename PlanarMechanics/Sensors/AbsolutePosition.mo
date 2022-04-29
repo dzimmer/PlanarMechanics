@@ -25,8 +25,8 @@ protected
   Internal.BasicAbsolutePosition position(resolveInFrame=resolveInFrame)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
 
-  Interfaces.ZeroPosition zeroPosition if
-    not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+  Interfaces.ZeroPosition zeroPosition
+    if not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
 
 equation

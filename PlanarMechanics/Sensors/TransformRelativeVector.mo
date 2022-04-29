@@ -2,9 +2,9 @@ within PlanarMechanics.Sensors;
 model TransformRelativeVector "Transform relative vector in to another frame"
   extends Internal.PartialRelativeSensor;
 
-  Interfaces.Frame_resolve frame_resolve if
-   (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) or
-   (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+  Interfaces.Frame_resolve frame_resolve
+    if (frame_r_in  == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve) or
+       (frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
     "Coordinate system in which r_in or r_out is optionally resolved"
     annotation (Placement(transformation(extent={{84,64},{116,96}}),
         iconTransformation(extent={{84,65},{116,97}})));
@@ -31,9 +31,9 @@ protected
     frame_r_in = frame_r_in,
     frame_r_out = frame_r_out)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Interfaces.ZeroPosition zeroPosition if
-    not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve or
-         frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+  Interfaces.ZeroPosition zeroPosition
+    if not (frame_r_in == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve or
+            frame_r_out == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
     annotation (Placement(transformation(extent={{40,20},{60,40}})));
 
 equation

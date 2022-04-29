@@ -44,8 +44,8 @@ protected
     resolveInFrame=resolveInFrame,
     positiveSign=positiveSign)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-  Interfaces.ZeroPosition zeroPosition if
-    not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+  Interfaces.ZeroPosition zeroPosition
+    if not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
 equation
   connect(cutForce.frame_a, frame_a) annotation (Line(
