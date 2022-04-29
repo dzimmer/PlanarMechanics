@@ -70,9 +70,9 @@ protected
     Documentation(info="<html>
 <p>
 <strong>Note</strong>: This element is intended to be used in
-<a href=\"PlanarMechanics.Visualizers.Internal.CoordinateSystem\">CoordinateSystem</a> only!
+<a href=\"modelica://PlanarMechanics.Visualizers.Internal.CoordinateSystem\">CoordinateSystem</a> only!
 To visualize an arrow in your model, the best solution is usually to use
-the visualizer <a href=\"PlanarMechanics.Visualizers.Advanced.Arrow\">Advanced.Arrow</a>.
+the visualizer <a href=\"modelica://PlanarMechanics.Visualizers.Advanced.Arrow\">Advanced.Arrow</a>.
 The only difference between this two visualizers is that the current one does
 not utilizes <strong>outer planarWorld</strong>, whereas the other does.
 </p>

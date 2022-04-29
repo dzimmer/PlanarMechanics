@@ -88,9 +88,9 @@ protected
   annotation (Documentation(info="<html>
 <p>
 <strong>Note</strong>: This element is intended to be used in
-<a href=\"PlanarMechanics.PlanarWorld\">PlanarWorld</a> and its derivatives only!
+<a href=\"modelica://PlanarMechanics.PlanarWorld\">PlanarWorld</a> and its derivatives only!
 To visualize a coordinate system in your model, the best solution is usually to use
-the visualizer <a href=\"PlanarMechanics.Visualizers.Advanced.CoordinateSystem\">Advanced.CoordinateSystem</a>.
+the visualizer <a href=\"modelica://PlanarMechanics.Visualizers.Advanced.CoordinateSystem\">Advanced.CoordinateSystem</a>.
 The only difference between this two visualizers is that the current one does
 not utilizes <strong>outer planarWorld</strong>, whereas the other does.
 </p>
