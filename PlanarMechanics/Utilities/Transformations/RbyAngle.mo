@@ -11,6 +11,7 @@ algorithm
   R :=[cos(angle),-sin(angle); sin(angle),cos(angle)];
 
   annotation (
+    smoothOrder=1000,
     Inline=true,
     Documentation(info="<html>
 <h4>Syntax</h4>
