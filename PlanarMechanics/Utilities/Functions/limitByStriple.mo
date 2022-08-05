@@ -43,17 +43,17 @@ y = Functions.<strong>limitByStriple</strong>(x_max, x_sat, y_max, y_sat, x);
 
 <h4>Description</h4>
 <p>
-A point symmetric interpolation between points (0,&nbsp;0), (x_max,&nbsp;y_max)
+A&nbsp;point symmetric interpolation between points (0,&nbsp;0), (x_max,&nbsp;y_max)
 and (x_sat,&nbsp;y_sat), provided x_max&nbsp;&lt;&nbsp;x_sat. The approximation
-is done in such a way that the 1st function&#039;s derivative is zero at points
+is done in such a&nbsp;way that the 1st function&apos;s derivative is zero at
 points (x_max,&nbsp;y_max) and (x_sat,&nbsp;y_sat).
-Thus, the 1st function&#039;s derivative is continuous for all&nbsp;<em>x</em>.
+Thus, the 1st function&apos;s derivative is continuous for all&nbsp;<var>x</var>.
 The higher derivatives are, in contrast, discontinuous at these points.
 </p>
 
 <p>
-The figure below shows the function&nbsp;<em>y</em> and its 1st derivative&nbsp;<em>dy/dx</em>
-for the following input:
+The figure below shows the function&nbsp;<var>y</var> and its 1st
+derivative&nbsp;<var>dy/dx</var> for the following input:
 x_max&nbsp;=&nbsp;0.2,
 x_sat&nbsp;=&nbsp;0.5,
 y_max&nbsp;=&nbsp;1.4,

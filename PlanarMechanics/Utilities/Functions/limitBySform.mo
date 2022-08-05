@@ -34,19 +34,19 @@ y = Functions.<strong>limitBySform</strong>(x_min, x_max, y_min, y_max, x);
 
 <h4>Description</h4>
 <p>
-A smooth transition between points (x_min,&nbsp;y_min) and (x_max,&nbsp;y_max).
-The transition is done in such a way that the 1st function&#039;s derivative
-is continuous for all&nbsp;<em>x</em>.
+A&nbsp;smooth transition between points (x_min,&nbsp;y_min) and (x_max,&nbsp;y_max).
+The transition is done in such a&nbsp;way that the 1st function&apos;s derivative
+is continuous for all&nbsp;<var>x</var>.
 The higher derivatives are, in contrast, discontinuous at input points.
 </p>
 
 <p>
-The figure below shows the function&nbsp;<em>y</em> and its 1st derivative&nbsp;<em>dy/dx</em>
-for the following input:
+The figure below shows the function&nbsp;<var>y</var> and its 1st
+derivative&nbsp;<var>dy/dx</var> for the following input:
 x_max&nbsp;=&nbsp;-0.4,
-x_sat&nbsp;=&nbsp;0.6,
+x_min&nbsp;=&nbsp;0.6,
 y_max&nbsp;=&nbsp;1.4,
-y_sat&nbsp;=&nbsp;1.2.
+y_min&nbsp;=&nbsp;1.2.
 </p>
 
 <div>
