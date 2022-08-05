@@ -15,12 +15,12 @@ equation
   annotation (Icon(graphics={
     Line(points={{-70,-78},{-70,78}}, color={192,192,192}),
     Polygon(
-      points={{-70,100},{-78,78},{-62,78},{-70,100}},
+      points={{-70,80},{-78,58},{-62,58},{-70,80}},
       lineColor={192,192,192},
       fillColor={192,192,192},
       fillPattern=FillPattern.Solid),
     Polygon(
-      points={{100,-70},{78,-62},{78,-78},{100,-70}},
+      points={{80,-70},{58,-62},{58,-78},{80,-70}},
       lineColor={192,192,192},
       fillColor={192,192,192},
       fillPattern=FillPattern.Solid),
