@@ -12,7 +12,7 @@ algorithm
   v1 := R*v2;
 
   annotation (
-    smoothOrder=2,
+    smoothOrder=5,
     Inline=true,
     Documentation(
       info="<html>
