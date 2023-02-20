@@ -4,6 +4,11 @@ PlanarMechanics
 A free Modelica library for planar mechanical multi-body systems
 
 
+## Status
+
+[![GitHub](https://img.shields.io/github/v/release/dzimmer/PlanarMechanics?sort=semver)](https://github.com/dzimmer/PlanarMechanics/releases/latest) 
+[![GitHub](https://img.shields.io/github/license/dzimmer/planarmechanics)](LICENSE)
+
 ## Library description
 
 The PlanarMechanics library is an open-source Modelica library for the modelling of planar mechanical multi-body systems. Its main components are:
