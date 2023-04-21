@@ -1,5 +1,5 @@
 within PlanarMechanics.Utilities.Icons;
-package GearConnections "Icon for a package class which contains gear connetion elements"
+package GearConnections "Icon for a package class which contains gear connection elements"
   extends Modelica.Icons.Package;
 
 

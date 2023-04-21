@@ -65,7 +65,7 @@ The movement is decelerated due to air resistance of the body.
 </p>
 <p>
 The following diagrams show the translational velocity
-of the body (abowe) and the drag force and its comonents (below). 
+of the body (above) and the drag force and its components (below). 
 </p>
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestAirDrag_1.png\" alt=\"Diagram TestAirDrag_1\">

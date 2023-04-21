@@ -94,7 +94,7 @@ This function returns y = <strong>atan3</strong>(u1,u2,y0) such that
 y is in the range: -pi &lt; y-y0 &lt; pi.<br>
 u2 may be zero, provided u1 is not zero. The difference to
 <a href=\"modelica://Modelica.Math.atan3\">Modelica.Math.atan3</a>(&hellip;)
-is that the derivatives of atan3 are explicitely defined here.
+is that the derivatives of atan3 are explicitly defined here.
 </p>
 
 
