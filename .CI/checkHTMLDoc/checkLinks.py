@@ -19,8 +19,11 @@ import ssl
 from concurrent.futures import ProcessPoolExecutor as PoolExecutor
 
 # See https://haacked.com/archive/2004/10/25/usingregularexpressionstomatchhtml.aspx/
-PATTERN = re.compile(r'</?\w+((\s+\w+(\s*=\s*(?:\\"(.|\n)*?\\"|\'(.|\n)*?\'|[^\'">\s]+))?)+\s*|\s*)/?>',
-    re.IGNORECASE)
+PATTERN = re.compile(
+    r'</?\w+((\s+\w+(\s*=\s*(?:\\"(.|\n)*?\\"|\'(.|\n)*?\'|[^\'">\s]+))?)+\s*|\s*)/?>',
+    re.IGNORECASE
+    )
+FILE_EXT = ('.mo', '.md')
 
 def _getFileURLs(file_name):
     urls = []
@@ -46,7 +49,7 @@ def _getURLs(path):
     urls = {}
     for subdir, _, files in os.walk(path):
         for file in files:
-            if os.path.splitext(file)[1] == '.mo':
+            if file.endswith(FILE_EXT):
                 file_name = os.path.join(subdir, file)
                 urls.update(_getFileURLs(file_name))
     return urls
@@ -64,6 +67,9 @@ def _checkURL(url):
         rc = e.code
         if rc == 429:
             # Ignore too many requests
+            rc = 200
+        elif rc == 403:
+            # Ignore HTTP Error 403 Forbidden
             rc = 200
         elif rc in (301, 302):
             # Handle redirect errors
