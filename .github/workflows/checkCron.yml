@@ -42,3 +42,15 @@ jobs:
           printf "[codespell]\nenable-colors=\n" >> .codespellrc
           codespell -L nin ./PlanarMechanics/Utilities/Blocks/SquaretimesSign.mo
           codespell --skip ./.CI,./.github,./.git,*.png -L nin
+  delete_runs:
+    if: github.repository_owner == 'dzimmer'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete old workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          retain_days: 60
+          keep_minimum_runs: 6
+          dry_run: true
