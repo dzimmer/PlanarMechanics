@@ -32,12 +32,11 @@ model Prismatic "A prismatic joint"
     "Width of prismatic joint box"
     annotation (Dialog(tab="Animation",
       group="if animation = true", enable=animate));
-  input PlanarMechanics.Types.Color boxColor=Types.Defaults.JointColor
+  input MB.Types.Color boxColor=Types.Defaults.JointColor
     "Color of prismatic joint box"
     annotation (HideResult=true, Dialog(tab="Animation",
       group="if animation = true", enable=animate, colorSelector=true));
-  input PlanarMechanics.Types.SpecularCoefficient
-    specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(tab="Animation",
       group="if animation = true", enable=animate));

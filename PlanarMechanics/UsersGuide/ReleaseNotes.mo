@@ -22,7 +22,12 @@ It is backwards compatible to previous library versions.
 <p>Improvements in this version:</p>
 <ul>
   <li>
-    ...
+    Types <a href=\"modelica://PlanarMechanics.Types.Color\">Color</a>
+    and <a href=\"modelica://PlanarMechanics.Types.SpecularCoefficient\">SpecularCoefficient</a>
+    are obsolete and will be deleted in the next major library release.
+    Corresponding types from
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types\">Modelica.Mechanics.MultiBody.Types</a>
+    are used instead.
   </li>
 </ul>
 

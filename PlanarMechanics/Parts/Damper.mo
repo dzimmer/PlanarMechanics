@@ -30,9 +30,9 @@ model Damper "Linear (velocity dependent) damper"
   input SI.Diameter diameter_b = 0.6*diameter_a
     "Diameter of cylinder at frame_b side"
     annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
-  input Types.Color color_a = {0,127,255} "Color of cylinder at frame_a side"
+  input MB.Types.Color color_a = {0,127,255} "Color of cylinder at frame_a side"
     annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
-  input Types.Color color_b = {0,64,200} "Color of cylinder at frame_b side"
+  input MB.Types.Color color_b = {0,64,200} "Color of cylinder at frame_b side"
     annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
 
   SI.Distance length

@@ -62,8 +62,7 @@ model SlipBasedWheelJoint "Slip-Friction based wheel joint"
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  input PlanarMechanics.Types.SpecularCoefficient
-    specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
 

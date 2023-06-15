@@ -1,0 +1,5 @@
+// Convert from PlanarMechanics 1.5.0 to PlanarMechanics 1.6.0 and higher
+
+// Change references to classes that are obsolete
+convertClass("PlanarMechanics.Types.Color", "Modelica.Mechanics.MultiBody.Types.Color");
+convertClass("PlanarMechanics.Types.SpecularCoefficient", "Modelica.Mechanics.MultiBody.Types.SpecularCoefficient");

@@ -15,10 +15,10 @@ model Arrow
     annotation(Dialog);
   input SI.Diameter diameter=planarWorld.defaultArrowDiameter
     "Diameter of arrow line" annotation(Dialog);
-  input PlanarMechanics.Types.Color color=PlanarMechanics.Types.Defaults.ArrowColor
+  input MB.Types.Color color=PlanarMechanics.Types.Defaults.ArrowColor
     "Color of arrow"
     annotation(HideResult=true, Dialog(colorSelector=true));
-  input PlanarMechanics.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
     annotation(HideResult=true, Dialog);
 

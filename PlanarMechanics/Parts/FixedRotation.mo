@@ -16,10 +16,10 @@ model FixedRotation "A fixed translation between two components (rigid rod)"
   parameter SI.Length cylinderDiameter=planarWorld.defaultJointWidth
     "Diameter of cylinder representing the fixed rotation"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  input PlanarMechanics.Types.Color color=Types.Defaults.RodColor
+  input MB.Types.Color color=Types.Defaults.RodColor
     "Color of cylinder representing the fixed rotation"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="if animation = true", enable=animate));
-  input PlanarMechanics.Types.SpecularCoefficient
+  input MB.Types.SpecularCoefficient
     specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult = true, Dialog(tab="Animation", group="if animation = true", enable=animate));
