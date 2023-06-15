@@ -2,12 +2,10 @@ within PlanarMechanics.Visualizers.Advanced;
 model DoubleArrow
   "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)"
 
-  import Modelica.Mechanics.MultiBody.Types;
-  import Modelica.Mechanics.MultiBody.Frames;
   import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
   import Modelica.Units.Conversions.to_unit1;
 
-  input Frames.Orientation R=Frames.nullRotation()
+  input MB.Frames.Orientation R=MB.Frames.nullRotation()
     "Orientation object to rotate the planarWorld frame into the arrow frame" annotation(Dialog);
   input SI.Position r[3]={0,0,0}
     "Position vector from origin of planarWorld frame to origin of arrow frame, resolved in planarWorld frame"

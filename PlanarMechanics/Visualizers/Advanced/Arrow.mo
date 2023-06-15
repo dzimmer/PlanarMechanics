@@ -44,12 +44,15 @@ visualized at the defined location (see variables below).
 </div>
 
 <p>
-The variables under heading <strong>Parameters</strong> below
+The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>,
+<code>r_head</code>, <code>diameter</code>, <code>color</code>
+and <code>specularCoefficient</code>
 are declared as (time varying) <strong>input</strong> variables.
-If the default equation is not appropriate, a corresponding
+If the default equation is not appropriate, a&nbsp;corresponding
 modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
+
 <blockquote><pre>
 Visualizers.Advanced.Arrow arrow(diameter = sin(time));
 </pre></blockquote>

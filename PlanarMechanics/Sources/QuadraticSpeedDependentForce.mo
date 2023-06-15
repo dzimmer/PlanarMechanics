@@ -31,8 +31,6 @@ public
     "Torque arrow scaling (length = torque/Nm_to_m)"
     annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
 
-  input SI.Diameter diameter=planarWorld.defaultArrowDiameter
-    "Diameter of force arrow" annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation",group="If animation = true", enable=animation));
@@ -64,7 +62,6 @@ public
     animation=animation,
     N_to_m=N_to_m,
     Nm_to_m=Nm_to_m,
-    diameter=diameter,
     zPosition=zPosition,
     color=color,
     specularCoefficient=specularCoefficient,

@@ -18,8 +18,6 @@ model CutForce "Measure cut force vector"
   input Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input SI.Diameter forceDiameter = planarWorld.defaultArrowDiameter
-    "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
   input MB.Types.Color forceColor = Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
     "Color of force arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
@@ -30,15 +28,15 @@ model CutForce "Measure cut force vector"
   extends Internal.PartialCutForceSensor;
 
 protected
-  inner Modelica.Mechanics.MultiBody.World world;
   SI.Position f_in_m[3] = {frame_a.fx, frame_a.fy, 0}*(if positiveSign then +1 else -1)/N_to_m
     "Force mapped from N to m for animation";
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
+  MB.Visualizers.Advanced.Vector arrowForce(
+    coordinates=f_in_m,
     color=forceColor,
     specularCoefficient=specularCoefficient,
     r=MB.Frames.resolve1(planarWorld.R, {frame_b.x,frame_b.y,0}) + planarWorld.r_0,
-    r_tail=f_in_m,
-    r_head=-f_in_m,
+    quantity=MB.Types.VectorQuantity.Force,
+    headAtOrigin=true,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;
   Internal.BasicCutForce cutForce(
     resolveInFrame=resolveInFrame,
