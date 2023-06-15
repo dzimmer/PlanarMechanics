@@ -47,7 +47,7 @@ model SpringDamper "Linear 2D translational spring damper model"
     annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
   input SI.Length coilWidth = width/10 "Width of spring coil"
     annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
-  input Types.Color color = Types.Defaults.SpringColor "Color of spring"
+  input MB.Types.Color color = Types.Defaults.SpringColor "Color of spring"
     annotation (HideResult=true, Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate, colorSelector=true));
 
   parameter SI.Length length_a = planarWorld.defaultForceLength
@@ -59,9 +59,9 @@ model SpringDamper "Linear 2D translational spring damper model"
   input SI.Diameter diameter_b = 0.6*diameter_a
     "Diameter of cylinder at frame_b side"
     annotation (Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate));
-  input Types.Color color_a = {100,100,100} "Color of cylinder at frame_a side"
+  input MB.Types.Color color_a = {100,100,100} "Color of cylinder at frame_a side"
     annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
-  input Types.Color color_b = {155,155,155} "Color of cylinder at frame_b side"
+  input MB.Types.Color color_b = {155,155,155} "Color of cylinder at frame_b side"
     annotation (HideResult=true, Dialog(tab="Animation", group="Damper cylinders (if animation = true)", enable=animate, colorSelector=true));
 
   SI.Length length

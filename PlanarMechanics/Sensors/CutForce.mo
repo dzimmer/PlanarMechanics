@@ -20,10 +20,10 @@ model CutForce "Measure cut force vector"
     annotation (Dialog(group="if animation = true", enable=animation));
   input SI.Diameter forceDiameter = planarWorld.defaultArrowDiameter
     "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-  input Types.Color forceColor = Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
+  input MB.Types.Color forceColor = Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
     "Color of force arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
-  input PlanarMechanics.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(group="if animation = true", enable=animation));
 

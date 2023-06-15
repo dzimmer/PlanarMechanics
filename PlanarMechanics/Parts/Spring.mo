@@ -39,7 +39,7 @@ model Spring "Linear 2D translational spring"
     annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
   input SI.Length coilWidth = width/10 "Width of spring coil"
     annotation (Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate));
-  input Types.Color color = Types.Defaults.SpringColor "Color of spring"
+  input MB.Types.Color color = Types.Defaults.SpringColor "Color of spring"
     annotation (HideResult=true, Dialog(tab="Animation", group="Spring coil (if animation = true)", enable=animate, colorSelector=true));
 
   SI.Length length

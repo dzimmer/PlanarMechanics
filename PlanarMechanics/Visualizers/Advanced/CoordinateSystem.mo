@@ -16,12 +16,12 @@ model CoordinateSystem
   parameter SI.Diameter axisDiameter=axisLength/planarWorld.defaultFrameDiameterFraction
     "Diameter of world axes arrows";
 
-  parameter PlanarMechanics.Types.Color color_x=PlanarMechanics.Types.Defaults.FrameColor
+  parameter MB.Types.Color color_x=PlanarMechanics.Types.Defaults.FrameColor
     "Color of x-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true));
-  parameter PlanarMechanics.Types.Color color_y=color_x "Color of y-arrow"
+  parameter MB.Types.Color color_y=color_x "Color of y-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true));
-  parameter PlanarMechanics.Types.Color color_z=color_x "Color of z-arrow"
+  parameter MB.Types.Color color_z=color_x "Color of z-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true));
 
   parameter Boolean axisShowLabels=true "True, if labels shall be shown"

@@ -28,13 +28,13 @@ model Body "Body component with mass and inertia"
       Evaluate=true,
       HideResult=true,
       choices(checkBox=true));
-  input Types.Color sphereColor=Types.Defaults.BodyColor "Color of sphere"
+  input MB.Types.Color sphereColor=Types.Defaults.BodyColor "Color of sphere"
     annotation (HideResult = true, Dialog(
       colorSelector=true,
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult = true, Dialog(tab="Animation", group="if animation = true", enable=animate));
   SI.Force f[2] "Force";

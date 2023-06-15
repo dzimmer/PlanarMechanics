@@ -36,10 +36,10 @@ public
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation",group="If animation = true", enable=animation));
-  input Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
+  input MB.Types.Color color= PlanarMechanics.Types.Defaults.ForceColor
     "Color of arrow"
     annotation (HideResult=true, Dialog(tab="Animation",group="If animation = true",colorSelector=true,  enable=animation));
-  input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(tab="Animation",group="If animation = true",enable=animation));
 

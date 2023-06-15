@@ -9,7 +9,7 @@ partial model TwoConnectorShapes
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation" annotation (Dialog(
       tab="Animation", group="if animation = true", enable=animate));
-  input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(tab="Animation", group="if animation = true", enable=animate));
 
@@ -22,10 +22,10 @@ partial model TwoConnectorShapes
   parameter SI.Diameter diameterConnector_b=planarWorld.defaultJointWidth
     "Diameter of connector at frame_b"
     annotation (Dialog(tab="Animation", group="Connectors (if animation = true)", enable=animate and animateConnectors));
-  input Types.Color colorConnector_a = Types.Defaults.RodColor
+  input MB.Types.Color colorConnector_a = Types.Defaults.RodColor
     "Color of connector at frame_a"
     annotation (HideResult=true, Dialog(colorSelector=true, tab="Animation", group="Connectors (if animation = true)", enable=animate and animateConnectors));
-  input Types.Color colorConnector_b = Types.Defaults.RodColor
+  input MB.Types.Color colorConnector_b = Types.Defaults.RodColor
     "Color of connector at frame_a"
     annotation (HideResult=true, Dialog(colorSelector=true, tab="Animation", group="Connectors (if animation = true)", enable=animate and animateConnectors));
 

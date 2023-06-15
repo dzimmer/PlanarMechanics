@@ -1,4 +1,4 @@
-within PlanarMechanics.UsersGuide;
+﻿within PlanarMechanics.UsersGuide;
 class Contact "Contact"
   extends Modelica.Icons.Contact;
   annotation (

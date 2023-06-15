@@ -34,12 +34,12 @@ model PlanarWorld
     annotation (Dialog(tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
   parameter Boolean axisShowLabels=true "= true, if labels shall be shown"
     annotation (Dialog(tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter Types.Color axisColor_x=Types.Defaults.FrameColor
+  parameter MB.Types.Color axisColor_x=Types.Defaults.FrameColor
     "Color of x-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter Types.Color axisColor_y=axisColor_x "Color of y-arrow"
+  parameter MB.Types.Color axisColor_y=axisColor_x "Color of y-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
-  parameter Types.Color axisColor_z=axisColor_x "Color of z-arrow"
+  parameter MB.Types.Color axisColor_z=axisColor_x "Color of z-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true,tab="Animation", group="If animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Position gravityArrowTail[2]={0,0}
@@ -53,7 +53,7 @@ model PlanarWorld
       defaultWidthFraction "Diameter of gravity arrow" annotation (Dialog(tab=
           "Animation", group="If animateGravity = true",
           enable=enableAnimation and animateGravity));
-  parameter Types.Color gravityArrowColor={0,180,0} "Color of gravity arrow" annotation (
+  parameter MB.Types.Color gravityArrowColor={0,180,0} "Color of gravity arrow" annotation (
       HideResult = true,
       Dialog(colorSelector=true,tab="Animation", group="If animateGravity = true",
         enable=enableAnimation and animateGravity));
@@ -87,7 +87,7 @@ model PlanarWorld
   parameter Real defaultFrameDiameterFraction=40
     "Default for arrow diameter of a coordinate system as a fraction of axis length"
     annotation (Dialog(tab="Defaults"));
-  parameter PlanarMechanics.Types.SpecularCoefficient defaultSpecularCoefficient(min=0) = 0.7
+  parameter MB.Types.SpecularCoefficient defaultSpecularCoefficient(min=0) = 0.7
     "Default reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultN_to_m(unit="N/m", min=0) = 1000
