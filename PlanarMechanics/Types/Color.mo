@@ -2,6 +2,7 @@ within PlanarMechanics.Types;
 type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
   "RGB representation of color (will be improved with a color editor)"
   annotation (
+    obsolete = "Obsolete type - use Modelica.Mechanics.MultiBody.Types.Color instead",
     Dialog(colorSelector),
     choices(
       choice={0,0,0} "{0,0,0}       \"black\"",
