@@ -11,9 +11,13 @@ package Sensors "Test models for PlanarMechanics.Sensors"
       r={1,0},
       s(fixed=true, start=0.5),
       v(fixed=true, start=-1)) annotation (Placement(transformation(extent={{-20,20},{0,40}})));
-    PlanarMechanics.Sensors.AbsolutePosition absolutePosition annotation (Placement(transformation(extent={{36,-40},{56,-20}})));
+    PlanarMechanics.Sensors.AbsolutePosition absolutePosition annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
     PlanarMechanics.Sensors.RelativePosition relativePosition annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
     PlanarMechanics.Sensors.Distance distance annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+    PlanarMechanics.Parts.Fixed fixed1(r={0.65,0.4}, phi=0.5235987755983)
+      annotation (Placement(transformation(extent={{-60,60},{-80,80}})));
+    PlanarMechanics.Sensors.Distance distance1
+      annotation (Placement(transformation(extent={{-20,60},{0,80}})));
   equation
     connect(fixed.frame, prismatic.frame_a) annotation (Line(
         points={{-60,30},{-20,30}},
@@ -40,10 +44,18 @@ package Sensors "Test models for PlanarMechanics.Sensors"
         color={95,95,95},
         thickness=0.5));
     connect(absolutePosition.frame_a, body.frame_a) annotation (Line(
-        points={{36,-30},{20,-30},{20,30},{40,30}},
+        points={{40,-30},{20,-30},{20,30},{40,30}},
         color={95,95,95},
         thickness=0.5));
 
+    connect(distance1.frame_b, body.frame_a) annotation (Line(
+        points={{0,70},{20,70},{20,30},{40,30}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed1.frame, distance1.frame_a) annotation (Line(
+        points={{-60,70},{-20,70}},
+        color={95,95,95},
+        thickness=0.5));
     annotation (experiment(StopTime=1));
   end PositionDistance;
 
@@ -106,7 +118,8 @@ package Sensors "Test models for PlanarMechanics.Sensors"
       annotation (Placement(transformation(extent={{40,30},{60,50}})));
     PlanarMechanics.Sensors.AbsoluteAcceleration absoluteAcceleration(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
       annotation (Placement(transformation(extent={{40,60},{60,80}})));
-    PlanarMechanics.Sources.WorldForce worldForce(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world) annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
+    PlanarMechanics.Sources.WorldForce worldForce(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world, N_to_m=30)
+      annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
     Modelica.Blocks.Sources.Constant const[3](k={10,0,0}) annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
   equation
     connect(fixed.frame, prismatic.frame_a) annotation (Line(
@@ -316,4 +329,203 @@ Expected results:
 
     annotation (experiment(StopTime=1));
   end AbsoluteAccCentrifugalAcc;
+
+  model CutForces "Test resolveInFrame of CutForce sensor"
+    extends Modelica.Icons.Example;
+
+    PlanarMechanics.Parts.Body body(m=1, I=0.1) annotation (Placement(transformation(extent={{80,-10},{100,10}})));
+    PlanarMechanics.Sensors.CutForce cutForce_inFrameA(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a) annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+    PlanarMechanics.Sensors.CutForce cutForce_inWorld(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    PlanarMechanics.Sensors.CutForce cutForce_inFrameResolve(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+    PlanarMechanics.Joints.Revolute revolute(
+      useFlange=false,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    PlanarMechanics.Parts.FixedTranslation fixedTranslation(r={1,0})  annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+    PlanarMechanics.Parts.Fixed fixed(phi=0) annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=180,
+          origin={-90,0})));
+    inner PlanarMechanics.PlanarWorld planarWorld(
+      defaultWidthFraction=10,
+      defaultN_to_m=1)
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+  equation
+    connect(revolute.frame_a, cutForce_inFrameA.frame_b) annotation (Line(
+        points={{-40,0},{-50,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(cutForce_inFrameA.frame_a, fixed.frame) annotation (Line(
+        points={{-70,0},{-80,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(revolute.frame_b, cutForce_inWorld.frame_a) annotation (Line(
+        points={{-20,0},{-10,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(cutForce_inWorld.frame_b, fixedTranslation.frame_a) annotation (Line(
+        points={{10,0},{20,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedTranslation.frame_b, cutForce_inFrameResolve.frame_a) annotation (Line(
+        points={{40,0},{50,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(cutForce_inFrameResolve.frame_b, body.frame_a) annotation (Line(
+        points={{70,0},{80,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, cutForce_inFrameResolve.frame_resolve) annotation (Line(
+        points={{-80,0},{-76,0},{-76,-30},{68,-30},{68,-10}},
+        color={95,95,95},
+        thickness=0.5));
+    annotation (
+      experiment(StopTime=3));
+  end CutForces;
+
+  model CutTorques "Test CutTorque sensor"
+    extends Modelica.Icons.Example;
+
+    PlanarMechanics.Parts.Body body(m=1, I=0.1) annotation (Placement(transformation(extent={{80,-10},{100,10}})));
+    PlanarMechanics.Sensors.CutTorque cutTorque annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    PlanarMechanics.Joints.Revolute revolute(
+      useFlange=false,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+    PlanarMechanics.Parts.FixedTranslation fixedTranslation(r={1,0})  annotation (Placement(transformation(extent={{40,-10},{60,10}})));
+    PlanarMechanics.Parts.Fixed fixed(phi=0) annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=180,
+          origin={-90,0})));
+    inner PlanarMechanics.PlanarWorld planarWorld(
+      defaultWidthFraction=10,
+      defaultN_to_m=1,
+      defaultNm_to_m=1)
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    PlanarMechanics.Sources.WorldForce worldForce(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
+      annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
+    Modelica.Blocks.Sources.Sine signalVec3[3](
+      each f=1,
+      amplitude={0,-5,1},
+      each startTime=1.8) "Vector of three excitation signals"
+      annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
+    PlanarMechanics.Parts.FixedTranslation fixedTranslation1(r={0.5,0})
+      annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+  equation
+    connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
+        points={{60,0},{80,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(worldForce.frame_b, body.frame_a) annotation (Line(
+        points={{60,-40},{70,-40},{70,0},{80,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(signalVec3.y,worldForce. force) annotation (Line(
+        points={{21,-40},{38,-40}},
+        color={0,0,127}));
+    connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
+        points={{30,0},{40,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, cutTorque.frame_a) annotation (Line(
+        points={{-80,0},{-60,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(cutTorque.frame_b, fixedTranslation1.frame_a) annotation (Line(
+        points={{-40,0},{-20,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedTranslation1.frame_b, revolute.frame_a) annotation (Line(
+        points={{0,0},{10,0}},
+        color={95,95,95},
+        thickness=0.5));
+    annotation (
+      experiment(StopTime=3));
+  end CutTorques;
+
+  model CutForcesAndTorques "Test resolveInFrame of CutForceAndTorque sensor"
+    extends Modelica.Icons.Example;
+
+    PlanarMechanics.Parts.Body body(m=1, I=0.1) annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+          rotation=-90,
+          origin={80,-60})));
+    PlanarMechanics.Sensors.CutForceAndTorque cutForceAndTorque_inFrameA(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a) annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
+    PlanarMechanics.Sensors.CutForceAndTorque cutForceAndTorque_inWorld(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world) annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+    PlanarMechanics.Sensors.CutForceAndTorque cutForceAndTorque_inFrameResolve(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    PlanarMechanics.Joints.Revolute revolute(
+      useFlange=false,
+      phi(fixed=true, start=0),
+      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+    PlanarMechanics.Parts.FixedTranslation fixedTranslation(r={1,0})  annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+          rotation=-90,
+          origin={80,-20})));
+    PlanarMechanics.Parts.Fixed fixed(phi=0) annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=180,
+          origin={-90,0})));
+    inner PlanarMechanics.PlanarWorld planarWorld(
+      defaultWidthFraction=10,
+      defaultN_to_m=1,
+      defaultNm_to_m=1)
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    PlanarMechanics.Parts.FixedTranslation fixedTranslation1(r={0.5,0})
+      annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    PlanarMechanics.Sources.WorldForce worldForce(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
+      annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+    Modelica.Blocks.Sources.Sine signalVec3[3](
+      each f=1,
+      amplitude={0,-5,1},
+      each startTime=1.8) "Vector of three excitation signals"
+      annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
+  equation
+    connect(cutForceAndTorque_inFrameA.frame_a, fixed.frame) annotation (Line(
+        points={{-70,0},{-80,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(revolute.frame_b, cutForceAndTorque_inWorld.frame_a) annotation (Line(
+        points={{40,0},{50,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(cutForceAndTorque_inWorld.frame_b, fixedTranslation.frame_a) annotation (Line(
+        points={{70,0},{80,0},{80,-10}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedTranslation1.frame_a, cutForceAndTorque_inFrameA.frame_b) annotation (Line(
+        points={{-40,0},{-50,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
+        points={{80,-30},{80,-50}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(body.frame_a, cutForceAndTorque_inFrameResolve.frame_resolve) annotation (Line(
+        points={{80,-50},{80,-40},{8,-40},{8,-10}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(cutForceAndTorque_inFrameResolve.frame_a, fixedTranslation1.frame_b) annotation (Line(
+        points={{-10,0},{-20,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(cutForceAndTorque_inFrameResolve.frame_b, revolute.frame_a) annotation (Line(
+        points={{10,0},{20,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(worldForce.frame_b, body.frame_a) annotation (Line(
+        points={{0,-40},{80,-40},{80,-50}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(signalVec3.y,worldForce. force) annotation (Line(
+        points={{-39,-40},{-22,-40}},
+        color={0,0,127}));
+    annotation (
+      experiment(StopTime=3));
+  end CutForcesAndTorques;
 end Sensors;
