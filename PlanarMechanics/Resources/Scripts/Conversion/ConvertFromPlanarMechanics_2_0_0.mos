@@ -1,16 +1,31 @@
 // Convert from PlanarMechanics 1.6.0 to PlanarMechanics 2.0.0 and higher
 
 // New element Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector
-convertModifiers({"PlanarMechanics.Visualizers.Advanced.Arrow",
-                  "PlanarMechanics.Visualizers.Advanced.DoubleArrow",
-                  "PlanarMechanics.Sources.RelativeForce",
-                  "PlanarMechanics.Sources.WorldForce"},
+convertModifiers({"PlanarMechanics.Sources.RelativeForce",
+                  "PlanarMechanics.Sources.WorldForce",
+                  "PlanarMechanics.Sources.QuadraticSpeedDependentForce"},
                  {"diameter"}, fill("", 0), true);
-// convertClass("PlanarMechanics.Visualizers.Internal.Arrow",
-//              "ObsoletePlanarMechanics2.Visualizers.Internal.Arrow")
-convertModifiers({"PlanarMechanics.Sources.RelativeForce",
-                  "PlanarMechanics.Sources.WorldForce"},
-                 {"N_to_m"}, fill("", 0), true);
-convertModifiers({"PlanarMechanics.Sources.RelativeForce",
-                  "PlanarMechanics.Sources.WorldForce"},
-                 {"Nm_to_m"}, fill("", 0), true);
+convertModifiers({"PlanarMechanics.Sensors.CutForce",
+                  "PlanarMechanics.Sensors.CutForceAndTorque"},
+                 {"forceDiameter"}, fill("", 0), true);
+convertModifiers({"PlanarMechanics.Sensors.CutTorque",
+                  "PlanarMechanics.Sensors.CutForceAndTorque"},
+                 {"torqueDiameter"}, fill("", 0), true);
+// convertModifiers({"PlanarMechanics.Sensors.Distance"},
+//                  {"arrowDiameter"}, fill("", 0), true);
+
+// convertModifiers({"PlanarMechanics.Sources.RelativeForce",
+//                   "PlanarMechanics.Sources.QuadraticSpeedDependentForce",
+//                   "PlanarMechanics.Sources.WorldForce",
+//                   "PlanarMechanics.Sensors.CutForce",
+//                   "PlanarMechanics.Sensors.CutForceAndTorque"},
+//                  {"N_to_m"}, fill("", 0), true);
+// convertModifiers({"PlanarMechanics.Sources.RelativeForce",
+//                   "PlanarMechanics.Sources.QuadraticSpeedDependentForce",
+//                   "PlanarMechanics.Sources.WorldForce",
+//                   "PlanarMechanics.Sensors.CutTorque",
+//                   "PlanarMechanics.Sensors.CutForceAndTorque"},
+//                  {"Nm_to_m"}, fill("", 0), true);
+
+// convertClass("PlanarMechanics.Visualizers.Advanced.DoubleArrow",
+//              "ObsoletePlanarMechanics2.Visualizers.Advanced.DoubleArrow")
