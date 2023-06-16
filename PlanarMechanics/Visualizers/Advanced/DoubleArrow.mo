@@ -124,9 +124,9 @@ Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
 <p>
 Variable <strong>color</strong> is a&nbsp;RGB color space given in the range
 0&nbsp;..&nbsp;255.
-The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
-contains a&nbsp;menu definition of the colors used in the library together with
-a&nbsp;color editor.
+Predefined colors from
+<a href=\"modelica://PlanarMechanics.Types.Defaults\">Types.Defaults</a>
+are used throughout the library to get a&nbsp;coherent visualization.
 </p>
 </html>"));
 end DoubleArrow;

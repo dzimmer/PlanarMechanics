@@ -58,10 +58,11 @@ Visualizers.Advanced.Arrow arrow(diameter = sin(time));
 </pre></blockquote>
 
 <p>
-Variable <strong>color</strong> is a RGB color space given in the range 0 .. 255.
-The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
-contains a menu definition of the colors used in the library
-(will be replaced by a color editor).
+Variable <strong>color</strong> is a&nbsp;RGB color space given in the range
+0&nbsp;..&nbsp;255.
+Predefined colors from
+<a href=\"modelica://PlanarMechanics.Types.Defaults\">Types.Defaults</a>
+are used throughout the library to get a&nbsp;coherent visualization.
 </p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
