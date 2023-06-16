@@ -31,10 +31,10 @@ model Distance
     "Prevent zero-division if distance between frame_a and frame_b is zero"
     annotation (Dialog(tab="Advanced"));
 protected
-  inner Modelica.Mechanics.MultiBody.World world;
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow arrow(
+  PlanarMechanics.Visualizers.Advanced.Arrow arrow(
     r={frame_a.x,frame_a.y,0},
     r_head={frame_b.x,frame_b.y,0} - {frame_a.x,frame_a.y,0},
+    diameter=arrowDiameter,
     color=arrowColor,
     specularCoefficient=specularCoefficient) if planarWorld.enableAnimation and animation;
 

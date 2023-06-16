@@ -24,7 +24,9 @@ model PowerDistanceDemo "Power and distance sensor demo"
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   Parts.Damper damper(d=1)
     annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-  Joints.Revolute revolute(w(fixed=true), phi(fixed=true, start=2.6179938779915))
+  Joints.Revolute revolute(
+    w(fixed=true),
+    phi(fixed=true, start=2.6179938779915))
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -39,7 +41,7 @@ model PowerDistanceDemo "Power and distance sensor demo"
         rotation=270,
         origin={-10,-60})));
   Sensors.Distance distance
-    annotation (Placement(transformation(extent={{2,62},{22,82}})));
+    annotation (Placement(transformation(extent={{0,60},{20,80}})));
 equation
   connect(damper.frame_a, fixed.frame) annotation (Line(
       points={{-40,50},{-60,50},{-60,30}},
@@ -70,11 +72,11 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(distance.frame_a, fixed.frame) annotation (Line(
-      points={{2,72},{-60,72},{-60,30}},
+      points={{0,70},{-60,70},{-60,30}},
       color={95,95,95},
       thickness=0.5));
   connect(distance.frame_b, power.frame_b) annotation (Line(
-      points={{22,72},{58,72},{58,-70},{-10,-70}},
+      points={{20,70},{40,70},{40,-70},{-10,-70}},
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation.frame_b, power.frame_a) annotation (Line(
