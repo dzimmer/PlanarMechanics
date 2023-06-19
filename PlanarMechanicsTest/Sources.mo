@@ -36,9 +36,9 @@ package Sources "Test models for PlanarMechanics.Sources"
       amplitude={1,0,1},
       each startTime=0.8) "Vector of three excitation signals"
       annotation (Placement(transformation(extent={{-80,-100},{-60,-80}})));
-    PlanarMechanics.Parts.Fixed fixed1(
+    PlanarMechanics.Parts.Fixed fixedRotated(
       r={0,-1},
-      phi=0) annotation (Placement(transformation(
+      phi=0.29670597283904) annotation (Placement(transformation(
           extent={{-10,10},{10,-10}},
           rotation=180,
           origin={-50,-30})));
@@ -63,7 +63,7 @@ package Sources "Test models for PlanarMechanics.Sources"
         points={{20,-40},{30,-40},{30,50},{40,50}},
         color={95,95,95},
         thickness=0.5));
-    connect(fixed1.frame, relativeForce_inFrameA.frame_a) annotation (Line(
+    connect(fixedRotated.frame, relativeForce_inFrameA.frame_a) annotation (Line(
         points={{-40,-30},{-20,-30},{-20,-40},{0,-40}},
         color={95,95,95},
         thickness=0.5));
@@ -71,7 +71,7 @@ package Sources "Test models for PlanarMechanics.Sources"
         points={{20,-10},{30,-10},{30,50},{40,50}},
         color={95,95,95},
         thickness=0.5));
-    connect(fixed1.frame, relativeForce_inFrameResolve.frame_a) annotation (Line(
+    connect(fixedRotated.frame, relativeForce_inFrameResolve.frame_a) annotation (Line(
         points={{-40,-30},{-20,-30},{-20,-10},{0,-10}},
         color={95,95,95},
         thickness=0.5));
@@ -85,11 +85,11 @@ package Sources "Test models for PlanarMechanics.Sources"
         points={{20,-70},{30,-70},{30,50},{40,50}},
         color={95,95,95},
         thickness=0.5));
-    connect(fixed1.frame, relativeForce_inFrameB.frame_a) annotation (Line(
+    connect(fixedRotated.frame, relativeForce_inFrameB.frame_a) annotation (Line(
         points={{-40,-30},{-20,-30},{-20,-70},{0,-70}},
         color={95,95,95},
         thickness=0.5));
-    connect(fixed1.frame, relativeForce_inWorld.frame_a) annotation (Line(
+    connect(fixedRotated.frame, relativeForce_inWorld.frame_a) annotation (Line(
         points={{-40,-30},{-20,-30},{-20,20},{0,20}},
         color={95,95,95},
         thickness=0.5));
@@ -146,6 +146,12 @@ package Sources "Test models for PlanarMechanics.Sources"
     Modelica.Mechanics.Rotational.Components.Damper damper(
       d=0.1)
       annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
+    PlanarMechanics.Parts.Fixed fixedRotated(
+      r={0,-1},
+      phi=0.29670597283904) annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=180,
+          origin={-60,-80})));
   equation
     connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
         points={{-20,20},{-10,20}},
@@ -167,16 +173,16 @@ package Sources "Test models for PlanarMechanics.Sources"
         points={{10,-10},{20,-10},{20,20},{30,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(body.frame_a, force_inFrameResolve.frame_resolve) annotation (Line(
-        points={{30,20},{20,20},{20,-80},{0,-80}},
-        color={95,95,95},
-        thickness=0.5));
     connect(force_inFrameA.frame_b, body.frame_a) annotation (Line(
         points={{10,-40},{20,-40},{20,20},{30,20}},
         color={95,95,95},
         thickness=0.5));
     connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{-20,60},{-20,40},{-30,40},{-30,30}}));
-    connect(revolute.support,damper. flange_a) annotation (Line(points={{-36,30},{-36,40},{-40,40},{-40,60}}));
+    connect(revolute.support, damper.flange_a) annotation (Line(points={{-36,30},{-36,40},{-40,40},{-40,60}}));
+    connect(fixedRotated.frame, force_inFrameResolve.frame_resolve) annotation (Line(
+        points={{-50,-80},{0,-80}},
+        color={95,95,95},
+        thickness=0.5));
     annotation (
       experiment(StopTime=3));
   end SpeedDependentForce;
@@ -217,6 +223,12 @@ package Sources "Test models for PlanarMechanics.Sources"
     Modelica.Mechanics.Rotational.Components.Damper damper(
       d=0.1)
       annotation (Placement(transformation(extent={{-40,50},{-20,70}})));
+    PlanarMechanics.Parts.Fixed fixedRotated(
+      r={0,-1},
+      phi=0.29670597283904) annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=180,
+          origin={-50,-80})));
   equation
     connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
         points={{-20,20},{-10,20}},
@@ -238,10 +250,6 @@ package Sources "Test models for PlanarMechanics.Sources"
         points={{10,-10},{20,-10},{20,20},{30,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(body.frame_a, force_inFrameResolve.frame_resolve) annotation (Line(
-        points={{30,20},{20,20},{20,-80},{0,-80}},
-        color={95,95,95},
-        thickness=0.5));
     connect(force_inFrameA.frame_b, body.frame_a) annotation (Line(
         points={{10,-40},{20,-40},{20,20},{30,20}},
         color={95,95,95},
@@ -250,7 +258,11 @@ package Sources "Test models for PlanarMechanics.Sources"
     connect(signalVec3.y, force_inFrameA.force) annotation (Line(points={{-39,-40},{-12,-40}}, color={0,0,127}));
     connect(signalVec3.y, force_inFrameResolve.force) annotation (Line(points={{-39,-40},{-30,-40},{-30,-70},{-12,-70}}, color={0,0,127}));
     connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{-20,60},{-20,40},{-30,40},{-30,30}}));
-    connect(revolute.support,damper. flange_a) annotation (Line(points={{-36,30},{-36,40},{-40,40},{-40,60}}));
+    connect(revolute.support, damper.flange_a) annotation (Line(points={{-36,30},{-36,40},{-40,40},{-40,60}}));
+    connect(fixedRotated.frame, force_inFrameResolve.frame_resolve) annotation (Line(
+        points={{-40,-80},{0,-80}},
+        color={95,95,95},
+        thickness=0.5));
     annotation (
       experiment(StopTime=3));
   end WolrdForce;

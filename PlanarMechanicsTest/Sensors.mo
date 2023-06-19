@@ -1,59 +1,126 @@
 within PlanarMechanicsTest;
 package Sensors "Test models for PlanarMechanics.Sensors"
   extends Modelica.Icons.Package;
-  model PositionDistance "Test absolute and relative position sensors and distance sensor"
+  model PositionDistance "Test absolute and relative position sensors and distance sensor, resolved in different frames"
     extends Modelica.Icons.Example;
 
-    inner PlanarMechanics.PlanarWorld planarWorld annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
-    PlanarMechanics.Parts.Body body(m=1, I=1) annotation (Placement(transformation(extent={{40,20},{60,40}})));
-    PlanarMechanics.Parts.Fixed fixed annotation (Placement(transformation(extent={{-60,20},{-80,40}})));
+    PlanarMechanics.Sensors.Distance distance annotation (Placement(transformation(extent={{-20,40},{0,60}})));
+    PlanarMechanics.Sensors.AbsolutePosition absolutePosition(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
+      annotation (Placement(transformation(extent={{40,10},{60,30}})));
+    PlanarMechanics.Sensors.AbsolutePosition absolutePosition1(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
+      annotation (Placement(transformation(extent={{40,-20},{60,0}})));
+    PlanarMechanics.Sensors.AbsolutePosition absolutePosition3(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+      annotation (Placement(transformation(extent={{40,-80},{60,-60}})));
+    PlanarMechanics.Sensors.RelativePosition relativePosition(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.world)
+      annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+    PlanarMechanics.Sensors.RelativePosition relativePosition1(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a)
+      annotation (Placement(transformation(extent={{-20,-20},{0,0}})));
+    PlanarMechanics.Sensors.RelativePosition relativePosition2(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
+      annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+    PlanarMechanics.Sensors.RelativePosition relativePosition3(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+      annotation (Placement(transformation(extent={{-20,-60},{0,-80}})));
+    inner PlanarMechanics.PlanarWorld planarWorld annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
+    PlanarMechanics.Parts.Body body(m=1, I=1) annotation (Placement(transformation(extent={{40,70},{60,90}})));
     PlanarMechanics.Joints.Prismatic prismatic(
       r={1,0},
       s(fixed=true, start=0.5),
-      v(fixed=true, start=-1)) annotation (Placement(transformation(extent={{-20,20},{0,40}})));
-    PlanarMechanics.Sensors.AbsolutePosition absolutePosition annotation (Placement(transformation(extent={{40,-40},{60,-20}})));
-    PlanarMechanics.Sensors.RelativePosition relativePosition annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
-    PlanarMechanics.Sensors.Distance distance annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-    PlanarMechanics.Parts.Fixed fixed1(r={0.65,0.4}, phi=0.5235987755983)
-      annotation (Placement(transformation(extent={{-60,60},{-80,80}})));
+      v(fixed=true, start=-1)) annotation (Placement(transformation(extent={{-20,70},{0,90}})));
+    PlanarMechanics.Parts.Fixed fixed annotation (Placement(transformation(extent={{-60,70},{-80,90}})));
+    PlanarMechanics.Parts.Fixed fixed1(
+      r={0.65,0.4},
+      phi=0.5235987755983)
+      annotation (Placement(transformation(extent={{80,40},{100,60}})));
     PlanarMechanics.Sensors.Distance distance1
-      annotation (Placement(transformation(extent={{-20,60},{0,80}})));
+      annotation (Placement(transformation(extent={{60,40},{40,60}})));
+    PlanarMechanics.Parts.Fixed fixedRotated(
+      r={0,-1},
+      phi=0.29670597283904) annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=180,
+          origin={-50,-90})));
   equation
     connect(fixed.frame, prismatic.frame_a) annotation (Line(
-        points={{-60,30},{-20,30}},
+        points={{-60,80},{-20,80}},
         color={95,95,95},
         thickness=0.5));
     connect(prismatic.frame_b, body.frame_a) annotation (Line(
-        points={{0,30},{40,30}},
+        points={{0,80},{40,80}},
         color={95,95,95},
         thickness=0.5));
     connect(fixed.frame, relativePosition.frame_a) annotation (Line(
-        points={{-60,30},{-40,30},{-40,-30},{-20,-30}},
+        points={{-60,80},{-40,80},{-40,20},{-20,20}},
         color={95,95,95},
         thickness=0.5));
     connect(relativePosition.frame_b, body.frame_a) annotation (Line(
-        points={{0,-30},{20,-30},{20,30},{40,30}},
+        points={{0,20},{20,20},{20,80},{40,80}},
         color={95,95,95},
         thickness=0.5));
     connect(fixed.frame, distance.frame_a) annotation (Line(
-        points={{-60,30},{-40,30},{-40,0},{-20,0}},
+        points={{-60,80},{-40,80},{-40,50},{-20,50}},
         color={95,95,95},
         thickness=0.5));
     connect(distance.frame_b, body.frame_a) annotation (Line(
-        points={{0,0},{20,0},{20,30},{40,30}},
+        points={{0,50},{20,50},{20,80},{40,80}},
         color={95,95,95},
         thickness=0.5));
     connect(absolutePosition.frame_a, body.frame_a) annotation (Line(
-        points={{40,-30},{20,-30},{20,30},{40,30}},
+        points={{40,20},{20,20},{20,80},{40,80}},
         color={95,95,95},
         thickness=0.5));
 
     connect(distance1.frame_b, body.frame_a) annotation (Line(
-        points={{0,70},{20,70},{20,30},{40,30}},
+        points={{40,50},{20,50},{20,80},{40,80}},
         color={95,95,95},
         thickness=0.5));
     connect(fixed1.frame, distance1.frame_a) annotation (Line(
-        points={{-60,70},{-20,70}},
+        points={{80,50},{60,50}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, relativePosition1.frame_a) annotation (Line(
+        points={{-60,80},{-40,80},{-40,-10},{-20,-10}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativePosition1.frame_b, body.frame_a) annotation (Line(
+        points={{0,-10},{20,-10},{20,80},{40,80}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absolutePosition1.frame_a, body.frame_a) annotation (Line(
+        points={{40,-10},{20,-10},{20,80},{40,80}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, relativePosition2.frame_a) annotation (Line(
+        points={{-60,80},{-40,80},{-40,-40},{-20,-40}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativePosition2.frame_b, body.frame_a) annotation (Line(
+        points={{0,-40},{20,-40},{20,80},{40,80}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absolutePosition3.frame_a, body.frame_a) annotation (Line(
+        points={{40,-70},{20,-70},{20,80},{40,80}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, relativePosition3.frame_a) annotation (Line(
+        points={{-60,80},{-40,80},{-40,-70},{-20,-70}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativePosition3.frame_b, body.frame_a) annotation (Line(
+        points={{0,-70},{20,-70},{20,80},{40,80}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedRotated.frame, relativePosition3.frame_resolve) annotation (Line(
+        points={{-40,-90},{0,-90},{0,-78.1}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedRotated.frame, absolutePosition3.frame_resolve) annotation (Line(
+        points={{-40,-90},{50,-90},{50,-80}},
         color={95,95,95},
         thickness=0.5));
     annotation (experiment(StopTime=1));
