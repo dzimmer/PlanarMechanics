@@ -99,11 +99,11 @@ equation
   connect(worldForce.frame_resolve, frame_resolve) annotation (Line(
       points={{30,-10},{0,-10},{0,-100}},
       color={95,95,95},
-      pattern=LinePattern.Dot));
+      thickness=0.5));
   connect(absoluteVelocity.frame_resolve, frame_resolve) annotation (Line(
       points={{30,30},{30,20},{0,20},{0,-100}},
       color={95,95,95},
-      pattern=LinePattern.Dot));
+      thickness=0.5));
   connect(absoluteVelocity.v, normalizeSpeeds.u) annotation (Line(
       points={{19,40},{2,40}},
       color={0,0,127}));
