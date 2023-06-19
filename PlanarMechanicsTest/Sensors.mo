@@ -341,9 +341,9 @@ Expected results:
     PlanarMechanics.Sensors.CutForce cutForce_inFrameResolve(
       resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) annotation (Placement(transformation(extent={{50,-10},{70,10}})));
     PlanarMechanics.Joints.Revolute revolute(
-      useFlange=false,
+      useFlange=true,
       phi(fixed=true, start=0),
-      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{-40,10},{-20,-10}})));
     PlanarMechanics.Parts.FixedTranslation fixedTranslation(r={1,0})  annotation (Placement(transformation(extent={{20,-10},{40,10}})));
     PlanarMechanics.Parts.Fixed fixed(phi=0) annotation (Placement(transformation(
           extent={{-10,10},{10,-10}},
@@ -353,6 +353,8 @@ Expected results:
       defaultWidthFraction=10,
       defaultN_to_m=1)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1)
+      annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
   equation
     connect(revolute.frame_a, cutForce_inFrameA.frame_b) annotation (Line(
         points={{-40,0},{-50,0}},
@@ -382,6 +384,8 @@ Expected results:
         points={{-80,0},{-76,0},{-76,-30},{68,-30},{68,-10}},
         color={95,95,95},
         thickness=0.5));
+    connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{-20,40},{-20,20},{-30,20},{-30,10}}));
+    connect(revolute.support,damper. flange_a) annotation (Line(points={{-36,10},{-36,20},{-40,20},{-40,40}}));
     annotation (
       experiment(StopTime=3));
   end CutForces;
@@ -390,16 +394,16 @@ Expected results:
     extends Modelica.Icons.Example;
 
     PlanarMechanics.Parts.Body body(m=1, I=0.1) annotation (Placement(transformation(extent={{80,-10},{100,10}})));
-    PlanarMechanics.Sensors.CutTorque cutTorque annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
+    PlanarMechanics.Sensors.CutTorque cutTorque annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
     PlanarMechanics.Joints.Revolute revolute(
-      useFlange=false,
+      useFlange=true,
       phi(fixed=true, start=0),
-      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{10,-10},{30,10}})));
+      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{10,10},{30,-10}})));
     PlanarMechanics.Parts.FixedTranslation fixedTranslation(r={1,0})  annotation (Placement(transformation(extent={{40,-10},{60,10}})));
     PlanarMechanics.Parts.Fixed fixed(phi=0) annotation (Placement(transformation(
           extent={{-10,10},{10,-10}},
           rotation=180,
-          origin={-90,0})));
+          origin={-70,0})));
     inner PlanarMechanics.PlanarWorld planarWorld(
       defaultWidthFraction=10,
       defaultN_to_m=1,
@@ -415,6 +419,8 @@ Expected results:
       annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
     PlanarMechanics.Parts.FixedTranslation fixedTranslation1(r={0.5,0})
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+    Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1)
+      annotation (Placement(transformation(extent={{10,30},{30,50}})));
   equation
     connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
         points={{60,0},{80,0}},
@@ -432,17 +438,19 @@ Expected results:
         color={95,95,95},
         thickness=0.5));
     connect(fixed.frame, cutTorque.frame_a) annotation (Line(
-        points={{-80,0},{-60,0}},
+        points={{-60,0},{-50,0}},
         color={95,95,95},
         thickness=0.5));
     connect(cutTorque.frame_b, fixedTranslation1.frame_a) annotation (Line(
-        points={{-40,0},{-20,0}},
+        points={{-30,0},{-20,0}},
         color={95,95,95},
         thickness=0.5));
     connect(fixedTranslation1.frame_b, revolute.frame_a) annotation (Line(
         points={{0,0},{10,0}},
         color={95,95,95},
         thickness=0.5));
+    connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{30,40},{30,20},{20,20},{20,10}}));
+    connect(revolute.support,damper. flange_a) annotation (Line(points={{14,10},{14,20},{10,20},{10,40}}));
     annotation (
       experiment(StopTime=3));
   end CutTorques;
@@ -460,9 +468,9 @@ Expected results:
     PlanarMechanics.Sensors.CutForceAndTorque cutForceAndTorque_inFrameResolve(
       resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve) annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
     PlanarMechanics.Joints.Revolute revolute(
-      useFlange=false,
+      useFlange=true,
       phi(fixed=true, start=0),
-      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{20,-10},{40,10}})));
+      w(fixed=true, start=0)) annotation (Placement(transformation(extent={{20,10},{40,-10}})));
     PlanarMechanics.Parts.FixedTranslation fixedTranslation(r={1,0})  annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=-90,
           origin={80,-20})));
@@ -485,6 +493,8 @@ Expected results:
       amplitude={0,-5,1},
       each startTime=1.8) "Vector of three excitation signals"
       annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
+    Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1)
+      annotation (Placement(transformation(extent={{20,30},{40,50}})));
   equation
     connect(cutForceAndTorque_inFrameA.frame_a, fixed.frame) annotation (Line(
         points={{-70,0},{-80,0}},
@@ -525,6 +535,8 @@ Expected results:
     connect(signalVec3.y,worldForce. force) annotation (Line(
         points={{-39,-40},{-22,-40}},
         color={0,0,127}));
+    connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{40,40},{40,20},{30,20},{30,10}}));
+    connect(revolute.support,damper. flange_a) annotation (Line(points={{24,10},{24,20},{20,20},{20,40}}));
     annotation (
       experiment(StopTime=3));
   end CutForcesAndTorques;
