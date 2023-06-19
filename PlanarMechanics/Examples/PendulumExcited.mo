@@ -7,11 +7,11 @@ model PendulumExcited "A swinging pendulum excited by a world force"
     I=0.1)
     annotation (Placement(transformation(extent={{60,-10},{80,10}})));
   Joints.Revolute revolute(
-    useFlange=false,
+    useFlange=true,
     phi(fixed=true, start=0),
     w(fixed=true, start=0),
     stateSelect=StateSelect.always)
-    annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
+    annotation (Placement(transformation(extent={{-40,10},{-20,-10}})));
   Parts.FixedTranslation fixedTranslation(r= {1,0})
     annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
   Parts.Fixed fixed(phi=0) annotation (Placement(transformation(
@@ -28,7 +28,10 @@ model PendulumExcited "A swinging pendulum excited by a world force"
     each f=1,
     amplitude={0,-5,0},
     each startTime=1.8) "Vector of three excitation signals"
-    annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+    annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
+  Modelica.Mechanics.Rotational.Components.Damper damper(
+    d=0.1)
+    annotation (Placement(transformation(extent={{-40,30},{-20,50}})));
 equation
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-20,0},{-15,0},{-10,0}},
@@ -51,8 +54,10 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(signalVec3.y, worldForce.force) annotation (Line(
-      points={{1,-40},{18,-40}},
+      points={{11,-40},{18,-40}},
       color={0,0,127}));
+  connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{-20,40},{-20,20},{-30,20},{-30,10}}));
+  connect(revolute.support,damper. flange_a) annotation (Line(points={{-36,10},{-36,20},{-40,20},{-40,40}}));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html>
 <p>

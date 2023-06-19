@@ -23,12 +23,18 @@ model DoublePendulum
     animateWorld=true,
     animateGravity=true)
     annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-  Joints.Revolute revolute(phi(fixed=true, start=0), w(fixed=true, start=0),
+  Joints.Revolute revolute(
+    useFlange=true,
+    phi(fixed=true, start=0),
+    w(fixed=true, start=0),
     stateSelect=StateSelect.always)
     annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
   Joints.Revolute revolute1(phi(fixed=true, start=0), w(fixed=true, start=0),
     stateSelect=StateSelect.always)
     annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
+  Modelica.Mechanics.Rotational.Components.Damper damper(
+    d=0.01)
+    annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{-20,20},{0,20}},
@@ -55,6 +61,8 @@ equation
       points={{-20,20},{-10,20},{-10,-20},{0,-20}},
       color={95,95,95},
       thickness=0.5));
+  connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{-50,-20},{-50,0},{-60,0},{-60,10}}));
+  connect(revolute.support,damper. flange_a) annotation (Line(points={{-66,10},{-66,0},{-70,0},{-70,-20}}));
   annotation (experiment(StopTime=10),
     Documentation(revisions="<html>
 <p>

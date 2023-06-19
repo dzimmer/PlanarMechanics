@@ -27,7 +27,9 @@ model MeasureDemo "Measure demo"
         origin={-10,-90})));
   Sensors.RelativePosition relativePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.world)
     annotation (Placement(transformation(extent={{40,82},{60,102}})));
-  Joints.Revolute revolute1(phi(fixed=true), w(fixed=true))
+  Joints.Revolute revolute1(
+    useFlange=true,
+    phi(fixed=true), w(fixed=true))
     annotation (Placement(transformation(extent={{-70,10},{-50,30}})));
   Sensors.AbsoluteVelocity absoluteVelocity(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
     annotation (Placement(transformation(extent={{20,-80},{0,-60}})));
@@ -40,6 +42,9 @@ model MeasureDemo "Measure demo"
     annotation (Placement(transformation(extent={{0,42},{20,62}})));
   Joints.Revolute revolute2(phi(fixed=true), w(fixed=true))
     annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
+  Modelica.Mechanics.Rotational.Components.Damper damper(
+    d=0.1)
+    annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));
 equation
   connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
       points={{-20,20},{-2,20},{10,20}},
@@ -108,9 +113,14 @@ equation
       points={{70,-20},{70,-20},{60,-20},{60,-90},{0,-90}},
       color={95,95,95},
       thickness=0.5));
+  connect(damper.flange_b, revolute1.flange_a) annotation (Line(points={{-50,-20},{-50,0},{-60,0},{-60,10}}));
+  connect(revolute1.support, damper.flange_a) annotation (Line(points={{-66,10},{-66,0},{-70,0},{-70,-20}}));
   annotation (experiment(StopTime=10),
     Documentation(info="<html>
-<p>This example shows how to use absolute and relative sensors for position, velocity and acceleration. For demonstration purposes a double pendulum is used.</p>
+<p>
+This example shows how to use absolute and relative sensors for position,
+velocity and acceleration. For demonstration purposes a double pendulum is used.
+</p>
 </html>",
         revisions="<html>
 <p>
