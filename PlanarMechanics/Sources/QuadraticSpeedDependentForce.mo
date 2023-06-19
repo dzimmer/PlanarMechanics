@@ -152,10 +152,31 @@ equation
     Documentation(
       info="<html>
 <p>
-Model of a&nbsp;force quadratic dependent on the velocity of the flange.
-The force can be resolved in a&nbsp;world frame, or a&nbsp;relative speed
-can be used by selecting resolve_frame to use the extra frame_resolve.
+A&nbsp;force applied on <code>frame_b</code> which is quadratic dependent on
+the velocity of this frame. Both the measured velocity and the applied force
+are resolved in the same frame which is defined via parameter
+<code>resolveInFrame</code> as follows:
 </p>
+
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+  <tr>
+    <th>Types.ResolveInFrameA.</th>
+    <th>Meaning</th>
+  </tr>
+  <tr>
+    <td>world</td>
+    <td>Resolve input force in world frame (= default)</td>
+  </tr>
+  <tr>
+    <td>frame_a</td>
+    <td>Resolve input force in frame_b</td>
+  </tr>
+  <tr>
+    <td>frame_resolve</td>
+    <td>Resolve input force in frame_resolve (frame_resolve must be connected)</td>
+  </tr>
+</table>
+
 <p>
 This model is e.g. suitable to simulate aerodynamic drag forces.
 </p>
