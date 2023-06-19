@@ -22,6 +22,10 @@ It is backwards compatible to previous library versions.
 <p>Improvements in this version:</p>
 <ul>
   <li>
+    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">QuadraticSpeedDependentForce</a>
+    Fix redundant equations when <code>resolveInFrame&nbsp;= frame_resolve</code>.
+  </li>
+  <li>
     Types <a href=\"modelica://PlanarMechanics.Types.Color\">Color</a>
     and <a href=\"modelica://PlanarMechanics.Types.SpecularCoefficient\">SpecularCoefficient</a>
     are obsolete and will be deleted in the next major library release.
