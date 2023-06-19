@@ -26,6 +26,15 @@ It is backwards compatible to previous library versions.
     Fix redundant equations when <code>resolveInFrame&nbsp;= frame_resolve</code>.
   </li>
   <li>
+    Introduced damping in examples
+    <a href=\"modelica://PlanarMechanics.Examples.Pendulum\">Pendulum</a>,
+    <a href=\"modelica://PlanarMechanics.Examples.PendulumExcited\">PendulumExcited</a>,
+    <a href=\"modelica://PlanarMechanics.Examples.DoublePendulum\">DoublePendulum</a>
+    and
+    <a href=\"modelica://PlanarMechanics.Examples.MeasureDemo\">MeasureDemo</a>
+    to omit an undamped system and, thus, to improve simulation performance.
+  </li>
+  <li>
     Types <a href=\"modelica://PlanarMechanics.Types.Color\">Color</a>
     and <a href=\"modelica://PlanarMechanics.Types.SpecularCoefficient\">SpecularCoefficient</a>
     are obsolete and will be deleted in the next major library release.
