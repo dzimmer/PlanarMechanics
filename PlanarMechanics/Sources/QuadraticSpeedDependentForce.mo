@@ -49,7 +49,7 @@ public
     "Coordinate system fixed to the component with one cut-force and cut-torque"
     annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
-  Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0)
+  Interfaces.Frame_resolve frame_resolve
     if resolveInFrameB == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
     annotation (
