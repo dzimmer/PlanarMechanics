@@ -19,9 +19,8 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
       from(
         version={"1.4.1","1.4.0"},
         script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_4_1.mos"),
-      from(
-        version={"1.5.1","1.5.0"},
-        script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_5_0.mos")),
+      noneFromVersion="1.5.0",
+      noneFromVersion="1.5.1"),
     Documentation(
       info="<html>
 <p>
