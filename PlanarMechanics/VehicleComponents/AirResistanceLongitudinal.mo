@@ -74,6 +74,11 @@ This model is limited to negative air velocity <code>v_x</code> only.
 For positive velocity, which can occur e.g. when driving rearwards,
 the air drag is set to zero.
 </p>
+</html>", revisions="<html>
+<p>
+<img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
+<strong>Developed 2022 at the DLR Institute of System Dynamics and Control</strong>
+</p>
 </html>"),
     Diagram(
       coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
