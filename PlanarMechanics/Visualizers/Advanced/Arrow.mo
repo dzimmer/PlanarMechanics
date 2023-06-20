@@ -44,21 +44,25 @@ visualized at the defined location (see variables below).
 </div>
 
 <p>
-The variables under heading <strong>Parameters</strong> below
+The dialog variables <code>R</code>, <code>r</code>, <code>r_tail</code>,
+<code>r_head</code>, <code>diameter</code>, <code>color</code>
+and <code>specularCoefficient</code>
 are declared as (time varying) <strong>input</strong> variables.
-If the default equation is not appropriate, a corresponding
+If the default equation is not appropriate, a&nbsp;corresponding
 modifier equation has to be provided in the
 model where an <strong>Arrow</strong> instance is used, e.g., in the form
 </p>
+
 <blockquote><pre>
 Visualizers.Advanced.Arrow arrow(diameter = sin(time));
 </pre></blockquote>
 
 <p>
-Variable <strong>color</strong> is a RGB color space given in the range 0 .. 255.
-The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
-contains a menu definition of the colors used in the library
-(will be replaced by a color editor).
+Variable <strong>color</strong> is a&nbsp;RGB color space given in the range
+0&nbsp;..&nbsp;255.
+Predefined colors from
+<a href=\"modelica://PlanarMechanics.Types.Defaults\">Types.Defaults</a>
+are used throughout the library to get a&nbsp;coherent visualization.
 </p>
 </html>"),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{

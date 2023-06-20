@@ -19,8 +19,6 @@ model CutTorque "Measure cut torque"
   input Real Nm_to_m(unit="N.m/m") = planarWorld.defaultNm_to_m
     "Torque arrow scaling (length = torque/Nm_to_m)"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input SI.Diameter torqueDiameter = planarWorld.defaultArrowDiameter
-    "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
   input MB.Types.Color torqueColor = Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
     "Color of torque arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
@@ -29,15 +27,15 @@ model CutTorque "Measure cut torque"
     annotation (HideResult=true, Dialog(group="if animation = true", enable=animation));
 
 protected
-  inner Modelica.Mechanics.MultiBody.World world;
   SI.Position t_in_m[3] = {0,0,frame_a.t}*(if positiveSign then +1 else -1)/Nm_to_m
     "Torque mapped from Nm to m for animation";
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow torqueArrow(
+  MB.Visualizers.Advanced.Vector arrowTorque(
+    coordinates=t_in_m,
     color=torqueColor,
     specularCoefficient=specularCoefficient,
     r=MB.Frames.resolve1(planarWorld.R, {frame_b.x,frame_b.y,0}) + planarWorld.r_0,
-    r_tail=t_in_m,
-    r_head=-t_in_m,
+    quantity=MB.Types.VectorQuantity.Torque,
+    headAtOrigin=true,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;
     //R=Modelica.Mechanics.MultiBody.Frames.planarRotation({0,0,1},frame_b.phi,0),
   Internal.BasicCutTorque cutTorque(

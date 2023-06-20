@@ -31,10 +31,6 @@ model CutForceAndTorque "Measure cut force vector and cut torque"
   input Real Nm_to_m(unit="N.m/m") = planarWorld.defaultNm_to_m
     "Torque arrow scaling (length = torque/Nm_to_m)"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input SI.Diameter forceDiameter = planarWorld.defaultArrowDiameter
-    "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
-  input SI.Diameter torqueDiameter = forceDiameter "Diameter of torque arrow"
-    annotation (Dialog(group="if animation = true", enable=animation));
   input MB.Types.Color forceColor = Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
     "Color of force arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
@@ -48,32 +44,34 @@ model CutForceAndTorque "Measure cut force vector and cut torque"
   extends Internal.PartialCutForceSensor;
 
 protected
- inner Modelica.Mechanics.MultiBody.World world;
   parameter Integer csign=if positiveSign then +1 else -1;
   SI.Position f_in_m[3]={frame_a.fx, frame_a.fy, 0}*csign/N_to_m
     "Force mapped from N to m for animation";
   SI.Position t_in_m[3]={0,0,frame_a.t}*csign/Nm_to_m
     "Torque mapped from Nm to m for animation";
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow forceArrow(
+  MB.Visualizers.Advanced.Vector arrowForce(
+    coordinates=f_in_m,
     color=forceColor,
     specularCoefficient=specularCoefficient,
     r=MB.Frames.resolve1(planarWorld.R, {frame_b.x,frame_b.y,0}) + planarWorld.r_0,
-    r_tail=f_in_m,
-    r_head=-f_in_m,
+    quantity=MB.Types.VectorQuantity.Force,
+    headAtOrigin=true,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;
-    //R=Modelica.Mechanics.MultiBody.Frames.planarRotation({0,0,1},frame_b.phi,0),
-  Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow torqueArrow(
+  MB.Visualizers.Advanced.Vector arrowTorque(
+    coordinates=t_in_m,
     color=torqueColor,
     specularCoefficient=specularCoefficient,
     r=MB.Frames.resolve1(planarWorld.R, {frame_b.x,frame_b.y,0}) + planarWorld.r_0,
-    r_tail=t_in_m,
-    r_head=-t_in_m,
+    quantity=MB.Types.VectorQuantity.Torque,
+    headAtOrigin=true,
     R=planarWorld.R) if planarWorld.enableAnimation and animation;
     //R=Modelica.Mechanics.MultiBody.Frames.planarRotation({0,0,1},frame_b.phi,0),
-  Internal.BasicCutForce cutForce(resolveInFrame=resolveInFrame, positiveSign=
-        positiveSign)
+  Internal.BasicCutForce cutForce(
+    resolveInFrame=resolveInFrame,
+    positiveSign=positiveSign)
     annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-  Internal.BasicCutTorque cutTorque(positiveSign=positiveSign)
+  Internal.BasicCutTorque cutTorque(
+    positiveSign=positiveSign)
     annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   Interfaces.ZeroPosition zeroPosition
     if not (resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)

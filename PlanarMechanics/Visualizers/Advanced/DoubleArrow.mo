@@ -2,12 +2,10 @@ within PlanarMechanics.Visualizers.Advanced;
 model DoubleArrow
   "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)"
 
-  import Modelica.Mechanics.MultiBody.Types;
-  import Modelica.Mechanics.MultiBody.Frames;
   import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
   import Modelica.Units.Conversions.to_unit1;
 
-  input Frames.Orientation R=Frames.nullRotation()
+  input MB.Frames.Orientation R=MB.Frames.nullRotation()
     "Orientation object to rotate the planarWorld frame into the arrow frame" annotation(Dialog);
   input SI.Position r[3]={0,0,0}
     "Position vector from origin of planarWorld frame to origin of arrow frame, resolved in planarWorld frame"
@@ -126,9 +124,9 @@ Visualizers.Advanced.DoubleArrow doubleArrow(diameter = sin(time));
 <p>
 Variable <strong>color</strong> is a&nbsp;RGB color space given in the range
 0&nbsp;..&nbsp;255.
-The predefined type <a href=\"modelica://PlanarMechanics.Types.Color\">Types.Color</a>
-contains a&nbsp;menu definition of the colors used in the library together with
-a&nbsp;color editor.
+Predefined colors from
+<a href=\"modelica://PlanarMechanics.Types.Defaults\">Types.Defaults</a>
+are used throughout the library to get a&nbsp;coherent visualization.
 </p>
 </html>"));
 end DoubleArrow;

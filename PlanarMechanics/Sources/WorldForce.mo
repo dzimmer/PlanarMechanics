@@ -9,15 +9,13 @@ model WorldForce
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_b, 3: frame_resolve)";
   parameter Boolean animation=true "= true, if animation shall be enabled";
 
-   parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
+  parameter Real N_to_m(unit="N/m") = planarWorld.defaultN_to_m
     "Force arrow scaling (length = force/N_to_m)"
     annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
   parameter Real Nm_to_m(unit="N.m/m") = planarWorld.defaultNm_to_m
     "Torque arrow scaling (length = torque/Nm_to_m)"
     annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
 
-  input SI.Diameter diameter = planarWorld.defaultArrowDiameter
-    "Diameter of force arrow" annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation"
     annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
@@ -44,27 +42,27 @@ model WorldForce
   SI.Angle phi "Rotation angle of the additional frame_c";
 
 protected
-  SI.Position f_in_m[3]={force[1],force[2],0}/N_to_m
-    "Force mapped from N to m for animation";
-  SI.Position t_in_m[3]={0,0,force[3]}/Nm_to_m
-    "Torque mapped from N.m to m for animation";
+  SI.Position f_in_m[3]={force[1],force[2],0}/N_to_m "Force mapped from N to m for animation";
+  SI.Position t_in_m[3]={0,0,force[3]}/Nm_to_m "Torque mapped from N.m to m for animation";
+  MB.Frames.Orientation R_0 = MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0, 0, 1},phi,der(phi)));
+  SI.Position rvisobj[3] = MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition}) + planarWorld.r_0;
 
-  PlanarMechanics.Visualizers.Advanced.Arrow arrow(
-    diameter=diameter,
+  MB.Visualizers.Advanced.Vector arrowForce(
+    coordinates=f_in_m,
     color=color,
     specularCoefficient=specularCoefficient,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0, 0, 1},phi,der(phi))),
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition})+planarWorld.r_0,
-    r_tail=-f_in_m,
-    r_head=f_in_m) if planarWorld.enableAnimation and animation;
- PlanarMechanics.Visualizers.Advanced.DoubleArrow doubleArrow(
-    diameter=diameter,
+    r=rvisobj,
+    quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Force,
+    headAtOrigin=true,
+    R=R_0) if planarWorld.enableAnimation and animation;
+  MB.Visualizers.Advanced.Vector arrowTorque(
+    coordinates=t_in_m,
     color=color,
     specularCoefficient=specularCoefficient,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0, 1, 0},Modelica.Constants.pi,0)),
-    r=MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition})+planarWorld.r_0,
-    r_tail=t_in_m,
-    r_head=-t_in_m) if planarWorld.enableAnimation and animation;
+    r=rvisobj,
+    quantity=Modelica.Mechanics.MultiBody.Types.VectorQuantity.Torque,
+    headAtOrigin=true,
+    R=planarWorld.R) if planarWorld.enableAnimation and animation;
 
 equation
   if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b then
