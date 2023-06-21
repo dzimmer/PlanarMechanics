@@ -7,9 +7,9 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
 
   annotation (
     preferredView="info",
-    version="1.5.1",
-    versionDate="2021-11-30",
-    dateModified = "2021-11-30 12:00:00Z",
+    version="1.6.0",
+    versionDate="2023-07-26",
+    dateModified = "2023-06-21 12:00:00Z",
     uses(
       Modelica(version="4.0.0")),
     conversion(
@@ -43,7 +43,7 @@ In order to know how the library works, first have a look at:
 
 <h4>Licensed by DLR under the 3-Clause BSD License</h4>
 <p>
-Copyright &copy; 2010-2020, Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)
+Copyright &copy; 2010-2023, Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)
 </p>
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely

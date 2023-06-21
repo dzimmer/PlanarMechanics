@@ -5,7 +5,7 @@ class ReleaseNotes "Release notes"
   annotation (
     Documentation(
       info="<html>
-<h4>Version 1.6.0, 2022-??-??</h4>
+<h4>Version 1.6.0, 2023-07-26</h4>
 <p>
 This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
 It is backwards compatible to previous library versions.
@@ -22,8 +22,8 @@ It is backwards compatible to previous library versions.
 <p>Improvements in this version:</p>
 <ul>
   <li>
-    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">QuadraticSpeedDependentForce</a>
-    Fix redundant equations when <code>resolveInFrame&nbsp;= frame_resolve</code>.
+    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">QuadraticSpeedDependentForce</a>:
+    delete redundant equations when <code>resolveInFrame&nbsp;= frame_resolve</code>.
   </li>
   <li>
     Types <a href=\"modelica://PlanarMechanics.Types.Color\">Color</a>
@@ -32,6 +32,12 @@ It is backwards compatible to previous library versions.
     Corresponding types from
     <a href=\"modelica://Modelica.Mechanics.MultiBody.Types\">Modelica.Mechanics.MultiBody.Types</a>
     are used instead.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors\">Sensors</a> and
+    <a href=\"modelica://PlanarMechanics.Sources\">Sources</a>):
+    uses <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>
+    for visualization of vector quantities (force, torque, etc.).
   </li>
 </ul>
 
