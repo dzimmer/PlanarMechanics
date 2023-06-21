@@ -14,7 +14,7 @@ It is backwards compatible to previous library versions.
 <p>New components:</p>
 <ul>
   <li>
-    <a href=\"modelica://PlanarMechanics.VehicleComponents.AirResistanceLongitudinal\">Air drag model</a>
+    VehicleComponents: <a href=\"modelica://PlanarMechanics.VehicleComponents.AirResistanceLongitudinal\">Air drag model</a>
     for vehicles.
   </li>
 </ul>
@@ -35,9 +35,18 @@ It is backwards compatible to previous library versions.
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sensors\">Sensors</a> and
-    <a href=\"modelica://PlanarMechanics.Sources\">Sources</a>):
-    uses <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>
+    <a href=\"modelica://PlanarMechanics.Sources\">Sources</a>:
+    use <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>
     for visualization of vector quantities (force, torque, etc.).
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Examples.WheelBasedCraneCrab\">Examples.WheelBasedCraneCrab</a>:
+    fix typo in the example name (previously WheelBasedCranCrab).
+  </li>
+  <li>
+    VehicleComponents: add
+    <a href=\"modelica://PlanarMechanics.VehicleComponents.Wheels.BaseClasses\">Wheels.BaseClasses</a>
+    to collect common wheel&apos;s elements.
   </li>
 </ul>
 
