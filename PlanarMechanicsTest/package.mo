@@ -4,8 +4,8 @@ package PlanarMechanicsTest "Library to test components of package PlanarMechani
 
   annotation (
     version="1.6.0",
-    versionDate="2023-07-26",
-    dateModified = "2023-06-21 12:00:00Z",
+    versionDate="2023-09-12",
+    dateModified = "2023-09-12 12:00:00Z",
     uses(
       Modelica(version="4.0.0"),
       PlanarMechanics(version="1.6.0")),
