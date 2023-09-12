@@ -65,11 +65,11 @@ a&nbsp;proper model, see e.g.
 <a href=\"modelica://PlanarMechanics.VehicleComponents.Wheels.IdealWheelJoint\">IdealWheelJoint</a> model.
 </p>
 <p>
-Note: If this model is used, the loss power has to be provided by an equation
-in the model which inherits from the
+Note: the loss power has to be provided by an equation in the model which
+inherits from this partial model, such as
 </p>
 <blockquote><pre>
-WheelInterfaces model(<strong>lossPower = ...</strong>).
+WheelBase model(<strong>lossPower = ...</strong>).
 </pre></blockquote>
 </html>"));
 end WheelBase;

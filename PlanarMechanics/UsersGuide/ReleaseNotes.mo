@@ -5,7 +5,7 @@ class ReleaseNotes "Release notes"
   annotation (
     Documentation(
       info="<html>
-<h4>Version 1.6.0, 2022-??-??</h4>
+<h4>Version 1.6.0, 2023-09-12</h4>
 <p>
 This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
 It is backwards compatible to previous library versions.
@@ -14,7 +14,7 @@ It is backwards compatible to previous library versions.
 <p>New components:</p>
 <ul>
   <li>
-    <a href=\"modelica://PlanarMechanics.VehicleComponents.AirResistanceLongitudinal\">Air drag model</a>
+    VehicleComponents: <a href=\"modelica://PlanarMechanics.VehicleComponents.AirResistanceLongitudinal\">Air drag model</a>
     for vehicles.
   </li>
 </ul>
@@ -22,8 +22,8 @@ It is backwards compatible to previous library versions.
 <p>Improvements in this version:</p>
 <ul>
   <li>
-    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">QuadraticSpeedDependentForce</a>
-    Fix redundant equations when <code>resolveInFrame&nbsp;= frame_resolve</code>.
+    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">QuadraticSpeedDependentForce</a>:
+    delete redundant equations when <code>resolveInFrame&nbsp;= frame_resolve</code>.
   </li>
   <li>
     Types <a href=\"modelica://PlanarMechanics.Types.Color\">Color</a>
@@ -32,6 +32,21 @@ It is backwards compatible to previous library versions.
     Corresponding types from
     <a href=\"modelica://Modelica.Mechanics.MultiBody.Types\">Modelica.Mechanics.MultiBody.Types</a>
     are used instead.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors\">Sensors</a> and
+    <a href=\"modelica://PlanarMechanics.Sources\">Sources</a>:
+    use <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>
+    for visualization of vector quantities (force, torque, etc.).
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Examples.WheelBasedCraneCrab\">Examples.WheelBasedCraneCrab</a>:
+    fix typo in the example name (previously WheelBasedCranCrab).
+  </li>
+  <li>
+    VehicleComponents: add
+    <a href=\"modelica://PlanarMechanics.VehicleComponents.Wheels.BaseClasses\">Wheels.BaseClasses</a>
+    to collect common wheel&apos;s elements.
   </li>
 </ul>
 
