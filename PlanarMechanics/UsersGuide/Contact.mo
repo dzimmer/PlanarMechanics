@@ -30,6 +30,8 @@ email: <a href=\"mailto:Dirk.Zimmer@dlr.de\">Dirk.Zimmer@dlr.de</a>
   <li>A refinement of the library and the modeling of sensors and sources was
       performed by Zheng Qu.</li>
   <li>Components for gear wheels have been added by Franciscus van der Linden.</li>
+  <li>Further component development and library maintenance is
+      done by Jakub Tobolar (DLR-SR).</li>
 </ul>
 </html>"));
 end Contact;

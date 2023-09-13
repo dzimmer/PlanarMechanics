@@ -46,6 +46,7 @@ Contributors:
 - Dr. Dirk Zimmer
 - Franciscus van der Linden
 - Zheng Qu
+- Dr. Jakub Tobolar
 
 You may report any issues with using the [Issues](../../issues) button.
 
