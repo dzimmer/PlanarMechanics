@@ -22,4 +22,6 @@ LICENSE text
 .gitattributes export-ignore
 .github export-ignore
 .gitignore export-ignore
+README.md export-ignore
 PlanarMechanics/Resources/ReferenceVariables export-ignore
+PlanarMechanicsTest export-ignore
