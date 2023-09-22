@@ -37,6 +37,9 @@ jobs:
           echo "::add-matcher::./.github/checkTags.json"
           python ./.CI/check_html.py checkTags ./
           echo "::remove-matcher owner=checkTags::"
+      - name: Check links
+        timeout-minutes: 3
+        run: python ./.CI/check_html.py checkLinks ./
   syntax_checks:
     timeout-minutes: 5
     runs-on: ubuntu-latest
