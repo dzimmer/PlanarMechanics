@@ -1,0 +1,52 @@
+# Labeler attributes
+#   all: all changed files must match the list
+#   any: any of changed files match the list
+
+CI:
+- any: ['.CI/**/*']
+- any: ['.github/**/*']
+
+p::Examples:
+- all: ['PlanarMechanics/Examples/**/*.mo']
+
+p::GearComponents:
+- any: ['PlanarMechanics/GearComponents/**/*.mo']
+
+p::Interfaces:
+- any: ['PlanarMechanics/Interfaces/**/*.mo']
+
+p::Joints:
+- any: ['PlanarMechanics/Joints/**/*.mo']
+
+p::Parts:
+- any: ['PlanarMechanics/Parts/**/*.mo']
+
+p::Sensors:
+- any: ['PlanarMechanics/Sensors/**/*.mo']
+
+p::Sources:
+- any: ['PlanarMechanics/Sources/**/*.mo']
+
+p::Types:
+- any: ['PlanarMechanics/Types/**/*.mo']
+
+p::UsersGuide:
+- all: ['PlanarMechanics/UsersGuide/**/*.mo']
+
+p::Utilities:
+- any: ['PlanarMechanics/Utilities/**/*.mo']
+
+p::VehicleComponents:
+- any: ['PlanarMechanics/VehicleComponents/**/*.mo']
+
+p::Visualizers:
+- any: ['PlanarMechanics/Visualizers/**/*.mo']
+
+
+p::PlanarMechanicsTest:
+- all: ['PlanarMechanicsTest/**/*.mo']
+
+d::Resources:
+- all: ['PlanarMechanics/Resources/**/*']
+
+
