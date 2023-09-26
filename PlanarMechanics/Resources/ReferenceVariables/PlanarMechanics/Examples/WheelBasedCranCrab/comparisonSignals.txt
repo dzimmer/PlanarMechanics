@@ -1,6 +1,0 @@
-time
-body1.phi
-body1.r[1]
-body1.w
-revolute.phi
-revolute.w
