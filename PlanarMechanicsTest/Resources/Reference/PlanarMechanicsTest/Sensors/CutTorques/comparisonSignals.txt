@@ -1,0 +1,3 @@
+time
+damper.phi_rel
+damper.w_rel
