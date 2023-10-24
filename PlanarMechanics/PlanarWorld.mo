@@ -82,7 +82,7 @@ model PlanarWorld
     "Default for the fixed length of a shape representing a force (e.g., damper)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultForceWidth=nominalLength/20
-    "Default for the fixed width of a shape represening a force (e.g., spring, bushing)"
+    "Default for the fixed width of a shape representing a force (e.g., spring, bushing)"
     annotation (Dialog(tab="Defaults"));
   parameter Real defaultFrameDiameterFraction=40
     "Default for arrow diameter of a coordinate system as a fraction of axis length"

@@ -47,7 +47,7 @@ protected
     final scaledLabel=scaledLabel) if planarWorld.enableAnimation;
   annotation (Documentation(info="<html>
 <p>
-This element enbles visualization of an <strong>orthogonal coordinate system</strong>
+This element enables visualization of an <strong>orthogonal coordinate system</strong>
 as shown in the following picture.
 </p>
 

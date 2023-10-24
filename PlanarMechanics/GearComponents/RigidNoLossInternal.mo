@@ -167,7 +167,7 @@ equation
 // Forces on the axis
   frame_a.fx = -sin(phi_gear)*F_n;
   frame_a.fy = cos(phi_gear)*F_n;
-// Force balace
+// Force balance
   frame_a.fx + frame_b.fx = 0;
   frame_a.fy + frame_b.fy = 0;
 
