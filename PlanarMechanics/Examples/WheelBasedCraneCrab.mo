@@ -3,6 +3,7 @@ model WheelBasedCraneCrab "A pendulum mounted on an ideal rolling wheel"
   extends Modelica.Icons.Example;
   Joints.IdealRolling idealRolling(
     R=0.3,
+    stateSelect=StateSelect.always,
     phi(fixed=true),
     w(fixed=true),
     x(fixed=true, start=0)) annotation (Placement(
@@ -14,7 +15,10 @@ model WheelBasedCraneCrab "A pendulum mounted on an ideal rolling wheel"
     m=1,
     I=0.1)
     annotation (Placement(transformation(extent={{10,20},{30,40}})));
-  Joints.Revolute revolute(phi(fixed=true, start=1.3962634015955), w(fixed=true))
+  Joints.Revolute revolute(
+    stateSelect=StateSelect.always,
+    phi(fixed=true, start=1.3962634015955),
+    w(fixed=true, start=0))
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
