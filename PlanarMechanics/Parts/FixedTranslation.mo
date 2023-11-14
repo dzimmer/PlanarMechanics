@@ -7,7 +7,7 @@ model FixedTranslation "A fixed translation between two components (rigid rod)"
   final parameter SI.Length l = Modelica.Math.Vectors.length(r)
     "Length of vector r";
   SI.Position r0[2] "Length of the rod resolved w.r.t to inertal frame";
-  Real R[2,2] "Rotation matrix";
+  Real R[2,2] "Rotation matrix from world frame to frame_a";
 
   parameter Boolean animate = true "= true, if animation shall be enabled"
     annotation(Dialog(group="Animation"));
@@ -54,7 +54,7 @@ equation
   frame_a.fx + frame_b.fx = 0;
   frame_a.fy + frame_b.fy = 0;
 //  frame_a.t + frame_b.t - sx0*frame_b.fy + sy0*frame_b.fx = 0;
-  frame_a.t  + frame_b.t + r0*{frame_b.fy,-frame_b.fx} = 0;
+  frame_a.t + frame_b.t + r0*{frame_b.fy,-frame_b.fx} = 0;
   annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
             {100,100}}),
       graphics={
