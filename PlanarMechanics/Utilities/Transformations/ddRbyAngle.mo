@@ -5,13 +5,13 @@ function ddRbyAngle "Return transformation matrix to rotate around an angle alon
   import Modelica.Math.cos;
 
   input SI.Angle angle "Rotation angle to rotate frame 1 into frame 2";
-  input SI.AngularVelocity w "Rotation angle to rotate frame 1 into frame 2";
-  input SI.AngularAcceleration a "Rotation angle to rotate frame 1 into frame 2";
-  output Types.TransformationMatrix dR "Transformation matrix to rotate frame 1 into frame 2";
+  input SI.AngularVelocity w "Rotational velocity of frame 2 to frame 1";
+  input SI.AngularAcceleration a "Rotational acceleration of frame 2 to frame 1";
+  output Types.TransformationMatrix ddR "Second derivative of transformation matrix to rotate frame 1 into frame 2";
 
 algorithm
-  dR :=[-cos(angle),sin(angle); -sin(angle),-cos(angle)]*w*w +
-       [-sin(angle),-cos(angle); cos(angle),-sin(angle)]*a;
+  ddR :=[-cos(angle),sin(angle); -sin(angle),-cos(angle)]*w*w +
+        [-sin(angle),-cos(angle); cos(angle),-sin(angle)]*a;
 
   annotation (
     smoothOrder=1000,
