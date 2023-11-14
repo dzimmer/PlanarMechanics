@@ -12,6 +12,7 @@ algorithm
 
   annotation (
     smoothOrder=1000,
+    derivative=dRbyAngle,
     Inline=true,
     Documentation(info="<html>
 <h4>Syntax</h4>

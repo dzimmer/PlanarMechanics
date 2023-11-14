@@ -6,7 +6,7 @@ function dRbyAngle "Return transformation matrix to rotate around an angle along
 
   input SI.Angle angle "Rotation angle to rotate frame 1 into frame 2";
   input SI.AngularVelocity w "Rotation angle to rotate frame 1 into frame 2";
-  output Types.TransformationMatrix dR "Transformation matrix to rotate frame 1 into frame 2";
+  output Types.TransformationMatrix dR "First derivative of transformation matrix to rotate frame 1 into frame 2";
 
 algorithm
   dR :=[-sin(angle),-cos(angle); cos(angle),-sin(angle)]*w;
