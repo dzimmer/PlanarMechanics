@@ -41,7 +41,7 @@ model WorldForce
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},rotation=90,origin={0,-100})));
 
-  Real R[2,2] "Rotation matrix";
+  Real R[2,2] "Rotation matrix from world frame to frame_b";
   SI.Angle phi "Rotation angle of the additional frame_c";
 
 protected
@@ -76,7 +76,7 @@ equation
 
   R = {{cos(phi), -sin(phi)}, {sin(phi),cos(phi)}};
   {frame_b.fx,frame_b.fy} + R*{force[1], force[2]} = {0, 0};
-  frame_b.t +  force[3]= 0;
+  frame_b.t + force[3]= 0;
 
   annotation (
     Icon(
