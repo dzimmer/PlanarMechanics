@@ -45,6 +45,16 @@ connector Frame_a
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
 </html>",  info="<html>
-<p>Frame_a is a connector, which lies at the origin of the coordinate system attached to it. Cut-force and cut_torque act at the origin of the coordinate system and are resolved in planarWorld frame. Normally, this connector is fixed to a mechanical component. The same as <a href=\"modelica://PlanarMechanics.Interfaces.Frame_b\">Frame_b</a>.</p>
+<p>
+This frame connector lies at the origin of the coordinate system attached to it.
+Cut-force and cut-torque act at the origin of the coordinate system and are resolved in the
+<a href=\"modelica://PlanarMechanics.PlanarWorld\">PlanarWorld</a> frame. Normally, this
+connector is fixed to a&nbsp;mechanical component.
+It has a&nbsp;filled rectangular icon.
+</p>
+<p>
+See also <a href=\"modelica://PlanarMechanics.Interfaces.Frame_b\">Frame_b</a> or
+<a href=\"modelica://PlanarMechanics.Interfaces.Frame_resolve\">Frame_resolve</a> .
+</p>
 </html>"));
 end Frame_a;

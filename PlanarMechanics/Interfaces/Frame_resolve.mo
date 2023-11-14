@@ -56,5 +56,9 @@ from a Frame_resolve connector to another frame connector,
 by default the connecting line has line style &quot;dotted&quot;.
 This component has a non-filled rectangular icon.
 </p>
+<p>
+See also <a href=\"modelica://PlanarMechanics.Interfaces.Frame_a\">Frame_a</a> or
+<a href=\"modelica://PlanarMechanics.Interfaces.Frame_b\">Frame_b</a> .
+</p>
 </html>"));
 end Frame_resolve;
