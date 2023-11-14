@@ -38,3 +38,8 @@ convertModifiers("PlanarMechanics.Sources.QuadraticSpeedDependentForce",
                   {"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world"},
                   {"resolveInFrame=if %resolveInFrame%==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a then Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b else if %resolveInFrame%==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world then Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world else Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve"}, true);
 
+// Issue 149
+convertClass("PlanarMechanics.Utilities.Functions.atan3b",
+             "Modelica.Math.atan3")
+// No conversion for PlanarMechanics.Utilities.Functions.atan3b_der
+// and               PlanarMechanics.Utilities.Functions.atan3b_dder
