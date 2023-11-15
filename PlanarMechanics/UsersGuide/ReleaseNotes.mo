@@ -32,6 +32,33 @@ It is backwards compatible to previous library versions.
   </li>
 </ul>
 
+<p>Deleted parameters:</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.RelativeForce\">Sources.RelativeForce</a>:
+    diameter
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.WorldForce\">Sources.WorldForce</a>:
+    diameter
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">Sources.QuadraticSpeedDependentForce</a>:
+    diameter
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.CutForce\">Sensors.CutForce</a>:
+    forceDiameter
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.CutForceAndTorque\">Sensors.CutForceAndTorque</a>:
+    forceDiameter, torqueDiameter
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.CutTorque\">Sensors.CutTorque</a>:
+    torqueDiameter
+  </li>
+</ul>
 
 <h4>Version 1.6.0, 2023-09-12</h4>
 <p>
