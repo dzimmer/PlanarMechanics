@@ -16,9 +16,6 @@ model WorldForce
     "Torque arrow scaling (length = torque/Nm_to_m)"
     annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
 
-  input SI.Diameter diameter = planarWorld.defaultArrowDiameter
-    "Has no longer an effect and is only kept for backwards compatibility (arrow visualization by Vector now)"
-    annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation"
     annotation (Dialog(tab="Animation",group="If animation = true", enable=animation));
