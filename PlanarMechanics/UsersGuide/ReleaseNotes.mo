@@ -5,6 +5,34 @@ class ReleaseNotes "Release notes"
   annotation (
     Documentation(
       info="<html>
+<h4>Version 2.0.0, 2024-mm-dd</h4>
+<p>
+This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
+It is backwards compatible to previous library versions.
+</p>
+
+<p>New components:</p>
+<ul>
+  <li>
+    ...
+  </li>
+</ul>
+
+<p>Deleted components (conversion script provided):</p>
+<ul>
+  <li>
+    PlanarMechanics.Types.<strong>SpecularCoefficient</strong>: use
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.SpecularCoefficient\">Modelica.Mechanics.MultiBody.Types.SpecularCoefficient</a>
+    instead.
+  </li>
+  <li>
+    PlanarMechanics.Types.<strong>Color</strong>: use
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">Modelica.Mechanics.MultiBody.Types.Color</a>
+    instead.
+  </li>
+</ul>
+
+
 <h4>Version 1.6.0, 2023-09-12</h4>
 <p>
 This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
