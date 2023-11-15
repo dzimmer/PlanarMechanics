@@ -5,6 +5,254 @@ class ReleaseNotes "Release notes"
   annotation (
     Documentation(
       info="<html>
+<h4>Version 2.0.0, 2026-11-27</h4>
+<p>
+This version requires the <strong>Modelica&nbsp;4.1.0</strong> Library.
+It is <strong>not</strong> backwards compatible to previous library versions.
+</p>
+
+<p>Deleted components (conversion script is provided):</p>
+<ul>
+  <li>
+    PlanarMechanics.Types.<strong>SpecularCoefficient</strong>: use
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.SpecularCoefficient\">Modelica.Mechanics.MultiBody.Types.SpecularCoefficient</a>
+    instead.
+  </li>
+  <li>
+    PlanarMechanics.Types.<strong>Color</strong>: use
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">Modelica.Mechanics.MultiBody.Types.Color</a>
+    instead.
+  </li>
+  <li>
+    PlanarMechanics.Utilities.Functions.<strong>atan3b</strong>: use
+    <a href=\"modelica://Modelica.Math.atan3\">Modelica.Math.atan3</a>
+    instead. Note, there were defined also corresponding derivation functions
+    &quot;atan3b_der&quot; and &quot;atan3b_dder&quot;. Since they both
+    were just usable within atan3b, they are deleted completely without
+    a&nbsp;conversion.
+  </li>
+  <li>
+    PlanarMechanics.Visualizers.Advanced.<strong>DoubleArrow</strong>: use
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow</a>
+    instead.
+  </li>
+</ul>
+
+<p>Deleted parameters (conversion script is provided):</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.RelativeForce\">Sources.RelativeForce</a>:
+    <code>diameter</code>
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.WorldForce\">Sources.WorldForce</a>:
+    <code>diameter</code>
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">Sources.QuadraticSpeedDependentForce</a>:
+    <code>diameter</code>
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.CutForce\">Sensors.CutForce</a>:
+    <code>forceDiameter</code>
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.CutForceAndTorque\">Sensors.CutForceAndTorque</a>:
+    <code>forceDiameter</code>, <code>torqueDiameter</code>
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.CutTorque\">Sensors.CutTorque</a>:
+    <code>torqueDiameter</code>
+  </li>
+</ul>
+
+<p>Renamed parameters or variables (conversion script is provided):</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Joints.Prismatic\">Joints.Prismatic</a>:
+    <code>flange_a</code> renamed to <code>axis</code>.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Joints.Revolute\">Joints.Revolute</a>:
+    <code>flange_a</code> renamed to <code>axis</code>.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.RelativeForce\">Sources.RelativeForce</a> and
+    <a href=\"modelica://PlanarMechanics.Sources.WorldForce\">Sources.WorldForce</a>:
+    instead of one input <code>force[3]</code>, there are <code>force[2]</code> and <code>torque</code>
+    inputs, whereby
+    <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+      <tr>
+        <th> old input</th>
+        <th> new inputs</th>
+      </tr>
+      <tr>
+        <td> force[1] </td>
+        <td> force[1] </td>
+      </tr>
+      <tr>
+        <td> force[2] </td>
+        <td> force[2] </td>
+      </tr>
+      <tr>
+        <td> force[3] </td>
+        <td> torque </td>
+      </tr>
+    </table>
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.AbsolutePosition\">Sensors.AbsolutePosition</a>,
+    <a href=\"modelica://PlanarMechanics.Sensors.AbsoluteVelocity\">Sensors.AbsoluteVelocity</a>,
+    <a href=\"modelica://PlanarMechanics.Sensors.AbsoluteAcceleration\">Sensors.AbsoluteAcceleration</a>,
+    <a href=\"modelica://PlanarMechanics.Sensors.RelativePosition\">Sensors.RelativePosition</a>,
+    <a href=\"modelica://PlanarMechanics.Sensors.RelativeVelocity\">Sensors.RelativeVelocity</a> and
+    <a href=\"modelica://PlanarMechanics.Sensors.RelativeAcceleration\">Sensors.RelativeAcceleration</a>:
+    instead of one output <code>r[3]</code>, <code>r_rel[3]</code>, etc., there are defined separate
+    outputs for translational and rotational movement. This means for example for the AbsolutePosition
+    sensor:
+    <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+      <tr>
+        <th> old output</th>
+        <th> new outputs</th>
+      </tr>
+      <tr>
+        <td> r[1] </td>
+        <td> r[1] </td>
+      </tr>
+      <tr>
+        <td> r[2] </td>
+        <td> r[2] </td>
+      </tr>
+      <tr>
+        <td> r[3] </td>
+        <td> phi </td>
+      </tr>
+    </table>
+    Similarly for all abovementioned sensors. The &quot;old&quot; outputs are still conditionally
+    present and be enabled by the new boolean parameter <code>concatenateOutput</code>.
+  </li>
+</ul>
+
+<p>Deleted constants (conversion script is provided):</p>
+<ul>
+  <li>
+    PlanarMechanics.Types.Defaults.BodyCylinderDiameterFraction: use 
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Defaults.BodyCylinderDiameterFraction\">Modelica.Mechanics.MultiBody.Types.Defaults.BodyCylinderDiameterFraction</a>
+    instead.
+  </li>
+  <li>
+    PlanarMechanics.Types.Defaults.JointRodDiameterFraction: use 
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Defaults.JointRodDiameterFraction\">Modelica.Mechanics.MultiBody.Types.Defaults.JointRodDiameterFraction</a>
+    instead.
+  </li>
+</ul>
+
+<p>Improvements:</p>
+<ul>
+  <li>
+    Visualization:
+    <ul>
+      <li>
+        New default colors
+        &quot;VelocityColor&quot;,
+        &quot;AccelerationColor&quot;,
+        &quot;AngularVelocityColor&quot; and
+        &quot;AngularAccelerationColor&quot; used in
+        <a href=\"modelica://PlanarMechanics.Sensors.AbsoluteVelocity\">Sensors.AbsoluteVelocity</a> and
+        <a href=\"modelica://PlanarMechanics.Sensors.AbsoluteAcceleration\">Sensors.AbsoluteAcceleration</a> for
+        visualization of measured quantity.
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">QuadraticSpeedDependentForce</a>:
+    fix false type of parameter <code>resolveInFrame</code>. The type
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.ResolveInFrameB\">Modelica.Mechanics.MultiBody.Types.ResolveInFrameB</a>
+    is used instead of 
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.ResolveInFrameA\">Modelica.Mechanics.MultiBody.Types.ResolveInFrameA</a>.
+    A&nbsp;conversion scripts exists which converts definitions like
+    <blockquote><pre>
+PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
+  resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a);
+</pre></blockquote>
+    into
+    <blockquote><pre>
+PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
+  resolveInFrame=
+    <font style=\"font-family: Courier New; color: #ff0000;\">if      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a ==
+            Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a then
+              Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b</font>
+    else if Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a) ==
+            Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world then
+              Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
+    else
+              Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve);
+</pre></blockquote>
+    which is formally correct but unreadable. In the code above, the obviously intended
+    conversion result is highlighted red. It can be reduced by the user itself to
+    <blockquote><pre>
+PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
+  resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b);
+</pre></blockquote>
+  </li>
+</ul>
+
+<p>Deleted parameters:</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.RelativeForce\">Sources.RelativeForce</a>:
+    diameter
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.WorldForce\">Sources.WorldForce</a>:
+    diameter
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">Sources.QuadraticSpeedDependentForce</a>:
+    diameter
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.CutForce\">Sensors.CutForce</a>:
+    forceDiameter
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.CutForceAndTorque\">Sensors.CutForceAndTorque</a>:
+    forceDiameter, torqueDiameter
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.CutTorque\">Sensors.CutTorque</a>:
+    torqueDiameter
+  </li>
+</ul>
+
+<h4>Version 1.7.0, 2025-11-27</h4>
+<p>
+This version requires the <strong>Modelica&nbsp;4.1.0</strong> Library.
+It is backwards compatible to previous library versions.
+</p>
+
+<p>Improvements:</p>
+<ul>
+  <li>
+    Library-specific colors from
+    <a href=\"modelica://PlanarMechanics.Types.Defaults\">Types.Defaults</a> are used consequently.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Visualizers.Advanced.Arrow\">Visualizers.Advanced.Arrow</a>:
+    add parameters for arrow's head definition.
+  </li>
+</ul>
+
+<p>Obsolete components:</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a>
+    and <a href=\"modelica://PlanarMechanics.Utilities.Functions.atan3b\">atan3b</a>
+    are obsolete and will be deleted in the next major library release.
+  </li>
+</ul>
+
+
 <h4>Version 1.7.0, 2026-07-03</h4>
 <p>
 This version requires the <strong>Modelica&nbsp;4.1.0</strong> Library.
