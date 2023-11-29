@@ -4,13 +4,9 @@ model QuadraticSpeedDependentForce
 
   outer PlanarWorld planarWorld "Planar world model";
 
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
-protected
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrameB=
-    PlanarMechanics.Utilities.Conversions.fromFrameAtoFrameB(resolveInFrame)
-    "Conversion from frame A to B";
 
 public
   parameter SI.Force F_nominal
@@ -51,7 +47,7 @@ public
     annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   Interfaces.Frame_resolve frame_resolve
-    if resolveInFrameB == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
+    if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
     annotation (
       Placement(transformation(extent={{-16,16},{16,-16}},
@@ -59,7 +55,11 @@ public
         origin={0,-100})));
 
 public
-  Sensors.AbsoluteVelocity absoluteVelocity(resolveInFrame=resolveInFrame)
+  Sensors.AbsoluteVelocity absoluteVelocity(
+    resolveInFrame =
+      if resolveInFrame==MB.Types.ResolveInFrameB.frame_b then MB.Types.ResolveInFrameA.frame_a
+      elseif resolveInFrame==MB.Types.ResolveInFrameB.world then MB.Types.ResolveInFrameA.world
+      else MB.Types.ResolveInFrameA.frame_resolve)
     annotation (Placement(transformation(extent={{40,30},{20,50}})));
   WorldForce worldForce(
     animation=animation,
@@ -68,7 +68,7 @@ public
     zPosition=zPosition,
     color=color,
     specularCoefficient=specularCoefficient,
-    resolveInFrame=resolveInFrameB)
+    resolveInFrame=resolveInFrame)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Modelica.Blocks.Math.MatrixGain normalizeSpeeds(
     K=[1/v_nominal,0,0; 0,1/v_nominal,0; 0,0,1/w_nominal])
