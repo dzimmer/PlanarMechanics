@@ -1,3 +1,12 @@
 time
 damper.phi_rel
 damper.w_rel
+cutForceAndTorque_inFrameA.force[1]
+cutForceAndTorque_inFrameA.force[2]
+cutForceAndTorque_inFrameA.torque
+cutForceAndTorque_inWorld.force[1]
+cutForceAndTorque_inWorld.force[2]
+cutForceAndTorque_inWorld.torque
+cutForceAndTorque_inFrameResolve.force[1]
+cutForceAndTorque_inFrameResolve.force[2]
+cutForceAndTorque_inFrameResolve.torque
