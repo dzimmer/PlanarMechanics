@@ -1,5 +1,8 @@
 // Convert from PlanarMechanics 1.6.0 to PlanarMechanics 2.0.0 and higher
 
+convertClear();
+
+// Issue 189
 // New element Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector
 convertModifiers({"PlanarMechanics.Sources.RelativeForce",
                   "PlanarMechanics.Sources.WorldForce",
@@ -29,3 +32,9 @@ convertModifiers({"PlanarMechanics.Sensors.CutTorque",
 
 // convertClass("PlanarMechanics.Visualizers.Advanced.DoubleArrow",
 //              "ObsoletePlanarMechanics2.Visualizers.Advanced.DoubleArrow")
+
+// Issue 191
+convertModifiers("PlanarMechanics.Sources.QuadraticSpeedDependentForce",
+                  {"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world"},
+                  {"resolveInFrame=if %resolveInFrame%==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a then Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b else if %resolveInFrame%==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world then Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world else Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve"}, true);
+
