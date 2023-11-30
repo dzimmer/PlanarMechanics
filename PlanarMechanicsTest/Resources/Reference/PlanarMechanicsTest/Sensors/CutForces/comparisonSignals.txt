@@ -1,3 +1,9 @@
 time
 damper.phi_rel
 damper.w_rel
+cutForce_inFrameA.force[1]
+cutForce_inFrameA.force[2]
+cutForce_inWorld.force[1]
+cutForce_inWorld.force[2]
+cutForce_inFrameResolve.force[1]
+cutForce_inFrameResolve.force[2]
