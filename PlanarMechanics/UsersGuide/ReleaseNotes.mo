@@ -3,12 +3,12 @@ class ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (
-    Documentation(
+   Documentation(
       info="<html>
 <h4>Version 2.0.0, 2024-mm-dd</h4>
 <p>
 This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
-It is backwards compatible to previous library versions.
+It is <strong>not</strong> backwards compatible to previous library versions.
 </p>
 
 <p>New components:</p>
@@ -18,7 +18,7 @@ It is backwards compatible to previous library versions.
   </li>
 </ul>
 
-<p>Deleted components (conversion script provided):</p>
+<p>Deleted components (conversion script is provided):</p>
 <ul>
   <li>
     PlanarMechanics.Types.<strong>SpecularCoefficient</strong>: use
@@ -30,35 +30,96 @@ It is backwards compatible to previous library versions.
     <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">Modelica.Mechanics.MultiBody.Types.Color</a>
     instead.
   </li>
+  <li>
+    PlanarMechanics.Utilities.Functions.<strong>atan3b</strong>: use
+    <a href=\"modelica://Modelica.Math.atan3\">Modelica.Math.atan3</a>
+    instead. Note, there were defined also corresponding derivation functions
+    &quot;atan3b_der&quot; and &quot;atan3b_dder&quot;. Since they both
+    were just usable within atan3b, they are deleted completely without
+    a&nbsp;conversion.
+  </li>
+  <li>
+    PlanarMechanics.Visualizers.Advanced.<strong>DoubleArrow</strong>: use
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow</a>
+    instead.
+  </li>
 </ul>
 
-<p>Deleted parameters:</p>
+<p>Deleted parameters (conversion script is provided):</p>
 <ul>
   <li>
     <a href=\"modelica://PlanarMechanics.Sources.RelativeForce\">Sources.RelativeForce</a>:
-    diameter
+    <code>diameter</code>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sources.WorldForce\">Sources.WorldForce</a>:
-    diameter
+    <code>diameter</code>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">Sources.QuadraticSpeedDependentForce</a>:
-    diameter
+    <code>diameter</code>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sensors.CutForce\">Sensors.CutForce</a>:
-    forceDiameter
+    <code>forceDiameter</code>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sensors.CutForceAndTorque\">Sensors.CutForceAndTorque</a>:
-    forceDiameter, torqueDiameter
+    <code>forceDiameter</code>, <code>torqueDiameter</code>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sensors.CutTorque\">Sensors.CutTorque</a>:
-    torqueDiameter
+    <code>torqueDiameter</code>
   </li>
 </ul>
+
+<p>Renamed parameters (conversion script is provided):</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Joints.Prismatic\">Joints.Prismatic</a>:
+    <code>flange_a</code> renamed to <code>axis</code>.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Joints.Revolute\">Joints.Revolute</a>:
+    <code>flange_a</code> renamed to <code>axis</code>.
+  </li>
+</ul>
+
+<p>Improvements:</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">QuadraticSpeedDependentForce</a>:
+    fix false type of parameter <code>resolveInFrame</code>. The type
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.ResolveInFrameB\">Modelica.Mechanics.MultiBody.Types.ResolveInFrameB</a>
+    is used instead of 
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.ResolveInFrameA\">Modelica.Mechanics.MultiBody.Types.ResolveInFrameA</a>.
+    A&nbsp;conversion scripts exists which converts definitions like
+    <blockquote><pre>
+PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
+  resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a);
+    </pre></blockquote>
+    into
+    <blockquote><pre>
+PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
+  resolveInFrame=
+    <font style=\"font-family: Courier New; color: #ff0000;\">if      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a ==
+            Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a then
+              Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b</font>
+    else if Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a) ==
+            Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world then
+              Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
+    else
+              Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve);
+    </pre></blockquote>
+    which is formally correct but unreadable. In the code above, the obviously intended
+    conversion result is highlighted red. It can be reduced by the user itself to
+    <blockquote><pre>
+PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
+  resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b);
+    </pre></blockquote>
+  </li>
+</ul>
+
 
 <h4>Version 1.6.0, 2023-09-12</h4>
 <p>
