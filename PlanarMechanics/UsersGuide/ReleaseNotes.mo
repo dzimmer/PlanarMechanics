@@ -3,12 +3,12 @@ class ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
 
   annotation (
-    Documentation(
+   Documentation(
       info="<html>
 <h4>Version 2.0.0, 2024-mm-dd</h4>
 <p>
 This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
-It is backwards compatible to previous library versions.
+It is <strong>not</strong> backwards compatible to previous library versions.
 </p>
 
 <p>New components:</p>
@@ -59,6 +59,42 @@ It is backwards compatible to previous library versions.
     torqueDiameter
   </li>
 </ul>
+
+<p>Improvements:</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">QuadraticSpeedDependentForce</a>:
+    fix false type of parameter <code>resolveInFrame</code>. The type
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.ResolveInFrameB\">Modelica.Mechanics.MultiBody.Types.ResolveInFrameB</a>
+    is used instead of 
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.ResolveInFrameA\">Modelica.Mechanics.MultiBody.Types.ResolveInFrameA</a>.
+    A&nbsp;conversion scripts exists which converts definitions like
+    <blockquote><pre>
+PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
+  resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a);
+    </pre></blockquote>
+    into
+    <blockquote><pre>
+PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
+  resolveInFrame=
+    <font style=\"font-family: Courier New; color: #ff0000;\">if      Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a ==
+            Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a then
+              Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b</font>
+    else if Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a) ==
+            Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world then
+              Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
+    else
+              Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve);
+    </pre></blockquote>
+    which is formally correct but unreadable. In the code above, the obviously intended
+    conversion result is highlighted red. It can be reduced by the user itself to
+    <blockquote><pre>
+PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
+  resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b);
+    </pre></blockquote>
+  </li>
+</ul>
+
 
 <h4>Version 1.6.0, 2023-09-12</h4>
 <p>
