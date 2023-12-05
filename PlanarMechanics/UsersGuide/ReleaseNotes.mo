@@ -30,6 +30,14 @@ It is <strong>not</strong> backwards compatible to previous library versions.
     <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Color\">Modelica.Mechanics.MultiBody.Types.Color</a>
     instead.
   </li>
+  <li>
+    PlanarMechanics.Utilities.Functions.<strong>atan3b</strong>: use
+    <a href=\"modelica://Modelica.Math.atan3\">Modelica.Math.atan3</a>
+    instead. Note, there were defined also corresponding derivation functions
+    &quot;atan3b_der&quot; and &quot;atan3b_dder&quot;. Since they both
+    were just usable within atan3b, they are deleted completely without
+    a&nbsp;conversion.
+  </li>
 </ul>
 
 <p>Deleted parameters:</p>
