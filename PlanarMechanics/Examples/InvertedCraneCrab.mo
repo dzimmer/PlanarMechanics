@@ -87,7 +87,7 @@ equation
       points={{-20,30},{0,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(force.flange, prismatic.flange_a) annotation (Line(
+  connect(force.flange, prismatic.axis) annotation (Line(
       points={{-20,70},{-30,70},{-30,40}},
       color={0,127,0}));
   annotation (Documentation(revisions="<html>
