@@ -80,9 +80,8 @@ equation
       points={{40,30},{60,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(damper1D.flange_b, prismatic.flange_a)
-    annotation (Line(points={{40,60},{40,40},{30,40}},
-                                                 color={0,127,0}));
+  connect(damper1D.flange_b, prismatic.axis)
+    annotation (Line(points={{40,60},{40,40},{30,40}}, color={0,127,0}));
   connect(body3D.frame_a, prismatic3D.frame_b) annotation (Line(
       points={{-10,-30},{-10,-50},{-20,-50}},
       color={95,95,95},
