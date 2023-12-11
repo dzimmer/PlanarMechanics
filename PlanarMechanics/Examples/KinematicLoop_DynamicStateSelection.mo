@@ -103,7 +103,7 @@ equation
       points={{40,60},{80,60},{80,50}},
       color={95,95,95},
       thickness=0.5));
-  connect(springDamper1D.flange_b, prismatic1.flange_a)
+  connect(springDamper1D.flange_b, prismatic1.axis)
     annotation (Line(points={{20,90},{30,90},{30,70}}, color={0,127,0}));
   annotation (experiment(StopTime=6),
     Documentation(revisions="<html>
