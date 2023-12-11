@@ -5,6 +5,10 @@ ForceColor
 TorqueColor
 SpringColor
 SensorColor
+VelocityColor
+AccelerationColor
+AngularVelocityColor
+AngularAccelerationColor
 FrameColor
 ArrowColor
 FrameHeadLengthFraction
