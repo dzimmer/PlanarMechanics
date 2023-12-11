@@ -239,9 +239,9 @@ equation
       points={{-40,20},{-40,12},{-30,12}},
       color={95,95,95},
       thickness=0.5));
-  connect(torque.flange, revolute2.flange_a) annotation (Line(
+  connect(torque.flange, revolute2.axis) annotation (Line(
       points={{-10,40},{-10,30},{-30,30}}));
-  connect(revolute.flange_a, revolute2.flange_a) annotation (Line(
+  connect(revolute.axis, revolute2.axis) annotation (Line(
       points={{30,30},{30,30},{-30,30}}));
   connect(revolute.frame_a, rightTrail.frame_a) annotation (Line(
       points={{40,40},{40,50}},

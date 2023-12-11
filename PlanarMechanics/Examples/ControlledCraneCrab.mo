@@ -80,7 +80,7 @@ equation
       points={{-10,-10},{-10,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(revolute.flange_a, angleSensor.flange) annotation (Line(
+  connect(revolute.axis, angleSensor.flange) annotation (Line(
       points={{0,0},{0,0},{20,0}}));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html>
