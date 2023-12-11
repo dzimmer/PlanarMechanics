@@ -40,31 +40,43 @@ It is <strong>not</strong> backwards compatible to previous library versions.
   </li>
 </ul>
 
-<p>Deleted parameters:</p>
+<p>Deleted parameters (conversion script is provided):</p>
 <ul>
   <li>
     <a href=\"modelica://PlanarMechanics.Sources.RelativeForce\">Sources.RelativeForce</a>:
-    diameter
+    <code>diameter</code>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sources.WorldForce\">Sources.WorldForce</a>:
-    diameter
+    <code>diameter</code>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">Sources.QuadraticSpeedDependentForce</a>:
-    diameter
+    <code>diameter</code>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sensors.CutForce\">Sensors.CutForce</a>:
-    forceDiameter
+    <code>forceDiameter</code>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sensors.CutForceAndTorque\">Sensors.CutForceAndTorque</a>:
-    forceDiameter, torqueDiameter
+    <code>forceDiameter</code>, <code>torqueDiameter</code>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sensors.CutTorque\">Sensors.CutTorque</a>:
-    torqueDiameter
+    <code>torqueDiameter</code>
+  </li>
+</ul>
+
+<p>Renamed parameters (conversion script is provided):</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Joints.Prismatic\">Joints.Prismatic</a>:
+    <code>flange_a</code> renamed to <code>axis</code>.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Joints.Revolute\">Joints.Revolute</a>:
+    <code>flange_a</code> renamed to <code>axis</code>.
   </li>
 </ul>
 
