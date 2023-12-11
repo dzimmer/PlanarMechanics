@@ -389,7 +389,7 @@ Expected results:
         points={{20,80},{0,80},{0,-20},{10,-20}},
         color={95,95,95},
         thickness=0.5));
-    connect(constantTorque.flange, revolute1.flange_a) annotation (Line(points={{-70,-60},{-60,-60},{-60,-30}}, color={0,0,0}));
+    connect(constantTorque.flange, revolute1.axis) annotation (Line(points={{-70,-60},{-60,-60},{-60,-30}}, color={0,0,0}));
 
     annotation (experiment(StopTime=1));
   end AbsoluteAccCentrifugalAcc;
@@ -448,7 +448,7 @@ Expected results:
         points={{-80,0},{-76,0},{-76,-30},{68,-30},{68,-10}},
         color={95,95,95},
         thickness=0.5));
-    connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{-20,40},{-20,20},{-30,20},{-30,10}}));
+    connect(damper.flange_b, revolute.axis) annotation (Line(points={{-20,40},{-20,20},{-30,20},{-30,10}}));
     connect(revolute.support,damper. flange_a) annotation (Line(points={{-36,10},{-36,20},{-40,20},{-40,40}}));
     annotation (
       experiment(StopTime=3));
@@ -513,7 +513,7 @@ Expected results:
         points={{0,0},{10,0}},
         color={95,95,95},
         thickness=0.5));
-    connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{30,40},{30,20},{20,20},{20,10}}));
+    connect(damper.flange_b, revolute.axis) annotation (Line(points={{30,40},{30,20},{20,20},{20,10}}));
     connect(revolute.support,damper. flange_a) annotation (Line(points={{14,10},{14,20},{10,20},{10,40}}));
     annotation (
       experiment(StopTime=3));
@@ -599,7 +599,7 @@ Expected results:
     connect(signalVec3.y,worldForce. force) annotation (Line(
         points={{-39,-40},{-22,-40}},
         color={0,0,127}));
-    connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{40,40},{40,20},{30,20},{30,10}}));
+    connect(damper.flange_b, revolute.axis) annotation (Line(points={{40,40},{40,20},{30,20},{30,10}}));
     connect(revolute.support,damper. flange_a) annotation (Line(points={{24,10},{24,20},{20,20},{20,40}}));
     annotation (
       experiment(StopTime=3));
