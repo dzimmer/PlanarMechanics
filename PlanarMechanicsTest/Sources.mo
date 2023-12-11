@@ -98,7 +98,7 @@ package Sources "Test models for PlanarMechanics.Sources"
         points={{20,20},{30,20},{30,50},{40,50}},
         color={95,95,95},
         thickness=0.5));
-    connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{-10,90},{-10,70},{-20,70},{-20,60}}));
+    connect(damper.flange_b, revolute.axis) annotation (Line(points={{-10,90},{-10,70},{-20,70},{-20,60}}));
     connect(revolute.support, damper.flange_a) annotation (Line(points={{-26,60},{-26,70},{-30,70},{-30,90}}));
     annotation (
       experiment(StopTime=3));
@@ -177,7 +177,7 @@ package Sources "Test models for PlanarMechanics.Sources"
         points={{10,-40},{20,-40},{20,20},{30,20}},
         color={95,95,95},
         thickness=0.5));
-    connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{-20,60},{-20,40},{-30,40},{-30,30}}));
+    connect(damper.flange_b, revolute.axis) annotation (Line(points={{-20,60},{-20,40},{-30,40},{-30,30}}));
     connect(revolute.support, damper.flange_a) annotation (Line(points={{-36,30},{-36,40},{-40,40},{-40,60}}));
     connect(fixedRotated.frame, force_inFrameResolve.frame_resolve) annotation (Line(
         points={{-50,-80},{0,-80}},
@@ -257,7 +257,7 @@ package Sources "Test models for PlanarMechanics.Sources"
     connect(signalVec3.y, force_inWorld.force) annotation (Line(points={{-39,-40},{-30,-40},{-30,-10},{-12,-10}}, color={0,0,127}));
     connect(signalVec3.y, force_inFrameA.force) annotation (Line(points={{-39,-40},{-12,-40}}, color={0,0,127}));
     connect(signalVec3.y, force_inFrameResolve.force) annotation (Line(points={{-39,-40},{-30,-40},{-30,-70},{-12,-70}}, color={0,0,127}));
-    connect(damper.flange_b, revolute.flange_a) annotation (Line(points={{-20,60},{-20,40},{-30,40},{-30,30}}));
+    connect(damper.flange_b, revolute.axis) annotation (Line(points={{-20,60},{-20,40},{-30,40},{-30,30}}));
     connect(revolute.support, damper.flange_a) annotation (Line(points={{-36,30},{-36,40},{-40,40},{-40,60}}));
     connect(fixedRotated.frame, force_inFrameResolve.frame_resolve) annotation (Line(
         points={{-40,-80},{0,-80}},
