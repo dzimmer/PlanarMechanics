@@ -18,7 +18,7 @@ It is <strong>not</strong> backwards compatible to previous library versions.
   </li>
 </ul>
 
-<p>Deleted components (conversion script provided):</p>
+<p>Deleted components (conversion script is provided):</p>
 <ul>
   <li>
     PlanarMechanics.Types.<strong>SpecularCoefficient</strong>: use
@@ -37,6 +37,11 @@ It is <strong>not</strong> backwards compatible to previous library versions.
     &quot;atan3b_der&quot; and &quot;atan3b_dder&quot;. Since they both
     were just usable within atan3b, they are deleted completely without
     a&nbsp;conversion.
+  </li>
+  <li>
+    PlanarMechanics.Visualizers.Advanced.<strong>DoubleArrow</strong>: use
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow</a>
+    instead.
   </li>
 </ul>
 
