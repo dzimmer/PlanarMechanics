@@ -43,3 +43,8 @@ convertClass("PlanarMechanics.Utilities.Functions.atan3b",
              "Modelica.Math.atan3")
 // No conversion for PlanarMechanics.Utilities.Functions.atan3b_der
 // and               PlanarMechanics.Utilities.Functions.atan3b_dder
+
+// Issue 169
+convertElement({"PlanarMechanics.Joints.Prismatic",
+                "PlanarMechanics.Joints.Revolute"},
+                "flange_a", "axis");
