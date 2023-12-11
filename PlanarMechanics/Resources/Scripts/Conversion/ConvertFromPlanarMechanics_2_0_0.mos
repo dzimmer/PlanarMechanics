@@ -16,6 +16,11 @@ convertModifiers({"PlanarMechanics.Sensors.CutTorque",
                  {"torqueDiameter"}, fill("", 0), true);
 // convertModifiers({"PlanarMechanics.Sensors.Distance"},
 //                  {"arrowDiameter"}, fill("", 0), true);
+convertClass("PlanarMechanics.Visualizers.Advanced.DoubleArrow",
+             "Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow")
+convertModifiers("PlanarMechanics.Visualizers.Advanced.DoubleArrow",
+                 {"diameter"}, fill("", 0), true);
+
 
 // convertModifiers({"PlanarMechanics.Sources.RelativeForce",
 //                   "PlanarMechanics.Sources.QuadraticSpeedDependentForce",
@@ -29,9 +34,6 @@ convertModifiers({"PlanarMechanics.Sensors.CutTorque",
 //                   "PlanarMechanics.Sensors.CutTorque",
 //                   "PlanarMechanics.Sensors.CutForceAndTorque"},
 //                  {"Nm_to_m"}, fill("", 0), true);
-
-// convertClass("PlanarMechanics.Visualizers.Advanced.DoubleArrow",
-//              "ObsoletePlanarMechanics2.Visualizers.Advanced.DoubleArrow")
 
 // Issue 191
 convertModifiers("PlanarMechanics.Sources.QuadraticSpeedDependentForce",
