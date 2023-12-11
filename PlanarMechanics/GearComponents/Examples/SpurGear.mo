@@ -43,18 +43,17 @@ model SpurGear "Rigid spur gear"
     annotation (Placement(transformation(extent={{20,60},{40,80}})));
 equation
   connect(gearA_Bearing.frame_b, gearA.frame_a)
-                                            annotation (Line(
+    annotation (Line(
       points={{-40,0},{-20,0},{-20,20}},
       color={95,95,95},
       thickness=0.5));
-  connect(constantSpeed.flange, gearA_Bearing.flange_a)
-                                                 annotation (Line(
-      points={{-80,20},{-50,20},{-50,10}}));
+  connect(constantSpeed.flange, gearA_Bearing.axis)
+    annotation (Line(points={{-80,20},{-50,20},{-50,10}}));
   connect(fixed_A.frame, gearA_Bearing.frame_a) annotation (Line(
       points={{-70,-42},{-70,0},{-60,0}},
       color={95,95,95},
       thickness=0.5));
-  connect(constantTorque.flange, gearB_Bearing.flange_a) annotation (Line(
+  connect(constantTorque.flange, gearB_Bearing.axis) annotation (Line(
       points={{-80,48},{50,48},{50,10}}));
   connect(gearwheelExternal.frame_a, gearA_Bearing.frame_b) annotation (Line(
       points={{-10,0},{-40,0}},
