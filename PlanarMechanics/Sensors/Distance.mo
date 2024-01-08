@@ -4,9 +4,6 @@ model Distance
   extends PlanarMechanics.Interfaces.PartialTwoFrames;
   extends Modelica.Icons.RectangularSensor;
 
-  import Modelica.Mechanics.MultiBody.Frames;
-  import Modelica.Mechanics.MultiBody.Types;
-
   Modelica.Blocks.Interfaces.RealOutput distance(
     final quantity = "Position",
     final unit = "m",
@@ -21,10 +18,10 @@ model Distance
   input SI.Diameter arrowDiameter = planarWorld.defaultArrowDiameter
     "Diameter of relative arrow from frame_a to frame_b"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input Types.Color arrowColor = Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
+  input MB.Types.Color arrowColor = PlanarMechanics.Types.Defaults.SensorColor
     "Color of relative arrow from frame_a to frame_b"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
-  input Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(group="if animation = true", enable=animation));
   input SI.Position s_small(min=sqrt(Modelica.Constants.small)) = 1.E-10
