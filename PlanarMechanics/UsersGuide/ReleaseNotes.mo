@@ -88,6 +88,10 @@ It is <strong>not</strong> backwards compatible to previous library versions.
 <p>Improvements:</p>
 <ul>
   <li>
+    Library colors from
+    <a href=\"modelica://PlanarMechanics.Types.Defaults\">PlanarMechanics.Types.Defaults</a> are used consequently.
+  </li>
+  <li>
     <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">QuadraticSpeedDependentForce</a>:
     fix false type of parameter <code>resolveInFrame</code>. The type
     <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.ResolveInFrameB\">Modelica.Mechanics.MultiBody.Types.ResolveInFrameB</a>
