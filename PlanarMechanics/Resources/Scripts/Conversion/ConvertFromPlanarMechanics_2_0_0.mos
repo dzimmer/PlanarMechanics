@@ -17,10 +17,7 @@ convertModifiers({"PlanarMechanics.Sensors.CutTorque",
 // convertModifiers({"PlanarMechanics.Sensors.Distance"},
 //                  {"arrowDiameter"}, fill("", 0), true);
 convertClass("PlanarMechanics.Visualizers.Advanced.DoubleArrow",
-             "Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow")
-convertModifiers("PlanarMechanics.Visualizers.Advanced.DoubleArrow",
-                 {"diameter"}, fill("", 0), true);
-
+             "ObsoletePlanarMechanics2.Visualizers.Advanced.DoubleArrow")
 
 // convertModifiers({"PlanarMechanics.Sources.RelativeForce",
 //                   "PlanarMechanics.Sources.QuadraticSpeedDependentForce",
