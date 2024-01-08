@@ -37,10 +37,10 @@ model CutForceAndTorque "Measure cut force vector and cut torque"
   input SI.Diameter torqueDiameter = forceDiameter
     "Has no longer an effect and is only kept for backwards compatibility (arrow visualization by Vector now)"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input MB.Types.Color forceColor = Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
+  input MB.Types.Color forceColor = PlanarMechanics.Types.Defaults.ForceColor
     "Color of force arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
-  input MB.Types.Color torqueColor = Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
+  input MB.Types.Color torqueColor = PlanarMechanics.Types.Defaults.TorqueColor
     "Color of torque arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
   input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient

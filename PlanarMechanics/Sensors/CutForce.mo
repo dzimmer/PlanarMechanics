@@ -21,7 +21,7 @@ model CutForce "Measure cut force vector"
   input SI.Diameter forceDiameter = planarWorld.defaultArrowDiameter
     "Has no longer an effect and is only kept for backwards compatibility (arrow visualization by Vector now)"
     annotation (Dialog(group="if animation = true", enable=animation));
-  input MB.Types.Color forceColor = Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
+  input MB.Types.Color forceColor = PlanarMechanics.Types.Defaults.ForceColor
     "Color of force arrow"
     annotation (HideResult=true, Dialog(colorSelector=true, group="if animation = true", enable=animation));
   input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
