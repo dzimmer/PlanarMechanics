@@ -47,3 +47,13 @@ convertClass("PlanarMechanics.Utilities.Functions.atan3b",
 convertElement({"PlanarMechanics.Joints.Prismatic",
                 "PlanarMechanics.Joints.Revolute"},
                 "flange_a", "axis");
+
+// --------------------
+convertElement("PlanarMechanics.Visualizers.Internal.Arrow",
+               "headWidth", "headDiameter");
+
+convertClass("PlanarMechanics.Types.Defaults.BodyCylinderDiameterFraction",
+             "Modelica.Mechanics.MultiBody.Types.Defaults.BodyCylinderDiameterFraction")
+convertClass("PlanarMechanics.Types.Defaults.JointRodDiameterFraction",
+             "Modelica.Mechanics.MultiBody.Types.Defaults.JointRodDiameterFraction")
+
