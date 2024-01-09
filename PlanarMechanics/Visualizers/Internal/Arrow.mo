@@ -31,13 +31,6 @@ model Arrow
 
 protected
   SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
-  Real e_x[3](each final unit="1", start={1,0,0}) = noEvent(if length < 1.e-10 then {1,0,0} else r_head/length);
-  Real rxvisobj[3](each final unit="1") = transpose(R.T)*e_x
-    "X-axis unit vector of shape, resolved in planarWorld frame"
-    annotation (HideResult=true);
-  SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)
-    "Position vector from planarWorld frame to shape frame, resolved in planarWorld frame"
-    annotation (HideResult=true);
 
   SI.Length headLengthMax=noEvent(min(length, headLength))
     annotation(HideResult=true);
@@ -65,7 +58,8 @@ protected
     shapeType="cone",
     color=color,
     specularCoefficient=specularCoefficient,
-    r=rvisobj + rxvisobj*arrowLength,
+    r_shape=r_tail + r_head*noEvent(if length < 1.e-7 then 0 else arrowLength/length),
+    r=r,
     R=R);
 
   annotation (
