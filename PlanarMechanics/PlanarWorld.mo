@@ -128,6 +128,8 @@ protected
     r_tail={gravityArrowTail[1],gravityArrowTail[2],0},
     r_head=gravityArrowLength*Modelica.Math.Vectors.normalize({g[1],g[2],0}),
     diameter=gravityArrowDiameter,
+    headDiameter=gravityArrowDiameter*PlanarMechanics.Types.Defaults.ArrowHeadWidthFraction,
+    headLength=gravityArrowDiameter*PlanarMechanics.Types.Defaults.ArrowHeadLengthFraction,
     color=gravityArrowColor,
     specularCoefficient=0) if enableAnimation and animateGravity;
 
