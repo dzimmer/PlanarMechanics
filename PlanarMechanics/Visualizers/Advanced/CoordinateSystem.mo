@@ -11,9 +11,9 @@ model CoordinateSystem
     "Position vector from origin of object frame to shape origin, resolved in object frame"
     annotation(Dialog);
 
-  parameter SI.Length axisLength=planarWorld.nominalLength/2
+  parameter SI.Length length=planarWorld.nominalLength/2
     "Length of world axes arrows";
-  parameter SI.Diameter axisDiameter=axisLength/planarWorld.defaultFrameDiameterFraction
+  parameter SI.Diameter diameter=length/planarWorld.defaultFrameDiameterFraction
     "Diameter of world axes arrows";
 
   parameter MB.Types.Color color_x=PlanarMechanics.Types.Defaults.FrameColor
@@ -24,12 +24,12 @@ model CoordinateSystem
   parameter MB.Types.Color color_z=color_x "Color of z-arrow"
     annotation (HideResult = true, Dialog(colorSelector=true));
 
-  parameter Boolean axisShowLabels=true "True, if labels shall be shown"
+  parameter Boolean showLabels=true "True, if labels shall be shown"
     annotation (HideResult=true, Dialog(group="Axes labels"));
-  parameter SI.Length labelStart=1.05*axisLength
-    annotation(Dialog(group="Axes labels", enable=axisShowLabels));
-  parameter SI.Length scaledLabel=PlanarMechanics.Types.Defaults.FrameLabelHeightFraction*axisDiameter
-    annotation(Dialog(group="Axes labels", enable=axisShowLabels));
+  parameter SI.Length labelStart=1.05*length
+    annotation(Dialog(group="Axes labels", enable=showLabels));
+  parameter SI.Length scaledLabel=PlanarMechanics.Types.Defaults.FrameLabelHeightFraction*diameter
+    annotation(Dialog(group="Axes labels", enable=showLabels));
 
 protected
   outer .PlanarMechanics.PlanarWorld planarWorld;
@@ -37,12 +37,12 @@ protected
     final r=r,
     final R=R,
     final r_shape=r_shape,
-    final axisLength=axisLength,
-    final axisDiameter=axisDiameter,
+    final length=length,
+    final diameter=diameter,
     final color_x=color_x,
     final color_y=color_y,
     final color_z=color_z,
-    final axisShowLabels=axisShowLabels,
+    final showLabels=showLabels,
     final labelStart=labelStart,
     final scaledLabel=scaledLabel) if planarWorld.enableAnimation;
   annotation (Documentation(info="<html>

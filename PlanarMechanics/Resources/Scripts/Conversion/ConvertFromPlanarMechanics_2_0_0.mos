@@ -52,6 +52,16 @@ convertElement({"PlanarMechanics.Joints.Prismatic",
 convertElement("PlanarMechanics.Visualizers.Internal.Arrow",
                "headWidth", "headDiameter");
 
+convertElement({"PlanarMechanics.Visualizers.Advanced.CoordinateSystem",
+                "PlanarMechanics.Visualizers.Internal.CoordinateSystem"},
+                "axisLength", "length");
+convertElement({"PlanarMechanics.Visualizers.Advanced.CoordinateSystem",
+                "PlanarMechanics.Visualizers.Internal.CoordinateSystem"},
+                "axisDiameter", "diameter");
+convertElement({"PlanarMechanics.Visualizers.Advanced.CoordinateSystem",
+                "PlanarMechanics.Visualizers.Internal.CoordinateSystem"},
+                "axisShowLabels", "showLabels");
+
 convertClass("PlanarMechanics.Types.Defaults.BodyCylinderDiameterFraction",
              "Modelica.Mechanics.MultiBody.Types.Defaults.BodyCylinderDiameterFraction")
 convertClass("PlanarMechanics.Types.Defaults.JointRodDiameterFraction",
