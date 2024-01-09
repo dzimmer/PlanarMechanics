@@ -118,10 +118,6 @@ protected
 
   SI.Acceleration gz "Auxiliary gravity acc. in z-direction";
 
-  parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
-  parameter Integer ndim2=if enableAnimation and animateWorld and
-      axisShowLabels then 1 else 0;
-
   // Parameters to define axes labels
   parameter SI.Length scaledLabel=Modelica.Mechanics.MultiBody.Types.Defaults.FrameLabelHeightFraction*
       axisDiameter;

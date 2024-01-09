@@ -98,16 +98,10 @@ model PlanarWorld
     annotation (Dialog(tab="Defaults"));
 
 protected
-  parameter Integer ndim=if enableAnimation and animateWorld then 1 else 0;
-  parameter Integer ndim2=if enableAnimation and animateWorld and
-      axisShowLabels then 1 else 0;
-
-  // Parameters to define axes labels
   parameter SI.Length scaledLabel=Modelica.Mechanics.MultiBody.Types.Defaults.FrameLabelHeightFraction*
       axisDiameter;
   parameter SI.Length labelStart=1.05*axisLength;
 
-  // coordinate system
 protected
   Visualizers.Internal.CoordinateSystem coordinateSystem(
     r=r_0,
