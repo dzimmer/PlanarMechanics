@@ -34,12 +34,6 @@ package Defaults "Default settings of the library via constants"
   constant Real ArrowHeadWidthFraction=3.0
     "Arrow head width / arrow diameter";
 
-  // Other defaults
-  constant Real BodyCylinderDiameterFraction=3
-    "Default for body cylinder diameter as a fraction of body sphere diameter";
-  constant Real JointRodDiameterFraction=2
-    "Default for rod diameter as a fraction of joint sphere diameter attached to rod";
-
 /*
   constant Real N_to_m(unit="N/m") = 1000
     "Default force arrow scaling (length = force/N_to_m_default)";
