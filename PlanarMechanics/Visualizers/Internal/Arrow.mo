@@ -18,6 +18,10 @@ model Arrow
     annotation(Dialog(enable=true));
   input SI.Diameter diameter=1/40 "Diameter of arrow line"
     annotation(Dialog(enable=true));
+  input SI.Diameter headDiameter=3*diameter "Diameter of arrow head"
+    annotation(Dialog(enable=true));
+  input SI.Length headLength=5*diameter "Length of arrow head"
+    annotation(Dialog(enable=true));
   input MB.Types.Color color=PlanarMechanics.Types.Defaults.ArrowColor
     "Color of arrow"
     annotation(HideResult=true, Dialog(colorSelector=true));
@@ -35,11 +39,9 @@ protected
     "Position vector from planarWorld frame to shape frame, resolved in planarWorld frame"
     annotation (HideResult=true);
 
-  SI.Length headLength=noEvent(max(0, length - arrowLength))
+  SI.Length headLengthMax=noEvent(min(length, headLength))
     annotation(HideResult=true);
-  SI.Length headWidth=noEvent(max(0, diameter*PlanarMechanics.Types.Defaults.ArrowHeadWidthFraction))
-    annotation(HideResult=true);
-  SI.Length arrowLength = noEvent(max(0, length - diameter*PlanarMechanics.Types.Defaults.ArrowHeadLengthFraction))
+  SI.Length arrowLength = length - headLengthMax
     annotation(HideResult=true);
 
   MB.Visualizers.Advanced.Shape arrowLine(
@@ -55,9 +57,9 @@ protected
     r=r,
     R=R);
   MB.Visualizers.Advanced.Shape arrowHead(
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
+    length=headLengthMax,
+    width=headDiameter,
+    height=headDiameter,
     lengthDirection=to_unit1(r_head),
     widthDirection={0,1,0},
     shapeType="cone",
