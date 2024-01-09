@@ -15,8 +15,11 @@ model Arrow
     annotation(Dialog);
   input SI.Diameter diameter=planarWorld.defaultArrowDiameter
     "Diameter of arrow line" annotation(Dialog);
-  input MB.Types.Color color=PlanarMechanics.Types.Defaults.ArrowColor
-    "Color of arrow"
+  input SI.Length headDiameter=3*diameter "Diameter of arrow head"
+    annotation(Dialog(enable=true));
+  input SI.Length headLength=5*diameter "Length of arrow head"
+    annotation(Dialog(enable=true));
+  input MB.Types.Color color=PlanarMechanics.Types.Defaults.ArrowColor "Color of arrow"
     annotation(HideResult=true, Dialog(colorSelector=true));
   input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
@@ -30,6 +33,8 @@ protected
     r_tail=r_tail,
     r_head=r_head,
     diameter=diameter,
+    headDiameter=headDiameter,
+    headLength=headLength,
     color=color,
     specularCoefficient=specularCoefficient) if planarWorld.enableAnimation;
   annotation (
