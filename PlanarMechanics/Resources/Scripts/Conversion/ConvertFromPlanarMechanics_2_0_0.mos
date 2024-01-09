@@ -62,6 +62,13 @@ convertElement({"PlanarMechanics.Visualizers.Advanced.CoordinateSystem",
                 "PlanarMechanics.Visualizers.Internal.CoordinateSystem"},
                 "axisShowLabels", "showLabels");
 
+convertModifiers(PlanarMechanics.Visualizers.Internal.Arrow,
+                 {"e_x"}, fill("", 0), true);
+convertModifiers(PlanarMechanics.Visualizers.Internal.Arrow,
+                 {"rxvisobj"}, fill("", 0), true);
+convertModifiers(PlanarMechanics.Visualizers.Internal.Arrow,
+                 {"rvisobj"}, fill("", 0), true);
+
 convertModifiers({"PlanarMechanics.PlanarWorld",
                   "PlanarMechanics.PlanarWorldIn3D"},
                  {"ndim"}, fill("", 0), true);
