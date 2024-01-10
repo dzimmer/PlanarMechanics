@@ -50,7 +50,8 @@ convertElement({"PlanarMechanics.Joints.Prismatic",
 
 // --------------------
 convertElement("PlanarMechanics.Visualizers.Internal.Arrow",
-               "headWidth", "headDiameter");
+               {"headWidth", "arrowLength"},
+               {"headDiameter", "lineLength"});
 
 convertElement({"PlanarMechanics.Visualizers.Advanced.CoordinateSystem",
                 "PlanarMechanics.Visualizers.Internal.CoordinateSystem"},
