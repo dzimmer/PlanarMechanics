@@ -32,13 +32,14 @@ model Arrow
 protected
   SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
 
-  SI.Length headLengthMax=noEvent(min(length, headLength))
-    annotation(HideResult=true);
-  SI.Length arrowLength = length - headLengthMax
-    annotation(HideResult=true);
+  SI.Length headLengthMax=noEvent(min(length, headLength));
+  SI.Length lineLength = length - headLengthMax;
+  SI.Position r_shape_cone[3]=r_tail + r_head*noEvent(if length < 1.e-7 then 0 else lineLength/length)
+    "Position vector from origin of arrow frame to origin of head's cone shape, resolved in arrow frame";
+
 
   MB.Visualizers.Advanced.Shape arrowLine(
-    length=arrowLength,
+    length=lineLength,
     width=diameter,
     height=diameter,
     lengthDirection=to_unit1(r_head),
@@ -58,7 +59,7 @@ protected
     shapeType="cone",
     color=color,
     specularCoefficient=specularCoefficient,
-    r_shape=r_tail + r_head*noEvent(if length < 1.e-7 then 0 else arrowLength/length),
+    r_shape=r_shape_cone,
     r=r,
     R=R);
 
