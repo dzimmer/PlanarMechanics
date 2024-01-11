@@ -147,6 +147,20 @@ It is <strong>not</strong> backwards compatible to previous library versions.
   </li>
 </ul>
 
+<p>Deleted constants (conversion script is provided):</p>
+<ul>
+  <li>
+    PlanarMechanics.Types.Defaults.BodyCylinderDiameterFraction: use 
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Defaults.BodyCylinderDiameterFraction\">Modelica.Mechanics.MultiBody.Types.Defaults.BodyCylinderDiameterFraction</a>
+    instead.
+  </li>
+  <li>
+    PlanarMechanics.Types.Defaults.JointRodDiameterFraction: use 
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types.Defaults.JointRodDiameterFraction\">Modelica.Mechanics.MultiBody.Types.Defaults.JointRodDiameterFraction</a>
+    instead.
+  </li>
+</ul>
+
 <p>Improvements:</p>
 <ul>
   <li>
