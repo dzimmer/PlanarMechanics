@@ -95,7 +95,7 @@ The only difference between this two visualizers is that the current one does
 not utilizes <strong>outer planarWorld</strong>, whereas the other does.
 </p>
 <p>
-This element enbles visualization of an <strong>orthogonal coordinate system</strong>
+This element enables visualization of an <strong>orthogonal coordinate system</strong>
 as shown in the following picture.
 </p>
 
