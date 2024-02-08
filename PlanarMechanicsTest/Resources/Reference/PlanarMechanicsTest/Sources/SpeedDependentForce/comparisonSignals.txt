@@ -1,0 +1,12 @@
+time
+damper.phi_rel
+damper.w_rel
+force_inWorld.force[1]
+force_inWorld.force[2]
+force_inWorld.force[3]
+force_inFrameA.force[1]
+force_inFrameA.force[2]
+force_inFrameA.force[3]
+force_inFrameResolve.force[1]
+force_inFrameResolve.force[2]
+force_inFrameResolve.force[3]

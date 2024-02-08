@@ -1,0 +1,11 @@
+time
+damper.phi_rel
+damper.w_rel
+relativeForce_inWorld.frame_b.fx
+relativeForce_inWorld.frame_b.fy
+relativeForce_inFrameA.frame_b.fx
+relativeForce_inFrameA.frame_b.fy
+relativeForce_inFrameB.frame_b.fx
+relativeForce_inFrameB.frame_b.fy
+relativeForce_inFrameResolve.frame_b.fx
+relativeForce_inFrameResolve.frame_b.fy
