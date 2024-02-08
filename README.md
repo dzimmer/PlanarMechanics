@@ -26,7 +26,7 @@ The PlanarMechanics library is an open-source Modelica library for the modelling
 
 ## License
 
-The library is released under the 3-Clause BSD license, see [LICENSE](LICENSE) and https://modelica.org/licenses/modelica-3-clause-bsd.
+The library is released under the 3-Clause BSD license, see [LICENSE](LICENSE).
 
 ## Reference results
 Reference results for regression testing can be found in [PlanarMechanics_ReferenceResults](https://github.com/DLR-SR/PlanarMechanics_ReferenceResults).
