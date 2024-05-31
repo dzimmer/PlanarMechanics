@@ -4,9 +4,11 @@ partial model PartialCutTorqueBaseSensor
 
   extends Modelica.Icons.RoundSensor;
   Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
+        transformation(extent={{-116,-16},{-84,16}})),
+      mustBeConnected="Connector frame_a should be connected");
   Interfaces.Frame_b frame_b "Coordinate system b" annotation (Placement(
-        transformation(extent={{84,-16},{116,16}})));
+        transformation(extent={{84,-16},{116,16}})),
+      mustBeConnected="Connector frame_b should be connected");
 //   Interfaces.Frame_resolve frame_resolve
 //     "The output vector is optionally resolved in this frame (cut-force/-torque are set to zero)"
 //     annotation (Placement(transformation(
@@ -22,11 +24,6 @@ partial model PartialCutTorqueBaseSensor
 protected
   outer PlanarWorld planarWorld;
 equation
-  assert(cardinality(frame_a) > 0,
-    "Connector frame_a of cut-force/-torque sensor object is not connected");
-  assert(cardinality(frame_b) > 0,
-    "Connector frame_b of cut-force/-torque sensor object is not connected");
-
   // frame_a and frame_b are identical
   {frame_a.x, frame_a.y} = {frame_b.x, frame_b.y};
   frame_a.phi = frame_b.phi;
@@ -51,10 +48,13 @@ cut-torque acting between the two frames and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</html>"), Icon(coordinateSystem(
+</html>"),
+    Icon(
+      coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={
+        grid={2,2}),
+      graphics={
         Line(points={{-70,0},{-101,0}}),
         Line(points={{70,0},{100,0}}),
         Text(

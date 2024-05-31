@@ -14,14 +14,17 @@ model BasicTransformAbsoluteVector
 
   Interfaces.Frame_a frame_a
     "Coordinate system from which absolute kinematic quantities are measured" annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
+        transformation(extent={{-116,-16},{-84,16}})),
+      mustBeConnected="Connector frame_a should be connected");
 
   Interfaces.Frame_resolve frame_resolve
     "Coordinate system in which vector is optionally resolved"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
         origin={100,0}),
         iconTransformation(extent={{-16,-16},{16,16}},
-        origin={100,0})));
+        origin={100,0})),
+      mustBeConnected="Connector frame_resolve should be connected",
+      mayOnlyConnectOnce="Connector frame_resolve must be connected exactly once");
 
   Modelica.Blocks.Interfaces.RealInput r_in[3]
     "Input vector resolved in frame defined by frame_r_in"
@@ -39,8 +42,6 @@ protected
     "Orientation object from frame in which r_in is resolved to world frame";
   Real r_temp[3] "Temporary vector in transformation calculation";
 equation
-   assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-   assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
    frame_a.fx = 0;
    frame_a.fy = 0;
    frame_a.t = 0;
