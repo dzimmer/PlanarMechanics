@@ -250,7 +250,7 @@ drag PlanarMechanics.PlanarWorld into the top level of your model.",
 </p>
 </html>",
       info="<html>
-<p>Model <strong>PlanarWorld</strong> defines all possible general parameters to make parameterization of models much more convenient. It has the following functionalites.</p>
+<p>Model <strong>PlanarWorld</strong> defines all possible general parameters to make parameterization of models much more convenient. It has the following functionalities.</p>
 <ol>
   <li> It defines the global coordinate system fixed in ground and shows the
        x, y, z axes in animation if wanted.</li>
