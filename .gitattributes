@@ -25,3 +25,5 @@ LICENSE text
 README.md export-ignore
 PlanarMechanics/Resources/ReferenceVariables export-ignore
 PlanarMechanicsTest export-ignore
+
+*.mo linguist-language=Modelica
