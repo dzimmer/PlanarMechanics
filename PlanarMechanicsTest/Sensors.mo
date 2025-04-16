@@ -229,33 +229,29 @@ package Sensors "Test models for PlanarMechanics.Sensors"
       enableAnimation=true,
       inheritGravityFromMultiBody=false)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-
-    PlanarMechanics.Parts.Body
-               body(m=1, I=0.1)
+    PlanarMechanics.Parts.Body body(m=1, I=0.1)
       annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
-    PlanarMechanics.Parts.FixedTranslation
-                           fixedTranslation(r={10,0})
+    PlanarMechanics.Parts.FixedTranslation fixedTranslation(r={10,0})
       annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-    PlanarMechanics.Parts.Fixed
-                fixed annotation (Placement(transformation(
+    PlanarMechanics.Parts.Fixed fixed annotation (Placement(transformation(
           extent={{-10,10},{10,-10}},
           rotation=180,
           origin={-90,-20})));
-    PlanarMechanics.Joints.Revolute
-                    revolute1(phi(fixed=true), w(
-        fixed=true,
+    PlanarMechanics.Joints.Revolute revolute1(
+      phi(fixed=true),
+      w(fixed=true,
         displayUnit="rad/s",
         start=10))
       annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));
-    PlanarMechanics.Sensors.AbsolutePosition absolutePosition(resolveInFrame=
-          Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
-                                                              annotation (Placement(transformation(extent={{20,10},
+    PlanarMechanics.Sensors.AbsolutePosition absolutePosition(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
+      annotation (Placement(transformation(extent={{20,10},
               {40,30}})));
-    PlanarMechanics.Sensors.AbsoluteVelocity absoluteVelocity(resolveInFrame=
-          Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
+    PlanarMechanics.Sensors.AbsoluteVelocity absoluteVelocity(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
       annotation (Placement(transformation(extent={{20,40},{40,60}})));
     PlanarMechanics.Sensors.AbsoluteAcceleration absoluteAcceleration(
-        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
       annotation (Placement(transformation(extent={{20,70},{40,90}})));
   equation
     connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
@@ -286,9 +282,10 @@ package Sensors "Test models for PlanarMechanics.Sensors"
     annotation (
       experiment(StopTime=1),
       Diagram(
-          coordinateSystem(preserveAspectRatio=false), graphics={Text(
+        coordinateSystem(preserveAspectRatio=false), graphics={
+          Text(
             extent={{-60,-40},{60,-100}},
-            lineColor={28,108,200},
+            textColor={28,108,200},
             horizontalAlignment=TextAlignment.Left,
             textString="Assumptions:
 Gravity to isolate the effect of centrifugal acc.
