@@ -62,7 +62,7 @@ jobs:
       - name: Check syntax
         run: |
           echo "::add-matcher::./.github/moparser.json"
-          ModelicaSyntaxChecker/Linux64/moparser -v 3.6 -r PlanarMechanics
+          ModelicaSyntaxChecker/Linux64/moparser -v 3.6 -r PlanarMechanics PlanarMechanicsTest
           echo "::remove-matcher owner=moparser::"
 
   deprecation_checks:
@@ -80,5 +80,5 @@ jobs:
       - name: Check deprecated Text.lineColor annotation
         run: |
           echo "::add-matcher::./.github/check_deprecated_line_color.json"
-          python ./.CI/check_deprecated_line_color.py PlanarMechanics
+          python ./.CI/check_deprecated_line_color.py PlanarMechanics PlanarMechanicsTest
           echo "::remove-matcher owner=check_deprecated_line_color::"
