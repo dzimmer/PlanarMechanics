@@ -4,9 +4,11 @@ partial model PartialCutTorqueSensor
 
   extends Modelica.Icons.RoundSensor;
   Interfaces.Frame_a frame_a "Coordinate system a" annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
+        transformation(extent={{-116,-16},{-84,16}})),
+      mustBeConnected="Connector frame_a should be connected");
   Interfaces.Frame_b frame_b "Coordinate system b" annotation (Placement(
-        transformation(extent={{84,-16},{116,16}})));
+        transformation(extent={{84,-16},{116,16}})),
+      mustBeConnected="Connector frame_b should be connected");
 //   Interfaces.Frame_resolve frame_resolve if
 //          resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
 //     "Output vectors are optionally resolved in this frame (cut-force/-torque are set to zero)"
@@ -22,11 +24,6 @@ partial model PartialCutTorqueSensor
 
 protected
   outer PlanarWorld planarWorld;
-equation
-  assert(cardinality(frame_a) > 0,
-    "Connector frame_a of cut-force/-torque sensor object is not connected");
-  assert(cardinality(frame_b) > 0,
-    "Connector frame_b of cut-force/-torque sensor object is not connected");
 
   annotation (
     Documentation(revisions="<html>
