@@ -82,3 +82,8 @@ convertClass("PlanarMechanics.Types.Defaults.BodyCylinderDiameterFraction",
 convertClass("PlanarMechanics.Types.Defaults.JointRodDiameterFraction",
              "Modelica.Mechanics.MultiBody.Types.Defaults.JointRodDiameterFraction")
 
+// Commit c7196cda8b87e8e9f2155cdf386709eb56d1a852
+convertClass("PlanarMechanics.Types.SpecularCoefficient",
+             "Modelica.Mechanics.MultiBody.Types.SpecularCoefficient")
+convertClass("PlanarMechanics.Types.Color",
+             "Modelica.Mechanics.MultiBody.Types.Color")
