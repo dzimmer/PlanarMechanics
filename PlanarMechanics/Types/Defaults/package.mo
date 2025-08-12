@@ -17,6 +17,14 @@ package Defaults "Default settings of the library via constants"
     "Default color for a spring (blue)";
   constant MB.Types.Color SensorColor={200,200,0}
     "Default color for sensors (yellow)";
+  constant MB.Types.Color VelocityColor={0,0,200}
+    "Default color for velocity (blue)";
+  constant MB.Types.Color AccelerationColor={255,255,0}
+    "Default color for velocity (yellow)";
+  constant MB.Types.Color AngularVelocityColor={0,255,255}
+    "Default color for velocity (cyan)";
+  constant MB.Types.Color AngularAccelerationColor={255,0,255}
+    "Default color for velocity (magenta)";
   constant MB.Types.Color FrameColor={85,85,200}
     "Default color for frame axes and labels (blue)";
   constant MB.Types.Color ArrowColor={0,0,200}

@@ -3,6 +3,19 @@ model AbsoluteVelocity
   "Measure absolute velocity of origin of frame connector"
   extends Internal.PartialAbsoluteSensor;
 
+  parameter Boolean animation = false
+    "= true, if animation shall be enabled (show arrow)"
+    annotation (Dialog(group="Animation"));
+  input MB.Types.Color colorVelocity = PlanarMechanics.Types.Defaults.VelocityColor
+    "Color of velocity arrow"
+    annotation (HideResult=true, Dialog(colorSelector=true, group="Animation", enable=animation));
+  input MB.Types.Color colorAngularVelocity = PlanarMechanics.Types.Defaults.AngularVelocityColor
+    "Color of angular velocity arrow"
+    annotation (HideResult=true, Dialog(colorSelector=true, group="Animation", enable=animation));
+  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+    "Reflection of ambient light (= 0: light is completely absorbed)"
+    annotation (HideResult=true, Dialog(group="Animation", enable=animation));
+
   Modelica.Blocks.Interfaces.RealOutput v[3](
     final quantity = {"Velocity", "Velocity", "AngularVelocity"},
     final unit = {"m/s", "m/s", "rad/s"})
@@ -11,7 +24,7 @@ model AbsoluteVelocity
         extent={{-10,-10},{10,10}},
         origin={110,0})));
   Interfaces.Frame_resolve frame_resolve
- if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
+    if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector v is optionally resolved"
     annotation (Placement(transformation(extent={{-16,-16},{16,16}},
         rotation=-90,
@@ -41,6 +54,26 @@ protected
   Interfaces.ZeroPosition zeroPosition1 if not (
     resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
     annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
+
+  outer PlanarWorld planarWorld;
+  MB.Visualizers.Advanced.Vector vectorVelocity(
+    final coordinates={der1[1].y,der1[2].y,0},
+    final color=colorVelocity,
+    final specularCoefficient=specularCoefficient,
+    final r=MB.Frames.resolve1(planarWorld.R, {frame_a.x,frame_a.y,0}) + planarWorld.r_0,
+    final quantity=MB.Types.VectorQuantity.Velocity,
+    final headAtOrigin=true,
+    final R=planarWorld.R) if planarWorld.enableAnimation and animation
+    annotation (Placement(transformation(extent={{20,60},{40,80}})));
+  MB.Visualizers.Advanced.Vector vectorAngularVelocity(
+    final coordinates={0,0,der1[3].y},
+    final color=colorAngularVelocity,
+    final specularCoefficient=specularCoefficient,
+    final r=MB.Frames.resolve1(planarWorld.R, {frame_a.x,frame_a.y,0}) + planarWorld.r_0,
+    final quantity=MB.Types.VectorQuantity.AngularVelocity,
+    final headAtOrigin=true,
+    final R=planarWorld.R) if planarWorld.enableAnimation and animation
+    annotation (Placement(transformation(extent={{60,60},{80,80}})));
 equation
   connect(position.r, der1.u) annotation (Line(
       points={{-39,0},{-12,0}},

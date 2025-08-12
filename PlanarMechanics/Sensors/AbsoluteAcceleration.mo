@@ -3,6 +3,19 @@ model AbsoluteAcceleration
   "Measure absolute acceleration of origin of frame connector"
   extends Internal.PartialAbsoluteSensor;
 
+  parameter Boolean animation = false
+    "= true, if animation shall be enabled (show arrow)"
+    annotation (Dialog(group="Animation"));
+  input MB.Types.Color colorAcceleration = PlanarMechanics.Types.Defaults.AccelerationColor
+    "Color of acceleration arrow"
+    annotation (HideResult=true, Dialog(colorSelector=true, group="Animation", enable=animation));
+  input MB.Types.Color colorAngularAcceleration = PlanarMechanics.Types.Defaults.AngularAccelerationColor
+    "Color of angular acceleration arrow"
+    annotation (HideResult=true, Dialog(colorSelector=true, group="Animation", enable=animation));
+  input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
+    "Reflection of ambient light (= 0: light is completely absorbed)"
+    annotation (HideResult=true, Dialog(group="Animation", enable=animation));
+
   Modelica.Blocks.Interfaces.RealOutput a[3](
     final quantity = {"Acceleration", "Acceleration", "AngularAcceleration"},
     final unit = {"m/s2", "m/s2", "rad/s2"})
@@ -40,6 +53,26 @@ protected
     annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
   Modelica.Blocks.Continuous.Der der2[3] annotation (Placement(transformation(
         extent={{10,-10},{30,10}})));
+
+  outer PlanarWorld planarWorld;
+  MB.Visualizers.Advanced.Vector vectorAcceleration(
+    final coordinates={der2[1].y,der2[2].y,0},
+    final color=colorAcceleration,
+    final specularCoefficient=specularCoefficient,
+    final r=MB.Frames.resolve1(planarWorld.R, {frame_a.x,frame_a.y,0}) + planarWorld.r_0,
+    final quantity=MB.Types.VectorQuantity.Acceleration,
+    final headAtOrigin=true,
+    final R=planarWorld.R) if planarWorld.enableAnimation and animation
+    annotation (Placement(transformation(extent={{20,60},{40,80}})));
+  MB.Visualizers.Advanced.Vector vectorAngularAcceleration(
+    final coordinates={0,0,der2[3].y},
+    final color=colorAngularAcceleration,
+    final specularCoefficient=specularCoefficient,
+    final r=MB.Frames.resolve1(planarWorld.R, {frame_a.x,frame_a.y,0}) + planarWorld.r_0,
+    final quantity=MB.Types.VectorQuantity.AngularAcceleration,
+    final headAtOrigin=true,
+    final R=planarWorld.R) if planarWorld.enableAnimation and animation
+    annotation (Placement(transformation(extent={{60,60},{80,80}})));
 equation
   connect(position.r, der1.u) annotation (Line(
       points={{-39,0},{-32,0}},
