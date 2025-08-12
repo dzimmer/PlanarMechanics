@@ -102,12 +102,27 @@ It is <strong>not</strong> backwards compatible to previous library versions.
 <p>Improvements:</p>
 <ul>
   <li>
-    Library colors from
-    <a href=\"modelica://PlanarMechanics.Types.Defaults\">PlanarMechanics.Types.Defaults</a> are used consequently.
-  </li>
-  <li>
-    <a href=\"modelica://PlanarMechanics.Visualizers.Advanced.Arrow\">PlanarMechanics.Visualizers.Advanced.Arrow</a>:
-    add parameters for arrow's head definition.
+    Visualization:
+    <ul>
+      <li>
+        Library colors from
+        <a href=\"modelica://PlanarMechanics.Types.Defaults\">Types.Defaults</a> are used consequently.
+      </li>
+      <li>
+        New default colors
+        &quot;VelocityColor&quot;,
+        &quot;AccelerationColor&quot;,
+        &quot;AngularVelocityColor&quot; and
+        &quot;AngularAccelerationColor&quot; used in
+        <a href=\"modelica://PlanarMechanics.Sensors.AbsoluteVelocity\">Sensors.AbsoluteVelocity</a> and
+        <a href=\"modelica://PlanarMechanics.Sensors.AbsoluteAcceleration\">Sensors.AbsoluteAcceleration</a> for
+        visualization of measured quantity.
+      </li>
+      <li>
+        <a href=\"modelica://PlanarMechanics.Visualizers.Advanced.Arrow\">Visualizers.Advanced.Arrow</a>:
+        add parameters for arrow's head definition.
+      </li>
+    </ul>
   </li>
   <li>
     <a href=\"modelica://PlanarMechanics.Sources.QuadraticSpeedDependentForce\">QuadraticSpeedDependentForce</a>:
@@ -119,7 +134,7 @@ It is <strong>not</strong> backwards compatible to previous library versions.
     <blockquote><pre>
 PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
   resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a);
-    </pre></blockquote>
+</pre></blockquote>
     into
     <blockquote><pre>
 PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
@@ -132,13 +147,13 @@ PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
               Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
     else
               Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve);
-    </pre></blockquote>
+</pre></blockquote>
     which is formally correct but unreadable. In the code above, the obviously intended
     conversion result is highlighted red. It can be reduced by the user itself to
     <blockquote><pre>
 PlanarMechanics.Sources.QuadraticSpeedDependentForce force(
   resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b);
-    </pre></blockquote>
+</pre></blockquote>
   </li>
 </ul>
 
