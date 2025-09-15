@@ -60,15 +60,12 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(ramp.y, firstOrder.u) annotation (Line(
-      points={{67.4,0},{64.7,0},{64.7,0},{63.2,
-          0}},
+      points={{67.4,0},{64.7,0},{64.7,0},{63.2,0}},
       color={0,0,127}));
   connect(firstOrder.y, inverseBlockConstraints.u2) annotation (Line(
-      points={{49.4,0},{47.8,0},{47.8,0},{46.2,
-          0},{46.2,0},{43,0}},
+      points={{49.4,0},{47.8,0},{47.8,0},{46.2,0},{46.2,0},{43,0}},
       color={0,0,127}));
-
-  connect(revolute.flange_a, angleSensor.flange)
+  connect(revolute.axis, angleSensor.flange)
     annotation (Line(points={{0,0},{0,0},{8,0}}));
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-10,-10},{-10,-20}},
@@ -87,7 +84,7 @@ equation
       points={{-20,30},{0,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(force.flange, prismatic.flange_a) annotation (Line(
+  connect(force.flange, prismatic.axis) annotation (Line(
       points={{-20,70},{-30,70},{-30,40}},
       color={0,127,0}));
   annotation (Documentation(revisions="<html>

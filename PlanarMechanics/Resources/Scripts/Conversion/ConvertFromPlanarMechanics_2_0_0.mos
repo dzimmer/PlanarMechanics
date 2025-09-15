@@ -1,5 +1,8 @@
 // Convert from PlanarMechanics 1.6.0 to PlanarMechanics 2.0.0 and higher
 
+convertClear();
+
+// Issue 189
 // New element Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector
 convertModifiers({"PlanarMechanics.Sources.RelativeForce",
                   "PlanarMechanics.Sources.WorldForce",
@@ -13,6 +16,8 @@ convertModifiers({"PlanarMechanics.Sensors.CutTorque",
                  {"torqueDiameter"}, fill("", 0), true);
 // convertModifiers({"PlanarMechanics.Sensors.Distance"},
 //                  {"arrowDiameter"}, fill("", 0), true);
+convertClass("PlanarMechanics.Visualizers.Advanced.DoubleArrow",
+             "ObsoletePlanarMechanics2.Visualizers.Advanced.DoubleArrow")
 
 // convertModifiers({"PlanarMechanics.Sources.RelativeForce",
 //                   "PlanarMechanics.Sources.QuadraticSpeedDependentForce",
@@ -27,5 +32,58 @@ convertModifiers({"PlanarMechanics.Sensors.CutTorque",
 //                   "PlanarMechanics.Sensors.CutForceAndTorque"},
 //                  {"Nm_to_m"}, fill("", 0), true);
 
-// convertClass("PlanarMechanics.Visualizers.Advanced.DoubleArrow",
-//              "ObsoletePlanarMechanics2.Visualizers.Advanced.DoubleArrow")
+// Issue 191
+convertModifiers("PlanarMechanics.Sources.QuadraticSpeedDependentForce",
+                  {"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world"},
+                  {"resolveInFrame=if %resolveInFrame%==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a then Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b else if %resolveInFrame%==Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world then Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world else Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve"}, true);
+
+// Issue 149
+convertClass("PlanarMechanics.Utilities.Functions.atan3b",
+             "Modelica.Math.atan3")
+// No conversion for PlanarMechanics.Utilities.Functions.atan3b_der
+// and               PlanarMechanics.Utilities.Functions.atan3b_dder
+
+// Issue 169
+convertElement({"PlanarMechanics.Joints.Prismatic",
+                "PlanarMechanics.Joints.Revolute"},
+                "flange_a", "axis");
+
+// --------------------
+convertElement("PlanarMechanics.Visualizers.Internal.Arrow",
+               {"headWidth", "arrowLength"},
+               {"headDiameter", "lineLength"});
+
+convertElement({"PlanarMechanics.Visualizers.Advanced.CoordinateSystem",
+                "PlanarMechanics.Visualizers.Internal.CoordinateSystem"},
+                "axisLength", "length");
+convertElement({"PlanarMechanics.Visualizers.Advanced.CoordinateSystem",
+                "PlanarMechanics.Visualizers.Internal.CoordinateSystem"},
+                "axisDiameter", "diameter");
+convertElement({"PlanarMechanics.Visualizers.Advanced.CoordinateSystem",
+                "PlanarMechanics.Visualizers.Internal.CoordinateSystem"},
+                "axisShowLabels", "showLabels");
+
+convertModifiers(PlanarMechanics.Visualizers.Internal.Arrow,
+                 {"e_x"}, fill("", 0), true);
+convertModifiers(PlanarMechanics.Visualizers.Internal.Arrow,
+                 {"rxvisobj"}, fill("", 0), true);
+convertModifiers(PlanarMechanics.Visualizers.Internal.Arrow,
+                 {"rvisobj"}, fill("", 0), true);
+
+convertModifiers({"PlanarMechanics.PlanarWorld",
+                  "PlanarMechanics.PlanarWorldIn3D"},
+                 {"ndim"}, fill("", 0), true);
+convertModifiers({"PlanarMechanics.PlanarWorld",
+                  "PlanarMechanics.PlanarWorldIn3D"},
+                 {"ndim2"}, fill("", 0), true);
+
+convertClass("PlanarMechanics.Types.Defaults.BodyCylinderDiameterFraction",
+             "Modelica.Mechanics.MultiBody.Types.Defaults.BodyCylinderDiameterFraction")
+convertClass("PlanarMechanics.Types.Defaults.JointRodDiameterFraction",
+             "Modelica.Mechanics.MultiBody.Types.Defaults.JointRodDiameterFraction")
+
+// Commit c7196cda8b87e8e9f2155cdf386709eb56d1a852
+convertClass("PlanarMechanics.Types.SpecularCoefficient",
+             "Modelica.Mechanics.MultiBody.Types.SpecularCoefficient")
+convertClass("PlanarMechanics.Types.Color",
+             "Modelica.Mechanics.MultiBody.Types.Color")

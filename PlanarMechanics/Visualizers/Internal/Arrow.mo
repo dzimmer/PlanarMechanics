@@ -18,6 +18,10 @@ model Arrow
     annotation(Dialog(enable=true));
   input SI.Diameter diameter=1/40 "Diameter of arrow line"
     annotation(Dialog(enable=true));
+  input SI.Diameter headDiameter=3*diameter "Diameter of arrow head"
+    annotation(Dialog(enable=true));
+  input SI.Length headLength=5*diameter "Length of arrow head"
+    annotation(Dialog(enable=true));
   input MB.Types.Color color=PlanarMechanics.Types.Defaults.ArrowColor
     "Color of arrow"
     annotation(HideResult=true, Dialog(colorSelector=true));
@@ -27,23 +31,15 @@ model Arrow
 
 protected
   SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
-  Real e_x[3](each final unit="1", start={1,0,0}) = noEvent(if length < 1.e-10 then {1,0,0} else r_head/length);
-  Real rxvisobj[3](each final unit="1") = transpose(R.T)*e_x
-    "X-axis unit vector of shape, resolved in planarWorld frame"
-    annotation (HideResult=true);
-  SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)
-    "Position vector from planarWorld frame to shape frame, resolved in planarWorld frame"
-    annotation (HideResult=true);
 
-  SI.Length headLength=noEvent(max(0, length - arrowLength))
-    annotation(HideResult=true);
-  SI.Length headWidth=noEvent(max(0, diameter*PlanarMechanics.Types.Defaults.ArrowHeadWidthFraction))
-    annotation(HideResult=true);
-  SI.Length arrowLength = noEvent(max(0, length - diameter*PlanarMechanics.Types.Defaults.ArrowHeadLengthFraction))
-    annotation(HideResult=true);
+  SI.Length headLengthMax=noEvent(min(length, headLength));
+  SI.Length lineLength = length - headLengthMax;
+  SI.Position r_shape_cone[3]=r_tail + r_head*noEvent(if length < 1.e-7 then 0 else lineLength/length)
+    "Position vector from origin of arrow frame to origin of head's cone shape, resolved in arrow frame";
+
 
   MB.Visualizers.Advanced.Shape arrowLine(
-    length=arrowLength,
+    length=lineLength,
     width=diameter,
     height=diameter,
     lengthDirection=to_unit1(r_head),
@@ -55,15 +51,16 @@ protected
     r=r,
     R=R);
   MB.Visualizers.Advanced.Shape arrowHead(
-    length=headLength,
-    width=headWidth,
-    height=headWidth,
+    length=headLengthMax,
+    width=headDiameter,
+    height=headDiameter,
     lengthDirection=to_unit1(r_head),
     widthDirection={0,1,0},
     shapeType="cone",
     color=color,
     specularCoefficient=specularCoefficient,
-    r=rvisobj + rxvisobj*arrowLength,
+    r_shape=r_shape_cone,
+    r=r,
     R=R);
 
   annotation (

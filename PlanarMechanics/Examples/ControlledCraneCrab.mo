@@ -69,7 +69,7 @@ equation
       points={{-20,30},{0,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(prismatic.flange_a, force.flange) annotation (Line(
+  connect(prismatic.axis, force.flange) annotation (Line(
       points={{-30,40},{-30,40},{-30,70},{-20,70}},
       color={0,127,0}));
   connect(prismatic.frame_b, revolute.frame_a) annotation (Line(
@@ -80,7 +80,7 @@ equation
       points={{-10,-10},{-10,-20}},
       color={95,95,95},
       thickness=0.5));
-  connect(revolute.flange_a, angleSensor.flange) annotation (Line(
+  connect(revolute.axis, angleSensor.flange) annotation (Line(
       points={{0,0},{0,0},{20,0}}));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html>

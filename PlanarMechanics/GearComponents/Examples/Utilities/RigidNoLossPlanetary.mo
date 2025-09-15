@@ -131,7 +131,7 @@ equation
       points={{-80,30},{-80,10},{-70,10}},
       color={95,95,95},
       thickness=0.5));
-  connect(bearing_Sun.flange_a, flange_Sun) annotation (Line(
+  connect(bearing_Sun.axis, flange_Sun) annotation (Line(
       points={{-60,0},{-60,0},{-60,-10},{-100,-10},{-100,0}}));
   connect(bearing_Carrier.frame_b, carrierAngle.frame_a) annotation (Line(
       points={{-50,-40},{-40,-40}},
@@ -145,13 +145,13 @@ equation
       points={{-70,40},{-80,40},{-80,30}},
       color={95,95,95},
       thickness=0.5));
-  connect(bearing_Ring.flange_a, flange_Ring) annotation (Line(
+  connect(bearing_Ring.axis, flange_Ring) annotation (Line(
       points={{-60,50},{-60,60},{-100,60}}));
   connect(planet.frame_a, bearing_Planet.frame_b) annotation (Line(
       points={{72,40},{48,40},{48,-40},{40,-40}},
       color={95,95,95},
       thickness=0.5));
-  connect(sun.flange_a, bearing_Sun.flange_a) annotation (Line(
+  connect(sun.flange_a, bearing_Sun.axis) annotation (Line(
       points={{-40,-10},{-60,-10},{-60,0}}));
   connect(bearing_Sun.frame_b, sunPlanet.frame_a) annotation (Line(
       points={{-50,10},{0,10}},
@@ -163,7 +163,7 @@ equation
       points={{-50,40},{0,40}},
       color={95,95,95},
       thickness=0.5));
-  connect(ring.flange_a, bearing_Ring.flange_a) annotation (Line(
+  connect(ring.flange_a, bearing_Ring.axis) annotation (Line(
       points={{-40,60},{-60,60},{-60,50}}));
   connect(sunPlanet.heatPort, internalHeatPort) annotation (Line(
       points={{0,0},{60,0},{60,-60},{-90,-60},{-90,-80},{-100,-80}},
@@ -171,7 +171,7 @@ equation
   connect(planetRing.heatPort, internalHeatPort) annotation (Line(
       points={{20,30},{60,30},{60,-60},{-90,-60},{-90,-80},{-100,-80}},
       color={191,0,0}));
-  connect(bearing_Carrier.flange_a, carrier.flange_a) annotation (Line(
+  connect(bearing_Carrier.axis, carrier.flange_a) annotation (Line(
       points={{-60,-30},{-60,-26},{70,-26}}));
   connect(planarWorld.MBFrame_a,frameVisualisation)  annotation (Line(
       points={{60,-80},{0,-80},{0,-100}},

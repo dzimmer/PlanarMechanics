@@ -17,6 +17,14 @@ package Defaults "Default settings of the library via constants"
     "Default color for a spring (blue)";
   constant MB.Types.Color SensorColor={200,200,0}
     "Default color for sensors (yellow)";
+  constant MB.Types.Color VelocityColor={0,0,200}
+    "Default color for velocity (blue)";
+  constant MB.Types.Color AccelerationColor={255,255,0}
+    "Default color for velocity (yellow)";
+  constant MB.Types.Color AngularVelocityColor={0,255,255}
+    "Default color for velocity (cyan)";
+  constant MB.Types.Color AngularAccelerationColor={255,0,255}
+    "Default color for velocity (magenta)";
   constant MB.Types.Color FrameColor={85,85,200}
     "Default color for frame axes and labels (blue)";
   constant MB.Types.Color ArrowColor={0,0,200}
@@ -33,12 +41,6 @@ package Defaults "Default settings of the library via constants"
     "Arrow head length / arrow diameter";
   constant Real ArrowHeadWidthFraction=3.0
     "Arrow head width / arrow diameter";
-
-  // Other defaults
-  constant Real BodyCylinderDiameterFraction=3
-    "Default for body cylinder diameter as a fraction of body sphere diameter";
-  constant Real JointRodDiameterFraction=2
-    "Default for rod diameter as a fraction of joint sphere diameter attached to rod";
 
 /*
   constant Real N_to_m(unit="N/m") = 1000
