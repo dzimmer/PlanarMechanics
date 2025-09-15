@@ -1,6 +1,5 @@
 within PlanarMechanics.Sensors;
-model AbsoluteAcceleration
-  "Measure absolute acceleration of origin of frame connector"
+model AbsoluteAcceleration "Measure absolute acceleration of origin of frame connector"
   extends Internal.PartialAbsoluteSensor;
 
   parameter Boolean animation = false
@@ -16,13 +15,19 @@ model AbsoluteAcceleration
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(group="Animation", enable=animation));
 
-  Modelica.Blocks.Interfaces.RealOutput a[3](
+  Modelica.Blocks.Interfaces.RealOutput a_z[3](
     final quantity = {"Acceleration", "Acceleration", "AngularAcceleration"},
     final unit = {"m/s2", "m/s2", "rad/s2"})
     "Vector of absolute measurements of frame_a on acceleration level, resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
+  Modelica.Blocks.Interfaces.RealOutput a[2](
+    each final quantity = "Acceleration",
+    each final unit = "m/s2") "Vector of absolute acceleration, resolved in frame defined by resolveInFrame" annotation (Placement(transformation(extent={{100,50},{120,70}})));
+  Modelica.Blocks.Interfaces.RealOutput z(
+    final quantity="AngularAcceleration",
+    final unit="rad/s2") "Absolute angular acceleration" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Interfaces.Frame_resolve frame_resolve
     if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector v is optionally resolved"
@@ -50,10 +55,11 @@ protected
     annotation (Placement(transformation(extent={{-60,-60},{-80,-40}})));
   Interfaces.ZeroPosition zeroPosition1 if not (
     resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
-    annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
+    annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
   Modelica.Blocks.Continuous.Der der2[3] annotation (Placement(transformation(
         extent={{10,-10},{30,10}})));
 
+protected
   outer PlanarWorld planarWorld;
   MB.Visualizers.Advanced.Vector vectorAcceleration(
     final coordinates={der2[1].y,der2[2].y,0},
@@ -63,7 +69,7 @@ protected
     final quantity=MB.Types.VectorQuantity.Acceleration,
     final headAtOrigin=true,
     final R=planarWorld.R) if planarWorld.enableAnimation and animation
-    annotation (Placement(transformation(extent={{20,60},{40,80}})));
+    annotation (Placement(transformation(extent={{0,60},{20,80}})));
   MB.Visualizers.Advanced.Vector vectorAngularAcceleration(
     final coordinates={0,0,der2[3].y},
     final color=colorAngularAcceleration,
@@ -72,7 +78,7 @@ protected
     final quantity=MB.Types.VectorQuantity.AngularAcceleration,
     final headAtOrigin=true,
     final R=planarWorld.R) if planarWorld.enableAnimation and animation
-    annotation (Placement(transformation(extent={{60,60},{80,80}})));
+    annotation (Placement(transformation(extent={{40,60},{60,80}})));
 equation
   connect(position.r, der1.u) annotation (Line(
       points={{-39,0},{-32,0}},
@@ -92,17 +98,20 @@ equation
       thickness=0.5));
   connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
     annotation (Line(
-      points={{49.9,-10},{50,-10},{50,-50},{60,-50}},
+      points={{49.9,-10},{50,-10},{50,-50},{40,-50}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
-      points={{49.9,-10},{50,-10},{50,-50},{0,-50},{0,-100}},
+      points={{49.9,-10},{50,-10},{50,-80},{0,-80},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
 
   connect(der1.y, der2.u) annotation (Line(points={{-9,0},{8,0}}, color={0,0,127}));
   connect(der2.y, transformAbsoluteVector.r_in) annotation (Line(points={{31,0},{38,0}}, color={0,0,127}));
-  connect(transformAbsoluteVector.r_out, a) annotation (Line(points={{61,0},{110,0}}, color={0,0,127}));
+  connect(transformAbsoluteVector.r_out, a_z) annotation (Line(points={{61,0},{110,0}}, color={0,0,127}));
+  connect(transformAbsoluteVector.r_out[1:2], a) annotation (Line(points={{61,0},{80,0},{80,60},{110,60}}, color={0,0,127}));
+  connect(transformAbsoluteVector.r_out[3], z) annotation (Line(points={{60.6667,0},{80,0},{80,-60},{110,-60}}, color={0,0,127}));
+
   annotation (
     Icon(
       coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
@@ -110,22 +119,34 @@ equation
         Line(
           points={{70,0},{100,0}},
           color={0,0,127}),
-        Text(
-          extent={{58,48},{142,18}},
-          textString="acc",
-          textColor={0,0,0}),
-        Text(
-          extent={{15,-67},{146,-92}},
-          textColor={95,95,95},
-          textString="resolve"),
         Line(
           points={{0,-70},{0,-95}},
           color={95,95,95},
           pattern=LinePattern.Dot),
+        Line(
+          points={{50,50},{60,60},{100,60}},
+          color={0,0,127}),
+        Line(
+          points={{50,-50},{60,-60},{100,-60}},
+          color={0,0,127}),
+        Text(
+          extent={{60,50},{130,20}},
+          textColor={64,64,64},
+          textString="m/s2"),
+        Text(
+          extent={{40,-70},{130,-100}},
+          textColor={64,64,64},
+          textString="rad/s2"),
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
-          textColor={0,0,255})}),
+          textColor={0,0,255}),
+        Text(
+          extent={{-40,-10},{40,-70}},
+          textColor={0,0,0},
+          textString="m/s2
+m/s2
+rad/s2")}),
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
@@ -133,8 +154,12 @@ equation
 </p>
 </html>",  info="<html>
 <p>
-The absolute acceleration vector of the origin of <code>frame_a</code>
-is determined and provided at the output signal connector&nbsp;<code>a</code>.
+The absolute acceleration vector [<var>a<sub>x</sub></var>&nbsp;<var>a<sub>y</sub></var>]
+and the angular acceleration&nbsp;<var>z</var>
+of the origin of <code>frame_a</code> is determined and provided at the output signal
+connectors&nbsp;<code>a</code> and&nbsp;<code>z</code>, respectively.
+Optionally, the two outputs can be concatenated to just one output&nbsp;<code>a_z</code>
+instead, when setting the parameter <code>concatenateOutput&nbsp;=&nbsp;true</code>.
 </p>
 <p>
 Via parameter <code>resolveInFrame</code> it is defined, in which frame
@@ -184,7 +209,8 @@ the output vector is computed as:
 <p>
 where [<var>x</var>&nbsp;<var>y</var>&nbsp;<var>&phi;</var>]
 is position and angle vector of origin of <code>frame_a</code> resolved
-in world frame.
+in world frame,
+and <var>a</var>&nbsp;= {<code>a</code>, <code>z</code>}&nbsp;= <code>a_z</code>.
 </p>
 </html>"));
 end AbsoluteAcceleration;
