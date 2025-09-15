@@ -1,6 +1,5 @@
 within PlanarMechanics.Sensors;
-model AbsoluteVelocity
-  "Measure absolute velocity of origin of frame connector"
+model AbsoluteVelocity "Measure absolute velocity of origin of frame connector"
   extends Internal.PartialAbsoluteSensor;
 
   parameter Boolean animation = false
@@ -16,13 +15,19 @@ model AbsoluteVelocity
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(group="Animation", enable=animation));
 
-  Modelica.Blocks.Interfaces.RealOutput v[3](
+  Modelica.Blocks.Interfaces.RealOutput v_w[3](
     final quantity = {"Velocity", "Velocity", "AngularVelocity"},
     final unit = {"m/s", "m/s", "rad/s"})
     "Vector of absolute measurements of frame_a on velocity level, resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
+  Modelica.Blocks.Interfaces.RealOutput v[2](
+    each final quantity = "Velocity",
+    each final unit = "m/s") "Vector of absolute velocity, resolved in frame defined by resolveInFrame" annotation (Placement(transformation(extent={{100,50},{120,70}})));
+  Modelica.Blocks.Interfaces.RealOutput w(
+    final quantity="AngularVelocity",
+    final unit="rad/s") "Absolute angular velocity" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Interfaces.Frame_resolve frame_resolve
     if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector v is optionally resolved"
@@ -53,8 +58,9 @@ protected
     annotation (Placement(transformation(extent={{-60,-60},{-80,-40}})));
   Interfaces.ZeroPosition zeroPosition1 if not (
     resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
-    annotation (Placement(transformation(extent={{60,-60},{80,-40}})));
+    annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
 
+protected
   outer PlanarWorld planarWorld;
   MB.Visualizers.Advanced.Vector vectorVelocity(
     final coordinates={der1[1].y,der1[2].y,0},
@@ -64,7 +70,7 @@ protected
     final quantity=MB.Types.VectorQuantity.Velocity,
     final headAtOrigin=true,
     final R=planarWorld.R) if planarWorld.enableAnimation and animation
-    annotation (Placement(transformation(extent={{20,60},{40,80}})));
+    annotation (Placement(transformation(extent={{0,60},{20,80}})));
   MB.Visualizers.Advanced.Vector vectorAngularVelocity(
     final coordinates={0,0,der1[3].y},
     final color=colorAngularVelocity,
@@ -73,7 +79,7 @@ protected
     final quantity=MB.Types.VectorQuantity.AngularVelocity,
     final headAtOrigin=true,
     final R=planarWorld.R) if planarWorld.enableAnimation and animation
-    annotation (Placement(transformation(extent={{60,60},{80,80}})));
+    annotation (Placement(transformation(extent={{40,60},{60,80}})));
 equation
   connect(position.r, der1.u) annotation (Line(
       points={{-39,0},{-12,0}},
@@ -86,9 +92,11 @@ equation
   connect(der1.y, transformAbsoluteVector.r_in) annotation (Line(
       points={{11,0},{38,0}},
       color={0,0,127}));
-  connect(transformAbsoluteVector.r_out, v) annotation (Line(
+  connect(transformAbsoluteVector.r_out, v_w) annotation (Line(
       points={{61,-6.66134e-16},{110,-6.66134e-16},{110,0}},
       color={0,0,127}));
+  connect(transformAbsoluteVector.r_out[1:2], v) annotation (Line(points={{61,0},{80,0},{80,60},{110,60}}, color={0,0,127}));
+  connect(transformAbsoluteVector.r_out[3], w) annotation (Line(points={{60.6667,0},{80,0},{80,-60},{110,-60}}, color={0,0,127}));
   connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
       points={{-60,-50},{-50,-50},{-50,-10}},
       color={95,95,95},
@@ -99,11 +107,11 @@ equation
       thickness=0.5));
   connect(transformAbsoluteVector.frame_resolve, zeroPosition1.frame_resolve)
     annotation (Line(
-      points={{49.9,-10},{50,-10},{50,-50},{60,-50}},
+      points={{49.9,-10},{50,-10},{50,-50},{40,-50}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   connect(transformAbsoluteVector.frame_resolve, frame_resolve) annotation (Line(
-      points={{49.9,-10},{50,-10},{50,-50},{0,-50},{0,-100}},
+      points={{49.9,-10},{50,-10},{50,-80},{0,-80},{0,-100}},
       color={95,95,95},
       pattern=LinePattern.Dot));
   annotation (
@@ -114,16 +122,29 @@ equation
           points={{70,0},{100,0}},
           color={0,0,127}),
         Text(
-          extent={{58,48},{142,18}},
-          textString="v"),
-        Text(
-          extent={{15,-67},{146,-92}},
-          textColor={95,95,95},
-          textString="resolve"),
+          extent={{-40,-10},{40,-70}},
+          textString="m/s
+m/s
+rad/s",
+          textColor={0,0,0}),
         Line(
           points={{0,-70},{0,-95}},
           color={95,95,95},
           pattern=LinePattern.Dot),
+        Line(
+          points={{50,50},{60,60},{100,60}},
+          color={0,0,127}),
+        Line(
+          points={{50,-50},{60,-60},{100,-60}},
+          color={0,0,127}),
+        Text(
+          extent={{60,50},{130,20}},
+          textColor={64,64,64},
+          textString="m/s"),
+        Text(
+          extent={{50,-70},{130,-100}},
+          textColor={64,64,64},
+          textString="rad/s"),
         Text(
           extent={{-150,120},{150,80}},
           textString="%name",
@@ -135,8 +156,12 @@ equation
 </p>
 </html>",  info="<html>
 <p>
-The absolute velocity vector of the origin of <code>frame_a</code>
-is determined and provided at the output signal connector&nbsp;<code>v</code>.
+The absolute velocity vector [<var>v<sub>x</sub></var>&nbsp;<var>v<sub>y</sub></var>]
+and the angular velocity&nbsp;<var>&omega;</var>
+of the origin of <code>frame_a</code> is determined and provided at the output signal
+connectors&nbsp;<code>v</code> and&nbsp;<code>w</code>, respectively.
+Optionally, the two outputs can be concatenated to just one output&nbsp;<code>v_w</code>
+instead, when setting the parameter <code>concatenateOutput&nbsp;=&nbsp;true</code>.
 </p>
 <p>
 Via parameter <code>resolveInFrame</code> it is defined, in which frame
@@ -180,10 +205,11 @@ the output vector is computed as:
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/equations/equation-Kgd1NoyE.png\" alt=\"v = [cos(frame_resolve.phi), sin(frame_resolve.phi),0;-sin(frame_resolve.phi),cos(frame_resolve.phi),0;0,0,1] * [v0[1];v0[2];v0[3]]\">
 </div>
-
-<p>where [<var>x</var>&nbsp;<var>y</var>&nbsp;<var>&phi;</var>]
+<p>
+where [<var>x</var>&nbsp;<var>y</var>&nbsp;<var>&phi;</var>]
 is position and angle vector of origin of <code>frame_a</code> resolved
-in world frame.
+in world frame,
+and <var>v</var>&nbsp;= {<code>v</code>, <code>w</code>}&nbsp;= <code>v_w</code>..
 </p>
 </html>"));
 end AbsoluteVelocity;
