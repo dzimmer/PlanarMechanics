@@ -126,19 +126,255 @@ package Sensors "Test models for PlanarMechanics.Sensors"
     annotation (experiment(StopTime=1));
   end PositionDistance;
 
+  model VelocityResolveInFrame "Test absolute and relative velocity sensors, resolved in different frames"
+    extends Modelica.Icons.Example;
+
+    PlanarMechanics.Sensors.AbsoluteVelocity absoluteVelocity(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
+      annotation (Placement(transformation(extent={{50,20},{70,40}})));
+    PlanarMechanics.Sensors.AbsoluteVelocity absoluteVelocity1(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
+      annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+    PlanarMechanics.Sensors.AbsoluteVelocity absoluteVelocity2(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+      annotation (Placement(transformation(extent={{50,-70},{70,-50}})));
+    PlanarMechanics.Sensors.RelativeVelocity relativeVelocity(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.world)
+      annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+    PlanarMechanics.Sensors.RelativeVelocity relativeVelocity1(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    PlanarMechanics.Sensors.RelativeVelocity relativeVelocity2(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
+      annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+    PlanarMechanics.Sensors.RelativeVelocity relativeVelocity3(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+      annotation (Placement(transformation(extent={{-10,-50},{10,-70}})));
+    inner PlanarMechanics.PlanarWorld planarWorld(constantGravity={0,0})
+      annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+    PlanarMechanics.Parts.Body body(
+      m=1,
+      I=1,
+      r(each fixed=true, start={0.02,0.6}),
+      v(each fixed=true, start={0.14,-0.75}),
+      phi(fixed=true, start=-0.87266462599716),
+      w(fixed=true, start=0.3)) annotation (Placement(transformation(extent={{50,50},{70,70}})));
+    PlanarMechanics.Parts.Fixed fixed annotation (Placement(transformation(extent={{-50,50},{-70,70}})));
+    PlanarMechanics.Parts.Fixed fixedRotated(
+      r={0,-1},
+      phi=0.29670597283904) annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=180,
+          origin={-40,-80})));
+    PlanarMechanics.Parts.SpringDamper springDamper(
+      c_x=1,
+      c_y=1,
+      c_phi=1,
+      d_x=0.1,
+      d_y=0.1,
+      d_phi=0.1,
+      s_relx0=0.1) annotation (Placement(transformation(extent={{-20,50},{0,70}})));
+    PlanarMechanics.Parts.FixedTranslation fixedTranslation(r={0.13,0.22}) annotation (Placement(transformation(extent={{12,50},{32,70}})));
+  equation
+    connect(fixed.frame, relativeVelocity.frame_a) annotation (Line(
+        points={{-50,60},{-30,60},{-30,30},{-10,30}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativeVelocity.frame_b, body.frame_a) annotation (Line(
+        points={{10,30},{40,30},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absoluteVelocity.frame_a, body.frame_a) annotation (Line(
+        points={{50,30},{40,30},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, relativeVelocity1.frame_a) annotation (Line(
+        points={{-50,60},{-30,60},{-30,0},{-10,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativeVelocity1.frame_b, body.frame_a) annotation (Line(
+        points={{10,0},{40,0},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absoluteVelocity1.frame_a, body.frame_a) annotation (Line(
+        points={{50,0},{40,0},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, relativeVelocity2.frame_a) annotation (Line(
+        points={{-50,60},{-30,60},{-30,-30},{-10,-30}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativeVelocity2.frame_b, body.frame_a) annotation (Line(
+        points={{10,-30},{40,-30},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absoluteVelocity2.frame_a, body.frame_a) annotation (Line(
+        points={{50,-60},{40,-60},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, relativeVelocity3.frame_a) annotation (Line(
+        points={{-50,60},{-30,60},{-30,-60},{-10,-60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativeVelocity3.frame_b, body.frame_a) annotation (Line(
+        points={{10,-60},{40,-60},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedRotated.frame, relativeVelocity3.frame_resolve) annotation (Line(
+        points={{-30,-80},{10,-80},{10,-68}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedRotated.frame, absoluteVelocity2.frame_resolve) annotation (Line(
+        points={{-30,-80},{60,-80},{60,-70}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, springDamper.frame_a) annotation (Line(
+        points={{-50,60},{-20,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(springDamper.frame_b, fixedTranslation.frame_a) annotation (Line(
+        points={{0,60},{12,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
+        points={{32,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    annotation (
+      experiment(StopTime=5));
+  end VelocityResolveInFrame;
+
+  model AccelerationResolveInFrame "Test absolute and relative acceleration sensors, resolved in different frames"
+    extends Modelica.Icons.Example;
+
+    PlanarMechanics.Sensors.AbsoluteAcceleration absoluteAcceleration(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
+      annotation (Placement(transformation(extent={{50,20},{70,40}})));
+    PlanarMechanics.Sensors.AbsoluteAcceleration absoluteAcceleration1(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
+      annotation (Placement(transformation(extent={{50,-10},{70,10}})));
+    PlanarMechanics.Sensors.AbsoluteAcceleration absoluteAcceleration2(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+      annotation (Placement(transformation(extent={{50,-70},{70,-50}})));
+    PlanarMechanics.Sensors.RelativeAcceleration relativeAcceleration(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.world)
+      annotation (Placement(transformation(extent={{-10,20},{10,40}})));
+    PlanarMechanics.Sensors.RelativeAcceleration relativeAcceleration1(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a)
+      annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+    PlanarMechanics.Sensors.RelativeAcceleration relativeAcceleration2(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
+      annotation (Placement(transformation(extent={{-10,-40},{10,-20}})));
+    PlanarMechanics.Sensors.RelativeAcceleration relativeAcceleration3(
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+      annotation (Placement(transformation(extent={{-10,-50},{10,-70}})));
+    inner PlanarMechanics.PlanarWorld planarWorld(constantGravity={0,0})
+      annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+    PlanarMechanics.Parts.Body body(
+      m=1,
+      I=1,
+      r(each fixed=true, start={0.02,0.6}),
+      v(each fixed=true, start={0.14,-0.75}),
+      phi(fixed=true, start=-0.87266462599716),
+      w(fixed=true, start=0.3))     annotation (Placement(transformation(extent={{50,50},{70,70}})));
+    PlanarMechanics.Parts.Fixed fixed annotation (Placement(transformation(extent={{-50,50},{-70,70}})));
+    PlanarMechanics.Parts.Fixed fixedRotated(
+      r={0,-1},
+      phi=0.29670597283904) annotation (Placement(transformation(
+          extent={{-10,10},{10,-10}},
+          rotation=180,
+          origin={-40,-80})));
+    PlanarMechanics.Parts.SpringDamper springDamper(
+      c_x=1,
+      c_y=1,
+      c_phi=1,
+      d_x=0.1,
+      d_y=0.1,
+      d_phi=0.1,
+      s_relx0=0.1) annotation (Placement(transformation(extent={{-20,50},{0,70}})));
+    PlanarMechanics.Parts.FixedTranslation fixedTranslation(r={0.13,0.22}) annotation (Placement(transformation(extent={{12,50},{32,70}})));
+  equation
+    connect(fixed.frame, relativeAcceleration.frame_a) annotation (Line(
+        points={{-50,60},{-30,60},{-30,30},{-10,30}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativeAcceleration.frame_b, body.frame_a) annotation (Line(
+        points={{10,30},{40,30},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absoluteAcceleration.frame_a, body.frame_a) annotation (Line(
+        points={{50,30},{40,30},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, relativeAcceleration1.frame_a) annotation (Line(
+        points={{-50,60},{-30,60},{-30,0},{-10,0}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativeAcceleration1.frame_b, body.frame_a) annotation (Line(
+        points={{10,0},{40,0},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absoluteAcceleration1.frame_a, body.frame_a) annotation (Line(
+        points={{50,0},{40,0},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, relativeAcceleration2.frame_a) annotation (Line(
+        points={{-50,60},{-30,60},{-30,-30},{-10,-30}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativeAcceleration2.frame_b, body.frame_a) annotation (Line(
+        points={{10,-30},{40,-30},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(absoluteAcceleration2.frame_a, body.frame_a) annotation (Line(
+        points={{50,-60},{40,-60},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, relativeAcceleration3.frame_a) annotation (Line(
+        points={{-50,60},{-30,60},{-30,-60},{-10,-60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(relativeAcceleration3.frame_b, body.frame_a) annotation (Line(
+        points={{10,-60},{40,-60},{40,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedRotated.frame, relativeAcceleration3.frame_resolve) annotation (Line(
+        points={{-30,-80},{10,-80},{10,-68}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedRotated.frame, absoluteAcceleration2.frame_resolve) annotation (Line(
+        points={{-30,-80},{60,-80},{60,-70}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixed.frame, springDamper.frame_a) annotation (Line(
+        points={{-50,60},{-20,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(springDamper.frame_b, fixedTranslation.frame_a) annotation (Line(
+        points={{0,60},{12,60}},
+        color={95,95,95},
+        thickness=0.5));
+    connect(fixedTranslation.frame_b, body.frame_a) annotation (Line(
+        points={{32,60},{50,60}},
+        color={95,95,95},
+        thickness=0.5));
+    annotation (
+      experiment(StopTime=5));
+  end AccelerationResolveInFrame;
+
   model AbsoluteRotated "Test sensors measuring absolute quantities in rotated frame_a"
     extends Modelica.Icons.Example;
 
     inner PlanarMechanics.PlanarWorld planarWorld annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
     PlanarMechanics.Parts.Body body(m=1, I=1) annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
     PlanarMechanics.Parts.Fixed fixed(phi=-0.78539816339745)
-                                      annotation (Placement(transformation(extent={{-40,-30},{-60,-10}})));
+      annotation (Placement(transformation(extent={{-40,-30},{-60,-10}})));
     PlanarMechanics.Joints.Prismatic prismatic(
       r={1,1},
       s(fixed=true, start=0),
       v(fixed=true, start=1))  annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
     PlanarMechanics.Sensors.AbsolutePosition absolutePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
-                                                              annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      annotation (Placement(transformation(extent={{40,0},{60,20}})));
     PlanarMechanics.Sensors.AbsoluteVelocity absoluteVelocity(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
       annotation (Placement(transformation(extent={{40,30},{60,50}})));
     PlanarMechanics.Sensors.AbsoluteAcceleration absoluteAcceleration(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
@@ -174,13 +410,13 @@ package Sensors "Test models for PlanarMechanics.Sensors"
     inner PlanarMechanics.PlanarWorld planarWorld annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
     PlanarMechanics.Parts.Body body(m=1, I=1) annotation (Placement(transformation(extent={{40,-30},{60,-10}})));
     PlanarMechanics.Parts.Fixed fixed(phi=-0.78539816339745)
-                                      annotation (Placement(transformation(extent={{-40,-30},{-60,-10}})));
+      annotation (Placement(transformation(extent={{-40,-30},{-60,-10}})));
     PlanarMechanics.Joints.Prismatic prismatic(
       r={1,1},
       s(fixed=true, start=0),
       v(fixed=true, start=1))  annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
     PlanarMechanics.Sensors.AbsolutePosition absolutePosition(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
-                                                              annotation (Placement(transformation(extent={{40,0},{60,20}})));
+      annotation (Placement(transformation(extent={{40,0},{60,20}})));
     PlanarMechanics.Sensors.AbsoluteVelocity absoluteVelocity(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
       annotation (Placement(transformation(extent={{40,30},{60,50}})));
     PlanarMechanics.Sensors.AbsoluteAcceleration absoluteAcceleration(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
@@ -245,8 +481,7 @@ package Sensors "Test models for PlanarMechanics.Sensors"
       annotation (Placement(transformation(extent={{-70,-30},{-50,-10}})));
     PlanarMechanics.Sensors.AbsolutePosition absolutePosition(
       resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
-      annotation (Placement(transformation(extent={{20,10},
-              {40,30}})));
+      annotation (Placement(transformation(extent={{20,10},{40,30}})));
     PlanarMechanics.Sensors.AbsoluteVelocity absoluteVelocity(
       resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a)
       annotation (Placement(transformation(extent={{20,40},{40,60}})));
