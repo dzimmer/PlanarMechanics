@@ -16,21 +16,27 @@ model BasicAbsolutePosition
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which output vector r is resolved (1: world, 2: frame_a, 3: frame_resolve)";
 
+protected
+  Modelica.Units.SI.Angle phi_ref "Reference angle";
+  Real r_0[3] "Vector of absolute position and orientation, resolved in world frame";
 equation
-   if resolveInFrame == ResolveInFrameA.world then
-      r = {frame_a.x, frame_a.y, frame_a.phi};
-   elseif resolveInFrame == ResolveInFrameA.frame_a then
-      r = transpose({{cos(frame_a.phi), -sin(frame_a.phi), 0}, {sin(frame_a.phi),cos(frame_a.phi), 0}, {0, 0, 1}}) * {frame_a.x, frame_a.y, frame_a.phi} - {0,0,frame_a.phi};
+  if resolveInFrame == ResolveInFrameA.world then
+    phi_ref = 0;
+  elseif resolveInFrame == ResolveInFrameA.frame_a then
+    phi_ref = frame_a.phi;
+  elseif resolveInFrame == ResolveInFrameA.frame_resolve then
+    phi_ref = frame_resolve.phi;
+  else
+    assert(false, "Wrong value for parameter resolveInFrame");
+    phi_ref = 0;
+  end if;
 
-   elseif resolveInFrame == ResolveInFrameA.frame_resolve then
-      r = transpose({{cos(frame_resolve.phi), -sin(frame_resolve.phi), 0}, {sin(frame_resolve.phi),cos(frame_resolve.phi), 0}, {0,0,1}}) * {frame_a.x, frame_a.y, frame_a.phi} - {0,0,frame_resolve.phi};
-   else
-      assert(false, "Wrong value for parameter resolveInFrame");
-      r = zeros(3);
-   end if;
-  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}},
-        grid={2,2}), graphics={
+  r_0[3] = {frame_a.x, frame_a.y, frame_a.phi};
+  r = transpose({{cos(phi_ref), -sin(phi_ref), 0}, {sin(phi_ref),cos(phi_ref), 0}, {0, 0, 1}}) * r_0 - {0,0,phi_ref};
+
+  annotation (
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2}),
+      graphics={
         Text(
           extent={{61,47},{145,17}},
           textString="r"),
