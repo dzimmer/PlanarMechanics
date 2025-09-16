@@ -17,23 +17,30 @@ model BasicRelativePosition
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
     "Frame in which output vector r_rel is resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
 
+protected
+  Modelica.Units.SI.Angle phi_ref "Reference angle";
+  Real r_rel_0[3] "Vector of relative position and orientation, resolved in world frame";
 equation
-   if resolveInFrame == ResolveInFrameAB.frame_a then
-      r_rel = transpose({{cos(frame_a.phi), -sin(frame_a.phi), 0}, {sin(frame_a.phi),cos(frame_a.phi), 0}, {0,0,1}}) * {frame_b.x - frame_a.x, frame_b.y - frame_a.y, frame_b.phi - frame_a.phi};
-   elseif resolveInFrame == ResolveInFrameAB.frame_b then
-      r_rel = transpose({{cos(frame_b.phi), -sin(frame_b.phi), 0}, {sin(frame_b.phi),cos(frame_b.phi), 0}, {0,0,1}}) * {frame_b.x - frame_a.x, frame_b.y - frame_a.y, frame_b.phi - frame_a.phi};
-   elseif resolveInFrame == ResolveInFrameAB.world then
-      r_rel = {frame_b.x - frame_a.x, frame_b.y - frame_a.y, frame_b.phi - frame_a.phi};
-   elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
-      r_rel = transpose({{cos(frame_resolve.phi), -sin(frame_resolve.phi), 0}, {sin(frame_resolve.phi),cos(frame_resolve.phi),0}, {0,0,1}}) * {frame_b.x - frame_a.x, frame_b.y - frame_a.y, frame_b.phi - frame_a.phi};
-      //r_rel = Frames.resolve2(frame_resolve.R, frame_b.r_0 - frame_a.r_0);
-   else
-      assert(false, "Wrong value for parameter resolveInFrame");
-      r_rel = zeros(3);
-   end if;
-  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}},
-        grid={2,2}), graphics={
+  if resolveInFrame == ResolveInFrameAB.world then
+    phi_ref = 0;
+  elseif resolveInFrame == ResolveInFrameAB.frame_a then
+    phi_ref = frame_a.phi;
+  elseif resolveInFrame == ResolveInFrameAB.frame_b then
+    phi_ref = frame_b.phi;
+  elseif resolveInFrame == ResolveInFrameAB.frame_resolve then
+    phi_ref = frame_resolve.phi;
+    //r_rel = Frames.resolve2(frame_resolve.R, frame_b.r_0 - frame_a.r_0);
+  else
+    assert(false, "Wrong value for parameter resolveInFrame");
+    phi_ref = 0;
+  end if;
+
+  r_rel_0[3] = {frame_b.x - frame_a.x, frame_b.y - frame_a.y, frame_b.phi - frame_a.phi};
+  r_rel = transpose({{cos(phi_ref), -sin(phi_ref), 0}, {sin(phi_ref),cos(phi_ref), 0}, {0,0,1}}) * r_rel_0;
+
+  annotation (
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2}),
+      graphics={
         Text(
           extent={{12,-76},{96,-106}},
           textString="r_rel"),
