@@ -1,11 +1,9 @@
 within PlanarMechanics.Sensors.Internal;
 model BasicCutForce
   "Measure cut force vector (frame_resolve must be connected)"
+  extends Internal.PartialCutForceBaseSensor;
 
   import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
-  import Modelica.Mechanics.MultiBody.Frames;
-
-  extends Internal.PartialCutForceBaseSensor;
 
   Modelica.Blocks.Interfaces.RealOutput force[2](
     each final quantity = "Force",
@@ -19,22 +17,25 @@ model BasicCutForce
     "= true, if force with positive sign is returned (= frame_a.f), otherwise with negative sign (= frame_b.f)";
 protected
   parameter Integer csign=if positiveSign then +1 else -1;
+  Modelica.Units.SI.Angle phi_ref "Reference angle";
+  Real f_0[2] "Vector of absolute force, resolved in world frame";
 equation
-   if resolveInFrame == ResolveInFrameA.world then
-      //force = Frames.resolve1(frame_a.R, frame_a.f)*csign;
-      force = {frame_a.fx, frame_a.fy} * csign;
-   elseif resolveInFrame == ResolveInFrameA.frame_a then
-      force = {{cos(frame_a.phi), sin(frame_a.phi)},{-sin(frame_a.phi), cos(frame_a.phi)}}*{frame_a.fx, frame_a.fy}*csign;
-   elseif resolveInFrame == ResolveInFrameA.frame_resolve then
-      //force = Frames.resolveRelative(frame_a.f, frame_a.R, frame_resolve.R)*csign;
-      force = {{cos(frame_resolve.phi), sin(frame_resolve.phi)},{-sin(frame_resolve.phi), cos(frame_resolve.phi)}}*{frame_a.fx, frame_a.fy} * csign;
-   else
-      assert(false,"Wrong value for parameter resolveInFrame");
-      force = zeros(2);
-   end if;
+  if resolveInFrame == ResolveInFrameA.world then
+    phi_ref = 0;
+  elseif resolveInFrame == ResolveInFrameA.frame_a then
+    phi_ref = frame_a.phi;
+  elseif resolveInFrame == ResolveInFrameA.frame_resolve then
+    phi_ref = frame_resolve.phi;
+  else
+    assert(false,"Wrong value for parameter resolveInFrame");
+    phi_ref = 0;
+  end if;
+
+  f_0 = csign * {frame_a.fx, frame_a.fy};
+  force = {{cos(phi_ref), sin(phi_ref)},{-sin(phi_ref), cos(phi_ref)}}*f_0;
+
   annotation (
-     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics={
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={1,1}), graphics={
         Text(
           extent={{-190,-70},{-74,-96}},
           textString="force"),
