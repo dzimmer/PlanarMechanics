@@ -58,7 +58,7 @@ public
       if resolveInFrame==MB.Types.ResolveInFrameB.frame_b then MB.Types.ResolveInFrameA.frame_a
       elseif resolveInFrame==MB.Types.ResolveInFrameB.world then MB.Types.ResolveInFrameA.world
       else MB.Types.ResolveInFrameA.frame_resolve)
-    annotation (Placement(transformation(extent={{40,30},{20,50}})));
+    annotation (Placement(transformation(extent={{50,30},{30,50}})));
   WorldForce worldForce(
     animation=animation,
     N_to_m=N_to_m,
@@ -73,7 +73,7 @@ public
     annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
-        origin={-10,40})));
+        origin={-30,40})));
   Modelica.Blocks.Math.MatrixGain scaleForces(
     K=[F_nominal,0,0; 0,F_nominal,0;0,0,tau_nominal])
     annotation (Placement(
@@ -84,14 +84,16 @@ public
         transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
-        origin={-50,40})));
+        origin={-60,40})));
+protected
+  Modelica.Blocks.Routing.Multiplex3 multiplex3 annotation (Placement(transformation(extent={{10,30},{-10,50}})));
 equation
   connect(worldForce.frame_b, frame_b) annotation (Line(
       points={{40,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(absoluteVelocity.frame_a, frame_b) annotation (Line(
-      points={{40,40},{60,40},{60,0},{100,0}},
+      points={{50,40},{60,40},{60,0},{100,0}},
       color={95,95,95},
       thickness=0.5));
   connect(worldForce.frame_resolve, frame_resolve) annotation (Line(
@@ -99,21 +101,22 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(absoluteVelocity.frame_resolve, frame_resolve) annotation (Line(
-      points={{30,30},{30,20},{0,20},{0,-100}},
+      points={{40,30},{40,20},{0,20},{0,-100}},
       color={95,95,95},
       thickness=0.5));
-  connect(absoluteVelocity.v, normalizeSpeeds.u) annotation (Line(
-      points={{19,40},{2,40}},
-      color={0,0,127}));
   connect(square.u, normalizeSpeeds.y) annotation (Line(
-      points={{-38,40},{-21,40}},
+      points={{-48,40},{-41,40}},
       color={0,0,127}));
   connect(square.y, scaleForces.u) annotation (Line(
-      points={{-61,40},{-80,40},{-80,0},{-62,0}},
+      points={{-71,40},{-80,40},{-80,0},{-62,0}},
       color={0,0,127}));
   connect(scaleForces.y[1], worldForce.force[1]) annotation (Line(points={{-39,0},{12,0},{12,-0.5},{18,-0.5}}, color={0,0,127}));
   connect(scaleForces.y[2], worldForce.force[2]) annotation (Line(points={{-39,0},{10,0},{10,0.5},{18,0.5}}, color={0,0,127}));
   connect(scaleForces.y[3], worldForce.torque) annotation (Line(points={{-39,0},{10,0},{10,-6},{18,-6}}, color={0,0,127}));
+  connect(multiplex3.y, normalizeSpeeds.u) annotation (Line(points={{-11,40},{-18,40}}, color={0,0,127}));
+  connect(absoluteVelocity.v[1], multiplex3.u1[1]) annotation (Line(points={{29,45.75},{20,45.75},{20,47},{12,47}}, color={0,0,127}));
+  connect(absoluteVelocity.v[2], multiplex3.u2[1]) annotation (Line(points={{29,46.25},{28,46.25},{28,44},{20,44},{20,40},{12,40}}, color={0,0,127}));
+  connect(absoluteVelocity.w, multiplex3.u3[1]) annotation (Line(points={{29,34},{20,34},{20,33},{12,33}}, color={0,0,127}));
   annotation (
     Icon(
       coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
