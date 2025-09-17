@@ -1,6 +1,6 @@
 within PlanarMechanics.Utilities;
 package Blocks "Blocks to process signals"
-
+  extends Modelica.Icons.Package;
 
   annotation (
     Documentation(
