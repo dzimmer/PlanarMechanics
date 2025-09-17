@@ -15,19 +15,21 @@ model AbsoluteVelocity "Measure absolute velocity of origin of frame connector"
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(group="Animation", enable=animation));
 
+  Modelica.Blocks.Interfaces.RealOutput v[2](
+    each final quantity = "Velocity",
+    each final unit = "m/s") if not concatenateOutput
+    "Vector of absolute velocity, resolved in frame defined by resolveInFrame" annotation (Placement(transformation(extent={{100,50},{120,70}})));
+  Modelica.Blocks.Interfaces.RealOutput w(
+    final quantity="AngularVelocity",
+    final unit="rad/s") if not concatenateOutput
+    "Absolute angular velocity" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Modelica.Blocks.Interfaces.RealOutput v_w[3](
     final quantity = {"Velocity", "Velocity", "AngularVelocity"},
-    final unit = {"m/s", "m/s", "rad/s"})
+    final unit = {"m/s", "m/s", "rad/s"}) if concatenateOutput
     "Vector of absolute measurements of frame_a on velocity level, resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
-  Modelica.Blocks.Interfaces.RealOutput v[2](
-    each final quantity = "Velocity",
-    each final unit = "m/s") "Vector of absolute velocity, resolved in frame defined by resolveInFrame" annotation (Placement(transformation(extent={{100,50},{120,70}})));
-  Modelica.Blocks.Interfaces.RealOutput w(
-    final quantity="AngularVelocity",
-    final unit="rad/s") "Absolute angular velocity" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Interfaces.Frame_resolve frame_resolve
     if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector v is optionally resolved"
@@ -41,6 +43,7 @@ model AbsoluteVelocity "Measure absolute velocity of origin of frame connector"
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which output vector v shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
+  parameter Boolean concatenateOutput=false "= true, if only concatenated output {r, phi} is desired";
 
 protected
   Internal.BasicAbsolutePosition position(
@@ -119,29 +122,34 @@ equation
       coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
         Line(
+          visible=concatenateOutput,
           points={{70,0},{100,0}},
           color={0,0,127}),
         Text(
+          visible=concatenateOutput,
           extent={{-40,-10},{40,-70}},
           textString="m/s
 m/s
-rad/s",
-          textColor={0,0,0}),
+rad/s",   textColor={0,0,0}),
         Line(
           points={{0,-70},{0,-95}},
           color={95,95,95},
           pattern=LinePattern.Dot),
         Line(
+          visible=not concatenateOutput,
           points={{50,50},{60,60},{100,60}},
           color={0,0,127}),
         Line(
+          visible=not concatenateOutput,
           points={{50,-50},{60,-60},{100,-60}},
           color={0,0,127}),
         Text(
+          visible=not concatenateOutput,
           extent={{60,50},{130,20}},
           textColor={64,64,64},
           textString="m/s"),
         Text(
+          visible=not concatenateOutput,
           extent={{50,-70},{130,-100}},
           textColor={64,64,64},
           textString="rad/s"),

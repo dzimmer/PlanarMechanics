@@ -2,19 +2,21 @@ within PlanarMechanics.Sensors;
 model AbsolutePosition "Measure absolute position and orientation of the origin of frame connector"
   extends Internal.PartialAbsoluteSensor;
 
+  Modelica.Blocks.Interfaces.RealOutput r[2](
+    each final quantity = "Position",
+    each final unit = "m") if not concatenateOutput
+    "Vector of absolute position, resolved in frame defined by resolveInFrame" annotation (Placement(transformation(extent={{100,50},{120,70}})));
+  Modelica.Blocks.Interfaces.RealOutput phi(
+    final quantity="Angle",
+    final unit="rad") if not concatenateOutput
+    "Absolute angle" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Modelica.Blocks.Interfaces.RealOutput r_phi[3](
     final quantity = {"Position", "Position", "Angle"},
-    final unit = {"m", "m", "rad"})
+    final unit = {"m", "m", "rad"}) if concatenateOutput
     "Vector of absolute measurements of frame_a on position level, resolved in frame defined by resolveInFrame"
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         origin={110,0})));
-  Modelica.Blocks.Interfaces.RealOutput r[2](
-    each final quantity = "Position",
-    each final unit = "m") "Vector of absolute position, resolved in frame defined by resolveInFrame" annotation (Placement(transformation(extent={{100,50},{120,70}})));
-  Modelica.Blocks.Interfaces.RealOutput phi(
-    final quantity="Angle",
-    final unit="rad") "Absolute angle" annotation (Placement(transformation(extent={{100,-70},{120,-50}})));
   Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve
     "Coordinate system in which output vector r is optionally resolved"
@@ -25,6 +27,7 @@ model AbsolutePosition "Measure absolute position and orientation of the origin 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a
     "Frame in which output vector r shall be resolved (1: world, 2: frame_a, 3:frame_resolve)";
+  parameter Boolean concatenateOutput=false "= true, if only concatenated output {r, phi} is desired";
 
 protected
   Internal.BasicAbsolutePosition position(resolveInFrame=resolveInFrame)
@@ -59,9 +62,11 @@ equation
       coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
         Line(
+          visible=concatenateOutput,
           points={{70,0},{100,0}},
           color={0,0,127}),
         Text(
+          visible=concatenateOutput,
           extent={{-70,-10},{70,-40}},
           textString="{m, m, rad}",
           textColor={0,0,0}),
@@ -69,16 +74,20 @@ equation
           points={{0,-100},{0,-70}},
           pattern=LinePattern.Dot),
         Line(
+          visible=not concatenateOutput,
           points={{50,50},{60,60},{100,60}},
           color={0,0,127}),
         Line(
+          visible=not concatenateOutput,
           points={{50,-50},{60,-60},{100,-60}},
           color={0,0,127}),
         Text(
+          visible=not concatenateOutput,
           extent={{70,50},{120,20}},
           textColor={64,64,64},
           textString="m"),
         Text(
+          visible=not concatenateOutput,
           extent={{50,-70},{120,-100}},
           textColor={64,64,64},
           textString="rad"),

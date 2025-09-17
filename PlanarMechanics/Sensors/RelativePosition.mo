@@ -2,26 +2,28 @@ within PlanarMechanics.Sensors;
 model RelativePosition "Measure relative position and orientation between the origins of two frame connectors"
   extends Internal.PartialRelativeSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput r_phi_rel[3](
-    final quantity = {"Position", "Position", "Angle"},
-    final unit = {"m", "m", "rad"})
-    "Vector of relative measurements from frame_a to frame_b on position level, resolved in frame defined by resolveInFrame"
-    annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=-90,
-        origin={0,-110})));
   Modelica.Blocks.Interfaces.RealOutput r_rel[2](
     each final quantity = "Position",
-    each final unit = "m") "Vector of relative position, resolved in frame defined by resolveInFrame" annotation (Placement(transformation(
+    each final unit = "m") if not concatenateOutput
+    "Vector of relative position, resolved in frame defined by resolveInFrame" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={-60,-110})));
   Modelica.Blocks.Interfaces.RealOutput phi_rel(
     final quantity="Angle",
-    final unit="rad") "Relative angle" annotation (Placement(transformation(
+    final unit="rad") if not concatenateOutput
+    "Relative angle" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={60,-110})));
+  Modelica.Blocks.Interfaces.RealOutput r_phi_rel[3](
+    final quantity = {"Position", "Position", "Angle"},
+    final unit = {"m", "m", "rad"}) if concatenateOutput
+    "Vector of relative measurements from frame_a to frame_b on position level, resolved in frame defined by resolveInFrame"
+    annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=-90,
+        origin={0,-110})));
   Interfaces.Frame_resolve frame_resolve if resolveInFrame ==
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
     "Coordinate system in which r_rel is optionally resolved"
@@ -31,6 +33,7 @@ model RelativePosition "Measure relative position and orientation between the or
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
     "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+  parameter Boolean concatenateOutput=false "= true, if only concatenated output {r, phi} is desired";
 
 protected
   Internal.BasicRelativePosition relativePosition(resolveInFrame=resolveInFrame)
@@ -64,35 +67,41 @@ equation
       color={0,0,127}));
   connect(relativePosition.r_rel[1:2], r_rel) annotation (Line(points={{0,-11},{0,-80},{-60,-80},{-60,-110}},               color={0,0,127}));
   connect(relativePosition.r_rel[3], phi_rel) annotation (Line(points={{0,-10.6667},{0,-80},{60,-80},{60,-110}},        color={0,0,127}));
- annotation (
+  annotation (
     Icon(
       coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
         Line(
+          visible=concatenateOutput,
           points={{0,-70},{0,-100}},
           color={0,0,127}),
+        Text(
+          visible=concatenateOutput,
+          extent={{-70,-10},{70,-40}},
+          textString="{m, m, rad}",
+          textColor={0,0,0}),
         Line(
+          visible=not concatenateOutput,
           points={{-50,-50},{-60,-60},{-60,-100}},
           color={0,0,127}),
         Line(
+          visible=not concatenateOutput,
           points={{50,-50},{60,-60},{60,-100}},
           color={0,0,127}),
         Text(
+          visible=not concatenateOutput,
           extent={{-100,-70},{-60,-100}},
           textColor={64,64,64},
           textString="m"),
         Text(
+          visible=not concatenateOutput,
           extent={{0,-70},{60,-100}},
           textColor={64,64,64},
           textString="rad"),
         Text(
           extent={{-150,140},{150,100}},
           textString="%name",
-          textColor={0,0,255}),
-        Text(
-          extent={{-70,-10},{70,-40}},
-          textString="{m, m, rad}",
-          textColor={0,0,0})}),
+          textColor={0,0,255})}),
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
