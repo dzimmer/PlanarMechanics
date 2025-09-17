@@ -87,3 +87,8 @@ convertClass("PlanarMechanics.Types.SpecularCoefficient",
              "Modelica.Mechanics.MultiBody.Types.SpecularCoefficient")
 convertClass("PlanarMechanics.Types.Color",
              "Modelica.Mechanics.MultiBody.Types.Color")
+             
+convertClass({"PlanarMechanics.Sources.RelativeForce",
+              "PlanarMechanics.Sources.WorldForce"},
+             {"ObsoletePlanarMechanics2.Sources.RelativeForce",
+           	  "ObsoletePlanarMechanics2.Sources.WorldForce"})
