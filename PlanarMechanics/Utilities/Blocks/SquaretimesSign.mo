@@ -1,7 +1,7 @@
 within PlanarMechanics.Utilities.Blocks;
 block SquaretimesSign
   "Output the squared input and retain the same sign of it"
-  parameter Integer blockSize;
+  parameter Integer blockSize(start=1);
   extends Modelica.Blocks.Interfaces.MIMO(final nin=blockSize, final nout=blockSize);
 equation
   for i in 1:size(u,1) loop
