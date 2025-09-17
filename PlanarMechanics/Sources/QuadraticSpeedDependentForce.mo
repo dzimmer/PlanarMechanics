@@ -37,7 +37,8 @@ public
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (HideResult=true, Dialog(tab="Animation",group="If animation = true",enable=animation));
 
-  SI.Force force[3] = worldForce.force;
+  SI.Force force[2] = worldForce.force;
+  SI.Torque torque = worldForce.torque;
 
   Interfaces.Frame_b frame_b
     "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -110,10 +111,9 @@ equation
   connect(square.y, scaleForces.u) annotation (Line(
       points={{-61,40},{-80,40},{-80,0},{-62,0}},
       color={0,0,127}));
-  connect(scaleForces.y, worldForce.force) annotation (Line(
-      points={{-39,0},{18,0}},
-      color={0,0,127}));
-
+  connect(scaleForces.y[1], worldForce.force[1]) annotation (Line(points={{-39,0},{12,0},{12,-0.5},{18,-0.5}}, color={0,0,127}));
+  connect(scaleForces.y[2], worldForce.force[2]) annotation (Line(points={{-39,0},{10,0},{10,0.5},{18,0.5}}, color={0,0,127}));
+  connect(scaleForces.y[3], worldForce.torque) annotation (Line(points={{-39,0},{10,0},{10,-6},{18,-6}}, color={0,0,127}));
   annotation (
     Icon(
       coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
