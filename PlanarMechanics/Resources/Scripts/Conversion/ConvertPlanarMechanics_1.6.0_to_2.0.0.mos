@@ -88,7 +88,29 @@ convertClass("PlanarMechanics.Types.SpecularCoefficient",
 convertClass("PlanarMechanics.Types.Color",
              "Modelica.Mechanics.MultiBody.Types.Color")
              
+// Issue 244- source input
 convertClass({"PlanarMechanics.Sources.RelativeForce",
               "PlanarMechanics.Sources.WorldForce"},
              {"ObsoletePlanarMechanics2.Sources.RelativeForce",
            	  "ObsoletePlanarMechanics2.Sources.WorldForce"})
+
+// Issue 141 - sensor output
+convertElement("PlanarMechanics.Sensors.AbsolutePosition",
+               "r", "r_phi");
+convertElement("PlanarMechanics.Sensors.AbsoluteVelocity",
+               "v", "v_w");
+convertElement("PlanarMechanics.Sensors.AbsoluteAcceleration",
+               "a", "a_z");
+convertElement("PlanarMechanics.Sensors.RelativePosition",
+               "r_rel", "r_phi_rel");
+convertElement("PlanarMechanics.Sensors.RelativeVelocity",
+               "v_rel", "v_w_rel");
+convertElement("PlanarMechanics.Sensors.RelativeAcceleration",
+               "a_rel", "a_z_rel");
+convertModifiers({"PlanarMechanics.Sensors.AbsolutePosition",
+                  "PlanarMechanics.Sensors.AbsoluteVelocity",
+                  "PlanarMechanics.Sensors.AbsoluteAcceleration",
+                  "PlanarMechanics.Sensors.RelativePosition",
+                  "PlanarMechanics.Sensors.RelativeVelocity",
+                  "PlanarMechanics.Sensors.RelativeAcceleration"},
+                  fill("",0), {"concatenateOutput=true"});
