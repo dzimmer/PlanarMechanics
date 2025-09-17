@@ -58,11 +58,6 @@ equation
       points={{-50,20},{-40,20}},
       color={95,95,95},
       thickness=0.5));
-  connect(absoluteAcceleration.frame_resolve, absoluteAcceleration.frame_a)
-    annotation (Line(
-      points={{30,-60},{30,-50},{40,-50}},
-      color={95,95,95},
-      pattern=LinePattern.Dot));
   connect(revolute2.frame_b, fixedTranslation1.frame_a) annotation (Line(
       points={{20,-20},{20,-20},{30,-20}},
       color={95,95,95},
