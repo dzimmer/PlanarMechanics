@@ -35,7 +35,7 @@ equation
     phi_ref = 0;
   end if;
 
-  r_rel_0[3] = {frame_b.x - frame_a.x, frame_b.y - frame_a.y, frame_b.phi - frame_a.phi};
+  r_rel_0 = {frame_b.x - frame_a.x, frame_b.y - frame_a.y, frame_b.phi - frame_a.phi};
   r_rel = transpose({{cos(phi_ref), -sin(phi_ref), 0}, {sin(phi_ref),cos(phi_ref), 0}, {0,0,1}}) * r_rel_0;
 
   annotation (

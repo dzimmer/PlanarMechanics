@@ -31,7 +31,7 @@ equation
     phi_ref = 0;
   end if;
 
-  r_0[3] = {frame_a.x, frame_a.y, frame_a.phi};
+  r_0 = {frame_a.x, frame_a.y, frame_a.phi};
   r = transpose({{cos(phi_ref), -sin(phi_ref), 0}, {sin(phi_ref),cos(phi_ref), 0}, {0, 0, 1}}) * r_0 - {0,0,phi_ref};
 
   annotation (
