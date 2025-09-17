@@ -2,32 +2,35 @@ within PlanarMechanics.Sensors;
 model RelativeAcceleration "Measure relative acceleration between the origins of two frame connectors"
   extends Internal.PartialRelativeSensor;
 
-  Modelica.Blocks.Interfaces.RealOutput a_z_rel[3](
-    final quantity = {"Acceleration", "Acceleration", "AngularAcceleration"},
-    final unit = {"m/s2", "m/s2", "rad/s2"})
-    "Vector of relative measurements from frame_a to frame_b on acceleration level, resolved in frame defined by resolveInFrame"
-    annotation (Placement(transformation(
-        extent={{-10,-10},{10,10}},
-        rotation=-90,
-        origin={0,-110})));
   Modelica.Blocks.Interfaces.RealOutput a_rel[2](
     each final quantity = "Acceleration",
-    each final unit = "m/s2") "Vector of relative acceleration, resolved in frame defined by resolveInFrame" annotation (Placement(transformation(
+    each final unit = "m/s2") if not concatenateOutput
+    "Vector of relative acceleration, resolved in frame defined by resolveInFrame" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={-60,-110})));
   Modelica.Blocks.Interfaces.RealOutput z_rel(
     final quantity="AngularAcceleration",
-    final unit="rad/s2") "Relative angular acceleration" annotation (Placement(transformation(
+    final unit="rad/s2") if not concatenateOutput
+    "Relative angular acceleration" annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=-90,
         origin={60,-110})));
+  Modelica.Blocks.Interfaces.RealOutput a_z_rel[3](
+    final quantity = {"Acceleration", "Acceleration", "AngularAcceleration"},
+    final unit = {"m/s2", "m/s2", "rad/s2"}) if concatenateOutput
+    "Vector of relative measurements from frame_a to frame_b on acceleration level, resolved in frame defined by resolveInFrame"
+    annotation (Placement(transformation(
+        extent={{-10,-10},{10,10}},
+        rotation=-90,
+        origin={0,-110})));
   Interfaces.Frame_resolve frame_resolve if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve "Coordinate system in which v_rel is optionally resolved"
     annotation (Placement(transformation(extent={{84,64},{116,96}})));
 
   parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB resolveInFrame=
     Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a
     "Frame in which output vector v_rel shall be resolved (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
+  parameter Boolean concatenateOutput=false "= true, if only concatenated output {r, phi} is desired";
 
 protected
   RelativePosition relativePosition(
@@ -94,32 +97,38 @@ equation
       coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
         Line(
+          visible=concatenateOutput,
           points={{0,-70},{0,-100}},
           color={0,0,127}),
+        Text(
+          visible=concatenateOutput,
+          extent={{-40,-10},{40,-70}},
+          textColor={0,0,0},
+          textString="m/s2
+m/s2
+rad/s2"),
         Line(
+          visible=not concatenateOutput,
           points={{-50,-50},{-60,-60},{-60,-100}},
           color={0,0,127}),
         Line(
+          visible=not concatenateOutput,
           points={{50,-50},{60,-60},{60,-100}},
           color={0,0,127}),
         Text(
+          visible=not concatenateOutput,
           extent={{-120,-70},{-60,-100}},
           textColor={64,64,64},
           textString="m/s2"),
         Text(
+          visible=not concatenateOutput,
           extent={{-30,-70},{60,-100}},
           textColor={64,64,64},
           textString="rad/s2"),
         Text(
           extent={{-150,140},{150,100}},
           textString="%name",
-          textColor={0,0,255}),
-        Text(
-          extent={{-40,-10},{40,-70}},
-          textColor={0,0,0},
-          textString="m/s2
-m/s2
-rad/s2")}),
+          textColor={0,0,255})}),
     Documentation(revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
