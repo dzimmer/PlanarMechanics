@@ -5,31 +5,33 @@ model PartialRelativeBaseSensor
 
   Interfaces.Frame_a frame_a
     "Coordinate system a (measurement is between frame_a and frame_b)" annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
+        transformation(extent={{-116,-16},{-84,16}})),
+      mustBeConnected="Connector frame_a should be connected");
   Interfaces.Frame_b frame_b
     "Coordinate system b (measurement is between frame_a and frame_b)" annotation (Placement(
-        transformation(extent={{84,-16},{116,16}})));
-
+        transformation(extent={{84,-16},{116,16}})),
+      mustBeConnected="Connector frame_b should be connected");
   Interfaces.Frame_resolve frame_resolve
     "Coordinate system in which vector is optionally resolved"
     annotation (Placement(transformation(extent={{84,64},{116,96}}),
-        iconTransformation(extent={{84,65},{116,97}})));
+        iconTransformation(extent={{84,65},{116,97}})),
+      mustBeConnected="Connector frame_resolve should be connected",
+      mayOnlyConnectOnce="Connector frame_resolve must be connected exactly once");
 
 equation
-   assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-   assert(cardinality(frame_b) > 0, "Connector frame_b must be connected at least once");
-   assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
-   frame_a.fx = 0;
-   frame_a.fy = 0;
-   frame_a.t = 0;
-   frame_b.fx = 0;
-   frame_b.fy = 0;
-   frame_b.t = 0;
-   frame_resolve.fx = 0;
-   frame_resolve.fy = 0;
-   frame_resolve.t = 0;
-  annotation (Icon(coordinateSystem(preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}}), graphics={
+  frame_a.fx = 0;
+  frame_a.fy = 0;
+  frame_a.t = 0;
+  frame_b.fx = 0;
+  frame_b.fy = 0;
+  frame_b.t = 0;
+  frame_resolve.fx = 0;
+  frame_resolve.fy = 0;
+  frame_resolve.t = 0;
+
+  annotation (
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+      graphics={
         Text(
           extent={{-108,43},{-72,18}},
           textColor={128,128,128},
