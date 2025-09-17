@@ -24,11 +24,12 @@ model PendulumExcited "A swinging pendulum excited by a world force"
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Sources.WorldForce worldForce(color={255,0,0}, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
     annotation (Placement(transformation(extent={{20,-50},{40,-30}})));
-  Modelica.Blocks.Sources.Sine signalVec3[3](
+  Modelica.Blocks.Sources.Sine signalVec3[2](
     each f=1,
-    amplitude={0,-5,0},
-    each startTime=1.8) "Vector of three excitation signals"
+    amplitude={0,-5},
+    each startTime=1.8) "Vector of force signals"
     annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
+  Modelica.Blocks.Sources.Constant signalTorque(k=0) "Torque signal" annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
 equation
   connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
       points={{-20,0},{-15,0},{-10,0}},
@@ -53,6 +54,7 @@ equation
   connect(signalVec3.y, worldForce.force) annotation (Line(
       points={{1,-40},{18,-40}},
       color={0,0,127}));
+  connect(signalTorque.y, worldForce.torque) annotation (Line(points={{1,-70},{10,-70},{10,-46},{18,-46}}, color={0,0,127}));
   annotation (experiment(StopTime=3),
     Documentation(revisions="<html>
 <p>
