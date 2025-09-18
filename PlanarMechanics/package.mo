@@ -22,7 +22,10 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
         script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_4_1.mos"),
       from(
         version={"1.5.1","1.5.0"},
-        script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_5_0.mos")),
+        script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_5_0.mos"),
+      from(
+        version={"1.6.0"},
+        script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertPlanarMechanics_1.6.0_to_2.0.0.mos")),
     Documentation(
       info="<html>
 <p>
