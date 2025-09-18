@@ -423,7 +423,8 @@ package Sensors "Test models for PlanarMechanics.Sensors"
       annotation (Placement(transformation(extent={{40,60},{60,80}})));
     PlanarMechanics.Sources.WorldForce worldForce(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world, N_to_m=30)
       annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
-    Modelica.Blocks.Sources.Constant const[3](k={10,0,0}) annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
+    Modelica.Blocks.Sources.Constant const[2](k={10,0}) annotation (Placement(transformation(extent={{-60,-70},{-40,-50}})));
+    Modelica.Blocks.Sources.Constant signalTorque(k=0) "Torque signal" annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
   equation
     connect(fixed.frame, prismatic.frame_a) annotation (Line(
         points={{-40,-20},{-20,-20}},
@@ -450,7 +451,7 @@ package Sensors "Test models for PlanarMechanics.Sensors"
         color={95,95,95},
         thickness=0.5));
     connect(const.y, worldForce.force) annotation (Line(points={{-39,-60},{-22,-60}}, color={0,0,127}));
-
+    connect(signalTorque.y, worldForce.torque) annotation (Line(points={{-39,-90},{-30,-90},{-30,-66},{-22,-66}}, color={0,0,127}));
     annotation (experiment(StopTime=1));
   end AbsoluteRotatedAcc;
 
@@ -711,11 +712,16 @@ Expected results:
     PlanarMechanics.Sources.WorldForce worldForce(
       resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
       annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
-    Modelica.Blocks.Sources.Sine signalVec3[3](
-      each f=1,
-      amplitude={0,-5,1},
-      each startTime=1.8) "Vector of three excitation signals"
+    Modelica.Blocks.Sources.Sine signalVec3[2](
+      each f=signalTorque.f,
+      amplitude={0,-5},
+      each startTime=signalTorque.startTime)
+      "Vector of force signals"
       annotation (Placement(transformation(extent={{0,-50},{20,-30}})));
+    Modelica.Blocks.Sources.Sine signalTorque(
+      f=1,
+      amplitude=1,
+      startTime=1.8) "Torque signal" annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
     PlanarMechanics.Parts.FixedTranslation fixedTranslation1(r={0.5,0})
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
     Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1)
@@ -750,6 +756,7 @@ Expected results:
         thickness=0.5));
     connect(damper.flange_b, revolute.axis) annotation (Line(points={{30,40},{30,20},{20,20},{20,10}}));
     connect(revolute.support,damper. flange_a) annotation (Line(points={{14,10},{14,20},{10,20},{10,40}}));
+    connect(signalTorque.y, worldForce.torque) annotation (Line(points={{21,-70},{30,-70},{30,-46},{38,-46}},   color={0,0,127}));
     annotation (
       experiment(StopTime=3));
   end CutTorques;
@@ -787,11 +794,16 @@ Expected results:
     PlanarMechanics.Sources.WorldForce worldForce(
       resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
       annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-    Modelica.Blocks.Sources.Sine signalVec3[3](
-      each f=1,
-      amplitude={0,-5,1},
-      each startTime=1.8) "Vector of three excitation signals"
+    Modelica.Blocks.Sources.Sine signalVec2[2](
+      each f=signalTorque.f,
+      amplitude={0,-5},
+      each startTime=signalTorque.startTime)
+      "Vector of force signals"
       annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
+    Modelica.Blocks.Sources.Sine signalTorque(
+      f=1,
+      amplitude=1,
+      startTime=1.8) "Torque signal" annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
     Modelica.Mechanics.Rotational.Components.Damper damper(d=0.1)
       annotation (Placement(transformation(extent={{20,30},{40,50}})));
   equation
@@ -831,11 +843,13 @@ Expected results:
         points={{0,-40},{80,-40},{80,-50}},
         color={95,95,95},
         thickness=0.5));
-    connect(signalVec3.y,worldForce. force) annotation (Line(
+    connect(signalVec2.y,worldForce. force) annotation (Line(
         points={{-39,-40},{-22,-40}},
         color={0,0,127}));
     connect(damper.flange_b, revolute.axis) annotation (Line(points={{40,40},{40,20},{30,20},{30,10}}));
     connect(revolute.support,damper. flange_a) annotation (Line(points={{24,10},{24,20},{20,20},{20,40}}));
+    connect(signalTorque.y, worldForce.torque) annotation (Line(points={{-39,-70},{-30,-70},{-30,-46},{-22,-46}},
+                                                                                                                color={0,0,127}));
     annotation (
       experiment(StopTime=3));
   end CutForcesAndTorques;
