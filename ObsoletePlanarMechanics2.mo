@@ -480,8 +480,8 @@ can be used for visualization of a&nbsp;3-dimensional torque quantity.
   annotation (
     preferredView="info",
     version="2.0.0",
-    versionDate="2024-01-08",
-    dateModified = "2024-01-08 12:00:00Z",
+    versionDate="2025-11-27",
+    dateModified="2025-11-27 12:00:00Z",
     uses(
       Modelica(version="4.0.0"),
       PlanarMechanics(version="2.0.0")),
