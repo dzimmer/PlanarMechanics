@@ -43,6 +43,154 @@ package PlanarMechanicsTestConversion2 "Collection of classes to test proper con
     end Issue169;
   end Joints;
 
+  package Sensors
+    model Issue141_position "Conversion test for issue #141"
+      PlanarMechanics.Parts.Body body(
+        m=5,
+        I=0.5,
+        r(each fixed=true, start={0.02,1.2}),
+        v(each fixed=true, start={0.14,-0.75}),
+        phi(fixed=true, start=-0.87266462599716),
+        w(fixed=true, start=0.3))
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      inner PlanarMechanics.PlanarWorld planarWorld annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+      PlanarMechanics.Parts.Fixed fixed(phi=0.5235987755983) annotation (Placement(transformation(extent={{-60,-80},{-80,-60}})));
+      PlanarMechanics.Sensors.AbsolutePosition absolutePosition annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
+      PlanarMechanics.Sensors.RelativePosition relativePosition annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-30,-50})));
+      Modelica.Blocks.Interfaces.RealOutput r3[3] annotation (Placement(transformation(extent={{80,60},{100,80}})));
+      Modelica.Blocks.Interfaces.RealOutput rscalar_1 annotation (Placement(transformation(extent={{80,40},{100,60}})));
+      Modelica.Blocks.Interfaces.RealOutput rscalar_2 annotation (Placement(transformation(extent={{80,20},{100,40}})));
+      Modelica.Blocks.Interfaces.RealOutput phi annotation (Placement(transformation(extent={{80,0},{100,20}})));
+      Modelica.Blocks.Interfaces.RealOutput r_rel3[3] annotation (Placement(transformation(extent={{80,-40},{100,-20}})));
+      Modelica.Blocks.Interfaces.RealOutput r_relscalar_1 annotation (Placement(transformation(extent={{80,-60},{100,-40}})));
+      Modelica.Blocks.Interfaces.RealOutput r_relscalar_2 annotation (Placement(transformation(extent={{80,-80},{100,-60}})));
+      Modelica.Blocks.Interfaces.RealOutput phi_rel annotation (Placement(transformation(extent={{80,-100},{100,-80}})));
+    equation
+      connect(absolutePosition.frame_a, body.frame_a) annotation (Line(
+          points={{-30,50},{-30,0},{-10,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(fixed.frame, relativePosition.frame_a) annotation (Line(
+          points={{-60,-70},{-30,-70},{-30,-60}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(relativePosition.frame_b, body.frame_a) annotation (Line(
+          points={{-30,-40},{-30,0},{-10,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(absolutePosition.r,r3)  annotation (Line(points={{-9,50},{40,50},{40,70},{90,70}}, color={0,0,127}));
+      connect(absolutePosition.r[1], rscalar_1) annotation (Line(points={{-9,49.6667},{40,49.6667},{40,50},{90,50}}, color={0,0,127}));
+      connect(absolutePosition.r[2], rscalar_2) annotation (Line(points={{-9,50},{60,50},{60,30},{90,30}}, color={0,0,127}));
+      connect(absolutePosition.r[3], phi) annotation (Line(points={{-9,50.3333},{58,50.3333},{58,10},{90,10}}, color={0,0,127}));
+      connect(relativePosition.r_rel, r_rel3) annotation (Line(points={{-19,-50},{40,-50},{40,-30},{90,-30}},
+                                                                                                            color={0,0,127}));
+      connect(relativePosition.r_rel[1], r_relscalar_1) annotation (Line(points={{-18.6667,-50},{90,-50}},                      color={0,0,127}));
+      connect(relativePosition.r_rel[2], r_relscalar_2) annotation (Line(points={{-19,-50},{60,-50},{60,-70},{90,-70}},
+                                                                                                                      color={0,0,127}));
+      connect(relativePosition.r_rel[3], phi_rel) annotation (Line(points={{-19.3333,-50},{58,-50},{58,-90},{90,-90}},      color={0,0,127}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+    end Issue141_position;
+
+    model Issue141_velocity "Conversion test for issue #141"
+      PlanarMechanics.Parts.Body body(
+        m=5,
+        I=0.5,
+        r(each fixed=true, start={0.02,1.2}),
+        v(each fixed=true, start={0.14,-0.75}),
+        phi(fixed=true, start=-0.87266462599716),
+        w(fixed=true, start=0.3))
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      inner PlanarMechanics.PlanarWorld planarWorld annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+      PlanarMechanics.Parts.Fixed fixed(phi=0.5235987755983) annotation (Placement(transformation(extent={{-60,-80},{-80,-60}})));
+      PlanarMechanics.Sensors.AbsoluteVelocity absoluteVelocity annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
+      PlanarMechanics.Sensors.RelativeVelocity relativeVelocity annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-30,-50})));
+      Modelica.Blocks.Interfaces.RealOutput v3[3] annotation (Placement(transformation(extent={{80,60},{100,80}})));
+      Modelica.Blocks.Interfaces.RealOutput vscalar_1 annotation (Placement(transformation(extent={{80,40},{100,60}})));
+      Modelica.Blocks.Interfaces.RealOutput vscalar_2 annotation (Placement(transformation(extent={{80,20},{100,40}})));
+      Modelica.Blocks.Interfaces.RealOutput w annotation (Placement(transformation(extent={{80,0},{100,20}})));
+      Modelica.Blocks.Interfaces.RealOutput v_rel3[3] annotation (Placement(transformation(extent={{80,-40},{100,-20}})));
+      Modelica.Blocks.Interfaces.RealOutput v_relscalar_1 annotation (Placement(transformation(extent={{80,-60},{100,-40}})));
+      Modelica.Blocks.Interfaces.RealOutput v_relscalar_2 annotation (Placement(transformation(extent={{80,-80},{100,-60}})));
+      Modelica.Blocks.Interfaces.RealOutput w_rel annotation (Placement(transformation(extent={{80,-100},{100,-80}})));
+    equation
+      connect(absoluteVelocity.frame_a, body.frame_a) annotation (Line(
+          points={{-30,50},{-30,0},{-10,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(fixed.frame,relativeVelocity. frame_a) annotation (Line(
+          points={{-60,-70},{-30,-70},{-30,-60}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(relativeVelocity.frame_b, body.frame_a) annotation (Line(
+          points={{-30,-40},{-30,0},{-10,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(absoluteVelocity.v[1],vscalar_1)  annotation (Line(points={{-9,49.6667},{40,49.6667},{40,50},{90,50}}, color={0,0,127}));
+      connect(absoluteVelocity.v[2],vscalar_2)  annotation (Line(points={{-9,50},{60,50},{60,30},{90,30}}, color={0,0,127}));
+      connect(absoluteVelocity.v[3], w) annotation (Line(points={{-9,50.3333},{58,50.3333},{58,10},{90,10}}, color={0,0,127}));
+      connect(relativeVelocity.v_rel[1],v_relscalar_1)  annotation (Line(points={{-18.6667,-50},{90,-50}},                      color={0,0,127}));
+      connect(relativeVelocity.v_rel[2],v_relscalar_2)  annotation (Line(points={{-19,-50},{60,-50},{60,-70},{90,-70}},
+                                                                                                                      color={0,0,127}));
+      connect(relativeVelocity.v_rel[3], w_rel) annotation (Line(points={{-19.3333,-50},{58,-50},{58,-90},{90,-90}}, color={0,0,127}));
+      connect(absoluteVelocity.v, v3) annotation (Line(points={{-9,50},{40,50},{40,70},{90,70}}, color={0,0,127}));
+      connect(relativeVelocity.v_rel,v_rel3)  annotation (Line(points={{-19,-50},{40,-50},{40,-30},{90,-30}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+    end Issue141_velocity;
+
+    model Issue141_acc "Conversion test for issue #141"
+      PlanarMechanics.Parts.Body body(
+        m=5,
+        I=0.5,
+        r(each fixed=true, start={0.02,1.2}),
+        v(each fixed=true, start={0.14,-0.75}),
+        phi(fixed=true, start=-0.87266462599716),
+        w(fixed=true, start=0.3))
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
+      inner PlanarMechanics.PlanarWorld planarWorld annotation (Placement(transformation(extent={{-100,80},{-80,100}})));
+      PlanarMechanics.Parts.Fixed fixed(phi=0.5235987755983) annotation (Placement(transformation(extent={{-60,-80},{-80,-60}})));
+      PlanarMechanics.Sensors.AbsoluteAcceleration absoluteAcceleration
+        annotation (Placement(transformation(extent={{-30,40},{-10,60}})));
+      PlanarMechanics.Sensors.RelativeAcceleration relativeAcceleration
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={-30,-50})));
+      Modelica.Blocks.Interfaces.RealOutput a3[3] annotation (Placement(transformation(extent={{80,60},{100,80}})));
+      Modelica.Blocks.Interfaces.RealOutput ascalar_1 annotation (Placement(transformation(extent={{80,40},{100,60}})));
+      Modelica.Blocks.Interfaces.RealOutput ascalar_2 annotation (Placement(transformation(extent={{80,20},{100,40}})));
+      Modelica.Blocks.Interfaces.RealOutput z annotation (Placement(transformation(extent={{80,0},{100,20}})));
+      Modelica.Blocks.Interfaces.RealOutput a_rel3[3] annotation (Placement(transformation(extent={{80,-40},{100,-20}})));
+      Modelica.Blocks.Interfaces.RealOutput a_relscalar_1 annotation (Placement(transformation(extent={{80,-60},{100,-40}})));
+      Modelica.Blocks.Interfaces.RealOutput a_relscalar_2 annotation (Placement(transformation(extent={{80,-80},{100,-60}})));
+      Modelica.Blocks.Interfaces.RealOutput z_rel annotation (Placement(transformation(extent={{80,-100},{100,-80}})));
+    equation
+      connect(absoluteAcceleration.frame_a, body.frame_a) annotation (Line(
+          points={{-30,50},{-30,0},{-10,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(fixed.frame, relativeAcceleration.frame_a) annotation (Line(
+          points={{-60,-70},{-30,-70},{-30,-60}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(relativeAcceleration.frame_b, body.frame_a) annotation (Line(
+          points={{-30,-40},{-30,0},{-10,0}},
+          color={95,95,95},
+          thickness=0.5));
+      connect(absoluteAcceleration.a[1], ascalar_1) annotation (Line(points={{-9,49.6667},{40,49.6667},{40,50},{90,50}}, color={0,0,127}));
+      connect(absoluteAcceleration.a[2], ascalar_2) annotation (Line(points={{-9,50},{60,50},{60,30},{90,30}}, color={0,0,127}));
+      connect(absoluteAcceleration.a[3], z) annotation (Line(points={{-9,50.3333},{58,50.3333},{58,10},{90,10}}, color={0,0,127}));
+      connect(relativeAcceleration.a_rel[1], a_relscalar_1) annotation (Line(points={{-18.6667,-50},{90,-50}}, color={0,0,127}));
+      connect(relativeAcceleration.a_rel[2], a_relscalar_2) annotation (Line(points={{-19,-50},{60,-50},{60,-70},{90,-70}}, color={0,0,127}));
+      connect(relativeAcceleration.a_rel[3], z_rel) annotation (Line(points={{-19.3333,-50},{58,-50},{58,-90},{90,-90}}, color={0,0,127}));
+      connect(absoluteAcceleration.a, a3) annotation (Line(points={{-9,50},{40,50},{40,70},{90,70}}, color={0,0,127}));
+      connect(relativeAcceleration.a_rel, a_rel3) annotation (Line(points={{-19,-50},{40,-50},{40,-30},{90,-30}}, color={0,0,127}));
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
+    end Issue141_acc;
+  end Sensors;
+
   package Sources
     model Issue191 "Conversion test for issue #191"
       PlanarMechanics.Sources.QuadraticSpeedDependentForce quadraticSpeedDependentForce_frame_a(
