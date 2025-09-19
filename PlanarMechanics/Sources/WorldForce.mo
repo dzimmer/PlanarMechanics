@@ -30,9 +30,14 @@ model WorldForce
     "Coordinate system fixed to the component with one cut-force and cut-torque"
     annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
-  Modelica.Blocks.Interfaces.RealInput force[3]
-    "x-, y-coordinates of force and torque resolved in world frame"
+  Modelica.Blocks.Interfaces.RealInput force[2](
+    each final quantity = "Force",
+    each final unit = "N") "Force vector, resolved in world frame"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+  Modelica.Blocks.Interfaces.RealInput torque(
+    each final quantity="Torque",
+    each final unit="N.m") "Torque" annotation (Placement(transformation(
+        extent={{-140,-80},{-100,-40}})));
 
   Interfaces.Frame_resolve frame_resolve(fx = 0, fy = 0, t = 0, phi = phi) if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
@@ -43,7 +48,7 @@ model WorldForce
 
 protected
   SI.Position f_in_m[3]={force[1],force[2],0}/N_to_m "Force mapped from N to m for animation";
-  SI.Position t_in_m[3]={0,0,force[3]}/Nm_to_m "Torque mapped from N.m to m for animation";
+  SI.Position t_in_m[3]={0,0,torque}/Nm_to_m "Torque mapped from N.m to m for animation";
   MB.Frames.Orientation R_0 = MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({0, 0, 1},phi,der(phi)));
   SI.Position rvisobj[3] = MB.Frames.resolve1(planarWorld.R,{frame_b.x,frame_b.y,zPosition}) + planarWorld.r_0;
 
@@ -72,8 +77,8 @@ equation
   end if;
 
   R = {{cos(phi), -sin(phi)}, {sin(phi),cos(phi)}};
-  {frame_b.fx,frame_b.fy} + R*{force[1], force[2]} = {0, 0};
-  frame_b.t + force[3]= 0;
+  {frame_b.fx,frame_b.fy} + R*force = {0, 0};
+  frame_b.t + torque = 0;
 
   annotation (
     Icon(
@@ -91,18 +96,25 @@ equation
           fillColor={215,215,215},
           fillPattern=FillPattern.Solid),
         Text(
+          extent={{-100,-10},{-60,-40}},
+          textColor={64,64,64},
+          textString="N"),
+        Text(
+          extent={{-100,-70},{-40,-100}},
+          textColor={64,64,64},
+          textString="N.m"),
+        Text(
           extent={{-150,80},{150,40}},
           textString="%name",
           textColor={0,0,255})}),
     Documentation(
       info="<html>
 <p>
-The <strong>3</strong> signals of the <strong>force</strong> connector contain force and torque.
-The first and second signal are interpreted as the x- and y-coordinates of
-a&nbsp;<strong>force</strong> and the third is torque, acting at the frame connector
-to which <code>frame_b</code> of this component is attached.
-Note that torque is a&nbsp;scalar quantity, which is exerted perpendicular
-to the x-y plane.
+The vector input <code>force</code> contains the x- and y-coordinates of
+a&nbsp;force which act at the frame connector to which <code>frame_b</code>
+of this component is attached.
+The input <code>torque</code> is a&nbsp;scalar quantity which is exerted on
+the <code>frame_b</code> perpendicular to the x-y plane.
 </p>
 <p>
 An example of this model is given in the following figure:
@@ -113,7 +125,9 @@ An example of this model is given in the following figure:
 </div>
 
 <p>
-The parameter resolveInFrame defines in which frame the input force shall be resolved.
+The parameter <code>resolveInFrame</code> defines in which frame the input force is resolved.
+If <code>resolveInFrame&nbsp;= Types.ResolveInFrameB.frame_resolve</code>, the force
+coordinates shall be resolved in the frame which is connected to the <code>frame_resolve</code>.
 </p>
 </html>",
       revisions="<html>
