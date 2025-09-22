@@ -195,7 +195,7 @@ package Sources "Test models for PlanarMechanics.Sources"
       experiment(StopTime=3));
   end SpeedDependentForce;
 
-  model WolrdForce "Test world force"
+  model WorldForce "Test world force"
     extends Modelica.Icons.Example;
 
     PlanarMechanics.Sources.WorldForce force_inWorld(
@@ -281,5 +281,5 @@ package Sources "Test models for PlanarMechanics.Sources"
     connect(signalTorque.y, force_inFrameResolve.torque) annotation (Line(points={{-39,-50},{-26,-50},{-26,-76},{-12,-76}}, color={0,0,127}));
     annotation (
       experiment(StopTime=3));
-  end WolrdForce;
+  end WorldForce;
 end Sources;
