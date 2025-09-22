@@ -5,7 +5,7 @@ class ReleaseNotes "Release notes"
   annotation (
    Documentation(
       info="<html>
-<h4>Version 2.0.0, 2024-mm-dd</h4>
+<h4>Version 2.0.0, 2025-11-27</h4>
 <p>
 This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
 It is <strong>not</strong> backwards compatible to previous library versions.
@@ -73,7 +73,7 @@ It is <strong>not</strong> backwards compatible to previous library versions.
   </li>
 </ul>
 
-<p>Renamed parameters (conversion script is provided):</p>
+<p>Renamed parameters or variables (conversion script is provided):</p>
 <ul>
   <li>
     <a href=\"modelica://PlanarMechanics.Joints.Prismatic\">Joints.Prismatic</a>:
@@ -82,6 +82,61 @@ It is <strong>not</strong> backwards compatible to previous library versions.
   <li>
     <a href=\"modelica://PlanarMechanics.Joints.Revolute\">Joints.Revolute</a>:
     <code>flange_a</code> renamed to <code>axis</code>.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sources.RelativeForce\">Sources.RelativeForce</a> and
+    <a href=\"modelica://PlanarMechanics.Sources.WorldForce\">Sources.WorldForce</a>:
+    instead of one input <code>force[3]</code>, there are <code>force[2]</code> and <code>torque</code>
+    inputs, whereby
+    <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+      <tr>
+        <th> old input</th>
+        <th> new inputs</th>
+      </tr>
+      <tr>
+        <td> force[1] </td>
+        <td> force[1] </td>
+      </tr>
+      <tr>
+        <td> force[2] </td>
+        <td> force[2] </td>
+      </tr>
+      <tr>
+        <td> force[3] </td>
+        <td> torque </td>
+      </tr>
+    </table>
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Sensors.AbsolutePosition\">Sensors.AbsolutePosition</a>,
+    <a href=\"modelica://PlanarMechanics.Sensors.AbsoluteVelocity\">Sensors.AbsoluteVelocity</a>,
+    <a href=\"modelica://PlanarMechanics.Sensors.AbsoluteAcceleration\">Sensors.AbsoluteAcceleration</a>,
+    <a href=\"modelica://PlanarMechanics.Sensors.RelativePosition\">Sensors.RelativePosition</a>,
+    <a href=\"modelica://PlanarMechanics.Sensors.RelativeVelocity\">Sensors.RelativeVelocity</a> and
+    <a href=\"modelica://PlanarMechanics.Sensors.RelativeAcceleration\">Sensors.RelativeAcceleration</a>:
+    instead of one output <code>r[3]</code>, <code>r_rel[3]</code>, etc., there are defined separate
+    outputs for translational and rotational movement. This means for example for the AbsolutePosition
+    sensor:
+    <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+      <tr>
+        <th> old output</th>
+        <th> new outputs</th>
+      </tr>
+      <tr>
+        <td> r[1] </td>
+        <td> r[1] </td>
+      </tr>
+      <tr>
+        <td> r[2] </td>
+        <td> r[2] </td>
+      </tr>
+      <tr>
+        <td> r[3] </td>
+        <td> phi </td>
+      </tr>
+    </table>
+    Similarly for all abovementioned sensors. The &quot;old&quot; outputs are still conditionally
+    present and be enabled by the new boolean parameter <code>concatenateOutput</code>.
   </li>
 </ul>
 
