@@ -477,6 +477,7 @@ can be used for visualization of a&nbsp;3-dimensional torque quantity.
       end DoubleArrow;
     end Advanced;
   end Visualizers;
+
   annotation (
     preferredView="info",
     version="2.0.0",
