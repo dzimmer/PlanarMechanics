@@ -8,10 +8,10 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
   annotation (
     preferredView="info",
     version="2.0.0-dev",
-    versionDate="2023-11-27",
-    dateModified="2023-11-27 12:00:00Z",
+    versionDate="2025-11-27",
+    dateModified="2025-11-27 12:00:00Z",
     uses(
-      Modelica(version="4.0.0")),
+      Modelica(version="4.1.0")),
     conversion(
       from(
         version="1.3.0",
@@ -39,10 +39,14 @@ complex.
 In order to know how the library works, first have a look at:
 </p>
 <ul>
-<li><a href=\"modelica://PlanarMechanics.UsersGuide\">UsersGuide</a>
-    describes the principle ways to use the library.</li>
-<li><a href=\"modelica://PlanarMechanics.Examples\">Examples</a>
-    contains examples that demonstrate the usage of the library.</li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.UsersGuide\">UsersGuide</a>
+    describes the principle ways to use the library.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Examples\">Examples</a>
+    contains examples that demonstrate the usage of the library.
+  </li>
 </ul>
 
 

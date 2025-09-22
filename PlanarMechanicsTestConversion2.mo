@@ -350,5 +350,11 @@ package PlanarMechanicsTestConversion2 "Collection of classes to test proper con
       annotation (Icon(coordinateSystem(preserveAspectRatio=false)), Diagram(coordinateSystem(preserveAspectRatio=false)));
     end Issue189;
   end Visualizers;
-  annotation (uses(PlanarMechanics(version="1.6.0"), Modelica(version="4.0.0")));
+  annotation (
+    version="2.0.0",
+    versionDate="2025-11-27",
+    dateModified="2025-11-27 12:00:00Z",
+    uses(
+      Modelica(version="4.1.0"),
+      PlanarMechanics(version="1.6.0")));
 end PlanarMechanicsTestConversion2;
