@@ -7,16 +7,9 @@ class ReleaseNotes "Release notes"
       info="<html>
 <h4>Version 2.0.0, 2025-11-27</h4>
 <p>
-This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
+This version requires the <strong>Modelica&nbsp;4.1.0</strong> Library.
 It is <strong>not</strong> backwards compatible to previous library versions.
 </p>
-
-<p>New components:</p>
-<ul>
-  <li>
-    ...
-  </li>
-</ul>
 
 <p>Deleted components (conversion script is provided):</p>
 <ul>
