@@ -477,13 +477,14 @@ can be used for visualization of a&nbsp;3-dimensional torque quantity.
       end DoubleArrow;
     end Advanced;
   end Visualizers;
+
   annotation (
     preferredView="info",
     version="2.0.0",
     versionDate="2025-11-27",
     dateModified="2025-11-27 12:00:00Z",
     uses(
-      Modelica(version="4.0.0"),
+      Modelica(version="4.1.0"),
       PlanarMechanics(version="2.0.0")),
     Documentation(
       info="<html>
