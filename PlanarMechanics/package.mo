@@ -52,7 +52,7 @@ In order to know how the library works, first have a look at:
 
 <h4>Licensed by DLR under the 3-Clause BSD License</h4>
 <p>
-Copyright &copy; 2010-2023, Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)
+Copyright &copy; 2010-2025, Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)
 </p>
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely
