@@ -7,11 +7,11 @@ package PlanarMechanicsTest "Library to test components of package PlanarMechani
     versionDate="2023-09-12",
     dateModified = "2023-09-12 12:00:00Z",
     uses(
-      Modelica(version="4.0.0"),
+      Modelica(version="4.1.0"),
       PlanarMechanics(version="1.6.0")),
     Documentation(info="<html>
 <p>
-This library provides models and functions to test components of
+This library provides models and functions to test components of the
 <strong>package PlanarMechanics</strong>.
 </p>
 </html>"));
