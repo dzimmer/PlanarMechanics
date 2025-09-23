@@ -3,6 +3,13 @@ PlanarMechanics
 
 A free Modelica library for planar mechanical multi-body systems
 
+## Announcement
+
+It is planed to release a new **version 2.0.0** by end of November 2025. Pre-release versions will be released in the next time to test the library in advance, so please check [releases](https://github.com/dzimmer/PlanarMechanics/releases) from time to time when you are interested.
+
+[Reference results](https://github.com/DLR-SR/PlanarMechanics_ReferenceResults) are prepared for regression testing as well.
+
+We start with [v2.0.0-alpha](https://github.com/dzimmer/PlanarMechanics/releases/tag/v2.0.0-alpha).
 
 ## Status
 
