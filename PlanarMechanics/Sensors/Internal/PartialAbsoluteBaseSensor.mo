@@ -5,7 +5,8 @@ model PartialAbsoluteBaseSensor
 
   Interfaces.Frame_a frame_a
     "Coordinate system from which kinematic quantities are measured" annotation (Placement(
-        transformation(extent={{-116,-16},{-84,16}})));
+        transformation(extent={{-116,-16},{-84,16}})),
+      mustBeConnected="Connector frame_a should be connected");
 
   Interfaces.Frame_resolve frame_resolve
     "Coordinate system in which vector is optionally resolved"
@@ -14,11 +15,11 @@ model PartialAbsoluteBaseSensor
         origin={0,-100}),
         iconTransformation(extent={{-16,-16},{16,16}},
         rotation=-90,
-        origin={0,-100})));
+        origin={0,-100})),
+      mustBeConnected="Connector frame_resolve should be connected",
+      mayOnlyConnectOnce="Connector frame_resolve must be connected exactly once");
 
 equation
-  assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-  assert(cardinality(frame_resolve) == 1, "Connector frame_resolve must be connected exactly once");
   frame_a.fx = 0;
   frame_a.fy = 0;
   frame_a.t = 0;
