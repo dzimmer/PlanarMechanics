@@ -103,7 +103,7 @@ equation
   v_lat = -v[1]*e0[2] + v[2]*e0[1];
   v_slip_lat = v_lat - 0;
   v_slip_long = v_long - radius*w_roll;
-  v_slip = sqrt(v_slip_long^2 + v_slip_lat^2)+0.0001;
+  v_slip = sqrt(v_slip_long^2 + v_slip_lat^2+0.0001^2);
   -f_long*radius = flange_a.tau;
   frame_a.t = 0;
   f =N*noEvent(Utilities.Functions.limitByStriple(
