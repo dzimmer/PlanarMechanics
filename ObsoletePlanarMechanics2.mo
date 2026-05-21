@@ -501,7 +501,7 @@ that are recommended in the documentation of the respective model.
 <p>
 In most cases, this means that a&nbsp;model with the name
 \"ObsoletePlanarMechanics2.XY\" should be renamed to \"PlanarMechanics.YZ\"
-(version 2.0.0) and manually adaptated afterwards.
+(version 2.0.0) and manually adapted afterwards.
 This usually requires some changes at the place where
 the class is used (besides the renaming of the underlying class).
 </p>
