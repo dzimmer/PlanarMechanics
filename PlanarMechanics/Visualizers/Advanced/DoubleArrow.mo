@@ -1,6 +1,7 @@
 within PlanarMechanics.Visualizers.Advanced;
 model DoubleArrow
   "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)"
+  extends Modelica.Icons.ObsoleteModel;
 
   import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
   import Modelica.Units.Conversions.to_unit1;
@@ -78,6 +79,7 @@ protected
     R=R) if planarWorld.enableAnimation;
 
   annotation (
+    obsolete = "Obsolete type - use Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow instead",
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
             100,100}}), graphics={
         Rectangle(
