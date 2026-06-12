@@ -5,6 +5,34 @@ class ReleaseNotes "Release notes"
   annotation (
     Documentation(
       info="<html>
+<h4>Version 1.7.0, 2025-11-27</h4>
+<p>
+This version requires the <strong>Modelica&nbsp;4.1.0</strong> Library.
+It is backwards compatible to previous library versions.
+</p>
+
+<p>Improvements:</p>
+<ul>
+  <li>
+    Library-specific colors from
+    <a href=\"modelica://PlanarMechanics.Types.Defaults\">Types.Defaults</a> are used consequently.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Visualizers.Advanced.Arrow\">Visualizers.Advanced.Arrow</a>:
+    add parameters for arrow's head definition.
+  </li>
+</ul>
+
+<p>Obsolete components:</p>
+<ul>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a>
+    and <a href=\"modelica://PlanarMechanics.Utilities.Functions.atan3b\">atan3b</a>
+    are obsolete and will be deleted in the next major library release.
+  </li>
+</ul>
+
+
 <h4>Version 1.6.0, 2023-09-12</h4>
 <p>
 This version requires the <strong>Modelica&nbsp;4.0.0</strong> Library.
@@ -26,14 +54,6 @@ It is backwards compatible to previous library versions.
     delete redundant equations when <code>resolveInFrame&nbsp;= frame_resolve</code>.
   </li>
   <li>
-    Types <a href=\"modelica://PlanarMechanics.Types.Color\">Color</a>
-    and <a href=\"modelica://PlanarMechanics.Types.SpecularCoefficient\">SpecularCoefficient</a>
-    are obsolete and will be deleted in the next major library release.
-    Corresponding types from
-    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types\">Modelica.Mechanics.MultiBody.Types</a>
-    are used instead.
-  </li>
-  <li>
     <a href=\"modelica://PlanarMechanics.Sensors\">Sensors</a> and
     <a href=\"modelica://PlanarMechanics.Sources\">Sources</a>:
     use <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Vector</a>
@@ -47,6 +67,18 @@ It is backwards compatible to previous library versions.
     VehicleComponents: add
     <a href=\"modelica://PlanarMechanics.VehicleComponents.Wheels.BaseClasses\">Wheels.BaseClasses</a>
     to collect common wheel&apos;s elements.
+  </li>
+</ul>
+
+<p>Obsolete components:</p>
+<ul>
+  <li>
+    Types <a href=\"modelica://PlanarMechanics.Types.Color\">Color</a>
+    and <a href=\"modelica://PlanarMechanics.Types.SpecularCoefficient\">SpecularCoefficient</a>
+    are obsolete and will be deleted in the next major library release.
+    Corresponding types from
+    <a href=\"modelica://Modelica.Mechanics.MultiBody.Types\">Modelica.Mechanics.MultiBody.Types</a>
+    are used instead.
   </li>
 </ul>
 
