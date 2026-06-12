@@ -6,6 +6,7 @@ TorqueColor
 SpringColor
 SensorColor
 FrameColor
+WheelColor
 ArrowColor
 FrameHeadLengthFraction
 FrameHeadWidthFraction
