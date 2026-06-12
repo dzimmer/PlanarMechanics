@@ -7,9 +7,9 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
 
   annotation (
     preferredView="info",
-    version="1.6.0",
-    versionDate="2023-09-12",
-    dateModified = "2023-09-12 12:00:00Z",
+    version="1.7.0",
+    versionDate="2026-07-03",
+    dateModified = "2026-06-12 12:00:00Z",
     uses(
       Modelica(version="4.1.0")),
     conversion(
@@ -22,7 +22,8 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
         script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_4_1.mos"),
       from(
         version={"1.5.1","1.5.0"},
-        script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_5_0.mos")),
+        script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_5_0.mos"),
+      noneFromVersion="1.6.0"),
     Documentation(
       info="<html>
 <p>
@@ -49,7 +50,7 @@ In order to know how the library works, first have a look at:
 
 <h4>Licensed by DLR under the 3-Clause BSD License</h4>
 <p>
-Copyright &copy; 2010-2023, Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)
+Copyright &copy; 2010-2026, Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)
 </p>
 <p>
 <em>This Modelica package is <u>free</u> software and the use is completely
@@ -59,8 +60,9 @@ the disclaimer of warranty) visit
 <a href=\"https://modelica.org/licenses/modelica-3-clause-bsd\">https://modelica.org/licenses/modelica-3-clause-bsd</a>.</em>
 </p>
 </html>"),
-    Icon(coordinateSystem(extent={{-100,-100},{100,100}}),
-         graphics={
+    Icon(
+      coordinateSystem(extent={{-100,-100},{100,100}}),
+      graphics={
         Ellipse(
           extent={{-30,30},{-10,10}},
           fillPattern=FillPattern.Solid,
