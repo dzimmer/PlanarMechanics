@@ -19,6 +19,8 @@ package Defaults "Default settings of the library via constants"
     "Default color for sensors (yellow)";
   constant MB.Types.Color FrameColor={85,85,200}
     "Default color for frame axes and labels (blue)";
+  constant MB.Types.Color WheelColor={65,65,65}
+    "Default color for arrows and double arrows (blue)";
   constant MB.Types.Color ArrowColor={0,0,200}
     "Default color for arrows and double arrows (blue)";
 

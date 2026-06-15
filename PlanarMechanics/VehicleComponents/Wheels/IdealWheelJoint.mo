@@ -28,58 +28,41 @@ model IdealWheelJoint "Ideal wheel joint"
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Length diameter = 0.1 "Diameter of the rims"
+  parameter SI.Length diameter = 0.1 "Deprecated: Diameter of the rims"
     annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
-  parameter SI.Length width = diameter * 0.6 "Width of the wheel"
+  parameter SI.Length width = 0.6*radius "Wheel width"
     annotation (Dialog(
       tab="Animation",
       group="if animation = true",
       enable=animate));
+  parameter SI.Length rRim = 0.9*radius "Rim radius"
+    annotation (Dialog(
+      tab="Animation",
+      group="if animation = true",
+      enable=animate));
+  input MB.Types.Color color = PlanarMechanics.Types.Defaults.WheelColor "Color of shape"
+    annotation(Dialog(tab="Animation", group="if animation = true", enable=animate, colorSelector=true));
   input MB.Types.SpecularCoefficient specularCoefficient = planarWorld.defaultSpecularCoefficient
     "Reflection of ambient light (= 0: light is completely absorbed)"
     annotation (Dialog(tab="Animation", group="if animation = true", enable=animate));
-  MB.Visualizers.Advanced.Shape cylinder(
-    shapeType="cylinder",
-    color={63,63,63},
-    specularCoefficient=specularCoefficient,
-    length=width,
-    width=radius*2,
-    height=radius*2,
-    lengthDirection={-e0[2],e0[1],0},
-    widthDirection={0,0,1},
-    r_shape=-0.03*{-e0[2],e0[1],0},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=planarWorld.R) if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape rim1(
-    shapeType="cylinder",
-    color={195,195,195},
-    specularCoefficient=specularCoefficient,
-    length=radius*2,
-    width=diameter,
-    height=diameter,
-    lengthDirection={0,0,1},
-    widthDirection={1,0,0},
-    r_shape={0,0,-radius},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi,0)))
-    if planarWorld.enableAnimation and animate;
-  MB.Visualizers.Advanced.Shape rim2(
-    shapeType="cylinder",
-    color={195,195,195},
-    specularCoefficient=specularCoefficient,
-    length=radius*2,
-    width=diameter,
-    height=diameter,
-    lengthDirection={0,0,1},
-    widthDirection={1,0,0},
-    r_shape={0,0,-radius},
-    r=MB.Frames.resolve1(planarWorld.R,{frame_a.x,frame_a.y,zPosition})+planarWorld.r_0,
-    R=MB.Frames.absoluteRotation(planarWorld.R,MB.Frames.planarRotation({-e0[2],e0[1],0},flange_a.phi+Modelica.Constants.pi/2,0)))
-    if planarWorld.enableAnimation and animate;
+
+protected
+  Modelica.Mechanics.MultiBody.Frames.Orientation Rrel "Orientation object in 3d";
+
+  Visualizers.Advanced.Wheel wheel(
+    R=MB.Frames.absoluteRotation(planarWorld.R, Rrel),
+    r=planarWorld.r_0 + MB.Frames.resolve1(planarWorld.R, {frame_a.x,frame_a.y,zPosition}),
+    psi=flange_a.phi,
+    radius=radius,
+    rRim=rRim,
+    width=width,
+    color=color,
+    specularCoefficient=specularCoefficient) if planarWorld.enableAnimation and animate;
 equation
+  Rrel = Modelica.Mechanics.MultiBody.Frames.planarRotation({0,0,1}, frame_a.phi, 0);
   R = {{cos(frame_a.phi), -sin(frame_a.phi)}, {sin(frame_a.phi),cos(frame_a.phi)}};
   e0 = R*e;
   v = der({frame_a.x,frame_a.y});
