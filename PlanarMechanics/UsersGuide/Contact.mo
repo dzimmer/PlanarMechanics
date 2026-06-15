@@ -12,7 +12,7 @@ class Contact "Contact"
       info="<html>
 <h4>Library Officer</h4>
 <blockquote>
-<a href=\"http://www.robotic.dlr.de/Dirk.Zimmer/\">Dirk Zimmer</a><br>
+Dirk Zimmer<br>
 Deutsches Zentrum f&uuml;r Luft- und Raumfahrt (DLR)<br>
 <a href=\"https://www.dlr.de/sr/en\">Institut f&uuml;r Systemdynamik und Regelungstechnik (SR)</a><br>
 M&uuml;nchener Straße 20<br>
