@@ -3,10 +3,10 @@ prismatic.s
 prismatic.v
 absolutePosition.r[1]
 absolutePosition.r[2]
-absolutePosition.r[3]
+absolutePosition.phi
 absoluteVelocity.v[1]
 absoluteVelocity.v[2]
-absoluteVelocity.v[3]
+absoluteVelocity.w
 absoluteAcceleration.a[1]
 absoluteAcceleration.a[2]
-absoluteAcceleration.a[3]
+absoluteAcceleration.z

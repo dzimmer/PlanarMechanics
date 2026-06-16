@@ -7,11 +7,11 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
 
   annotation (
     preferredView="info",
-    version="1.6.0",
-    versionDate="2023-09-12",
-    dateModified = "2023-09-12 12:00:00Z",
+    version="2.0.0-dev",
+    versionDate="2025-11-27",
+    dateModified="2025-11-27 12:00:00Z",
     uses(
-      Modelica(version="4.0.0")),
+      Modelica(version="4.1.0")),
     conversion(
       from(
         version="1.3.0",
@@ -22,7 +22,10 @@ package PlanarMechanics "Library to model 2-dimensional, planar mechanical syste
         script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_4_1.mos"),
       from(
         version={"1.5.1","1.5.0"},
-        script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_5_0.mos")),
+        script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertFromPlanarMechanics_1_5_0.mos"),
+      from(
+        version={"1.6.0"},
+        script="modelica://PlanarMechanics/Resources/Scripts/Conversion/ConvertPlanarMechanics_1.6.0_to_2.0.0.mos")),
     Documentation(
       info="<html>
 <p>
@@ -36,10 +39,14 @@ complex.
 In order to know how the library works, first have a look at:
 </p>
 <ul>
-<li><a href=\"modelica://PlanarMechanics.UsersGuide\">UsersGuide</a>
-    describes the principle ways to use the library.</li>
-<li><a href=\"modelica://PlanarMechanics.Examples\">Examples</a>
-    contains examples that demonstrate the usage of the library.</li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.UsersGuide\">UsersGuide</a>
+    describes the principle ways to use the library.
+  </li>
+  <li>
+    <a href=\"modelica://PlanarMechanics.Examples\">Examples</a>
+    contains examples that demonstrate the usage of the library.
+  </li>
 </ul>
 
 

@@ -9,14 +9,13 @@ model Revolute "A revolute joint"
   parameter StateSelect stateSelect=StateSelect.default
     "Priority to use phi and w as states" annotation(HideResult=true,Dialog(tab="Advanced"));
 
-  Modelica.Mechanics.Rotational.Interfaces.Flange_a flange_a(phi = phi, tau = t) if useFlange annotation (
-      Placement(transformation(extent={{-10,-110},{10,-90}})));
-
+  Modelica.Mechanics.Rotational.Interfaces.Flange_a axis(
+    phi=phi,
+    tau=t) if useFlange "1-dim. rotational flange that drives the joint"
+    annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
   Modelica.Mechanics.Rotational.Interfaces.Flange_b support if useFlange
     "1-dim. rotational flange of the drive support (assumed to be fixed in the world frame, NOT in the joint)"
-    annotation (Placement(transformation(extent={{-10,10},{10,-10}},
-          rotation=180,
-        origin={-60,-100})));
+    annotation (Placement(transformation(extent={{-70,-110},{-50,-90}})));
 
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the joint axis" annotation (Dialog(
