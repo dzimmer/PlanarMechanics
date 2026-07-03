@@ -31,7 +31,8 @@ equation
       thickness=0.5));
   annotation (
     experiment(
-      StopTime=3),
+      StopTime=3,
+      Interval=0.001),
     Documentation(
       revisions="<html>
 <p>
