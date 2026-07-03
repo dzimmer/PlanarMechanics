@@ -18,30 +18,26 @@ model PowerDistanceDemo "Power and distance sensor demo"
         origin={-70,30})));
   Parts.Body body1(
     m=1,
-    I=0.1)
-    annotation (Placement(transformation(extent={{0,20},{20,40}})));
+    I=0.1) annotation (Placement(transformation(extent={{0,20},{20,40}})));
   inner PlanarWorld planarWorld
     annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
   Parts.Damper damper(d=1)
     annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
   Joints.Revolute revolute(
     w(fixed=true),
-    phi(fixed=true, start=2.6179938779915))
-    annotation (Placement(transformation(
+    phi(fixed=true, start=2.6179938779915)) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-10,0})));
   Joints.Prismatic prismatic(
     r={1,0},
     v(fixed=true),
-    s(fixed=true, start=1.0))
-    annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
+    s(fixed=true, start=1.0)) annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
   Sensors.Power power annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={-10,-60})));
-  Sensors.Distance distance
-    annotation (Placement(transformation(extent={{0,60},{20,80}})));
+  Sensors.Distance distance annotation (Placement(transformation(extent={{0,60},{20,80}})));
 equation
   connect(damper.frame_a, fixed.frame) annotation (Line(
       points={{-40,50},{-60,50},{-60,30}},
@@ -83,14 +79,31 @@ equation
       points={{-10,-40},{-10,-50}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=6),
-    Documentation(info="<html>
+  annotation (
+    experiment(
+      StopTime=6),
+    Documentation(
+      info="<html>
 <p>This example shows how to use sensors for power and distance. The crane crab is used as an example.</p>
 </html>",
-        revisions="<html>
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "body-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "body-distance",
+              curves = {
+                Curve(y = distance.distance)}),
+            Plot(
+              identifier = "body-power",
+              curves = {
+                Curve(y = power.power)})},
+          caption = "%(plot:body-motion) Motion of the crane load mass")}));
 end PowerDistanceDemo;

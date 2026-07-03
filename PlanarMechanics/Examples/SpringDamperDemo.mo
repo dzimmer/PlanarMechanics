@@ -9,8 +9,7 @@ model SpringDamperDemo "Spring damper demo"
     c_y=5,
     c_x=5,
     d_x=1,
-    c_phi=0)
-           annotation (Placement(transformation(
+    c_phi=0) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Parts.Body body(
@@ -19,8 +18,7 @@ model SpringDamperDemo "Spring damper demo"
     v(each fixed=true),
     phi(fixed=true),
     w(fixed=true),
-    r(each fixed=true, start={1,1}))
-           annotation (Placement(transformation(
+    r(each fixed=true, start={1,1})) annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={0,-40})));
@@ -45,16 +43,33 @@ equation
       points={{0,-10},{0,-18},{0,-30}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(
+  annotation (
+    experiment(
       StopTime=5),
-    Documentation(info="<html>
+    Documentation(
+      info="<html>
 <p>This example shows how to use a spring and a damper in combination. The motion of the body is not constrained.</p>
 </html>",
-        revisions="<html>
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>
-"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "body-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "body-position",
+              curves = {
+                Curve(y = springDamper.r_rel_0[1]),
+                Curve(y = springDamper.r_rel_0[2])}),
+            Plot(
+              identifier = "forces",
+              curves = {
+                Curve(y = springDamper.f_x),
+                Curve(y = springDamper.f_y)})},
+          caption = "%(plot:body-motion) Motion of the body and acting forces")}));
 end SpringDamperDemo;

@@ -55,7 +55,11 @@ equation
       points={{10,-60},{20,-60},{20,0}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Documentation(info="<html>
+  annotation (
+    experiment(
+      StopTime=10),
+    Documentation(
+      info="<html>
 <p>The model shows the possibilities of the gear connection models.
 In this example only one of 3 planets is modelled. This reduction can be done because of the symmetry of the gears. For more advanced topics like load sharing between gears, more advanced models should be used.</p>
 <p>
@@ -67,6 +71,17 @@ The ring gear is driven using a 1&nbsp;Nm load, the velocity of the sun is fixed
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>"),
-    experiment(StopTime=10));
+</html>",
+      figures = {
+        Figure(
+          identifier = "gear-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "velocities",
+              curves = {
+                Curve(y = planetary.sun.w),
+                Curve(y = planetary.ring.w),
+                Curve(y = planetary.carrier.w)})},
+          caption = "%(plot:gear-motion) Angular velocity of planetary gear wheels")}));
 end PlanetaryGear;

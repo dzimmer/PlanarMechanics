@@ -72,7 +72,11 @@ equation
   connect(const.y, slipBasedWheelJoint.dynamicLoad) annotation (Line(
       points={{-39,30},{-10,30}},
       color={0,0,127}));
-  annotation (Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=20),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
@@ -94,6 +98,21 @@ equation
   <li>revolute.phi</li>
   <li>revolute.w</li>
 </ul>
-</html>"),
-    experiment(StopTime=20));
+</html>",
+      figures = {
+        Figure(
+          identifier = "test-slip-based-wheel",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "wheel-motion",
+              curves = {
+                Curve(y = revolute.w),
+                Curve(y = prismatic.s)}),
+            Plot(
+              identifier = "tire-forces",
+              curves = {
+                Curve(y = slipBasedWheelJoint.f_lat),
+                Curve(y = slipBasedWheelJoint.f_long)})},
+          caption = "%(plot:test-slip-based-wheel) Test slip-based wheel")}));
 end TestSlipBasedWheel;

@@ -101,13 +101,17 @@ equation
       thickness=0.5));
   connect(damper1D.flange_a, prismatic.support) annotation (Line(points={{20,60},
           {20,60},{20,40},{24,40}}, color={0,127,0}));
-  annotation (experiment(StopTime=10),
-    Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=10),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>",  info="<html>
+</html>",
+      info="<html>
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CraneCrab_1.png\" alt=\"Diagram CraneCrab_1\">
 </div>
@@ -118,5 +122,21 @@ equation
   <li>revolute.phi</li>
   <li>revolute.w</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "crab-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "crab-position",
+              curves = {
+                Curve(y = prismatic.s)}),
+            Plot(
+              identifier = "load-angle",
+              y = Axis(unit = "rad"),
+              curves = {
+                Curve(y = revolute.phi),
+                Curve(y = revolute.w)})},
+          caption = "%(plot:crab-motion) Motion of the crab")}));
 end CraneCrabTo3D;

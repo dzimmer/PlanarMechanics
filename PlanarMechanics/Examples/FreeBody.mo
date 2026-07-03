@@ -14,7 +14,8 @@ model FreeBody "A simple free falling body"
     annotation (Placement(transformation(extent={{10,-10},{30,10}})));
   annotation (
     experiment(StopTime=3),
-    Documentation(revisions="<html>
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
@@ -26,5 +27,18 @@ model FreeBody "A simple free falling body"
 <img src=\"modelica://PlanarMechanics/Resources/Images/Examples/FreeBody_1.png\" alt=\"Diagram FreeBody_1\">
 </div>
 <p>The DAE has 73&nbsp;scalar unknowns and 73&nbsp;scalar equations.</p>
-</html>"));
+</html>",
+      figures = {
+         Figure(
+          title = "Body motion",
+           identifier = "body-plot",
+           preferred = true,
+           plots = {
+             Plot(
+               identifier = "body-motion",
+               curves = {
+                 Curve(y = body.r[1]),
+                 Curve(y = body.r[2]),
+                 Curve(y = body.v[2])})},
+           caption = "%(plot:body-motion) Motion of the body")}));
 end FreeBody;

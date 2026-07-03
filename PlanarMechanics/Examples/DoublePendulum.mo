@@ -35,7 +35,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(fixedTranslation1.frame_b, body1.frame_a)
-                                                  annotation (Line(
+    annotation (Line(
       points={{50,-20},{50,-20},{60,-20}},
       color={95,95,95},
       thickness=0.5));
@@ -55,8 +55,11 @@ equation
       points={{-20,20},{-10,20},{-10,-20},{0,-20}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=10),
-    Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=10),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
@@ -77,5 +80,21 @@ equation
   <li>revolute1.phi</li>
   <li>revolute1.w</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "pendulum-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "pendulum_phi",
+              curves = {
+                Curve(y = revolute.phi),
+                Curve(y = revolute1.phi)}),
+            Plot(
+              identifier = "pendulum_w",
+              curves = {
+                Curve(y = revolute.w),
+                Curve(y = revolute1.w)})},
+          caption = "%(plot:pendulum-motion) Motion of the pendulum")}));
 end DoublePendulum;

@@ -49,8 +49,11 @@ equation
       points={{-20,-10},{-20,0}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=4.5),
-    Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=4.5),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
@@ -72,5 +75,24 @@ equation
   <li>revolute.phi</li>
   <li>revolute.w</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "crab-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "load-angle",
+              y = Axis(unit = "rad"),
+              curves = {
+                Curve(y = revolute.phi),
+                Curve(y = revolute.w)}),
+            Plot(
+              identifier = "wheel-rolling",
+              y = Axis(unit = "rad"),
+              curves = {
+                Curve(y = idealRolling.w),
+                Curve(y = idealRolling.vx),
+                Curve(y = idealRolling.phi)})},
+          caption = "%(plot:crab-motion) Motion of the crab")}));
 end WheelBasedCraneCrab;

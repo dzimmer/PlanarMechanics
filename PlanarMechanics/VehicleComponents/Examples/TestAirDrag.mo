@@ -7,7 +7,8 @@ model TestAirDrag "Test air drag model"
     area=1.2,
     rho(displayUnit="kg/m3") = 1.18,
     r={1,0}) annotation (Placement(transformation(extent={{-20,10},{-40,30}})));
-  Sensors.AbsoluteVelocity sensorAbsoluteVelocity(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a) annotation (Placement(transformation(extent={{20,40},{40,60}})));
+  Sensors.AbsoluteVelocity sensorAbsoluteVelocity(
+    resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a) annotation (Placement(transformation(extent={{20,40},{40,60}})));
   Parts.Body body(m=10, I=1,
     animate=false)
     annotation (Placement(transformation(extent={{20,10},{40,30}})));
@@ -51,7 +52,11 @@ equation
       points={{0,0},{0,20},{20,20}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=10),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
@@ -70,6 +75,23 @@ of the body (above) and the drag force and its components (below).
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/TestAirDrag_1.png\" alt=\"Diagram TestAirDrag_1\">
 </div>
-</html>"),
-    experiment(StopTime=10));
+</html>",
+      figures = {
+        Figure(
+          identifier = "test-air-drag",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "velocity",
+              curves = {
+                Curve(y = sensorAbsoluteVelocity.v[1]),
+                Curve(y = airDrag.vAir[1])}),
+            Plot(
+              identifier = "air-drag",
+              y = Axis(unit = "rad"),
+              curves = {
+                Curve(y = airDrag.frame_a.fx),
+                Curve(y = airDrag.frame_a.fy),
+                Curve(y = airDrag.fDrag)})},
+          caption = "%(plot:test-air-drag) Test air drag")}));
 end TestAirDrag;
