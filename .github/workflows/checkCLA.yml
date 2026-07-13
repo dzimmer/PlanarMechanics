@@ -1,0 +1,102 @@
+# .github/workflows/cla-check.yml
+# This workflow checks whether a user signed DLR's Individual Contributor License Agreement (CLA).
+#
+# There exists a list of contributors which already signed DLR's CLA called CLA_SIGNED.
+# It is saved in GitHub/repo -> Settings -> Secrets and variables -> Actions -> Repository secrets.
+# The list has format like: "alice","bob","dev-team","janedoe"
+#
+# The check compares the contributor's name from checked PR to the contributors listed in CLA_SIGNED.
+
+name: "Check DLR's individual CLA"
+on:
+  pull_request:
+    types: [opened, edited]  # , synchronize]
+
+# permissions:
+#   contents: read
+#   pull-requests: write
+
+jobs:
+  contributor-signed-cla:
+    runs-on: ubuntu-latest
+    outputs:
+      add_label: ${{ steps.check_cla_signed.outputs.add_label }}
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Check if user signed CLA
+        id: check_cla_signed
+        run: |
+          # User of PR
+          USER_LOGIN="${{ github.event.pull_request.user.login }}"
+          CLA_SIGNED_LIST="${{ secrets.CLA_SIGNED }}"
+
+          # Convert list to an array
+          IFS=',' read -ra CONTRIBUTORS <<< "$CLA_SIGNED_LIST"
+
+          # Skip CLA if already signed
+          SKIP_CLA=false
+          for USER in "${CONTRIBUTORS[@]}"; do
+            if [[ "$USER" == "$USER_LOGIN" ]]; then
+              SKIP_CLA=true
+              break
+            fi
+          done
+
+          if [ "$SKIP_CLA" = true ]; then
+            echo "add_label=false" >> $GITHUB_OUTPUT
+            echo "User $USER_LOGIN already in the list of signeers of DLR's individual CLA."
+          else
+            echo "add_label=true" >> $GITHUB_OUTPUT
+            echo "User $USER_LOGIN did not sign DLR's individual CLA yet."
+            echo "Please read CONTRIBUTING.md, sign the CLA and proceed as described."
+            exit 1
+          fi
+
+      - name: Add CLA label to PR or remove existing
+        if: always()  # Always do this step
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const labelName = "CLA::not signed";  // This label must exist in the github's repo
+            const issueNumber = context.payload.pull_request.number;
+            const add_label = `${{ steps.check_cla_signed.outputs.add_label }}` === 'true';
+
+            // Fetch current labels on the PR
+            const labesOnPR = await github.rest.issues.listLabelsOnIssue({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber
+            });
+
+            // Check if label already exists
+            const labelExists = labesOnPR.data.some(label => label.name === labelName);
+
+            if (add_label) {
+              // Add label if it doesn't exist
+              if (!labelExists) {
+                await github.rest.issues.addLabels({
+                  issue_number: issueNumber,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  labels: [labelName]
+                });
+                console.log(`Label '${labelName}' added to PR #${issueNumber}`);
+              } else {
+                console.log(`Label '${labelName}' already exists in PR #${issueNumber}`);
+              }
+            } else {
+              // Remove label if it exists
+              if (labelExists) {
+                await github.rest.issues.removeLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  name: labelName
+                });
+                console.log(`Label '${labelName}' removed from PR #${issueNumber}`);
+              } else {
+                // No action if label doesn't exist
+                console.log(`Everything is fine - nothing to do`);
+              }
+            }
