@@ -221,13 +221,11 @@ package Sensors "Test models for PlanarMechanics.Sensors"
   model AbsoluteAccCentrifugal "Test sensors measuring absolute quantities in for steady state rotation of frame_a"
     extends Modelica.Icons.Example;
 
-    inner PlanarMechanics.PlanarWorldIn3D planarWorld(
+    inner PlanarMechanics.PlanarWorld planarWorld(
       constantGravity={0,0},
       animateGravity=false,
       animateWorld=false,
-      connectToMultiBody=false,
-      enableAnimation=true,
-      inheritGravityFromMultiBody=false)
+      enableAnimation=true)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     PlanarMechanics.Parts.Body body(m=1, I=0.1)
       annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
@@ -331,13 +329,11 @@ Expected results:
   model AbsoluteAccCentrifugalAcc "Test sensors measuring absolute quantities in for accelerated rotation of frame_a"
     extends Modelica.Icons.Example;
 
-    inner PlanarMechanics.PlanarWorldIn3D planarWorld(
+    inner PlanarMechanics.PlanarWorld planarWorld(
       constantGravity={0,0},
       animateGravity=false,
       animateWorld=false,
-      connectToMultiBody=false,
-      enableAnimation=true,
-      inheritGravityFromMultiBody=false)
+      enableAnimation=true)
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     PlanarMechanics.Parts.Body body(m=1, I=0.1)
       annotation (Placement(transformation(extent={{10,-30},{30,-10}})));
