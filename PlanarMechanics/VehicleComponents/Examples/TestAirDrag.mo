@@ -18,7 +18,7 @@ model TestAirDrag "Test air drag model"
         origin={0,-10})));
   Joints.Revolute revolute(
     phi(fixed=true),
-    w(fixed=false, start=-5),
+    w(fixed=true, start=-5),
     stateSelect=StateSelect.always)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
