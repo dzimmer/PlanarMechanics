@@ -1,0 +1,10 @@
+time
+adaptor3D.angles[1]
+adaptor3D.angles[2]
+adaptor3D.angles[3]
+prismatic1.s
+prismatic1.v
+prismatic2.s
+prismatic2.v
+revolute.phi
+revolute.w

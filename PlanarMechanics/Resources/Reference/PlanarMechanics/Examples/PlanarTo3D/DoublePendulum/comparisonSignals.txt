@@ -1,0 +1,8 @@
+time
+adaptor3D.angles[1]
+adaptor3D.angles[2]
+adaptor3D.angles[3]
+revolute.phi
+revolute.w
+revolute1.phi
+revolute1.w
