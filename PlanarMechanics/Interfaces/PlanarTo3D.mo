@@ -1,7 +1,12 @@
 within PlanarMechanics.Interfaces;
 model PlanarTo3D "This model enables to connect planar models to the 3-dimensional world"
+
   parameter SI.Length zPosition = planarWorld.defaultZPosition
     "Position z of cylinder representing the fixed translation";
+  parameter Boolean rootMBS = false
+    "= true, if frameMultiBody shall be Connections.root explicitly"
+    annotation (Evaluate=true, Dialog(tab="Advanced"));
+
 
   outer PlanarWorldIn3D planarWorld "Planar world model";
   Frame_b framePlanar "Frame connector in PlanarMechanics"
@@ -21,6 +26,8 @@ protected
 initial equation
   if not Connections.isRoot(frameMultiBody.R) then
     angles = MB.Frames.axesRotationsAngles(frameMultiBody.R, {1,2,3}, 0);
+  // else
+  //   Modelica.Utilities.Streams.print("PlanarTo3D adaptor: MBS frame is rooted");
   end if;
 
 equation
@@ -30,18 +37,22 @@ equation
   assert(cardinality(framePlanar) > 0,
     "Connector framePlanar of " + getInstanceName() + " is not connected");
 
-  Connections.potentialRoot(frameMultiBody.R,1);
+  if rootMBS then
+    Connections.root(frameMultiBody.R);
+  else
+    Connections.potentialRoot(frameMultiBody.R,0);
+  end if;
 
   if Connections.isRoot(frameMultiBody.R) then
-    // This element is 'root'
+    // frameMultiBody connector is 'root'
     position = {framePlanar.x, framePlanar.y, zPosition};
     angles = {0, 0, framePlanar.phi};
     frameMultiBody.r_0 = MB.Frames.resolve1(planarWorld.R, position) + planarWorld.r_0;
-    frameMultiBody.R = MB.Frames.absoluteRotation(planarWorld.R, MB.Frames.planarRotation({0,0,1}, angles[3], 0));
+    frameMultiBody.R = MB.Frames.absoluteRotation(planarWorld.R, MB.Frames.planarRotation({0,0,1}, angles[3], der(angles[3])));
   else
-    //Express 3D-rotation as planar rotation around z-axes
-    //        The planarWorld.r_0 subtraction is not done here since it has influence on
-    //        the (false) visualization of planar mechanics in 3D world
+    // Express 3D-rotation as planar rotation around z-axis
+    //   The planarWorld.r_0 subtraction is not done here since it has influence on
+    //   the (false) visualization of planar mechanics in 3D world
     position = MB.Frames.resolve2(planarWorld.R, frameMultiBody.r_0); // - planarWorld.r_0;
     // angles = Modelica.Mechanics.MultiBody.Frames.axesRotationsAngles(frameMultiBody.R, {1,2,3});
     der(angles) = MB.Frames.resolve2(planarWorld.R, MB.Frames.angularVelocity1(frameMultiBody.R));
