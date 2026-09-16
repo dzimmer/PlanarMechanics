@@ -16,7 +16,7 @@ package Tutorial "Tutorial"
 <ol>
   <li> <a href=\"modelica://PlanarMechanics.UsersGuide.Tutorial.OverView\">Overview
        of PlanarMechanics library</a> shows the most important aspects of the library.</li>
-  <li> <a href=\"Modelica://PlanarMechanics.UsersGuide.Tutorial.FirstExample\">A first example</a>
+  <li> <a href=\"modelica://PlanarMechanics.UsersGuide.Tutorial.FirstExample\">A first example</a>
        demonstrates how to build up, simulate and animate a model by using a simple pendulum
        as example.</li>
   <li> A short <a href=\"modelica://PlanarMechanics.UsersGuide.Tutorial.Connecting3D\">tutorial
