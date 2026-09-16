@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples.PlanarTo3D;
-model CraneCrabC "A planar damped crane crab in the 3D world - case c)"
+model CraneCrabB "A planar damped crane crab in the 3D world - case B"
   extends Modelica.Icons.Example;
 
   MB.Parts.Body body2(r_CM=zeros(3), m=1) annotation (Placement(transformation(
@@ -148,7 +148,7 @@ The last one is modelled purely in 3D and can thus be seen as a reference for th
 Especially, the states of joints are to be compared, see below.
 </p>
 <blockquote>
-<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/PlanarTo3D/CraneCrabC_1.png\"  alt=\"Diagram CraneCrabC_1\">
+<img src=\"modelica://PlanarMechanics/Resources/Images/Examples/PlanarTo3D/CraneCrabB_1.png\"  alt=\"Diagram CraneCrabB_1\">
 </blockquote>
 </html>"),
     Diagram(graphics={
@@ -176,4 +176,4 @@ Especially, the states of joints are to be compared, see below.
           textString="Planar mechanics",
           origin={-22,-40},
           rotation=90)}));
-end CraneCrabC;
+end CraneCrabB;

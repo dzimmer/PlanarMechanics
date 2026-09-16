@@ -1,5 +1,5 @@
 within PlanarMechanics.Examples.PlanarTo3D;
-model CraneCrabA "A planar damped crane crab in the 3D world - case a)"
+model CraneCrabA "A planar damped crane crab in the 3D world - case A"
   extends Modelica.Icons.Example;
 
   MB.Parts.Body body1(r_CM=zeros(3), m=1) annotation (Placement(transformation(
@@ -132,7 +132,6 @@ Here, the planar damped crane crab is modelled of both planar and multibody part
 <p>
 The simulation results of this example can be compared with those of examples
 <a href=\"modelica://PlanarMechanics.Examples.PlanarTo3D.CraneCrabB\">CraneCrabB</a>,
-<a href=\"modelica://PlanarMechanics.Examples.PlanarTo3D.CraneCrabC\">CraneCrabC</a>,
 <a href=\"modelica://PlanarMechanics.Examples.PlanarTo3D.CraneCrabMBS\">CraneCrabMBS</a>,
 The last one is modelled purely in 3D and can thus be seen as a reference for the comparison.
 Especially, the states of joints are to be compared, see below.

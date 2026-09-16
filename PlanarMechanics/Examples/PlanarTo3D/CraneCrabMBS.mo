@@ -104,7 +104,6 @@ is aimed as a reference model for comparison to the crane crab model in the plan
 The simulation results of this example can be compared with those of examples
 <a href=\"modelica://PlanarMechanics.Examples.PlanarTo3D.CraneCrabA\">CraneCrabA</a>,
 <a href=\"modelica://PlanarMechanics.Examples.PlanarTo3D.CraneCrabB\">CraneCrabB</a>,
-<a href=\"modelica://PlanarMechanics.Examples.PlanarTo3D.CraneCrabC\">CraneCrabC</a>,
 </p>
 <!--Especially, the states of joints are to be compared, see below.
 </p>
