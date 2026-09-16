@@ -53,17 +53,41 @@ equation
   connect(signalVec3.y, worldForce.force) annotation (Line(
       points={{1,-40},{18,-40}},
       color={0,0,127}));
-  annotation (experiment(StopTime=3),
-    Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=3),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>",  info="<html>
+</html>",
+      info="<html>
 <p>
 This example demonstrates simple pendulum excited by a world force.
 The animation parameters of cut and excitation forces can be changed
 at once using default parameters of planarWorld.
 </p>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "pendulum-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "pendulum_w_acc",
+              curves = {
+                Curve(y = revolute.z),
+                Curve(y = revolute.w)}),
+            Plot(
+              identifier = "pendulum_r",
+              curves = {
+                Curve(y = body.r[1]),
+                Curve(y = body.r[2])}),
+            Plot(
+              identifier = "acting-force",
+              curves = {
+                Curve(y = worldForce.force[2])})},
+          caption = "%(plot:pendulum-motion) Motion of the pendulum")}));
 end PendulumExcited;

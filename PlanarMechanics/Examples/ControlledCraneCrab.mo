@@ -9,7 +9,7 @@ model ControlledCraneCrab "A controlled crane crab"
         rotation=270,
         origin={-10,-60})));
   Parts.FixedTranslation fixedTranslation(r={0,2.5})
-                                                    annotation (
+    annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
@@ -45,7 +45,7 @@ model ControlledCraneCrab "A controlled crane crab"
   Joints.Revolute revolute(useFlange=true,
     w(fixed=true),
     phi(fixed=true, start=-0.34906585039887))
-                                           annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=270,
         origin={-10,0})));
@@ -60,7 +60,6 @@ equation
   connect(angleSensor.phi, PID.u) annotation (Line(
       points={{41,0},{70,0},{70,70},{42,70}},
       color={0,0,127}));
-
   connect(fixed.frame, prismatic.frame_a) annotation (Line(
       points={{-60,30},{-40,30}},
       color={95,95,95},
@@ -82,13 +81,17 @@ equation
       thickness=0.5));
   connect(revolute.flange_a, angleSensor.flange) annotation (Line(
       points={{0,0},{0,0},{20,0}}));
-  annotation (experiment(StopTime=3),
-    Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=3),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>",  info="<html>
+</html>",
+      info="<html>
 <p>A simple PID (actually PD) controlles the pendulum into upright position.</p>
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Examples/ControlledCraneCrab_1.png\" alt=\"Diagram ControlledCraneCrab_1\">
@@ -105,5 +108,22 @@ equation
   <li>PID.D.x</li>
   <li>PID.I.y</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "crab-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "crab-position",
+              curves = {
+                Curve(y = prismatic.s),
+                Curve(y = prismatic.v)}),
+            Plot(
+              identifier = "load-angle",
+              y = Axis(unit = "rad"),
+              curves = {
+                Curve(y = revolute.phi),
+                Curve(y = revolute.w)})},
+          caption = "%(plot:crab-motion) Motion of the crab")}));
 end ControlledCraneCrab;

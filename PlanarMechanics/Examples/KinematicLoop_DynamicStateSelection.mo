@@ -105,13 +105,17 @@ equation
       thickness=0.5));
   connect(springDamper1D.flange_b, prismatic1.flange_a)
     annotation (Line(points={{20,90},{30,90},{30,70}}, color={0,127,0}));
-  annotation (experiment(StopTime=6),
-    Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=6),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>",  info="<html>
+</html>",
+      info="<html>
 <p>In this version, the states are not manually set but might be dynamically selected by the simulation environment.</p>
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Examples/KinematicLoop_1.png\" alt=\"Diagram KinematicLoop_1\">
@@ -142,5 +146,22 @@ equation
       </ul>
   </li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "prismatic",
+              curves = {
+                Curve(y = prismatic1.s),
+                Curve(y = prismatic1.v)}),
+            Plot(
+              identifier = "revolute4",
+              y = Axis(unit = "rad"),
+              curves = {
+                Curve(y = revolute4.phi),
+                Curve(y = revolute4.w)})},
+          caption = "%(plot:motion) Motion of the mechanism")}));
 end KinematicLoop_DynamicStateSelection;

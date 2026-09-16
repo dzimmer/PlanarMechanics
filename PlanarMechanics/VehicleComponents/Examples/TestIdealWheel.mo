@@ -64,7 +64,11 @@ equation
       points={{20,10},{0,10},{0,0}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=10),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
@@ -85,6 +89,23 @@ equation
   <li>revolute.phi</li>
   <li>revolute.w</li>
 </ul>
-</html>"),
-    experiment(StopTime=10));
+</html>",
+      figures = {
+        Figure(
+          identifier = "test-ideal-wheel",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "wheel-motion",
+              y = Axis(unit = "rad"),
+              curves = {
+                Curve(y = revolute.phi),
+                Curve(y = revolute.w),
+                Curve(y = prismatic.s)}),
+            Plot(
+              identifier = "body-position",
+              curves = {
+                Curve(y = body.frame_a.x),
+                Curve(y = body.frame_a.y)})},
+          caption = "%(plot:test-ideal-wheel) Test rolling ideal wheel")}));
 end TestIdealWheel;

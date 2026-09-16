@@ -32,13 +32,17 @@ equation
       points={{-40,0},{-46,0},{-46,-1.22125e-015},{-50,-1.22125e-015}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=3),
-    Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=3),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>",  info="<html>
+</html>",
+      info="<html>
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Examples/Pendulum_1.png\" alt=\"Diagram Pendulum_1\">
 </div>
@@ -53,5 +57,25 @@ equation
   <li>revolute.phi</li>
   <li>revolute.w</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "pendulum-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "pendulum_angle",
+              curves = {
+                Curve(y = revolute.phi)}),
+            Plot(
+              identifier = "pendulum_w_acc",
+              curves = {
+                Curve(y = revolute.z),
+                Curve(y = revolute.w)}),
+            Plot(
+              identifier = "pendulum_r",
+              curves = {
+                Curve(y = body.r[1]),
+                Curve(y = body.r[2])})},
+          caption = "%(plot:pendulum-motion) Motion of the pendulum")}));
 end Pendulum;

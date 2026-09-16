@@ -8,7 +8,7 @@ model CounterSpin "Wheel with counter-spin and dry-friction law"
     animate=false,
     r(each fixed=false),
     v(each fixed=false))
-              annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={-10,0})));
@@ -29,13 +29,18 @@ equation
       points={{0,0},{20,0}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=3),
-    Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=3,
+      Interval=0.001),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>",  info="<html>
+</html>",
+      info="<html>
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Examples/CounterSpin_1.png\" alt=\"Diagram CounterSpin_1\">
 </div>
@@ -58,5 +63,32 @@ Selected continuous time states:
   <li>slipBasedRolling.phi</li>
   <li>slipBasedRolling.w</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "wheel-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "body-motion",
+              curves = {
+                Curve(y = body.frame_a.x),
+                Curve(y = body.frame_a.y)}),
+            Plot(
+              identifier = "wheel-rolling-velocity",
+              curves = {
+                Curve(y = slipBasedRolling.w)})},
+          caption = "%(plot:wheel-motion) Motion of the mechanism"),
+        Figure(
+          identifier = "wheel-force",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "wheel-force-longit",
+              x = Axis(
+                min = 1.94,
+                max = 1.99),
+              curves = {
+                Curve(y = body.frame_a.fx)})},
+          caption = "%(plot:wheel-force) Longitudinal force of the wheel")}));
 end CounterSpin;

@@ -27,7 +27,7 @@ model TwoTrackWithDifferentialGear "Double track model"
         origin={40,90})));
   VehicleComponents.Wheels.DryFrictionWheelJoint wheelJoint1(
     vAdhesion=0.1,
-    r = {0,1},
+    r={0,1},
     vSlide=0.3,
     mu_A=1,
     mu_S=0.7,
@@ -39,7 +39,7 @@ model TwoTrackWithDifferentialGear "Double track model"
         rotation=180,
         origin={-64,70})));
   VehicleComponents.Wheels.DryFrictionWheelJoint wheelJoint2(
-    r= {0,1},
+    r={0,1},
     vAdhesion=0.1,
     vSlide=0.3,
     mu_A=1,
@@ -251,7 +251,9 @@ equation
       points={{40,20},{40,12},{30,12}},
       color={95,95,95},
       thickness=0.5));
-  annotation (experiment(StopTime=10),
+  annotation (
+    experiment(
+      StopTime=10),
     Documentation(
       revisions="<html>
 <p>
@@ -290,5 +292,26 @@ equation
   <li>inertia3.phi</li>
   <li>inertia3.w</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "double-track-vehicle",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "body-yaw",
+              curves = {
+                Curve(y = body1.frame_a.phi)}),
+            Plot(
+              identifier = "steering",
+              y = Axis(unit = "rad"),
+              curves = {
+                Curve(y = revolute.phi),
+                Curve(y = revolute.w)}),
+            Plot(
+              identifier = "tire-3-forces",
+              curves = {
+                Curve(y = wheelJoint3.f_lat),
+                Curve(y = wheelJoint3.f_long)})},
+          caption = "%(plot:double-track-vehicle) Motion of the double track vehicle")}));
 end TwoTrackWithDifferentialGear;

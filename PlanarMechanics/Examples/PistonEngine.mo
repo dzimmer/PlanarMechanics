@@ -47,7 +47,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(revoluteDrive.frame_b, fixedTranslationDisc.frame_a)
-                                                      annotation (Line(
+    annotation (Line(
       points={{-50,50},{-30,50}},
       color={95,95,95},
       thickness=0.5));
@@ -80,12 +80,17 @@ equation
       points={{30,-50},{20,-50},{20,-20},{30,-20}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=10),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>",  info="<html>
+</html>",
+      info="<html>
 <p>This example contains an algebraic loop. A non-linear system must be solved for initialization and at simulation.</p>
 <p>In this version, the state are manually selected.</p>
 <div>
@@ -99,6 +104,20 @@ equation
   <li>revoluteDrive.phi</li>
   <li>revoluteDrive.w</li>
 </ul>
-</html>"),
-    experiment(StopTime=10));
+</html>",
+      figures = {
+        Figure(
+          identifier = "drive-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "piston-prismatic",
+              curves = {
+                Curve(y = prismatic.s),
+                Curve(y = prismatic.v)}),
+            Plot(
+              identifier = "shaft-velocity",
+              curves = {
+                Curve(y = revoluteDrive.w)})},
+          caption = "%(plot:drive-motion) Motion of the crank mechanism")}));
 end PistonEngine;

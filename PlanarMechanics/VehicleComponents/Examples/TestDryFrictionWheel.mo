@@ -69,8 +69,11 @@ equation
   connect(dryFrictionWheelJoint.flange_a, inertia.flange_b) annotation (
       Line(
       points={{0,40},{0,40},{0,50}}));
-  annotation (experiment(StopTime=20),
-    Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=20),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
@@ -92,5 +95,21 @@ equation
   <li>revolute.phi</li>
   <li>revolute.w</li>
 </ul>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "test-dry-friction-wheel",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "wheel-motion",
+              curves = {
+                Curve(y = revolute.w),
+                Curve(y = prismatic.s)}),
+            Plot(
+              identifier = "tire-forces",
+              curves = {
+                Curve(y = dryFrictionWheelJoint.f_lat),
+                Curve(y = dryFrictionWheelJoint.f_long)})},
+          caption = "%(plot:test-ideal-wheel) Test dry friction wheel")}));
 end TestDryFrictionWheel;

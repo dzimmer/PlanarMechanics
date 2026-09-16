@@ -90,12 +90,17 @@ equation
   connect(force.flange, prismatic.flange_a) annotation (Line(
       points={{-20,70},{-30,70},{-30,40}},
       color={0,127,0}));
-  annotation (Documentation(revisions="<html>
+  annotation (
+    experiment(
+      StopTime=3),
+    Documentation(
+      revisions="<html>
 <p>
 <img src=\"modelica://PlanarMechanics/Resources/Images/dlr_logo.png\" alt=\"DLR logo\">
 <strong>Developed 2010 at the DLR Institute of System Dynamics and Control</strong>
 </p>
-</html>",  info="<html>
+</html>",
+      info="<html>
 <p>The trajectory is stipulated, the force is being measured.</p>
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/Examples/InvertedCraneCrab_1.png\" alt=\"Diagram InvertedCraneCrab_1\">
@@ -112,6 +117,26 @@ equation
   <li>prismatic.v</li>
   <li>revolute.phi</li>
 </ul>
-</html>"),
-    experiment(StopTime=3));
+</html>",
+      figures = {
+        Figure(
+          identifier = "crab-motion",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "crab-position",
+              curves = {
+                Curve(y = prismatic.s),
+                Curve(y = prismatic.v)}),
+            Plot(
+              identifier = "load-angle",
+              y = Axis(unit = "rad"),
+              curves = {
+                Curve(y = revolute.phi),
+                Curve(y = revolute.w)}),
+            Plot(
+              identifier = "acting-force",
+              curves = {
+                Curve(y = force.f)})},
+          caption = "%(plot:crab-motion) Motion of the crab")}));
 end InvertedCraneCrab;

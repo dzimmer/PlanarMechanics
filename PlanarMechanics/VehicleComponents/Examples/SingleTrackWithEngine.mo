@@ -27,7 +27,7 @@ model SingleTrackWithEngine "Single track model"
     r={0,1},
     radius=0.3,
     phi_roll(fixed=true))
-          annotation (Placement(transformation(
+    annotation (Placement(transformation(
         extent={{-10,10},{10,-10}},
         rotation=180,
         origin={0,50})));
@@ -55,7 +55,7 @@ model SingleTrackWithEngine "Single track model"
         rotation=90,
         origin={20,0})));
   Modelica.Mechanics.Rotational.Sources.ConstantTorque engineTorque(
-      tau_constant=2)
+    tau_constant=2)
     annotation (Placement(transformation(extent={{-40,-90},{-20,-70}})));
   Parts.FixedTranslation trail(r={0,-0.1}) annotation (
       Placement(transformation(
@@ -115,5 +115,22 @@ There is dynamic state selection applied. It might be avoided by picking Rear.v_
 <div>
 <img src=\"modelica://PlanarMechanics/Resources/Images/VehicleComponents/Examples/SingleTrackWithEngine_1.png\" alt=\"Diagram SingleTrackWithEngine_1\">
 </div>
-</html>"));
+</html>",
+      figures = {
+        Figure(
+          identifier = "single-track-vehicle",
+          preferred = true,
+          plots = {
+            Plot(
+              identifier = "body-position",
+              curves = {
+                Curve(y = bodyRear.frame_a.x),
+                Curve(y = bodyRear.frame_a.y)}),
+            Plot(
+              identifier = "steering",
+              y = Axis(unit = "rad"),
+              curves = {
+                Curve(y = revolute.phi),
+                Curve(y = revolute.w)})},
+          caption = "%(plot:single-track-vehicle) Motion of the single track vehicle")}));
 end SingleTrackWithEngine;
