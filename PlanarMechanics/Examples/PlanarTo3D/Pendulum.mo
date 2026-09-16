@@ -94,13 +94,13 @@ equation
 </html>"),
     Diagram(graphics={
         Rectangle(
-          extent={{-14,-26},{86,-72}},
+          extent={{-84,-24},{-14,-70}},
           lineColor={28,108,200},
           fillColor={235,235,235},
           fillPattern=FillPattern.Solid,
           pattern=LinePattern.Dash),
         Text(
-          extent={{-14,-62},{52,-70}},
+          extent={{-84,-60},{-18,-68}},
           textString="Planar mechanics",
           textColor={238,46,47})}));
 end Pendulum;
