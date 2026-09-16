@@ -1,0 +1,17 @@
+time
+adaptor3D.angles[1]
+adaptor3D.angles[2]
+adaptor3D.angles[3]
+body3Din2D.Q[1]
+body3Din2D.Q[2]
+body3Din2D.Q[3]
+body3Din2D.Q[4]
+body3Din2D.frame_a.r_0[3]
+body3Din2D.v_0[3]
+body3Din2D.w_a[1]
+body3Din2D.w_a[2]
+body3Din2D.w_a[3]
+revoluteMBS.phi
+revoluteMBS.w
+revolute3Din2D.phi
+revolute3Din2D.w
