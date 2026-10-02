@@ -1,0 +1,33 @@
+# Setup file for list of simulations within PySimulator (DLR)
+# Generated on Fri Oct 2 15:04:25 2026
+
+# General settings for PlanarMechanics
+#
+# List of models to be simulated
+# Model name  |  tStart  |  tStop  |  errorTolerance  |  nIntervals  |  includeEvents  |  method
+PlanarMechanics.Examples.ControlledCraneCrab  0  3  1e-05  101  false  Dassl
+PlanarMechanics.Examples.CounterSpin  0  3  1e-05  101  false  Dassl
+PlanarMechanics.Examples.CraneCrab  0  10  1e-05  101  false  Dassl
+PlanarMechanics.Examples.CraneCrabTo3D  0  10  1e-05  101  false  Dassl
+PlanarMechanics.Examples.DoublePendulum  0  10  1e-05  101  false  Dassl
+PlanarMechanics.Examples.FreeBody  0  3  1e-05  101  false  Dassl
+PlanarMechanics.Examples.InvertedCraneCrab  0  3  1e-05  101  false  Dassl
+PlanarMechanics.Examples.KinematicLoop  0  6  1e-05  101  false  Dassl
+PlanarMechanics.Examples.KinematicLoop_DynamicStateSelection  0  6  1e-05  101  false  Dassl
+PlanarMechanics.Examples.MeasureDemo  0  10  1e-05  101  false  Dassl
+PlanarMechanics.Examples.Pendulum  0  3  1e-05  101  false  Dassl
+PlanarMechanics.Examples.PendulumExcited  0  3  1e-05  101  false  Dassl
+PlanarMechanics.Examples.PistonEngine  0  10  1e-05  101  false  Dassl
+PlanarMechanics.Examples.PistonEngine_DynamicStateSelection  0  10  1e-05  101  false  Dassl
+PlanarMechanics.Examples.PowerDistanceDemo  0  6  1e-05  101  false  Dassl
+PlanarMechanics.Examples.SpringDemo  0  5  1e-05  101  false  Dassl
+PlanarMechanics.Examples.SpringDamperDemo  0  5  1e-05  101  false  Dassl
+PlanarMechanics.Examples.WheelBasedCraneCrab  0  4.5  1e-05  101  false  Dassl
+PlanarMechanics.GearComponents.Examples.PlanetaryGear  0  10  1e-05  101  false  Dassl
+PlanarMechanics.GearComponents.Examples.SpurGear  0  10  1e-05  101  false  Dassl
+PlanarMechanics.VehicleComponents.Examples.SingleTrackWithEngine  0  6  1e-05  101  false  Dassl
+PlanarMechanics.VehicleComponents.Examples.TestAirDrag  0  10  1e-05  101  false  Dassl
+PlanarMechanics.VehicleComponents.Examples.TestDryFrictionWheel  0  20  1e-05  101  false  Dassl
+PlanarMechanics.VehicleComponents.Examples.TestIdealWheel  0  10  1e-05  101  false  Dassl
+PlanarMechanics.VehicleComponents.Examples.TestSlipBasedWheel  0  20  1e-05  101  false  Dassl
+PlanarMechanics.VehicleComponents.Examples.TwoTrackWithDifferentialGear  0  10  1e-05  101  false  Dassl
