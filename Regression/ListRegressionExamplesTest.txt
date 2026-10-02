@@ -1,0 +1,18 @@
+# Setup file for list of simulations within PySimulator (DLR)
+# Generated on Fri Oct 2 15:04:46 2026
+
+# General settings for PlanarMechanicsTest
+#
+# List of models to be simulated
+# Model name  |  tStart  |  tStop  |  errorTolerance  |  nIntervals  |  includeEvents  |  method
+PlanarMechanicsTest.Sensors.AbsoluteAccCentrifugal  0  1  1e-05  101  false  Dassl
+PlanarMechanicsTest.Sensors.AbsoluteAccCentrifugalAcc  0  1  1e-05  101  false  Dassl
+PlanarMechanicsTest.Sensors.AbsoluteRotated  0  1  1e-05  101  false  Dassl
+PlanarMechanicsTest.Sensors.AbsoluteRotatedAcc  0  1  1e-05  101  false  Dassl
+PlanarMechanicsTest.Sensors.CutForces  0  3  1e-05  101  false  Dassl
+PlanarMechanicsTest.Sensors.CutTorques  0  3  1e-05  101  false  Dassl
+PlanarMechanicsTest.Sensors.CutForcesAndTorques  0  3  1e-05  101  false  Dassl
+PlanarMechanicsTest.Sensors.PositionDistance  0  1  1e-05  101  false  Dassl
+PlanarMechanicsTest.Sources.RelativeForce  0  3  1e-05  101  false  Dassl
+PlanarMechanicsTest.Sources.SpeedDependentForce  0  3  1e-05  101  false  Dassl
+PlanarMechanicsTest.Sources.WorldForce  0  3  1e-05  101  false  Dassl
