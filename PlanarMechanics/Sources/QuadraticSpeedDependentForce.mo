@@ -125,7 +125,7 @@ equation
           points={{0,0},{0,-100}},
           color={95,95,95},
           pattern=LinePattern.Dot,
-          visible=resolveInFrame==Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve),
+          visible=resolveInFrameB==Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve),
         Polygon(
           points={{-100,10},{20,10},{20,41},{90,0},{20,-41},{20,-10},{-100,-10},
               {-100,10}},
@@ -137,7 +137,7 @@ equation
               -28},{40,-2},{60,28},{80,62},{100,100}},
           color={0,0,127}, smooth=Smooth.Bezier),
         Line(
-          visible=(resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve),
+          visible=(resolveInFrameB == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve),
           points={{0,-10},{0,-100}},
           color={95,95,95},
           pattern=LinePattern.Dot),
