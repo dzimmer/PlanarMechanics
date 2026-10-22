@@ -2,7 +2,7 @@ time
 prismatic.s
 prismatic.v
 distance.distance
-distance1.distancedistance1.distance
+distance1.distance
 absolutePosition.r[1]
 absolutePosition.r[2]
 absolutePosition.r[3]
