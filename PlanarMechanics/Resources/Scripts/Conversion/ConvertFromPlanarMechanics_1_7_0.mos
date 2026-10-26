@@ -1,0 +1,12 @@
+// Convert from PlanarMechanics 1.7.0 to PlanarMechanics 1.8.0 and higher
+
+convertClear();
+// Convert modifiers
+convertModifiers(
+  "PlanarMechanics.Sources.QuadraticSpeedDependentForce",
+  {"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world"},
+  {"resolveInFrame=PlanarMechanics.Utilities.Conversions.fromFrameAtoFrameB(%resolveInFrame%)"});
+convertModifiers(
+  "PlanarMechanics.Sources.QuadraticSpeedDependentForce",
+  {"resolveInFrameB=PlanarMechanics.Utilities.Conversions.fromFrameAtoFrameB(resolveInFrame)"},
+  {"resolveInFrameB=PlanarMechanics.Utilities.Conversions.fromFrameBtoFrameA(%resolveInFrameB%)"});
