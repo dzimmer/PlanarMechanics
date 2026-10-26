@@ -4,23 +4,23 @@ model QuadraticSpeedDependentForce
 
   outer PlanarWorld planarWorld "Planar world model";
 
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrame=
-    Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world
-    "Frame in which output vector r_rel shall be resolved (1: world, 2: frame_a, 3: frame_resolve)";
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrame=
+    Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world
+    "Frame in which velocity of frame_b shall be resolved (1: world, 2: frame_b, 3: frame_resolve)";
 protected
-  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameB resolveInFrameB=
-    PlanarMechanics.Utilities.Conversions.fromFrameAtoFrameB(resolveInFrame)
+  parameter Modelica.Mechanics.MultiBody.Types.ResolveInFrameA resolveInFrameB=
+    PlanarMechanics.Utilities.Conversions.fromFrameBtoFrameA(resolveInFrame)
     "Conversion from frame A to B";
 
 public
   parameter SI.Force F_nominal
-    "Nominal force (if negative, torque is acting as load)";
+    "Nominal force (if negative, torque is acting as load)" annotation (Dialog(group="Parameters given in frame according to resolveInFrame"));
   parameter SI.Velocity v_nominal(min=Modelica.Constants.eps)
-    "Nominal speed";
+    "Nominal velocity" annotation (Dialog(group="Parameters given in frame according to resolveInFrame"));
   parameter SI.Torque tau_nominal
-    "Nominal torque (if negative, torque is acting as load)";
+    "Nominal torque (if negative, torque is acting as load)" annotation (Dialog(group="Parameters given in frame according to resolveInFrame"));
   parameter SI.AngularVelocity w_nominal(min=Modelica.Constants.eps)
-    "Nominal speed";
+    "Nominal angular velocity" annotation (Dialog(group="Parameters given in frame according to resolveInFrame"));
 
   parameter Boolean animation=true "= true, if animation shall be enabled";
 
@@ -51,7 +51,7 @@ public
     annotation (Placement(transformation(extent={{84,-16},{116,16}})));
 
   Interfaces.Frame_resolve frame_resolve
-    if resolveInFrameB == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
+    if resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
     "Coordinate system in which vector is optionally resolved, if useExtraFrame is true"
     annotation (
       Placement(transformation(extent={{-16,16},{16,-16}},
@@ -59,7 +59,7 @@ public
         origin={0,-100})));
 
 public
-  Sensors.AbsoluteVelocity absoluteVelocity(resolveInFrame=resolveInFrame)
+  Sensors.AbsoluteVelocity absoluteVelocity(resolveInFrame=resolveInFrameB)
     annotation (Placement(transformation(extent={{40,30},{20,50}})));
   WorldForce worldForce(
     animation=animation,
@@ -68,7 +68,7 @@ public
     zPosition=zPosition,
     color=color,
     specularCoefficient=specularCoefficient,
-    resolveInFrame=resolveInFrameB)
+    resolveInFrame=resolveInFrame)
     annotation (Placement(transformation(extent={{20,-10},{40,10}})));
   Modelica.Blocks.Math.MatrixGain normalizeSpeeds(
     K=[1/v_nominal,0,0; 0,1/v_nominal,0; 0,0,1/w_nominal])
@@ -136,11 +136,6 @@ equation
           points={{-100,-100},{-80,-98},{-60,-92},{-40,-82},{-20,-68},{0,-50},{20,
               -28},{40,-2},{60,28},{80,62},{100,100}},
           color={0,0,127}, smooth=Smooth.Bezier),
-        Line(
-          visible=(resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve),
-          points={{0,-10},{0,-100}},
-          color={95,95,95},
-          pattern=LinePattern.Dot),
         Text(
           extent={{-150,80},{150,40}},
           textString="%name",
@@ -153,32 +148,32 @@ equation
       info="<html>
 <p>
 A&nbsp;force applied on <code>frame_b</code> which is quadratic dependent on
-the velocity of this frame. Both the measured velocity and the applied force
-are resolved in the same frame which is defined via parameter
+the velocity of this frame. The measured velocity, the applied force and all
+nominal parameters are resolved in the same frame which is defined via parameter
 <code>resolveInFrame</code> as follows:
 </p>
 
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
   <tr>
-    <th>Types.ResolveInFrameA.</th>
+    <th>Types.ResolveInFrameB.</th>
     <th>Meaning</th>
   </tr>
   <tr>
     <td>world</td>
-    <td>Resolve input force in world frame (= default)</td>
+    <td>Resolve variables in world frame (= default)</td>
   </tr>
   <tr>
-    <td>frame_a</td>
-    <td>Resolve input force in frame_b</td>
+    <td>frame_b</td>
+    <td>Resolve variables in frame_b</td>
   </tr>
   <tr>
     <td>frame_resolve</td>
-    <td>Resolve input force in frame_resolve (frame_resolve must be connected)</td>
+    <td>Resolve variables in frame_resolve (frame_resolve must be connected)</td>
   </tr>
 </table>
 
 <p>
-This model is e.g. suitable to simulate aerodynamic drag forces.
+This model is suitable to simulate e.g. aerodynamic drag forces of a&nbsp;vehicle.
 </p>
 </html>",
       revisions="<html>
