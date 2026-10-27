@@ -108,19 +108,19 @@ package Sources "Test models for PlanarMechanics.Sources"
     extends Modelica.Icons.Example;
 
     PlanarMechanics.Sources.QuadraticSpeedDependentForce force_inWorld(
-      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world,
       F_nominal=0.15,
       v_nominal=1,
       tau_nominal=0,
       w_nominal=1) annotation (Placement(transformation(extent={{-10,-20},{10,0}})));
     PlanarMechanics.Sources.QuadraticSpeedDependentForce force_inFrameA(
-      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a,
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b,
       F_nominal=0.15,
       v_nominal=1,
       tau_nominal=0,
       w_nominal=1) annotation (Placement(transformation(extent={{-10,-50},{10,-30}})));
     PlanarMechanics.Sources.QuadraticSpeedDependentForce force_inFrameResolve(
-      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve,
+      resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve,
       F_nominal=0.15,
       v_nominal=1,
       tau_nominal=0,
