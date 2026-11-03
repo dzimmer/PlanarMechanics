@@ -1,5 +1,5 @@
 # Setup file for list of simulations within PySimulator (DLR)
-# Generated on Tue Nov 3 12:08:21 2026
+# Generated on Tue Nov  3 12:54:11 2026
 
 # General settings for PlanarMechanics
 #
@@ -23,6 +23,13 @@ PlanarMechanics.Examples.PowerDistanceDemo  0  6  1e-05  101  false  Dassl
 PlanarMechanics.Examples.SpringDemo  0  5  1e-05  101  false  Dassl
 PlanarMechanics.Examples.SpringDamperDemo  0  5  1e-05  101  false  Dassl
 PlanarMechanics.Examples.WheelBasedCraneCrab  0  4.5  1e-05  101  false  Dassl
+PlanarMechanics.Examples.PlanarTo3D.CraneCrabA  0  10  1e-05  101  false  Dassl
+PlanarMechanics.Examples.PlanarTo3D.CraneCrabB  0  10  1e-05  101  false  Dassl
+PlanarMechanics.Examples.PlanarTo3D.CraneCrabMBS  0  10  1e-05  101  false  Dassl
+PlanarMechanics.Examples.PlanarTo3D.Pendulum  0  5  1e-06  101  false  Dassl
+PlanarMechanics.Examples.PlanarTo3D.PendulumLongRoot  0  40  1e-06  5001  false  Dassl
+PlanarMechanics.Examples.PlanarTo3D.DoublePendulum  0  8  1e-05  101  false  Dassl
+PlanarMechanics.Examples.PlanarTo3D.DoublePendulum2Dto3D  0  8  1e-05  101  false  Dassl
 PlanarMechanics.GearComponents.Examples.PlanetaryGear  0  10  1e-05  101  false  Dassl
 PlanarMechanics.GearComponents.Examples.SpurGear  0  10  1e-05  101  false  Dassl
 PlanarMechanics.VehicleComponents.Examples.SingleTrackWithEngine  0  6  1e-05  101  false  Dassl
